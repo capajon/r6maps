@@ -1,0 +1,29 @@
+{
+  "name": "r6maps",
+  "version": "0.0.1",
+  "description": "Rainbow Six Siege map quick references",
+  "main": "index.js",
+  "scripts": {
+    "test:js": "eslint site/**/*js",
+    "test": "npm run test:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capajon/r6maps.git"
+  },
+  "keywords": [
+    "Rainbow",
+    "Six",
+    "Maps",
+    "Siege"
+  ],
+  "author": "Jon Capa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/capajon/r6maps/issues"
+  },
+  "homepage": "https://github.com/capajon/r6maps#readme",
+  "devDependencies": {
+    "eslint": "^2.2.0"
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <meta charset=utf-8 />
+    <meta name="Description" content="Quick reference for Rainbow Six Siege maps.">
+    <title>Siege Maps</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="all" />
+    <link href="img/icons/ubisoft-r6s-favicon.ico" rel="shortcut icon" />
+    <link href="img/icons/ubisoft-r6s-favicon.ico" rel="icon" type="image/ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" />
+    <meta name="robots" content="noimageindex,noarchive" />
+    <meta name="keywords" content="Rainbow Six,6,Siege,Maps,Game" />
+  </header>
+  <body>
+    <h1 class="offscreen">Rainbow Six Siege Maps</h1>
+    <p class="offscreen">Rainbow Six Siege quick map references.  Select a map, objective type, and floor!  Mobile support.  For more information, see the readme.</p>
+    <nav>
+      <div class="wrapper">
+        <div class="map controls">
+          <select id="map-control"></select>
+          <select id="objective-control">
+            <option value="all">Show All</option>
+            <option value="secure">Secure</option>
+            <option value="hostage">Hostage</option>
+            <option value="bomb">Bomb</option>
+          </select>
+          <div id="floor-control"></div>
+        </div>
+        <div class="zoom controls">
+          <input type="range" id="zoom-range"></input>
+        </div>
+        <div class="misc controls">
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </nav>
+    <div id="map">
+      <div class="center-helper">
+        <div class="elements"></div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+      if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='js/jquery.2.22.0.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.panzoom/2.0.6/jquery.panzoom.min.js"></script>
+    <script>
+      if (typeof $.fn.panzoom == 'undefined') {
+        document.write(unescape("%3Cscript src='js/jquery.panzoom.2.0.6.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script>
+      if (typeof $.fn.mousewheel == 'undefined') {
+        document.write(unescape("%3Cscript src='js/jquery.3.1.13.mousewheel.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
+    <script src="js/r6-maps.map-data.js"></script>
+    <script src="js/r6-maps.map-render.js"></script>
+    <script src="js/r6-maps.controls.js"></script>
+    <script src="js/r6-maps.main.js"></script>
+  </body>
+<html>

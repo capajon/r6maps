@@ -1,0 +1,44 @@
+/* FOLDERS */
+$img-location: '../img/';
+$img-icons-location: $img-location + 'icons/';
+
+/* MISC */
+$nav-font-size: 1.2rem;
+$control-padding-top-bottom: 0.25em;
+$control-padding-left-right: 0.5em;
+$control-padding: $control-padding-top-bottom $control-padding-left-right;
+$room-label-opacity: 0.44;
+$faded-bg: rgba(16,26,36,0.6);
+
+/* MAP ELEMENTS */
+$objective-height: 40px;
+$objective-width: 30px;
+$camera-width: 40px;
+$camera-height: $camera-width;
+$ceiling-hatch-width: 29px;
+$ceiling-hatch-height: $ceiling-hatch-width;
+$skylight-width: 29px;
+$skylight-height: $skylight-width;
+
+/* COLORS */
+$r6-yellow: #ffdb00;
+$r6-purple: #906e79;
+$r6-purple-darker: #5b454c;
+$r6-red: #ab1513;
+$r6-blue: #3a6082;
+$r6-orange: #d65b2b;
+$green-of-sorts: #00B200;
+$zoom-blue: #3071a9;
+
+/* Z-INDEXES */
+$z-background: 1000;
+$z-floor: 1010;
+$z-ceiling-hatch: 1020;
+$z-skylight: 1025;
+$z-objective: 1150;
+$z-objective-hostage: 1153;
+$z-objective-bomb: 1151;
+$z-objective-secure: 1152;
+$z-room-label: 1160;
+$z-camera: 1170;
+$z-nav: 1200;

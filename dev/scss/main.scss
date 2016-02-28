@@ -1,0 +1,294 @@
+@import "_meyer-reset.scss";
+@import "_range-input.scss";
+@import "_helpers.scss";
+@import "_settings.scss";
+@import "_nav.scss";
+
+.offscreen {
+  @include offscreen;
+}
+
+.r6-like-font {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+
+body {
+  @include meyer-reset;
+  background-color: #111111;
+  background: #000000; /* Old browsers */
+  background: -moz-linear-gradient(left, #000000 0%, #151515 50%, #111111 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #000000 0%,#151515 50%,#111111 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #000000 0%,#151515 50%,#111111 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#111111',GradientType=1 ); /* IE6-9 */
+}
+
+html, body {
+  overflow:hidden;
+}
+
+body, button, input, select {
+  @extend .r6-like-font;
+  font-size: 1rem;
+}
+
+@mixin other-floor-icon ($width, $height, $direction, $z-index, $width-offset, $height-offset) {
+  $other-floor-icon-width: 15px;
+  $other-floor-icon-height: 22px;
+  background: url($img-icons-location + $direction + '@2x.png');
+  background-size: $other-floor-icon-width, $other-floor-icon-height;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  height: 22px;
+  left: $width - ($other-floor-icon-width/2);
+  margin-left: $width-offset;
+  margin-top: $height-offset;
+  position: absolute;
+  top: $height - ($other-floor-icon-height/2);
+  width: 15px;
+  z-index: $z-index + 1;
+}
+
+#map {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+
+  .center-helper {
+    height: 0;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: 0;
+  }
+
+  .elements {
+    position: relative;
+
+    img, div {
+      position: absolute;
+    }
+
+    .background: {
+      z-index: $z-background;
+    }
+
+    .floor {
+      z-index: $z-floor;
+    }
+
+    .camera {
+      @include icon-size($camera-width, $camera-height);
+      background: url($img-icons-location + 'security-camera.png');
+      background-size: $camera-width $camera-height;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: $z-camera;
+
+      &.other-floor {
+        opacity: 0.85;
+
+        &.up {
+          span {
+            @include other-floor-icon ($camera-width, $camera-height, 'up', $z-camera, -6px, -8px);
+          }
+        }
+
+        &.down {
+          span {
+            @include other-floor-icon ($camera-width, $camera-height, 'down', $z-camera, -6px, -8px);
+          }
+        }
+      }
+
+      svg {
+        background-color: red;
+        opacity: 0.3;
+        overflow: visible;
+
+        path {
+          fill: $r6-yellow;
+        }
+      }
+    }
+
+    .objective {
+      @include icon-size($objective-width, $objective-height);
+      border-radius: 5px;
+      display: none;
+      z-index: $z-objective;
+
+      &.hostage {
+        background-color: $r6-red;
+        z-index: $z-objective-hostage;
+      }
+
+      &.bomb {
+        background-color: $r6-orange;
+        z-index: $z-objective-bomb;
+
+        p {
+          font-size: 25px;
+        }
+      }
+
+      &.secure {
+        background-color: $green-of-sorts;
+        z-index: $z-objective-secure;
+      }
+
+      p {
+        @include text-shadow();
+        color: #fff;
+        font-size: 30px;
+        line-height: $objective-height;
+        text-align: center;
+        width: $objective-width;
+      }
+
+      &.up {
+        span {
+          @include other-floor-icon ($objective-width, $objective-height, 'up', $z-objective, 0px, -2px);
+        }
+      }
+
+      &.down {
+        span {
+          @include other-floor-icon ($objective-width, $objective-height, 'down', $z-objective, 0px, 2px);
+        }
+      }
+    }
+
+    .ceiling-hatch {
+      @include icon-size($ceiling-hatch-width, $ceiling-hatch-height);
+      background: url($img-icons-location + 'ceiling-hatch.png');
+      background-size: $ceiling-hatch-width, $ceiling-hatch-height;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: $z-ceiling-hatch;
+    }
+
+    .skylight {
+      @include icon-size($skylight-width, $skylight-height);
+      background: url($img-icons-location + 'skylight@2x.png');
+      background-size: $skylight-width, $skylight-height;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: $z-skylight;
+
+      &.other-floor {
+        opacity: 0.7;
+
+        &.up {
+          span {
+            @include other-floor-icon ($skylight-width, $skylight-height, 'up', $z-skylight, 0px, -3px);
+          }
+        }
+
+        &.down {
+          span {
+            @include other-floor-icon ($skylight-width, $skylight-height, 'down', $z-skylight, 0px, -3px);
+          }
+        }
+      }
+    }
+
+    .room-label {
+      height: 2.5em;
+      margin-left: -110px;
+      margin-top: -1.25em;
+      opacity: $room-label-opacity;
+      text-align: center;
+      transition: opacity 3s;
+      width: 220px;
+      z-index: $z-room-label;
+
+      p {
+        @include text-shadow(2px, 1px, 4px, $color: rgba(0,0,0,0.8));
+        color: #fff;
+        display: inline-block;;
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      &.hard-to-read {
+        opacity: $room-label-opacity + 0.1;
+
+        p {
+          background: $faded-bg;
+        }
+      }
+    }
+
+    &.show-floor-zero {
+      .one, .two, .three, .four, .five {
+        display: none !important;
+      }
+    }
+
+    &.show-floor-one {
+      .zero, .two, .three, .four, .five {
+        display: none !important;
+      }
+    }
+
+    &.show-floor-two {
+      .zero, .one, .three, .four, .five {
+        display: none !important;
+      }
+    }
+
+    &.show-floor-three {
+      .zero, .one, .two, .four, .five {
+        display: none !important;
+      }
+    }
+
+    &.show-floor-four {
+      .zero, .one, .two, .three, .five {
+        display: none !important;
+      }
+    }
+
+    &.show-floor-five {
+      .zero, .one, .two, .three, .four {
+        display: none !important;
+      }
+    }
+
+    &.show-objective-all {
+      .objective {
+        display: block;
+      }
+    }
+
+    &.show-objective-hostage {
+      .hostage {
+        display: block;
+      }
+    }
+
+    &.show-objective-bomb {
+      .bomb {
+        display: block;
+      }
+    }
+
+    &.show-objective-secure {
+      .secure {
+        display: block;
+      }
+    }
+
+    &.zoomed-in-far {
+
+    }
+
+    &.zoomed-out-far {
+      .room-label {
+        opacity: 0;
+      }
+    }
+  }
+}

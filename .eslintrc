@@ -1,0 +1,32 @@
+{
+  "rules": {
+    "array-bracket-spacing": [2, "never"],
+    "quote-props": [2, "as-needed"],
+    "block-spacing": [2, "always"],
+    "brace-style": [2, "1tbs", { "allowSingleLine": false }],                   // require blocks to start on newlines
+    "comma-style": [2, "last"],                                                 // require comma before line break
+    "curly": 2,                                                                 // require curly braces
+    "dot-notation": 2,                                                          // require dot notation when possible
+    "eol-last": 2,
+    "indent": [2, 2],                                                           // require indentationt to be composed of 2 spaces
+    "jsx-quotes": [2, "prefer-double"],
+    "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
+    "newline-after-var": [2, "always"],
+    "comma-dangle": [2, "never"],                                               // require the absence of trailing commas
+    "linebreak-style": [2, "windows"],
+    "no-console": 0,                                                            // allow use of console
+    "no-empty": 2,
+    "no-mixed-spaces-and-tabs": 2,
+    "no-multiple-empty-lines": 2,
+    "no-with": 2,
+    "no-trailing-spaces": 2,
+    "padded-blocks": [2, "never"],                                              // require absence of newline following or proceding a block
+    "semi": [2, "always"],
+    "keyword-spacing": 2,
+    "space-infix-ops": 2,                                                       // require spaces around operators
+    "space-unary-ops": [1, { "words": true, "nonwords": false }],               // require space for word unary operators (i.e delete), and absence of space for symbolic unary operators (i.e ++)
+    "strict": [1, "global"],
+    "quotes": [2, "single", "avoid-escape"],
+    "wrap-iife": [2, "inside"]
+  }
+}

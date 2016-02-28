@@ -1,0 +1,20 @@
+@mixin icon-size($width, $height) {
+  width: $width;
+  height: $height;
+  margin-left: -($width/2);
+  margin-top: -($height/2);
+}
+
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+  text-shadow: $x $y $blur $color;
+}
+
+@mixin offscreen() {
+	$offset: -10000px;
+
+	position: absolute !important;
+	left: $offset;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+}

@@ -1,0 +1,433 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%; }
+
+input[type=range]:focus {
+  outline: none; }
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101; }
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px; }
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd; }
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101; }
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer; }
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent; }
+
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; }
+
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; }
+
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer; }
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9; }
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd; }
+
+/* FOLDERS */
+/* MISC */
+/* MAP ELEMENTS */
+/* COLORS */
+/* Z-INDEXES */
+nav {
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 1200; }
+  nav .wrapper {
+    align-items: center;
+    background: rgba(16, 26, 36, 0.6);
+    display: flex;
+    justify-content: space-between;
+    width: 100vw; }
+  nav select {
+    font-size: 1.2rem; }
+  nav .misc {
+    margin: 0.25em 0.5em; }
+  nav .zoom {
+    margin: 0.25em 0.5em; }
+  nav #map-control {
+    margin: 0.25em 0 0.25em 0.5em; }
+  nav #objective-control {
+    margin: 0.25em 0; }
+  nav a {
+    color: #fff;
+    text-decoration: none; }
+    nav a:hover, nav a:focus {
+      text-decoration: underline; }
+  nav #floor-control {
+    display: inline-block;
+    margin: 0.25em 0.5em; }
+    nav #floor-control button {
+      background-color: #fff;
+      border: 1px solid #000;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background-color 0.2s; }
+      nav #floor-control button:hover, nav #floor-control button:focus {
+        background-color: #3071a9; }
+      nav #floor-control button.selected {
+        background-color: #ffdb00;
+        cursor: auto; }
+
+.offscreen {
+  position: absolute !important;
+  left: -10000px;
+  overflow: hidden;
+  width: 1px;
+  height: 1px; }
+
+.r6-like-font, body, button, input, select {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700; }
+
+body {
+  background-color: #111111;
+  background: #000000;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #000000 0%, #151515 50%, #111111 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #000000 0%, #151515 50%, #111111 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #000000 0%, #151515 50%, #111111 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#111111',GradientType=1 );
+  /* IE6-9 */ }
+  body html, body body, body div, body span, body applet, body object, body iframe, body h1, body h2, body h3, body h4, body h5, body h6, body p, body blockquote, body pre, body a, body abbr, body acronym, body address, body big, body cite, body code, body del, body dfn, body em, body img, body ins, body kbd, body q, body s, body samp, body small, body strike, body strong, body sub, body sup, body tt, body var, body b, body u, body i, body center, body dl, body dt, body dd, body ol, body ul, body li, body fieldset, body form, body label, body legend, body table, body caption, body tbody, body tfoot, body thead, body tr, body th, body td, body article, body aside, body canvas, body details, body embed, body figure, body figcaption, body footer, body header, body hgroup, body menu, body nav, body output, body ruby, body section, body summary, body time, body mark, body audio, body video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+  body article, body aside, body details, body figcaption, body figure, body footer, body header, body hgroup, body menu, body nav, body section {
+    display: block; }
+  body body {
+    line-height: 1; }
+  body ol, body ul {
+    list-style: none; }
+  body blockquote, body q {
+    quotes: none; }
+  body blockquote:before, body blockquote:after {
+    content: "";
+    content: none; }
+  body q:before, body q:after {
+    content: "";
+    content: none; }
+  body table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+
+html, body {
+  overflow: hidden; }
+
+body, button, input, select {
+  font-size: 1rem; }
+
+#map {
+  height: 100vh;
+  position: relative;
+  width: 100vw; }
+  #map .center-helper {
+    height: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 0; }
+  #map .elements {
+    position: relative;
+    .background-z-index: 1000; }
+    #map .elements img, #map .elements div {
+      position: absolute; }
+    #map .elements .floor {
+      z-index: 1010; }
+    #map .elements .camera {
+      width: 40px;
+      height: 40px;
+      margin-left: -20px;
+      margin-top: -20px;
+      background: url("../img/icons/security-camera.png");
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1170; }
+      #map .elements .camera.other-floor {
+        opacity: 0.85; }
+        #map .elements .camera.other-floor.up span {
+          background: url("../img/icons/up@2x.png");
+          background-size: 15px, 22px;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: block;
+          height: 22px;
+          left: 32.5px;
+          margin-left: -6px;
+          margin-top: -8px;
+          position: absolute;
+          top: 29px;
+          width: 15px;
+          z-index: 1171; }
+        #map .elements .camera.other-floor.down span {
+          background: url("../img/icons/down@2x.png");
+          background-size: 15px, 22px;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: block;
+          height: 22px;
+          left: 32.5px;
+          margin-left: -6px;
+          margin-top: -8px;
+          position: absolute;
+          top: 29px;
+          width: 15px;
+          z-index: 1171; }
+      #map .elements .camera svg {
+        background-color: red;
+        opacity: 0.3;
+        overflow: visible; }
+        #map .elements .camera svg path {
+          fill: #ffdb00; }
+    #map .elements .objective {
+      width: 30px;
+      height: 40px;
+      margin-left: -15px;
+      margin-top: -20px;
+      border-radius: 5px;
+      display: none;
+      z-index: 1150; }
+      #map .elements .objective.hostage {
+        background-color: #ab1513;
+        z-index: 1153; }
+      #map .elements .objective.bomb {
+        background-color: #d65b2b;
+        z-index: 1151; }
+        #map .elements .objective.bomb p {
+          font-size: 25px; }
+      #map .elements .objective.secure {
+        background-color: #00B200;
+        z-index: 1152; }
+      #map .elements .objective p {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        color: #fff;
+        font-size: 30px;
+        line-height: 40px;
+        text-align: center;
+        width: 30px; }
+      #map .elements .objective.up span {
+        background: url("../img/icons/up@2x.png");
+        background-size: 15px, 22px;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        height: 22px;
+        left: 22.5px;
+        margin-left: 0px;
+        margin-top: -2px;
+        position: absolute;
+        top: 29px;
+        width: 15px;
+        z-index: 1151; }
+      #map .elements .objective.down span {
+        background: url("../img/icons/down@2x.png");
+        background-size: 15px, 22px;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        height: 22px;
+        left: 22.5px;
+        margin-left: 0px;
+        margin-top: 2px;
+        position: absolute;
+        top: 29px;
+        width: 15px;
+        z-index: 1151; }
+    #map .elements .ceiling-hatch {
+      width: 29px;
+      height: 29px;
+      margin-left: -14.5px;
+      margin-top: -14.5px;
+      background: url("../img/icons/ceiling-hatch.png");
+      background-size: 29px, 29px;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1020; }
+    #map .elements .skylight {
+      width: 29px;
+      height: 29px;
+      margin-left: -14.5px;
+      margin-top: -14.5px;
+      background: url("../img/icons/skylight@2x.png");
+      background-size: 29px, 29px;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1025; }
+      #map .elements .skylight.other-floor {
+        opacity: 0.7; }
+        #map .elements .skylight.other-floor.up span {
+          background: url("../img/icons/up@2x.png");
+          background-size: 15px, 22px;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: block;
+          height: 22px;
+          left: 21.5px;
+          margin-left: 0px;
+          margin-top: -3px;
+          position: absolute;
+          top: 18px;
+          width: 15px;
+          z-index: 1026; }
+        #map .elements .skylight.other-floor.down span {
+          background: url("../img/icons/down@2x.png");
+          background-size: 15px, 22px;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: block;
+          height: 22px;
+          left: 21.5px;
+          margin-left: 0px;
+          margin-top: -3px;
+          position: absolute;
+          top: 18px;
+          width: 15px;
+          z-index: 1026; }
+    #map .elements .room-label {
+      height: 2.5em;
+      margin-left: -110px;
+      margin-top: -1.25em;
+      opacity: 0.44;
+      text-align: center;
+      transition: opacity 3s;
+      width: 220px;
+      z-index: 1160; }
+      #map .elements .room-label p {
+        text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.8);
+        color: #fff;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 400; }
+      #map .elements .room-label.hard-to-read {
+        opacity: 0.54; }
+        #map .elements .room-label.hard-to-read p {
+          background: rgba(16, 26, 36, 0.6); }
+    #map .elements.show-floor-zero .one, #map .elements.show-floor-zero .two, #map .elements.show-floor-zero .three, #map .elements.show-floor-zero .four, #map .elements.show-floor-zero .five {
+      display: none !important; }
+    #map .elements.show-floor-one .zero, #map .elements.show-floor-one .two, #map .elements.show-floor-one .three, #map .elements.show-floor-one .four, #map .elements.show-floor-one .five {
+      display: none !important; }
+    #map .elements.show-floor-two .zero, #map .elements.show-floor-two .one, #map .elements.show-floor-two .three, #map .elements.show-floor-two .four, #map .elements.show-floor-two .five {
+      display: none !important; }
+    #map .elements.show-floor-three .zero, #map .elements.show-floor-three .one, #map .elements.show-floor-three .two, #map .elements.show-floor-three .four, #map .elements.show-floor-three .five {
+      display: none !important; }
+    #map .elements.show-floor-four .zero, #map .elements.show-floor-four .one, #map .elements.show-floor-four .two, #map .elements.show-floor-four .three, #map .elements.show-floor-four .five {
+      display: none !important; }
+    #map .elements.show-floor-five .zero, #map .elements.show-floor-five .one, #map .elements.show-floor-five .two, #map .elements.show-floor-five .three, #map .elements.show-floor-five .four {
+      display: none !important; }
+    #map .elements.show-objective-all .objective {
+      display: block; }
+    #map .elements.show-objective-hostage .hostage {
+      display: block; }
+    #map .elements.show-objective-bomb .bomb {
+      display: block; }
+    #map .elements.show-objective-secure .secure {
+      display: block; }
+    #map .elements.zoomed-out-far .room-label {
+      opacity: 0; }
+
+/*# sourceMappingURL=main.css.map */
