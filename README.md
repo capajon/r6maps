@@ -1,5 +1,5 @@
 # r6maps
-[![Build Status](https://travis-ci.org/alir6716/alir6716.github.io.svg?branch=master)](https://travis-ci.org/alir6716/alir6716.github.io)
+[![Build Status](https://travis-ci.org/capajon/r6maps.svg?branch=master)](https://travis-ci.org/capajon/r6maps)
 
 **Hosted at http://www.r6maps.com**
 
