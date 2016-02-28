@@ -4,7 +4,7 @@
   "description": "Rainbow Six Siege map quick references",
   "main": "index.js",
   "scripts": {
-    "test:js": "eslint site/**/*js",
+    "test:js": "eslint site/js/r6-maps*js",
     "test": "npm run test:js"
   },
   "repository": {
