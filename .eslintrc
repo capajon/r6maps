@@ -12,8 +12,7 @@
     "jsx-quotes": [2, "prefer-double"],
     "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
     "newline-after-var": [2, "always"],
-    "comma-dangle": [2, "never"],                                               // require the absence of trailing commas
-    "linebreak-style": [2, "windows"],
+    "comma-dangle": [2, "never"],
     "no-console": 0,                                                            // allow use of console
     "no-empty": 2,
     "no-mixed-spaces-and-tabs": 2,
