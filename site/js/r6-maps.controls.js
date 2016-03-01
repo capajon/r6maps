@@ -32,10 +32,6 @@ var R6MapsControls = (function($,window,document,undefined) {
     mapControl.on('change', callback);
   };
 
-  var populateObjectiveOptions = function populateObjectiveOptions() {
-
-  };
-
   var getCurrentlySelectedObjective = function getCurrentlySelectedObjective() {
     return objectiveControl.val();
   };
@@ -164,7 +160,6 @@ var R6MapsControls = (function($,window,document,undefined) {
     trySelectMap: trySelectMap,
     setupMapChangeEvent: setupMapChangeEvent,
 
-    populateObjectiveOptions: populateObjectiveOptions,
     getCurrentlySelectedObjective: getCurrentlySelectedObjective,
     trySelectObjective: trySelectObjective,
     setupObjectiveChangeEvent: setupObjectiveChangeEvent,
