@@ -1,0 +1,79 @@
+body {
+  &.about {
+    background: url($img-location + 'about-bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.3rem;
+    overflow: visible;
+
+    h1 {
+      font-size: 3.5rem;
+      margin: 2rem 0;
+      padding-left: 100px;
+      font-weight: 700;
+      background-image: url($img-location + 'r6maps-logo.png');
+      background-repeat: no-repeat;
+      line-height: 80px;
+      background-size: 80px;
+    }
+
+    .logo {
+      text-decoration: none;
+    }
+
+    h2 {
+      color: $r6-yellow;
+      font-size: 2.2rem;
+      font-weight: 700;
+      padding-bottom: 0.5em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-weight: 700;
+      padding-bottom: 0.4em;
+    }
+
+    p {
+      font-family: 'Gentium Book Basic', serif;
+      line-height: 130%;
+      margin-bottom: 0.9em;
+    }
+
+    a {
+      color: #fff;
+    }
+
+    ul {
+      margin: 1.5rem 0 0 0.5rem;
+
+      li {
+        padding: 0 0 2rem 0;
+      }
+
+      span {
+        background-color: #fff;
+        color: #000;
+        border-radius: 5px;
+        padding: 5px;
+        font-weight: 700;
+        margin-right: 0.5rem;
+      }
+    }
+
+    section {
+      background-color: $faded-bg;
+      margin-bottom: 30px;
+      padding: 10px;
+    }
+
+    .about-wrapper {
+      margin: 0 auto;
+      max-width: 900px;
+    }
+  }
+}

@@ -164,6 +164,61 @@ nav {
         background-color: #ffdb00;
         cursor: auto; }
 
+body.about {
+  background: url("../img/about-bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.3rem;
+  overflow: visible; }
+  body.about h1 {
+    font-size: 3.5rem;
+    margin: 2rem 0;
+    padding-left: 100px;
+    font-weight: 700;
+    background-image: url("../img/r6maps-logo.png");
+    background-repeat: no-repeat;
+    line-height: 80px;
+    background-size: 80px; }
+  body.about .logo {
+    text-decoration: none; }
+  body.about h2 {
+    color: #ffdb00;
+    font-size: 2.2rem;
+    font-weight: 700;
+    padding-bottom: 0.5em;
+    text-transform: uppercase; }
+  body.about h3 {
+    font-weight: 700;
+    padding-bottom: 0.4em; }
+  body.about p {
+    font-family: 'Gentium Book Basic', serif;
+    line-height: 130%;
+    margin-bottom: 0.9em; }
+  body.about a {
+    color: #fff; }
+  body.about ul {
+    margin: 1.5rem 0 0 0.5rem; }
+    body.about ul li {
+      padding: 0 0 2rem 0; }
+    body.about ul span {
+      background-color: #fff;
+      color: #000;
+      border-radius: 5px;
+      padding: 5px;
+      font-weight: 700;
+      margin-right: 0.5rem; }
+  body.about section {
+    background-color: rgba(16, 26, 36, 0.6);
+    margin-bottom: 30px;
+    padding: 10px; }
+  body.about .about-wrapper {
+    margin: 0 auto;
+    max-width: 900px; }
+
 .offscreen {
   position: absolute !important;
   left: -10000px;
@@ -212,7 +267,7 @@ body {
     border-collapse: collapse;
     border-spacing: 0; }
 
-html, body {
+body {
   overflow: hidden; }
 
 body, button, input, select {
