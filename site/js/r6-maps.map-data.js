@@ -358,10 +358,10 @@ var R6MapData = (function(undefined){
         { index: 3, top: -282, left: -452, name: 'Roof' }
       ],
       hostageObjectives: [
-        { floor: 0, top: 128, left: -73 },
         { floor: 1, top: 41, left: 142 },
         { floor: 2, top: 121, left: -256 },
-        { floor: 2, top: 74, left: 319 }
+        { floor: 2, top: 74, left: 319 },
+        { floor: 0, top: -67, left: 269 }
       ],
       bombObjectives: [
         { floor: 0, top: 56, left: -239, set: 1, letter: 'B' },
