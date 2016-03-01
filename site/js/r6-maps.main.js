@@ -64,18 +64,42 @@
   };
 
   var handleMapChange = function handleMapChange() {
+    sendMapSelectAnalyticsEvent();
     loadMap();
     updateUrl();
   };
 
   var handleObjectiveChange = function handleObjectiveChange() {
+    sendObjectiveSelectAnalyticsEvent();
     showSelectedObjective();
     updateUrl();
   };
 
   var handleFloorChange = function handleFloorChange() {
+    sendFloorSelectAnalyticsEvent();
     showSelectedFloor();
     updateUrl();
+  };
+
+  var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
+    sendControlAnalyticsEvent('Map', R6MapsControls.getCurrentlySelectedMap());
+  };
+
+  var sendObjectiveSelectAnalyticsEvent = function sendObjectiveSelectAnalyticsEvent() {
+    sendControlAnalyticsEvent('Objective', R6MapsControls.getCurrentlySelectedObjective());
+  };
+
+  var sendFloorSelectAnalyticsEvent = function sendFloorSelectAnalyticsEvent() {
+    sendControlAnalyticsEvent('Floor', R6MapsControls.getCurrentlySelectedFloor());
+  };
+
+  var sendControlAnalyticsEvent = function sendControlAnalyticsEvent(control, value) {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Controls',
+      eventAction: control,
+      eventLabel: value
+    });
   };
 
   var updateUrl = function updateUrl() {
