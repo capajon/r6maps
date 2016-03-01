@@ -5,15 +5,13 @@
 
 r6maps.com is designed to be a quick reference resource primarily for learning Rainbow Six Siege maps.  Please see the about.html page for more details.
 
-## Deployments
-TBD - FTPLoy
-
 ## Things to work on
 Contributions are welcome. :)
 
 ### Short-term
 (will likely do)
 - [ ] Open Issues (see Github issue tracking)
+- [ ] Automated site deployments from master
 - [ ] Up/down arrow icon improvements?
 - [ ] scss linting
 
@@ -21,7 +19,7 @@ Contributions are welcome. :)
 (might do)
 - New Map Elements:
    - [ ] Helpful screen shots
-   - [ ] Helpful tips/Notes
+   - [ ] Helpful tips/notes
    - [ ] Camera angles (svg 'pie slices' to see camera coverage)
 - CI, Build & Deploy Improvements:
    - [ ] Some unit and/or integration and/or perceptual diff tests
