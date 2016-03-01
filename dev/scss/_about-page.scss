@@ -42,6 +42,13 @@ body {
       font-family: 'Gentium Book Basic', serif;
       line-height: 130%;
       margin-bottom: 0.9em;
+
+      &.thanks {
+        @include text-shadow();
+        font-size: 5em;
+        font-weight: 700;
+        color: $r6-yellow;
+      }
     }
 
     a {

@@ -198,6 +198,11 @@ body.about {
     font-family: 'Gentium Book Basic', serif;
     line-height: 130%;
     margin-bottom: 0.9em; }
+    body.about p.thanks {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      font-size: 5em;
+      font-weight: 700;
+      color: #ffdb00; }
   body.about a {
     color: #fff; }
   body.about ul {
