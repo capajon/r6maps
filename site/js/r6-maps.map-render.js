@@ -36,6 +36,7 @@ var R6MapsRender = (function($,window,document,undefined) {
     html += getBombObjectivesHtml(mapData.bombObjectives);
     html += getSecureObjectivesHtml(mapData.secureObjectives);
     html += getRoomLabelsHtml(mapData.roomLabels);
+    html += getLegendHtml();
 
     mapElements.html(html);
 
@@ -194,6 +195,10 @@ var R6MapsRender = (function($,window,document,undefined) {
 
     mapElements.removeClassPrefix(objectivePrefix);
     mapElements.addClass(objectivePrefix + objective);
+  };
+
+  var getLegendHtml = function getLegendHtml() {
+    return '<img src="img/legend.png" class="legend" style="top: 515px; left: 760px;">';
   };
 
   return  {

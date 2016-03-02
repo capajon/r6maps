@@ -293,7 +293,8 @@ body, button, input, select {
     width: 0; }
   #map .elements {
     position: relative;
-    .background-z-index: 1000; }
+    .background-z-index: 1000;
+    .legend-z-index: 1015; }
     #map .elements img, #map .elements div {
       position: absolute; }
     #map .elements .floor {

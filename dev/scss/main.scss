@@ -222,6 +222,10 @@ body, button, input, select {
       }
     }
 
+    .legend: {
+      z-index: $z-legend;
+    }
+
     &.show-floor-zero {
       .one, .two, .three, .four, .five {
         display: none !important;
