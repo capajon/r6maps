@@ -69,7 +69,7 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 32, left: -314 },
         { floor: 2, top: 201, left: -36 }
       ],
-      dronePassages: [
+      droneTunnels: [
         { floor: 0, top: -190, left: -422, rotate: 116, size: DRONE_LARGE_SIZE },
         { floor: 0, top: 59, left: -223, rotate: 116, size: DRONE_MED_SIZE },
         { floor: 1, top: 80, left: -101, rotate: 0, size: DRONE_SMALL_SIZE },
@@ -193,7 +193,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -285, left: 369 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         { floor: 0, top: -456, left: 203, rotate: 0, size: DRONE_MED_SIZE },
         { floor: 0, top: 378, left: 155, rotate: 0, size: DRONE_MED_SIZE },
         { floor: 0, top: 123, left: 172, rotate: 90, size: 62 },
@@ -315,7 +315,7 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 28, left: 278 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         { floor: 0, top: -540, left: 39, rotate: 210, size: DRONE_SMALL_SIZE },
         { floor: 1, top: 127, left: -373, rotate: 90, size: 54 },
         { floor: 1, top: 139, left: -164, rotate: 90, size: DRONE_MED_SIZE },
@@ -442,7 +442,7 @@ var R6MapData = (function(undefined){
         { floor: 2, top: -24, left: -303 },
         { floor: 2, top: -102, left: 10 }
       ],
-      dronePassages: [
+      droneTunnels: [
         { floor: 0, top: 26, left: -356, rotate: 90, size: DRONE_MED_SIZE },
         { floor: 0, top: 103, left: 87, rotate: 90, size: DRONE_SMALL_SIZE },
         { floor: 1, top: -1, left: -142, rotate: 0, size: DRONE_SMALL_SIZE },
@@ -565,7 +565,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: 403, left: 66 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         { floor: 1, top: 239, left: -267, rotate: 90, size: DRONE_MED_SIZE },
         { floor: 0, top: 93, left: 31, rotate: 45, size: 56 }
       ],
@@ -671,7 +671,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: 52, left: 175 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
@@ -769,7 +769,7 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 34, left: 120 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
@@ -891,7 +891,7 @@ var R6MapData = (function(undefined){
       skylights: [
         { floor: 3, top: -43, left: 260 }
       ],
-      dronePassages: [
+      droneTunnels: [
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
@@ -998,7 +998,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -95, left: 129 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
@@ -1114,7 +1114,7 @@ var R6MapData = (function(undefined){
         { floor: 3, top: -10, left: -496 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
@@ -1227,7 +1227,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -53, left: 155 }
       ],
       skylights: [],
-      dronePassages: [
+      droneTunnels: [
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },
         //{ floor: , , rotate: 0, size: DRONE__SIZE },

@@ -36,7 +36,7 @@ var R6MapsRender = (function($,window,document,undefined) {
     html += getBombObjectivesHtml(mapData.bombObjectives);
     html += getSecureObjectivesHtml(mapData.secureObjectives);
     html += getRoomLabelsHtml(mapData.roomLabels);
-    html += getDronePassagesHtml(mapData.dronePassages);
+    html += getdroneTunnelsHtml(mapData.droneTunnels);
     html += getLegendHtml();
 
     mapElements.html(html);
@@ -162,18 +162,18 @@ var R6MapsRender = (function($,window,document,undefined) {
     return html;
   };
 
-  var getDronePassagesHtml = function getDronePassagesHtml(dronePassages) {
+  var getdroneTunnelsHtml = function getdroneTunnelsHtml(droneTunnels) {
     var html = '',
       positionStyle,
       classes;
 
-    dronePassages.forEach(function(dronePassage) {
-      positionStyle = getPositionStyle(dronePassage) +
-        'height: ' + dronePassage.size + 'px;' +
-        'margin-top: -' +  Math.round(dronePassage.size / 2) + 'px; ' +
-        getRotateCssStatements(dronePassage.rotate);
-      classes = 'drone-passage ';
-      classes += getCommonClasses(dronePassage);
+    droneTunnels.forEach(function(droneTunnel) {
+      positionStyle = getPositionStyle(droneTunnel) +
+        'height: ' + droneTunnels.size + 'px;' +
+        'margin-top: -' +  Math.round(droneTunnel.size / 2) + 'px; ' +
+        getRotateCssStatements(droneTunnel.rotate);
+      classes = 'drone-tunnel ';
+      classes += getCommonClasses(droneTunnel);
       html += '<div style="' + positionStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
     });
     return html;
@@ -198,10 +198,10 @@ var R6MapsRender = (function($,window,document,undefined) {
   };
 
   var getRotateCssStatements = function getRotateCssStatements(degree) {
-    var css = ''
+    var css = '';
 
     css += 'transform: rotate(' + degree + 'deg); ';
-    css += '-webkit-transform: rotate(' + degree + 'deg); '
+    css += '-webkit-transform: rotate(' + degree + 'deg); ';
     css += '-moz-transform: rotate(' + degree + 'deg); ';
     css += '-o-transform: rotate(' + degree + 'deg); ';
     css += '-ms-transform: rotate(' + degree + 'deg); ';
