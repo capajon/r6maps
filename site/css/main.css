@@ -449,6 +449,13 @@ body, button, input, select {
           top: 18px;
           width: 15px;
           z-index: 1026; }
+    #map .elements .drone-passage {
+      background-color: #7B0099;
+      border-left: 2px solid #fff;
+      border-right: 2px solid #fff;
+      margin-left: -5px;
+      width: 8px;
+      z-index: 1160; }
     #map .elements .room-label {
       height: 2.5em;
       margin-left: -110px;
@@ -457,7 +464,7 @@ body, button, input, select {
       text-align: center;
       transition: opacity 3s;
       width: 220px;
-      z-index: 1160; }
+      z-index: 1017; }
       #map .elements .room-label p {
         text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.8);
         color: #fff;

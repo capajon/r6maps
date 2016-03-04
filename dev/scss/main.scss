@@ -195,6 +195,15 @@ body, button, input, select {
       }
     }
 
+    .drone-passage {
+      background-color: $drone-bg-color;
+      border-left: $drone-border-width solid #fff;
+      border-right: $drone-border-width solid #fff;
+      margin-left: -(($drone-width + $drone-border-width) /2);
+      width: $drone-width;
+      z-index: $z-drone-passage;
+    }
+
     .room-label {
       height: 2.5em;
       margin-left: -110px;

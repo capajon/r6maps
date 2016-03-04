@@ -1,6 +1,10 @@
 'use strict';
 
 var R6MapData = (function(undefined){
+  var DRONE_MED_SIZE = 22,
+    DRONE_LARGE_SIZE = 30,
+    DRONE_SMALL_SIZE = 17;
+
   var maps = {
     bank: {
       name: 'Bank',
@@ -64,6 +68,14 @@ var R6MapData = (function(undefined){
         { floor: 2, top: -176, left: -314 },
         { floor: 2, top: 32, left: -314 },
         { floor: 2, top: 201, left: -36 }
+      ],
+      dronePassages: [
+        { floor: 0, top: -190, left: -424, rotate: 116, size: DRONE_LARGE_SIZE },
+        { floor: 0, top: 59, left: -225, rotate: 116, size: DRONE_MED_SIZE },
+        { floor: 1, top: 80, left: -103, rotate: 0, size: DRONE_SMALL_SIZE },
+        { floor: 1, top: 7, left: 82, rotate: 0, size: DRONE_MED_SIZE },
+        { floor: 2, top: -6, left: 88, rotate: 0, size: DRONE_MED_SIZE },
+        { floor: 2, top: 89, left: 93, rotate: 0, size: DRONE_MED_SIZE }
       ],
       roomLabels: [
         { outdoor: true, description: 'Parking Lot', top: -575, left: -661 },
@@ -181,6 +193,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -285, left: 369 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { floor: 0, hardToRead: true, top: 74, left: -82, description: 'Library Stairs' },
         { floor: 0, top: 119, left: 49, description: 'Snowmobile Garage Corridor' },
@@ -293,6 +306,7 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 28, left: 278 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { outside: true, description: 'Construction<br/>Site', top: -528, left: 123 },
         { floor: 0, description: 'Container', top: -507, left: 41 },
@@ -407,6 +421,7 @@ var R6MapData = (function(undefined){
         { floor: 2, top: -24, left: -303 },
         { floor: 2, top: -102, left: 10 }
       ],
+      dronePassages: [],
       roomLabels: [
         { floor: 0, top: -81, left: -305, description: 'Exit<br/>Stairs' },
         { floor: 0, top: 129, left: -261, description: 'Garage' },
@@ -523,6 +538,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: 403, left: 66 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { floor: 0, top: 199, left: -100, description: 'Armory' },
         { floor: 0, top: 50, left: 200, description: 'Alley<br/>Stairs' },
@@ -625,6 +641,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: 52, left: 175 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { floor: 0, top: -128, left: -141, description: 'Depot' },
         { floor: 0, top: 2, left: -140, description: 'Training Room' },
@@ -715,6 +732,7 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 34, left: 120 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { floor: 1, top: -68, left: -372, description: 'Boat Garage' },
         { floor: 1, top: 177, left: -393, description: 'Boat Supplies' },
@@ -829,6 +847,7 @@ var R6MapData = (function(undefined){
       skylights: [
         { floor: 3, top: -43, left: 260 }
       ],
+      dronePassages: [],
       roomLabels: [
         { floor: 1, top: -156, left: -34, description: 'Front Stairs' },
         { floor: 1, top: 83, left: -186, description: 'Bakery' },
@@ -928,6 +947,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -95, left: 129 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { floor: 0, top: -321, left: 142, description: 'Tower Stairs' },
         { floor: 0, top: -198, left: 197, description: 'Boiler<br/>Room' },
@@ -1036,6 +1056,7 @@ var R6MapData = (function(undefined){
         { floor: 3, top: -10, left: -496 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { floor: 2, top: -6, left: 300, description: 'Meeting<br/>Room' },
         { floor: 2, top: -22, left: 411, description: 'Front<br/>Hallway' },
@@ -1141,6 +1162,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -53, left: 155 }
       ],
       skylights: [],
+      dronePassages: [],
       roomLabels: [
         { floor: 4, top: 59, left: 35, description: 'Maps Room' },
         { floor: 4, top: 62, left: 121, description: 'Cockpit' },

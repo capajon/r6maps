@@ -36,6 +36,7 @@ var R6MapsRender = (function($,window,document,undefined) {
     html += getBombObjectivesHtml(mapData.bombObjectives);
     html += getSecureObjectivesHtml(mapData.secureObjectives);
     html += getRoomLabelsHtml(mapData.roomLabels);
+    html += getDronePassagesHtml(mapData.dronePassages);
     html += getLegendHtml();
 
     mapElements.html(html);
@@ -161,6 +162,23 @@ var R6MapsRender = (function($,window,document,undefined) {
     return html;
   };
 
+  var getDronePassagesHtml = function getDronePassagesHtml(dronePassages) {
+    var html = '',
+      positionStyle,
+      classes;
+
+    dronePassages.forEach(function(dronePassage) {
+      positionStyle = getPositionStyle(dronePassage) +
+        'height: ' + dronePassage.size + 'px;' +
+        'margin-top: -' +  Math.round(dronePassage.size / 2) + 'px; ' +
+        'transform: rotate(' + dronePassage.rotate + 'deg); ';
+      classes = 'drone-passage ';
+      classes += getCommonClasses(dronePassage);
+      html += '<div style="' + positionStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
+    });
+    return html;
+  };
+
   var getCommonClasses = function getCommonClasses(mapElement) {
     var classes = '';
 
@@ -180,7 +198,7 @@ var R6MapsRender = (function($,window,document,undefined) {
   };
 
   var getPositionStyle = function getPositionStyle(mapElement) {
-    return 'top: ' + mapElement.top + 'px; left: ' + mapElement.left + 'px;';
+    return 'top: ' + mapElement.top + 'px; left: ' + mapElement.left + 'px; ';
   };
 
   var showFloor = function showFloor(floor, mapElements) {
