@@ -171,9 +171,9 @@ var R6MapsRender = (function($,window,document,undefined) {
       positionStyle = getPositionStyle(dronePassage) +
         'height: ' + dronePassage.size + 'px;' +
         'margin-top: -' +  Math.round(dronePassage.size / 2) + 'px; ' +
-        'transform: rotate(' + dronePassage.rotate + 'deg); ';
+        getRotateCssStatements(dronePassage.rotate);
       classes = 'drone-passage ';
-      classes += getCommonClasses(dronePassage);      
+      classes += getCommonClasses(dronePassage);
       html += '<div style="' + positionStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
     });
     return html;
@@ -195,6 +195,17 @@ var R6MapsRender = (function($,window,document,undefined) {
     classes += mapElement.hardToRead ? 'hard-to-read ' : '';
 
     return classes;
+  };
+
+  var getRotateCssStatements = function getRotateCssStatements(degree) {
+    var css = ''
+
+    css += 'transform: rotate(' + degree + 'deg); ';
+    css += '-webkit-transform: rotate(' + degree + 'deg); '
+    css += '-moz-transform: rotate(' + degree + 'deg); ';
+    css += '-o-transform: rotate(' + degree + 'deg); ';
+    css += '-ms-transform: rotate(' + degree + 'deg); ';
+    return css;
   };
 
   var getPositionStyle = function getPositionStyle(mapElement) {
