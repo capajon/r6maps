@@ -453,7 +453,7 @@ body, button, input, select {
       background-color: #7B0099;
       border-left: 2px solid #fff;
       border-right: 2px solid #fff;
-      margin-left: -5px;
+      margin-left: -6px;
       width: 8px;
       z-index: 1160; }
     #map .elements .room-label {

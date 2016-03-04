@@ -199,7 +199,7 @@ body, button, input, select {
       background-color: $drone-bg-color;
       border-left: $drone-border-width solid #fff;
       border-right: $drone-border-width solid #fff;
-      margin-left: -(($drone-width + $drone-border-width) /2);
+      margin-left: -(($drone-width + ($drone-border-width*2)) /2);
       width: $drone-width;
       z-index: $z-drone-passage;
     }

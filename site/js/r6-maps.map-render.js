@@ -173,7 +173,7 @@ var R6MapsRender = (function($,window,document,undefined) {
         'margin-top: -' +  Math.round(dronePassage.size / 2) + 'px; ' +
         'transform: rotate(' + dronePassage.rotate + 'deg); ';
       classes = 'drone-passage ';
-      classes += getCommonClasses(dronePassage);
+      classes += getCommonClasses(dronePassage);      
       html += '<div style="' + positionStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
     });
     return html;
