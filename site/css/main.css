@@ -470,7 +470,7 @@ body, button, input, select {
       text-align: center;
       transition: opacity 3s;
       width: 220px;
-      z-index: 1017; }
+      z-index: 1175; }
       #map .elements .room-label p {
         text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.8);
         color: #fff;
