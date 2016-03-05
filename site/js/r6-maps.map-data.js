@@ -37,15 +37,15 @@ var R6MapData = (function(undefined){
         { floor: 2, top: -52, left: 121 }
       ],
       cameras: [
-        { outdoor: true, top: 115, left: 562, view: { radius: 100, start: 0, end: 60 } },
-        { outdoor: true, top: -431, left: 5, view: { radius: 100, start: 0, end: 60 } },
-        { floor: 0, top: 148, left: -518 },
-        { floor: 1, otherFloor: 'down', top: 148, left: -518 },
-        { floor: 0, top: 118, left: -203 },
-        { floor: 1, top: 100, left: 38 },
-        { floor: 1, otherFloor: 'up', top: -157, left: -392 },
-        { floor: 2, top: -157, left: -392 },
-        { floor: 2, top: -170, left: 249 }
+        { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: 'Lobby' },
+        { floor: 2, top: -157, left: -392, id: 1, location: 'Lobby' },
+        { floor: 1, top: 100, left: 38, id: 2, location: 'Office Hallway' },
+        { floor: 2, top: -170, left: 249, id: 3, location: 'Skylight Stairwell' },
+        { floor: 0, top: 118, left: -203, id: 4, location: 'Vault Lobby' },
+        { outdoor: true, top: -431, left: 5, id: 5, location: 'Plaza' },
+        { floor: 0, top: 148, left: -518, id: 6, location: 'Garage Ramp' },
+        { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: 'Garage Ramp' },
+        { outdoor: true, top: 115, left: 562, id: 7, location: 'Back Alley' }
       ],
       ceilingHatches: [
         { floor: 0, top: 10, left: -138 },
