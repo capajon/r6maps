@@ -445,6 +445,7 @@ var R6MapData = (function(undefined){
       droneTunnels: [
         { floor: 0, top: 26, left: -356, rotate: 90, size: DRONE_MED },
         { floor: 0, top: 103, left: 87, rotate: 90, size: DRONE_SMALL },
+        { floor: 0, top: 200, left: 138, rotate: 0, size: DRONE_MED },
         { floor: 1, top: -1, left: -142, rotate: 0, size: DRONE_SMALL },
         { floor: 1, top: 186, left: 291, rotate: 90, size: DRONE_SMALL },
         { floor: 2, top: 67, left: 148, rotate: 90, size: DRONE_SMALL }
@@ -568,7 +569,8 @@ var R6MapData = (function(undefined){
       droneTunnels: [
         { floor: 1, top: 239, left: -267, rotate: 90, size: DRONE_MED },
         { floor: 0, top: 93, left: 31, rotate: 45, size: 56 },
-        { floor: 1, top: 442, left: -13, rotate: 0, size: 52 }
+        { floor: 1, top: 442, left: -13, rotate: 0, size: 52 },
+        { floor: 1, top: 340, left: 147, rotate: 90, size: DRONE_MED }
       ],
       roomLabels: [
         { floor: 0, top: 199, left: -100, description: 'Armory' },
@@ -772,12 +774,13 @@ var R6MapData = (function(undefined){
       ],
       skylights: [],
       droneTunnels: [
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        { floor: 1, top: -34, left: -506, rotate: 90, size: DRONE_MED },
+        { floor: 1, top: -309, left: -506, rotate: 225, size: 30 },
+        { floor: 1, top: 135, left: 267, rotate: 0, size: 70 },
+        { floor: 2, top: -85, left: -366, rotate: 90, size: DRONE_SMALL },
+        { floor: 2, top: -71, left: 246, rotate: 90, size: DRONE_SMALL },
+        { floor: 3, top: 64, left: 460, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: -63, left: 261, rotate: 0, size: DRONE_SMALL }
       ],
       roomLabels: [
         { floor: 1, top: -68, left: -372, description: 'Boat Garage' },
@@ -789,7 +792,7 @@ var R6MapData = (function(undefined){
         { floor: 1, top: 239, left: -180, description: 'Showers' },
         { floor: 1, top: -142, left: 165, description: 'Loading Dock' },
         { floor: 1, top: -140, left: 351, description: 'Machine<br/>Hallway' },
-        { floor: 1, top: 135, left: 279, description: 'Control Center<br/>Stairs' },
+        { floor: 1, top: 135, left: 279, hardToRead: true, description: 'Control Center<br/>Stairs' },
         { floor: 2, top: -230, left: -434, description: 'Holding Room' },
         { floor: 2, top: -269, left: -332, description: 'Holding<br/>Room<br/>Hallway' },
         { floor: 2, top: -51, left: -426, description: 'Radio' },
@@ -894,12 +897,13 @@ var R6MapData = (function(undefined){
         { floor: 3, top: -43, left: 260 }
       ],
       droneTunnels: [
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        { floor: 1, top: -15, left: -55, rotate: 0, size: 28 },
+        { floor: 1, top: 62, left: 105, rotate: 90, size: DRONE_SMALL },
+        { floor: 2, top: 108, left: 124, rotate: 90, size: DRONE_SMALL },
+        { floor: 2, top: -20, left: 201, rotate: 0, size: DRONE_SMALL },
+        { floor: 2, top: 121, left: 473, rotate: 90, size: DRONE_MED },
+        { floor: 2, top: 276, left: 353, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: 11, left: 9, rotate: 90, size: DRONE_SMALL }
       ],
       roomLabels: [
         { floor: 1, top: -156, left: -34, description: 'Front Stairs' },
@@ -1001,12 +1005,11 @@ var R6MapData = (function(undefined){
       ],
       skylights: [],
       droneTunnels: [
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        { floor: 1, top: -37, left: -357, rotate: 90, size: DRONE_MED },
+        { floor: 1, top: 34, left: 42, rotate: 90, size: DRONE_MED },
+        { floor: 1, top: -153, left: 43, rotate: 90, size: DRONE_MED },
+        { floor: 1, top: 203, left: -186, rotate: 0, size: 52 },
+        { floor: 1, top: 208, left: -66, rotate: 0, size: 74 }
       ],
       roomLabels: [
         { floor: 0, top: -321, left: 142, description: 'Tower Stairs' },
