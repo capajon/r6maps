@@ -295,20 +295,26 @@ body, button, input, select {
     position: relative;
     .background-z-index: 1000;
     .legend-z-index: 1015; }
-    #map .elements img, #map .elements div {
+    #map .elements img, #map .elements div, #map .elements a {
       position: absolute; }
     #map .elements .floor {
       z-index: 1010; }
     #map .elements .camera {
-      width: 40px;
-      height: 40px;
-      margin-left: -20px;
-      margin-top: -20px;
+      width: 36px;
+      height: 36px;
+      margin-left: -18px;
+      margin-top: -18px;
       background: url("../img/icons/security-camera.png");
-      background-size: 40px 40px;
+      background-size: 36px 36px;
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1170; }
+      #map .elements .camera.outdoor {
+        width: 46px;
+        height: 46px;
+        margin-left: -23px;
+        margin-top: -23px;
+        background-size: 46px 46px; }
       #map .elements .camera.other-floor {
         opacity: 0.85; }
         #map .elements .camera.other-floor.up span {
@@ -318,11 +324,11 @@ body, button, input, select {
           background-position: center;
           display: block;
           height: 22px;
-          left: 32.5px;
+          left: 28.5px;
           margin-left: -6px;
           margin-top: -8px;
           position: absolute;
-          top: 29px;
+          top: 25px;
           width: 15px;
           z-index: 1171; }
         #map .elements .camera.other-floor.down span {
@@ -332,11 +338,11 @@ body, button, input, select {
           background-position: center;
           display: block;
           height: 22px;
-          left: 32.5px;
+          left: 28.5px;
           margin-left: -6px;
           margin-top: -8px;
           position: absolute;
-          top: 29px;
+          top: 25px;
           width: 15px;
           z-index: 1171; }
       #map .elements .camera svg {

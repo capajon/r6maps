@@ -23,11 +23,9 @@
 
   var loadMap = function loadMap() {
     var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap();
-
     R6MapsControls.populateFloorOptions(R6MapData.maps[currentlySelectedMap].floors);
-
     R6MapsRender.renderMap(R6MapData.maps[currentlySelectedMap], mapElements);
-
+    setupCameraScreenshots();
     showSelectedFloor();
     showSelectedObjective();
   };
@@ -119,6 +117,19 @@
       'left: ' + Math.round(e.pageX - mapElements.offset().left) +
       warning
     );
+  };
+
+  var setupCameraScreenshots = function setupCameraScreenShots(){
+    $('a.camera').fancybox({
+      padding: 0,
+      helpers: {
+        overlay: {
+          css: {
+            background: 'rgba(48,113,169, 0.3)'
+          }
+        }
+      }
+    });
   };
 
   var showSelectedFloor =  function showSelectedFloor() {

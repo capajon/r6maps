@@ -31,7 +31,7 @@ var R6MapsRender = (function($,window,document,undefined) {
     html += getFloorsHtml(mapData.floors, mapData.imgUrlPrefix);
     html += getCeilingHatchesHtml(mapData.ceilingHatches);
     html += getSkylightsHtml(mapData.skylights);
-    html += getCamerasHtml(mapData.cameras);
+    html += getCamerasHtml(mapData.cameras, mapData.imgUrlPrefix);
     html += getHostageObjectivesHtml(mapData.hostageObjectives);
     html += getBombObjectivesHtml(mapData.bombObjectives);
     html += getSecureObjectivesHtml(mapData.secureObjectives);
@@ -105,17 +105,31 @@ var R6MapsRender = (function($,window,document,undefined) {
     return html;
   };
 
-  var getCamerasHtml = function getCamerasHtml(cameras) {
+  var getCamerasHtml = function getCamerasHtml(cameras, mapimgUrlPrefix) {
     var html = '',
       positionStyle,
       classes,
+      data,
+      grouping,
+      tagStart,
+      tagEnd,
       view;
 
     cameras.forEach(function(camera) {
       positionStyle = getPositionStyle(camera);
       classes = 'camera ';
       classes += getCommonClasses(camera);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"><span></span></div>';
+      grouping = (camera.otherFloor)
+        ? ''
+        : 'data-fancybox-group="camer"';
+      tagStart = (camera.id)
+        // to do determine if it should be @2x or not
+        ? '<a href="img/' + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + camera.location + ' Camera View" ' + grouping + ''
+        : '<div ';
+      tagEnd = (camera.id)
+        ? '</a>'
+        : '</div>';
+      html += tagStart + 'style="' + positionStyle + '" class="' + classes + '"><span></span>' + tagEnd;
     });
     return html;
   };
