@@ -757,6 +757,7 @@ var R6MapData = (function(undefined){
       cameras: [
         { outdoor: true, top: -426, left: -655 },
         { outdoor: true, top: -402, left: 590 },
+        { outdoor: true, top: 703, left: -526 },
         { floor: 1, top: 70, left: -272 },
         { floor: 2, top: 149, left: -273 },
         { floor: 2, top: 30, left: 204 },
