@@ -36,7 +36,7 @@ var R6MapsRender = (function($,window,document,undefined) {
     html += getBombObjectivesHtml(mapData.bombObjectives);
     html += getSecureObjectivesHtml(mapData.secureObjectives);
     html += getRoomLabelsHtml(mapData.roomLabels);
-    html += getdroneTunnelsHtml(mapData.droneTunnels);
+    html += getDroneTunnelsHtml(mapData.droneTunnels);
     html += getLegendHtml();
 
     mapElements.html(html);
@@ -162,19 +162,19 @@ var R6MapsRender = (function($,window,document,undefined) {
     return html;
   };
 
-  var getdroneTunnelsHtml = function getdroneTunnelsHtml(droneTunnels) {
+  var getDroneTunnelsHtml = function getDroneTunnelsHtml(droneTunnels) {
     var html = '',
-      positionStyle,
+      inlineStyle,
       classes;
 
     droneTunnels.forEach(function(droneTunnel) {
-      positionStyle = getPositionStyle(droneTunnel) +
-        'height: ' + droneTunnels.size + 'px;' +
+      inlineStyle = getPositionStyle(droneTunnel) +
+        'height: ' + droneTunnel.size + 'px; ' +
         'margin-top: -' +  Math.round(droneTunnel.size / 2) + 'px; ' +
         getRotateCssStatements(droneTunnel.rotate);
       classes = 'drone-tunnel ';
       classes += getCommonClasses(droneTunnel);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
+      html += '<div style="' + inlineStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
     });
     return html;
   };
