@@ -449,11 +449,11 @@ body, button, input, select {
           top: 18px;
           width: 15px;
           z-index: 1026; }
-    #map .elements .drone-passage {
+    #map .elements .drone-tunnel {
       background-color: #7B0099;
       border-left: 2px solid #fff;
       border-right: 2px solid #fff;
-      margin-left: -5px;
+      margin-left: -6px;
       width: 8px;
       z-index: 1160; }
     #map .elements .room-label {

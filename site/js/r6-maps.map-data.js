@@ -1,9 +1,9 @@
 'use strict';
 
 var R6MapData = (function(undefined){
-  var DRONE_MED_SIZE = 22,
-    DRONE_LARGE_SIZE = 30,
-    DRONE_SMALL_SIZE = 17;
+  var DRONE_MED_SIZE = 18,
+    DRONE_LARGE_SIZE = 22,
+    DRONE_SMALL_SIZE = 14;
 
   var maps = {
     bank: {
@@ -69,13 +69,13 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 32, left: -314 },
         { floor: 2, top: 201, left: -36 }
       ],
-      dronePassages: [
-        { floor: 0, top: -190, left: -424, rotate: 116, size: DRONE_LARGE_SIZE },
-        { floor: 0, top: 59, left: -225, rotate: 116, size: DRONE_MED_SIZE },
-        { floor: 1, top: 80, left: -103, rotate: 0, size: DRONE_SMALL_SIZE },
-        { floor: 1, top: 7, left: 82, rotate: 0, size: DRONE_MED_SIZE },
-        { floor: 2, top: -6, left: 88, rotate: 0, size: DRONE_MED_SIZE },
-        { floor: 2, top: 89, left: 93, rotate: 0, size: DRONE_MED_SIZE }
+      droneTunnels: [
+        { floor: 0, top: -190, left: -422, rotate: 116, size: DRONE_LARGE_SIZE },
+        { floor: 0, top: 59, left: -223, rotate: 116, size: DRONE_MED_SIZE },
+        { floor: 1, top: 80, left: -101, rotate: 0, size: DRONE_SMALL_SIZE },
+        { floor: 1, top: 5, left: 84, rotate: 0, size: DRONE_MED_SIZE },
+        { floor: 2, top: -6, left: 90, rotate: 0, size: DRONE_MED_SIZE },
+        { floor: 2, top: 89, left: 95, rotate: 0, size: DRONE_MED_SIZE }
       ],
       roomLabels: [
         { outdoor: true, description: 'Parking Lot', top: -575, left: -661 },
@@ -193,7 +193,16 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -285, left: 369 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        { floor: 0, top: -456, left: 203, rotate: 0, size: DRONE_MED_SIZE },
+        { floor: 0, top: 378, left: 155, rotate: 0, size: DRONE_MED_SIZE },
+        { floor: 0, top: 123, left: 172, rotate: 90, size: 62 },
+        { floor: 1, top: 63, left: 292, rotate: 90, size: 76 },
+        { floor: 1, top: 63, left: 165, rotate: 90, size: 44 },
+        { floor: 1, top: 39, left: 383, rotate: 0, size: DRONE_MED_SIZE },
+        { floor: 1, top: 278, left: 20, rotate: 90, size: DRONE_SMALL_SIZE },
+        { floor: 2, top: -133, left: 240, rotate: 0, size: DRONE_SMALL_SIZE }
+      ],
       roomLabels: [
         { floor: 0, hardToRead: true, top: 74, left: -82, description: 'Library Stairs' },
         { floor: 0, top: 119, left: 49, description: 'Snowmobile Garage Corridor' },
@@ -306,7 +315,19 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 28, left: 278 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        { floor: 0, top: -540, left: 39, rotate: 210, size: DRONE_SMALL_SIZE },
+        { floor: 1, top: 127, left: -373, rotate: 90, size: 54 },
+        { floor: 1, top: 139, left: -164, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 1, top: 181, left: 157, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 1, top: 80, left: 181, rotate: 0, size: DRONE_SMALL_SIZE },
+        { floor: 2, top: -124, left: -136, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 2, top: -62, left: 54, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 2, top: -39, left: 156, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 2, top: 79, left: 180, rotate: 0, size: DRONE_SMALL_SIZE },
+        { floor: 2, top: -40, left: 314, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 2, top: -26, left: 273, rotate: 90, size: DRONE_SMALL_SIZE }
+      ],
       roomLabels: [
         { outside: true, description: 'Construction<br/>Site', top: -528, left: 123 },
         { floor: 0, description: 'Container', top: -507, left: 41 },
@@ -421,7 +442,13 @@ var R6MapData = (function(undefined){
         { floor: 2, top: -24, left: -303 },
         { floor: 2, top: -102, left: 10 }
       ],
-      dronePassages: [],
+      droneTunnels: [
+        { floor: 0, top: 26, left: -356, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 0, top: 103, left: 87, rotate: 90, size: DRONE_SMALL_SIZE },
+        { floor: 1, top: -1, left: -142, rotate: 0, size: DRONE_SMALL_SIZE },
+        { floor: 1, top: 186, left: 291, rotate: 90, size: DRONE_SMALL_SIZE },
+        { floor: 2, top: 67, left: 148, rotate: 90, size: DRONE_SMALL_SIZE }
+      ],
       roomLabels: [
         { floor: 0, top: -81, left: -305, description: 'Exit<br/>Stairs' },
         { floor: 0, top: 129, left: -261, description: 'Garage' },
@@ -538,7 +565,10 @@ var R6MapData = (function(undefined){
         { floor: 1, top: 403, left: 66 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        { floor: 1, top: 239, left: -267, rotate: 90, size: DRONE_MED_SIZE },
+        { floor: 0, top: 93, left: 31, rotate: 45, size: 56 }
+      ],
       roomLabels: [
         { floor: 0, top: 199, left: -100, description: 'Armory' },
         { floor: 0, top: 50, left: 200, description: 'Alley<br/>Stairs' },
@@ -641,7 +671,14 @@ var R6MapData = (function(undefined){
         { floor: 1, top: 52, left: 175 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+      ],
       roomLabels: [
         { floor: 0, top: -128, left: -141, description: 'Depot' },
         { floor: 0, top: 2, left: -140, description: 'Training Room' },
@@ -732,7 +769,14 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 34, left: 120 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+      ],
       roomLabels: [
         { floor: 1, top: -68, left: -372, description: 'Boat Garage' },
         { floor: 1, top: 177, left: -393, description: 'Boat Supplies' },
@@ -847,7 +891,14 @@ var R6MapData = (function(undefined){
       skylights: [
         { floor: 3, top: -43, left: 260 }
       ],
-      dronePassages: [],
+      droneTunnels: [
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+      ],
       roomLabels: [
         { floor: 1, top: -156, left: -34, description: 'Front Stairs' },
         { floor: 1, top: 83, left: -186, description: 'Bakery' },
@@ -947,7 +998,14 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -95, left: 129 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+      ],
       roomLabels: [
         { floor: 0, top: -321, left: 142, description: 'Tower Stairs' },
         { floor: 0, top: -198, left: 197, description: 'Boiler<br/>Room' },
@@ -1056,7 +1114,14 @@ var R6MapData = (function(undefined){
         { floor: 3, top: -10, left: -496 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+      ],
       roomLabels: [
         { floor: 2, top: -6, left: 300, description: 'Meeting<br/>Room' },
         { floor: 2, top: -22, left: 411, description: 'Front<br/>Hallway' },
@@ -1162,7 +1227,14 @@ var R6MapData = (function(undefined){
         { floor: 1, top: -53, left: 155 }
       ],
       skylights: [],
-      dronePassages: [],
+      droneTunnels: [
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+      ],
       roomLabels: [
         { floor: 4, top: 59, left: 35, description: 'Maps Room' },
         { floor: 4, top: 62, left: 121, description: 'Cockpit' },
@@ -1233,6 +1305,7 @@ var R6MapData = (function(undefined){
       cameras: [],
       ceilingHatches: [],
       skylights: [],
+      dronePassage: [],
       roomLabels: []
     }*/
   };
