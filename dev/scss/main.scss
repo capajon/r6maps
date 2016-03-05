@@ -87,6 +87,11 @@ body, button, input, select {
       background-position: center;
       z-index: $z-camera;
 
+      &.outdoor {
+        @include icon-size($camera-outdoor-width, $camera-outdoor-height);
+        background-size: $camera-outdoor-width $camera-outdoor-height;
+      }
+
       &.other-floor {
         opacity: 0.85;
 
