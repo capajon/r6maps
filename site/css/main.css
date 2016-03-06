@@ -468,6 +468,8 @@ body, button, input, select {
       margin-left: -6px;
       width: 8px;
       z-index: 1160; }
+      #map .elements .drone-tunnel.alternate {
+        background-color: #FF1493; }
     #map .elements .room-label {
       height: 2.5em;
       margin-left: -110px;

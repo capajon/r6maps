@@ -213,6 +213,10 @@ body, button, input, select {
       margin-left: -(($drone-width + ($drone-border-width*2)) /2);
       width: $drone-width;
       z-index: $z-drone;
+
+      &.alternate {
+        background-color: $drone-bg-alternate-color;
+      }
     }
 
     .room-label {
