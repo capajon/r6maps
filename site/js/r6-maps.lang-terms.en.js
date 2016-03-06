@@ -341,6 +341,7 @@ var R6MapLangTerms = (function(undefined) {
         frontPorch: 'Front Porch',
         backPorch: 'Back Porch',
         backPorchTop: 'Back Porch Top',
+        frontPorchTop: 'Front Porch Top',
         rooftop: 'Rooftop'
       },
       kanal: {

@@ -733,8 +733,8 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 1, top: 165, left: -72, description: houseTerms.backPorch },
         { floor: 2, top: 165, left: 11, description: houseTerms.backPorchTop },
         { floor: 3, top: 165, left: 11, description: houseTerms.backPorchTop },
-        { floor: 2, top: -135, left: 49, description: houseTerms.backPorchTop },
-        { floor: 3, top: -135, left: 49, description: houseTerms.backPorchTop },
+        { floor: 2, top: -135, left: 49, description: houseTerms.frontPorchTop },
+        { floor: 3, top: -135, left: 49, description: houseTerms.frontPorchTop },
         { floor: 3, top: 1, left: -11, description: houseTerms.rooftop }
       ]
     },
