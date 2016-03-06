@@ -1,18 +1,22 @@
 'use strict';
 
-var R6MapData = (function(undefined){
+var R6MapData = (function(R6MapLangTerms, undefined){
   var DRONE_MED = 18,
-    DRONE_SMALL = 14;
+    DRONE_SMALL = 14,
+    mapFloorTerms = R6MapLangTerms.terms.mapFloors,
+    mapNameTerms = R6MapLangTerms.terms.mapNames,
+    floorTerms = R6MapLangTerms.terms.floorNames,
+    bankTerms = mapFloorTerms.bank;
 
   var maps = {
     bank: {
-      name: 'Bank',
+      name: mapNameTerms.bank,
       imgUrlPrefix: 'bank',
       floors: [
-        { index: 0, top: -715, left: -1275, background: true, name: 'Basement' },
-        { index: 1, top: -537, left: -601, name: '1st Floor', default: true },
-        { index: 2, top: -537, left: -601, name: '2nd Floor' },
-        { index: 3, top: -537, left: -601, name: 'Roof' }
+        { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
+        { index: 1, top: -537, left: -601, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -537, left: -601, name: floorTerms.secondFloor },
+        { index: 3, top: -537, left: -601, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 0, top: -160, left: -69 },
@@ -37,15 +41,15 @@ var R6MapData = (function(undefined){
         { floor: 2, top: -52, left: 121 }
       ],
       cameras: [
-        { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: 'Lobby' },
-        { floor: 2, top: -157, left: -392, id: 1, location: 'Lobby' },
-        { floor: 1, top: 100, left: 38, id: 2, location: 'Office Hallway' },
-        { floor: 2, top: -170, left: 249, id: 3, location: 'Skylight Stairwell' },
-        { floor: 0, top: 118, left: -203, id: 4, location: 'Vault Lobby' },
-        { outdoor: true, top: -431, left: 5, id: 5, location: 'Plaza' },
-        { floor: 0, top: 148, left: -518, id: 6, location: 'Garage Ramp' },
-        { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: 'Garage Ramp' },
-        { outdoor: true, top: 115, left: 562, id: 7, location: 'Back Alley' }
+        { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
+        { floor: 2, top: -157, left: -392, id: 1, location: bankTerms.lobby },
+        { floor: 1, top: 100, left: 38, id: 2, location: bankTerms.officeHallway },
+        { floor: 2, top: -170, left: 249, id: 3, location: bankTerms.skylightStairwell },
+        { floor: 0, top: 118, left: -203, id: 4, location: bankTerms.vaultLobby },
+        { outdoor: true, top: -431, left: 5, id: 5, location: bankTerms.plaza },
+        { floor: 0, top: 148, left: -518, id: 6, location: bankTerms.garageRamp },
+        { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: bankTerms.garageRamp },
+        { outdoor: true, top: 115, left: 562, id: 7, location: bankTerms.backAlley }
       ],
       ceilingHatches: [
         { floor: 0, top: 10, left: -138 },
@@ -77,73 +81,73 @@ var R6MapData = (function(undefined){
         { floor: 2, top: 89, left: 95, rotate: 0, size: DRONE_MED }
       ],
       roomLabels: [
-        { outdoor: true, description: 'Parking Lot', top: -575, left: -661 },
-        { outdoor: true, description: 'Boulevard', top: -575, left: -156 },
-        { outdoor: true, description: 'Jewelry Front', top: -575, left: 538 },
-        { outdoor: true, description: 'Plaza', top: -295, left: 239 },
-        { outdoor: true, description: 'Main Entrance', top: -448, left: -225 },
-        { outdoor: true, alwasyShow: true, description: 'Garage<br/>Ramp', top: -143, left: -486 },
-        { outdoor: true, description: 'Exterior Parking', top: -216, left: -720 },
-        { floor: 1, description: 'Garage Roof', top: 236, left: -274 },
-        { floor: 2, description: 'Garage Roof', top: 236, left: -274 },
-        { floor: 3, description: 'Garage Roof', top: 236, left: -274 },
-        { outdoor: true, description: 'Alley Access', top: 648, left: 647 },
-        { outdoor: true, description: 'Back Alley<br/>Rooftop', top: 495, left: 360 },
-        { outdoor: true, description: 'Back Alley', top: 336, left: 647 },
-        { outdoor: true, floor: 3, description: 'High Roof', top: -13, left: -136 },
-        { outdoor: true, floor: 3, description: 'Low Roof', top: 56, left: 129 },
-        { floor: 0, description: 'Vault', top: -150, left: -151 },
-        { floor: 0, description: 'Gold<br/>Vault', top: -128, left: 100 },
-        { floor: 0, description: 'Server Room Stairs', top: -161, left: 275 },
-        { floor: 0, description: 'Server Room', top: -59, left: 321 },
-        { floor: 0, description: 'CCTV<br/>Room', top: 53, left: 208 },
-        { floor: 0, description: 'Loading Dock', top: 167, left: 56 },
-        { floor: 0, description: 'Secure<br/>Hallway', top: 53, left: 101 },
-        { floor: 0, description: 'Secure<br/>Hallway', top: 114, left: 32 },
-        { floor: 0, description: 'Sewer', top: -255, left: 455 },
-        { floor: 0, description: 'Lockers', top: 4, left: 2 },
-        { floor: 0, description: 'Vault Lobby', top: 94, left: -128 },
-        { floor: 0, description: 'Vault<br/>Entrance', top: 13, left: -189 },
-        { floor: 0, description: 'Main Stairway', top: 238, left: -34 },
-        { floor: 0, description: 'Bank Garage', top: 315, left: -137 },
-        { floor: 0, description: 'Elevators', top: 170, left: -185 },
-        { floor: 1, description: 'Tellers\' Office', top: -92, left: 27 },
-        { floor: 1, description: 'Archives', top: -56, left: 153 },
-        { floor: 1, description: 'Tellers', top: -70, left: -90 },
-        { floor: 1, description: 'Loan Office', top: 132, left: -328 },
-        { floor: 1, description: 'Office Hallway', top: 123, left: -81 },
-        { floor: 1, description: 'Main Stairway', top: 238, left: -34 },
-        { floor: 1, description: 'Skylight<br/>Stairwell', top: -61, left: 318 },
-        { floor: 1, description: 'Lobby', top: -141, left: -234 },
-        { floor: 1, description: 'Open Area', top: 183, left: 162 },
-        { floor: 1, description: 'Staff Room', top: 145, left: 283 },
-        { floor: 1, description: 'Electrical<br/>Room', top: 18, left: 440 },
-        { floor: 1, description: 'Admin Office', top: 32, left: 143 },
-        { floor: 1, description: 'ATMs', top: -318, left: -223 },
-        { floor: 1, description: 'Elevators', top: 170, left: -118 },
-        { floor: 1, description: 'Elevators', top: 170, left: -185 },
-        { floor: 2, description: 'Executive<br/>Hallway', top: -166, left: 22 },
-        { floor: 2, description: 'Front<br/>Desk', top: -41, left: -138 },
-        { floor: 2, description: 'Executive<br/>Lounge', top: -75, left: 39 },
-        { floor: 2, description: 'CEO<br/>Office', top: -32, left: 175 },
-        { floor: 2, description: 'Skylight<br/>Stairwell', top: -8, left: 319 },
-        { floor: 2, description: 'Janitor Closet', top: 20, left: 149 },
-        { floor: 2, description: 'Hallway', top: 127, left: -20 },
-        { floor: 2, description: 'Main Stairway', top: 238, left: -34 },
-        { floor: 2, description: 'Terrace', top: 147, left: 320 },
-        { floor: 2, description: 'Stock<br/>Trading<br/>Room', top: 212, left: 57 },
-        { floor: 2, description: 'Conference Room', top: 20, left: -32 },
-        { floor: 2, description: 'Elevators', top: 170, left: -118 }
+        { outdoor: true, description: bankTerms.parkingLot, top: -575, left: -661 },
+        { outdoor: true, description: bankTerms.boulevard, top: -575, left: -156 },
+        { outdoor: true, description: bankTerms.jewelryFront, top: -575, left: 538 },
+        { outdoor: true, description: bankTerms.plaza, top: -295, left: 239 },
+        { outdoor: true, description: bankTerms.mainEntrance, top: -448, left: -225 },
+        { outdoor: true, alwasyShow: true, description: bankTerms.garageRamp, top: -143, left: -486 },
+        { outdoor: true, description: bankTerms.exteriorParking, top: -216, left: -720 },
+        { floor: 1, description: bankTerms.garageRoof, top: 236, left: -274 },
+        { floor: 2, description: bankTerms.garageRoof, top: 236, left: -274 },
+        { floor: 3, description: bankTerms.garageRoof, top: 236, left: -274 },
+        { outdoor: true, description: bankTerms.alleyAccess, top: 648, left: 647 },
+        { outdoor: true, description: bankTerms.backAlleyRooftop, top: 495, left: 360 },
+        { outdoor: true, description: bankTerms.backAlley, top: 336, left: 647 },
+        { outdoor: true, floor: 3, description: bankTerms.highRoof, top: -13, left: -136 },
+        { outdoor: true, floor: 3, description: bankTerms.lowRoof, top: 56, left: 129 },
+        { floor: 0, description: bankTerms.vault, top: -150, left: -151 },
+        { floor: 0, description: bankTerms.goldVault, top: -128, left: 100 },
+        { floor: 0, description: bankTerms.serverRoomStairs, top: -161, left: 275 },
+        { floor: 0, description: bankTerms.serverRoom, top: -59, left: 321 },
+        { floor: 0, description: bankTerms.CCTVRoom, top: 53, left: 208 },
+        { floor: 0, description: bankTerms.loadingDock, top: 167, left: 56 },
+        { floor: 0, description: bankTerms.secureHallway, top: 53, left: 101 },
+        { floor: 0, description: bankTerms.secureHallway, top: 114, left: 32 },
+        { floor: 0, description: bankTerms.sewer, top: -255, left: 455 },
+        { floor: 0, description: bankTerms.lockers, top: 4, left: 2 },
+        { floor: 0, description: bankTerms.vaultLobby, top: 94, left: -128 },
+        { floor: 0, description: bankTerms.vaultEntrance, top: 13, left: -189 },
+        { floor: 0, description: bankTerms.mainStairway, top: 238, left: -34 },
+        { floor: 0, description: bankTerms.vbankGarage, top: 315, left: -137 },
+        { floor: 0, description: bankTerms.elevators, top: 170, left: -185 },
+        { floor: 1, description: bankTerms.tellersOffice, top: -92, left: 27 },
+        { floor: 1, description: bankTerms.archives, top: -56, left: 153 },
+        { floor: 1, description: bankTerms.tellers, top: -70, left: -90 },
+        { floor: 1, description: bankTerms.loanOffice, top: 132, left: -328 },
+        { floor: 1, description: bankTerms.officeHallway, top: 123, left: -81 },
+        { floor: 1, description: bankTerms.mainStairway, top: 238, left: -34 },
+        { floor: 1, description: bankTerms.skylightStairwell, top: -61, left: 318 },
+        { floor: 1, description: bankTerms.lobby, top: -141, left: -234 },
+        { floor: 1, description: bankTerms.openArea, top: 183, left: 162 },
+        { floor: 1, description: bankTerms.staffRoom, top: 145, left: 283 },
+        { floor: 1, description: bankTerms.electricalRoom, top: 18, left: 440 },
+        { floor: 1, description: bankTerms.adminOffice, top: 32, left: 143 },
+        { floor: 1, description: bankTerms.ATMs, top: -318, left: -223 },
+        { floor: 1, description: bankTerms.elevators, top: 170, left: -118 },
+        { floor: 1, description: bankTerms.elevators, top: 170, left: -185 },
+        { floor: 2, description: bankTerms.executiveHallway, top: -166, left: 22 },
+        { floor: 2, description: bankTerms.frontDesk, top: -41, left: -138 },
+        { floor: 2, description: bankTerms.executiveLounge, top: -75, left: 39 },
+        { floor: 2, description: bankTerms.CEOOffice, top: -32, left: 175 },
+        { floor: 2, description: bankTerms.skylightStairwell, top: -8, left: 319 },
+        { floor: 2, description: bankTerms.janitorCloset, top: 20, left: 149 },
+        { floor: 2, description: bankTerms.hallway, top: 127, left: -20 },
+        { floor: 2, description: bankTerms.mainStairway, top: 238, left: -34 },
+        { floor: 2, description: bankTerms.terrace, top: 147, left: 320 },
+        { floor: 2, description: bankTerms.stockTradingRoom, top: 212, left: 57 },
+        { floor: 2, description: bankTerms.conferenceRoom, top: 20, left: -32 },
+        { floor: 2, description: bankTerms.elevators, top: 170, left: -118 }
       ]
     },
     chalet: {
-      name: 'Chalet',
+      name: mapNameTerms.chalet,
       imgUrlPrefix: 'chalet',
       floors: [
-        { index: 0, top: -715, left: -1275, background: true, name: 'Basement' },
-        { index: 1, top: -556, left: -342, name: '1st Floor', default: true },
-        { index: 2, top: -556, left: -342, name: '2nd Floor' },
-        { index: 3, top: -556, left: -342, name: 'Roof' }
+        { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
+        { index: 1, top: -556, left: -342, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -556, left: -342, name: floorTerms.secondFloor },
+        { index: 3, top: -556, left: -342, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 0, top: 62, left: 286 },
@@ -263,13 +267,13 @@ var R6MapData = (function(undefined){
       ]
     },
     club: {
-      name: 'Club House',
+      name: mapNameTerms.club,
       imgUrlPrefix: 'club-house',
       floors: [
-        { index: 0, top: -715, left: -1275, background: true, name: 'Basement' },
-        { index: 1, top: -566, left: -441, name: '1st Floor', default: true },
-        { index: 2, top: -566, left: -441, name: '2nd Floor' },
-        { index: 3, top: -566, left: -441, name: 'Roof' }
+        { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
+        { index: 1, top: -566, left: -441, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -566, left: -441, name: floorTerms.secondFloor },
+        { index: 3, top: -566, left: -441, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 0, top: -83, left: 70 },
@@ -386,13 +390,13 @@ var R6MapData = (function(undefined){
       ]
     },
     consulate: {
-      name: 'Consulate',
+      name: mapNameTerms.consulate,
       imgUrlPrefix: 'consulate',
       floors: [
-        { index: 0, top: -715, left: -1275, background: true, name: 'Basement' },
-        { index: 1, top: -282, left: -452, name: '1st Floor', default: true },
-        { index: 2, top: -282, left: -452, name: '2nd Floor' },
-        { index: 3, top: -282, left: -452, name: 'Roof' }
+        { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
+        { index: 1, top: -282, left: -452, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -282, left: -452, name: floorTerms.secondFloor },
+        { index: 3, top: -282, left: -452, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 1, top: 41, left: 142 },
@@ -520,14 +524,14 @@ var R6MapData = (function(undefined){
       ]
     },
     hereford: {
-      name: 'Hereford Base',
+      name: mapNameTerms.hereford,
       imgUrlPrefix: 'hereford',
       floors: [
-        { index: 0, top: -715, left: -1275, background: true, name: 'Basement' },
-        { index: 1, top: -63, left: -414, name: '1st Floor', default: true },
-        { index: 2, top: -63, left: -414, name: '2nd Floor' },
-        { index: 3, top: -63, left: -414, name: '3rd Floor' },
-        { index: 4, top: -63, left: -414, name: 'Roof' }
+        { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
+        { index: 1, top: -63, left: -414, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -63, left: -414, name: floorTerms.secondFloor },
+        { index: 3, top: -63, left: -414, name: floorTerms.thirdFloor },
+        { index: 4, top: -63, left: -414, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 0, top: 146, left: -114 },
@@ -630,13 +634,13 @@ var R6MapData = (function(undefined){
       ]
     },
     house: {
-      name: 'House',
+      name: mapNameTerms.house,
       imgUrlPrefix: 'house',
       floors: [
-        { index: 0, top: -715, left: -1275, background: true, name: 'Basement' },
-        { index: 1, top: -251, left: -382, name: '1st Floor', default: true },
-        { index: 2, top: -251, left: -382, name: '2nd Floor' },
-        { index: 3, top: -251, left: -382, name: 'Roof' }
+        { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
+        { index: 1, top: -251, left: -382, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -251, left: -382, name: floorTerms.secondFloor },
+        { index: 3, top: -251, left: -382, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 2, top: -110, left: -188 },
@@ -730,13 +734,13 @@ var R6MapData = (function(undefined){
       ]
     },
     kanal: {
-      name: 'Kanal',
+      name: mapNameTerms.kanal,
       imgUrlPrefix: 'kanal',
       floors: [
-        { index: 1, top: -715, left: -1275, background: true, name: '1st Floor', default: true },
-        { index: 2, top: -428, left: -608, name: '2nd Floor' },
-        { index: 3, top: -428, left: -608, name: '3rd Floor' },
-        { index: 4, top: -428, left: -608, name: 'Roof' }
+        { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -428, left: -608, name: floorTerms.secondFloor },
+        { index: 3, top: -428, left: -608, name: floorTerms.thirdFloor },
+        { index: 4, top: -428, left: -608, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 1, top: 95, left: -416 },
@@ -848,13 +852,13 @@ var R6MapData = (function(undefined){
       ]
     },
     kafe: {
-      name: 'Kafe Dostoyevsky',
+      name: mapNameTerms.kafe,
       imgUrlPrefix: 'kafe',
       floors: [
-        { index: 1, top: -715, left: -1275, background: true, name: '1st Floor', default: true },
-        { index: 2, top: -288, left: -391, name: '2nd Floor' },
-        { index: 3, top: -288, left: -391, name: '3rd Floor' },
-        { index: 4, top: -288, left: -391, name: 'Roof' }
+        { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -288, left: -391, name: floorTerms.secondFloor },
+        { index: 3, top: -288, left: -391, name: floorTerms.thirdFloor },
+        { index: 4, top: -288, left: -391, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 1, top: 193, left: 59 },
@@ -958,13 +962,13 @@ var R6MapData = (function(undefined){
       ]
     },
     oregon: {
-      name: 'Oregon',
+      name: mapNameTerms.oregon,
       imgUrlPrefix: 'oregon',
       floors: [
-        { index: 0, top: -715, left: -1275, background: true, name: 'Basement' },
-        { index: 1, top: -445, left: -611, name: '1st Floor', default: true },
-        { index: 2, top: -445, left: -611, name: '2nd Floor' },
-        { index: 3, top: -445, left: -611, name: 'Roof' }
+        { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
+        { index: 1, top: -445, left: -611, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -445, left: -611, name: floorTerms.secondFloor },
+        { index: 3, top: -445, left: -611, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 0, top: -7, left: 208 },
@@ -1074,13 +1078,13 @@ var R6MapData = (function(undefined){
       ]
     },
     plane: {
-      name: 'Presidential Plane',
+      name: mapNameTerms.plane,
       imgUrlPrefix: 'plane',
       floors: [
-        { index: 1, top: -715, left: -1275, background: true, name: '1st Floor' },
-        { index: 2, top: -715, left: -920, name: '2nd Floor', default: true },
-        { index: 3, top: -715, left: -920, name: '3rd Floor' },
-        { index: 4, top: -715, left: -920, name: 'Roof' }
+        { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor },
+        { index: 2, top: -715, left: -920, name: floorTerms.secondFloor, default: true },
+        { index: 3, top: -715, left: -920, name: floorTerms.thirdFloor },
+        { index: 4, top: -715, left: -920, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 2, top: 30, left: 358 },
@@ -1171,14 +1175,14 @@ var R6MapData = (function(undefined){
       ]
     },
     yacht: {
-      name: 'Yacht',
+      name: mapNameTerms.yacht,
       imgUrlPrefix: 'yacht',
       floors: [
-        { index: 1, top: -715, left: -1275, background: true, name: '1st Floor' },
-        { index: 2, top: -261, left: -840, name: '2nd Floor', default: true },
-        { index: 3, top: -261, left: -840, name: '3rd Floor' },
-        { index: 4, top: -261, left: -840, name: '4th Floor' },
-        { index: 5, top: -261, left: -840, name: 'Roof' }
+        { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor },
+        { index: 2, top: -261, left: -840, name: floorTerms.secondFloor, default: true },
+        { index: 3, top: -261, left: -840, name: floorTerms.thirdFloor },
+        { index: 4, top: -261, left: -840, name: floorTerms.fourthFloor },
+        { index: 5, top: -261, left: -840, name: floorTerms.roof }
       ],
       hostageObjectives: [
         { floor: 4, top: 13, left: 16 },
@@ -1318,4 +1322,4 @@ var R6MapData = (function(undefined){
   return  {
     maps: maps
   };
-})();
+})(R6MapLangTerms);
