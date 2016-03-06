@@ -565,12 +565,12 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 3, top: 295, left: 86 }
       ],
       cameras: [
-        { outside: true, top: -238, left: 299 },
-        { outside: true, top: 511, left: -298 },
-        { floor: 0, top: 122, left: 125 },
-        { floor: 1, top: 237, left: 5 },
-        { floor: 2, top: 268, left: -1 },
-        { floor: 3, top: 204, left: -12 }
+        { floor: 3, top: 204, left: -12, id: 1, location: herefordTerms.rooftop },
+        { floor: 2, top: 268, left: -1, id: 2, location: herefordTerms.corridor },
+        { floor: 1, top: 237, left: 5, id: 3, location: herefordTerms.corridor1 },
+        { floor: 0, top: 122, left: 125, id: 4, location: herefordTerms.lockers },
+        { outside: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntranceNoBreak },
+        { outside: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftAreaNoBreak }
       ],
       ceilingHatches: [
         { floor: 0, top: 120, left: -158 },
