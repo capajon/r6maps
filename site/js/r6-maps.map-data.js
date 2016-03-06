@@ -768,13 +768,13 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 3, top: 127, left: -50 }
       ],
       cameras: [
-        { outdoor: true, top: 545, left: 572 },
-        { outdoor: true, top: -210, left: -434 },
-        { floor: 1, top: -31, left: -213 },
-        { floor: 1 , top: 50, left: 355 },
-        { floor: 2, top: 140, left: 145 },
-        { floor: 2, otherFloor: 'up', top: -183, left: 391 },
-        { floor: 3, top: -183, left: 391 }
+        { floor: 2, otherFloor: 'up', top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
+        { floor: 3, top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
+        { floor: 2, top: 140, left: 145, id: 2, location: kafeTerms.readingRoomCorridor },
+        { floor: 1 , top: 50, left: 355, id: 3, location: kafeTerms.coldRoomCorridorNoBreak },
+        { floor: 1, top: -31, left: -213, id: 4, location: kafeTerms.bakery },
+        { outdoor: true, top: -210, left: -434, id: 5, location: kafeTerms.westMainStreet },
+        { outdoor: true, top: 545, left: 572, id: 6, location: kafeTerms.parkAlleyNoBreak }
       ],
       ceilingHatches: [
         { floor: 1, top: 218, left: 278 },

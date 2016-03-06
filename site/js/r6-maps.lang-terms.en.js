@@ -431,6 +431,7 @@ var R6MapLangTerms = (function(undefined) {
         washroomCorridor: 'Washroom Corridor',
         cocktailLounge: 'Cocktail Lounge',
         cocktailLoungeEntrance: 'Cocktail<br/>Lounge<br/>Entrance',
+        cocktailLoungeEntranceNoBreak: 'Cocktail Lounge Entrance',
         westMainStreet: 'West Main Street',
         mainStreet: 'Main Street',
         bakeryParking: 'Bakery<br/>Parking',
@@ -439,7 +440,8 @@ var R6MapLangTerms = (function(undefined) {
         terrace: 'Terrace',
         backAlley: 'Back Alley',
         garrage: 'Garrage',
-        parkAlley: 'Park<br/>Alley'
+        parkAlley: 'Park<br/>Alley',
+        parkAlleyNoBreak: 'Park Alley'
       },
       oregon: {
         towerStairs: 'Tower Stairs',
