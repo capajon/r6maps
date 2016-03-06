@@ -307,14 +307,14 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: -109, left: 25 }
       ],
       cameras: [
-        { outdoor: true, top: 254, left: -170 },
-        { outdoor: true, top: 298, left: 444 },
-        { outdoor: true, top: -222, left: -316 },
-        { floor: 0, top: -176, left: -28 },
-        { floor: 1, top: -128, left: -18 },
-        { floor: 1, otherFloor: 'up', top: 259, left: 287 },
-        { floor: 2, top: 259, left: 287 },
-        { floor: 2, top: -191, left: 3 }
+        { floor: 2, top: -191, left: 3, id: 1, location: clubTerms.bedroomHallway },
+        { floor: 1, top: -128, left: -18, id: 2, location: clubTerms.bar },
+        { floor: 1, otherFloor: 'up', top: 259, left: 287, id: 3, location: clubTerms.garage },
+        { floor: 2, top: 259, left: 287, id: 3, location: clubTerms.garage },
+        { floor: 0, top: -176, left: -28, id: 4, location: clubTerms.basementHallway },
+        { outdoor: true, top: 254, left: -170, id: 5, location: clubTerms.VIPParking },
+        { outdoor: true, top: -222, left: -316, id: 6, location: clubTerms.graffitiArea },
+        { outdoor: true, top: 298, left: 444, id: 7, location: clubTerms.kennels }
       ],
       ceilingHatches: [
         { floor: 0, top: -258, left: 108 },
@@ -428,15 +428,15 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 25, left: 319 }
       ],
       cameras: [
-        { outdoor: true, top: 498, left: -50 },
-        { outdoor: true, top: -32, left: -537 },
-        { floor: 0, top: -35, left: -148 },
-        { floor: 0, top: -79, left: 40 },
-        { floor: 1, top: 243, left: 11 },
-        { floor: 1, top: -78, left: 374 },
-        { floor: 1, otherFloor: 'up', top: -168, left: 11 },
-        { floor: 2, top: -168, left: 11 },
-        { floor: 2, top: 26, left: -220 }
+        { floor: 2, top: 26, left: -220, id: 1, location: consulateTerms.consulFrontDeskNoBreak },
+        { floor: 2, top: -168, left: 11, id: 2, location: consulateTerms.mainStairs },
+        { floor: 1, otherFloor: 'up', top: -168, left: 11, id: 2, location: consulateTerms.mainStairs },
+        { floor: 1, top: -78, left: 374, id: 3, location: consulateTerms.visaOffice },
+        { floor: 1, top: 243, left: 11, id: 4, location: consulateTerms.frontDoor },
+        { floor: 0, top: -79, left: 40, id: 5, location: consulateTerms.lockerHallwayNoBreak },
+        { floor: 0, top: -35, left: -148, id: 6, location: consulateTerms.garage },
+        { outdoor: true, top: 498, left: -50, id: 7, location: consulateTerms.frontAlley },
+        { outdoor: true, top: -32, left: -537, id: 8, location: consulateTerms.garageWay }
       ],
       ceilingHatches: [
         { floor: 0, top: 20, left: -172 },
