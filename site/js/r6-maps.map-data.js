@@ -738,6 +738,116 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 3, top: 1, left: -11, description: houseTerms.rooftop }
       ]
     },
+    kafe: {
+      name: mapNameTerms.kafe,
+      imgUrlPrefix: 'kafe',
+      floors: [
+        { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+        { index: 2, top: -288, left: -391, name: floorTerms.secondFloor },
+        { index: 3, top: -288, left: -391, name: floorTerms.thirdFloor },
+        { index: 4, top: -288, left: -391, name: floorTerms.roof }
+      ],
+      hostageObjectives: [
+        { floor: 1, top: 193, left: 59 },
+        { floor: 2, top: 165, left: 71 },
+        { floor: 2, top: 20, left: 406},
+        { floor: 3, top: 178, left: 288 }
+      ],
+      bombObjectives: [
+        { floor: 1, top: -52, left: -157, set: 1, letter: objectiveTerms.bombShortA },
+        { floor: 1, top: 140, left: 59, set: 1, letter: objectiveTerms.bombShortB },
+        { floor: 2, top: 63, left: 51, set: 2, letter: objectiveTerms.bombShortA },
+        { floor: 2, top: 210, left: 240, set: 2, letter: objectiveTerms.bombShortB },
+        { floor: 3, top: 120, left: 429, set: 3, letter: objectiveTerms.bombShortA },
+        { floor: 3, top: -69, left: 240, set: 3, letter: objectiveTerms.bombShortB }
+      ],
+      secureObjectives: [
+        { floor: 1, top: 89, left: 59 },
+        { floor: 2, top: 210, left: 36 },
+        { floor: 2, top: 20, left: 337 },
+        { floor: 3, top: 127, left: -50 }
+      ],
+      cameras: [
+        { outdoor: true, top: 545, left: 572 },
+        { outdoor: true, top: -210, left: -434 },
+        { floor: 1, top: -31, left: -213 },
+        { floor: 1 , top: 50, left: 355 },
+        { floor: 2, top: 140, left: 145 },
+        { floor: 2, otherFloor: 'up', top: -183, left: 391 },
+        { floor: 3, top: -183, left: 391 }
+      ],
+      ceilingHatches: [
+        { floor: 1, top: 218, left: 278 },
+        { floor: 2, top: 215, left: 74 },
+        { floor: 2, top: -67, left: 94 },
+        { floor: 2, top: 75, left: 257 },
+        { floor: 2, top: 166, left: 449 },
+        { floor: 3, top: -54, left: -19 }
+      ],
+      skylights: [
+        { floor: 3, top: -43, left: 260 }
+      ],
+      droneTunnels: [
+        { floor: 1, top: -15, left: -55, rotate: 0, size: 28 },
+        { floor: 1, top: 62, left: 105, rotate: 90, size: DRONE_SMALL },
+        { floor: 2, top: 108, left: 124, rotate: 90, size: DRONE_SMALL },
+        { floor: 2, top: -20, left: 201, rotate: 0, size: DRONE_SMALL },
+        { floor: 2, top: 121, left: 473, rotate: 90, size: DRONE_MED },
+        { floor: 2, top: 276, left: 353, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: 11, left: 9, rotate: 90, size: DRONE_SMALL }
+      ],
+      roomLabels: [
+        { floor: 1, top: -156, left: -34, description: kafeTerms.frontStairs },
+        { floor: 1, top: 83, left: -186, description: kafeTerms.bakery },
+        { floor: 1, top: 230, left: -82, description: kafeTerms.bakeryKitchen },
+        { floor: 1, top: -36, left: 56, description: kafeTerms.mainCorridorNoBreak },
+        { floor: 1, top: 34, left: 12, description: kafeTerms.kitchenPrep },
+        { floor: 1, top: 185, left: 129, description: kafeTerms.kitchenGrill },
+        { floor: 1, top: 124, left: 154, description: kafeTerms.kitchenPickUp },
+        { floor: 1, top: 71, left: 227, description: kafeTerms.coldRoomCorridorNoBreak },
+        { floor: 1, top: 165, left: 267, description: kafeTerms.coldRoom },
+        { floor: 1, top: -128, left: 313, description: kafeTerms.diningRoom },
+        { floor: 1, top: 236, left: 450, description: kafeTerms.backStairs },
+        { floor: 1, top: 188, left: 349, description: kafeTerms.coldRoomCorridor },
+        { floor: 1, top: 60, left: 425, description: kafeTerms.VIPSection },
+        { floor: 1, top: -32, left: 322, description: kafeTerms.barStairs },
+        { floor: 1, top: 313, left: 395, description: kafeTerms.storage },
+        { floor: 2, top: -156, left: -34, description: kafeTerms.frontStairs },
+        { floor: 2, top: -32, left: 322, description: kafeTerms.barStairs },
+        { floor: 2, top: -57, left: 24, description: kafeTerms.museumEntrance },
+        { floor: 2, top: 0, left: 24, description: kafeTerms.miningRoom },
+        { floor: 2, top: 126, left: 24, description: kafeTerms.trainMuseum },
+        { floor: 2, top: -133, left: 239, description: kafeTerms.pillarDiningRoom },
+        { floor: 2, top: 236, left: 450, description: kafeTerms.backStairs },
+        { floor: 2, top: 16, left: 152, description: kafeTerms.mainCorridor },
+        { floor: 2, top: 143, left: 272, description: kafeTerms.readingRoomCorridor },
+        { floor: 2, top: 70, left: 346, description: kafeTerms.readingRoom },
+        { floor: 2, top: 189, left: 181, description: kafeTerms.fireplaceHall },
+        { floor: 3, top: 236, left: 450, description: kafeTerms.backStairs },
+        { floor: 3, top: -156, left: -34, description: kafeTerms.frontStairs },
+        { floor: 3, top: -1, left: 67, description: kafeTerms.cigarShop },
+        { floor: 3, top: 132, left: 38, description: kafeTerms.cigarLounge },
+        { floor: 3, top: 24, left: 257, description: kafeTerms.bar },
+        { floor: 3, top: 120, left: 257, description: kafeTerms.barBackstore },
+        { floor: 3, top: 189, left: 218, description: kafeTerms.washrooms },
+        { floor: 3, top: 256, left: 310, description: kafeTerms.washroomCorridor },
+        { floor: 3, top: 61, left: 428, description: kafeTerms.cocktailLounge },
+        { floor: 3, top: 129, left: 353, description: kafeTerms.cocktailLoungeEntrance },
+        { outdoor: true, top: -379, left: -588, description: kafeTerms.westMainStreet },
+        { outdoor: true,  top: -379, left: 132, description: kafeTerms.mainStreet },
+        { outdoor: true,  top: 71, left: -337, description: kafeTerms.bakeryParking },
+        { floor: 2,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
+        { floor: 3,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
+        { floor: 4,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
+        { floor: 4,  top: 42, left: 209, description: kafeTerms.cafeRoofTop },
+        { floor: 2,  top: 44, left: 554, description: kafeTerms.terrace },
+        { floor: 3,  top: 44, left: 554, description: kafeTerms.terrace },
+        { floor: 4,  top: 44, left: 554, description: kafeTerms.terrace },
+        { outdoor: true,  top: 379, left: 131, description: kafeTerms.backAlley },
+        { outdoor: true,  top: 379, left: -290, description: kafeTerms.garrage },
+        { outdoor: true, top: 577, left: 517, description: kafeTerms.parkAlley }
+      ]
+    },
     kanal: {
       name: mapNameTerms.kanal,
       imgUrlPrefix: 'kanal',
@@ -854,116 +964,6 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: -353, left: -438, description: kanalTerms.dockStairs },
         { outdoor: true, top: 485, left: 274, description: kanalTerms.parking },
         { floor: 1, top: -169, left: -362, description: kanalTerms.boatCrane }
-      ]
-    },
-    kafe: {
-      name: mapNameTerms.kafe,
-      imgUrlPrefix: 'kafe',
-      floors: [
-        { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
-        { index: 2, top: -288, left: -391, name: floorTerms.secondFloor },
-        { index: 3, top: -288, left: -391, name: floorTerms.thirdFloor },
-        { index: 4, top: -288, left: -391, name: floorTerms.roof }
-      ],
-      hostageObjectives: [
-        { floor: 1, top: 193, left: 59 },
-        { floor: 2, top: 165, left: 71 },
-        { floor: 2, top: 20, left: 406},
-        { floor: 3, top: 178, left: 288 }
-      ],
-      bombObjectives: [
-        { floor: 1, top: -52, left: -157, set: 1, letter: objectiveTerms.bombShortA },
-        { floor: 1, top: 140, left: 59, set: 1, letter: objectiveTerms.bombShortB },
-        { floor: 2, top: 63, left: 51, set: 2, letter: objectiveTerms.bombShortA },
-        { floor: 2, top: 210, left: 240, set: 2, letter: objectiveTerms.bombShortB },
-        { floor: 3, top: 120, left: 429, set: 3, letter: objectiveTerms.bombShortA },
-        { floor: 3, top: -69, left: 240, set: 3, letter: objectiveTerms.bombShortB }
-      ],
-      secureObjectives: [
-        { floor: 1, top: 89, left: 59 },
-        { floor: 2, top: 210, left: 36 },
-        { floor: 2, top: 20, left: 337 },
-        { floor: 3, top: 127, left: -50 }
-      ],
-      cameras: [
-        { outdoor: true, top: 545, left: 572 },
-        { outdoor: true, top: -210, left: -434 },
-        { floor: 1, top: -31, left: -213 },
-        { floor: 1 , top: 50, left: 355 },
-        { floor: 2, top: 140, left: 145 },
-        { floor: 2, otherFloor: 'up', top: -183, left: 391 },
-        { floor: 3, top: -183, left: 391 }
-      ],
-      ceilingHatches: [
-        { floor: 1, top: 218, left: 278 },
-        { floor: 2, top: 215, left: 74 },
-        { floor: 2, top: -67, left: 94 },
-        { floor: 2, top: 75, left: 257 },
-        { floor: 2, top: 166, left: 449 },
-        { floor: 3, top: -54, left: -19 }
-      ],
-      skylights: [
-        { floor: 3, top: -43, left: 260 }
-      ],
-      droneTunnels: [
-        { floor: 1, top: -15, left: -55, rotate: 0, size: 28 },
-        { floor: 1, top: 62, left: 105, rotate: 90, size: DRONE_SMALL },
-        { floor: 2, top: 108, left: 124, rotate: 90, size: DRONE_SMALL },
-        { floor: 2, top: -20, left: 201, rotate: 0, size: DRONE_SMALL },
-        { floor: 2, top: 121, left: 473, rotate: 90, size: DRONE_MED },
-        { floor: 2, top: 276, left: 353, rotate: 0, size: DRONE_MED },
-        { floor: 3, top: 11, left: 9, rotate: 90, size: DRONE_SMALL }
-      ],
-      roomLabels: [
-        { floor: 1, top: -156, left: -34, description: kafeTerms.frontStairs },
-        { floor: 1, top: 83, left: -186, description: kafeTerms.bakery },
-        { floor: 1, top: 230, left: -82, description: kafeTerms.bakeryKitchen },
-        { floor: 1, top: -36, left: 56, description: kafeTerms.mainCorridorNoBreak },
-        { floor: 1, top: 34, left: 12, description: kafeTerms.kitchenPrep },
-        { floor: 1, top: 185, left: 129, description: kafeTerms.kitchenGrill },
-        { floor: 1, top: 124, left: 154, description: kafeTerms.kitchenPickUp },
-        { floor: 1, top: 71, left: 227, description: kafeTerms.coldRoomCorridorNoBreak },
-        { floor: 1, top: 165, left: 267, description: kafeTerms.coldRoom },
-        { floor: 1, top: -128, left: 313, description: kafeTerms.diningRoom },
-        { floor: 1, top: 236, left: 450, description: kafeTerms.backStairs },
-        { floor: 1, top: 188, left: 349, description: kafeTerms.coldRoomCorridor },
-        { floor: 1, top: 60, left: 425, description: kafeTerms.VIPSection },
-        { floor: 1, top: -32, left: 322, description: kafeTerms.barStairs },
-        { floor: 1, top: 313, left: 395, description: kafeTerms.storage },
-        { floor: 2, top: -156, left: -34, description: kafeTerms.frontStairs },
-        { floor: 2, top: -32, left: 322, description: kafeTerms.barStairs },
-        { floor: 2, top: -57, left: 24, description: kafeTerms.museumEntrance },
-        { floor: 2, top: 0, left: 24, description: kafeTerms.miningRoom },
-        { floor: 2, top: 126, left: 24, description: kafeTerms.trainMuseum },
-        { floor: 2, top: -133, left: 239, description: kafeTerms.pillarDiningRoom },
-        { floor: 2, top: 236, left: 450, description: kafeTerms.backStairs },
-        { floor: 2, top: 16, left: 152, description: kafeTerms.mainCorridor },
-        { floor: 2, top: 143, left: 272, description: kafeTerms.readingRoomCorridor },
-        { floor: 2, top: 70, left: 346, description: kafeTerms.readingRoom },
-        { floor: 2, top: 189, left: 181, description: kafeTerms.fireplaceHall },
-        { floor: 3, top: 236, left: 450, description: kafeTerms.backStairs },
-        { floor: 3, top: -156, left: -34, description: kafeTerms.frontStairs },
-        { floor: 3, top: -1, left: 67, description: kafeTerms.cigarShop },
-        { floor: 3, top: 132, left: 38, description: kafeTerms.cigarLounge },
-        { floor: 3, top: 24, left: 257, description: kafeTerms.bar },
-        { floor: 3, top: 120, left: 257, description: kafeTerms.barBackstore },
-        { floor: 3, top: 189, left: 218, description: kafeTerms.washrooms },
-        { floor: 3, top: 256, left: 310, description: kafeTerms.washroomCorridor },
-        { floor: 3, top: 61, left: 428, description: kafeTerms.cocktailLounge },
-        { floor: 3, top: 129, left: 353, description: kafeTerms.cocktailLoungeEntrance },
-        { outdoor: true, top: -379, left: -588, description: kafeTerms.westMainStreet },
-        { outdoor: true,  top: -379, left: 132, description: kafeTerms.mainStreet },
-        { outdoor: true,  top: 71, left: -337, description: kafeTerms.bakeryParking },
-        { floor: 2,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
-        { floor: 3,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
-        { floor: 4,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
-        { floor: 4,  top: 42, left: 209, description: kafeTerms.cafeRoofTop },
-        { floor: 2,  top: 44, left: 554, description: kafeTerms.terrace },
-        { floor: 3,  top: 44, left: 554, description: kafeTerms.terrace },
-        { floor: 4,  top: 44, left: 554, description: kafeTerms.terrace },
-        { outdoor: true,  top: 379, left: 131, description: kafeTerms.backAlley },
-        { outdoor: true,  top: 379, left: -290, description: kafeTerms.garrage },
-        { outdoor: true, top: 577, left: 517, description: kafeTerms.parkAlley }
       ]
     },
     oregon: {
