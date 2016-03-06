@@ -183,17 +183,15 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 244, left: -54 }
       ],
       cameras: [
-        { outdoor: true, top: -147, left: 838 },
-        { outdoor: true, top: -36, left: -350 },
-        { floor: 0, top: 151, left: 139 },
-        { floor: 1, otherFloor: 'up', top: 101, left: -106 },
-        { floor: 1, otherFloor: 'up', top: -117, left: 197 },
-        { floor: 1, top: 19, left: 382 },
-        { floor: 1, otherFloor: 'up', top: 307, left: 297 },
-        { floor: 2, top: 101, left: -106 },
-        { floor: 2, top: -117, left: 197 },
-        { floor: 2, otherFloor: 'down', top: 19, left: 382 },
-        { floor: 2, top: 307, left: 297 }
+        { floor: 1, otherFloor: 'up', top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallwayNoBreak },
+        { floor: 2, top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallwayNoBreak },
+        { floor: 1, otherFloor: 'up', top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallwayNoBreak },
+        { floor: 2, top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallwayNoBreak },
+        { floor: 1, otherFloor: 'up', top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
+        { floor: 2, top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
+        { floor: 0, top: 151, left: 139, id: 4, location: chaletTerms.snowmobileGarageNoBreak },
+        { outdoor: true, top: -36, left: -350, id: 5, location: chaletTerms.frontYard },
+        { outdoor: true, top: -147, left: 838, id: 6, location: chaletTerms.backyard }
       ],
       ceilingHatches: [
         { floor: 0, top: 259, left: 116 },
