@@ -279,6 +279,11 @@ body {
 body, button, input, select {
   font-size: 1rem; }
 
+#map-pan-safety-wrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; }
+
 #map {
   height: 100vh;
   position: relative;

@@ -117,6 +117,16 @@ var R6MapsControls = (function($,window,document,undefined) {
 
     zoomControl.on('change', getHandleZoomChangeFn(mapElements));
     zoomControl.on('input', getHandleZoomChangeFn(mapElements));
+
+    // camera links were not working on touch devices:
+    map.on('touchstart','a', function(e) {
+      $(this).addClass('hover');
+    });
+
+    map.on('touchend','a', function(e) {
+      $(this).removeClass('hover');
+      this.click();
+    });
   };
 
   var isZoomed = function isZoomed() {
