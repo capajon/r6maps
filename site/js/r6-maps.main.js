@@ -23,6 +23,7 @@
 
   var loadMap = function loadMap() {
     var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap();
+
     R6MapsControls.populateFloorOptions(R6MapData.maps[currentlySelectedMap].floors);
     R6MapsRender.renderMap(R6MapData.maps[currentlySelectedMap], mapElements);
     setupCameraScreenshots();
