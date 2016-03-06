@@ -688,12 +688,8 @@ var R6MapData = (function(R6MapLangTerms, undefined){
       ],
       skylights: [],
       droneTunnels: [
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        { floor: 0, top: -7, left: 161, rotate: 45, size: 26, alternate: true },
+        { floor: 1, top: 126, left: 30, rotate: 340, size: 20, alternate: true }
       ],
       roomLabels: [
         { floor: 0, top: -128, left: -141, description: houseTerms.depot },
@@ -793,7 +789,7 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: -85, left: -366, rotate: 90, size: DRONE_SMALL },
         { floor: 2, top: -71, left: 246, rotate: 90, size: DRONE_SMALL },
         { floor: 3, top: 64, left: 460, rotate: 0, size: DRONE_MED },
-        { floor: 3, top: -63, left: 261, rotate: 0, size: DRONE_SMALL }
+        { floor: 3, top: 9, left: 193, rotate: 0, size: DRONE_SMALL }
       ],
       roomLabels: [
         { floor: 1, top: -68, left: -372, description: kanalTerms.boatGarage },
@@ -1133,12 +1129,7 @@ var R6MapData = (function(R6MapLangTerms, undefined){
       ],
       skylights: [],
       droneTunnels: [
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        { floor: 2, top: -42, left: 172, rotate: 90, size: DRONE_SMALL, alternate: true }
       ],
       roomLabels: [
         { floor: 2, top: -6, left: 300, description: planeTerms.meetingRoom },
@@ -1246,12 +1237,17 @@ var R6MapData = (function(R6MapLangTerms, undefined){
       ],
       skylights: [],
       droneTunnels: [
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
-        //{ floor: , , rotate: 0, size: DRONE__SIZE },
+        { floor: 1, top: 63, left: -550, rotate: 90, size: 108 },
+        { floor: 1, top: -36, left: -550, rotate: 90, size: 108 },
+        { floor: 2, top: 103, left: -155, rotate: 0, size: DRONE_SMALL },
+        { floor: 2, top: 129, left: -289, rotate: 90, size: DRONE_MED },
+        { floor: 3, top: -83, left: -190, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: -83, left: 175, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: 106, left: -52, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: 62, left: 177, rotate: 90, size: DRONE_MED },
+        { floor: 3, top: 106, left: 147, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: 106, left: 289, rotate: 0, size: DRONE_MED },
+        { floor: 3, top: 0, left: 217, rotate: 90, size: DRONE_MED }
       ],
       roomLabels: [
         { floor: 4, top: 59, left: 35, description: yachtTerms.mapsRoom },

@@ -188,6 +188,7 @@ var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
         getRotateCssStatements(droneTunnel.rotate);
       classes = 'drone-tunnel ';
       classes += getCommonClasses(droneTunnel);
+      classes += (droneTunnel.alternate) ? 'alternate ' : ''; 
       html += '<div style="' + inlineStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
     });
     return html;
