@@ -141,7 +141,8 @@ nav {
   nav .zoom {
     margin: 0.25em 0.5em; }
   nav #map-control {
-    margin: 0.25em 0 0.25em 0.5em; }
+    margin: 0.25em 0 0.25em 0.5em;
+    width: 120px; }
   nav #objective-control {
     margin: 0.25em 0; }
   nav a {
