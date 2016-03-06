@@ -678,8 +678,7 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 0, top: 4, left: -206, id: 3, location: houseTerms.trainingRoom },
         { floor: 0, top: -4, left: 36, id: 4, location: houseTerms.garage },
         { outdoor: true, top: -400, left: -289, id: 5, location: houseTerms.frontYard },
-        { outdoor: true, top: 454, left: 291, id: 6, location: houseTerms.garden },
-
+        { outdoor: true, top: 454, left: 291, id: 6, location: houseTerms.garden }
       ],
       ceilingHatches: [
         { floor: 0, top: -72, left: -120 },
