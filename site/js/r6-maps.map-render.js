@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsRender = (function($,window,document,undefined) {
+var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
   var CAMERA_WIDTH = 40,
     CAMERA_HEIGHT = 40;
 
@@ -70,7 +70,7 @@ var R6MapsRender = (function($,window,document,undefined) {
       positionStyle = getPositionStyle(hostage);
       classes = 'objective hostage ';
       classes += getCommonClasses(hostage);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>H</p><span></span></div>';
+      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>' + R6MapLangTerms.terms.objectives.hostageShort + '</p><span></span></div>';
     });
     return html;
   };
@@ -100,7 +100,7 @@ var R6MapsRender = (function($,window,document,undefined) {
       positionStyle = getPositionStyle(secure);
       classes = 'objective secure ';
       classes += getCommonClasses(secure);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>S</p><span></span></div>';
+      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>' + R6MapLangTerms.terms.objectives.secureShort + '</p><span></span></div>';
     });
     return html;
   };
@@ -249,4 +249,4 @@ var R6MapsRender = (function($,window,document,undefined) {
     showFloor: showFloor,
     showObjective: showObjective
   };
-})(window.jQuery, window, document);
+})(window.jQuery, window, document, R6MapLangTerms);
