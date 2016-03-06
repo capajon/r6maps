@@ -55,11 +55,11 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
         { floor: 2, top: -157, left: -392, id: 1, location: bankTerms.lobby },
         { floor: 1, top: 100, left: 38, id: 2, location: bankTerms.officeHallway },
-        { floor: 2, top: -170, left: 249, id: 3, location: bankTerms.skylightStairwell2 },
+        { floor: 2, top: -170, left: 249, id: 3, location: bankTerms.skylightStairwellNoBreak },
         { floor: 0, top: 118, left: -203, id: 4, location: bankTerms.vaultLobby },
         { outdoor: true, top: -431, left: 5, id: 5, location: bankTerms.plaza },
-        { floor: 0, top: 148, left: -518, id: 6, location: bankTerms.garageRamp2 },
-        { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: bankTerms.garageRamp2 },
+        { floor: 0, top: 148, left: -518, id: 6, location: bankTerms.garageRampNoBreak },
+        { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: bankTerms.garageRampNoBreak },
         { outdoor: true, top: 115, left: 562, id: 7, location: bankTerms.backAlley }
       ],
       ceilingHatches: [
