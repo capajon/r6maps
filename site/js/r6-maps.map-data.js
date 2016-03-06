@@ -672,13 +672,14 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 61, left: 109 }
       ],
       cameras: [
-        { outdoor: true, top: 454, left: 291 },
-        { outdoor: true, top: -400, left: -289 },
-        { floor: 0, top: -4, left: 36 },
-        { floor: 0, top: 4, left: -206 },
-        { floor: 1, top: 110, left: -3 },
-        { floor: 1, otherFloor: 'up', top: -93, left: 50 },
-        { floor: 2, top: -93, left: 50 }
+        { floor: 2, top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop },
+        { floor: 1, otherFloor: 'up', top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop },
+        { floor: 1, top: 110, left: -3, id: 2, location: houseTerms.kitchen },
+        { floor: 0, top: 4, left: -206, id: 3, location: houseTerms.trainingRoom },
+        { floor: 0, top: -4, left: 36, id: 4, location: houseTerms.garage },
+        { outdoor: true, top: -400, left: -289, id: 5, location: houseTerms.frontYard },
+        { outdoor: true, top: 454, left: 291, id: 6, location: houseTerms.garden },
+
       ],
       ceilingHatches: [
         { floor: 0, top: -72, left: -120 },
