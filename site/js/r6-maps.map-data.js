@@ -19,6 +19,12 @@ var R6MapData = (function(R6MapLangTerms, undefined){
     planeTerms = mapFloorTerms.plane,
     yachtTerms = mapFloorTerms.yacht;
 
+  String.prototype.removeBreakTags = function() {
+    var target = this;
+
+    return target.replace(new RegExp('<br/>', 'g'), ' ');
+  };
+
   var maps = {
     bank: {
       name: mapNameTerms.bank,
@@ -55,11 +61,11 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
         { floor: 2, top: -157, left: -392, id: 1, location: bankTerms.lobby },
         { floor: 1, top: 100, left: 38, id: 2, location: bankTerms.officeHallway },
-        { floor: 2, top: -170, left: 249, id: 3, location: bankTerms.skylightStairwellNoBreak },
+        { floor: 2, top: -170, left: 249, id: 3, location: bankTerms.skylightStairwell },
         { floor: 0, top: 118, left: -203, id: 4, location: bankTerms.vaultLobby },
         { outdoor: true, top: -431, left: 5, id: 5, location: bankTerms.plaza },
-        { floor: 0, top: 148, left: -518, id: 6, location: bankTerms.garageRampNoBreak },
-        { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: bankTerms.garageRampNoBreak },
+        { floor: 0, top: 148, left: -518, id: 6, location: bankTerms.garageRamp },
+        { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: bankTerms.garageRamp },
         { outdoor: true, top: 115, left: 562, id: 7, location: bankTerms.backAlley }
       ],
       ceilingHatches: [
@@ -183,13 +189,13 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 244, left: -54 }
       ],
       cameras: [
-        { floor: 1, otherFloor: 'up', top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallwayNoBreak },
-        { floor: 2, top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallwayNoBreak },
-        { floor: 1, otherFloor: 'up', top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallwayNoBreak },
-        { floor: 2, top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallwayNoBreak },
+        { floor: 1, otherFloor: 'up', top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallway },
+        { floor: 2, top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallway },
+        { floor: 1, otherFloor: 'up', top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallway },
+        { floor: 2, top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallway },
         { floor: 1, otherFloor: 'up', top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
         { floor: 2, top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
-        { floor: 0, top: 151, left: 139, id: 4, location: chaletTerms.snowmobileGarageNoBreak },
+        { floor: 0, top: 151, left: 139, id: 4, location: chaletTerms.snowmobileGarage },
         { outdoor: true, top: -36, left: -350, id: 5, location: chaletTerms.frontYard },
         { outdoor: true, top: -147, left: 838, id: 6, location: chaletTerms.backyard }
       ],
@@ -428,12 +434,12 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 25, left: 319 }
       ],
       cameras: [
-        { floor: 2, top: 26, left: -220, id: 1, location: consulateTerms.consulFrontDeskNoBreak },
+        { floor: 2, top: 26, left: -220, id: 1, location: consulateTerms.consulFrontDesk },
         { floor: 2, top: -168, left: 11, id: 2, location: consulateTerms.mainStairs },
         { floor: 1, otherFloor: 'up', top: -168, left: 11, id: 2, location: consulateTerms.mainStairs },
         { floor: 1, top: -78, left: 374, id: 3, location: consulateTerms.visaOffice },
         { floor: 1, top: 243, left: 11, id: 4, location: consulateTerms.frontDoor },
-        { floor: 0, top: -79, left: 40, id: 5, location: consulateTerms.lockerHallwayNoBreak },
+        { floor: 0, top: -79, left: 40, id: 5, location: consulateTerms.lockerHallway },
         { floor: 0, top: -35, left: -148, id: 6, location: consulateTerms.garage },
         { outdoor: true, top: 498, left: -50, id: 7, location: consulateTerms.frontAlley },
         { outdoor: true, top: -32, left: -537, id: 8, location: consulateTerms.garageWay }
@@ -569,8 +575,8 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 268, left: -1, id: 2, location: herefordTerms.corridor },
         { floor: 1, top: 237, left: 5, id: 3, location: herefordTerms.corridor1 },
         { floor: 0, top: 122, left: 125, id: 4, location: herefordTerms.lockers },
-        { outside: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntranceNoBreak },
-        { outside: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftAreaNoBreak }
+        { outside: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance },
+        { outside: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea }
       ],
       ceilingHatches: [
         { floor: 0, top: 120, left: -158 },
@@ -631,7 +637,7 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { outdoor: true, top: 29, left: -317, description: herefordTerms.chapelGate },
         { outdoor: true, top: 286, left: -336, description: herefordTerms.forkliftArea },
         { outdoor: true, top: 187, left: 266, description: herefordTerms.sideStairsAlley },
-        { outdoor: true, top: 57, left: 117, description: herefordTerms.basementEntranceNoBreak },
+        { outdoor: true, top: 57, left: 117, description: herefordTerms.basementEntrance.removeBreakTags() },
         { floor: 1, top: 123, left: 190, description: herefordTerms.sideStairs },
         { floor: 2, top: 123, left: 190, description: herefordTerms.sideStairs },
         { floor: 3, top: 123, left: 190, description: herefordTerms.sideStairs },
@@ -771,10 +777,10 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, otherFloor: 'up', top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
         { floor: 3, top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
         { floor: 2, top: 140, left: 145, id: 2, location: kafeTerms.readingRoomCorridor },
-        { floor: 1 , top: 50, left: 355, id: 3, location: kafeTerms.coldRoomCorridorNoBreak },
+        { floor: 1 , top: 50, left: 355, id: 3, location: kafeTerms.coldRoomCorridor },
         { floor: 1, top: -31, left: -213, id: 4, location: kafeTerms.bakery },
         { outdoor: true, top: -210, left: -434, id: 5, location: kafeTerms.westMainStreet },
-        { outdoor: true, top: 545, left: 572, id: 6, location: kafeTerms.parkAlleyNoBreak }
+        { outdoor: true, top: 545, left: 572, id: 6, location: kafeTerms.parkAlley }
       ],
       ceilingHatches: [
         { floor: 1, top: 218, left: 278 },
@@ -800,11 +806,11 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 1, top: -156, left: -34, description: kafeTerms.frontStairs },
         { floor: 1, top: 83, left: -186, description: kafeTerms.bakery },
         { floor: 1, top: 230, left: -82, description: kafeTerms.bakeryKitchen },
-        { floor: 1, top: -36, left: 56, description: kafeTerms.mainCorridorNoBreak },
+        { floor: 1, top: -36, left: 56, description: kafeTerms.mainCorridor.removeBreakTags() },
         { floor: 1, top: 34, left: 12, description: kafeTerms.kitchenPrep },
         { floor: 1, top: 185, left: 129, description: kafeTerms.kitchenGrill },
         { floor: 1, top: 124, left: 154, description: kafeTerms.kitchenPickUp },
-        { floor: 1, top: 71, left: 227, description: kafeTerms.coldRoomCorridorNoBreak },
+        { floor: 1, top: 71, left: 227, description: kafeTerms.coldRoomCorridor.removeBreakTags() },
         { floor: 1, top: 165, left: 267, description: kafeTerms.coldRoom },
         { floor: 1, top: -128, left: 313, description: kafeTerms.diningRoom },
         { floor: 1, top: 236, left: 450, description: kafeTerms.backStairs },
@@ -944,7 +950,7 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { outdoor: true, top: -360, left: -89, description: kanalTerms.waterWalkway },
         { outdoor: true, top: -360, left: 192, description: kanalTerms.quayConstruction },
         { outdoor: true, top: -341, left: 606, description: kanalTerms.constructionSite },
-        { outdoor: true, top: 39, left: 684, description: kanalTerms.constructionSiteNoBreak },
+        { outdoor: true, top: 39, left: 684, description: kanalTerms.constructionSite.removeBreakTags() },
         { floor: 2, top: -23, left: 529, hardToRead: true, description: kanalTerms.constructionEntrance },
         { outdoor: true, top: 255, left: 252, description: kanalTerms.parkingAlley },
         { outdoor: true, top: 248, left: 353, description: kanalTerms.parkingEntrance },
@@ -1136,7 +1142,7 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: -22, left: 411, description: planeTerms.frontHallway },
         { floor: 2, top: 11, left: 466, description: planeTerms.executiveOffice },
         { outdoor: true, top: -295, left: 389, description: planeTerms.mainEntrance },
-        { floor: 2, top: -37, left: 237, description: planeTerms.frontHallwayNoBreak  },
+        { floor: 2, top: -37, left: 237, description: planeTerms.frontHallway.removeBreakTags()  },
         { floor: 2, top: -5, hardToRead: true, left: 240, description: planeTerms.frontStairs },
         { floor: 2, top: 33, left: 233, description: planeTerms.pantry },
         { floor: 2, top: 33, left: 148, description: planeTerms.kitchen },
@@ -1273,7 +1279,7 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 3, top: 101, left: 65, description: yachtTerms.casinoHallway },
         { floor: 3, top: -25, left: -49, description: yachtTerms.globeHallway },
         { floor: 3, top: 49, left: -179, description: yachtTerms.lounge },
-        { floor: 3, top: 26, left: -96, hardToRead: true, description: yachtTerms.topDeckStairsNoBreak },
+        { floor: 3, top: 26, left: -96, hardToRead: true, description: yachtTerms.topDeckStairs.removeBreakTags() },
         { floor: 2, top: 103, left: 127, description: yachtTerms.cafeteria },
         { floor: 1, top: -15, left: -354, description: yachtTerms.engine },
         { floor: 1, hardToRead: true, top: 15, left: -516, description: yachtTerms.backEntrance },

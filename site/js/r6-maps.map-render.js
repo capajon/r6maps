@@ -124,7 +124,7 @@ var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
         : 'data-fancybox-group="camer"';
       tagStart = (camera.id)
         // to do determine if it should be @2x or not
-        ? '<a href="img/' + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + camera.location + ' Camera View" ' + grouping + ''
+        ? '<a href="img/' + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + camera.location.removeBreakTags() + ' Camera View" ' + grouping + ''
         : '<div ';
       tagEnd = (camera.id)
         ? '</a>'
