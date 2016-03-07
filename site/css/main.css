@@ -302,6 +302,9 @@ body, button, input, select {
     #map .elements img, #map .elements div, #map .elements a {
       position: absolute; }
     #map .elements .background {
+      -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       z-index: 1000; }
     #map .elements .floor {
       z-index: 1010; }
