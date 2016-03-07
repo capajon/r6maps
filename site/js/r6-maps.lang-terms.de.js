@@ -3,7 +3,12 @@
 var R6MapLangTermsGerman = (function(R6MapLangTerms, undefined) {
   var terms = {
     mapNames: {
-      bank: 'BANK GERMAN'
+      bank: 'Bank (DE)'
+    },
+    mapFloors: {
+      bank: {
+        parkingLot: 'Parking Lot (DE)'
+      }
     }
   };
 
