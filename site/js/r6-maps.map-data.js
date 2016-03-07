@@ -1118,11 +1118,11 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 30, left: -17 }
       ],
       cameras: [
-        { floor: 3, top: -15, left: 251 },
-        { floor: 2, top: -41, left: -213 },
-        { floor: 1, top: -52, left: -292 },
-        { floor: 2, top: -61, left: 187 },
-        { floor: 1, top: 36, left: 18 }
+        { floor: 3, top: -15, left: 251, id: 1, location: planeTerms.cabinStaff },
+        { floor: 2, top: -61, left: 187, id: 2, location: planeTerms.frontHallway },
+        { floor: 2, top: -41, left: -213, id: 3, location: planeTerms.pressSectionA },
+        { floor: 1, top: 36, left: 18, id: 4, location: planeTerms.luggageHold },
+        { floor: 1, top: -52, left: -292, id: 5, location: planeTerms.cargoHold }
       ],
       ceilingHatches: [
         { floor: 2, top: 17, left: -116 },
