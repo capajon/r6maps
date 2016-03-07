@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapData, R6MapsRender, R6MapsControls);
-}(function($, window, document, R6MapData, R6MapsRender, R6MapsControls, undefined) {
+  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls);
+}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, undefined) {
   var map,
     mapElements,
     HASH_SPLIT_CHAR = '/';
@@ -11,7 +11,7 @@
     map = $('#map');
     mapElements = map.find('.elements');
 
-    R6MapsControls.populateMapOptions(R6MapData.maps);
+    R6MapsControls.populateMapOptions(R6MapsData.maps);
     tryLoadSavedMapAndObjective();
 
     loadMap();
@@ -24,8 +24,8 @@
   var loadMap = function loadMap() {
     var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap();
 
-    R6MapsControls.populateFloorOptions(R6MapData.maps[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(R6MapData.maps[currentlySelectedMap], mapElements);
+    R6MapsControls.populateFloorOptions(R6MapsData.maps[currentlySelectedMap].floors);
+    R6MapsRender.renderMap(R6MapsData.maps[currentlySelectedMap], mapElements);
     setupCameraScreenshots();
     showSelectedFloor();
     showSelectedObjective();
