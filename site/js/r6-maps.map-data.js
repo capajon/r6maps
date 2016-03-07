@@ -882,13 +882,13 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: -101, left: 278 }
       ],
       cameras: [
-        { outdoor: true, top: -426, left: -655 },
-        { outdoor: true, top: -402, left: 590 },
-        { outdoor: true, top: 703, left: -526 },
-        { floor: 1, top: 70, left: -272 },
-        { floor: 2, top: 149, left: -273 },
-        { floor: 2, top: 30, left: 204 },
-        { floor: 3, top: 27, left: 252 }
+        { floor: 3, top: 27, left: 252, id: 1, location: kanalTerms.controlRoomHallway },
+        { floor: 2, top: 30, left: 204, id: 2, location: kanalTerms.mapsOfficeHallway },
+        { floor: 2, top: 149, left: -273, id: 3, location: kanalTerms.coastGuardHall },
+        { floor: 1, top: 70, left: -272, id: 4, location: kanalTerms.boatSuppliesHallway },
+        { outdoor: true, top: 703, left: -526, id: 5, location: kanalTerms.frontLawn },
+        { outdoor: true, top: -426, left: -655, id: 6, location: kanalTerms.lockgate },
+        { outdoor: true, top: -402, left: 590, id: 7, location: kanalTerms.constructionSite }
       ],
       ceilingHatches: [
         { floor: 1, top: 137, left: -377 },
