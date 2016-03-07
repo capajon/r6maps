@@ -1003,13 +1003,13 @@ var R6MapData = (function(R6MapLangTerms, undefined){
         { floor: 2, top: 99, left: 46 }
       ],
       cameras: [
-        { outdoor: true, top: 216, left: 406 },
-        { outdoor: true, top: -492, left: 376 },
-        { outdoor: true, top: 194, left: -632 },
-        { floor: 1, top: -246, left: 214 },
-        { floor: 1, top: 80, left: 168 },
-        { floor: 1, top: 84, left: -152 },
-        { floor: 2, top: 70, left: 221 }
+        { floor: 2, top: 70, left: 221, id: 1, location: oregonTerms.armoryCorridor },
+        { floor: 1, top: 80, left: 168, id: 2, location: oregonTerms.lobby },
+        { floor: 1, top: 84, left: -152, id: 3, location: oregonTerms.diningHallCorridor },
+        { floor: 1, top: -246, left: 214, id: 4, location: oregonTerms.rearStage },
+        { outdoor: true, top: 194, left: -632, id: 5, location: oregonTerms.junkyard },
+        { outdoor: true, top: 216, left: 406, id: 6, location: oregonTerms.parking },
+        { outdoor: true, top: -492, left: 376, id: 7, location: oregonTerms.constructionSite }
       ],
       ceilingHatches: [
         { floor: 0, top: 126, left: 140 },
