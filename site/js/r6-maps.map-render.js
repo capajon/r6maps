@@ -1,8 +1,9 @@
 'use strict';
 
-var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
+var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var CAMERA_WIDTH = 40,
-    CAMERA_HEIGHT = 40;
+    CAMERA_HEIGHT = 40,
+    langTerms = R6MapsLangTerms.terms;
 
   $.fn.removeClassPrefix = function(prefix) {
     this.each(function(i, el) {
@@ -70,7 +71,7 @@ var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
       positionStyle = getPositionStyle(hostage);
       classes = 'objective hostage ';
       classes += getCommonClasses(hostage);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>' + R6MapLangTerms.terms.objectives.hostageShort + '</p><span></span></div>';
+      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>' + langTerms.objectives.hostageShort + '</p><span></span></div>';
     });
     return html;
   };
@@ -100,7 +101,7 @@ var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
       positionStyle = getPositionStyle(secure);
       classes = 'objective secure ';
       classes += getCommonClasses(secure);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>' + R6MapLangTerms.terms.objectives.secureShort + '</p><span></span></div>';
+      html += '<div style="' + positionStyle + '" class="' + classes + '"><p>' + langTerms.objectives.secureShort + '</p><span></span></div>';
     });
     return html;
   };
@@ -124,7 +125,7 @@ var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
         : 'data-fancybox-group="camer"';
       tagStart = (camera.id)
         // to do determine if it should be @2x or not
-        ? '<a href="img/' + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + camera.location.removeBreakTags() + ' Camera View" ' + grouping + ''
+        ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + camera.location.removeBreakTags() + ' Camera View" ' + grouping + ''
         : '<div ';
       tagEnd = (camera.id)
         ? '</a>'
@@ -242,7 +243,19 @@ var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
   };
 
   var getLegendHtml = function getLegendHtml() {
-    return '<img src="img/legend.png" class="legend" style="top: 515px; left: 760px;">';
+    var html = '',
+      iconImgUrl = IMG_URL + 'icons/',
+      legendItems = [
+        { img: 'camera.png', description: 'Security cameras' }
+      ];
+
+    html += '<ul>'
+    legendItems.forEach(function(item) {
+      html += '<li></li>';
+    });
+    html += '</ul>';
+    console.log(html);
+    return '<img src="' + IMG_URL + 'legend.png" class="legend" style="top: 515px; left: 760px;">';
   };
 
   return  {
@@ -250,4 +263,4 @@ var R6MapsRender = (function($,window,document,R6MapLangTerms,undefined) {
     showFloor: showFloor,
     showObjective: showObjective
   };
-})(window.jQuery, window, document, R6MapLangTerms);
+})(window.jQuery, window, document, R6MapsLangTerms);
