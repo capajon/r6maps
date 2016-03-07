@@ -298,11 +298,11 @@ body, button, input, select {
     right: 0;
     width: 0; }
   #map .elements {
-    position: relative;
-    .background-z-index: 1000;
-    .legend-z-index: 1015; }
+    position: relative; }
     #map .elements img, #map .elements div, #map .elements a {
       position: absolute; }
+    #map .elements .background {
+      z-index: 1000; }
     #map .elements .floor {
       z-index: 1010; }
     #map .elements .camera {
@@ -489,6 +489,8 @@ body, button, input, select {
         opacity: 0.54; }
         #map .elements .room-label.hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
+    #map .elements .legend {
+      z-index: 1015; }
     #map .elements.show-floor-zero .one, #map .elements.show-floor-zero .two, #map .elements.show-floor-zero .three, #map .elements.show-floor-zero .four, #map .elements.show-floor-zero .five {
       display: none !important; }
     #map .elements.show-floor-one .zero, #map .elements.show-floor-one .two, #map .elements.show-floor-one .three, #map .elements.show-floor-one .four, #map .elements.show-floor-one .five {
