@@ -571,7 +571,13 @@ var R6MapLangTerms = (function(undefined) {
     }
   };
 
+  var loadLangPack = function loadLangPack(newTerms) {
+    
+    $.extend(true, terms, newTerms);
+  };
+
   return  {
-    terms: terms
+    terms: terms,
+    loadLangPack: loadLangPack
   };
 })();
