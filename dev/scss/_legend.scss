@@ -63,7 +63,7 @@ $legend-item-smaller-height: $legend-item-height - $legend-item-smaller-height-d
     }
 
     &.legend-line-of-sight-walls {
-      @include legend-icon(4);
+      @include legend-smaller(4);
     }
 
     &.legend-lineof-sight-floors {

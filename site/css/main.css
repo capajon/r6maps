@@ -257,7 +257,9 @@ body.about {
     #legend li.legend-ceiling-hatch {
       background-position: 0px -35px; }
     #legend li.legend-line-of-sight-walls {
-      background-position: 0px -105px; }
+      background-position: 0px -110px;
+      height: 25px;
+      line-height: 25px; }
     #legend li.legend-lineof-sight-floors {
       background-position: 0px -145px;
       height: 25px;
