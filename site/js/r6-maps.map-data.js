@@ -126,7 +126,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         { floor: 0, description: bankTerms.vaultLobby, top: 94, left: -128 },
         { floor: 0, description: bankTerms.vaultEntrance, top: 13, left: -189 },
         { floor: 0, description: bankTerms.mainStairway, top: 238, left: -34 },
-        { floor: 0, description: bankTerms.vbankGarage, top: 315, left: -137 },
+        { floor: 0, description: bankTerms.bankGarage, top: 315, left: -137 },
         { floor: 0, description: bankTerms.elevators, top: 170, left: -185 },
         { floor: 1, description: bankTerms.tellersOffice, top: -92, left: 27 },
         { floor: 1, description: bankTerms.archives, top: -56, left: 153 },
