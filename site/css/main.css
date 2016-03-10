@@ -249,35 +249,49 @@ body.about {
     vertical-align: middle;
     width: 188px; }
     #legend li.legend-breakable-walls {
-      background-position: 0px -75px;
-      height: 25px;
-      line-height: 25px; }
+      background-position: 0px -72px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-breakable-floor-traps {
-      background-position: 0px 0px; }
+      background-position: 0px -2px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-ceiling-hatch {
-      background-position: 0px -35px; }
+      background-position: 0px -37px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-line-of-sight-walls {
-      background-position: 0px -110px;
-      height: 25px;
-      line-height: 25px; }
+      background-position: 0px -107px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-lineof-sight-floors {
-      background-position: 0px -145px;
-      height: 25px;
-      line-height: 25px; }
+      background-position: 0px -142px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-drone-tunnels {
-      background-position: 0px -320px;
-      height: 25px;
-      line-height: 25px; }
+      background-position: 0px -317px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-objectives {
-      background-position: 0px -210px; }
+      background-position: 0px -212px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-insertion-point {
-      background-position: 0px -175px; }
+      background-position: 0px -177px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-security-camera {
-      background-position: 0px -245px; }
+      background-position: 0px -247px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-skylight {
-      background-position: 0px -280px; }
+      background-position: 0px -282px;
+      height: 31px;
+      line-height: 31px; }
     #legend li.legend-down-and-up {
-      background-position: 0px -350px; }
+      background-position: 0px -352px;
+      height: 31px;
+      line-height: 31px; }
 
 .offscreen {
   position: absolute !important;
