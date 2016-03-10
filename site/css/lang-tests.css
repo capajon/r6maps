@@ -1,0 +1,43 @@
+body {
+  font-family: 'arial', sans-serif;
+}
+
+h2 {
+  display: block;
+  background-color: silver;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+table {
+  font-family: 'arial', sans-serif;
+}
+
+td {
+  min-width: 200px;
+  border: 1px solid #000;
+}
+
+.not-defined {
+  background-color: rgba(255,255,0,0.2);
+}
+
+tr:nth-child(odd) {
+  background: rgba(0,0,0,0.2)
+}
+
+.identical-warning {
+  background-color: rgba(163,73,164,0.2);
+}
+
+.key {
+  font-weight: bold;
+}
+
+th {
+  text-align: left;
+  background-color: #000;
+  color: #fff;
+}
