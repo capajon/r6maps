@@ -13,7 +13,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
     }
   };
 
-  R6MapsLangTerms.loadLangPack(terms);
+  //R6MapsLangTerms.loadLangPack(terms);
 
   return  {
     terms: terms

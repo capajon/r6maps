@@ -73,6 +73,7 @@
         translatedTermsForCompare
       );
     }
+    html += '</table>'
     return html;
   };
 
@@ -94,7 +95,7 @@
     html += '<td>' + defaultTerms[sectionKey][key] + '</td>';
     for (var language in translatedTerms) {
       if(translatedTerms[language][sectionKey] && translatedTerms[language][sectionKey][key]) {
-        var cssClass= (defaultTerms[sectionKey][key] === translatedTerms[language][sectionKey][key])
+        var cssClass = (defaultTerms[sectionKey][key] === translatedTerms[language][sectionKey][key])
           ? 'identical-warning'
           : ''
         html += '<td class="' + cssClass + '">' + translatedTerms[language][sectionKey][key] + '</td>';
