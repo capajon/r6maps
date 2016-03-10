@@ -260,13 +260,13 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
         { class: CSS_ABBREV + 'down-and-up', description: legendTerms.onFloorAboveOrBelow }
       ];
 
-    html += '<ul id="legend">'
+    html += '<ul id="legend">';
     legendItems.forEach(function(item) {
       html += '<li class="' + item.class + '">' + item.description + '</li>';
     });
     html += '</ul>';
 
-    return(html);
+    return html;
   };
 
   return  {
