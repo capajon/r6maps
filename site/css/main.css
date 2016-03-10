@@ -225,6 +225,58 @@ body.about {
     margin: 0 auto;
     max-width: 900px; }
 
+#legend {
+  background-color: #000;
+  border-radius: 10px 10px 0 0;
+  bottom: -725px;
+  color: #fff;
+  font-weight: 400;
+  padding: 8px;
+  position: absolute;
+  right: -1255px;
+  width: 475px;
+  z-index: 1015; }
+  #legend li {
+    background-image: url("../img/legend-sprite@2x.png");
+    background-repeat: no-repeat;
+    background-size: 35px;
+    display: inline-block;
+    float: left;
+    font-weight: 400;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 43px;
+    vertical-align: middle;
+    width: 188px; }
+    #legend li.legend-breakable-walls {
+      background-position: 0px -75px;
+      height: 25px;
+      line-height: 25px; }
+    #legend li.legend-breakable-floor-traps {
+      background-position: 0px 0px; }
+    #legend li.legend-ceiling-hatch {
+      background-position: 0px -35px; }
+    #legend li.legend-line-of-sight-walls {
+      background-position: 0px -105px; }
+    #legend li.legend-lineof-sight-floors {
+      background-position: 0px -145px;
+      height: 25px;
+      line-height: 25px; }
+    #legend li.legend-drone-tunnels {
+      background-position: 0px -320px;
+      height: 25px;
+      line-height: 25px; }
+    #legend li.legend-objectives {
+      background-position: 0px -210px; }
+    #legend li.legend-insertion-point {
+      background-position: 0px -175px; }
+    #legend li.legend-security-camera {
+      background-position: 0px -245px; }
+    #legend li.legend-skylight {
+      background-position: 0px -280px; }
+    #legend li.legend-down-and-up {
+      background-position: 0px -350px; }
+
 .offscreen {
   position: absolute !important;
   left: -10000px;
@@ -298,11 +350,14 @@ body, button, input, select {
     right: 0;
     width: 0; }
   #map .elements {
-    position: relative;
-    .background-z-index: 1000;
-    .legend-z-index: 1015; }
+    position: relative; }
     #map .elements img, #map .elements div, #map .elements a {
       position: absolute; }
+    #map .elements .background {
+      -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      z-index: 1000; }
     #map .elements .floor {
       z-index: 1010; }
     #map .elements .camera {

@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapLangTermsGerman = (function(R6MapLangTerms, undefined) {
+var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
   var terms = {
     mapNames: {
       bank: 'Bank (DE)'
@@ -13,4 +13,4 @@ var R6MapLangTermsGerman = (function(R6MapLangTerms, undefined) {
   };
 
   R6MapLangTerms.loadLangPack(terms);
-})(R6MapLangTerms);
+})(R6MapsLangTerms);

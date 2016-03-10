@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapLangTerms = (function(undefined) {
+var R6MapsLangTerms = (function(undefined) {
   var terms = {
     general: {
       pageTitle: 'Siege Maps',

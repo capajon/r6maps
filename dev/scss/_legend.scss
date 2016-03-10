@@ -1,0 +1,98 @@
+$legend-number-items: 11;
+$legend-number-rows: ($legend-number-items  + ($legend-number-items % 2))/2;
+
+$legend-icon-height: 35px;
+$legend-icon-width: 35px;
+
+$legend-item-height: $legend-icon-height;
+
+$legend-padding: 8px;
+$legend-height: ($legend-number-rows * $legend-item-height) + ($legend-padding);
+$legend-width: 470px;
+
+$legend-item-width: ($legend-width - $legend-padding) / 2;
+
+$legend-item-smaller-height-diff: 10px;
+$legend-item-smaller-height: $legend-item-height - $legend-item-smaller-height-diff;
+
+@mixin legend-icon($position) {
+  background-position: 0px ($legend-icon-height * -($position - 1));
+}
+
+@mixin legend-smaller($position) {
+  background-position: 0px (($legend-icon-height * -($position - 1)) - ($legend-item-smaller-height-diff / 2));
+  height: $legend-item-smaller-height;
+  line-height: $legend-item-smaller-height;
+}
+
+#legend {
+  background-color: #000;
+  border-radius: 10px 10px 0 0;
+  bottom: -725px;
+  color: #fff;
+  font-weight: 400;
+  padding: $legend-padding;
+  position: absolute;
+  right: -1255px;
+  width: $legend-width + 5;
+  z-index: $z-legend;
+
+  li {
+    background-image: url($img-location + 'legend-sprite@2x.png');
+    background-repeat: no-repeat;
+    background-size: $legend-icon-width;
+    display: inline-block;
+    float: left;
+    font-weight: 400;
+    height: $legend-item-height;
+    line-height: $legend-item-height;
+    padding-left: $legend-icon-width + $legend-padding;
+    vertical-align: middle;
+    width: $legend-item-width - $legend-icon-width - $legend-padding;
+
+    &.legend-breakable-walls {
+      @include legend-smaller(3);
+    }
+
+    &.legend-breakable-floor-traps {
+      @include legend-icon(1);
+    }
+
+    &.legend-ceiling-hatch {
+      @include legend-icon(2);
+    }
+
+    &.legend-line-of-sight-walls {
+      @include legend-icon(4);
+    }
+
+    &.legend-lineof-sight-floors {
+      @include legend-smaller(5);
+    }
+
+    &.legend-drone-tunnels {
+      @include legend-smaller(10);
+    }
+
+    &.legend-objectives {
+      @include legend-icon(7);
+    }
+
+    &.legend-insertion-point {
+      @include legend-icon(6);
+    }
+
+    &.legend-security-camera {
+      @include legend-icon(8);
+    }
+
+    &.legend-skylight {
+      @include legend-icon(9);
+    }
+
+    &.legend-down-and-up {
+      @include legend-icon(11);
+    }
+
+  }
+}

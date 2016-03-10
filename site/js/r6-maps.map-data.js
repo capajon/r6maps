@@ -1,12 +1,12 @@
 'use strict';
 
-var R6MapData = (function(R6MapLangTerms, undefined){
+var R6MapsData = (function(R6MapsLangTerms, undefined){
   var DRONE_MED = 18,
     DRONE_SMALL = 14,
-    mapFloorTerms = R6MapLangTerms.terms.mapFloors,
-    mapNameTerms = R6MapLangTerms.terms.mapNames,
-    objectiveTerms = R6MapLangTerms.terms.objectives,
-    floorTerms = R6MapLangTerms.terms.floorNames,
+    mapFloorTerms = R6MapsLangTerms.terms.mapFloors,
+    mapNameTerms = R6MapsLangTerms.terms.mapNames,
+    objectiveTerms = R6MapsLangTerms.terms.objectives,
+    floorTerms = R6MapsLangTerms.terms.floorNames,
     bankTerms = mapFloorTerms.bank,
     chaletTerms = mapFloorTerms.chalet,
     clubTerms = mapFloorTerms.club,
@@ -1333,4 +1333,4 @@ var R6MapData = (function(R6MapLangTerms, undefined){
   return  {
     maps: maps
   };
-})(R6MapLangTerms);
+})(R6MapsLangTerms);
