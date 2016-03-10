@@ -3,14 +3,19 @@
 var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
   var terms = {
     mapNames: {
-      bank: 'Bank (DE)'
+      bank: 'Bank (DE)',
+      oregon: 'Oregon'
     },
-    mapFloors: {
+    mapRooms: {
       bank: {
         parkingLot: 'Parking Lot (DE)'
       }
     }
   };
 
-  R6MapLangTerms.loadLangPack(terms);
+  R6MapsLangTerms.loadLangPack(terms);
+
+  return  {
+    terms: terms
+  };
 })(R6MapsLangTerms);

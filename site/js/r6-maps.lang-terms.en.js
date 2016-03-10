@@ -51,7 +51,7 @@ var R6MapsLangTerms = (function(undefined) {
       plane: 'Plane',
       yacht: 'Yacht'
     },
-    mapFloors: {
+    mapRooms: {
       bank: {
         parkingLot: 'Parking Lot',
         boulevard: 'Boulevard',
