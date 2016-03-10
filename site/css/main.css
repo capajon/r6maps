@@ -225,6 +225,58 @@ body.about {
     margin: 0 auto;
     max-width: 900px; }
 
+#legend {
+  background-color: #000;
+  border-radius: 10px 10px 0 0;
+  bottom: -725px;
+  color: #fff;
+  font-weight: 400;
+  padding: 8px;
+  position: absolute;
+  right: -1255px;
+  width: 475px;
+  z-index: 1015; }
+  #legend li {
+    background-image: url("../img/legend-sprite@2x.png");
+    background-repeat: no-repeat;
+    background-size: 35px;
+    display: inline-block;
+    float: left;
+    font-weight: 400;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 43px;
+    vertical-align: middle;
+    width: 188px; }
+    #legend li.legend-breakable-walls {
+      background-position: 0px -75px;
+      height: 25px;
+      line-height: 25px; }
+    #legend li.legend-breakable-floor-traps {
+      background-position: 0px 0px; }
+    #legend li.legend-ceiling-hatch {
+      background-position: 0px -35px; }
+    #legend li.legend-line-of-sight-walls {
+      background-position: 0px -105px; }
+    #legend li.legend-lineof-sight-floors {
+      background-position: 0px -145px;
+      height: 25px;
+      line-height: 25px; }
+    #legend li.legend-drone-tunnels {
+      background-position: 0px -320px;
+      height: 25px;
+      line-height: 25px; }
+    #legend li.legend-objectives {
+      background-position: 0px -210px; }
+    #legend li.legend-insertion-point {
+      background-position: 0px -175px; }
+    #legend li.legend-security-camera {
+      background-position: 0px -245px; }
+    #legend li.legend-skylight {
+      background-position: 0px -280px; }
+    #legend li.legend-down-and-up {
+      background-position: 0px -350px; }
+
 .offscreen {
   position: absolute !important;
   left: -10000px;
@@ -492,8 +544,6 @@ body, button, input, select {
         opacity: 0.54; }
         #map .elements .room-label.hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
-    #map .elements .legend {
-      z-index: 1015; }
     #map .elements.show-floor-zero .one, #map .elements.show-floor-zero .two, #map .elements.show-floor-zero .three, #map .elements.show-floor-zero .four, #map .elements.show-floor-zero .five {
       display: none !important; }
     #map .elements.show-floor-one .zero, #map .elements.show-floor-one .two, #map .elements.show-floor-one .three, #map .elements.show-floor-one .four, #map .elements.show-floor-one .five {

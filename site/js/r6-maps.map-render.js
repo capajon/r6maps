@@ -244,30 +244,29 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
 
   var getLegendHtml = function getLegendHtml() {
     var html = '',
-      iconImgUrl = IMG_URL + 'icons/',
       legendTerms = langTerms.legend,
+      CSS_ABBREV = 'legend-',
       legendItems = [
-        { class: 'breakable-walls', description: legendTerms.breakableWalls },
-        { class: 'breakable-floor-traps', description: legendTerms.breakableFloorTraps },
-        { class: 'ceiling-hatch', description: legendTerms.ceilingHatches },
-        { class: 'line-of-sight-walls', description: legendTerms.lineOfSightWalls },
-        { class: 'lineof-sight-floors', description: legendTerms.lineOfSightFloors },
-        { class: 'drone-tunnels', description: legendTerms.droneTunnels },
-        { class: 'objectives', description: legendTerms.objectives },
-        { class: 'insertion-point', description: legendTerms.insertionPoints },
-        { class: 'security-camera', description: legendTerms.securityCameras },
-        { class: 'skylight', description: legendTerms.skylights },
-        { class: 'down-and-up', description: legendTerms.onFloorAboveOrBelow }
+        { class: CSS_ABBREV + 'breakable-floor-traps', description: legendTerms.breakableFloorTraps },
+        { class: CSS_ABBREV + 'ceiling-hatch', description: legendTerms.ceilingHatches },
+        { class: CSS_ABBREV + 'breakable-walls', description: legendTerms.breakableWalls },
+        { class: CSS_ABBREV + 'line-of-sight-walls', description: legendTerms.lineOfSightWalls },
+        { class: CSS_ABBREV + 'drone-tunnels', description: legendTerms.droneTunnels },
+        { class: CSS_ABBREV + 'lineof-sight-floors', description: legendTerms.lineOfSightFloors },
+        { class: CSS_ABBREV + 'objectives', description: legendTerms.objectives },
+        { class: CSS_ABBREV + 'insertion-point', description: legendTerms.insertionPoints },
+        { class: CSS_ABBREV + 'security-camera', description: legendTerms.securityCameras },
+        { class: CSS_ABBREV + 'skylight', description: legendTerms.skylights },
+        { class: CSS_ABBREV + 'down-and-up', description: legendTerms.onFloorAboveOrBelow }
       ];
 
     html += '<ul id="legend">'
     legendItems.forEach(function(item) {
-      html += '<li><span class="icon ' + item.class + '"></span>' + item.description + '</li>';
+      html += '<li class="' + item.class + '">' + item.description + '</li>';
     });
     html += '</ul>';
-    console.log(html);
 
-    return '<img src="' + IMG_URL + 'legend.png" class="legend" style="top: 515px; left: 760px;">';
+    return(html);
   };
 
   return  {

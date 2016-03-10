@@ -4,6 +4,7 @@
 @import "_settings.scss";
 @import "_nav.scss";
 @import "_about-page.scss";
+@import "_legend.scss";
 
 .offscreen {
   @include offscreen;
@@ -245,10 +246,6 @@ body, button, input, select {
           background: $faded-bg;
         }
       }
-    }
-
-    .legend {
-      z-index: $z-legend;
     }
 
     &.show-floor-zero {
