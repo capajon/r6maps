@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsControls = (function($,window,document,undefined) {
+var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) {
   var mapControl = $('#map-control'),
     objectiveControl = $('#objective-control'),
     floorControl = $('#floor-control'),
@@ -30,6 +30,17 @@ var R6MapsControls = (function($,window,document,undefined) {
 
   var setupMapChangeEvent = function setupMapChangeEvent(callback) {
     mapControl.on('change', callback);
+  };
+
+  var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
+    var options = '',
+      objectiveTerms = R6MapsLangTerms.terms.objectives;
+
+    options += '<option value="all">Show All</option>';
+    objectives.forEach(function(objective) {
+      options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
+    });
+    objectiveControl.html(options);
   };
 
   var getCurrentlySelectedObjective = function getCurrentlySelectedObjective() {
@@ -170,6 +181,7 @@ var R6MapsControls = (function($,window,document,undefined) {
     trySelectMap: trySelectMap,
     setupMapChangeEvent: setupMapChangeEvent,
 
+    populateObjectiveOptions: populateObjectiveOptions,
     getCurrentlySelectedObjective: getCurrentlySelectedObjective,
     trySelectObjective: trySelectObjective,
     setupObjectiveChangeEvent: setupObjectiveChangeEvent,
@@ -183,4 +195,4 @@ var R6MapsControls = (function($,window,document,undefined) {
     setupZoom: setupZoom,
     isZoomed: isZoomed
   };
-})(window.jQuery, window, document);
+})(window.jQuery, window, document, R6MapsLangTerms);
