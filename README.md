@@ -11,9 +11,8 @@ Contributions are welcome. :)
 ### Short-term
 (will likely do)
 - [ ] Open Issues (see Github issue tracking and Reddit post)
-- [ ] Drone passages
 - [ ] Localization support
-- [ ] More information on cameras (screen shot? coverage angles?)
+- [ ] More information on cameras (screen shot? coverage angles? video?)
 
 ### Medium-term
 (might do)
