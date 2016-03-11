@@ -25,11 +25,11 @@ td {
 }
 
 tr:nth-child(odd) {
-  background: rgba(0,0,0,0.2)
+  background: rgba(0,0,0,0.2);
 }
 
 .identical-warning {
-  background-color: rgba(163,73,164,0.2);
+  background-color: rgba(20,240,60,0.3);
 }
 
 .key {
@@ -39,5 +39,11 @@ tr:nth-child(odd) {
 th {
   text-align: left;
   background-color: #000;
+  color: #fff;
+}
+
+.extra-keys {
+  display: inline-block;
+  background-color: red;
   color: #fff;
 }

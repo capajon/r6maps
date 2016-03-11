@@ -74,6 +74,11 @@
       );
     }
     html += '</table>'
+    html += getExtraTermsErrorHtml(
+      sectionKey,
+      defaultTermsForCompare,
+      translatedTermsForCompare
+    );
     return html;
   };
 
@@ -104,6 +109,22 @@
       }
     }
     html += '</tr>';
+    return html;
+  };
+
+  var getExtraTermsErrorHtml = function getExtraTermsErrorHtml(sectionKey, defaultTerms, translatedTerms) {
+    var html = '';
+
+    for (var language in translatedTerms) {
+      for (var key in translatedTerms[language][sectionKey]) {
+        if(!(defaultTerms[sectionKey][key])){
+          html += '<li>language: ' + language + ', section: ' + sectionKey + ', key: <strong>' + key + '</strong>, term: ' + translatedTerms[language][sectionKey][key] + '</li>';
+        }
+      }
+    }
+    if (html) {
+      html = '<div class="extra-keys"><p>Error: Extra key(s) found:</p><ul>' + html + '</ul></div>'
+    }
     return html;
   };
 
