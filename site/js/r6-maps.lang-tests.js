@@ -32,8 +32,9 @@
     outputEl.html(html);
   });
 
-  var getFirstLevelKeys = function getFirstLevelKeys(obj, keyExceptions = []) {
+  var getFirstLevelKeys = function getFirstLevelKeys(obj, keyExceptions) {
     var result = [];
+    keyExceptions = typeof keyExceptions !== 'undefined' ? keyExceptions : [];
 
     for (var key in obj){
       if (obj.hasOwnProperty(key)) {
@@ -45,11 +46,13 @@
     return result;
   };
 
-  var getBlockOutput = function getBlockOutput(sectionKey, defaultTerms, translatedTerms, childKey = null) {
+  var getBlockOutput = function getBlockOutput(sectionKey, defaultTerms, translatedTerms, childKey) {
     var translatedLanguages = [],
       defaultTermsForCompare = {},
       translatedTermsForCompare = {},
       html = '';
+
+    childKey = typeof childKey !== 'undefined' ? childKey : null;
 
     for (var language in translatedTerms) {
       translatedLanguages.push(language);
