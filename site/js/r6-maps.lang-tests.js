@@ -107,7 +107,7 @@
       if (translatedTerms[language][sectionKey] && translatedTerms[language][sectionKey][key]) {
         var cssClass = (defaultTerms[sectionKey][key] === translatedTerms[language][sectionKey][key])
           ? 'identical-warning'
-          : ''
+          : '';
 
         html += '<td class="' + cssClass + '">' + translatedTerms[language][sectionKey][key] + '</td>';
       } else {
