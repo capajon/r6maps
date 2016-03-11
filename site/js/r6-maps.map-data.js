@@ -29,6 +29,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     bank: {
       name: mapNameTerms.bank,
       imgUrlPrefix: 'bank',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
         { index: 1, top: -537, left: -601, name: floorTerms.firstFloor, default: true },
@@ -160,6 +163,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     chalet: {
       name: mapNameTerms.chalet,
       imgUrlPrefix: 'chalet',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
         { index: 1, top: -556, left: -342, name: floorTerms.firstFloor, default: true },
@@ -284,6 +290,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     club: {
       name: mapNameTerms.club,
       imgUrlPrefix: 'club-house',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
         { index: 1, top: -566, left: -441, name: floorTerms.firstFloor, default: true },
@@ -407,6 +416,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     consulate: {
       name: mapNameTerms.consulate,
       imgUrlPrefix: 'consulate',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
         { index: 1, top: -282, left: -452, name: floorTerms.firstFloor, default: true },
@@ -541,6 +553,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     hereford: {
       name: mapNameTerms.hereford,
       imgUrlPrefix: 'hereford',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
         { index: 1, top: -63, left: -414, name: floorTerms.firstFloor, default: true },
@@ -651,6 +666,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     house: {
       name: mapNameTerms.house,
       imgUrlPrefix: 'house',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
         { index: 1, top: -251, left: -382, name: floorTerms.firstFloor, default: true },
@@ -747,6 +765,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     kafe: {
       name: mapNameTerms.kafe,
       imgUrlPrefix: 'kafe',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
         { index: 2, top: -288, left: -391, name: floorTerms.secondFloor },
@@ -857,6 +878,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     kanal: {
       name: mapNameTerms.kanal,
       imgUrlPrefix: 'kanal',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
         { index: 2, top: -428, left: -608, name: floorTerms.secondFloor },
@@ -975,6 +999,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     oregon: {
       name: mapNameTerms.oregon,
       imgUrlPrefix: 'oregon',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
         { index: 1, top: -445, left: -611, name: floorTerms.firstFloor, default: true },
@@ -1091,6 +1118,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     plane: {
       name: mapNameTerms.plane,
       imgUrlPrefix: 'plane',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor },
         { index: 2, top: -715, left: -920, name: floorTerms.secondFloor, default: true },
@@ -1183,6 +1213,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     yacht: {
       name: mapNameTerms.yacht,
       imgUrlPrefix: 'yacht',
+      objectives: [
+        'bomb', 'hostage', 'secure'
+      ],
       floors: [
         { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor },
         { index: 2, top: -261, left: -840, name: floorTerms.secondFloor, default: true },

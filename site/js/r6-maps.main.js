@@ -12,10 +12,11 @@
     mapElements = map.find('.elements');
 
     R6MapsControls.populateMapOptions(R6MapsData.maps);
-    tryLoadSavedMapAndObjective();
-
+    trySelectBookmarkedMap();
     loadMap();
-    tryLoadSavedFloor();
+
+    trySelectBookmarkedObjective();
+    trySelectBookmarkedFloor();
 
     setupEvents();
     R6MapsControls.setupZoom(map, mapElements);
@@ -24,6 +25,7 @@
   var loadMap = function loadMap() {
     var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap();
 
+    R6MapsControls.populateObjectiveOptions(R6MapsData.maps[currentlySelectedMap].objectives);
     R6MapsControls.populateFloorOptions(R6MapsData.maps[currentlySelectedMap].floors);
     R6MapsRender.renderMap(R6MapsData.maps[currentlySelectedMap], mapElements);
     setupCameraScreenshots();
@@ -31,16 +33,23 @@
     showSelectedObjective();
   };
 
-  var tryLoadSavedMapAndObjective = function tryLoadSavedMapAndObjective() {
+  var trySelectBookmarkedMap = function trySelectBookmarkedMap() {
     var hashArgs = getHashArgs(),
-      mapArg = hashArgs[0],
-      objectiveArg = hashArgs[2];
+      mapArg = hashArgs[0];
 
     R6MapsControls.trySelectMap(mapArg);
-    R6MapsControls.trySelectObjective(objectiveArg);
   };
 
-  var tryLoadSavedFloor = function tryLoadSavedFloor() {
+  var trySelectBookmarkedObjective = function trySelectBookmarkedObjective() {
+    var hashArgs = getHashArgs(),
+      objectiveArg = hashArgs[2];
+
+    if (R6MapsControls.trySelectObjective(objectiveArg)) {
+      showSelectedObjective();
+    }
+  };
+
+  var trySelectBookmarkedFloor = function trySelectBookmarkedFloor() {
     var hashArgs = getHashArgs(),
       floorArg = hashArgs[1];
 
