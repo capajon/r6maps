@@ -36,7 +36,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     var options = '',
       objectiveTerms = R6MapsLangTerms.terms.objectives;
 
-    options += '<option value="all">' + objectiveTerms['showAll'] + '</option>';
+    options += '<option value="all">' + objectiveTerms.showAll + '</option>';
     objectives.forEach(function(objective) {
       options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
     });
