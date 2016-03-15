@@ -150,7 +150,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
       if ( zoomVal > 1.6) {
         mapElements.addClass(ZOOMED_IN_FAR_CLASS);
-      } else if ( zoomVal < 0.95 ) {
+      } else if ( zoomVal < 0.8 ) {
         mapElements.addClass(ZOOMED_OUT_FAR_CLASS);
       } else {
         mapElements.removeClass(ZOOMED_IN_FAR_CLASS);

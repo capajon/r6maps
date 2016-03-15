@@ -1,6 +1,6 @@
 nav {
   left: 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: $z-nav;
 
@@ -45,21 +45,33 @@ nav {
   #floor-control {
     display: inline-block;
     margin: $control-padding;
+  }
 
-    button {
-      background-color: #fff;
-      border: 1px solid #000;
-      cursor: pointer;
-      font-size: $nav-font-size;
-      transition: background-color 0.2s;
+  button {
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: $nav-font-size;
+    transition: background-color $button-transition;
+
+    &:hover, &:focus {
+      background-color: $r6-blue;
+    }
+
+    &.selected {
+      background-color: $r6-yellow;
+      cursor: auto;
+    }
+
+    &#mmenu-link {
+      @include text-shadow();
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
 
       &:hover, &:focus {
-        background-color: $zoom-blue;
-      }
-
-      &.selected {
-        background-color: $r6-yellow;
-        cursor: auto;
+        background-color: $r6-blue;
+        text-shadow: none;
       }
     }
   }
