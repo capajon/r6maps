@@ -160,17 +160,17 @@ nav {
     font-size: 1.2rem;
     transition: background-color 0.2s; }
     nav button:hover, nav button:focus {
-      background-color: #3071a9; }
+      background-color: #3a6082; }
     nav button.selected {
       background-color: #ffdb00;
       cursor: auto; }
     nav button#mmenu-link {
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
       background-color: transparent;
-      border: 2px solid #3a6082;
+      border: 1px solid #fff;
       color: #fff; }
       nav button#mmenu-link:hover {
-        background-color: #000; }
+        background-color: #3a6082; }
 
 body.about {
   background: url("../img/about-bg.jpg") no-repeat center center fixed;
@@ -371,10 +371,42 @@ html.mm-pagedim-black #mm-blocker {
   background: #000; }
 
 .mm-panel {
-  background: #ffdb00 !important; }
+  background: #3a6082 !important;
+  padding-top: 0 !important; }
 
 .mm-opening #mm-blocker {
   opacity: 0.5 !important; }
+
+.mm-navbar {
+  position: absolute !important;
+  left: -10000px;
+  overflow: hidden;
+  width: 1px;
+  height: 1px; }
+
+.mmenu-custom-panel {
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.01);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.01);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  margin-bottom: 1em; }
+  .mmenu-custom-panel a {
+    border-color: rgba(0, 0, 0, 0.3);
+    border-style: solid;
+    border-top: 1px;
+    color: #000 !important;
+    display: block;
+    font-weight: 700;
+    padding: 0.5em;
+    transition: background-color 0.2s; }
+    .mmenu-custom-panel a:hover, .mmenu-custom-panel a:focus {
+      background-color: #ffdb00;
+      text-decoration: none !important; }
+  .mmenu-custom-panel h2 {
+    color: grey;
+    padding: 0.5em; }
 
 .offscreen {
   position: absolute !important;

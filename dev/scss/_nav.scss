@@ -52,10 +52,10 @@ nav {
     border: 1px solid #000;
     cursor: pointer;
     font-size: $nav-font-size;
-    transition: background-color 0.2s;
+    transition: background-color $button-transition;
 
     &:hover, &:focus {
-      background-color: $zoom-blue;
+      background-color: $r6-blue;
     }
 
     &.selected {
@@ -66,11 +66,11 @@ nav {
     &#mmenu-link {
       @include text-shadow();
       background-color: transparent;
-      border: 2px solid $r6-blue;
+      border: 1px solid #fff;
       color: #fff;
 
       &:hover {
-        background-color: #000;
+        background-color: $r6-blue;
       }
     }
   }
