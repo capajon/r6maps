@@ -145,11 +145,11 @@
 
   var setupMenu = function setupMenu() {
     $('#mmenu-menu').mmenu({
-        offCanvas: {
-          position: 'right'
-        },
-        extensions: ['pagedim']
+      offCanvas: {
+        position: 'right'
       },
+      extensions: ['pagedim']
+    },
       {
         offCanvas: {
           pageSelector: '#mmenu-page'
