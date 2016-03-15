@@ -125,7 +125,7 @@ input[type=range]:focus::-ms-fill-upper {
 /* Z-INDEXES */
 nav {
   left: 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 1200; }
   nav .wrapper {
@@ -464,7 +464,8 @@ body, button, input, select {
 
 #mmenu-page {
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  position: relative; }
 
 #map-pan-safety-wrapper {
   height: 100vh;
