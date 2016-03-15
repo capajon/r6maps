@@ -144,20 +144,20 @@
   };
 
   var setupMenu = function setupMenu() {
-    $("#mmenu-menu").mmenu({
-      offCanvas: {
-        position: 'right'
+    $('#mmenu-menu').mmenu({
+        offCanvas: {
+          position: 'right'
+        },
+        extensions: ['pagedim']
       },
-      extensions: ['pagedim']
-    },
-    {
-      offCanvas: {
-        pageSelector: '#mmenu-page'
-      }
-    });
+      {
+        offCanvas: {
+          pageSelector: '#mmenu-page'
+        }
+      });
 
     $('#mmenu-link').click(function(e) {
-      var API = $("#mmenu-menu").data( "mmenu" );
+      var API = $('#mmenu-menu').data( 'mmenu' );
 
       e.preventDefault();
       API.open();
