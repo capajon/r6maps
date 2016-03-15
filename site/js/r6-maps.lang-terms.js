@@ -3,9 +3,10 @@
 var R6MapsLangTerms = (function(undefined) {
   var terms = {
     general: {
-      pageTitle: 'Siege Maps',
+      pageTitle: 'Siege Maps - {mapName}',
       about: 'About',
-      cameraViewCaption: '{floorName} Camer View'
+      cameraViewCaption: '{floorName} Camera View',
+      shortcutTip: 'Shortcut: {shortcut}'
     },
     floorNames: {
       basement: 'Basement',
@@ -23,7 +24,7 @@ var R6MapsLangTerms = (function(undefined) {
       hostage: 'Hostage',
       secureShort: 'S',
       secure: 'Secure',
-      selectAll: 'Select All'
+      showAll: 'Show All'
     },
     legend: {
       breakableWalls: 'Breakable walls',

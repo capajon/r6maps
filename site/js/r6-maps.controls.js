@@ -36,7 +36,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     var options = '',
       objectiveTerms = R6MapsLangTerms.terms.objectives;
 
-    options += '<option value="all">Show All</option>';
+    options += '<option value="all">' + objectiveTerms.showAll + '</option>';
     objectives.forEach(function(objective) {
       options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
     });
@@ -168,10 +168,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
+    var shortcutTip = R6MapsLangTerms.terms.general.shortcutTip;
+
     if (floorIndex == 0) {
-      return "Shortcuts: '0' or '~'";
+      return shortcutTip.replace('{shortcut}',"'0' or '~'");
     } else {
-      return "Shortcut: '" + floorIndex + "'";
+      return shortcutTip.replace('{shortcut}',floorIndex);
     }
   };
 

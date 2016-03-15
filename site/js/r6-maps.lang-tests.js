@@ -13,6 +13,7 @@
 
     defaultTerms = R6MapsLangTerms.terms;
     translatedTerms.german = R6MapsLangTermsGerman.terms;
+    translatedTerms.french = R6MapsLangTermsFrench.terms;
     // add new languages here and to module import above
 
     categoryKeys = getFirstLevelKeys(defaultTerms, ['mapRooms']);

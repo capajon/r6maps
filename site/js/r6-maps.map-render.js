@@ -42,7 +42,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
 
     mapElements.html(html);
 
-    document.title = 'Siege Maps - ' + mapData.name;
+    document.title = R6MapsLangTerms.terms.general.pageTitle.replace('{mapName}',mapData.name);
   };
 
   var getFloorsHtml = function getFloorsHtml(floors, imgUrlPrefix) {
@@ -112,6 +112,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       classes,
       data,
       grouping,
+      title,
       tagStart,
       tagEnd,
       view;
@@ -123,9 +124,9 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       grouping = (camera.otherFloor)
         ? ''
         : 'data-fancybox-group="camer"';
+      title = R6MapsLangTerms.terms.general.cameraViewCaption.replace('{floorName}',camera.location.removeBreakTags());
       tagStart = (camera.id)
-        // to do determine if it should be @2x or not
-        ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + camera.location.removeBreakTags() + ' Camera View" ' + grouping + ''
+        ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + title + '" ' + grouping + ''
         : '<div ';
       tagEnd = (camera.id)
         ? '</a>'
