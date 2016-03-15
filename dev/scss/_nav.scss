@@ -45,21 +45,32 @@ nav {
   #floor-control {
     display: inline-block;
     margin: $control-padding;
+  }
 
-    button {
-      background-color: #fff;
-      border: 1px solid #000;
-      cursor: pointer;
-      font-size: $nav-font-size;
-      transition: background-color 0.2s;
+  button {
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: $nav-font-size;
+    transition: background-color 0.2s;
 
-      &:hover, &:focus {
-        background-color: $zoom-blue;
-      }
+    &:hover, &:focus {
+      background-color: $zoom-blue;
+    }
 
-      &.selected {
-        background-color: $r6-yellow;
-        cursor: auto;
+    &.selected {
+      background-color: $r6-yellow;
+      cursor: auto;
+    }
+
+    &#mmenu-link {
+      @include text-shadow();
+      background-color: transparent;
+      border: 2px solid $r6-blue;
+      color: #fff;
+
+      &:hover {
+        background-color: #000;
       }
     }
   }

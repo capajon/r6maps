@@ -137,14 +137,14 @@ nav {
   nav select {
     font-size: 1.2rem; }
   nav .misc {
-    margin: 0.25em 0.5em; }
+    margin: 0.15em 0.5em; }
   nav .zoom {
-    margin: 0.25em 0.5em; }
+    margin: 0.15em 0.5em; }
   nav #map-control {
-    margin: 0.25em 0 0.25em 0.5em;
+    margin: 0.15em 0 0.15em 0.5em;
     width: 120px; }
   nav #objective-control {
-    margin: 0.25em 0; }
+    margin: 0.15em 0; }
   nav a {
     color: #fff;
     text-decoration: none; }
@@ -152,18 +152,25 @@ nav {
       text-decoration: underline; }
   nav #floor-control {
     display: inline-block;
-    margin: 0.25em 0.5em; }
-    nav #floor-control button {
-      background-color: #fff;
-      border: 1px solid #000;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: background-color 0.2s; }
-      nav #floor-control button:hover, nav #floor-control button:focus {
-        background-color: #3071a9; }
-      nav #floor-control button.selected {
-        background-color: #ffdb00;
-        cursor: auto; }
+    margin: 0.15em 0.5em; }
+  nav button {
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s; }
+    nav button:hover, nav button:focus {
+      background-color: #3071a9; }
+    nav button.selected {
+      background-color: #ffdb00;
+      cursor: auto; }
+    nav button#mmenu-link {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      background-color: transparent;
+      border: 2px solid #3a6082;
+      color: #fff; }
+      nav button#mmenu-link:hover {
+        background-color: #000; }
 
 body.about {
   background: url("../img/about-bg.jpg") no-repeat center center fixed;
@@ -293,6 +300,82 @@ body.about {
       height: 31px;
       line-height: 31px; }
 
+/*
+	jQuery.mmenu position extension CSS
+*/
+.mm-menu.mm-top,
+.mm-menu.mm-bottom {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%; }
+
+.mm-menu.mm-right {
+  left: auto;
+  right: 0; }
+
+.mm-menu.mm-bottom {
+  top: auto;
+  bottom: 0; }
+
+html.mm-right.mm-opening .mm-slideout {
+  transform: translate3d(-80%, 0, 0); }
+
+@media all and (max-width: 175px) {
+  html.mm-right.mm-opening .mm-slideout {
+    transform: translate3d(-140px, 0, 0); } }
+@media all and (min-width: 550px) {
+  html.mm-right.mm-opening .mm-slideout {
+    transform: translate3d(-440px, 0, 0); } }
+/*
+	jQuery.mmenu z-position extension CSS
+*/
+html.mm-front .mm-slideout {
+  transform: none !important;
+  z-index: 0; }
+html.mm-front #mm-blocker {
+  z-index: 1; }
+html.mm-front .mm-menu {
+  z-index: 2; }
+
+.mm-menu.mm-front, .mm-menu.mm-next {
+  transition: transform 0.4s ease;
+  transform: translate3d(-100%, 0, 0); }
+  .mm-menu.mm-front.mm-right, .mm-menu.mm-next.mm-right {
+    transform: translate3d(100%, 0, 0); }
+.mm-menu.mm-top {
+  transform: translate3d(0, -100%, 0); }
+.mm-menu.mm-bottom {
+  transform: translate3d(0, 100%, 0); }
+
+html.mm-opening .mm-menu.mm-front, html.mm-opening .mm-menu.mm-next {
+  transform: translate3d(0, 0, 0); }
+
+.mm-menu.mm-top, .mm-menu.mm-bottom {
+  height: 80%;
+  min-height: 140px;
+  max-height: 880px; }
+
+/*
+	jQuery.mmenu pageDim extension CSS
+*/
+html.mm-pagedim #mm-blocker, html.mm-pagedim-white #mm-blocker, html.mm-pagedim-black #mm-blocker {
+  opacity: 0; }
+html.mm-pagedim.mm-opening #mm-blocker, html.mm-pagedim-white.mm-opening #mm-blocker, html.mm-pagedim-black.mm-opening #mm-blocker {
+  opacity: 0.3;
+  transition: opacity 0.4s ease 0.4s; }
+html.mm-pagedim #mm-blocker {
+  background: inherit; }
+html.mm-pagedim-white #mm-blocker {
+  background: #fff; }
+html.mm-pagedim-black #mm-blocker {
+  background: #000; }
+
+.mm-panel {
+  background: #ffdb00 !important; }
+
+.mm-opening #mm-blocker {
+  opacity: 0.5 !important; }
+
 .offscreen {
   position: absolute !important;
   left: -10000px;
@@ -346,6 +429,10 @@ body {
 
 body, button, input, select {
   font-size: 1rem; }
+
+#mmenu-page {
+  width: 100vw;
+  height: 100vh; }
 
 #map-pan-safety-wrapper {
   height: 100vh;

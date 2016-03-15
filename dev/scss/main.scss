@@ -5,6 +5,9 @@
 @import "_nav.scss";
 @import "_about-page.scss";
 @import "_legend.scss";
+@import "_jquery.mmenu.positioning.scss";
+@import "_jquery.mmenu.pagedim.scss";
+@import "_jquery.mmenu.custom-r6maps.scss";
 
 .offscreen {
   @include offscreen;
@@ -50,6 +53,11 @@ body, button, input, select {
   top: $height - ($other-floor-icon-height/2);
   width: 15px;
   z-index: $z-index + 1;
+}
+
+#mmenu-page {
+  width: 100vw;
+  height: 100vh;
 }
 
 #map-pan-safety-wrapper {

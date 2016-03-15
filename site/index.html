@@ -5,8 +5,9 @@
     <meta name="Description" content="r6maps.com is designed to help you learn Rainbow Six Siege maps.  It can be used in various ways, but is envisioned primarily being loaded on a second device while playing (or even in the 'shift+tab' Steam browser on PCs).">
     <title>Siege Maps</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/main.css" media="all" />
     <link rel="stylesheet" href="lib/fancybox.2.1.5/jquery.fancybox.css" type="text/css" />
+    <link rel="stylesheet" href="lib/mmenu.5.6.2/jquery.mmenu.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="all" />
     <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
     <link rel="icon" href="/favicon.ico?v=1">
     <meta name="msapplication-TileColor" content="#ffdb00">
@@ -23,30 +24,49 @@
     <script async src='//www.google-analytics.com/analytics.js'></script>
   </head>
   <body>
-    <h1 class="offscreen">Rainbow Six Siege Maps</h1>
-    <p class="offscreen">r6maps.com is designed to help you learn Rainbow Six Siege maps.  It can be used in various ways, but is envisioned primarily being loaded on a second device while playing (or even in the 'shift+tab' Steam browser on PCs).  See the <a href="about.html">About</a> page for more information.</p>
-    <nav>
-      <div class="wrapper">
-        <div class="map controls">
-          <select id="map-control"></select>
-          <select id="objective-control"></select>
-          <div id="floor-control"></div>
+    <div id="mmenu-page">
+      <h1 class="offscreen">Rainbow Six Siege Maps</h1>
+      <p class="offscreen">r6maps.com is designed to help you learn Rainbow Six Siege maps.  It can be used in various ways, but is envisioned primarily being loaded on a second device while playing (or even in the 'shift+tab' Steam browser on PCs).  See the <a href="about.html">About</a> page for more information.</p>
+      <nav>
+        <div class="wrapper">
+          <div class="map controls">
+            <select id="map-control"></select>
+            <select id="objective-control"></select>
+            <div id="floor-control"></div>
+          </div>
+          <div class="zoom controls">
+            <input type="range" id="zoom-range"></input>
+          </div>
+          <div class="misc controls">
+            <button id="mmenu-link">Menu</button>
+          </div>
         </div>
-        <div class="zoom controls">
-          <input type="range" id="zoom-range"></input>
-        </div>
-        <div class="misc controls">
-          <a href="about.html">About</a>
-        </div>
-      </div>
-    </nav>
-    <div id="map-pan-safety-wrapper">
-      <div id="map">
-        <div class="center-helper">
-          <div class="elements"></div>
+      </nav>
+      <div id="map-pan-safety-wrapper">
+        <div id="map">
+          <div class="center-helper">
+            <div class="elements"></div>
+          </div>
         </div>
       </div>
     </div>
+    <nav id="mmenu-menu">
+      <div>
+      <img src="paht/to/logo.png" />
+      <p>Welcome to the advanced menu.</p>
+   </div>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li>
+          <a href="#">Choose language</a>
+          <ul>
+            <li><a href="#">French</a></li>
+            <li><a href="#">French</a></li>
+            <li><a href="#">German</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script>
       if (typeof jQuery == 'undefined') {
@@ -62,7 +82,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
     <script>
       if (typeof $.fn.mousewheel == 'undefined') {
-        document.write(unescape("%3Cscript src='js/jquery.3.1.13.mousewheel.min.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(unescape("%3Cscript src='js/jquery.mousewheel.3.1.13.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.6.2/js/jquery.mmenu.min.js"></script>
+    <script>
+      if (typeof $.fn.mmenu == 'undefined') {
+        document.write(unescape("%3Cscript src='lib/mmenu.5.6.2/jquery.mmenu.min.js' type='text/javascript'%3E%3C/script%3E"));
       }
     </script>
     <script type="text/javascript" src="lib/fancybox.2.1.5/jquery.fancybox.pack.js"></script>
