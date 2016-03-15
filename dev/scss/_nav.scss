@@ -69,8 +69,9 @@ nav {
       border: 1px solid #fff;
       color: #fff;
 
-      &:hover {
+      &:hover, &:focus {
         background-color: $r6-blue;
+        text-shadow: none;
       }
     }
   }

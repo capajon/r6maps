@@ -33,13 +33,13 @@ table {
 input[type=range] {
   -webkit-appearance: none;
   margin: 18px 0;
-  width: 100%; }
+  width: 100px; }
 
 input[type=range]:focus {
   outline: none; }
 
 input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
+  width: 100px;
   height: 8.4px;
   cursor: pointer;
   animate: 0.2s;
@@ -63,7 +63,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   background: #367ebd; }
 
 input[type=range]::-moz-range-track {
-  width: 100%;
+  width: 100px;
   height: 8.4px;
   cursor: pointer;
   animate: 0.2s;
@@ -82,7 +82,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer; }
 
 input[type=range]::-ms-track {
-  width: 100%;
+  width: 100px;
   height: 8.4px;
   cursor: pointer;
   animate: 0.2s;
@@ -169,8 +169,9 @@ nav {
       background-color: transparent;
       border: 1px solid #fff;
       color: #fff; }
-      nav button#mmenu-link:hover {
-        background-color: #3a6082; }
+      nav button#mmenu-link:hover, nav button#mmenu-link:focus {
+        background-color: #3a6082;
+        text-shadow: none; }
 
 body.about {
   background: url("../img/about-bg.jpg") no-repeat center center fixed;

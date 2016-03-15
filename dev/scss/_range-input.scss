@@ -1,15 +1,17 @@
+$input-width: 100px;
+
 @mixin r6-maps-range-input {
 
   input[type=range] {
     -webkit-appearance: none;
     margin: 18px 0;
-    width: 100%;
+    width: $input-width;
   }
   input[type=range]:focus {
     outline: none;
   }
   input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
+    width: $input-width;
     height: 8.4px;
     cursor: pointer;
     animate: 0.2s;
@@ -33,7 +35,7 @@
     background: #367ebd;
   }
   input[type=range]::-moz-range-track {
-    width: 100%;
+    width: $input-width;
     height: 8.4px;
     cursor: pointer;
     animate: 0.2s;
@@ -52,7 +54,7 @@
     cursor: pointer;
   }
   input[type=range]::-ms-track {
-    width: 100%;
+    width: $input-width;
     height: 8.4px;
     cursor: pointer;
     animate: 0.2s;
