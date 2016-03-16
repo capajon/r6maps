@@ -592,7 +592,7 @@ var R6MapsLangTerms = (function(undefined) {
     $.extend(true, terms, englishTerms);
   };
 
-  registerLanguage(name, englishTerms)
+  registerLanguage(name, englishTerms);
   loadDefaultTerms();
 
   return  {
