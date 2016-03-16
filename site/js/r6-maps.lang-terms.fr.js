@@ -1,7 +1,8 @@
 'use strict';
 
 var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
-  var terms = {
+  var name = 'french',
+    terms = {
     general: {
       pageTitle: 'Carte de siège - {mapName}',
       cameraViewCaption: '{floorName} de caméra',
@@ -571,7 +572,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
     }
   };
 
+  R6MapsLangTerms.registerLanguage(name, terms);
+
   return  {
+    name: name,
     terms: terms
   };
 })(R6MapsLangTerms);

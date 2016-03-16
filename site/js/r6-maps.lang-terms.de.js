@@ -1,7 +1,8 @@
 'use strict';
 
 var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
-  var terms = {
+  var name = 'german',
+    terms = {
     mapNames: {
       bank: 'Bank (DE)',
       oregon: 'Oregon'
@@ -13,7 +14,10 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
     }
   };
 
+  R6MapsLangTerms.registerLanguage(name, terms);
+
   return  {
+    name: name,
     terms: terms
   };
 })(R6MapsLangTerms);
