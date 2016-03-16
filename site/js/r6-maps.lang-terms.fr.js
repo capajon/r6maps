@@ -571,8 +571,6 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
     }
   };
 
-  R6MapsLangTerms.loadLangPack(terms);
-
   return  {
     terms: terms
   };

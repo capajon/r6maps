@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls);
-}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, undefined) {
+  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsLangTermsFrench, R6MapsLangTermsGerman);
+}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsLangTermsFrench, R6MapsLangTermsGerman, undefined) {
   var map,
     mapElements,
     HASH_SPLIT_CHAR = '/';
@@ -161,6 +161,22 @@
 
       e.preventDefault();
       API.open();
+    });
+
+    $('#lang-choices').on('click','a',function(e) {
+      e.preventDefault();
+
+      switch ($(e.target).data('lang')) {
+      case 'english':
+        R6MapsLangTerms.loadLangPack(R6MapsLangTerms.terms);
+        break;
+      case 'french':
+        R6MapsLangTerms.loadLangPack(R6MapsLangTermsFrench.terms);
+        break;
+      case 'german':
+        R6MapsLangTerms.loadLangPack(R6MapsLangTermsGerman.terms);
+        break;
+      }
     });
   };
 
