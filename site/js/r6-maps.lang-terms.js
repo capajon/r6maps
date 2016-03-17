@@ -2,7 +2,7 @@
 
 var R6MapsLangTerms = (function(undefined) {
   var terms = {},
-    name = 'english',
+    name = 'en',
     translations = {},
     englishTerms = {
       general: {
@@ -579,8 +579,10 @@ var R6MapsLangTerms = (function(undefined) {
     translations[language] = terms;
   };
 
-  var loadLanguage = function loadLanguage(language) {
-    loadTerms(translations[language]);
+  var tryLoadLanguage = function tryLoadLanguage(language) {
+    if (translations[language]) {
+      loadTerms(translations[language]);
+    }
   };
 
   var loadTerms = function loadTerms(newTerms) {
@@ -599,6 +601,6 @@ var R6MapsLangTerms = (function(undefined) {
     name: name,
     terms: terms,
     registerLanguage: registerLanguage,
-    loadLanguage: loadLanguage
+    tryLoadLanguage: tryLoadLanguage
   };
 })();

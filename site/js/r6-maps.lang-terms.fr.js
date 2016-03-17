@@ -1,7 +1,7 @@
 'use strict';
 
 var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
-  var name = 'french',
+  var name = 'fr',
     terms = {
       general: {
         pageTitle: 'Carte de siège - {mapName}',

@@ -11,6 +11,8 @@
     map = $('#map');
     mapElements = map.find('.elements');
 
+    tryLoadStartingLanguage();
+
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     trySelectBookmarkedMap();
     loadMap();
@@ -22,6 +24,17 @@
     setupEvents();
     R6MapsControls.setupZoom(map, mapElements);
   });
+
+  var tryLoadStartingLanguage = function tryLoadStartingLanguage(){
+    var lastChosenLanguage = localStorage.getItem('language'),
+      userLang = (navigator.language || navigator.userLanguage).split('-')[0];
+
+    if (lastChosenLanguage) {
+      R6MapsLangTerms.tryLoadLanguage(lastChosenLanguage);
+    } else if (userLang) {
+      R6MapsLangTerms.tryLoadLanguage(userLang);
+    };  // default will be English otherwise
+  }
 
   var loadMap = function loadMap() {
     var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap(),
@@ -169,13 +182,15 @@
   };
 
   var handleLangChange = function handleLangChange(event) {
-    var menuApi = getMenuApi();
+    var menuApi = getMenuApi(),
+      newLang = $(event.target).data('lang');
 
     event.preventDefault();
     menuApi.close();
-    R6MapsLangTerms.loadLanguage($(event.target).data('lang'));
+    R6MapsLangTerms.tryLoadLanguage(newLang);
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     loadMap();
+    localStorage.setItem('language', newLang);
   };
 
   var getMenuApi = function getMenuApi() {
