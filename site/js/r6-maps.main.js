@@ -162,17 +162,24 @@
   };
 
   var handleMenuClick = function handleMenuClick(e) {
-    var API = $('#mmenu-menu').data( 'mmenu' );
+    var menuApi = getMenuApi();
 
     e.preventDefault();
-    API.open();
+    menuApi.open();
   };
 
   var handleLangChange = function handleLangChange(event) {
+    var menuApi = getMenuApi();
+
     event.preventDefault();
+    menuApi.close();
     R6MapsLangTerms.loadLanguage($(event.target).data('lang'));
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     loadMap();
+  };
+
+  var getMenuApi = function getMenuApi() {
+    return $('#mmenu-menu').data( 'mmenu' );
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
