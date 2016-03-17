@@ -34,7 +34,7 @@
     } else if (userLang) {
       R6MapsLangTerms.tryLoadLanguage(userLang);
     };  // default will be English otherwise
-  }
+  };
 
   var loadMap = function loadMap() {
     var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap(),

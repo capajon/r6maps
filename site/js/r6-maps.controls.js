@@ -18,13 +18,13 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     for (var mapKey in mapData) {
       if (mapData.hasOwnProperty(mapKey)) {
-        maps.push({ key: mapKey, name: mapData[mapKey].name })
+        maps.push({ key: mapKey, name: mapData[mapKey].name });
       }
     }
 
     maps.sort(function(a,b) {
-      if(a.name < b.name) return -1;
-      if(a.name > b.name) return 1;
+      if(a.name < b.name) { return -1 };
+      if(a.name > b.name) { return 1 };
       return 0;
     });
     maps.forEach(function(map) {
@@ -53,8 +53,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       initialObjective = getCurrentlySelectedObjective();
 
     objectives.sort(function(a,b) {
-      if(objectiveTerms[a] < objectiveTerms[b]) return -1;
-      if(objectiveTerms[a] > objectiveTerms[b]) return 1;
+      if(objectiveTerms[a] < objectiveTerms[b]) { return -1 };
+      if(objectiveTerms[a] > objectiveTerms[b]) { return 1 };
       return 0;
     });
 
@@ -211,7 +211,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<div id="lang-choices" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
 
-    for(var langKey in R6MapsLangTerms.loadedLanguages) {
+    for (var langKey in R6MapsLangTerms.loadedLanguages) {
       html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
     }
 
