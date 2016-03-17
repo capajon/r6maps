@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls);
-}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, undefined) {
+  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
+}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, undefined) {
   var map,
     mapElements,
     HASH_SPLIT_CHAR = '/';
@@ -11,24 +11,38 @@
     map = $('#map');
     mapElements = map.find('.elements');
 
-    R6MapsControls.populateMapOptions(R6MapsData.maps);
+    tryLoadStartingLanguage();
+    setupMenu();
+
+    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     trySelectBookmarkedMap();
     loadMap();
 
     trySelectBookmarkedObjective();
     trySelectBookmarkedFloor();
 
-    setupMenu();
     setupEvents();
     R6MapsControls.setupZoom(map, mapElements);
   });
 
-  var loadMap = function loadMap() {
-    var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap();
+  var tryLoadStartingLanguage = function tryLoadStartingLanguage(){
+    var lastChosenLanguage = localStorage.getItem('language'),
+      userLang = (navigator.language || navigator.userLanguage).split('-')[0];
 
-    R6MapsControls.populateObjectiveOptions(R6MapsData.maps[currentlySelectedMap].objectives);
-    R6MapsControls.populateFloorOptions(R6MapsData.maps[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(R6MapsData.maps[currentlySelectedMap], mapElements);
+    if (lastChosenLanguage) {
+      R6MapsLangTerms.tryLoadLanguage(lastChosenLanguage);
+    } else if (userLang) {
+      R6MapsLangTerms.tryLoadLanguage(userLang);
+    };  // default will be English otherwise
+  };
+
+  var loadMap = function loadMap() {
+    var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap(),
+      mapData = R6MapsData.getMapData();
+
+    R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
+    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
+    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements);
     setupCameraScreenshots();
     showSelectedFloor();
     showSelectedObjective();
@@ -144,6 +158,8 @@
   };
 
   var setupMenu = function setupMenu() {
+    R6MapsControls.populateMenu();
+
     $('#mmenu-menu').mmenu({
       offCanvas: {
         position: 'right'
@@ -156,12 +172,35 @@
         }
       });
 
-    $('#mmenu-link').click(function(e) {
-      var API = $('#mmenu-menu').data( 'mmenu' );
+    $('#mmenu-link').click(handleMenuClick);
+    $('#lang-choices').on('click','a',handleLangChange);
+  };
 
-      e.preventDefault();
-      API.open();
-    });
+  var handleMenuClick = function handleMenuClick(e) {
+    var menuApi = getMenuApi();
+
+    e.preventDefault();
+    menuApi.open();
+  };
+
+  var handleLangChange = function handleLangChange(event) {
+    var menuApi = getMenuApi(),
+      newLang = $(event.target).data('lang');
+
+    event.preventDefault();
+    menuApi.close();
+
+    R6MapsLangTerms.tryLoadLanguage(newLang);
+
+    setupMenu();
+    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
+    loadMap();
+
+    localStorage.setItem('language', newLang);
+  };
+
+  var getMenuApi = function getMenuApi() {
+    return $('#mmenu-menu').data( 'mmenu' );
   };
 
   var showSelectedFloor =  function showSelectedFloor() {

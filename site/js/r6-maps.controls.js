@@ -5,19 +5,38 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     objectiveControl = $('#objective-control'),
     floorControl = $('#floor-control'),
     zoomControl = $('#zoom-range'),
+    menuControl = $('#mmenu-link'),
+    menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
 
   var populateMapOptions = function populateMapOptions(mapData) {
-    var optionsAsString = '';
+    var optionsAsString = '',
+      initialMap = getCurrentlySelectedMap(),
+      maps = [];
 
     for (var mapKey in mapData) {
       if (mapData.hasOwnProperty(mapKey)) {
-        optionsAsString += '<option value="' + mapKey + '">' + mapData[mapKey].name + '</option>';
+        maps.push({ key: mapKey, name: mapData[mapKey].name });
       }
     }
+
+    maps.sort(function(a,b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    maps.forEach(function(map) {
+      optionsAsString += '<option value="' + map.key + '">' + map.name + '</option>';
+    });
+
     mapControl.html(optionsAsString);
+    trySelectMap(initialMap);
   };
 
   var getCurrentlySelectedMap = function getCurrentlySelectedMap() {
@@ -34,13 +53,25 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
     var options = '',
-      objectiveTerms = R6MapsLangTerms.terms.objectives;
+      objectiveTerms = R6MapsLangTerms.terms.objectives,
+      initialObjective = getCurrentlySelectedObjective();
+
+    objectives.sort(function(a,b) {
+      if (objectiveTerms[a] < objectiveTerms[b]) {
+        return -1;
+      }
+      if (objectiveTerms[a] > objectiveTerms[b]) {
+        return 1;
+      }
+      return 0;
+    });
 
     options += '<option value="all">' + objectiveTerms.showAll + '</option>';
     objectives.forEach(function(objective) {
       options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
     });
     objectiveControl.html(options);
+    trySelectObjective(initialObjective);
   };
 
   var getCurrentlySelectedObjective = function getCurrentlySelectedObjective() {
@@ -58,7 +89,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var populateFloorOptions = function populateFloorOptions(floors) {
     var buttonsAsString = '',
       classes = '',
-      tooltip = '';
+      tooltip = '',
+      initalFloor = getCurrentlySelectedFloor();
 
     floors.forEach(function(floor) {
       classes = '';
@@ -67,6 +99,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       buttonsAsString += '<button data-index="' + floor.index + '" class="' + classes + '" title="' + tooltip + '">' + floor.name + '</button>';
     });
     floorControl.html(buttonsAsString);
+    trySelectFloor(initalFloor);
   };
 
   var getCurrentlySelectedFloor = function getCurrentlySelectedFloor() {
@@ -177,6 +210,25 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
+  var populateMenu = function populateMenu() {
+    var html = '';
+
+    html += '<div class="mmenu-custom-panel">';
+    html += '<a href="about.html">' + R6MapsLangTerms.terms.general.about + '</a>';
+    html += '</div>';
+    html += '<div id="lang-choices" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
+
+    for (var langKey in R6MapsLangTerms.loadedLanguages) {
+      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
+    }
+
+    html += '</div>';
+
+    menuPanel.html(html);
+    menuControl.html(R6MapsLangTerms.terms.general.menu);
+  };
+
   return  {
     populateMapOptions: populateMapOptions,
     getCurrentlySelectedMap: getCurrentlySelectedMap,
@@ -195,6 +247,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupFloorHotkeys: setupFloorHotkeys,
 
     setupZoom: setupZoom,
-    isZoomed: isZoomed
+    isZoomed: isZoomed,
+
+    populateMenu: populateMenu
   };
 })(window.jQuery, window, document, R6MapsLangTerms);
