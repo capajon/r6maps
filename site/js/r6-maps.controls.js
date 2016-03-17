@@ -23,8 +23,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
 
     maps.sort(function(a,b) {
-      if(a.name < b.name) { return -1 };
-      if(a.name > b.name) { return 1 };
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
       return 0;
     });
     maps.forEach(function(map) {
@@ -53,8 +57,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       initialObjective = getCurrentlySelectedObjective();
 
     objectives.sort(function(a,b) {
-      if(objectiveTerms[a] < objectiveTerms[b]) { return -1 };
-      if(objectiveTerms[a] > objectiveTerms[b]) { return 1 };
+      if (objectiveTerms[a] < objectiveTerms[b]) {
+        return -1;
+      }
+      if (objectiveTerms[a] > objectiveTerms[b]) {
+        return 1;
+      }
       return 0;
     });
 
