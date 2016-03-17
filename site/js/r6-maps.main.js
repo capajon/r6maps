@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls);
-}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, undefined) {
+  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
+}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, undefined) {
   var map,
     mapElements,
     HASH_SPLIT_CHAR = '/';
@@ -11,7 +11,7 @@
     map = $('#map');
     mapElements = map.find('.elements');
 
-    R6MapsControls.populateMapOptions(R6MapsData.maps);
+    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     trySelectBookmarkedMap();
     loadMap();
 
@@ -24,11 +24,12 @@
   });
 
   var loadMap = function loadMap() {
-    var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap();
+    var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap(),
+      mapData = R6MapsData.getMapData();
 
-    R6MapsControls.populateObjectiveOptions(R6MapsData.maps[currentlySelectedMap].objectives);
-    R6MapsControls.populateFloorOptions(R6MapsData.maps[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(R6MapsData.maps[currentlySelectedMap], mapElements);
+    R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
+    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
+    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements);
     setupCameraScreenshots();
     showSelectedFloor();
     showSelectedObjective();
@@ -156,12 +157,22 @@
         }
       });
 
-    $('#mmenu-link').click(function(e) {
-      var API = $('#mmenu-menu').data( 'mmenu' );
+    $('#mmenu-link').click(handleMenuClick);
+    $('#lang-choices').on('click','a',handleLangChange);
+  };
 
-      e.preventDefault();
-      API.open();
-    });
+  var handleMenuClick = function handleMenuClick(e) {
+    var API = $('#mmenu-menu').data( 'mmenu' );
+
+    e.preventDefault();
+    API.open();
+  };
+
+  var handleLangChange = function handleLangChange(event) {
+    event.preventDefault();
+    R6MapsLangTerms.loadLanguage($(event.target).data('lang'));
+    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
+    loadMap();
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
