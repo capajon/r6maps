@@ -9,11 +9,11 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         shortcutTip: 'Raccourci: 1 {shortcut}'
       },
       floorNames: {
-        basement: 'SS',
-        firstFloor: 'RDC',
-        secondFloor: '1',
-        thirdFloor: '2',
-        fourthFloor: '3',
+        basement: 'Sous-sol',
+        firstFloor: 'Rez-de-chaussée',
+        secondFloor: '2ème',
+        thirdFloor: '3ème',
+        fourthFloor: '4ème',
         roof: 'Toit'
       },
       objectives: {
