@@ -1300,7 +1300,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 4, top: -22, left: 64, description: yachtTerms.captainsOffice },
           { floor: 4, top: 14, left: 323, description: yachtTerms.cockpitBalcony },
           { floor: 4, top: 18, left: -83, description: yachtTerms.topDeckStairs },
-          { floor: 4, top: 18, left: -140, description: yachtTerms.helipadEntrance },
+          { floor: 4, top: -53, left: -103, description: yachtTerms.helipadEntrance },
           { floor: 4, top: 24, left: -258, description: yachtTerms.helipad },
           { floor: 3, top: 14, left: -359, description: yachtTerms.spaDeck },
           { floor: 3, top: 138, left: -89, description: yachtTerms.eastDeck },
