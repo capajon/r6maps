@@ -10,14 +10,27 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
 
   var populateMapOptions = function populateMapOptions(mapData) {
-    var optionsAsString = '';
+    var optionsAsString = '',
+      initialMap = getCurrentlySelectedMap(),
+      maps = [];
 
     for (var mapKey in mapData) {
       if (mapData.hasOwnProperty(mapKey)) {
-        optionsAsString += '<option value="' + mapKey + '">' + mapData[mapKey].name + '</option>';
+        maps.push({ key: mapKey, name: mapData[mapKey].name })
       }
     }
+
+    maps.sort(function(a,b) {
+      if(a.name < b.name) return -1;
+      if(a.name > b.name) return 1;
+      return 0;
+    });
+    maps.forEach(function(map) {
+      optionsAsString += '<option value="' + map.key + '">' + map.name + '</option>';
+    });
+
     mapControl.html(optionsAsString);
+    trySelectMap(initialMap);
   };
 
   var getCurrentlySelectedMap = function getCurrentlySelectedMap() {
@@ -34,13 +47,21 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
     var options = '',
-      objectiveTerms = R6MapsLangTerms.terms.objectives;
+      objectiveTerms = R6MapsLangTerms.terms.objectives,
+      initialObjective = getCurrentlySelectedObjective();
+
+    objectives.sort(function(a,b) {
+      if(objectiveTerms[a] < objectiveTerms[b]) return -1;
+      if(objectiveTerms[a] > objectiveTerms[b]) return 1;
+      return 0;
+    });
 
     options += '<option value="all">' + objectiveTerms.showAll + '</option>';
     objectives.forEach(function(objective) {
       options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
     });
     objectiveControl.html(options);
+    trySelectObjective(initialObjective);
   };
 
   var getCurrentlySelectedObjective = function getCurrentlySelectedObjective() {
@@ -58,7 +79,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var populateFloorOptions = function populateFloorOptions(floors) {
     var buttonsAsString = '',
       classes = '',
-      tooltip = '';
+      tooltip = '',
+      initalFloor = getCurrentlySelectedFloor();
 
     floors.forEach(function(floor) {
       classes = '';
@@ -67,6 +89,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       buttonsAsString += '<button data-index="' + floor.index + '" class="' + classes + '" title="' + tooltip + '">' + floor.name + '</button>';
     });
     floorControl.html(buttonsAsString);
+    trySelectFloor(initalFloor);
   };
 
   var getCurrentlySelectedFloor = function getCurrentlySelectedFloor() {
