@@ -1346,9 +1346,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: -57, left: 252, description: yachtTerms.frontStairs },
           { outdoor: true, hardToRead: true, top: -262, left: -43, description: yachtTerms.submarine },
           { outdoor: true, hardToRead: true, top: -206, left: -306, description: yachtTerms.westGlacier },
-          {outdoor: true, hardToRead: true, top: 259, left: 304, description: yachtTerms.eastHullBreach },
-          {outdoor: true, hardToRead: true, top: 388, left: 100, description: yachtTerms.eastGlacier },
-          {outdoor: true, hardToRead: true, top: 388, left: -304, description: yachtTerms.frozenRiver },
+          { outdoor: true, hardToRead: true, top: 259, left: 304, description: yachtTerms.eastHullBreach },
+          { outdoor: true, hardToRead: true, top: 388, left: 100, description: yachtTerms.eastGlacier },
+          { outdoor: true, hardToRead: true, top: 388, left: -304, description: yachtTerms.frozenRiver },
           { outdoor: true, top: 245, left: -569, hardToRead: true, description: yachtTerms.zodiac },
           { outdoor: true, hardToRead: true, top: -145, left: 261, description: yachtTerms.westHullBreach }
         ]
