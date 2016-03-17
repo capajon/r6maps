@@ -12,6 +12,7 @@
     mapElements = map.find('.elements');
 
     tryLoadStartingLanguage();
+    setupMenu();
 
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     trySelectBookmarkedMap();
@@ -20,7 +21,6 @@
     trySelectBookmarkedObjective();
     trySelectBookmarkedFloor();
 
-    setupMenu();
     setupEvents();
     R6MapsControls.setupZoom(map, mapElements);
   });
@@ -158,6 +158,8 @@
   };
 
   var setupMenu = function setupMenu() {
+    R6MapsControls.populateMenu();
+
     $('#mmenu-menu').mmenu({
       offCanvas: {
         position: 'right'
@@ -187,9 +189,13 @@
 
     event.preventDefault();
     menuApi.close();
+
     R6MapsLangTerms.tryLoadLanguage(newLang);
+
+    setupMenu();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     loadMap();
+
     localStorage.setItem('language', newLang);
   };
 

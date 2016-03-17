@@ -6,7 +6,15 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
       general: {
         pageTitle: 'Carte de siège - {mapName}',
         cameraViewCaption: '{floorName} de caméra',
-        shortcutTip: 'Raccourci: 1 {shortcut}'
+        shortcutTip: 'Raccourci: 1 {shortcut}',
+        menu: 'Menu',
+        about: 'Sur',
+        languageHeader: 'La Langue'
+      },
+      languages: {
+        en: 'Anglais',
+        fr: 'Français',
+        de: 'Allemand'
       },
       floorNames: {
         basement: 'Sous-sol',

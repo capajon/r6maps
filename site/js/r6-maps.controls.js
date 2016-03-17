@@ -5,6 +5,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     objectiveControl = $('#objective-control'),
     floorControl = $('#floor-control'),
     zoomControl = $('#zoom-range'),
+    menuControl = $('#mmenu-link'),
+    menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
@@ -200,6 +202,25 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
+  var populateMenu = function populateMenu() {
+    var html = '';
+
+    html += '<div class="mmenu-custom-panel">';
+    html += '<a href="about.html">' + R6MapsLangTerms.terms.general.about + '</a>';
+    html += '</div>';
+    html += '<div id="lang-choices" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
+
+    for(var langKey in R6MapsLangTerms.loadedLanguages) {
+      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
+    }
+
+    html += '</div>';
+
+    menuPanel.html(html);
+    menuControl.html(R6MapsLangTerms.terms.general.menu);
+  };
+
   return  {
     populateMapOptions: populateMapOptions,
     getCurrentlySelectedMap: getCurrentlySelectedMap,
@@ -218,6 +239,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupFloorHotkeys: setupFloorHotkeys,
 
     setupZoom: setupZoom,
-    isZoomed: isZoomed
+    isZoomed: isZoomed,
+
+    populateMenu: populateMenu
   };
 })(window.jQuery, window, document, R6MapsLangTerms);

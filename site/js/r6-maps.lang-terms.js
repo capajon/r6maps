@@ -7,9 +7,16 @@ var R6MapsLangTerms = (function(undefined) {
     englishTerms = {
       general: {
         pageTitle: 'Siege Maps - {mapName}',
-        about: 'About',
         cameraViewCaption: '{floorName} Camera View',
-        shortcutTip: 'Shortcut: {shortcut}'
+        shortcutTip: 'Shortcut: {shortcut}',
+        menu: 'Menu',
+        about: 'About',
+        languageHeader: 'Language'
+      },
+      languages: {
+        en: 'English',
+        fr: 'French',
+        de: 'German'
       },
       floorNames: {
         basement: 'Basement',
@@ -601,6 +608,7 @@ var R6MapsLangTerms = (function(undefined) {
     name: name,
     terms: terms,
     registerLanguage: registerLanguage,
-    tryLoadLanguage: tryLoadLanguage
+    tryLoadLanguage: tryLoadLanguage,
+    loadedLanguages: translations
   };
 })();
