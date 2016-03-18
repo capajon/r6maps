@@ -93,6 +93,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           archives: 'Archives',
           tellers: 'Guichets',
           loanOffice: 'Bureau des prêts',
+          printerRoom: 'Imprimerie',
+          openArea: 'Open space',
           officeHallway: 'Couloir du bureau',
           skylightStairwell: 'Cage d\'escalier<br/>éclairée',
           lobby: 'Entrée',
@@ -215,6 +217,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           boatCrane: 'Grue'
         },
         club: {
+          easternSubroof: 'Toit est à<br/>mi-hauteur',
           constructionSite: 'Chantier<br/>',
           container: 'Conteneur',
           graffitiArea: 'Zone de graffitis',
@@ -327,7 +330,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           briefingRoom: 'Salle de<br/>briefing',
           basementEntrance: 'Entrée du<br/>sous-sol',
           garage: 'Garage',
-          TVRoom: 'NEED TO DO THIS ONE TV ROOM',
+          TVRoom: 'Salon TV',
           garageCorridor: 'Couloir du garage',
           kitchen: 'Cuisine',
           corridor1: 'Couloir<br/>RDC',
@@ -398,6 +401,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           rooftop: 'Toit'
         },
         kafe: {
+          laundryRoom: 'Buanderie',
           frontStairs: 'Escalier avant',
           bakery: 'Boulangerie',
           bakeryKitchen: 'Cuisine de la<br/>boulangerie',
@@ -410,7 +414,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           coldRoomCorridor: 'Couloir de<br/>la chambre<br/>froide',
           VIPSection: 'Section<br/>VIP',
           barStairs: 'Escalier<br/>du bar',
-          storage: 'MISSED THIS ONE',
+          storage: 'Stockage',
           museumEntrance: 'Entreée du musée',
           miningRoom: 'Salle de la mine',
           trainMuseum: 'Musée du train',
@@ -490,6 +494,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           meetingHallRoof: 'Toit de<br/>la salle<br/>de réunnion'
         },
         plane: {
+          pressBathroom: 'WC.Pr',
           meetingRoom: 'Salle de<br/>réunion',
           frontHallway: 'Couloir<br/>avant',
           executiveOffice: 'Bureau<br/>classe<br/>affaires',

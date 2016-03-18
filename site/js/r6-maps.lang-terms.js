@@ -64,6 +64,7 @@ var R6MapsLangTerms = (function(undefined) {
       },
       mapRooms: {
         bank: {
+          printerRoom: 'Printer Room',
           parkingLot: 'Parking Lot',
           boulevard: 'Boulevard',
           jewelryFront: 'Jewelry Front',
@@ -163,6 +164,7 @@ var R6MapsLangTerms = (function(undefined) {
           snowmobiles: 'Snowmobiles'
         },
         club: {
+          easternSubroof: 'Eastern Sub-roof',
           constructionSite: 'Construction<br/>Site',
           container: 'Container',
           graffitiArea: 'Graffiti Area',
@@ -174,7 +176,7 @@ var R6MapsLangTerms = (function(undefined) {
           parking: 'Parking',
           kennels: 'Kennels',
           trash: 'Trash',
-          centralSubroof: 'Central<br/>Subroof',
+          centralSubroof: 'Central<br/>Sub-roof',
           easternRoof: 'Eastern Roof',
           centralRoof: 'Central<br/>Roof',
           westernRoof: 'Western Roof',
@@ -400,6 +402,7 @@ var R6MapsLangTerms = (function(undefined) {
           boatCrane: 'Boat Crane'
         },
         kafe: {
+          laundryRoom: 'Laundry Room',
           frontStairs: 'Front Stairs',
           bakery: 'Bakery',
           bakeryKitchen: 'Bakery<br/>Kitchen',
@@ -492,6 +495,7 @@ var R6MapsLangTerms = (function(undefined) {
           meetingHallRoof: 'Meeting<br/>Hall<br/>Roof'
         },
         plane: {
+          pressBathroom: 'Pr.BR',
           meetingRoom: 'Meeting<br/>Room',
           frontHallway: 'Front<br/>Hallway',
           executiveOffice: 'Executive<br/>Office',

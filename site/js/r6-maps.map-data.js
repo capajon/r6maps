@@ -132,6 +132,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 0, description: bankTerms.mainStairway, top: 238, left: -34 },
           { floor: 0, description: bankTerms.bankGarage, top: 315, left: -137 },
           { floor: 0, description: bankTerms.elevators, top: 170, left: -185 },
+          { floor: 1, description: bankTerms.printerRoom, top: 255, left: 265 },
           { floor: 1, description: bankTerms.tellersOffice, top: -92, left: 27 },
           { floor: 1, description: bankTerms.archives, top: -56, left: 153 },
           { floor: 1, description: bankTerms.tellers, top: -70, left: -90 },
@@ -413,7 +414,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, description: clubTerms.CCTVRoom, top: 25, left: 211 },
           { floor: 2, description: clubTerms.cashRoom, top: -39, left: 232 },
           { floor: 2, hardToRead: true, description: clubTerms.easternStairs, top: -81, left: 325 },
-          { floor: 1, hardToRead: true, description: clubTerms.easternStairs, top: -60, left: 328 }
+          { floor: 1, hardToRead: true, description: clubTerms.easternStairs, top: -60, left: 328 },
+          { floor: 2, description: clubTerms.easternSubroof, top: 7, left: 360 },
+          { floor: 3, description: clubTerms.easternSubroof, top: 7, left: 360 }
         ]
       },
       consulate: {
@@ -842,6 +845,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 60, left: 425, description: kafeTerms.VIPSection },
           { floor: 1, top: -32, left: 322, description: kafeTerms.barStairs },
           { floor: 1, top: 313, left: 395, description: kafeTerms.storage },
+          { floor: 2, top: 139, left: 418, description: kafeTerms.laundryRoom },
           { floor: 2, top: -156, left: -34, description: kafeTerms.frontStairs },
           { floor: 2, top: -32, left: 322, description: kafeTerms.barStairs },
           { floor: 2, top: -57, left: 24, description: kafeTerms.museumEntrance },
@@ -1196,6 +1200,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -26, left: -375, description: planeTerms.pressSectionB },
           { floor: 2, top: 2, hardToRead: true, left: -408, description: planeTerms.backStairs },
           { floor: 1, top: 2, hardToRead: true, left: -400, description: planeTerms.backStairs },
+          { floor: 2, top: 2, left: -337, description: planeTerms.pressBathroom },
           { floor: 1, top: 34, left: -202, description: planeTerms.cargoHold },
           { floor: 1, top: -13, left: -48, description: planeTerms.serviceCorridor },
           { floor: 1, top: 14, left: -48, description: planeTerms.storage },
