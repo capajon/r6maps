@@ -98,7 +98,6 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           officeHallway: 'Couloir du bureau',
           skylightStairwell: 'Cage d\'escalier<br/>éclairée',
           lobby: 'Entrée',
-          openArea: 'Open space',
           staffRoom: 'Salle du personnel',
           electricalRoom: 'Local<br/>électrique',
           adminOffice: 'Administration',
