@@ -27,10 +27,18 @@ nav {
   #map-control {
     margin: $control-padding-top-bottom 0 $control-padding-top-bottom $control-padding-left-right;
     width: 120px;
+
+    @media screen and (max-width: $break-small) {
+      width: 80px;
+    }
   }
 
   #objective-control {
     margin: $control-padding-top-bottom 0;
+
+    @media screen and (max-width: $break-small) {
+      width: 80px;
+    }
   }
 
   a {

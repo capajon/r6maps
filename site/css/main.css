@@ -177,8 +177,14 @@ nav {
   nav #map-control {
     margin: 0.15em 0 0.15em 0.5em;
     width: 120px; }
+    @media screen and (max-width: 600px) {
+      nav #map-control {
+        width: 80px; } }
   nav #objective-control {
     margin: 0.15em 0; }
+    @media screen and (max-width: 600px) {
+      nav #objective-control {
+        width: 80px; } }
   nav a {
     color: #fff;
     text-decoration: none; }
