@@ -30,6 +30,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* FOLDERS */
+/* MISC */
+/* RESPONSIVE BREAKPOINTS */
+/* MAP ELEMENTS */
+/* COLORS */
+/* Z-INDEXES */
 input[type=range] {
   -webkit-appearance: none;
   margin: 18px 0;
@@ -147,6 +153,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* FOLDERS */
 /* MISC */
+/* RESPONSIVE BREAKPOINTS */
 /* MAP ELEMENTS */
 /* COLORS */
 /* Z-INDEXES */
@@ -180,6 +187,14 @@ nav {
   nav #floor-control {
     display: inline-block;
     margin: 0.15em 0.5em; }
+    nav #floor-control .short {
+      display: none; }
+      @media screen and (max-width: 380px) {
+        nav #floor-control .short {
+          display: inline; } }
+    @media screen and (max-width: 380px) {
+      nav #floor-control .full {
+        display: none; } }
   nav button {
     background-color: #fff;
     border: 1px solid #000;

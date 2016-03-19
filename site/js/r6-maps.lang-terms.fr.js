@@ -17,12 +17,12 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         de: 'Allemand'
       },
       floorNames: {
-        basement: 'Sous-sol',
-        firstFloor: 'Rez-de-chaussée',
-        secondFloor: '2ème',
-        thirdFloor: '3ème',
-        fourthFloor: '4ème',
-        roof: 'Toit'
+        basement: { full: 'Sous-sol', short: 'S' },
+        firstFloor: { full: 'Rez-de-chaussée', short: 'R' },
+        secondFloor: { full: '2ème', short: '2' },
+        thirdFloor: { full: '3ème', short: '3' },
+        fourthFloor: { full: '4ème', short: '4' },
+        roof: { full: 'Toit', short: 'T' }
       },
       objectives: {
         bombShortA: 'A',

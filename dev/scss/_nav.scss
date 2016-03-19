@@ -45,6 +45,19 @@ nav {
   #floor-control {
     display: inline-block;
     margin: $control-padding;
+
+    .short {
+      display: none;
+      @media screen and (max-width: $break-very-small) {
+        display: inline;
+      }
+    }
+
+    .full {
+      @media screen and (max-width: $break-very-small) {
+        display: none;
+      }
+    }
   }
 
   button {

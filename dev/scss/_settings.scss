@@ -11,6 +11,11 @@ $room-label-opacity: 0.44;
 $faded-bg: rgba(16,26,36,0.6);
 $button-transition: 0.2s;
 
+/* RESPONSIVE BREAKPOINTS */
+$break-small: 600px;
+$break-very-small: 380px;
+$break-large: 1400px;
+
 /* MAP ELEMENTS */
 $objective-height: 40px;
 $objective-width: 30px;

@@ -19,12 +19,12 @@ var R6MapsLangTerms = (function(undefined) {
         de: 'German'
       },
       floorNames: {
-        basement: 'Basement',
-        firstFloor: '1st Floor',
-        secondFloor: '2nd Floor',
-        thirdFloor: '3rd Floor',
-        fourthFloor: '4th Floor',
-        roof: 'Roof'
+        basement: { full: 'Basement', short: 'B' },
+        firstFloor: { full: '1st Floor', short: '1' },
+        secondFloor: { full: '2nd Floor', short: '2' },
+        thirdFloor: { full: '3rd Floor', short: '3' },
+        fourthFloor: { full: '4th Floor', short: '4' },
+        roof: { full: 'Roof', short: 'R' }
       },
       objectives: {
         bombShortA: 'A',

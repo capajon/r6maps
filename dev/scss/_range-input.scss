@@ -1,10 +1,8 @@
+@import "_settings.scss";
+
 $input-width: 100px;
 $input-width-small: 50px;
 $input-width-large: 135px;
-
-$break-small: 600px;
-$break-very-small: 380px;
-$break-large: 1400px;
 
 @mixin r6-maps-range-input {
 
