@@ -1,4 +1,10 @@
 $input-width: 100px;
+$input-width-small: 50px;
+$input-width-large: 135px;
+
+$break-small: 600px;
+$break-very-small: 380px;
+$break-large: 1400px;
 
 @mixin r6-maps-range-input {
 
@@ -6,6 +12,15 @@ $input-width: 100px;
     -webkit-appearance: none;
     margin: 18px 0;
     width: $input-width;
+    @media screen and (max-width: $break-small) {
+      width: $input-width-small;
+    }
+    @media screen and (max-width: $break-very-small) {
+      display: none;
+    }
+    @media screen and (min-width: $break-large) {
+      width: $input-width-large;
+    }
   }
   input[type=range]:focus {
     outline: none;
@@ -19,6 +34,12 @@ $input-width: 100px;
     background: #3071a9;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
+    @media screen and (max-width: $break-small) {
+      width: $input-width-small;
+    }
+    @media screen and (min-width: $break-large) {
+      width: $input-width-large;
+    }
   }
   input[type=range]::-webkit-slider-thumb {
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
@@ -43,6 +64,12 @@ $input-width: 100px;
     background: #3071a9;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
+    @media screen and (max-width: $break-small) {
+      width: $input-width-small;
+    }
+    @media screen and (min-width: $break-large) {
+      width: $input-width-large;
+    }
   }
   input[type=range]::-moz-range-thumb {
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
@@ -62,6 +89,12 @@ $input-width: 100px;
     border-color: transparent;
     border-width: 16px 0;
     color: transparent;
+    @media screen and (max-width: $break-small) {
+      width: $input-width-small;
+    }
+    @media screen and (min-width: $break-large) {
+      width: $input-width-large;
+    }
   }
   input[type=range]::-ms-fill-lower {
     background: #2a6495;
