@@ -49,6 +49,13 @@ var R6MapsLangTerms = (function(undefined) {
         skylights: 'Skylights',
         onFloorAboveOrBelow: 'On floor above or below'
       },
+      spawnPoints: {
+        a: 'A',
+        b: 'B',
+        c: 'C',
+        d: 'D',
+        e: 'E'
+      },
       mapNames: {
         bank: 'Bank',
         chalet: 'Chalet',
@@ -64,6 +71,9 @@ var R6MapsLangTerms = (function(undefined) {
       },
       mapRooms: {
         bank: {
+          spawnBoulevard: 'Boulevard',
+          spawnSewerAccess: 'Sewer Access',
+          spawnBackAlley: 'Back Alley',
           printerRoom: 'Printer Room',
           parkingLot: 'Parking Lot',
           boulevard: 'Boulevard',
@@ -115,6 +125,10 @@ var R6MapsLangTerms = (function(undefined) {
           conferenceRoom: 'Conference Room'
         },
         chalet: {
+          spawnFrontYard: 'Front Yard',
+          spawnCampfire: 'Campfire',
+          spawnCliffside: 'Cliffside',
+          spawnLakeside: 'Lakeside',
           libraryStairs: 'Library Stairs',
           snowmobileGarageCorridor: 'Snowmobile Garage Corridor',
           snowmobileGarage: 'Snowmobile<br/>Garage',
@@ -164,6 +178,10 @@ var R6MapsLangTerms = (function(undefined) {
           snowmobiles: 'Snowmobiles'
         },
         club: {
+          spawnMainEntrance: 'Main Entrance',
+          spawnShippingDocks: 'Shipping Docks',
+          spawnWarehouse: 'Warehouse',
+          spawnConstructionSite: 'Construction Site',
           easternSubroof: 'Eastern Sub-roof',
           constructionSite: 'Construction<br/>Site',
           container: 'Container',
@@ -215,6 +233,10 @@ var R6MapsLangTerms = (function(undefined) {
           easternStairs: 'Eastern<br/>Stairs'
         },
         consulate: {
+          spawnRiotBarricade: 'Riot Barricade',
+          spawnPoliceLine: 'Police Line',
+          spawnGasStation: 'Gas Station',
+          spawnSideEntrance: 'Side Entrance',
           exitStairs: 'Exit<br/>Stairs',
           garage: 'Garage',
           basementCorridor: 'Basement Corridor',
@@ -268,6 +290,9 @@ var R6MapsLangTerms = (function(undefined) {
           buildingRoof: 'Building Roof'
         },
         hereford: {
+          spawnTrainingCourse: 'Training Course',
+          spawnBarrak: 'Barrak',
+          spawnShootingRange: 'Shooting Range',
           armory: 'Armory',
           alleyStairs: 'Alley<br/>Stairs',
           lockers: 'Lockers',
@@ -311,6 +336,10 @@ var R6MapsLangTerms = (function(undefined) {
           rooftop: 'Rooftop'
         },
         house: {
+          spawnConstructionSite: 'Construction Site',
+          spawnRiverDocks: 'River Docks',
+          spawnAPCArea: 'APC Area',
+          spawnSideStreet: 'Side Street',
           depot: 'Depot',
           trainingRoom: 'Training Room',
           kitchenStairs: 'Kitchen<br/>Stairs',
@@ -348,6 +377,9 @@ var R6MapsLangTerms = (function(undefined) {
           rooftop: 'Rooftop'
         },
         kanal: {
+          spawnFloatingDock: 'Floating Dock',
+          spawnSailboats: 'Sailboats',
+          spawnConstructionSite: 'Construction Site',
           boatGarage: 'Boat Garage',
           boatSupplies: 'Boat Supplies',
           pipes: 'Pipes',
@@ -402,6 +434,10 @@ var R6MapsLangTerms = (function(undefined) {
           boatCrane: 'Boat Crane'
         },
         kafe: {
+          spawnRiverDocks: 'River Docks',
+          spawnChristmasMarket: 'Christmas Market',
+          spawnPark: 'Park',
+          spawnRemoved: 'Removed in Patch',
           laundryRoom: 'Laundry Room',
           frontStairs: 'Front Stairs',
           bakery: 'Bakery',
@@ -443,6 +479,9 @@ var R6MapsLangTerms = (function(undefined) {
           parkAlley: 'Park<br/>Alley'
         },
         oregon: {
+          spawnJunkyard: 'Junkyard',
+          spawnStreet: 'Street',
+          spawnConstructionSite: 'Construction Site',
           towerStairs: 'Tower Stairs',
           boilerRoom: 'Boiler<br/>Room',
           electricRoom: 'Electric<br/>Room',
@@ -495,6 +534,9 @@ var R6MapsLangTerms = (function(undefined) {
           meetingHallRoof: 'Meeting<br/>Hall<br/>Roof'
         },
         plane: {
+          spawnOfficialEntrance: 'Official Entrance',
+          spawnReporterEntrance: 'Reporter Entrance',
+          spawnServiceEntrance: 'Service Entrance',
           pressBathroom: 'Pr.BR',
           meetingRoom: 'Meeting<br/>Room',
           frontHallway: 'Front<br/>Hallway',
@@ -533,6 +575,9 @@ var R6MapsLangTerms = (function(undefined) {
           technicalSeating: 'Technical Seating'
         },
         yacht: {
+          spawnSubmarine: 'Submarine',
+          spawnZodiak: 'Zodiak',
+          spawnSnowMobile: 'Snow Mobile',
           mapsRoom: 'Maps Room',
           cockpit: 'Cockpit',
           cockpitHallway: 'Cockpit Hallway',

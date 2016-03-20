@@ -62,6 +62,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
       },
       mapRooms: {
         bank: {
+          spawnBoulevard: 'Devant le parking',
+          spawnSewerAccess: 'Devant la bijouterie',
+          spawnBackAlley: 'Accès à la ruelle',
           parkingLot: 'Devant le parking',
           boulevard: 'Boulevard',
           jewelryFront: 'Devant la bijouterie',
@@ -113,6 +116,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           conferenceRoom: 'Salle de conférences'
         },
         chalet: {
+          spawnFrontYard: 'Jardin devant la maison	',
+          spawnCampfire: 'Feu de camp',
+          spawnCliffside: 'Falaise',
+          spawnLakeside: 'Bord de lac',
           libraryStairs: 'Escalier de<br/>la bibliothèque',
           snowmobileGarageCorridor: 'Couloir garage à motoneiges',
           snowmobileGarage: 'Garage à<bt/>motoneiges',
@@ -162,6 +169,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           snowmobiles: 'Montoneiges'
         },
         kanal: {
+          spawnFloatingDock: 'Quai flottant',
+          spawnSailboats: 'Voiliers',
+          spawnConstructionSite: 'Chantier',
           boatGarage: 'Hangar à bateaux',
           boatSupplies: 'Remise du hangar',
           pipes: 'Tuyaux percés',
@@ -216,6 +226,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           boatCrane: 'Grue'
         },
         club: {
+          spawnMainEntrance: 'Porte principale',
+          spawnShippingDocks: 'Quai de chargement',
+          spawnWarehouse: 'Entrepôt',
+          spawnConstructionSite: 'Chantier',
           easternSubroof: 'Toit est à<br/>mi-hauteur',
           constructionSite: 'Chantier<br/>',
           container: 'Conteneur',
@@ -267,6 +281,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           easternStairs: 'Escalier<br/>est'
         },
         consulate: {
+          spawnRiotBarricade: 'Barricades',
+          spawnPoliceLine: 'Barrage policier',
+          spawnGasStation: 'Station-service',
+          spawnSideEntrance: 'Entrée',
           exitStairs: 'Escalier<br/>de sortie',
           garage: 'Garage',
           basementCorridor: 'Couloir du sous-sol',
@@ -320,6 +338,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           buildingRoof: 'Toit de<br/>l\'immeuble'
         },
         hereford: {
+          spawnTrainingCourse: 'Terrain d\'entraînement',
+          spawnBarrak: 'Parking',
+          spawnShootingRange: 'Stand de tir',
           armory: 'Armuererie',
           alleyStairs: 'Allée avec<br/>escalier latéral',
           lockers: 'Vestiaires',
@@ -363,6 +384,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           rooftop: 'Toit'
         },
         house: {
+          spawnConstructionSite: 'Chantier',
+          spawnRiverDocks: 'Pontons',
+          spawnAPCArea: 'Zone du VTT',
+          spawnSideStreet: 'Rue latérale',
           depot: 'Entrpôt',
           trainingRoom: 'Salle de sport',
           kitchenStairs: 'Escalier de<br/>la cuisine',
@@ -400,6 +425,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           rooftop: 'Toit'
         },
         kafe: {
+          spawnRiverDocks: 'Pontons',
+          spawnChristmasMarket: 'Marché de Noël',
+          spawnPark: 'Allée du parc',
+          spawnRemoved: 'Enlevé dans le patch',
           laundryRoom: 'Buanderie',
           frontStairs: 'Escalier avant',
           bakery: 'Boulangerie',
@@ -441,6 +470,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           parkAlley: 'Allée<br/>du parc'
         },
         oregon: {
+          spawnJunkyard: 'Décharge',
+          spawnStreet: 'Rue',
+          spawnConstructionSite: 'Chantier',
           towerStairs: 'Escalier de<br/>la tour',
           boilerRoom: 'Chaufferie',
           electricRoom: 'Local<br/>élec-<br/>trique',
@@ -493,6 +525,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           meetingHallRoof: 'Toit de<br/>la salle<br/>de réunnion'
         },
         plane: {
+          spawnOfficialEntrance: 'Entrée principale',
+          spawnReporterEntrance: 'Entrée de la presse',
+          spawnServiceEntrance: 'Entrée de service',
           pressBathroom: 'WC.Pr',
           meetingRoom: 'Salle de<br/>réunion',
           frontHallway: 'Couloir<br/>avant',
@@ -531,6 +566,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           technicalSeating: 'Centre technique'
         },
         yacht: {
+          spawnSubmarine: 'Sous-marin',
+          spawnZodiak: 'Bateau pneumatique',
+          spawnSnowMobile: 'Motoneige',
           mapsRoom: 'Salle des cartes',
           cockpit: 'Cockpit',
           cockpitHallway: 'Couloir du cockpit',
