@@ -38,6 +38,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     html += getSecureObjectivesHtml(mapData.secureObjectives);
     html += getRoomLabelsHtml(mapData.roomLabels);
     html += getDroneTunnelsHtml(mapData.droneTunnels);
+    html += getSpawnPointsHtml(mapData.spawnPoints);
     html += getLegendHtml();
 
     mapElements.html(html);
@@ -192,6 +193,18 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       classes += getCommonClasses(droneTunnel);
       classes += (droneTunnel.alternate) ? 'alternate ' : '';
       html += '<div style="' + inlineStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
+    });
+    return html;
+  };
+
+  var getSpawnPointsHtml = function getSpawnPointsHtml(spawnPoints) {
+    var html = '',
+      inlineStyle = '',
+      classes = 'spawn-point ';
+
+    spawnPoints.forEach(function(spawnPoint) {
+      inlineStyle = getPositionStyle(spawnPoint);
+      html += '<div style="' + inlineStyle + '" class="' + classes + '"><div class="spawn-wrapper"><div class="spawn-letter"><p>' + spawnPoint.letter + '</p></div><div class="spawn-description"><p>' + spawnPoint.description + '</p></div></div></div>';
     });
     return html;
   };

@@ -710,6 +710,42 @@ body, button, input, select {
       z-index: 1160; }
       #map .elements .drone-tunnel.alternate {
         background-color: #FF1493; }
+    #map .elements .spawn-point {
+      z-index: 1013; }
+      #map .elements .spawn-point .spawn-wrapper {
+        position: relative; }
+        #map .elements .spawn-point .spawn-wrapper .spawn-letter {
+          background-color: rgba(50, 100, 150, 0.5);
+          /*#4C4C4C;*/
+          left: -33px;
+          padding: 4px;
+          position: absolute;
+          top: -33px;
+          width: 58px;
+          height: 58px; }
+          #map .elements .spawn-point .spawn-wrapper .spawn-letter p {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            border: 2px solid #000;
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+            width: 54px;
+            height: 54px;
+            line-height: 54px; }
+        #map .elements .spawn-point .spawn-wrapper .spawn-description {
+          position: absolute;
+          top: 38px;
+          left: -200px;
+          width: 400px;
+          text-align: center; }
+          #map .elements .spawn-point .spawn-wrapper .spawn-description p {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            background-color: #4C4C4C;
+            color: #fff;
+            display: inline-block;
+            font-size: 27px;
+            padding: 2px 6px;
+            text-transform: uppercase; }
     #map .elements .room-label {
       height: 2.5em;
       margin-left: -110px;

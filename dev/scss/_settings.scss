@@ -29,6 +29,9 @@ $skylight-width: 29px;
 $skylight-height: $skylight-width;
 $drone-width: 8px;
 $drone-border-width: 2px;
+$spawn-point-width: 66px;
+$spawn-point-padding: 4px;
+$spawn-point-border: 2px;
 
 /* COLORS */
 $r6-yellow: #ffdb00;
@@ -45,6 +48,7 @@ $drone-bg-alternate-color: #FF1493;
 /* Z-INDEXES */
 $z-background: 1000;
 $z-floor: 1010;
+$z-spawn-point: 1013;
 $z-legend: 1015;
 $z-ceiling-hatch: 1020;
 $z-skylight: 1025;

@@ -230,6 +230,53 @@ body, button, input, select {
       }
     }
 
+    .spawn-point {
+      z-index: $z-spawn-point;
+
+      .spawn-wrapper {
+        position: relative;
+
+        .spawn-letter {
+          background-color: rgba(50,100,150,0.5);/*#4C4C4C;*/
+          left: -($spawn-point-width/2);
+          padding: $spawn-point-padding;
+          position: absolute;
+          top: -($spawn-point-width/2);
+          width: $spawn-point-width - ($spawn-point-padding * 2);
+          height: $spawn-point-width - ($spawn-point-padding * 2);
+
+          p {
+            @include text-shadow;
+            border: $spawn-point-border solid #000;
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+            width: $spawn-point-width - ($spawn-point-padding *2) - ($spawn-point-border * 2);
+            height: $spawn-point-width - ($spawn-point-padding * 2) - ($spawn-point-border * 2);
+            line-height: $spawn-point-width - ($spawn-point-padding * 2) - ($spawn-point-border * 2);
+          }
+        }
+
+        .spawn-description {
+          position: absolute;
+          top: 38px;
+          left: -200px;
+          width: 400px;
+          text-align: center;
+
+          p {
+            @include text-shadow;
+            background-color: #4C4C4C;
+            color: #fff;
+            display: inline-block;
+            font-size: 27px;
+            padding: 2px 6px;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
     .room-label {
       height: 2.5em;
       margin-left: -110px;
