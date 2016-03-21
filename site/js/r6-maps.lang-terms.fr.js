@@ -9,7 +9,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         shortcutTip: 'Raccourci: 1 {shortcut}',
         menu: 'Menu',
         about: 'Sur',
-        languageHeader: 'La Langue'
+        languageHeader: 'La Langue',
+        linkAbout: 'about-fr.html'
       },
       languages: {
         en: 'Anglais',

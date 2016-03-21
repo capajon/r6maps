@@ -11,7 +11,8 @@ var R6MapsLangTerms = (function(undefined) {
         shortcutTip: 'Shortcut: {shortcut}',
         menu: 'Menu',
         about: 'About',
-        languageHeader: 'Language'
+        languageHeader: 'Language',
+        linkAbout: 'about.html'
       },
       languages: {
         en: 'English',
