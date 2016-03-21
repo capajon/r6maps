@@ -7,6 +7,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     mapNameTerms = R6MapsLangTerms.terms.mapNames,
     objectiveTerms = R6MapsLangTerms.terms.objectives,
     floorTerms = R6MapsLangTerms.terms.floorNames,
+    spawnTerms = R6MapsLangTerms.terms.spawnPoints,
     bankTerms = mapRoomTerms.bank,
     chaletTerms = mapRoomTerms.chalet,
     clubTerms = mapRoomTerms.club,
@@ -100,6 +101,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 5, left: 84, rotate: 0, size: DRONE_MED },
           { floor: 2, top: -6, left: 90, rotate: 0, size: DRONE_MED },
           { floor: 2, top: 89, left: 95, rotate: 0, size: DRONE_MED }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -590, left: -888, description: bankTerms.spawnBoulevard },
+          { letter: spawnTerms.b, top: -446, left: 641, description: bankTerms.spawnSewerAccess },
+          { letter: spawnTerms.c, top: 534, left: 652, description: bankTerms.spawnBackAlley }
         ],
         roomLabels: [
           { outdoor: true, description: bankTerms.parkingLot, top: -575, left: -661 },
@@ -230,6 +236,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -330, left: 408, rotate: 90, size: DRONE_MED },
           { floor: 2, top: -133, left: 240, rotate: 0, size: DRONE_SMALL }
         ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -309, left: -790, description: chaletTerms.spawnFrontYard },
+          { letter: spawnTerms.b, top: -652, left: 680, description: chaletTerms.spawnCampfire },
+          { letter: spawnTerms.c, top: 447, left: 886, description: chaletTerms.spawnCliffside },
+          { letter: spawnTerms.d, top: 540, left: -819, description: chaletTerms.spawnLakeside }
+        ],
         roomLabels: [
           { floor: 0, hardToRead: true, top: 74, left: -82, description: chaletTerms.libraryStairs },
           { floor: 0, top: 119, left: 49, description: chaletTerms.snowmobileGarageCorridor },
@@ -357,6 +369,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 79, left: 180, rotate: 0, size: DRONE_SMALL },
           { floor: 2, top: -40, left: 314, rotate: 90, size: DRONE_MED },
           { floor: 2, top: -26, left: 273, rotate: 90, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: 634, left: 144, description: clubTerms.spawnMainEntrance },
+          { letter: spawnTerms.b, top: 32, left: -813, description: clubTerms.spawnShippingDocks },
+          { letter: spawnTerms.c, top: 239, left: 798, description: clubTerms.spawnWarehouse },
+          { letter: spawnTerms.d, top: -573, left: 348, description: clubTerms.spawnConstructionSite }
         ],
         roomLabels: [
           { outside: true, description: clubTerms.constructionSite, top: -528, left: 123 },
@@ -487,6 +505,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 186, left: 291, rotate: 90, size: DRONE_SMALL },
           { floor: 2, top: 67, left: 148, rotate: 90, size: DRONE_SMALL }
         ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: 412, left: 622, description: consulateTerms.spawnRiotBarricade },
+          { letter: spawnTerms.b, top: 634, left: -329, description: consulateTerms.spawnPoliceLine },
+          { letter: spawnTerms.c, top: -509, left: -664, description: consulateTerms.spawnGasStation },
+          { letter: spawnTerms.d, top: -322, left: 745, description: consulateTerms.spawnSideEntrance }
+        ],
         roomLabels: [
           { floor: 0, top: -81, left: -305, description: consulateTerms.exitStairs },
           { floor: 0, top: 129, left: -261, description: consulateTerms.garage },
@@ -612,6 +636,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 442, left: -13, rotate: 0, size: 52 },
           { floor: 1, top: 340, left: 147, rotate: 90, size: DRONE_MED }
         ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: 322, left: -789, description: herefordTerms.spawnTrainingCourse },
+          { letter: spawnTerms.b, top: 236, left: 703, description: herefordTerms.spawnBarrak },
+          { letter: spawnTerms.c, top: -630, left: 27, description: herefordTerms.spawnTrainingCourse }
+        ],
         roomLabels: [
           { floor: 0, top: 199, left: -100, description: herefordTerms.armory },
           { floor: 0, top: 50, left: 200, description: herefordTerms.alleyStairs },
@@ -721,6 +750,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 0, top: -7, left: 161, rotate: 45, size: 26, alternate: true },
           { floor: 1, top: 126, left: 30, rotate: 340, size: 20, alternate: true }
         ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -589, left: -31, description: houseTerms.spawnConstructionSite },
+          { letter: spawnTerms.b, top: 218, left: 571, description: houseTerms.spawnRiverDocks },
+          { letter: spawnTerms.c, top: 542, left: -172, description: houseTerms.spawnAPCArea },
+          { letter: spawnTerms.d, top: 595, left: 387, description: houseTerms.spawnSideStreet }
+        ],
         roomLabels: [
           { floor: 0, top: -128, left: -141, description: houseTerms.depot },
           { floor: 0, top: 2, left: -140, description: houseTerms.trainingRoom },
@@ -828,6 +863,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 121, left: 473, rotate: 90, size: DRONE_MED },
           { floor: 2, top: 276, left: 353, rotate: 0, size: DRONE_MED },
           { floor: 3, top: 11, left: 9, rotate: 90, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -559, left: 205, description: kafeTerms.spawnRiverDocks },
+          { letter: spawnTerms.b, top: 146, left: -904, description: kafeTerms.spawnChristmasMarket },
+          { letter: spawnTerms.c, top: 571, left: 161, description: kafeTerms.spawnPark },
+          { letter: spawnTerms.d, top: -402, left: 904, description: kafeTerms.spawnRemoved }
         ],
         roomLabels: [
           { floor: 1, top: -156, left: -34, description: kafeTerms.frontStairs },
@@ -937,6 +978,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -71, left: 246, rotate: 90, size: DRONE_SMALL },
           { floor: 3, top: 64, left: 460, rotate: 0, size: DRONE_MED },
           { floor: 3, top: 9, left: 193, rotate: 0, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -541, left: -1032, description: kanalTerms.spawnFloatingDock },
+          { letter: spawnTerms.b, top: 508, left: -626, description: kanalTerms.spawnSailboats },
+          { letter: spawnTerms.c, top: -523, left: 1114, description: kanalTerms.spawnConstructionSite }
         ],
         roomLabels: [
           { floor: 1, top: -68, left: -372, description: kanalTerms.boatGarage },
@@ -1060,6 +1106,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 203, left: -186, rotate: 0, size: 52 },
           { floor: 1, top: 208, left: -66, rotate: 0, size: 74 }
         ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: 468, left: -892, description: oregonTerms.spawnJunkyard },
+          { letter: spawnTerms.b, top: 567, left: 649, description: oregonTerms.spawnStreet },
+          { letter: spawnTerms.c, top: -423, left: 525, description: oregonTerms.spawnConstructionSite }
+        ],
         roomLabels: [
           { floor: 0, top: -321, left: 142, description: oregonTerms.towerStairs },
           { floor: 0, top: -198, left: 197, description: oregonTerms.boilerRoom },
@@ -1175,6 +1226,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         skylights: [],
         droneTunnels: [
           { floor: 2, top: -42, left: 172, rotate: 90, size: DRONE_SMALL, alternate: true }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -428, left: 434, description: planeTerms.spawnOfficialEntrance },
+          { letter: spawnTerms.b, top: -489, left: -408, description: planeTerms.spawnReporterEntrance },
+          { letter: spawnTerms.c, top: 385, left: 342, description: planeTerms.spawnServiceEntrance }
         ],
         roomLabels: [
           { floor: 2, top: -6, left: 300, description: planeTerms.meetingRoom },
@@ -1298,6 +1354,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 106, left: 289, rotate: 0, size: DRONE_MED },
           { floor: 3, top: 0, left: 217, rotate: 90, size: DRONE_MED }
         ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -532, left: -187, description: yachtTerms.spawnSubmarine },
+          { letter: spawnTerms.b, top: 413, left: -737, description: yachtTerms.spawnZodiak },
+          { letter: spawnTerms.c, top: 354, left: 596, description: yachtTerms.spawnSnowMobile }
+        ],
         roomLabels: [
           { floor: 4, top: 59, left: 35, description: yachtTerms.mapsRoom },
           { floor: 4, top: 62, left: 121, description: yachtTerms.cockpit },
@@ -1369,6 +1430,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ceilingHatches: [],
         skylights: [],
         dronePassage: [],
+        spawnPoints: [],
         roomLabels: []
       }*/
     };
