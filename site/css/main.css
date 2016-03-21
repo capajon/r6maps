@@ -715,8 +715,7 @@ body, button, input, select {
       #map .elements .spawn-point .spawn-wrapper {
         position: relative; }
         #map .elements .spawn-point .spawn-wrapper .spawn-letter {
-          background-color: rgba(50, 100, 150, 0.5);
-          /*#4C4C4C;*/
+          background-color: #4C4C4C;
           left: -33px;
           padding: 4px;
           position: absolute;
@@ -735,8 +734,8 @@ body, button, input, select {
         #map .elements .spawn-point .spawn-wrapper .spawn-description {
           position: absolute;
           top: 38px;
-          left: -200px;
-          width: 400px;
+          left: -150px;
+          width: 300px;
           text-align: center; }
           #map .elements .spawn-point .spawn-wrapper .spawn-description p {
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);

@@ -237,7 +237,7 @@ body, button, input, select {
         position: relative;
 
         .spawn-letter {
-          background-color: rgba(50,100,150,0.5);/*#4C4C4C;*/
+          background-color: $spawn-point-bg;
           left: -($spawn-point-width/2);
           padding: $spawn-point-padding;
           position: absolute;
@@ -260,13 +260,13 @@ body, button, input, select {
         .spawn-description {
           position: absolute;
           top: 38px;
-          left: -200px;
-          width: 400px;
+          left: -150px;
+          width: 300px;
           text-align: center;
 
           p {
             @include text-shadow;
-            background-color: #4C4C4C;
+            background-color: $spawn-point-bg;
             color: #fff;
             display: inline-block;
             font-size: 27px;
