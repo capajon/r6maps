@@ -97,8 +97,9 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       classes += (floor.default) ? SELECTED_CLASS : '';
       tooltip = getFloorTooltip(floor.index);
       buttonsAsString += '<button data-index="' + floor.index + '" class="' + classes + '" title="' + tooltip + '">';
-      buttonsAsString += '<span class="short">' + floor.name.short + '</span>';
-      buttonsAsString += '<span class="full">' + floor.name.full + '</span>';
+      //buttonsAsString += '<span class="short">' + floor.name.short + '</span>';
+      //buttonsAsString += '<span class="full">' + floor.name.full + '</span>';
+      buttonsAsString += floor.name.full;
       buttonsAsString += '</button>';
     });
     floorControl.html(buttonsAsString);
