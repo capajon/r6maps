@@ -8,7 +8,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         cameraViewCaption: '{floorName} de caméra',
         shortcutTip: 'Raccourci: 1 {shortcut}',
         menu: 'Menu',
-        about: 'Sur',
+        about: 'Information',
         languageHeader: 'La Langue',
         linkAbout: 'about-fr.html'
       },
