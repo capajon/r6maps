@@ -227,6 +227,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
 
     html += '</div>';
+    html += '<div class="faded-logo"></div>';
 
     menuPanel.html(html);
     menuControl.html(R6MapsLangTerms.terms.general.menu);
