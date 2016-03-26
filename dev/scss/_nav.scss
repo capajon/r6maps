@@ -56,13 +56,13 @@ nav {
 
     .short {
       display: none;
-      @media screen and (max-width: $break-very-small) {
+      @media screen and (max-width: $break-small) {
         display: inline;
       }
     }
 
     .full {
-      @media screen and (max-width: $break-very-small) {
+      @media screen and (max-width: $break-small) {
         display: none;
       }
     }

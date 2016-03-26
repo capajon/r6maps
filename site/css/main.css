@@ -195,10 +195,10 @@ nav {
     margin: 0.15em 0.5em; }
     nav #floor-control .short {
       display: none; }
-      @media screen and (max-width: 380px) {
+      @media screen and (max-width: 600px) {
         nav #floor-control .short {
           display: inline; } }
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 600px) {
       nav #floor-control .full {
         display: none; } }
   nav button {
