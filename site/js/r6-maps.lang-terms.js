@@ -16,7 +16,7 @@ var R6MapsLangTerms = (function(undefined) {
       },
       languages: {
         en: 'English',
-        fr: 'French',
+        fr: 'Français',
         de: 'German'
       },
       floorNames: {

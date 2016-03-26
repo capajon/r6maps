@@ -12,11 +12,6 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         languageHeader: 'La Langue',
         linkAbout: 'about-fr.html'
       },
-      languages: {
-        en: 'Anglais',
-        fr: 'Français',
-        de: 'Allemand'
-      },
       floorNames: {
         basement: { full: 'Sous-sol', short: 'S' },
         firstFloor: { full: 'Rez-de-chaussée', short: 'R' },
