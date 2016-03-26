@@ -66,6 +66,13 @@ nav {
         display: none;
       }
     }
+
+    button {
+      @media screen and (max-width: $break-small) {
+        padding-left: 0.7em;
+        padding-right: 0.7em;
+      }
+    }
   }
 
   button {

@@ -201,6 +201,10 @@ nav {
     @media screen and (max-width: 600px) {
       nav #floor-control .full {
         display: none; } }
+    @media screen and (max-width: 600px) {
+      nav #floor-control button {
+        padding-left: 0.7em;
+        padding-right: 0.7em; } }
   nav button {
     background-color: #fff;
     border: 1px solid #000;
