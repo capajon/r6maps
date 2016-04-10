@@ -80,7 +80,30 @@ body, button, input, select {
     width: 0;
   }
 
-  .elements {
+  svg {
+    &.center-helper {
+      overflow: visible;
+      width: 1px;
+      height: 1px;
+      z-index: $z-camera-los;
+    }
+
+    .camera-los {
+      fill: transparent;
+      stroke: $r6-yellow;
+      opacity: 0.15;
+      stroke-width: 3;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      transition: opacity 1s;
+
+      &.show-more {
+        opacity: 1;
+      }
+    }
+  }
+
+  #map-elements {
     position: relative;
 
     img, div, a {
@@ -304,42 +327,6 @@ body, button, input, select {
       }
     }
 
-    &.show-floor-zero {
-      .one, .two, .three, .four, .five {
-        display: none !important;
-      }
-    }
-
-    &.show-floor-one {
-      .zero, .two, .three, .four, .five {
-        display: none !important;
-      }
-    }
-
-    &.show-floor-two {
-      .zero, .one, .three, .four, .five {
-        display: none !important;
-      }
-    }
-
-    &.show-floor-three {
-      .zero, .one, .two, .four, .five {
-        display: none !important;
-      }
-    }
-
-    &.show-floor-four {
-      .zero, .one, .two, .three, .five {
-        display: none !important;
-      }
-    }
-
-    &.show-floor-five {
-      .zero, .one, .two, .three, .four {
-        display: none !important;
-      }
-    }
-
     &.show-objective-all {
       .objective {
         display: block;
@@ -372,6 +359,42 @@ body, button, input, select {
       .room-label {
         opacity: 0;
       }
+    }
+  }
+
+  &.show-floor-zero {
+    .one, .two, .three, .four, .five {
+      display: none !important;
+    }
+  }
+
+  &.show-floor-one {
+    .zero, .two, .three, .four, .five {
+      display: none !important;
+    }
+  }
+
+  &.show-floor-two {
+    .zero, .one, .three, .four, .five {
+      display: none !important;
+    }
+  }
+
+  &.show-floor-three {
+    .zero, .one, .two, .four, .five {
+      display: none !important;
+    }
+  }
+
+  &.show-floor-four {
+    .zero, .one, .two, .three, .five {
+      display: none !important;
+    }
+  }
+
+  &.show-floor-five {
+    .zero, .one, .two, .three, .four {
+      display: none !important;
     }
   }
 }

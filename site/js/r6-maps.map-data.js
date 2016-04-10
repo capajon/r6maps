@@ -63,15 +63,39 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -52, left: 121 }
         ],
         cameras: [
-          { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
-          { floor: 2, top: -157, left: -392, id: 1, location: bankTerms.lobby },
-          { floor: 1, top: 100, left: 38, id: 2, location: bankTerms.officeHallway },
-          { floor: 2, top: -170, left: 249, id: 3, location: bankTerms.skylightStairwell },
-          { floor: 0, top: 118, left: -203, id: 4, location: bankTerms.vaultLobby },
-          { outdoor: true, top: -431, left: 5, id: 5, location: bankTerms.plaza },
-          { floor: 0, top: 148, left: -518, id: 6, location: bankTerms.garageRamp },
+          {
+            floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby
+          },
+          {
+            floor: 2, top: -157, left: -392, id: 1, location: bankTerms.lobby,
+            los: [[{top: -278, left: -414}, {top: -163, left: -434}, {top: 61, left: -413}]]
+          },
+          {
+            floor: 1, top: 100, left: 38, id: 2, location: bankTerms.officeHallway,
+            los: [[{top: 85, left: -211},{top: 85, left: 61},{top: 134, left: 61}]]
+          },
+          {
+            floor: 2, top: -170, left: 249, id: 3, location: bankTerms.skylightStairwell,
+            los: [[{top: 91, left: 227},{top: -185, left: 227},{top: -185, left: 420}]]
+          },
+          {
+            floor: 0, top: 118, left: -203, id: 4, location: bankTerms.vaultLobby,
+            los: [[{top: 51, left: -220}, {top: 135, left: -220}, {top: 135, left: -12}]]
+          },
+          {
+            outdoor: true, top: -431, left: 5, id: 5, location: bankTerms.plaza,
+            los: [[{top: -490, left: -977},{top: -503, left: 36},{top: -302, left: 457}]]
+          },
+          {
+            floor: 0, top: 148, left: -518, id: 6, location: bankTerms.garageRamp,
+            los: [[{top: -363, left: -515},{top: 82, left: -538},{top: 212, left: -538},{top: 241, left: -530},{top: 269, left: -516},{top: 292, left: -494},{top: 312, left: -461},{top: 322, left: -427},{top: 324, left: -303}]]
+          },
           { floor: 1, otherFloor: 'down', top: 148, left: -518, id: 6, location: bankTerms.garageRamp },
-          { outdoor: true, top: 115, left: 562, id: 7, location: bankTerms.backAlley }
+          {
+            outdoor: true, top: 115, left: 562, id: 7, location: bankTerms.backAlley,
+            los: [[{top: 49, left: 577}, {top: 115, left: 584}, {top: 288, left: 571}]]
+          }
+          //los: [[{top: , left: }, {top: , left: }, {top: , left: }]] }
         ],
         ceilingHatches: [
           { floor: 0, top: 10, left: -138 },
@@ -336,7 +360,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -109, left: 25 }
         ],
         cameras: [
-          { floor: 2, top: -191, left: 3, id: 1, location: clubTerms.bedroomHallway },
+          {
+            floor: 2, top: -191, left: 3, id: 1, location: clubTerms.bedroomHallway,
+            los: [[{top: -176, left: -129},{top: -176, left: 19},{top: -204, left: 19}]]
+          },
           { floor: 1, top: -128, left: -18, id: 2, location: clubTerms.bar },
           { floor: 1, otherFloor: 'up', top: 259, left: 287, id: 3, location: clubTerms.garage },
           { floor: 2, top: 259, left: 287, id: 3, location: clubTerms.garage },

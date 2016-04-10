@@ -12,12 +12,14 @@ var R6MapsLangTerms = (function(undefined) {
         menu: 'Menu',
         about: 'About',
         languageHeader: 'Language',
+        optionsHeader: 'Options',
+        labelLosOpacity: 'Default camera line-of-sight opacity',
         linkAbout: 'about.html'
       },
       languages: {
         en: 'English',
         fr: 'Français',
-        de: 'German'
+        de: 'Deutsch'
       },
       floorNames: {
         basement: { full: 'Basement', short: 'B' },

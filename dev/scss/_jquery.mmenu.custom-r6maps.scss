@@ -1,3 +1,5 @@
+$custom-mmenu-padding: 0.7em;
+
 .mm-panel {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
   background: #3a6082 !important; /* Old browsers */
@@ -42,7 +44,7 @@
     color: #000 !important;
     display: block;
     font-weight: 700;
-    padding: 0.7em;
+    padding: $custom-mmenu-padding;
     transition: background-color $button-transition;
 
     &:hover, &:focus {
@@ -53,6 +55,11 @@
 
   h2 {
     color: grey;
-    padding: 0.7em;
+    padding: $custom-mmenu-padding;
+  }
+
+  label {
+    padding: $custom-mmenu-padding;
+    font-weight: 700;
   }
 }

@@ -26,7 +26,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       5: 'five'
     };
 
-  var renderMap = function renderMap(mapData, mapElements) {
+  var renderMap = function renderMap(mapData, mapElements, svgElement) {
     var html = '';
 
     html += getFloorsHtml(mapData.floors, mapData.imgUrlPrefix);
@@ -42,8 +42,33 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     html += getLegendHtml();
 
     mapElements.html(html);
+    svgElement.html(getCamerasLosHtml(mapData.cameras));
 
     document.title = R6MapsLangTerms.terms.general.pageTitle.replace('{mapName}',mapData.name);
+  };
+
+  var getCamerasLosHtml = function getCamerasLosHtml(cameras){
+    var html = '',
+      classes = '';
+
+    cameras.forEach(function(camera) {
+      classes = 'camera-los camera-' + camera.id + ' ' + getCommonClasses(camera);
+      if (camera.los) {
+        camera.los.forEach(function(los) {
+          html += '<polyline class="' + classes + '" points="' +  getCameraLosPoints(los) + '"/>';
+        });
+      }
+    });
+    return html;
+  };
+
+  var getCameraLosPoints = function getCameraLosPoints(losData) {
+    var points = '';
+
+    losData.forEach(function(data) {
+      points += data.left + ',' + data.top + ' ';
+    });
+    return points;
   };
 
   var getFloorsHtml = function getFloorsHtml(floors, imgUrlPrefix) {
@@ -124,12 +149,12 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       classes += getCommonClasses(camera);
       grouping = (camera.otherFloor)
         ? ''
-        : 'data-fancybox-group="camer"';
+        : 'data-fancybox-group="camera"';
       title = R6MapsLangTerms.terms.general.cameraViewCaption.replace('{floorName}',camera.location.removeBreakTags());
-      tagStart = (camera.id)
-        ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + title + '" ' + grouping + ''
+      tagStart = (camera.id && !camera.otherFloor)
+        ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + title + '" ' + grouping + ' data-camera-id="' + camera.id + '"'
         : '<div ';
-      tagEnd = (camera.id)
+      tagEnd = (camera.id && !camera.otherFloor)
         ? '</a>'
         : '</div>';
       html += tagStart + 'style="' + positionStyle + '" class="' + classes + '"><span></span>' + tagEnd;
@@ -242,11 +267,11 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return 'top: ' + mapElement.top + 'px; left: ' + mapElement.left + 'px; ';
   };
 
-  var showFloor = function showFloor(floor, mapElements) {
+  var showFloor = function showFloor(floor, mapElement) {
     var floorPrefix = 'show-floor-';
 
-    mapElements.removeClassPrefix(floorPrefix);
-    mapElements.addClass(floorPrefix + FLOOR_CSS_TEXT[floor]);
+    mapElement.removeClassPrefix(floorPrefix);
+    mapElement.addClass(floorPrefix + FLOOR_CSS_TEXT[floor]);
   };
 
   var showObjective = function showObjective(objective, mapElements) {

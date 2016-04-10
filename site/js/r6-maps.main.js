@@ -5,11 +5,13 @@
 }(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, undefined) {
   var map,
     mapElements,
+    svgElements,
     HASH_SPLIT_CHAR = '/';
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     map = $('#map');
-    mapElements = map.find('.elements');
+    mapElements = map.find('#map-elements');
+    svgElements = map.find('#svg-elements');
 
     tryLoadStartingLanguage();
     setupMenu();
@@ -42,8 +44,9 @@
 
     R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
     R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements);
+    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgElements);
     setupCameraScreenshots();
+    setupCameraLos();
     showSelectedFloor();
     showSelectedObjective();
   };
@@ -84,6 +87,29 @@
     R6MapsControls.setupMapChangeEvent(handleMapChange);
     R6MapsControls.setupFloorChangeEvent(handleFloorChange);
     R6MapsControls.setupFloorHotkeys(showSelectedFloor);
+  };
+
+  var setupCameraLos = function setupCameraLos() {
+    console.log('setupCameraLos start');
+    console.log($('a.camera'));
+    $('.camera').on('mouseenter', handleCameraIn);
+    $('.camera').on('mouseleave', handleCameraOut);
+  };
+
+  var handleCameraIn = function handleCameraHoverIn(event) {
+    var cameraId = getCameraIdFromEvent(event);
+
+    $('.camera-los.camera-' + cameraId).addClass('show-more');
+  };
+
+  var handleCameraOut = function handleCameraHoverOut(event) {
+    var cameraId = getCameraIdFromEvent(event);
+
+    $('.camera-los.camera-' + cameraId).removeClass('show-more');
+  };
+
+  var getCameraIdFromEvent = function getCameraIdFromEvent(event) {
+    return $(event.target).data('camera-id');
   };
 
   var handleMapChange = function handleMapChange() {
@@ -204,7 +230,7 @@
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
-    R6MapsRender.showFloor(R6MapsControls.getCurrentlySelectedFloor(), mapElements);
+    R6MapsRender.showFloor(R6MapsControls.getCurrentlySelectedFloor(), map);
   };
 
   var showSelectedObjective =  function showSelectedObjective() {
