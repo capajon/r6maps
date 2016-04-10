@@ -228,14 +228,35 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         cameras: [
           { floor: 1, otherFloor: 'up', top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallway },
-          { floor: 2, top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallway },
+          {
+            floor: 2, top: -117, left: 197, id: 1, location: chaletTerms.bedroomHallway,
+            los: [[{top: -127, left: 317},{top: -127, left: 183},{top: 4, left: 183}]]
+          },
           { floor: 1, otherFloor: 'up', top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallway },
-          { floor: 2, top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallway },
-          { floor: 1, otherFloor: 'up', top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
-          { floor: 2, top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
-          { floor: 0, top: 151, left: 139, id: 4, location: chaletTerms.snowmobileGarage },
-          { outdoor: true, top: -36, left: -350, id: 5, location: chaletTerms.frontYard },
-          { outdoor: true, top: -147, left: 838, id: 6, location: chaletTerms.backyard }
+          {
+            floor: 2, top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallway,
+            los: [[{top: 370, left: 181},{top: 321, left: 255},{top: 321, left: 313},{top: 96, left: 313}]]
+          },
+          {
+            floor: 1, otherFloor: 'up', top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs
+            //los: [[{},{},{}]]
+          },
+          {
+            floor: 2, top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs
+            //los: [[{},{},{}]]
+          },
+          {
+            floor: 0, top: 150, left: 122, id: 4, location: chaletTerms.snowmobileGarage,
+            los: [[{top: 140, left: 61},{top: 121, left: 116},{top: 141, left: 187}]]
+          },
+          {
+            outdoor: true, top: -36, left: -350, id: 5, location: chaletTerms.frontYard,
+            los: [[{top: -162, left: -384},{top: -30, left: -408},{top: 453, left: -425}]]
+          },
+          {
+            outdoor: true, top: -147, left: 838, id: 6, location: chaletTerms.backyard,
+            los: [[{top: 302, left: 1016},{top: -157, left: 878},{top: -695, left: 732}]]
+          }
         ],
         ceilingHatches: [
           { floor: 0, top: 259, left: 116 },
@@ -364,13 +385,31 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
             floor: 2, top: -191, left: 3, id: 1, location: clubTerms.bedroomHallway,
             los: [[{top: -176, left: -129},{top: -176, left: 19},{top: -204, left: 19}]]
           },
-          { floor: 1, top: -128, left: -18, id: 2, location: clubTerms.bar },
+          {
+            floor: 1, top: -128, left: -18, id: 2, location: clubTerms.bar,
+            los: [[{top: -140, left: -183},{top: -140, left: 29}],[{top: -76, left: 35},{top: 17, left: 152}]]
+          },
           { floor: 1, otherFloor: 'up', top: 259, left: 287, id: 3, location: clubTerms.garage },
-          { floor: 2, top: 259, left: 287, id: 3, location: clubTerms.garage },
-          { floor: 0, top: -176, left: -28, id: 4, location: clubTerms.basementHallway },
-          { outdoor: true, top: 254, left: -170, id: 5, location: clubTerms.VIPParking },
-          { outdoor: true, top: -222, left: -316, id: 6, location: clubTerms.graffitiArea },
-          { outdoor: true, top: 298, left: 444, id: 7, location: clubTerms.kennels }
+          {
+            floor: 2, top: 259, left: 287, id: 3, location: clubTerms.garage,
+            los: [[{top: 271, left: 163},{top: 271, left: 302},{top: 87, left: 302}]]
+          },
+          {
+            floor: 0, top: -176, left: -28, id: 4, location: clubTerms.basementHallway,
+            los: [[{top: -74, left: -41},{top: -186, left: -41},{top: -186, left: 147}]]
+          },
+          {
+            outdoor: true, top: 254, left: -170, id: 5, location: clubTerms.VIPParking,
+            los: [[{top: 359, left: -208},{top: 318, left: -158},{top: 358, left: 223}]]
+          },
+          {
+            outdoor: true, top: -222, left: -316, id: 6, location: clubTerms.graffitiArea,
+            los: [[{top: -43, left: -444},{top: -289, left: -373},{top: -670, left: -131}]]
+          },
+          {
+            outdoor: true, top: 298, left: 444, id: 7, location: clubTerms.kennels,
+            los: [[{top: 411, left: 261},{top: 350, left: 495},{top: 162, left: 546}]]
+          }
         ],
         ceilingHatches: [
           { floor: 0, top: -258, left: 108 },
