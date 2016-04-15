@@ -173,6 +173,9 @@
   var setupCameraScreenshots = function setupCameraScreenShots(){
     $('a.camera').fancybox({
       padding: 0,
+      width: '100%',
+      titlePosition: 'inside',
+      type: 'iframe',
       helpers: {
         overlay: {
           css: {

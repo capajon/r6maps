@@ -237,14 +237,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
             floor: 2, top: 307, left: 297, id: 2, location: chaletTerms.fireplaceHallway,
             los: [[{top: 370, left: 181},{top: 321, left: 255},{top: 321, left: 313},{top: 96, left: 313}]]
           },
-          {
-            floor: 1, otherFloor: 'up', top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs
-            //los: [[{},{},{}]]
-          },
-          {
-            floor: 2, top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs
-            //los: [[{},{},{}]]
-          },
+          { floor: 1, otherFloor: 'up', top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
+          { floor: 2, top: 101, left: -106, id: 3, location: chaletTerms.libraryStairs },
           {
             floor: 0, top: 150, left: 122, id: 4, location: chaletTerms.snowmobileGarage,
             los: [[{top: 140, left: 61},{top: 121, left: 116},{top: 141, left: 187}]]

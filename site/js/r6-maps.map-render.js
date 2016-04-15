@@ -152,6 +152,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
         : 'data-fancybox-group="camera"';
       title = R6MapsLangTerms.terms.general.cameraViewCaption.replace('{floorName}',camera.location.removeBreakTags());
       tagStart = (camera.id && !camera.otherFloor)
+        //? '<a href="http://www.google.ca?camera=' + camera.id + '" title="' + title + '" ' + grouping + ' data-camera-id="' + camera.id + '"'
         ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + title + '" ' + grouping + ' data-camera-id="' + camera.id + '"'
         : '<div ';
       tagEnd = (camera.id && !camera.otherFloor)
