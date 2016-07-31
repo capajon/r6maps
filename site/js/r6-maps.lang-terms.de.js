@@ -114,7 +114,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           terrace: 'Terrasse',
           stockTradingRoom: 'Aktienhandels-<br/>raum',
           conferenceRoom: 'Konferenzraum'
-        },
+        }
       }
     };
 
