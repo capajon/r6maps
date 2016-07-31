@@ -234,14 +234,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
     }
 
-    html += '</div>';
+    html += '<!--temp disabled WIP todo </div>';
     html += '<div id="los-opacity" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
     html += '<input id="los-opacity-range"></input>';
     html += '</div>';
-    html += '</div>';
+    html += '</div>-->';
 
     html += '<div class="faded-logo"></div>';
 
