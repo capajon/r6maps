@@ -61,6 +61,7 @@ var R6MapsLangTerms = (function(undefined) {
       },
       mapNames: {
         bank: 'Bank',
+        border: 'Border',
         chalet: 'Chalet',
         club: 'Club House',
         consulate: 'Consulate',
@@ -126,6 +127,9 @@ var R6MapsLangTerms = (function(undefined) {
           terrace: 'Terrace',
           stockTradingRoom: 'Stock<br/>Trading<br/>Room',
           conferenceRoom: 'Conference Room'
+        },
+        border: {
+          workInProgress: 'This map is a<br/>WORK IN PROGRESS'
         },
         chalet: {
           spawnFrontYard: 'Front Yard',

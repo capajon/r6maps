@@ -9,6 +9,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     floorTerms = R6MapsLangTerms.terms.floorNames,
     spawnTerms = R6MapsLangTerms.terms.spawnPoints,
     bankTerms = mapRoomTerms.bank,
+    borderTerms = mapRoomTerms.border,
     chaletTerms = mapRoomTerms.chalet,
     clubTerms = mapRoomTerms.club,
     consulateTerms = mapRoomTerms.consulate,
@@ -190,6 +191,33 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, description: bankTerms.stockTradingRoom, top: 212, left: 57 },
           { floor: 2, description: bankTerms.conferenceRoom, top: 20, left: -32 },
           { floor: 2, description: bankTerms.elevators, top: 170, left: -118 }
+        ]
+      },
+      border: {
+        name: mapNameTerms.border,
+        imgUrlPrefix: 'border',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -530, left: -360, name: floorTerms.secondFloor },
+          { index: 3, top: -530, left: -360, name: floorTerms.roof }
+        ],
+        hostageObjectives: [],
+        bombObjectives: [],
+        secureObjectives: [],
+        cameras: [],
+        ceilingHatches: [],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [],
+        roomLabels: [
+          { outdoor: true, top: -165, left: 9, description: borderTerms.workInProgress },
+          { outdoor: true, top: -554, left: 49, description: borderTerms.workInProgress },
+          { outdoor: true, top: -170, left: 494, description: borderTerms.workInProgress },
+          { outdoor: true, top: 178, left: -12, description: borderTerms.workInProgress },
+          { outdoor: true, top: -176, left: -480, description: borderTerms.workInProgress },
         ]
       },
       chalet: {
@@ -1482,14 +1510,17 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
       /*emptytemplate: {
         name: 'Empty',
         imgUrlPrefix: 'empty',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
         floors: [],
         hostageObjectives: [],
         bombObjectives: [],
-        secureObjectives :[],
+        secureObjectives: [],
         cameras: [],
         ceilingHatches: [],
         skylights: [],
-        dronePassage: [],
+        droneTunnels: [],
         spawnPoints: [],
         roomLabels: []
       }*/
