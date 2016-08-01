@@ -204,7 +204,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { index: 2, top: -530, left: -360, name: floorTerms.secondFloor },
           { index: 3, top: -530, left: -360, name: floorTerms.roof }
         ],
-        hostageObjectives: [],
+        hostageObjectives: [
+          { floor: 1, top: -292, left: 23 },
+          { floor: 1, top: -108, left: -119 },
+          { floor: 2, top: -272, left: 193 },
+          { floor: 2, top: 34, left: -118 }
+        ],
         bombObjectives: [],
         secureObjectives: [],
         cameras: [],
