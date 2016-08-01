@@ -90,8 +90,6 @@
   };
 
   var setupCameraLos = function setupCameraLos() {
-    console.log('setupCameraLos start');
-    console.log($('a.camera'));
     $('.camera').on('mouseenter', handleCameraIn);
     $('.camera').on('mouseleave', handleCameraOut);
   };
