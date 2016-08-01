@@ -173,7 +173,6 @@
       'left: ' + Math.round(e.pageX - mapElements.offset().left) +
       warning
     );
-
   };
 
   var setupCameraScreenshots = function setupCameraScreenShots(){
