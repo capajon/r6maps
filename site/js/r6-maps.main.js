@@ -161,11 +161,19 @@
   var outputCoordinates = function outputCoordinates(e) {
     var warning = R6MapsControls.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
 
+    console.log('SINGLE LINE TEXT:');
+    console.log(
+      'top: ' + Math.round(e.pageY - mapElements.offset().top + 14) + ', ' +
+      'left: ' + Math.round(e.pageX - mapElements.offset().left)
+    );
+
+    console.log('REGULAR/DOUBLE LINE TEXT:');
     console.log(
       'top: ' + Math.round(e.pageY - mapElements.offset().top) + ', ' +
       'left: ' + Math.round(e.pageX - mapElements.offset().left) +
       warning
     );
+
   };
 
   var setupCameraScreenshots = function setupCameraScreenShots(){
