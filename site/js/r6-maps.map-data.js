@@ -212,11 +212,21 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         bombObjectives: [],
         secureObjectives: [],
-        cameras: [],
+        cameras: [
+          { outdoor: true, top: 53, left: -519, id: 1, location: borderTerms.workInProgress },
+          { outdoor: true, top: -425, left: -347, id: 2, location: borderTerms.workInProgress },
+          { outdoor: true, top: -568, left: 425, id: 3, location: borderTerms.workInProgress },
+          { floor: 1, top: -246, left: -170, id: 4, location: borderTerms.workInProgress },
+          { floor: 1, top: -99, left: 122, id: 5, location: borderTerms.workInProgress },
+          { floor: 2, top: -94, left: 328, id: 6, location: borderTerms.workInProgress },
+          { floor: 2, top: -76, left: -35 , id: 7, location: borderTerms.workInProgress }
+        ],
         ceilingHatches: [],
         skylights: [],
         droneTunnels: [],
-        spawnPoints: [],
+        spawnPoints: [
+          //West Vehicle ----EXIT----
+        ],
         roomLabels: [
           { outdoor: true, top: -165, left: 9, description: borderTerms.workInProgress },
           { outdoor: true, top: -554, left: 49, description: borderTerms.workInProgress },
