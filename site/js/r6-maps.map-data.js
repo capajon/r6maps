@@ -228,13 +228,13 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -325, left: -103 }
         ],
         cameras: [
-          { outdoor: true, top: 53, left: -519, id: 5, location: borderTerms.parkingLotEntrance },
-          { outdoor: true, top: -425, left: -347, id: 7, location: borderTerms.parkingLotAlley },
-          { outdoor: true, top: -568, left: 425, id: 6, location: borderTerms.crashScene },
-          { floor: 1, top: -244, left: -172, id: 4, location: borderTerms.exitHallway },
-          { floor: 1, top: -99, left: 122, id: 3, location: borderTerms.mainLobby  },
           { floor: 2, top: -92, left: 326, id: 1, location: borderTerms.eastStairs },
-          { floor: 2, top: -79, left: -33 , id: 2, location: borderTerms.mainHallway }
+          { floor: 2, top: -79, left: -33 , id: 2, location: borderTerms.mainHallway },
+          { floor: 1, top: -99, left: 122, id: 3, location: borderTerms.mainLobby  },
+          { floor: 1, top: -244, left: -172, id: 4, location: borderTerms.exitHallway },
+          { outdoor: true, top: 53, left: -519, id: 5, location: borderTerms.parkingLotEntrance },
+          { outdoor: true, top: -568, left: 425, id: 6, location: borderTerms.crashScene },
+          { outdoor: true, top: -425, left: -347, id: 7, location: borderTerms.parkingLotAlley }
         ],
         ceilingHatches: [
           { floor: 1, top: -237, left: -122 },
