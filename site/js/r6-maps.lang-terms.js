@@ -65,6 +65,7 @@ var R6MapsLangTerms = (function(undefined) {
         chalet: 'Chalet',
         club: 'Club House',
         consulate: 'Consulate',
+        favelas: 'Favelas',
         hereford: 'Hereford',
         house: 'House',
         kanal: 'Kanal',
@@ -343,6 +344,9 @@ var R6MapsLangTerms = (function(undefined) {
           westFrontYard: 'West Front Yard',
           frontAlley: 'Front Alley',
           buildingRoof: 'Building Roof'
+        },
+        favelas: {
+
         },
         hereford: {
           spawnTrainingCourse: 'Training Course',

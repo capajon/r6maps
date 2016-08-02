@@ -13,6 +13,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     chaletTerms = mapRoomTerms.chalet,
     clubTerms = mapRoomTerms.club,
     consulateTerms = mapRoomTerms.consulate,
+    favelasTerms = mapRoomTerms.favelas,
     herefordTerms = mapRoomTerms.hereford,
     houseTerms = mapRoomTerms.house,
     kanalTerms = mapRoomTerms.kanal,
@@ -760,6 +761,117 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, top: 438, left: 9, description: consulateTerms.frontAlley },
           { floor: 3, top: 42, left: -166, description: consulateTerms.buildingRoof },
           { floor: 3, top: 42, left: 177, description: consulateTerms.buildingRoof }
+        ]
+      },
+      favelas: {
+        name: mapNameTerms.favelas,
+        imgUrlPrefix: 'favelas',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -409, left: -769, name: floorTerms.secondFloor },
+          { index: 3, top: -409, left: -769, name: floorTerms.thirdFloor },
+          { index: 4, top: -409, left: -769, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 3, top: -159, left: 114 },
+          { floor: 2, top: -207, left: -141 },
+          { floor: 2, top: 171, left: -138 },
+          { floor: 1, top: -12, left: -144 }
+        ],
+        bombObjectives: [
+          { floor: 3, top: -160, left: 151, otherFloor: 'down', set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -217, left: 45, otherFloor: 'up', set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -27, left: -262, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 78, left: -263, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 171, left: -99, otherFloor: 'down', set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 270, left: -151, otherFloor: 'up', set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: -62, left: -182, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 83, left: -344, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+          { floor: 3, top: -159, left: 75 },
+          { floor: 2, top: 56, left: -149 },
+          { floor: 1, top: -153, left: -125 },
+          { floor: 1, top: 269, left: -109 }
+        ],
+        cameras: [
+          { floor: 3, top: -287, left: -45, id: 1, location: 'Back Stairs' },
+          { floor: 2, top: 300, left: -210, id: 2, location: 'Main Stairs' },
+          { floor: 1, top: -126, left: -68, id: 3, location: 'Laundry Room' },
+          { floor: 1, top: 156, left: -246, id: 4, location: 'Stair Hall' },
+          { outdoor: true, top: -384, left: -498, id: 5, location: 'School Alley' },
+          { outdoor: true, top: 346, left: 18, id: 6, location: 'Street' },
+          { outdoor: true, top: -525, left: 230, id: 7, location: 'Back Alley' }
+        ],
+        ceilingHatches: [
+          { floor: 1, top: 1, left: -179 },
+          { floor: 1, top: 39, left: -292 },
+          { floor: 2, top: -222, left: 79 },
+          { floor: 2, top: 264, left: -66 },
+          { floor: 1, top: -244, left: -121 }
+        ],
+        skylights: [],
+        droneTunnels: [
+          { floor: 1, top: 111, left: -380, rotate: 90, size: DRONE_MED },
+          { floor: 1, top: -285, left: -32, rotate: 0, size: DRONE_MED },
+          { floor: 2, top: 128, left: -135, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 5, left: -281, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -110, left: -184, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -91, left: -201, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: 126, left: -99, rotate: 0, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -162, left: 562, description: 'Rooftops' },
+          { letter: spawnTerms.b, top: 464, left: -668, description: 'Market' },
+          { letter: spawnTerms.c, top: -617, left: -469, description: 'School Alley' }
+        ],
+        roomLabels: [
+          { outdoor: true, top: 10, left: 49, description: 'This map is a</br>WORK IN PROGRESS' },
+          { floor: 3, top: -261, left: 111, description: 'Packaging Room', hardToRead: true },
+          { floor: 2, top: 19, left: -123, description: 'Football<br/>Apartment' },
+          { floor: 1, top: -197, left: -213, description: 'Armory<br/>Room' },
+          { floor: 1, top: 210, left: -163, description: 'Aunt\'s<br/>Apartment', hardToRead: true },
+          { floor: 1, top: 173, left: -61, description: 'Aunt\'s<br/>Apartment', hardToRead: true },
+          { floor: 2, top: 219, left: -63, description: 'Aunt\'s Bedroom', hardToRead: true },
+          { floor: 2, top: -205, left: -191, description: 'Grow<br/>Room', hardToRead: true },
+          { floor: 1, top: 45, left: -158, description: 'Biker\'s<br/>Apartment', hardToRead: true },
+          { floor: 2, top: -236, left: 95, description: 'Meth Lab', hardToRead: true },
+          { floor: 2, top: -69, left: -249, description: 'Football<br/>Bedroom' },
+          { floor: 2, top: 96, left: -333, description: 'Football Office', hardToRead: true },
+          { floor: 1, top: 44, left: -346, description: 'Biker\'s<br/>Bedroom' },
+          { floor: 3, top: -266, left: -21, description: 'Back<br/>Stairs' },
+          { floor: 2, top: -266, left: -21, description: 'Back<br/>Stairs' },
+          { floor: 1, top: -256, left: -21, description: 'Back<br/>Stairs' },
+          { floor: 2, top: 279, left: -165, description: 'Aunt\'s Hall', hardToRead: true },
+          { floor: 2, top: 303, left: -63, description: 'Kids Room' },
+          { floor: 2, top: 223, left: -233, description: 'Main<br/>Stairs' },
+          { floor: 3, top: 223, left: -233, description: 'Main<br/>Stairs' },
+          { floor: 1, top: 223, left: -233, description: 'Main<br/>Stairs' },
+          { floor: 1, top: 86, left: -243, description: 'Stair<br/>Hall' },
+          { floor: 2, top: -167, left: -299, description: 'Roof', hardToRead: true },
+          { floor: 3, top: 33, left: -188, description: 'Roof' },
+          { floor: 1, top: -147, left: -4, description: 'Laundry Room' },
+          { floor: 1, top: -241, left: -157, description: 'Vault<br/>Room' },
+          { floor: 1, top: -54, left: -306, description: 'Biker\'s Garage', hardToRead: true },
+          { outdoor: true, top: -356, left: 524, description: 'Back Alley' },
+          { outdoor: true, top: -487, left: 213, description: 'Back Alley' },
+          { outdoor: true, top: -646, left: -157, description: 'School Alley' },
+          { outdoor: true, top: -147, left: -478, description: 'Football Pitch' },
+          { floor: 1, top: 318, left: -417, description: 'Market' },
+          { floor: 2, top: 318, left: -417, description: 'Market' },
+          { outdoor: true, top: 232, left: 580, description: 'Street' },
+          { outdoor: true, top: 394, left: 122, description: 'Street' },
+          { outdoor: true, top: 103, left: 365, description: 'Rooftops' },
+          { outdoor: true, top: 130, left: 79, description: 'Courtyard' },
+          { floor: 1, top: -143, left: 213, description: 'Courtyard' },
+          { floor: 2, top: -143, left: 213, description: 'Courtyard' },
+          { outdoor: true, top: -307, left: -34, description: 'Access Alley' },
+          { floor: 1, top: 344, left: -90, description: 'Shop ^^' },
+          { floor: 3, top: 237, left: -412, description: 'Market Rooftops', hardToRead: true },
+          { floor: 3, top: 420, left: -412, description: 'Market Rooftops', hardToRead: true }
         ]
       },
       hereford: {
