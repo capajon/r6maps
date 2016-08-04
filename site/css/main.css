@@ -806,6 +806,10 @@ body, button, input, select {
         opacity: 0.54; }
         #map #map-elements .room-label.hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
+      #map #map-elements .room-label.very-hard-to-read {
+        opacity: 0.79; }
+        #map #map-elements .room-label.very-hard-to-read p {
+          background: rgba(16, 26, 36, 0.6); }
     #map #map-elements.show-objective-all .objective {
       display: block; }
     #map #map-elements.show-objective-hostage .hostage {

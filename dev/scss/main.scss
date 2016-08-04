@@ -325,6 +325,14 @@ body, button, input, select {
           background: $faded-bg;
         }
       }
+
+      &.very-hard-to-read {
+        opacity: $room-label-opacity + 0.35;
+
+        p {
+          background: $faded-bg;
+        }
+      }
     }
 
     &.show-objective-all {

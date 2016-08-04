@@ -248,6 +248,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
 
     classes += mapElement.outdoor ? 'outdoor ' : '';
     classes += mapElement.hardToRead ? 'hard-to-read ' : '';
+    classes += mapElement.veryHardToRead ? 'very-hard-to-read ' : '';
 
     return classes;
   };
