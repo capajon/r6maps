@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test:js": "eslint site/js/r6-maps*js",
-    "test": "npm run test:js"
+    "test": "npm run test:js",
+    "build:scss": "scss --watch 'dev/scss/main.scss':'site/css/main.css'"
   },
   "repository": {
     "type": "git",
