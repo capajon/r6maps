@@ -771,9 +771,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         floors: [
           { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
-          { index: 2, top: -409, left: -769, name: floorTerms.secondFloor },
-          { index: 3, top: -409, left: -769, name: floorTerms.thirdFloor },
-          { index: 4, top: -409, left: -769, name: floorTerms.roof }
+          { index: 2, top: -411, left: -771, name: floorTerms.secondFloor },
+          { index: 3, top: -411, left: -771, name: floorTerms.thirdFloor },
+          { index: 4, top: -411, left: -771, name: floorTerms.roof }
         ],
         hostageObjectives: [
           { floor: 3, top: -159, left: 114 },
