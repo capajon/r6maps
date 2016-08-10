@@ -11,23 +11,21 @@ Contributions are welcome. :)
 ### Short-term
 (will likely do)
 - [ ] Open Issues (see Github issue tracking and Reddit post)
-- [ ] Localization support
-- [ ] More information on cameras (screen shot? coverage angles? video?)
+- [ ] French translations for Border and Favelas maps
+- [ ] Camera line of sites for remaining maps, and transparency control option
 
 ### Medium-term
 (might do)
-- New Map Elements:
-   - [ ] Helpful screen shots
-   - [ ] Helpful tips/notes   
+- [ ] More localization - German, Spanish, Russian, Portuguese, etc?
+- [ ] Split grid view (multiple levels at once in sync, maybe x4 layout?)
 - CI, Build & Deploy Improvements:
    - [ ] scss linting
    - [ ] Automated site deployments from master
-   - [ ] Some unit and/or integration and/or perceptual diff tests
+   - [ ] Some perceptual diff tests & basic UI tests
    - [ ] Improve distribution size (min, gzip, etc)
    - [ ] scss -> css part of deploy (no longer check in processed css)
 
 ### Long-term
 (probably out of scope)
-- [ ] Split grid view (multiple levels at once in sync, maybe x4 layout?)
-- [ ] Game monitoring integration (show you where you are on map in real-time)
-- [ ] Socket.io for one person control - pinging?
+- [ ] Socket.io for some kind of collaboration or coach mode?
+- [ ] Helpful tips / strats
