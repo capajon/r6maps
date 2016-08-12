@@ -111,6 +111,57 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           stockTradingRoom: 'Salle<br/>des<br/>transactions',
           conferenceRoom: 'Salle de conférences'
         },
+        border: {// à â ç é è ê ë ï î ô ù û ü
+          workInProgress: 'This map is a<br/>WORK IN PROGRESS',//
+          tellers: 'Tellers',//
+          ventilationRoom: 'Venti-<br/>lation<br/>Room',//
+          exitHallway: 'Exit Hallway',//
+          supplyCorridor: 'Supply Corridor',//
+          detention: 'Detention',//
+          customsInspection: 'Customs Inspection',//
+          customsDesk: 'Customs<br/>Desk',//
+          centralStairs: 'Central Stairs',//
+          serverRoom: 'Server Room',//
+          supplyRoom: 'Supply Room',//
+          workshop: 'Work-<br/>shop',//
+          mainLobby: 'Main<br/>Lobby',//
+          bathroom: 'Bath-<br/>room',//
+          waitingRoom: 'Waiting<br/>Room',//
+          eastStairs: 'East<br/>Stairs',//
+          passportCheck: 'Passport Check',//
+          armoryLocker: 'Armory Locker',//
+          archives: 'Archives',//
+          offices: 'Offices',//
+          officesHallway: 'Offices Hallway',//
+          fountain: 'Fountain',//
+          mainHallway: 'Main<br/>Hallway',//
+          armoryDesk: 'Armory<br/>Desk',//
+          armoryLockers: 'Armory Lockers',//
+          securityRoom: 'Security<br/>Room',//
+          breakRoom: 'Break Room',//
+          spawnEastVehicleEntrance: 'East Vehicle Entrance',//
+          spawnValley: 'Valley',//
+          spawnWestVehicleExit: 'West Vehicle Exit',//
+          westTower: 'West<br/>Tower',//
+          pedestrianExit: 'Pedestrian Exit',//
+          valley: 'Valley',//
+          parkingLotEntrance: 'Parking Lot<br/>Entrance',//
+          parkingLot: 'Parking Lot',//
+          westRoad: 'West Road',//
+          vehicleCustoms: 'Vehicle Customs',//
+          crashScene: 'Crash Scene',//
+          eastRoad: 'East Road',//
+          pedestrianEntrance: 'Pedestrian<br/>Entrance',//
+          pedestrianCustoms: 'Pedestrian<br/>Customs',//
+          watchTower: 'Watch<br/>Tower',//
+          eastAlley: 'East Alley',//
+          parkingLotAlley: 'Parking<br/>Lot<br/>Alley',//
+          northBalcony: 'North Balcony',//
+          eastBalcony: 'East<br/>Balcony',//
+          westBalcony: 'West<br/>Balcony',//
+          southBalcony: 'South Balcony',//
+          roof: 'Roof'//
+        },
         chalet: {
           spawnFrontYard: 'Jardin devant la maison	',
           spawnCampfire: 'Feu de camp',
@@ -163,6 +214,39 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           libraryBalcony: 'Balcon de la<br/>bibliothèque',
           bedroomBalcony: 'Balcon de la<br/>chambre',
           snowmobiles: 'Montoneiges'
+        },
+        favelas: {
+          packagingRoom: 'Salle de<br/>conditionement',
+          footballApartment: 'Apartement de<br/>footballeur',
+          armoryRoom: 'Armurerie',
+          auntsApartment: 'Apartement de<br/>la tante',
+          auntsBedroom: 'Chambre de<br/>la tante',
+          growRoom: 'Salle de<br/>plantation',
+          bikersApartment: 'Apartement<br/>de biker',
+          methLab: 'Labo de meth',
+          footballBedroom: 'Chambre de<br/>footballeur',
+          footballOffice: 'Bureau de<br/>footballeur',
+          bikersBedroom: 'Chambre<br/>de biker',
+          backStairs: 'Escalier<br/>de service',
+          auntsHall: 'Chambre de<br/>la tante',
+          kidsRoom: 'Chambre des<br/>enfants',
+          mainStairs: 'Escalier<br/>principal',
+          stairHall: 'Cage<br/>d\'escalier',
+          roof: 'Toit',
+          laundryRoom: 'Buanderie',
+          vaultRoom: 'Coffre',
+          bikersGarage: 'Garage<br/>de biker',
+          backAlley: 'Ruelle',
+          schoolAlley: 'Allé de l\'école',
+          footballPitch: 'Terrain de foot',
+          market: 'Marché',
+          street: 'Rue',
+          rooftops: 'Toits',
+          courtyard: 'Cour',
+          accessAlley: 'Voie d\'accès',
+          shop: 'Magasin<br/>(pas montré)',
+          marketRooftops: 'Toits du marché'
+          //Allée du marché TO DO
         },
         kanal: {
           spawnFloatingDock: 'Quai flottant',

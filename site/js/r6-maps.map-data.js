@@ -798,13 +798,13 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 269, left: -109 }
         ],
         cameras: [
-          { floor: 3, top: -287, left: -45, id: 1, location: 'Back Stairs' },
-          { floor: 2, top: 300, left: -210, id: 2, location: 'Main Stairs' },
-          { floor: 1, top: -126, left: -68, id: 3, location: 'Laundry Room' },
-          { floor: 1, top: 156, left: -246, id: 4, location: 'Stair Hall' },
-          { outdoor: true, top: -384, left: -498, id: 5, location: 'School Alley' },
-          { outdoor: true, top: 346, left: 18, id: 6, location: 'Street' },
-          { outdoor: true, top: -525, left: 230, id: 7, location: 'Back Alley' }
+          { floor: 3, top: -287, left: -45, id: 1, location: favelasTerms.backStairs },
+          { floor: 2, top: 300, left: -210, id: 2, location: favelasTerms.mainStairs },
+          { floor: 1, top: -126, left: -68, id: 3, location: favelasTerms.laundryRoom },
+          { floor: 1, top: 156, left: -246, id: 4, location: favelasTerms.stairHall },
+          { outdoor: true, top: -384, left: -498, id: 5, location: favelasTerms.schoolAlley },
+          { outdoor: true, top: 346, left: 18, id: 6, location: favelasTerms.street },
+          { outdoor: true, top: -525, left: 230, id: 7, location: favelasTerms.backAlley }
         ],
         ceilingHatches: [
           { floor: 1, top: 1, left: -179 },
@@ -824,9 +824,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 126, left: -99, rotate: 0, size: DRONE_SMALL }
         ],
         spawnPoints: [
-          { letter: spawnTerms.a, top: -162, left: 562, description: 'Rooftops' },
-          { letter: spawnTerms.b, top: 464, left: -668, description: 'Market' },
-          { letter: spawnTerms.c, top: -617, left: -469, description: 'School Alley' }
+          { letter: spawnTerms.a, top: -162, left: 562, description: favelasTerms.rooftops },
+          { letter: spawnTerms.b, top: 464, left: -668, description: favelasTerms.market },
+          { letter: spawnTerms.c, top: -617, left: -469, description: favelasTerms.schoolAlley }
         ],
         roomLabels: [
           { floor: 3, top: -220, left: 142, description: favelasTerms.packagingRoom, veryHardToRead: true },
