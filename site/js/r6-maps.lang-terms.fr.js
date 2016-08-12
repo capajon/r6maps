@@ -45,7 +45,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
       },
       mapNames: {
         bank: 'Banque',
-        border: 'Border',
+        border: 'Frontière',
         chalet: 'Chalet',
         club: 'Club House',
         consulate: 'Consulat',
