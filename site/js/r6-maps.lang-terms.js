@@ -154,7 +154,6 @@ var R6MapsLangTerms = (function(undefined) {
           fountain: 'Fountain',
           mainHallway: 'Main<br/>Hallway',
           armoryDesk: 'Armory<br/>Desk',
-          armoryLockers: 'Armory Lockers',
           securityRoom: 'Security<br/>Room',
           breakRoom: 'Break Room',
           spawnEastVehicleEntrance: 'East Vehicle Entrance',

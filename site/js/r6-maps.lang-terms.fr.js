@@ -45,9 +45,11 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
       },
       mapNames: {
         bank: 'Banque',
+        border: 'Border',
         chalet: 'Chalet',
         club: 'Club House',
         consulate: 'Consulat',
+        favelas: 'Favelas',
         hereford: 'Hereford',
         house: 'Maison',
         kanal: 'Canal',
@@ -111,56 +113,54 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           stockTradingRoom: 'Salle<br/>des<br/>transactions',
           conferenceRoom: 'Salle de conférences'
         },
-        border: {// à â ç é è ê ë ï î ô ù û ü
-          workInProgress: 'This map is a<br/>WORK IN PROGRESS',//
-          tellers: 'Tellers',//
-          ventilationRoom: 'Venti-<br/>lation<br/>Room',//
-          exitHallway: 'Exit Hallway',//
-          supplyCorridor: 'Supply Corridor',//
-          detention: 'Detention',//
-          customsInspection: 'Customs Inspection',//
-          customsDesk: 'Customs<br/>Desk',//
-          centralStairs: 'Central Stairs',//
-          serverRoom: 'Server Room',//
-          supplyRoom: 'Supply Room',//
-          workshop: 'Work-<br/>shop',//
-          mainLobby: 'Main<br/>Lobby',//
-          bathroom: 'Bath-<br/>room',//
-          waitingRoom: 'Waiting<br/>Room',//
-          eastStairs: 'East<br/>Stairs',//
-          passportCheck: 'Passport Check',//
-          armoryLocker: 'Armory Locker',//
-          archives: 'Archives',//
-          offices: 'Offices',//
-          officesHallway: 'Offices Hallway',//
-          fountain: 'Fountain',//
-          mainHallway: 'Main<br/>Hallway',//
-          armoryDesk: 'Armory<br/>Desk',//
-          armoryLockers: 'Armory Lockers',//
-          securityRoom: 'Security<br/>Room',//
-          breakRoom: 'Break Room',//
-          spawnEastVehicleEntrance: 'East Vehicle Entrance',//
-          spawnValley: 'Valley',//
-          spawnWestVehicleExit: 'West Vehicle Exit',//
-          westTower: 'West<br/>Tower',//
-          pedestrianExit: 'Pedestrian Exit',//
-          valley: 'Valley',//
-          parkingLotEntrance: 'Parking Lot<br/>Entrance',//
-          parkingLot: 'Parking Lot',//
-          westRoad: 'West Road',//
-          vehicleCustoms: 'Vehicle Customs',//
-          crashScene: 'Crash Scene',//
-          eastRoad: 'East Road',//
-          pedestrianEntrance: 'Pedestrian<br/>Entrance',//
-          pedestrianCustoms: 'Pedestrian<br/>Customs',//
-          watchTower: 'Watch<br/>Tower',//
-          eastAlley: 'East Alley',//
-          parkingLotAlley: 'Parking<br/>Lot<br/>Alley',//
-          northBalcony: 'North Balcony',//
-          eastBalcony: 'East<br/>Balcony',//
-          westBalcony: 'West<br/>Balcony',//
-          southBalcony: 'South Balcony',//
-          roof: 'Roof'//
+        border: {
+          tellers: 'Guichets',
+          ventilationRoom: 'Salle<br/>de<br/>ventilation',
+          exitHallway: 'Couloir de<br/>la sortie',
+          supplyCorridor: 'Couloir de<br/>la réserve',
+          detention: 'Salle de détention',
+          customsInspection: 'Inspections de la douane',
+          customsDesk: 'Bureau de<br/>la douane',
+          centralStairs: 'Escalier central',
+          serverRoom: 'Salle des serveurs',
+          supplyRoom: 'Réserve',
+          workshop: 'Atelier',
+          mainLobby: 'Entrée',
+          bathroom: 'WC',
+          waitingRoom: 'Salle<br/>d\'attente',
+          eastStairs: 'Escalier<br/>est',
+          passportCheck: 'Contrôle des<br/>passeports',
+          archives: 'Archives',
+          offices: 'Bureaux',
+          officesHallway: 'Couloir du bureaux',
+          fountain: 'Fontaine',
+          mainHallway: 'Couloir<br/>principal',
+          armoryDesk: 'Accueil de<br/>l\'armurerie',
+          armoryLockers: 'Casiers de<br/>l\'armurerie',
+          securityRoom: 'Salle de<br/>sécurité',
+          breakRoom: 'Salle de repos',
+          spawnEastVehicleEntrance: 'Entrée des véhicules est',
+          spawnValley: 'Vallée',
+          spawnWestVehicleExit: 'Sortie des véhicules ouest',
+          westTower: 'Tour<br/>ouest',
+          pedestrianExit: 'Sortie des piétons',
+          valley: 'Vallée',
+          parkingLotEntrance: 'Entrée du<br/>parking',
+          parkingLot: 'Parking',
+          westRoad: 'Route ouest ',
+          vehicleCustoms: 'Douane des véhicules',
+          crashScene: 'Lieu de l\'accident',
+          eastRoad: 'Route est',
+          pedestrianEntrance: 'Entrée des<br/>piétons',
+          pedestrianCustoms: 'Douane des<br/>piétons',
+          watchTower: 'Tour de<br/>guet',
+          eastAlley: 'Allée est',
+          parkingLotAlley: 'Allée<br/>du<br/>parking',
+          northBalcony: 'Balcon nord',
+          eastBalcony: 'Balcon<br/>est',
+          westBalcony: 'Balcon<br/>ouest',
+          southBalcony: 'Balcon sud',
+          roof: 'Toit'
         },
         chalet: {
           spawnFrontYard: 'Jardin devant la maison	',
