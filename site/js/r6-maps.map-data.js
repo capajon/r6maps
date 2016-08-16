@@ -1121,28 +1121,36 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         cameras: [
           {
             floor: 2, top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -120, left: -71}, {top: -120, left: 69}, {top: 18, left: 69}]]
           },
           { floor: 1, otherFloor: 'up', top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop },
           {
             floor: 1, top: 110, left: -3, id: 2, location: houseTerms.kitchen,
-            //los: [[{}, {}, {}]]
+            los: [
+              [{top: 102, left: -160}, {top: 115, left: -64}, {top: 122, left: -64}],
+              [{top: -1, left: 172}, {top: 91, left: 67}, {top: 122, left: 67}]
+            ]
           },
           {
             floor: 0, top: 4, left: -206, id: 3, location: houseTerms.trainingRoom,
-            //los: [[{}, {}, {}]]
+            los: [
+              [{top: 18, left: -24}, {top: 18, left: -220}],
+              [{top: -20, left: -88}, {top: -45, left: -30}],
+              [{top: -114, left: -133}, {top: -167, left: -112}],
+              [{top: -114, left: -108}, {top: -158, left: -79}]
+            ]
           },
           {
             floor: 0, top: -4, left: 36, id: 4, location: houseTerms.garage,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 120, left: 22}, {top: -20, left: 22}, {top: -20, left: 0}, {top: -104, left: 21}]]
           },
           {
             outdoor: true, top: -400, left: -289, id: 5, location: houseTerms.frontYard,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -221, left: -603}, {top: -622, left: -166}]]
           },
           {
             outdoor: true, top: 454, left: 291, id: 6, location: houseTerms.garden,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 628, left: -29}, {top: 488, left: 570}]]
           }
         ],
         ceilingHatches: [
