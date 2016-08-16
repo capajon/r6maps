@@ -673,35 +673,42 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         cameras: [
           {
             floor: 2, top: 26, left: -220, id: 1, location: consulateTerms.consulFrontDesk,
-            //los: [[{}, {}, {}]]
+            los: [
+              [{top: 85, left: -99}, {top: 85, left: -236}, {top: 2, left: -236}, {top: -31, left: -203}, {top: -31, left: -99}],
+              [{top: 11, left: -93}, {top: -5, left: -17}],
+              [{top: 44, left: -93}, {top: 60, left: -17}]
+            ]
           },
           { floor: 2, top: -168, left: 11, id: 2, location: consulateTerms.mainStairs,
-            //los: [[{}, {}, {}]]
+            los: [[
+              {top: -108, left: -63}, {top: -137, left: -58}, {top: -168, left: -37}, {top: -185, left: -6},
+              {top: -185, left: 28}, {top: -168, left: 59}, {top: -137, left: 80}, {top: -106, left: 85}
+            ]]
           },
           { floor: 1, otherFloor: 'up', top: -168, left: 11, id: 2, location: consulateTerms.mainStairs },
           {
             floor: 1, top: -78, left: 374, id: 3, location: consulateTerms.visaOffice,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -52, left: 92}, {top: -61, left: 234}, {top: -97, left: 234}, {top: -97, left: 355}], [{top: -20, left: 391}, {top: 113, left: 418}]]
           },
           {
             floor: 1, top: 243, left: 11, id: 4, location: consulateTerms.frontDoor,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 165, left: 122}, {top: 217, left: 48}, {top: 258, left: 48}, {top: 258, left: 28}, {top: 279, left: 23}, {top: 279, left: -1}, {top: 258, left: -8}, {top: 258, left: -27}, {top: 215, left: -27}, {top: 215, left: -61}, {top: 168, left: -61}, {top: 96, left: -135}]]
           },
           {
             floor: 0, top: -79, left: 40, id: 5, location: consulateTerms.lockerHallway,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -54, left: -22}, {top: -92, left: 25}, {top: -92, left: 49}, {top: -117, left: 83}], [{top: -43, left: 87}, {top: 1, left: 133}]]
           },
           {
-            floor: 0, top: -35, left: -148, id: 6, location: consulateTerms.garage,
-            //los: [[{}, {}, {}]]
+            floor: 0, top: -35, left: -150, id: 6, location: consulateTerms.garage,
+            los: [[{top: -93, left: -135}, {top: -41, left: -135}, {top: -41, left: -100}, {top: 40, left: -100}]]
           },
           {
             outdoor: true, top: 498, left: -50, id: 7, location: consulateTerms.frontAlley,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 503, left: -435}, {top: 549, left: -52}, {top: 506, left: 464}]]
           },
           {
             outdoor: true, top: -32, left: -537, id: 8, location: consulateTerms.garageWay,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -48, left: -803}, {top: -94, left: -560}, {top: -32, left: -350}]]
           }
         ],
         ceilingHatches: [
