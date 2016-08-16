@@ -228,13 +228,34 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -325, left: -103 }
         ],
         cameras: [
-          { floor: 2, top: -92, left: 326, id: 1, location: borderTerms.eastStairs },
-          { floor: 2, top: -79, left: -33 , id: 2, location: borderTerms.mainHallway },
-          { floor: 1, top: -99, left: 122, id: 3, location: borderTerms.mainLobby  },
-          { floor: 1, top: -244, left: -172, id: 4, location: borderTerms.exitHallway },
-          { outdoor: true, top: 53, left: -519, id: 5, location: borderTerms.parkingLotEntrance },
-          { outdoor: true, top: -568, left: 425, id: 6, location: borderTerms.crashScene },
-          { outdoor: true, top: -425, left: -347, id: 7, location: borderTerms.parkingLotAlley }
+          {
+            floor: 2, top: -92, left: 326, id: 1, location: borderTerms.eastStairs,
+            los: [[{top: -85, left: 134}, {top: -94, left: 272}, {top: -106, left: 272}, {top: -106, left: 343}, {top: 77, left: 343}]]
+          },
+          {
+            floor: 2, top: -81, left: -33 , id: 2, location: borderTerms.mainHallway,
+            los: [[{top: -206, left: -50}, {top: -66, left: -50}, {top: -66, left: 261}]]
+          },
+          {
+            floor: 1, top: -99, left: 122, id: 3, location: borderTerms.mainLobby,
+            los: [[{top: -63, left: -68}, {top: -63, left: 152}, {top: -245, left: 152}]]
+          },
+          {
+            floor: 1, top: -245, left: -172, id: 4, location: borderTerms.exitHallway,
+            los: [[{top: -257, left: -256}, {top: -257, left: -155}, {top: -143, left: -155}]]
+          },
+          {
+            outdoor: true, top: 268, left: -462, id: 5, location: borderTerms.parkingLotEntrance,
+            los: [[{top: 299, left: 254}, {top: 299, left: -497}, {top: 64, left: -779}]]
+          },
+          {
+            outdoor: true, top: -568, left: 425, id: 6, location: borderTerms.crashScene,
+            los: [[{top: -703, left: 134}, {top: -428, left: 917}]]
+          },
+          {
+            outdoor: true, top: -425, left: -347, id: 7, location: borderTerms.parkingLotAlley,
+            los: [[{top: -683, left: -275}, {top: -242, left: -803}]]
+          }
         ],
         ceilingHatches: [
           { floor: 1, top: -237, left: -122 },
