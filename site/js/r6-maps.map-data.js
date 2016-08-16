@@ -980,28 +980,35 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         cameras: [
           {
-            floor: 3, top: 204, left: -12, id: 1, location: herefordTerms.rooftop,
-            //los: [[{}, {}, {}]]
+            floor: 3, top: 205, left: -12, id: 1, location: herefordTerms.rooftop,
+            los: [[{top: 419, left: -28}, {top: 192, left: -28}, {top: 192, left: 141}]]
           },
           {
             floor: 2, top: 268, left: -1, id: 2, location: herefordTerms.corridor,
-            //los: [[{}, {}, {}]]
+            los: [
+              [{top: 191, left: -46}, {top: 247, left: -11}, {top: 254, left: -11}, {top: 254, left: -28}, {top: 284, left: -28}, {top: 304, left: -99}],
+              [{top: 303, left: -37}, {top: 366, left: -140}],
+              [{top: 178, left: 33}, {top: 247, left: 18}, {top: 254, left: 18}, {top: 254, left: 33}, {top: 418, left: 33}]
+            ]
           },
           {
-            floor: 1, top: 237, left: 5, id: 3, location: herefordTerms.corridor1,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: 247, left: 5, id: 3, location: herefordTerms.corridor1,
+            los: [
+              [{top: 223, left: -121}, {top: 241, left: -26}],
+              [{top: 109, left: 18}, {top: 255, left: 18}, {top: 255, left: 32}, {top: 418, left: 32}]
+            ]
           },
           {
             floor: 0, top: 122, left: 125, id: 4, location: herefordTerms.lockers,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 213, left: -27}, {top: 179, left: 47}, {top: 110, left: 47}, {top: 110, left: 142}, {top: 248, left: 142}, {top: 248, left: 36}, {top: 333, left: -27}]]
           },
           {
             outside: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -613, left: -132}, {top: -220, left: 362}]]
           },
           {
             outside: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 434, left: -398}, {top: 543, left: -319}, {top: 550, left: -60}]]
           }
         ],
         ceilingHatches: [
