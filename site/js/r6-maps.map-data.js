@@ -1683,24 +1683,37 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         cameras: [
           {
-            floor: 3, top: -15, left: 251, id: 1, location: planeTerms.cabinStaff,
-            //los: [[{}, {}, {}]]
+            floor: 3, top: -14, left: 248, id: 1, location: planeTerms.cabinStaff,
+            los: [
+              [{top: -27, left: 142}, {top: -27, left: 265}, {top: 35, left: 265}],
+              [{top: 17, left: 148}, {top: 0, left: 216}]
+            ]
           },
           {
-            floor: 2, top: -61, left: 187, id: 2, location: planeTerms.frontHallway,
-            //los: [[{}, {}, {}]]
+            floor: 2, top: -60, left: 188, id: 2, location: planeTerms.frontHallway,
+            los: [
+              [{top: 51, left: 228}, {top: -1, left: 214}],
+              [{top: -27, left: 218}, {top: -5, left: 232}],
+              [{top: 51, left: 206}, {top: -32, left: 200}, {top: -32, left: 173}, {top: -73, left: 173}, {top: -73, left: 299}, {top: -49, left: 299}, {top: -39, left: 436}]
+            ]
           },
           {
-            floor: 2, top: -41, left: -213, id: 3, location: planeTerms.pressSectionA,
-            //los: [[{}, {}, {}]]
+            floor: 2, top: -41, left: -215, id: 3, location: planeTerms.pressSectionA,
+            los: [
+              [{top: -72, left: -318}, {top: -72, left: -199}, {top: -24, left: -199}, {top: 12, left: -192}],
+              [{top: 10, left: -318}, {top: -25, left: -234}]
+            ]
           },
           {
-            floor: 1, top: 36, left: 18, id: 4, location: planeTerms.luggageHold,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: 33, left: 21, id: 4, location: planeTerms.luggageHold,
+            los: [
+              [{top: -67, left: 6}, {top: 47, left: 6}, {top: 47, left: 116}],
+              [{top: -6, left: 119}, {top: -28, left: 170}]
+            ]
           },
           {
-            floor: 1, top: -52, left: -292, id: 5, location: planeTerms.cargoHold,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: -49, left: -289, id: 5, location: planeTerms.cargoHold,
+            los: [[{top: 44, left: -304}, {top: -62, left: -304}, {top: -62, left: -100}]]
           }
         ],
         ceilingHatches: [
