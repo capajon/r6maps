@@ -798,13 +798,34 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 269, left: -109 }
         ],
         cameras: [
-          { floor: 3, top: -287, left: -45, id: 1, location: favelasTerms.backStairs },
-          { floor: 2, top: 300, left: -210, id: 2, location: favelasTerms.mainStairs },
-          { floor: 1, top: -126, left: -68, id: 3, location: favelasTerms.laundryRoom },
-          { floor: 1, top: 156, left: -246, id: 4, location: favelasTerms.stairHall },
-          { outdoor: true, top: -384, left: -498, id: 5, location: favelasTerms.schoolAlley },
-          { outdoor: true, top: 346, left: 18, id: 6, location: favelasTerms.street },
-          { outdoor: true, top: -525, left: 230, id: 7, location: favelasTerms.backAlley }
+          {
+            floor: 3, top: -295, left: -45, id: 1, location: favelasTerms.backStairs,
+            los: [[{top: -187, left: -62 }, {top: -310, left: -62}, {top: -310, left: 31}]]
+          },
+          {
+            floor: 2, top: 299, left: -210, id: 2, location: favelasTerms.mainStairs,
+            los: [[{top: 153, left: -256}, {top: 312, left: -256}, {top: 312, left: -124}]]
+          },
+          {
+            floor: 1, top: -126, left: -69, id: 3, location: favelasTerms.laundryRoom,
+            los: [[{top: -200, left: -86}, {top: -111, left: -86}, {top: -111, left: 50}], [{top: -201, left: 11}, {top: -285, left: 46}]]
+          },
+          {
+            floor: 1, top: 156, left: -246, id: 4, location: favelasTerms.stairHall,
+            los: [[{top: 224, left: -256}, {top: -60, left: -266}], [{top: 167, left: -209}, {top: 181, left: -102}]]
+          },
+          {
+            outdoor: true, top: -384, left: -498, id: 5, location: favelasTerms.schoolAlley,
+            los: [[{top: 74, left: -600}, {top: -416, left: -521}, {top: -446, left: -453}]]
+          },
+          {
+            outdoor: true, top: 346, left: 18, id: 6, location: favelasTerms.street,
+            los: [[{top: 434, left: -615}, {top: 408, left: 484}]]
+          },
+          {
+            outdoor: true, top: -525, left: 230, id: 7, location: favelasTerms.backAlley,
+            los: [[{top: -562, left: -89}, {top: -562, left: 248}, {top: -320, left: 401}]]
+          }
         ],
         ceilingHatches: [
           { floor: 1, top: 1, left: -179 },
@@ -864,7 +885,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 310, left: -417, description: favelasTerms.market },
           { outdoor: true, top: 232, left: 580, description: favelasTerms.street },
           { outdoor: true, top: 394, left: 122, description: favelasTerms.street },
-          { outdoor: true, top: 103, left: 365, description: favelasTerms.rooftops },
+          { outdoor: true, top: 103, left: 365, description: favelasTerms.rooftops, hardToRead: true },
           { outdoor: true, top: 130, left: 79, description: favelasTerms.courtyard },
           { floor: 1, top: -143, left: 213, description: favelasTerms.courtyard },
           { floor: 2, top: -143, left: 213, description: favelasTerms.courtyard },
