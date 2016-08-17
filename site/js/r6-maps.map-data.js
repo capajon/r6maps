@@ -1253,27 +1253,30 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, otherFloor: 'up', top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
           {
             floor: 3, top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge,
-            //los: [[{}, {}, {}]]
+            los: [
+              [{top: -197, left: 13}, {top: -197, left: 466}, {top: -101, left: 466}],
+              [{top: 185, left: 458}, {top: -15, left: 416}]
+            ]
           },
           {
             floor: 2, top: 140, left: 145, id: 2, location: kafeTerms.readingRoomCorridor,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -197, left: 129}, {top: 155, left: 129}, {top: 155, left: 468}]]
           },
           {
-            floor: 1 , top: 50, left: 355, id: 3, location: kafeTerms.coldRoomCorridor,
-            //los: [[{}, {}, {}]]
+            floor: 1 , top: 50, left: 356 , id: 3, location: kafeTerms.coldRoomCorridor,
+            los: [[{top: 37, left: 111}, {top: 37, left: 374}, {top: 326, left: 374}]]
           },
           {
-            floor: 1, top: -31, left: -213, id: 4, location: kafeTerms.bakery,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: -31, left: -212, id: 4, location: kafeTerms.bakery,
+            los: [[{top: -109, left: 3}, {top: -70, left: -73}, {top: -70, left: -82}, {top: -109, left: -82}, {top: -109, left: -228}, {top: 269, left: -228}]]
           },
           {
             outdoor: true, top: -210, left: -434, id: 5, location: kafeTerms.westMainStreet,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 43, left: -727}, {top: -474, left: -242}]]
           },
           {
-            outdoor: true, top: 545, left: 572, id: 6, location: kafeTerms.parkAlley,
-            //los: [[{}, {}, {}]]
+            outdoor: true, top: 545, left: 566, id: 6, location: kafeTerms.parkAlley,
+            los: [[{top: 645, left: 472}, {top: 518, left: 634}, {top: 244, left: 630}]]
           }
         ],
         ceilingHatches: [
