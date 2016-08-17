@@ -94,5 +94,9 @@ $legend-item-smaller-height: $legend-item-height - $legend-item-smaller-height-d
       @include legend-smaller(11);
     }
 
+    &.legend-camera-line-of-sight {
+      @include legend-smaller(12);
+    }
+
   }
 }

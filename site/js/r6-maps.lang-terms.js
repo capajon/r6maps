@@ -50,7 +50,8 @@ var R6MapsLangTerms = (function(undefined) {
         insertionPoints: 'Insertion points',
         securityCameras: 'Security cameras',
         skylights: 'Skylights',
-        onFloorAboveOrBelow: 'On floor above or below'
+        onFloorAboveOrBelow: 'On floor above or below',
+        cameraLineOfSight: 'Camera line of sight'
       },
       spawnPoints: {
         a: 'A',

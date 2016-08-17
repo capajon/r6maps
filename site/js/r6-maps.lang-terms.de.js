@@ -45,7 +45,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         insertionPoints: 'Einstiegspunkt',
         securityCameras: 'Überwachungskamera',
         skylights: 'Oberlicht',
-        onFloorAboveOrBelow: 'Im Stockwerk darüber/darunter'
+        onFloorAboveOrBelow: 'Im Stockwerk darüber/darunter',
+        cameraLineOfSight: 'Kamerasichtlinie'
       },
       mapNames: {
         bank: 'Bank',

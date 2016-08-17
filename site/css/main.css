@@ -352,6 +352,10 @@ body.about {
       background-position: 0px -352px;
       height: 31px;
       line-height: 31px; }
+    #legend li.legend-camera-line-of-sight {
+      background-position: 0px -387px;
+      height: 31px;
+      line-height: 31px; }
 
 /*
 	jQuery.mmenu position extension CSS

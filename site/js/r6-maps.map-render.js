@@ -297,7 +297,8 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
         { class: CSS_ABBREV + 'insertion-point', description: legendTerms.insertionPoints },
         { class: CSS_ABBREV + 'security-camera', description: legendTerms.securityCameras },
         { class: CSS_ABBREV + 'skylight', description: legendTerms.skylights },
-        { class: CSS_ABBREV + 'down-and-up', description: legendTerms.onFloorAboveOrBelow }
+        { class: CSS_ABBREV + 'down-and-up', description: legendTerms.onFloorAboveOrBelow },
+        { class: CSS_ABBREV + 'camera-line-of-sight', description: legendTerms.cameraLineOfSight }
       ];
 
     html += '<ul id="legend">';
