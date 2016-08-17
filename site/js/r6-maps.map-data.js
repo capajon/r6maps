@@ -1406,7 +1406,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           },
           {
             floor: 2, top: 152, left: -272, id: 3, location: kanalTerms.coastGuardHall,
-            los: [[{top: -104, left: -288}, {top: 168, left: -288}, {top: 168, left: -124}, {top: 155, left: -124}, {top: 147, left: 74}]]
+            los: [
+              [{top: -104, left: -288}, {top: 168, left: -288}, {top: 168, left: -123}, {top: 155, left: -123}, {top: 147, left: 74}],
+              [{top: 76, left: -171}, {top: 105, left: -210}]
+            ]
           },
           {
             floor: 1, top: 70, left: -271, id: 4, location: kanalTerms.boatSuppliesHallway,
@@ -1551,31 +1554,41 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         cameras: [
           {
             floor: 2, top: 70, left: 221, id: 1, location: oregonTerms.armoryCorridor,
-            //los: [[{}, {}, {}]]
+            los: [
+              [{top: 238, left: 238}, {top: 57, left: 238}, {top: 57, left: 118}],
+              [{top: 57, left: 110}, {top: 57, left: -38}]
+            ]
           },
           {
-            floor: 1, top: 80, left: 168, id: 2, location: oregonTerms.lobby,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: 82, left: 168, id: 2, location: oregonTerms.lobby,
+            los:[
+              [{top: 65, left: 347}, {top: 80, left: 249}, {top: 80, left: 239}, {top: 69, left: 239}, {top: 69, left: 9}],
+              [{top: 210, left: 237}, {top: 184, left: 203}],
+              [{top: 101, left: 348}, {top: 95, left: 249}]
+            ]
           },
           {
-            floor: 1, top: 84, left: -152, id: 3, location: oregonTerms.diningHallCorridor,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: 84, left: -149, id: 3, location: oregonTerms.diningHallCorridor,
+            los: [[{top: 71, left: -350}, {top: 71, left: -131}, {top: 229, left: -131}]]
           },
           {
-            floor: 1, top: -246, left: 214, id: 4, location: oregonTerms.rearStage,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: -247, left: 214, id: 4, location: oregonTerms.rearStage,
+            los: [
+              [{top: -232, left: 43}, {top: -232, left: 245}, {top: -348, left: 245}],
+              [{top: -307, left: 144}, {top: -281, left: 176}]
+            ]
           },
           {
             outdoor: true, top: 194, left: -632, id: 5, location: oregonTerms.junkyard,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -15, left: -701}, {top: 529, left: -638}]]
           },
           {
             outdoor: true, top: 216, left: 406, id: 6, location: oregonTerms.parking,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 492, left: 438}, {top: -324, left: 509}]]
           },
           {
             outdoor: true, top: -492, left: 376, id: 7, location: oregonTerms.constructionSite,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -524, left: -468}, {top: -547, left: 394}, {top: -309, left: 753}]]
           }
         ],
         ceilingHatches: [
