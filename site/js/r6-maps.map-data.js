@@ -1268,7 +1268,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           },
           {
             floor: 1, top: -31, left: -212, id: 4, location: kafeTerms.bakery,
-            los: [[{top: -109, left: 3}, {top: -70, left: -73}, {top: -70, left: -82}, {top: -109, left: -82}, {top: -109, left: -228}, {top: 269, left: -228}]]
+            los: [
+              [{top: -109, left: 3}, {top: -70, left: -73}, {top: -70, left: -82}, {top: -109, left: -82}, {top: -109, left: -228}, {top: 269, left: -228}],
+              [{top: -81, left: 104}, {top: -27, left: 104}]
+            ]
           },
           {
             outdoor: true, top: -210, left: -434, id: 5, location: kafeTerms.westMainStreet,
@@ -1390,32 +1393,39 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         cameras: [
           {
-            floor: 3, top: 27, left: 252, id: 1, location: kanalTerms.controlRoomHallway,
-            //los: [[{}, {}, {}]]
+            floor: 3, top: 27, left: 253, id: 1, location: kanalTerms.controlRoomHallway,
+            los: [[{top: 151, left: 237}, {top: 14, left: 237}, {top: 14, left: 487}]]
           },
           {
-            floor: 2, top: 30, left: 204, id: 2, location: kanalTerms.mapsOfficeHallway,
-            //los: [[{}, {}, {}]]
+            floor: 2, top: 29, left: 204,  id: 2, location: kanalTerms.mapsOfficeHallway,
+            los: [
+              [{top: 205, left: 188}, {top: 16, left: 188}, {top: 16, left: 368}],
+              [{top: 100, left: 372}, {top: 151, left: 498}],
+              [{top: 99, left: 334}, {top: 154, left: 453}]
+            ]
           },
           {
-            floor: 2, top: 149, left: -273, id: 3, location: kanalTerms.coastGuardHall,
-            //los: [[{}, {}, {}]]
+            floor: 2, top: 152, left: -272, id: 3, location: kanalTerms.coastGuardHall,
+            los: [[{top: -104, left: -288}, {top: 168, left: -288}, {top: 168, left: -124}, {top: 155, left: -124}, {top: 147, left: 74}]]
           },
           {
-            floor: 1, top: 70, left: -272, id: 4, location: kanalTerms.boatSuppliesHallway,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: 70, left: -271, id: 4, location: kanalTerms.boatSuppliesHallway,
+            los: [
+              [{top: 106, left: -183}, {top: 66, left: -183}],
+              [{top: -104, left: -287}, {top: 257, left: -287}]
+            ]
           },
           {
             outdoor: true, top: 703, left: -526, id: 5, location: kanalTerms.frontLawn,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 664, left: -692}, {top: 721, left: -536}, {top: 721, left: 757}]]
           },
           {
             outdoor: true, top: -426, left: -655, id: 6, location: kanalTerms.lockgate,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -242, left: -826}, {top: -569, left: -666}]]
           },
           {
             outdoor: true, top: -402, left: 590, id: 7, location: kanalTerms.constructionSite,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -568, left: 387}, {top: -259, left: 1020}]]
           }
         ],
         ceilingHatches: [
