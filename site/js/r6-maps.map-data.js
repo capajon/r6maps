@@ -1841,39 +1841,61 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         cameras: [
           {
-            loor: 4, top: 87, left: -134, id: 1, location: yachtTerms.helipadEntrance,
-            //los: [[{}, {}, {}]]
+            floor: 4, top: 87, left: -134, id: 1, location: yachtTerms.helipadEntrance,
+            los: [
+              [{top: -41, left: -112}, {top: -78, left: -92}],
+              [{top: 102, left: -31}, {top: 102, left: 103}],
+              [{top: 102, left: -42}, {top: 102, left: -145}],
+              [{top: 22, left: -61}, {top: 47, left: -86}]
+            ]
           },
           {
-            floor: 3, top: 25, left: 266, id: 2, location: yachtTerms.bedroomHallway,
-            //los: [[{}, {}, {}]]
+            floor: 3, top: 21, left: 264, id: 2, location: yachtTerms.bedroomHallway,
+            los: [[{top: 35, left: 152}, {top: 35, left: 280}, {top: -78, left: 280}]]
           },
           {
             floor: 3, top: 86, left: -227, id: 3, location: yachtTerms.lounge,
-            //los: [[{}, {}, {}]]
+            los: [
+              [{top: -5, left: -117}, {top: -32, left: -80}],
+              [{top: 37, left: -32}, {top: 64, left: -139}, {top: 102, left: -139}, {top: 102, left: -243}, {top: -77, left: -243}]
+            ]
           },
           {
-            floor: 2, top: 13, left: 261, id: 4, location: yachtTerms.frontStairs,
-            //los: [[{}, {}, {}]]
+            floor: 2, top: 13, left: 262, id: 4, location: yachtTerms.frontStairs,
+            los: [
+              [{top: 26, left: -36}, {top: 26, left: 280}, {top: -36, left: 280}],
+              [{top: -45, left: 280}, {top: -48, left: 280}],
+              [{top: -79, left: 280}, {top: -76, left: 280}],
+              [{top: -68, left: 280}, {top: -65, left: 280}],
+              [{top: -58, left: 280}, {top: -55, left: 280}],
+              [{top: -80, left: 234}, {top: -40, left: 248}]
+            ]
           },
           {
-            floor: 2, top: 124, left: -268, id: 5, location: yachtTerms.backStairs,
-            //los: [[{}, {}, {}]]
+            floor: 2, top: 124, left: -266, id: 5, location: yachtTerms.backStairs,
+            los: [
+              [{top: -116, left: -258}, {top: 49, left: -271}, {top: 49, left: -281}, {top: 138, left: -281}, {top: 138, left: -15}],
+              [{top: 77, left: -194}, {top: 99, left: -233}]
+            ]
           },
           {
-            floor: 1, top: -44, left: 64, id: 6, location: yachtTerms.engineHallway,
-            //los: [[{}, {}, {}]]
+            floor: 1, top: -43, left: 63, id: 6, location: yachtTerms.engineHallway,
+            los: [
+              [{top: -21, left: -61}, {top: -21, left: 80}, {top: -88, left: 80}],
+              [{top: -88, left: -138}, {top: -56, left: -32}],
+              [{top: -73, left: -230}, {top: -60, left: -72}]
+            ]
           },
           {
             floor: 3, top: 10, left: 631, id: 7, location: yachtTerms.frontDeck,
-            //los: [[{}, {}, {}]]
+            los: [[{top: -105, left: 592}, {top: 12, left: 675}, {top: 127, left: 596}]]
           },
           { floor: 2, otherFloor: 'up', top: 10, left: 631, id: 7, location: yachtTerms.frontDeck },
           { floor: 4, otherFloor: 'down', top: 10, left: 631, id: 7, location: yachtTerms.frontDeck },
           { floor: 5, otherFloor: 'down', top: 10, left: 631, id: 7, location: yachtTerms.frontDeck },
           {
             floor: 3, top: 114, left: -477, id: 8, location: yachtTerms.spaDeck,
-            //los: [[{}, {}, {}]]
+            los: [[{top: 119, left: -661}, {top: 152, left: -553}, {top: 152, left: 358}]]
           },
           { floor: 2, otherFloor: 'up', top: 114, left: -477, id: 8, location: yachtTerms.spaDeck },
           { floor: 4, otherFloor: 'down', top: 114, left: -477, id: 8, location: yachtTerms.spaDeck },
