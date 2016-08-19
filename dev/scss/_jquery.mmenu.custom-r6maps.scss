@@ -62,4 +62,19 @@ $custom-mmenu-padding: 0.7em;
     padding: $custom-mmenu-padding;
     font-weight: 700;
   }
+
+  .zoom.controls {
+    display: flex;
+    align-items: center;
+  }
+}
+
+#camera-los-percent {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+#camera-los-default {
+  margin-left: 0.25rem;
 }

@@ -11,12 +11,13 @@ Contributions are welcome. :)
 ### Short-term
 (will likely do)
 - [ ] Open Issues (see Github issue tracking and Reddit post)
-- [ ] French translations for Border and Favelas maps
-- [ ] Camera line of sites for remaining maps, and transparency control option
+- [ ] German localization, maybe Portuguese Brazil
+- [ ] Better initial home view, grid selection
 
 ### Medium-term
 (might do)
-- [ ] More localization - German, Spanish, Russian, Portuguese, etc?
+- [ ] World globe map locations
+- [ ] More localization - Spanish, Finish, Russian, etc?
 - [ ] Split grid view (multiple levels at once in sync, maybe x4 layout?)
 - CI, Build & Deploy Improvements:
    - [ ] scss linting
@@ -28,4 +29,4 @@ Contributions are welcome. :)
 ### Long-term
 (probably out of scope)
 - [ ] Socket.io for some kind of collaboration or coach mode?
-- [ ] Helpful tips / strats
+- [ ] Helpful tips / strats (community contributions, maybe posts?)

@@ -6,7 +6,8 @@
   var map,
     mapElements,
     svgElements,
-    HASH_SPLIT_CHAR = '/';
+    HASH_SPLIT_CHAR = '/',
+    DEFAULT_LOS_OPACITY = 0.15;
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     map = $('#map');
@@ -92,6 +93,16 @@
   var setupCameraLos = function setupCameraLos() {
     $('.camera').on('mouseenter', handleCameraIn);
     $('.camera').on('mouseleave', handleCameraOut);
+    updateLosOpacity(getCameraLosOpacity());
+  };
+
+  var getCameraLosOpacity = function getCameraLosOpacity() {
+    var opacity = localStorage.getItem('cameralosopacity');
+    if (opacity) {
+      return opacity;
+    } else {
+      return DEFAULT_LOS_OPACITY;
+    }
   };
 
   var handleCameraIn = function handleCameraHoverIn(event) {
@@ -205,6 +216,13 @@
 
     $('#mmenu-link').click(handleMenuClick);
     $('#lang-choices').on('click','a',handleLangChange);
+
+    R6MapsControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
+  };
+
+  var updateLosOpacity = function updateLosOpacity(opacity) {
+    localStorage.setItem('cameralosopacity', opacity);
+    $('.camera-los').css('opacity', opacity);
   };
 
   var handleMenuClick = function handleMenuClick(e) {

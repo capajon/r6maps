@@ -13,8 +13,10 @@ var R6MapsLangTerms = (function(undefined) {
         about: 'About',
         languageHeader: 'Language',
         optionsHeader: 'Options',
-        labelLosOpacity: 'Default camera line-of-sight opacity',
-        linkAbout: 'about.html'
+        labelLosOpacity: 'Camera line-of-sight opacity',
+        linkAbout: 'about.html',
+        labelPercent: '{int}%', // according to: (0.12).toLocaleString('en', { style: 'percent' });
+        labelLosDefault: '(Default)'
       },
       languages: {
         en: 'English',

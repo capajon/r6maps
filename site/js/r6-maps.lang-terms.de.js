@@ -9,7 +9,10 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         shortcutTip: 'Tastaturkürzel: {shortcut}',
         menu: 'Menü',
         about: 'Über',
-        languageHeader: 'Sprache'
+        languageHeader: 'Sprache',
+        labelLosOpacity: 'Kamera line-of -sight Opazität',
+        labelPercent: '{int} %', // according to: (0.12).toLocaleString('de', { style: 'percent' });
+        labelLosDefault: '(Standard)'
       },
       languages: {
         en: 'Englisch',

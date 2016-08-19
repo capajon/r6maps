@@ -234,20 +234,54 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
     }
 
-    html += '<!--temp disabled WIP todo </div>';
+    html += '</div>';
     html += '<div id="los-opacity" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
-    html += '<input id="los-opacity-range"></input>';
+    html += '<input id="los-opacity-range" type="range" max="0.7" min="0" step="0.05"></input>';
+    html += '<p id="camera-los-percent"></p><p id="camera-los-default"></p>';
     html += '</div>';
-    html += '</div>-->';
+    html += '</div>';
 
     html += '<div class="faded-logo"></div>';
 
     menuPanel.html(html);
     menuControl.html(R6MapsLangTerms.terms.general.menu);
   };
+
+  var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
+    var losOpacityControl = $('#los-opacity-range');
+    losOpacityControl.val(startingValue);
+    setLosLabelsText(startingValue, defaultOpacity);
+    var handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity)
+    losOpacityControl.on('input', handleLosOpacityChangeFn);
+    losOpacityControl.on('change', handleLosOpacityChangeFn);
+  };
+
+  var getHandleLosOpacityChangeFn = function getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity) {
+    return function handleLosOpacityFn(event) {
+      var opacity = event.target.value;
+      updateLosOpacityFn(opacity);
+      setLosLabelsText(opacity, defaultOpacity);
+    };
+  };
+
+  var setLosLabelsText = function setLosLabelsText(opacity, defaultOpacity) {
+    $('#camera-los-percent').text(
+      R6MapsLangTerms.terms.general.labelPercent.replace(
+        '{int}',
+        Math.round(opacity * 100)
+      )
+    );
+
+    var defaultText = $('#camera-los-default');
+    if (opacity == defaultOpacity) {
+      defaultText.text(R6MapsLangTerms.terms.general.labelLosDefault);
+    } else {
+      defaultText.text('');
+    }
+  }
 
   return  {
     populateMapOptions: populateMapOptions,
@@ -269,6 +303,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupZoom: setupZoom,
     isZoomed: isZoomed,
 
-    populateMenu: populateMenu
+    populateMenu: populateMenu,
+    setupLosOpacity: setupLosOpacity
   };
 })(window.jQuery, window, document, R6MapsLangTerms);

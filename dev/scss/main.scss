@@ -91,14 +91,13 @@ body, button, input, select {
     .camera-los {
       fill: transparent;
       stroke: $r6-yellow;
-      opacity: 0.15;
       stroke-width: 3;
       stroke-linejoin: round;
       stroke-linecap: round;
       transition: opacity 1s;
 
       &.show-more {
-        opacity: 1;
+        opacity: 1 !important;
       }
     }
   }

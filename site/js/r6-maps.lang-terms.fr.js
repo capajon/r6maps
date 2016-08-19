@@ -10,7 +10,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         menu: 'Menu',
         about: 'Information',
         languageHeader: 'La Langue',
-        linkAbout: 'about-fr.html'
+        linkAbout: 'about-fr.html',
+        labelLosOpacity: 'Appareil photo en ligne de mire l\'opacité',
+        labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
+        labelLosDefault: '(Défaut)'
       },
       floorNames: {
         basement: { full: 'Sous-sol', short: 'S' },

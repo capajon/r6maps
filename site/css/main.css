@@ -487,6 +487,17 @@ html.mm-pagedim-black #mm-blocker {
   .mmenu-custom-panel label {
     padding: 0.7em;
     font-weight: 700; }
+  .mmenu-custom-panel .zoom.controls {
+    display: flex;
+    align-items: center; }
+
+#camera-los-percent {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-left: 0.5rem; }
+
+#camera-los-default {
+  margin-left: 0.25rem; }
 
 .offscreen {
   position: absolute !important;
@@ -573,13 +584,12 @@ body, button, input, select {
   #map svg .camera-los {
     fill: transparent;
     stroke: #ffdb00;
-    opacity: 0.15;
     stroke-width: 3;
     stroke-linejoin: round;
     stroke-linecap: round;
     transition: opacity 1s; }
     #map svg .camera-los.show-more {
-      opacity: 1; }
+      opacity: 1 !important; }
   #map #map-elements {
     position: relative; }
     #map #map-elements img, #map #map-elements div, #map #map-elements a {
