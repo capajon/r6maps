@@ -276,12 +276,17 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     );
 
     var defaultText = $('#camera-los-default');
+
     if (opacity == defaultOpacity) {
       defaultText.text(R6MapsLangTerms.terms.general.labelLosDefault);
     } else {
       defaultText.text('');
     }
-  }
+  };
+
+  var resetPan = function resetPan(map) {
+    map.panzoom('resetPan');
+  };
 
   return  {
     populateMapOptions: populateMapOptions,
@@ -302,6 +307,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     setupZoom: setupZoom,
     isZoomed: isZoomed,
+    resetPan: resetPan,
 
     populateMenu: populateMenu,
     setupLosOpacity: setupLosOpacity

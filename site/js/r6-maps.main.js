@@ -50,6 +50,7 @@
     setupCameraLos();
     showSelectedFloor();
     showSelectedObjective();
+    R6MapsControls.resetPan(map);
   };
 
   var trySelectBookmarkedMap = function trySelectBookmarkedMap() {
