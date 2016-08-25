@@ -239,7 +239,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
-    html += '<input id="los-opacity-range" type="range" max="0.7" min="0" step="0.05"></input>';
+    html += '<input id="los-opacity-range" type="range" max="1" min="0" step="0.05"></input>';
     html += '<p id="camera-los-percent"></p><p id="camera-los-default"></p>';
     html += '</div>';
     html += '</div>';
