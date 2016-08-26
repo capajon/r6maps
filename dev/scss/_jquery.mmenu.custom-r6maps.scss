@@ -64,8 +64,9 @@ $custom-mmenu-padding: 0.7em;
   }
 
   .zoom.controls {
-    display: flex;
     align-items: center;
+    display: flex;
+    margin-left: $custom-mmenu-padding;
   }
 }
 

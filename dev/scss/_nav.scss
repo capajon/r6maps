@@ -9,19 +9,35 @@ nav {
     background: $faded-bg;
     display: flex;
     justify-content: space-between;
+    min-height: 4rem;
     width: 100vw;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-left: 1.25rem;
+      color: #fff;
+    }
   }
 
   select {
     font-size: $nav-font-size;
   }
 
-  .misc {
+  .right.controls {
     margin: $control-padding;
   }
 
-  .zoom {
+  .middle.controls {
     margin: $control-padding;
+  }
+
+  #map-controls-wrapper {
+    display: none;
+
+    body.show-map & {
+      display: inline-block;
+    }
   }
 
   #map-control {
@@ -72,6 +88,14 @@ nav {
         padding-left: 0.7em;
         padding-right: 0.7em;
       }
+    }
+  }
+
+  #zoom-range {
+    display: none;
+
+    body.show-map & {
+      display: inline-block;
     }
   }
 

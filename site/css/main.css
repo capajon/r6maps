@@ -167,13 +167,23 @@ nav {
     background: rgba(16, 26, 36, 0.6);
     display: flex;
     justify-content: space-between;
+    min-height: 4rem;
     width: 100vw; }
+    nav .wrapper h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-left: 1rem;
+      color: #fff; }
   nav select {
     font-size: 1.2rem; }
-  nav .misc {
+  nav .right.controls {
     margin: 0.15em 0.5em; }
-  nav .zoom {
+  nav .middle.controls {
     margin: 0.15em 0.5em; }
+  nav #map-controls-wrapper {
+    display: none; }
+    body.show-map nav #map-controls-wrapper {
+      display: inline-block; }
   nav #map-control {
     margin: 0.15em 0 0.15em 0.5em;
     width: 120px; }
@@ -205,6 +215,10 @@ nav {
       nav #floor-control button {
         padding-left: 0.7em;
         padding-right: 0.7em; } }
+  nav #zoom-range {
+    display: none; }
+    body.show-map nav #zoom-range {
+      display: inline-block; }
   nav button {
     background-color: #fff;
     border: 1px solid #000;
@@ -488,8 +502,9 @@ html.mm-pagedim-black #mm-blocker {
     padding: 0.7em;
     font-weight: 700; }
   .mmenu-custom-panel .zoom.controls {
+    align-items: center;
     display: flex;
-    align-items: center; }
+    margin-left: 0.7em; }
 
 #camera-los-percent {
   font-size: 1.25rem;
@@ -566,7 +581,10 @@ body, button, input, select {
 #map {
   height: 100vh;
   position: relative;
-  width: 100vw; }
+  width: 100vw;
+  display: none; }
+  body.show-map #map {
+    display: block; }
   #map .center-helper {
     height: 0;
     margin: auto;
