@@ -19,7 +19,8 @@ var R6MapsLangTerms = (function(undefined) {
         labelLosDefault: '(Default)'
       },
       selectMaps: {
-        selectAMap: 'Select a map'
+        selectAMap: 'Select a map',
+        homeLink: 'Select a map'
       },
       languages: {
         en: 'English',

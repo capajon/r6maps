@@ -16,7 +16,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelLosDefault: '(Défaut)'
       },
       selectMaps: {
-        selectAMap: 'Sélectionnez une carte'
+        selectAMap: 'Sélectionnez une carte',
+        homeLink: 'Sélectionnez une carte'
       },
       floorNames: {
         basement: { full: 'Sous-sol', short: 'S' },

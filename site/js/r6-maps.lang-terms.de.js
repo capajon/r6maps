@@ -15,7 +15,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelLosDefault: '(Standard)'
       },
       selectMaps: {
-        selectAMap: 'Wählen Sie eine Karte'
+        selectAMap: 'Wählen Sie eine Karte',
+        homeLink: 'Wählen Sie eine Karte'
       },
       languages: {
         en: 'Englisch',

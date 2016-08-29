@@ -227,6 +227,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     var html = '';
 
     html += '<div class="mmenu-custom-panel">';
+    html += '<a href="">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</a>';
     html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
     html += '</div>';
     html += '<div id="lang-choices" class="mmenu-custom-panel">';
