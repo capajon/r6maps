@@ -1,0 +1,27 @@
+#select-map-grid {
+  bottom: 0;
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: $z-select-map-grid;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+
+  body.show-select-map & {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  ul {
+
+    li {
+      margin: 0.7rem;
+
+      a {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+    }
+  }
+}

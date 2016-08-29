@@ -161,7 +161,7 @@ nav {
   left: 0;
   position: absolute;
   top: 0;
-  z-index: 1200; }
+  z-index: 1300; }
   nav .wrapper {
     align-items: center;
     background: rgba(16, 26, 36, 0.6);
@@ -169,17 +169,27 @@ nav {
     justify-content: space-between;
     min-height: 4rem;
     width: 100vw; }
-    nav .wrapper h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-left: 1rem;
-      color: #fff; }
   nav select {
     font-size: 1.2rem; }
+  nav .left.controls {
+    align-items: center;
+    display: flex; }
   nav .right.controls {
     margin: 0.15em 0.5em; }
   nav .middle.controls {
     margin: 0.15em 0.5em; }
+  nav #nav-logo {
+    margin-left: 0.3rem; }
+    nav #nav-logo.enabled {
+      cursor: pointer; }
+  nav #select-map-heading {
+    display: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 0.8rem;
+    color: #fff; }
+    body.show-select-map nav #select-map-heading {
+      display: inline; }
   nav #map-controls-wrapper {
     display: none; }
     body.show-map nav #map-controls-wrapper {
@@ -370,6 +380,24 @@ body.about {
       background-position: 0px -387px;
       height: 31px;
       line-height: 31px; }
+
+#select-map-grid {
+  bottom: 0;
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 1200;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear; }
+  body.show-select-map #select-map-grid {
+    visibility: visible;
+    opacity: 1; }
+  #select-map-grid ul li {
+    margin: 0.7rem; }
+    #select-map-grid ul li a {
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none; }
 
 /*
 	jQuery.mmenu position extension CSS
@@ -581,10 +609,7 @@ body, button, input, select {
 #map {
   height: 100vh;
   position: relative;
-  width: 100vw;
-  display: none; }
-  body.show-map #map {
-    display: block; }
+  width: 100vw; }
   #map .center-helper {
     height: 0;
     margin: auto;

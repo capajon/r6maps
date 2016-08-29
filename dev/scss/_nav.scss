@@ -11,17 +11,15 @@ nav {
     justify-content: space-between;
     min-height: 4rem;
     width: 100vw;
-
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-left: 1.25rem;
-      color: #fff;
-    }
   }
 
   select {
     font-size: $nav-font-size;
+  }
+
+  .left.controls {
+    align-items: center;
+    display: flex;
   }
 
   .right.controls {
@@ -30,6 +28,26 @@ nav {
 
   .middle.controls {
     margin: $control-padding;
+  }
+
+  #nav-logo {
+    margin-left: 0.3rem;
+
+    &.enabled {
+      cursor: pointer;
+    }
+  }
+
+  #select-map-heading {
+    display: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 0.8rem;
+    color: #fff;
+
+    body.show-select-map & {
+      display: inline;
+    }
   }
 
   #map-controls-wrapper {

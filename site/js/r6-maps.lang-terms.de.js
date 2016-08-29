@@ -14,6 +14,9 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelPercent: '{int} %', // according to: (0.12).toLocaleString('de', { style: 'percent' });
         labelLosDefault: '(Standard)'
       },
+      selectMaps: {
+        selectAMap: 'Wählen Sie eine Karte'
+      },
       languages: {
         en: 'Englisch',
         fr: 'Französisch',

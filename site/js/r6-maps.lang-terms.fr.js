@@ -15,6 +15,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
         labelLosDefault: '(Défaut)'
       },
+      selectMaps: {
+        selectAMap: 'Sélectionnez une carte'
+      },
       floorNames: {
         basement: { full: 'Sous-sol', short: 'S' },
         firstFloor: { full: 'Rez-de-chaussée', short: 'R' },

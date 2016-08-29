@@ -18,6 +18,9 @@ var R6MapsLangTerms = (function(undefined) {
         labelPercent: '{int}%', // according to: (0.12).toLocaleString('en', { style: 'percent' });
         labelLosDefault: '(Default)'
       },
+      selectMaps: {
+        selectAMap: 'Select a map'
+      },
       languages: {
         en: 'English',
         fr: 'Français',

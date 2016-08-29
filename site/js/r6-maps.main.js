@@ -6,6 +6,12 @@
   var map,
     mapElements,
     svgElements,
+    firstMapLoaded = false,
+    DISPLAY = {
+      SHOW_MAP: 'show-map',
+      SELECT_MAP: 'show-select-map'
+    },
+    currentDisplay = DISPLAY.SELECT_MAP,
     HASH_SPLIT_CHAR = '/',
     DEFAULT_LOS_OPACITY = 0.15;
 
@@ -16,13 +22,16 @@
 
     tryLoadStartingLanguage();
     setupMenu();
+    setupSelectMap();
 
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
-    trySelectBookmarkedMap();
-    loadMap();
-
-    trySelectBookmarkedObjective();
-    trySelectBookmarkedFloor();
+    if (trySelectBookmarkedMap()) {
+      loadMap();
+      trySelectBookmarkedObjective();
+      trySelectBookmarkedFloor();
+    } else {
+      showOnlySelectMap();
+    }
 
     setupEvents();
     R6MapsControls.setupZoom(map, mapElements);
@@ -50,14 +59,35 @@
     setupCameraLos();
     showSelectedFloor();
     showSelectedObjective();
+    showOnlyMap();
     R6MapsControls.resetPan(map);
+
+    if (!firstMapLoaded) {
+      firstTimeMapLoad();
+    }
+  };
+
+  var switchToMap = function switchToMap(mapArg) {
+    if (R6MapsControls.trySelectMap(mapArg)) {
+      loadMap();
+      updateUrl();
+      showOnlyMap();
+    }
+  };
+
+  var firstTimeMapLoad = function firstTimeMapLoad() {
+    var navLogo = $('#nav-logo');
+
+    firstMapLoaded = true;
+    navLogo.on('click', toggleShowMapAndSelectMap);
+    navLogo.addClass('enabled');
   };
 
   var trySelectBookmarkedMap = function trySelectBookmarkedMap() {
     var hashArgs = getHashArgs(),
       mapArg = hashArgs[0];
 
-    R6MapsControls.trySelectMap(mapArg);
+    return R6MapsControls.trySelectMap(mapArg);
   };
 
   var trySelectBookmarkedObjective = function trySelectBookmarkedObjective() {
@@ -99,6 +129,7 @@
 
   var getCameraLosOpacity = function getCameraLosOpacity() {
     var opacity = localStorage.getItem('cameralosopacity');
+
     if (opacity) {
       return opacity;
     } else {
@@ -221,6 +252,15 @@
     R6MapsControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
   };
 
+  var setupSelectMap = function seteupSelectMap() {
+    R6MapsSelectMaps.setup(
+      R6MapsData.getMapData(),
+      $('#select-map-heading'),
+      $('#select-map-grid'),
+      switchToMap
+    );
+  };
+
   var updateLosOpacity = function updateLosOpacity(opacity) {
     localStorage.setItem('cameralosopacity', opacity);
     $('.camera-los').css('opacity', opacity);
@@ -243,8 +283,11 @@
     R6MapsLangTerms.tryLoadLanguage(newLang);
 
     setupMenu();
+    setupSelectMap();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
-    loadMap();
+    if (firstMapLoaded) {
+      loadMap();
+    }
 
     localStorage.setItem('language', newLang);
   };
@@ -259,5 +302,49 @@
 
   var showSelectedObjective =  function showSelectedObjective() {
     R6MapsRender.showObjective(R6MapsControls.getCurrentlySelectedObjective(), mapElements);
+  };
+
+  var toggleShowMapAndSelectMap = function toggleShowMapAndSelectMap() {
+    switch (currentDisplay) {
+
+    case DISPLAY.SHOW_MAP:
+      showOnlySelectMap();
+      break;
+
+    case DISPLAY.SELECT_MAP:
+      showOnlyMap();
+      break;
+    }
+  };
+
+  var showOnlySelectMap = function showSelectMap() {
+    var bodyEl = $('body');
+
+    hideCurrent();
+    bodyEl.addClass(DISPLAY.SELECT_MAP);
+    currentDisplay = DISPLAY.SELECT_MAP;
+  };
+
+  var showOnlyMap = function showSelectMap() {
+    var bodyEl = $('body');
+
+    hideCurrent();
+    bodyEl.addClass(DISPLAY.SHOW_MAP);
+    currentDisplay = DISPLAY.SHOW_MAP;
+  };
+
+  var hideCurrent = function hideCurrent() {
+    var bodyEl = $('body');
+
+    switch (currentDisplay) {
+
+    case DISPLAY.SHOW_MAP:
+      bodyEl.removeClass(DISPLAY.SHOW_MAP);
+      break;
+
+    case DISPLAY.SELECT_MAP:
+      bodyEl.removeClass(DISPLAY.SELECT_MAP);
+      break;
+    }
   };
 }));

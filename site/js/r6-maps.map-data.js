@@ -1561,7 +1561,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           },
           {
             floor: 1, top: 82, left: 168, id: 2, location: oregonTerms.lobby,
-            los:[
+            los: [
               [{top: 65, left: 347}, {top: 80, left: 249}, {top: 80, left: 239}, {top: 69, left: 239}, {top: 69, left: 9}],
               [{top: 210, left: 237}, {top: 184, left: 203}],
               [{top: 101, left: 348}, {top: 95, left: 249}]

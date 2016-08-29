@@ -13,7 +13,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var populateMapOptions = function populateMapOptions(mapData) {
     var optionsAsString = '',
-      initialMap = getCurrentlySelectedMap(),
       maps = [];
 
     for (var mapKey in mapData) {
@@ -36,7 +35,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
 
     mapControl.html(optionsAsString);
-    trySelectMap(initialMap);
   };
 
   var getCurrentlySelectedMap = function getCurrentlySelectedMap() {
@@ -44,7 +42,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var trySelectMap = function trySelectMap(map) {
-    trySelectOption(mapControl, map);
+    return trySelectOption(mapControl, map);
   };
 
   var setupMapChangeEvent = function setupMapChangeEvent(callback) {
@@ -206,9 +204,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var trySelectOption = function trySelectOption(selectEl, option) {
     var selectOption = selectEl.find('option[value="' + option + '"]');
 
-    if (selectOption) {
+    if (selectOption.length) {
       selectOption.prop('selected', true);
+      return true;
     }
+    return false;
   };
 
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
@@ -251,10 +251,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
-    var losOpacityControl = $('#los-opacity-range');
+    var losOpacityControl = $('#los-opacity-range'),
+      handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity);
+
     losOpacityControl.val(startingValue);
     setLosLabelsText(startingValue, defaultOpacity);
-    var handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity)
     losOpacityControl.on('input', handleLosOpacityChangeFn);
     losOpacityControl.on('change', handleLosOpacityChangeFn);
   };
@@ -262,6 +263,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var getHandleLosOpacityChangeFn = function getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity) {
     return function handleLosOpacityFn(event) {
       var opacity = event.target.value;
+
       updateLosOpacityFn(opacity);
       setLosLabelsText(opacity, defaultOpacity);
     };
