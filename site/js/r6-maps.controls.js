@@ -13,7 +13,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var populateMapOptions = function populateMapOptions(mapData) {
     var optionsAsString = '',
-      maps = [];
+      maps = [],
+      currentMap = getCurrentlySelectedMap();
 
     for (var mapKey in mapData) {
       if (mapData.hasOwnProperty(mapKey)) {
@@ -35,6 +36,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
 
     mapControl.html(optionsAsString);
+    trySelectMap(currentMap);
   };
 
   var getCurrentlySelectedMap = function getCurrentlySelectedMap() {

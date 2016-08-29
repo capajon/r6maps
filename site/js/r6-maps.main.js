@@ -29,6 +29,7 @@
       loadMap();
       trySelectBookmarkedObjective();
       trySelectBookmarkedFloor();
+      showOnlyMap();
     } else {
       showOnlySelectMap();
     }
@@ -59,7 +60,6 @@
     setupCameraLos();
     showSelectedFloor();
     showSelectedObjective();
-    showOnlyMap();
     R6MapsControls.resetPan(map);
 
     if (!firstMapLoaded) {
@@ -70,6 +70,7 @@
   var switchToMap = function switchToMap(mapArg) {
     if (R6MapsControls.trySelectMap(mapArg)) {
       loadMap();
+      showOnlyMap();
       updateUrl();
       showOnlyMap();
     }
@@ -284,6 +285,7 @@
 
     setupMenu();
     setupSelectMap();
+
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     if (firstMapLoaded) {
       loadMap();
