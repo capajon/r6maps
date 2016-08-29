@@ -31,10 +31,28 @@ nav {
   }
 
   #nav-logo {
+    background: url('../img/r6maps-logo-nav.png');
+    background-size: 40px 41px;
+    background-repeat: no-repeat;
+    height: 41px;
     margin-left: 0.3rem;
+    min-width: 40px;
+    width: 40px;
 
     &.enabled {
       cursor: pointer;
+
+      &:hover {
+        background: url('../img/r6maps-logo-nav-hover.png');
+        background-size: 40px 41px;
+        background-repeat: no-repeat;
+      }
+    }
+
+    body.show-select-map & {
+      background: url('../img/r6maps-logo-nav-selected.png');
+      background-size: 40px 41px;
+      background-repeat: no-repeat;
     }
   }
 
@@ -114,6 +132,10 @@ nav {
 
     body.show-map & {
       display: inline-block;
+    }
+
+    @media screen and (max-width: $break-very-small) {
+      display: none !important;
     }
   }
 
