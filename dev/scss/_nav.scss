@@ -31,28 +31,33 @@ nav {
   }
 
   #nav-logo {
-    background: url('../img/r6maps-logo-nav.png');
-    background-size: 40px 41px;
+    background-image: url('../img/r6maps-logo-nav.png');
+    background-size: 40px;
     background-repeat: no-repeat;
     height: 41px;
     margin-left: 0.3rem;
     min-width: 40px;
+    -webkit-transition: background-image $button-transition;
+    transition: background-image $button-transition;
     width: 40px;
 
     &.enabled {
       cursor: pointer;
 
       &:hover {
-        background: url('../img/r6maps-logo-nav-hover.png');
-        background-size: 40px 41px;
-        background-repeat: no-repeat;
+        background-image: url('../img/r6maps-logo-nav-hover.png');
       }
     }
 
+    @media screen and (max-width: $break-very-small) {
+      background-size: 30px;
+      height: 31px;
+      min-width: 30px;
+      width: 30px;
+    }
+
     body.show-select-map & {
-      background: url('../img/r6maps-logo-nav-selected.png');
-      background-size: 40px 41px;
-      background-repeat: no-repeat;
+      background-image: url('../img/r6maps-logo-nav-selected.png');
     }
   }
 

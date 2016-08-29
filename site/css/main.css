@@ -179,23 +179,27 @@ nav {
   nav .middle.controls {
     margin: 0.15em 0.5em; }
   nav #nav-logo {
-    background: url("../img/r6maps-logo-nav.png");
-    background-size: 40px 41px;
+    background-image: url("../img/r6maps-logo-nav.png");
+    background-size: 40px;
     background-repeat: no-repeat;
     height: 41px;
     margin-left: 0.3rem;
     min-width: 40px;
+    -webkit-transition: background-image 0.2s;
+    transition: background-image 0.2s;
     width: 40px; }
     nav #nav-logo.enabled {
       cursor: pointer; }
       nav #nav-logo.enabled:hover {
-        background: url("../img/r6maps-logo-nav-hover.png");
-        background-size: 40px 41px;
-        background-repeat: no-repeat; }
+        background-image: url("../img/r6maps-logo-nav-hover.png"); }
+    @media screen and (max-width: 400px) {
+      nav #nav-logo {
+        background-size: 30px;
+        height: 31px;
+        min-width: 30px;
+        width: 30px; } }
     body.show-select-map nav #nav-logo {
-      background: url("../img/r6maps-logo-nav-selected.png");
-      background-size: 40px 41px;
-      background-repeat: no-repeat; }
+      background-image: url("../img/r6maps-logo-nav-selected.png"); }
   nav #select-map-heading {
     display: none;
     font-size: 1.5rem;
