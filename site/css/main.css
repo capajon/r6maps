@@ -43,9 +43,6 @@ input[type=range] {
   @media screen and (max-width: 620px) {
     input[type=range] {
       width: 50px; } }
-  @media screen and (max-width: 400px) {
-    input[type=range] {
-      display: none; } }
   @media screen and (min-width: 1400px) {
     input[type=range] {
       width: 135px; } }

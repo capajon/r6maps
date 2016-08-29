@@ -13,9 +13,6 @@ $input-width-large: 135px;
     @media screen and (max-width: $break-small) {
       width: $input-width-small;
     }
-    @media screen and (max-width: $break-very-small) {
-      display: none;
-    }
     @media screen and (min-width: $break-large) {
       width: $input-width-large;
     }
