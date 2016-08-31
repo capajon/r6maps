@@ -164,7 +164,7 @@ nav {
     background: rgba(16, 26, 36, 0.6);
     display: flex;
     justify-content: space-between;
-    min-height: 4rem;
+    min-height: 4.2rem;
     width: 100vw; }
   nav select {
     font-size: 1.2rem; }
@@ -195,7 +195,7 @@ nav {
         height: 31px;
         min-width: 30px;
         width: 30px; } }
-    body.show-select-map nav #nav-logo {
+    body.show-select-map nav #nav-logo, nav #nav-logo:focus {
       background-image: url("../img/r6maps-logo-nav-selected.png"); }
   nav #select-map-heading {
     display: none;
@@ -400,22 +400,113 @@ body.about {
       line-height: 31px; }
 
 #select-map-grid {
+  align-items: center;
+  background-color: rgba(16, 26, 36, 0.7);
   bottom: 0;
-  visibility: hidden;
-  position: fixed;
-  width: 100%;
-  z-index: 1200;
+  display: flex;
+  height: 100vh;
   opacity: 0;
-  transition: visibility 0.5s, opacity 0.5s linear; }
+  position: fixed;
+  transition: visibility 0.5s, opacity 0.5s linear;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1200; }
   body.show-select-map #select-map-grid {
     visibility: visible;
     opacity: 1; }
-  #select-map-grid ul li {
-    margin: 0.7rem; }
-    #select-map-grid ul li a {
-      color: #fff;
-      font-size: 1.5rem;
-      text-decoration: none; }
+  #select-map-grid ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    #select-map-grid ul li {
+      display: inline-block;
+      margin: 0.7rem; }
+      #select-map-grid ul li a {
+        -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        align-items: flex-end;
+        border: 1px solid #fff;
+        background-size: 160px;
+        color: #fff;
+        display: flex;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: box-shadow 0.2s;
+        width: 160px;
+        height: 120px;
+        position: relative; }
+        #select-map-grid ul li a div.wrapper-absolute {
+          left: 0;
+          position: absolute;
+          height: 100%;
+          top: 0;
+          width: 100%;
+          z-index: -1; }
+        #select-map-grid ul li a div.wrapper-overflow {
+          align-items: center;
+          background-color: #3a6082;
+          display: flex;
+          height: 100%;
+          justify-content: center;
+          overflow: hidden;
+          width: 100%; }
+        #select-map-grid ul li a div.thumb {
+          background-image: url("../img/map-thumbs.jpg");
+          min-width: 495px;
+          width: 495px;
+          height: 278px;
+          -ms-transform: scale(0.5);
+          -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+          transition: all 0.75s; }
+        #select-map-grid ul li a span.name {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+          overflow: hidden;
+          padding: 0.5rem;
+          text-overflow: ellipsis;
+          width: 100%;
+          background-color: rgba(16, 26, 36, 0.7);
+          transition: background-color 0.2s; }
+        #select-map-grid ul li a:hover, #select-map-grid ul li a:focus {
+          -webkit-box-shadow: 0 0 40px black;
+          -moz-box-shadow: 0 0 40px black;
+          box-shadow: 0 0 40px black; }
+          #select-map-grid ul li a:hover span.name, #select-map-grid ul li a:focus span.name {
+            background-color: #3a6082; }
+          #select-map-grid ul li a:hover div.thumb, #select-map-grid ul li a:focus div.thumb {
+            -ms-transform: scale(1, 1);
+            -webkit-transform: scale(1, 1);
+            transform: scale(0.75); }
+        #select-map-grid ul li a:active span.name {
+          background-color: #ffdb00;
+          color: #000; }
+        #select-map-grid ul li a.bank div.thumb {
+          background-position: 0px 0px; }
+        #select-map-grid ul li a.border div.thumb {
+          background-position: 0px -278px; }
+        #select-map-grid ul li a.chalet div.thumb {
+          background-position: 0px -556px; }
+        #select-map-grid ul li a.club-house div.thumb {
+          background-position: 0px -834px; }
+        #select-map-grid ul li a.consulate div.thumb {
+          background-position: 0px -1112px; }
+        #select-map-grid ul li a.favelas div.thumb {
+          background-position: 0px -1390px; }
+        #select-map-grid ul li a.hereford div.thumb {
+          background-position: 0px -1668px; }
+        #select-map-grid ul li a.house div.thumb {
+          background-position: 0px -1946px; }
+        #select-map-grid ul li a.kafe div.thumb {
+          background-position: 0px -2224px; }
+        #select-map-grid ul li a.kanal div.thumb {
+          background-position: 0px -2502px; }
+        #select-map-grid ul li a.oregon div.thumb {
+          background-position: 0px -2780px; }
+        #select-map-grid ul li a.plane div.thumb {
+          background-position: 0px -3058px; }
+        #select-map-grid ul li a.yacht div.thumb {
+          background-position: 0px -3336px; }
 
 /*
 	jQuery.mmenu position extension CSS

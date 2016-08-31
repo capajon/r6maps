@@ -44,8 +44,12 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     mapElements.html(html);
     svgElement.html(getCamerasLosHtml(mapData.cameras));
 
-    document.title = R6MapsLangTerms.terms.general.pageTitle.replace('{mapName}',mapData.name);
+    setTitle(mapData.name);
   };
+
+  var setTitle = function setTitle(name) {
+    document.title = R6MapsLangTerms.terms.general.pageTitle.replace('{mapName}', name);
+  }
 
   var getCamerasLosHtml = function getCamerasLosHtml(cameras){
     var html = '',
@@ -313,6 +317,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   return  {
     renderMap: renderMap,
     showFloor: showFloor,
-    showObjective: showObjective
+    showObjective: showObjective,
+    setTitle: setTitle
   };
 })(window.jQuery, window, document, R6MapsLangTerms);

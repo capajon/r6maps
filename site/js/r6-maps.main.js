@@ -32,6 +32,7 @@
       showOnlyMap();
     } else {
       showOnlySelectMap();
+      setTitleStart();
     }
 
     setupEvents();
@@ -47,6 +48,14 @@
     } else if (userLang) {
       R6MapsLangTerms.tryLoadLanguage(userLang);
     };  // default will be English otherwise
+  };
+
+  var setTitleSelectMap = function setTitleSelectMap() {
+    document.title = R6MapsLangTerms.terms.general.pageTitleSelectMap;
+  };
+
+  var setTitleStart = function setTitleStart() {
+    document.title = R6MapsLangTerms.terms.general.pageTitleStart;
   };
 
   var loadMap = function loadMap() {
@@ -80,7 +89,10 @@
     var navLogo = $('#nav-logo');
 
     firstMapLoaded = true;
-    navLogo.on('click', toggleShowMapAndSelectMap);
+    navLogo.on('click', function(event) {
+      event.preventDefault();
+      toggleShowMapAndSelectMap();
+    });
     navLogo.addClass('enabled');
   };
 
@@ -258,7 +270,8 @@
       R6MapsData.getMapData(),
       $('#select-map-heading'),
       $('#select-map-grid'),
-      switchToMap
+      switchToMap,
+      closeMapSelect
     );
   };
 
@@ -319,9 +332,16 @@
     }
   };
 
+  var closeMapSelect = function closeMapSelect() {
+    if(firstMapLoaded) {
+      showOnlyMap();
+    }
+  };
+
   var showOnlySelectMap = function showSelectMap() {
     var bodyEl = $('body');
 
+    setTitleSelectMap();
     hideCurrent();
     bodyEl.addClass(DISPLAY.SELECT_MAP);
     currentDisplay = DISPLAY.SELECT_MAP;
@@ -330,6 +350,9 @@
   var showOnlyMap = function showSelectMap() {
     var bodyEl = $('body');
 
+    R6MapsRender.setTitle(
+      R6MapsData.getMapData()[R6MapsControls.getCurrentlySelectedMap()].name
+    );
     hideCurrent();
     bodyEl.addClass(DISPLAY.SHOW_MAP);
     currentDisplay = DISPLAY.SHOW_MAP;

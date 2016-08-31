@@ -5,6 +5,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
     terms = {
       general: {
         pageTitle: 'Siege Karten - {mapName}',
+        pageTitleSelectMap: 'Siege Karten - Wählen Sie eine Karte',
+        pageTitleStart: 'Siege Karten',
         cameraViewCaption: 'Überwachungskamera: {floorName}',
         shortcutTip: 'Tastaturkürzel: {shortcut}',
         menu: 'Menü',

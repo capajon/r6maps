@@ -9,7 +9,7 @@ nav {
     background: $faded-bg;
     display: flex;
     justify-content: space-between;
-    min-height: 4rem;
+    min-height: 4.2rem;
     width: 100vw;
   }
 
@@ -31,7 +31,7 @@ nav {
   }
 
   #nav-logo {
-    background-image: url('../img/r6maps-logo-nav.png');
+    background-image: url($img-location + 'r6maps-logo-nav.png');
     background-size: 40px;
     background-repeat: no-repeat;
     height: 41px;
@@ -45,7 +45,7 @@ nav {
       cursor: pointer;
 
       &:hover {
-        background-image: url('../img/r6maps-logo-nav-hover.png');
+        background-image: url($img-location + 'r6maps-logo-nav-hover.png');
       }
     }
 
@@ -56,8 +56,9 @@ nav {
       width: 30px;
     }
 
-    body.show-select-map & {
-      background-image: url('../img/r6maps-logo-nav-selected.png');
+    body.show-select-map &,
+    &:focus {
+      background-image: url($img-location + 'r6maps-logo-nav-selected.png');
     }
   }
 
