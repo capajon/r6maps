@@ -78,10 +78,9 @@
 
   var switchToMap = function switchToMap(mapArg) {
     if (R6MapsControls.trySelectMap(mapArg)) {
+      showOnlyMap();
       loadMap();
-      showOnlyMap();
       updateUrl();
-      showOnlyMap();
     }
   };
 
@@ -267,9 +266,10 @@
 
   var setupSelectMap = function seteupSelectMap() {
     R6MapsSelectMaps.setup(
-      R6MapsData.getMapData(),
-      $('#select-map-heading'),
       $('#select-map-grid'),
+      $('#select-map-heading'),
+      $('#main-nav'),
+      R6MapsData.getMapData(),
       switchToMap,
       closeMapSelect
     );
