@@ -233,7 +233,7 @@
   };
 
   var showSelectMap = function showSelectMap() {
-    bodyEl.removeClass(SHOW_MAP)
+    bodyEl.removeClass(SHOW_MAP);
     bodyEl.addClass(SHOW_SELECT_MAP);
     tryUpdateUrl();
     updateTitle();
@@ -287,7 +287,7 @@
   };
 
   var tryHideMapSelect = function tryHideMapSelect() {
-    if(checkIfMapLoaded()){
+    if (checkIfMapLoaded()) {
       showMap();
     }
   };
@@ -331,7 +331,7 @@
   var tryUpdateUrl = function tryUpdateUrl() {
     var hashText = '';
 
-    if(checkIfShowingMap()) {
+    if (checkIfShowingMap()) {
       hashText += '' + R6MapsControls.getCurrentlySelectedMap();
       hashText += HASH_SPLIT_CHAR + R6MapsControls.getCurrentlySelectedFloor();
       hashText += HASH_SPLIT_CHAR + R6MapsControls.getCurrentlySelectedObjective();
@@ -352,5 +352,4 @@
       ) :
       R6MapsLangTerms.terms.general.pageTitleSelectMap;
   };
-
 }));

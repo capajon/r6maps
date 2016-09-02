@@ -12,7 +12,6 @@ var MIN_COLUMN_NUM = 2,
   THUMB_SCALE_ZOOMED_IN_FACTOR = 1.5;
 
 var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined) {
-
   var getBackgroundImgScale = function getBackgroundImgScale(thumbDimensions) {
     return Math.max(
       thumbDimensions.height / (NATIVE_THUMB_IMG_HEIGHT - 1),
@@ -55,7 +54,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
 
     maps.forEach(function(map) {
       html += '<li data-key="' + map.key + '">';
-      html += '<a href="" class="' + map.key + '">'
+      html += '<a href="" class="' + map.key + '">';
       html += '<div class="wrapper-absolute">';
       html += '<div class="wrapper-overflow">';
       html += '<div class="thumb"></div>';
@@ -84,7 +83,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
         mapLinkHeight = Math.floor(availableHeight / rowCount),
         mapLinkRatio = mapLinkWidth / mapLinkHeight;
 
-      if(
+      if (
         (
           !results.ratio
           || (Math.abs(NATIVE_THUMB_IMG_RATIO - results.ratio) > Math.abs(NATIVE_THUMB_IMG_RATIO - mapLinkRatio))
@@ -111,7 +110,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     return {
       height: $(window).height(),
       width: $(window).width()
-    }
+    };
   };
 
   var resizeMapLinks = function resizeMapLinks(
@@ -191,7 +190,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     handleResize();
     $(window).on('resize', handleResize);
     setTimeout(function() {
-      selectMapGridEl.addClass('enable-thumb-transition')
+      selectMapGridEl.addClass('enable-thumb-transition');
     }, 1);
   };
 
