@@ -484,86 +484,86 @@ body.about {
           -moz-box-shadow: 0 0 40px black;
           box-shadow: 0 0 40px black; }
           #select-map-grid ul li a:hover p, #select-map-grid ul li a:focus p {
-            background-color: #3a6082; }
+            background-color: #3a6082 !important; }
         #select-map-grid ul li a:active p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.bank div.thumb {
           background-position: 0px 0px; }
-        body.bank #select-map-grid ul li a.bank p {
+        body[loaded-map="bank"] #select-map-grid ul li a.bank p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.border div.thumb {
           background-position: 0px -278px; }
-        body.border #select-map-grid ul li a.border p {
+        body[loaded-map="border"] #select-map-grid ul li a.border p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.chalet div.thumb {
           background-position: 0px -556px; }
-        body.chalet #select-map-grid ul li a.chalet p {
+        body[loaded-map="chalet"] #select-map-grid ul li a.chalet p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.club div.thumb {
           background-position: 0px -834px; }
-        body.club #select-map-grid ul li a.club p {
+        body[loaded-map="club"] #select-map-grid ul li a.club p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.consulate div.thumb {
           background-position: 0px -1112px; }
-        body.consulate #select-map-grid ul li a.consulate p {
+        body[loaded-map="consulate"] #select-map-grid ul li a.consulate p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.favelas div.thumb {
           background-position: 0px -1390px; }
-        body.favelas #select-map-grid ul li a.favelas p {
+        body[loaded-map="favelas"] #select-map-grid ul li a.favelas p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.hereford div.thumb {
           background-position: 0px -1668px; }
-        body.hereford #select-map-grid ul li a.hereford p {
+        body[loaded-map="hereford"] #select-map-grid ul li a.hereford p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.house div.thumb {
           background-position: 0px -1946px; }
-        body.house #select-map-grid ul li a.house p {
+        body[loaded-map="house"] #select-map-grid ul li a.house p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.kafe div.thumb {
           background-position: 0px -2224px; }
-        body.kafe #select-map-grid ul li a.kafe p {
+        body[loaded-map="kafe"] #select-map-grid ul li a.kafe p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.kanal div.thumb {
           background-position: 0px -2502px; }
-        body.kanal #select-map-grid ul li a.kanal p {
+        body[loaded-map="kanal"] #select-map-grid ul li a.kanal p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.oregon div.thumb {
           background-position: 0px -2780px; }
-        body.oregon #select-map-grid ul li a.oregon p {
+        body[loaded-map="oregon"] #select-map-grid ul li a.oregon p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.plane div.thumb {
           background-position: 0px -3058px; }
-        body.plane #select-map-grid ul li a.plane p {
+        body[loaded-map="plane"] #select-map-grid ul li a.plane p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
         #select-map-grid ul li a.yacht div.thumb {
           background-position: 0px -3336px; }
-        body.yacht #select-map-grid ul li a.yacht p {
+        body[loaded-map="yacht"] #select-map-grid ul li a.yacht p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }

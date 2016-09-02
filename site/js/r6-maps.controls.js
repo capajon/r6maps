@@ -157,14 +157,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
-  var setupZoom = function setupZoom(map, mapElements) {
-    map.panzoom({
+  var setupZoom = function setupZoom(mapEl, mapElements) {
+    mapEl.panzoom({
       $zoomRange: zoomControl,
       minScale: 0.3,
       maxScale: 2.5
     });
 
-    map.on('mousewheel', function(event) {
+    mapEl.on('mousewheel', function(event) {
       zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
       zoomControl.trigger('input');
       zoomControl.trigger('change');
@@ -174,11 +174,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     zoomControl.on('input', getHandleZoomChangeFn(mapElements));
 
     // camera links were not working on touch devices:
-    map.on('touchstart','a', function(e) {
+    mapEl.on('touchstart','a', function(e) {
       $(this).addClass('hover');
     });
 
-    map.on('touchend','a', function(e) {
+    mapEl.on('touchend','a', function(e) {
       $(this).removeClass('hover');
       this.click();
     });

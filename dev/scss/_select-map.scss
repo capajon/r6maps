@@ -111,7 +111,7 @@ $map-thumb-height: 278px;
           @include box-shadow(0, 0, 40px, rgba(0,0,0,1));
 
           p {
-            background-color: $r6-blue;
+            background-color: $r6-blue !important;
           }
         }
 
@@ -125,91 +125,91 @@ $map-thumb-height: 278px;
         &.bank div.thumb {
           @include map-thumb-icon(1);
         }
-        body.bank &.bank p {
+        body[loaded-map="bank"] &.bank p {
           @include map-name-selected();
         }
 
         &.border div.thumb {
           @include map-thumb-icon(2);
         }
-        body.border &.border p {
+        body[loaded-map="border"] &.border p {
           @include map-name-selected();
         }
 
         &.chalet div.thumb {
           @include map-thumb-icon(3);
         }
-        body.chalet &.chalet p {
+        body[loaded-map="chalet"] &.chalet p {
           @include map-name-selected();
         }
 
         &.club div.thumb {
           @include map-thumb-icon(4);
         }
-        body.club &.club p {
+        body[loaded-map="club"] &.club p {
           @include map-name-selected();
         }
 
         &.consulate div.thumb {
           @include map-thumb-icon(5);
         }
-        body.consulate &.consulate p {
+        body[loaded-map="consulate"] &.consulate p {
           @include map-name-selected();
         }
 
         &.favelas div.thumb {
           @include map-thumb-icon(6);
         }
-        body.favelas &.favelas p {
+        body[loaded-map="favelas"] &.favelas p {
           @include map-name-selected();
         }
 
         &.hereford div.thumb {
           @include map-thumb-icon(7);
         }
-        body.hereford &.hereford p {
+        body[loaded-map="hereford"] &.hereford p {
           @include map-name-selected();
         }
 
         &.house div.thumb {
           @include map-thumb-icon(8);
         }
-        body.house &.house p {
+        body[loaded-map="house"] &.house p {
           @include map-name-selected();
         }
 
         &.kafe div.thumb {
           @include map-thumb-icon(9);
         }
-        body.kafe &.kafe p {
+        body[loaded-map="kafe"] &.kafe p {
           @include map-name-selected();
         }
 
         &.kanal div.thumb {
           @include map-thumb-icon(10);
         }
-        body.kanal &.kanal p {
+        body[loaded-map="kanal"] &.kanal p {
           @include map-name-selected();
         }
 
         &.oregon div.thumb {
           @include map-thumb-icon(11);
         }
-        body.oregon &.oregon p {
+        body[loaded-map="oregon"] &.oregon p {
           @include map-name-selected();
         }
 
         &.plane div.thumb {
           @include map-thumb-icon(12);
         }
-        body.plane &.plane p {
+        body[loaded-map="plane"] &.plane p {
           @include map-name-selected();
         }
 
         &.yacht div.thumb {
           @include map-thumb-icon(13);
         }
-        body.yacht &.yacht p {
+        body[loaded-map="yacht"] &.yacht p {
           @include map-name-selected();
         }
       }
