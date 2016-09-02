@@ -64,13 +64,20 @@ nav {
 
   #select-map-heading {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 700;
     margin-left: 0.8rem;
     color: #fff;
 
     body.show-select-map & {
       display: inline;
+    }
+
+    @media screen and (max-width: $break-small) {
+      font-size: 1.5rem;
+    }
+    @media screen and (max-width: $break-very-small) {
+      font-size: 1.33rem;
     }
   }
 

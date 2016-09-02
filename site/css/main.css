@@ -199,12 +199,18 @@ nav {
       background-image: url("../img/r6maps-logo-nav-selected.png"); }
   nav #select-map-heading {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 700;
     margin-left: 0.8rem;
     color: #fff; }
     body.show-select-map nav #select-map-heading {
       display: inline; }
+    @media screen and (max-width: 620px) {
+      nav #select-map-heading {
+        font-size: 1.5rem; } }
+    @media screen and (max-width: 400px) {
+      nav #select-map-heading {
+        font-size: 1.33rem; } }
   nav #map-controls-wrapper {
     display: none; }
     body.show-map nav #map-controls-wrapper {
