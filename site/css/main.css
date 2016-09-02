@@ -177,36 +177,41 @@ nav {
     margin: 0.15em 0.5em; }
   nav #nav-logo {
     background-color: transparent;
-    background-image: url("../img/r6maps-logo-nav-sprite@2x.png");
-    background-size: 40px;
-    background-position: 0 -141px;
-    background-repeat: no-repeat;
-    border: 0;
     cursor: auto;
-    height: 41px;
-    margin-left: 0.3rem;
-    min-width: 40px;
-    padding: 0;
-    -webkit-transition: background-image 0.2s;
-    transition: background-image 0.2s;
-    width: 40px; }
+    border: 0;
+    margin-left: 0.5rem;
+    padding: 0; }
     nav #nav-logo.enabled {
       cursor: pointer; }
-      nav #nav-logo.enabled:hover {
+      nav #nav-logo.enabled:hover div {
         background-position: 0 -47px; }
-    @media screen and (max-width: 400px) {
-      nav #nav-logo {
-        background-size: 30px;
-        height: 31px;
-        min-width: 30px;
-        width: 30px; } }
-    body.show-select-map nav #nav-logo, nav #nav-logo:focus {
+        @media screen and (max-width: 400px) {
+          nav #nav-logo.enabled:hover div {
+            background-position: 0 -35px; } }
+    body.show-select-map nav #nav-logo div, nav #nav-logo:focus div {
       background-position: 0 0; }
+    nav #nav-logo div {
+      background-image: url("../img/r6maps-logo-nav-sprite@2x.png");
+      background-position: 0 -141px;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      height: 41px;
+      min-width: 40px;
+      -webkit-transition: background-image 0.2s;
+      transition: background-image 0.2s;
+      width: 40px; }
+      @media screen and (max-width: 400px) {
+        nav #nav-logo div {
+          background-position: 0 -107px;
+          background-size: 30px;
+          height: 31px;
+          min-width: 30px;
+          width: 30px; } }
   nav #select-map-heading {
     display: none;
     font-size: 1.7rem;
     font-weight: 700;
-    margin-left: 0.8rem;
+    margin-left: 0.6rem;
     color: #fff; }
     body.show-select-map nav #select-map-heading {
       display: inline; }

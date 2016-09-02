@@ -32,38 +32,52 @@ nav {
 
   #nav-logo {
     background-color: transparent;
-    background-image: url($img-location + 'r6maps-logo-nav-sprite@2x.png');
-    background-size: 40px;
-    background-position: 0 -141px;
-    background-repeat: no-repeat;
-    border: 0;
     cursor: auto;
-    height: 41px;
-    margin-left: 0.3rem;
-    min-width: 40px;
+    border: 0;
+    margin-left: 0.5rem;
     padding: 0;
-    -webkit-transition: background-image $button-transition;
-    transition: background-image $button-transition;
-    width: 40px;
 
     &.enabled {
       cursor: pointer;
 
       &:hover {
-        background-position: 0 -47px;
-      }
-    }
 
-    @media screen and (max-width: $break-very-small) {
-      background-size: 30px;
-      height: 31px;
-      min-width: 30px;
-      width: 30px;
+        div {
+          background-position: 0 -47px;
+
+          @media screen and (max-width: $break-very-small) {
+            background-position: 0 -35px;
+          }
+        }
+      }
     }
 
     body.show-select-map &,
     &:focus {
-      background-position: 0 0;
+
+      div {
+        background-position: 0 0;
+      }
+    }
+
+    div {
+      background-image: url($img-location + 'r6maps-logo-nav-sprite@2x.png');
+      background-position: 0 -141px;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      height: 41px;
+      min-width: 40px;
+      -webkit-transition: background-image $button-transition;
+      transition: background-image $button-transition;
+      width: 40px;
+
+      @media screen and (max-width: $break-very-small) {
+        background-position: 0 -107px;
+        background-size: 30px;
+        height: 31px;
+        min-width: 30px;
+        width: 30px;
+      }
     }
   }
 
@@ -71,7 +85,7 @@ nav {
     display: none;
     font-size: 1.7rem;
     font-weight: 700;
-    margin-left: 0.8rem;
+    margin-left: 0.6rem;
     color: #fff;
 
     body.show-select-map & {
