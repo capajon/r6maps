@@ -176,19 +176,24 @@ nav {
   nav .middle.controls {
     margin: 0.15em 0.5em; }
   nav #nav-logo {
-    background-image: url("../img/r6maps-logo-nav.png");
+    background-color: transparent;
+    background-image: url("../img/r6maps-logo-nav-sprite@2x.png");
     background-size: 40px;
+    background-position: 0 -141px;
     background-repeat: no-repeat;
+    border: 0;
+    cursor: auto;
     height: 41px;
     margin-left: 0.3rem;
     min-width: 40px;
+    padding: 0;
     -webkit-transition: background-image 0.2s;
     transition: background-image 0.2s;
     width: 40px; }
     nav #nav-logo.enabled {
       cursor: pointer; }
       nav #nav-logo.enabled:hover {
-        background-image: url("../img/r6maps-logo-nav-hover.png"); }
+        background-position: 0 -47px; }
     @media screen and (max-width: 400px) {
       nav #nav-logo {
         background-size: 30px;
@@ -196,7 +201,7 @@ nav {
         min-width: 30px;
         width: 30px; } }
     body.show-select-map nav #nav-logo, nav #nav-logo:focus {
-      background-image: url("../img/r6maps-logo-nav-selected.png"); }
+      background-position: 0 0; }
   nav #select-map-heading {
     display: none;
     font-size: 1.7rem;
