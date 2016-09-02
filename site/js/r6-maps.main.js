@@ -88,7 +88,7 @@
   var handleFloorChange = function handleFloorChange() {
     sendFloorSelectAnalyticsEvent();
     showSelectedFloor();
-    tryUpdateUrl();
+    updateUrl();
   };
 
   var handleLangChange = function handleLangChange(event) {
@@ -112,7 +112,7 @@
   var handleMapChange = function handleMapChange() {
     sendMapSelectAnalyticsEvent();
     loadMap();
-    tryUpdateUrl();
+    updateUrl();
   };
 
   var handleMenuClick = function handleMenuClick(e) {
@@ -125,7 +125,7 @@
   var handleObjectiveChange = function handleObjectiveChange() {
     sendObjectiveSelectAnalyticsEvent();
     showSelectedObjective();
-    tryUpdateUrl();
+    updateUrl();
   };
 
   var loadMap = function loadMap() {
@@ -161,6 +161,22 @@
       'left: ' + Math.round(e.pageX - mapElements.offset().left) +
       warning
     );
+  };
+
+  var removeHashFromUrl = function removeHashFromUrl() {
+    var scrollV, scrollH, loc = window.location;
+    if ("pushState" in history)
+        history.pushState("", document.title, loc.pathname + loc.search);
+    else {
+        // Prevent scrolling by storing the page's current scroll offset
+        scrollV = document.body.scrollTop;
+        scrollH = document.body.scrollLeft;
+
+        loc.hash = "";
+        // Restore the scroll offset, should be flicker free
+        document.body.scrollTop = scrollV;
+        document.body.scrollLeft = scrollH;
+    }
   };
 
   var sendControlAnalyticsEvent = function sendControlAnalyticsEvent(control, value) {
@@ -219,7 +235,7 @@
       event.preventDefault();
       if (checkIfShowingMap()) {
         showSelectMap();
-      } else {
+      } else if (checkIfMapLoaded()) {
         showMap();
       }
     });
@@ -228,14 +244,14 @@
   var showMap = function showMap() {
     bodyEl.removeClass(SHOW_SELECT_MAP);
     bodyEl.addClass(SHOW_MAP);
-    tryUpdateUrl();
+    updateUrl();
     updateTitle();
   };
 
   var showSelectMap = function showSelectMap() {
     bodyEl.removeClass(SHOW_MAP);
     bodyEl.addClass(SHOW_SELECT_MAP);
-    tryUpdateUrl();
+    updateUrl();
     updateTitle();
   };
 
@@ -328,15 +344,18 @@
     }
   };
 
-  var tryUpdateUrl = function tryUpdateUrl() {
-    var hashText = '';
-
+  var updateUrl = function updateUrl() {
     if (checkIfShowingMap()) {
+      var hashText = '';
+
       hashText += '' + R6MapsControls.getCurrentlySelectedMap();
       hashText += HASH_SPLIT_CHAR + R6MapsControls.getCurrentlySelectedFloor();
       hashText += HASH_SPLIT_CHAR + R6MapsControls.getCurrentlySelectedObjective();
+      window.location.hash = hashText;
+    } else {
+      removeHashFromUrl();
     }
-    window.location.hash = hashText;
+
   };
 
   var updateLosOpacity = function updateLosOpacity(opacity) {

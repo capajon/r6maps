@@ -97,11 +97,11 @@ $map-thumb-height: 278px;
             font-size: 1.4rem;
           }
           @media screen and (max-width: $break-small) {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             padding: 0.4rem;
           }
           @media screen and (max-width: $break-very-small) {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             padding: 0.25rem;
           }
         }
@@ -112,6 +112,7 @@ $map-thumb-height: 278px;
 
           p {
             background-color: $r6-blue !important;
+            color: #fff !important;
           }
         }
 

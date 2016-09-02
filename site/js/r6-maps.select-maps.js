@@ -95,14 +95,18 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
 
         $.extend(results, {
           _debugColumnCount: columnCount,
+          _debugRowCount: rowCount,
+          _debugAvailableWidth: availableWidth,
+          _debugAvailableHeight: availableHeight,
           ratio: mapLinkRatio,
           width: mapLinkWidth - MAP_LINK_TOTAL_BORDER_SIZE - (mapLinkMarginHorizontal * 2),
-          height: mapLinkHeight - MAP_LINK_TOTAL_BORDER_SIZE - (mapLinkMarginVertical * 2),
+          height: mapLinkHeight - MAP_LINK_TOTAL_BORDER_SIZE - (mapLinkMarginVertical),
           marginVertical: mapLinkMarginVertical,
           marginHorizontal: mapLinkMarginHorizontal
         });
       }
     });
+    console.log('results', results);
     return results;
   };
 

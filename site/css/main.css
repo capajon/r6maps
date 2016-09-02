@@ -473,18 +473,19 @@ body.about {
               font-size: 1.4rem; } }
           @media screen and (max-width: 620px) {
             #select-map-grid ul li a p {
-              font-size: 1.25rem;
+              font-size: 1.3rem;
               padding: 0.4rem; } }
           @media screen and (max-width: 400px) {
             #select-map-grid ul li a p {
-              font-size: 1.15rem;
+              font-size: 1.2rem;
               padding: 0.25rem; } }
         #select-map-grid ul li a:hover, #select-map-grid ul li a:focus {
           -webkit-box-shadow: 0 0 40px black;
           -moz-box-shadow: 0 0 40px black;
           box-shadow: 0 0 40px black; }
           #select-map-grid ul li a:hover p, #select-map-grid ul li a:focus p {
-            background-color: #3a6082 !important; }
+            background-color: #3a6082 !important;
+            color: #fff !important; }
         #select-map-grid ul li a:active p {
           background-color: #ffdb00;
           color: #000;
