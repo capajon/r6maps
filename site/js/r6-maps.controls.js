@@ -242,8 +242,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
-    html += '<input id="los-opacity-range" type="range" max="1" min="0" step="0.05"></input>';
-    html += '<p id="camera-los-percent"></p><p id="camera-los-default"></p>';
+    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
+    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
     html += '</div>';
     html += '</div>';
 
@@ -255,7 +255,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
     var losOpacityControl = $('#los-opacity-range'),
-      handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity);
+      handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
+        updateLosOpacityFn,
+        Math.max(defaultOpacity, 1)
+      );
 
     losOpacityControl.val(startingValue);
     setLosLabelsText(startingValue, defaultOpacity);
@@ -273,6 +276,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var setLosLabelsText = function setLosLabelsText(opacity, defaultOpacity) {
+    var losNote = $('#camera-los-note');
+
     $('#camera-los-percent').text(
       R6MapsLangTerms.terms.general.labelPercent.replace(
         '{int}',
@@ -280,12 +285,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       )
     );
 
-    var defaultText = $('#camera-los-default');
-
     if (opacity == defaultOpacity) {
-      defaultText.text(R6MapsLangTerms.terms.general.labelLosDefault);
+      losNote.text(R6MapsLangTerms.terms.general.labelLosDefault);
+    } else if (opacity == 1.05) {
+      losNote.text(R6MapsLangTerms.terms.general.labelLos105);
+    } else if (opacity == 1.10) {
+      losNote.text(R6MapsLangTerms.terms.general.labelLos110);
     } else {
-      defaultText.text('');
+      losNote.text('');
     }
   };
 

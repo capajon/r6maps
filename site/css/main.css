@@ -725,7 +725,7 @@ html.mm-pagedim-black #mm-blocker {
   font-weight: 700;
   margin-left: 0.5rem; }
 
-#camera-los-default {
+#camera-los-note {
   margin-left: 0.25rem; }
 
 .offscreen {
@@ -819,6 +819,13 @@ body, button, input, select {
     transition: opacity 1s; }
     #map svg .camera-los.show-more {
       opacity: 1 !important; }
+    #map svg .camera-los.opacity-105, #map svg .camera-los.opacity-110 {
+      stroke: #d65b2b;
+      stroke-dasharray: 7; }
+      #map svg .camera-los.opacity-105.show-more, #map svg .camera-los.opacity-110.show-more {
+        stroke-dasharray: none; }
+    #map svg .camera-los.opacity-110 {
+      stroke-width: 5; }
   #map #map-elements {
     position: relative; }
     #map #map-elements img, #map #map-elements div, #map #map-elements a {

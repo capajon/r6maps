@@ -14,7 +14,9 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         languageHeader: 'Sprache',
         labelLosOpacity: 'Kamera line-of -sight Opazität',
         labelPercent: '{int} %', // according to: (0.12).toLocaleString('de', { style: 'percent' });
-        labelLosDefault: '(Standard)'
+        labelLosDefault: '(Standard)',
+        labelLos105: '(Huh?)',
+        labelLos110: '(Wahnsinn!)'
       },
       selectMaps: {
         selectAMap: 'Wählen Sie eine Karte',

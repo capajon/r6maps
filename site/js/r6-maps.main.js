@@ -165,17 +165,18 @@
 
   var removeHashFromUrl = function removeHashFromUrl() {
     var scrollV, scrollH, loc = window.location;
-    if ("pushState" in history)
-        history.pushState("", document.title, loc.pathname + loc.search);
-    else {
-        // Prevent scrolling by storing the page's current scroll offset
-        scrollV = document.body.scrollTop;
-        scrollH = document.body.scrollLeft;
 
-        loc.hash = "";
-        // Restore the scroll offset, should be flicker free
-        document.body.scrollTop = scrollV;
-        document.body.scrollLeft = scrollH;
+    if ('pushState' in history) {
+      history.pushState('', document.title, loc.pathname + loc.search);
+    } else {
+      // Prevent scrolling by storing the page's current scroll offset
+      scrollV = document.body.scrollTop;
+      scrollH = document.body.scrollLeft;
+
+      loc.hash = '';
+      // Restore the scroll offset, should be flicker free
+      document.body.scrollTop = scrollV;
+      document.body.scrollLeft = scrollH;
     }
   };
 
@@ -355,12 +356,20 @@
     } else {
       removeHashFromUrl();
     }
-
   };
 
   var updateLosOpacity = function updateLosOpacity(opacity) {
+    var cameraLines = $('.camera-los');
+
     localStorage.setItem('cameralosopacity', opacity);
-    $('.camera-los').css('opacity', opacity);
+    cameraLines.css('opacity', opacity);
+    cameraLines.removeClass('opacity-105');
+    cameraLines.removeClass('opacity-110');
+    if (opacity == 1.05) {
+      cameraLines.addClass('opacity-105');
+    } else if (opacity == 1.10) {
+      cameraLines.addClass('opacity-110');
+    }
   };
 
   var updateTitle = function updateTitle() {

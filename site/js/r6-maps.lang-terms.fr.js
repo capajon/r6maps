@@ -15,7 +15,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         linkAbout: 'about-fr.html',
         labelLosOpacity: 'Appareil photo en ligne de mire l\'opacité',
         labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
-        labelLosDefault: '(Défaut)'
+        labelLosDefault: '(Défaut)',
+        labelLos105: '(Hein?)',
+        labelLos110: '(Folie!)'
       },
       selectMaps: {
         selectAMap: 'Sélectionnez une carte',

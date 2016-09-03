@@ -18,7 +18,9 @@ var R6MapsLangTerms = (function(undefined) {
         labelLosOpacity: 'Camera line-of-sight opacity',
         linkAbout: 'about.html',
         labelPercent: '{int}%', // according to: (0.12).toLocaleString('en', { style: 'percent' });
-        labelLosDefault: '(Default)'
+        labelLosDefault: '(Default)',
+        labelLos105: '(Huh?)',
+        labelLos110: '(Ludicrous!)'
       },
       selectMaps: {
         selectAMap: 'Select a map',
