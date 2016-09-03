@@ -13,8 +13,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var populateMapOptions = function populateMapOptions(mapData) {
     var optionsAsString = '',
-      initialMap = getCurrentlySelectedMap(),
-      maps = [];
+      maps = [],
+      currentMap = getCurrentlySelectedMap();
 
     for (var mapKey in mapData) {
       if (mapData.hasOwnProperty(mapKey)) {
@@ -36,7 +36,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
 
     mapControl.html(optionsAsString);
-    trySelectMap(initialMap);
+    trySelectMap(currentMap);
   };
 
   var getCurrentlySelectedMap = function getCurrentlySelectedMap() {
@@ -44,7 +44,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var trySelectMap = function trySelectMap(map) {
-    trySelectOption(mapControl, map);
+    return trySelectOption(mapControl, map);
   };
 
   var setupMapChangeEvent = function setupMapChangeEvent(callback) {
@@ -157,14 +157,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
-  var setupZoom = function setupZoom(map, mapElements) {
-    map.panzoom({
+  var setupZoom = function setupZoom(mapEl, mapElements) {
+    mapEl.panzoom({
       $zoomRange: zoomControl,
       minScale: 0.3,
       maxScale: 2.5
     });
 
-    map.on('mousewheel', function(event) {
+    mapEl.on('mousewheel', function(event) {
       zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
       zoomControl.trigger('input');
       zoomControl.trigger('change');
@@ -174,11 +174,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     zoomControl.on('input', getHandleZoomChangeFn(mapElements));
 
     // camera links were not working on touch devices:
-    map.on('touchstart','a', function(e) {
+    mapEl.on('touchstart','a', function(e) {
       $(this).addClass('hover');
     });
 
-    map.on('touchend','a', function(e) {
+    mapEl.on('touchend','a', function(e) {
       $(this).removeClass('hover');
       this.click();
     });
@@ -206,9 +206,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var trySelectOption = function trySelectOption(selectEl, option) {
     var selectOption = selectEl.find('option[value="' + option + '"]');
 
-    if (selectOption) {
+    if (selectOption.length) {
       selectOption.prop('selected', true);
+      return true;
     }
+    return false;
   };
 
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
@@ -225,6 +227,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     var html = '';
 
     html += '<div class="mmenu-custom-panel">';
+    html += '<a href="">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</a>';
     html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
     html += '</div>';
     html += '<div id="lang-choices" class="mmenu-custom-panel">';
@@ -239,8 +242,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
-    html += '<input id="los-opacity-range" type="range" max="1" min="0" step="0.05"></input>';
-    html += '<p id="camera-los-percent"></p><p id="camera-los-default"></p>';
+    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
+    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
     html += '</div>';
     html += '</div>';
 
@@ -251,10 +254,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
-    var losOpacityControl = $('#los-opacity-range');
+    var losOpacityControl = $('#los-opacity-range'),
+      handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
+        updateLosOpacityFn,
+        Math.max(defaultOpacity, 1)
+      );
+
     losOpacityControl.val(startingValue);
     setLosLabelsText(startingValue, defaultOpacity);
-    var handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity)
     losOpacityControl.on('input', handleLosOpacityChangeFn);
     losOpacityControl.on('change', handleLosOpacityChangeFn);
   };
@@ -262,12 +269,15 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var getHandleLosOpacityChangeFn = function getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity) {
     return function handleLosOpacityFn(event) {
       var opacity = event.target.value;
+
       updateLosOpacityFn(opacity);
       setLosLabelsText(opacity, defaultOpacity);
     };
   };
 
   var setLosLabelsText = function setLosLabelsText(opacity, defaultOpacity) {
+    var losNote = $('#camera-los-note');
+
     $('#camera-los-percent').text(
       R6MapsLangTerms.terms.general.labelPercent.replace(
         '{int}',
@@ -275,12 +285,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       )
     );
 
-    var defaultText = $('#camera-los-default');
-
     if (opacity == defaultOpacity) {
-      defaultText.text(R6MapsLangTerms.terms.general.labelLosDefault);
+      losNote.text(R6MapsLangTerms.terms.general.labelLosDefault);
+    } else if (opacity == 1.05) {
+      losNote.text(R6MapsLangTerms.terms.general.labelLos105);
+    } else if (opacity == 1.10) {
+      losNote.text(R6MapsLangTerms.terms.general.labelLos110);
     } else {
-      defaultText.text('');
+      losNote.text('');
     }
   };
 

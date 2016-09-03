@@ -15,7 +15,7 @@ $custom-mmenu-padding: 0.7em;
   bottom: 0px;
   right: 0;
   z-index: -100;
-  background-image: url('../img/r6maps-logo-blue.png');
+  background-image: url($img-location + 'r6maps-logo-blue.png');
   background-position: center bottom;
   background-position: 100% calc(100% + 18px);
   background-repeat: no-repeat;
@@ -64,8 +64,9 @@ $custom-mmenu-padding: 0.7em;
   }
 
   .zoom.controls {
-    display: flex;
     align-items: center;
+    display: flex;
+    margin-left: $custom-mmenu-padding;
   }
 }
 
@@ -75,6 +76,6 @@ $custom-mmenu-padding: 0.7em;
   margin-left: 0.5rem;
 }
 
-#camera-los-default {
+#camera-los-note {
   margin-left: 0.25rem;
 }

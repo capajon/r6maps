@@ -40,12 +40,9 @@ input[type=range] {
   -webkit-appearance: none;
   margin: 18px 0;
   width: 100px; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 620px) {
     input[type=range] {
       width: 50px; } }
-  @media screen and (max-width: 380px) {
-    input[type=range] {
-      display: none; } }
   @media screen and (min-width: 1400px) {
     input[type=range] {
       width: 135px; } }
@@ -62,7 +59,7 @@ input[type=range]::-webkit-slider-runnable-track {
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 620px) {
     input[type=range]::-webkit-slider-runnable-track {
       width: 50px; } }
   @media screen and (min-width: 1400px) {
@@ -92,7 +89,7 @@ input[type=range]::-moz-range-track {
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 620px) {
     input[type=range]::-moz-range-track {
       width: 50px; } }
   @media screen and (min-width: 1400px) {
@@ -117,7 +114,7 @@ input[type=range]::-ms-track {
   border-color: transparent;
   border-width: 16px 0;
   color: transparent; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 620px) {
     input[type=range]::-ms-track {
       width: 50px; } }
   @media screen and (min-width: 1400px) {
@@ -161,28 +158,82 @@ nav {
   left: 0;
   position: absolute;
   top: 0;
-  z-index: 1200; }
+  z-index: 1300; }
   nav .wrapper {
     align-items: center;
     background: rgba(16, 26, 36, 0.6);
     display: flex;
     justify-content: space-between;
+    min-height: 4.2rem;
     width: 100vw; }
   nav select {
     font-size: 1.2rem; }
-  nav .misc {
+  nav .left.controls {
+    align-items: center;
+    display: flex; }
+  nav .right.controls {
     margin: 0.15em 0.5em; }
-  nav .zoom {
+  nav .middle.controls {
     margin: 0.15em 0.5em; }
+  nav #nav-logo {
+    background-color: transparent;
+    cursor: auto;
+    border: 0;
+    margin-left: 0.5rem;
+    padding: 0; }
+    nav #nav-logo.enabled {
+      cursor: pointer; }
+      nav #nav-logo.enabled:hover div {
+        background-position: 0 -47px; }
+        @media screen and (max-width: 400px) {
+          nav #nav-logo.enabled:hover div {
+            background-position: 0 -35px; } }
+    body.show-select-map nav #nav-logo div, nav #nav-logo:focus div {
+      background-position: 0 0; }
+    nav #nav-logo div {
+      background-image: url("../img/r6maps-logo-nav-sprite@2x.png");
+      background-position: 0 -141px;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      height: 41px;
+      min-width: 40px;
+      -webkit-transition: background-image 0.2s;
+      transition: background-image 0.2s;
+      width: 40px; }
+      @media screen and (max-width: 400px) {
+        nav #nav-logo div {
+          background-position: 0 -107px;
+          background-size: 30px;
+          height: 31px;
+          min-width: 30px;
+          width: 30px; } }
+  nav #select-map-heading {
+    display: none;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-left: 0.6rem;
+    color: #fff; }
+    body.show-select-map nav #select-map-heading {
+      display: inline; }
+    @media screen and (max-width: 620px) {
+      nav #select-map-heading {
+        font-size: 1.5rem; } }
+    @media screen and (max-width: 400px) {
+      nav #select-map-heading {
+        font-size: 1.33rem; } }
+  nav #map-controls-wrapper {
+    display: none; }
+    body.show-map nav #map-controls-wrapper {
+      display: inline-block; }
   nav #map-control {
     margin: 0.15em 0 0.15em 0.5em;
     width: 120px; }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 620px) {
       nav #map-control {
         width: 80px; } }
   nav #objective-control {
     margin: 0.15em 0; }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 620px) {
       nav #objective-control {
         width: 80px; } }
   nav a {
@@ -195,16 +246,23 @@ nav {
     margin: 0.15em 0.5em; }
     nav #floor-control .short {
       display: none; }
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 620px) {
         nav #floor-control .short {
           display: inline; } }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 620px) {
       nav #floor-control .full {
         display: none; } }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 620px) {
       nav #floor-control button {
         padding-left: 0.7em;
         padding-right: 0.7em; } }
+  nav #zoom-range {
+    display: none; }
+    body.show-map nav #zoom-range {
+      display: inline-block; }
+    @media screen and (max-width: 400px) {
+      nav #zoom-range {
+        display: none !important; } }
   nav button {
     background-color: #fff;
     border: 1px solid #000;
@@ -357,6 +415,176 @@ body.about {
       height: 31px;
       line-height: 31px; }
 
+#select-map-grid {
+  align-items: center;
+  background-color: rgba(16, 26, 36, 0.7);
+  bottom: 0;
+  display: flex;
+  height: 100vh;
+  opacity: 0;
+  position: fixed;
+  transition: visibility 0.5s, opacity 0.5s linear;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1200; }
+  #select-map-grid.enable-thumb-transition div.thumb {
+    transition: all 0.75s; }
+  body.show-select-map #select-map-grid {
+    visibility: visible;
+    opacity: 1; }
+  #select-map-grid ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    #select-map-grid ul li {
+      display: inline-block; }
+      #select-map-grid ul li a {
+        -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        align-items: flex-end;
+        background-size: 160px;
+        border: 1px solid #fff;
+        color: #fff;
+        display: flex;
+        height: 120px;
+        position: relative;
+        text-decoration: none;
+        transition: box-shadow 0.2s;
+        width: 160px; }
+        #select-map-grid ul li a div.wrapper-absolute {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          z-index: -1; }
+        #select-map-grid ul li a div.wrapper-overflow {
+          align-items: center;
+          background-color: #3a6082;
+          display: flex;
+          height: 100%;
+          justify-content: center;
+          overflow: hidden;
+          width: 100%; }
+        #select-map-grid ul li a div.thumb {
+          background-image: url("../img/map-thumbs.jpg");
+          height: 278px;
+          min-width: 495px;
+          width: 495px;
+          -ms-transform: scale(0.5);
+          -webkit-transform: scale(0.5);
+          transform: scale(2); }
+        #select-map-grid ul li a p {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+          background-color: rgba(16, 26, 36, 0.7);
+          font-size: 1.5rem;
+          overflow: hidden;
+          padding: 0.5rem;
+          text-overflow: ellipsis;
+          width: 100%;
+          transition: background-color 0.2s; }
+          @media screen and (max-width: 1400px) {
+            #select-map-grid ul li a p {
+              font-size: 1.4rem; } }
+          @media screen and (max-width: 620px) {
+            #select-map-grid ul li a p {
+              font-size: 1.3rem;
+              padding: 0.4rem; } }
+          @media screen and (max-width: 400px) {
+            #select-map-grid ul li a p {
+              font-size: 1.2rem;
+              padding: 0.25rem; } }
+        #select-map-grid ul li a:hover, #select-map-grid ul li a:focus {
+          -webkit-box-shadow: 0 0 40px black;
+          -moz-box-shadow: 0 0 40px black;
+          box-shadow: 0 0 40px black; }
+          #select-map-grid ul li a:hover p, #select-map-grid ul li a:focus p {
+            background-color: #3a6082 !important;
+            color: #fff !important; }
+        #select-map-grid ul li a:active p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.bank div.thumb {
+          background-position: 0px 0px; }
+        body[loaded-map="bank"] #select-map-grid ul li a.bank p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.border div.thumb {
+          background-position: 0px -278px; }
+        body[loaded-map="border"] #select-map-grid ul li a.border p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.chalet div.thumb {
+          background-position: 0px -556px; }
+        body[loaded-map="chalet"] #select-map-grid ul li a.chalet p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.club div.thumb {
+          background-position: 0px -834px; }
+        body[loaded-map="club"] #select-map-grid ul li a.club p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.consulate div.thumb {
+          background-position: 0px -1112px; }
+        body[loaded-map="consulate"] #select-map-grid ul li a.consulate p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.favelas div.thumb {
+          background-position: 0px -1390px; }
+        body[loaded-map="favelas"] #select-map-grid ul li a.favelas p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.hereford div.thumb {
+          background-position: 0px -1668px; }
+        body[loaded-map="hereford"] #select-map-grid ul li a.hereford p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.house div.thumb {
+          background-position: 0px -1946px; }
+        body[loaded-map="house"] #select-map-grid ul li a.house p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.kafe div.thumb {
+          background-position: 0px -2224px; }
+        body[loaded-map="kafe"] #select-map-grid ul li a.kafe p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.kanal div.thumb {
+          background-position: 0px -2502px; }
+        body[loaded-map="kanal"] #select-map-grid ul li a.kanal p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.oregon div.thumb {
+          background-position: 0px -2780px; }
+        body[loaded-map="oregon"] #select-map-grid ul li a.oregon p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.plane div.thumb {
+          background-position: 0px -3058px; }
+        body[loaded-map="plane"] #select-map-grid ul li a.plane p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+        #select-map-grid ul li a.yacht div.thumb {
+          background-position: 0px -3336px; }
+        body[loaded-map="yacht"] #select-map-grid ul li a.yacht p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
+
 /*
 	jQuery.mmenu position extension CSS
 */
@@ -488,15 +716,16 @@ html.mm-pagedim-black #mm-blocker {
     padding: 0.7em;
     font-weight: 700; }
   .mmenu-custom-panel .zoom.controls {
+    align-items: center;
     display: flex;
-    align-items: center; }
+    margin-left: 0.7em; }
 
 #camera-los-percent {
   font-size: 1.25rem;
   font-weight: 700;
   margin-left: 0.5rem; }
 
-#camera-los-default {
+#camera-los-note {
   margin-left: 0.25rem; }
 
 .offscreen {
@@ -590,6 +819,13 @@ body, button, input, select {
     transition: opacity 1s; }
     #map svg .camera-los.show-more {
       opacity: 1 !important; }
+    #map svg .camera-los.opacity-105, #map svg .camera-los.opacity-110 {
+      stroke: #d65b2b;
+      stroke-dasharray: 7; }
+      #map svg .camera-los.opacity-105.show-more, #map svg .camera-los.opacity-110.show-more {
+        stroke-dasharray: none; }
+    #map svg .camera-los.opacity-110 {
+      stroke-width: 5; }
   #map #map-elements {
     position: relative; }
     #map #map-elements img, #map #map-elements div, #map #map-elements a {

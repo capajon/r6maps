@@ -27,21 +27,26 @@
     <div id="mmenu-page">
       <h1 class="offscreen">Rainbow Six Siege Maps</h1>
       <p class="offscreen">r6maps.com is designed to help you learn Rainbow Six Siege maps.  It can be used in various ways, but is envisioned primarily being loaded on a second device while playing (or even in the 'shift+tab' Steam browser on PCs).  See the <a href="about.html">About</a> page for more information.</p>
-      <nav>
+      <nav id="main-nav">
         <div class="wrapper">
-          <div class="map controls">
-            <select id="map-control"></select>
-            <select id="objective-control"></select>
-            <div id="floor-control"></div>
+          <div class="left controls">
+            <button id="nav-logo"><div></div></button>
+            <h2 id="select-map-heading">Loading...</h2>
+            <div id="map-controls-wrapper">
+              <select id="map-control"></select>
+              <select id="objective-control"></select>
+              <div id="floor-control"></div>
+            </div>
           </div>
-          <div class="zoom controls">
+          <div class="middle controls">
             <input type="range" id="zoom-range"></input>
           </div>
-          <div class="misc controls">
+          <div class="right controls">
             <button id="mmenu-link">Menu</button>
           </div>
         </div>
       </nav>
+      <div id="select-map-grid"></div>
       <div id="map-pan-safety-wrapper">
         <div id="map">
           <div class="center-helper">
@@ -87,6 +92,7 @@
     <script src="js/r6-maps.map-data.js"></script>
     <script src="js/r6-maps.map-render.js"></script>
     <script src="js/r6-maps.controls.js"></script>
+    <script src="js/r6-maps.select-maps.js"></script>
     <script src="js/r6-maps.main.js"></script>
   </body>
 <html>

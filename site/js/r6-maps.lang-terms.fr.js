@@ -5,6 +5,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
     terms = {
       general: {
         pageTitle: 'Carte de siège - {mapName}',
+        pageTitleSelectMap: 'Carte de siège - Choisir une carte',
+        pageTitleStart: 'Carte de siège',
         cameraViewCaption: '{floorName} de caméra',
         shortcutTip: 'Raccourci: 1 {shortcut}',
         menu: 'Menu',
@@ -13,7 +15,13 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         linkAbout: 'about-fr.html',
         labelLosOpacity: 'Appareil photo en ligne de mire l\'opacité',
         labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
-        labelLosDefault: '(Défaut)'
+        labelLosDefault: '(Défaut)',
+        labelLos105: '(Hein?)',
+        labelLos110: '(Folie!)'
+      },
+      selectMaps: {
+        selectAMap: 'Sélectionnez une carte',
+        homeLink: 'Sélectionnez une carte'
       },
       floorNames: {
         basement: { full: 'Sous-sol', short: 'S' },

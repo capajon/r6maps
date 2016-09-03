@@ -5,6 +5,7 @@
 @import "_nav.scss";
 @import "_about-page.scss";
 @import "_legend.scss";
+@import "_select-map.scss";
 @import "_jquery.mmenu.positioning.scss";
 @import "_jquery.mmenu.pagedim.scss";
 @import "_jquery.mmenu.custom-r6maps.scss";
@@ -98,6 +99,19 @@ body, button, input, select {
 
       &.show-more {
         opacity: 1 !important;
+      }
+
+      &.opacity-105,
+      &.opacity-110 {
+        stroke: $r6-orange;
+        stroke-dasharray: 7;
+
+        &.show-more {
+          stroke-dasharray: none;
+        }
+      }
+      &.opacity-110 {
+        stroke-width: 5;
       }
     }
   }

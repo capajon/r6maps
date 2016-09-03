@@ -9,6 +9,7 @@ nav {
     background: $faded-bg;
     display: flex;
     justify-content: space-between;
+    min-height: 4.2rem;
     width: 100vw;
   }
 
@@ -16,12 +17,95 @@ nav {
     font-size: $nav-font-size;
   }
 
-  .misc {
+  .left.controls {
+    align-items: center;
+    display: flex;
+  }
+
+  .right.controls {
     margin: $control-padding;
   }
 
-  .zoom {
+  .middle.controls {
     margin: $control-padding;
+  }
+
+  #nav-logo {
+    background-color: transparent;
+    cursor: auto;
+    border: 0;
+    margin-left: 0.5rem;
+    padding: 0;
+
+    &.enabled {
+      cursor: pointer;
+
+      &:hover {
+
+        div {
+          background-position: 0 -47px;
+
+          @media screen and (max-width: $break-very-small) {
+            background-position: 0 -35px;
+          }
+        }
+      }
+    }
+
+    body.show-select-map &,
+    &:focus {
+
+      div {
+        background-position: 0 0;
+      }
+    }
+
+    div {
+      background-image: url($img-location + 'r6maps-logo-nav-sprite@2x.png');
+      background-position: 0 -141px;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      height: 41px;
+      min-width: 40px;
+      -webkit-transition: background-image $button-transition;
+      transition: background-image $button-transition;
+      width: 40px;
+
+      @media screen and (max-width: $break-very-small) {
+        background-position: 0 -107px;
+        background-size: 30px;
+        height: 31px;
+        min-width: 30px;
+        width: 30px;
+      }
+    }
+  }
+
+  #select-map-heading {
+    display: none;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-left: 0.6rem;
+    color: #fff;
+
+    body.show-select-map & {
+      display: inline;
+    }
+
+    @media screen and (max-width: $break-small) {
+      font-size: 1.5rem;
+    }
+    @media screen and (max-width: $break-very-small) {
+      font-size: 1.33rem;
+    }
+  }
+
+  #map-controls-wrapper {
+    display: none;
+
+    body.show-map & {
+      display: inline-block;
+    }
   }
 
   #map-control {
@@ -72,6 +156,18 @@ nav {
         padding-left: 0.7em;
         padding-right: 0.7em;
       }
+    }
+  }
+
+  #zoom-range {
+    display: none;
+
+    body.show-map & {
+      display: inline-block;
+    }
+
+    @media screen and (max-width: $break-very-small) {
+      display: none !important;
     }
   }
 

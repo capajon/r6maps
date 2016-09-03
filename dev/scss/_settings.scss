@@ -9,11 +9,12 @@ $control-padding-left-right: 0.5em;
 $control-padding: $control-padding-top-bottom $control-padding-left-right;
 $room-label-opacity: 0.44;
 $faded-bg: rgba(16,26,36,0.6);
+$less-faded-bg: rgba(16,26,36,0.7);
 $button-transition: 0.2s;
 
 /* RESPONSIVE BREAKPOINTS */
-$break-small: 600px;
-$break-very-small: 380px;
+$break-small: 620px;
+$break-very-small: 400px;
 $break-large: 1400px;
 
 /* MAP ELEMENTS */
@@ -61,4 +62,5 @@ $z-objective-secure: 1152;
 $z-drone: 1160;
 $z-room-label: 1165;
 $z-camera: 1170;
-$z-nav: 1200;
+$z-select-map-grid: 1200;
+$z-nav: 1300;

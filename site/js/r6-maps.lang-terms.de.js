@@ -5,6 +5,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
     terms = {
       general: {
         pageTitle: 'Siege Karten - {mapName}',
+        pageTitleSelectMap: 'Siege Karten - Wählen Sie eine Karte',
+        pageTitleStart: 'Siege Karten',
         cameraViewCaption: 'Überwachungskamera: {floorName}',
         shortcutTip: 'Tastaturkürzel: {shortcut}',
         menu: 'Menü',
@@ -12,7 +14,13 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         languageHeader: 'Sprache',
         labelLosOpacity: 'Kamera line-of -sight Opazität',
         labelPercent: '{int} %', // according to: (0.12).toLocaleString('de', { style: 'percent' });
-        labelLosDefault: '(Standard)'
+        labelLosDefault: '(Standard)',
+        labelLos105: '(Huh?)',
+        labelLos110: '(Wahnsinn!)'
+      },
+      selectMaps: {
+        selectAMap: 'Wählen Sie eine Karte',
+        homeLink: 'Wählen Sie eine Karte'
       },
       languages: {
         en: 'Englisch',
