@@ -9,7 +9,7 @@ var MIN_COLUMN_NUM = 2,
   VIEWPORT_PADDING_WIDTH = 15,
   MAP_LINK_TOTAL_BORDER_SIZE = 2,
   MIN_MAP_LINK_WIDTH = 100,
-  THUMB_SCALE_ZOOMED_IN_FACTOR = 1.5;
+  THUMB_SCALE_ZOOMED_IN_FACTOR = 1.25;
 
 var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined) {
   var getBackgroundImgScale = function getBackgroundImgScale(thumbDimensions) {
@@ -32,7 +32,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     return result;
   };
 
-  var getMapGridHtml = function getMapGridHtml(mapData) {
+  var getMapGridHtml = function getMapGridHtml(mapData, getSpinnerHtmlCallback) {
     var maps = [],
       html = '<ul>';
 
@@ -55,11 +55,10 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     maps.forEach(function(map) {
       html += '<li data-key="' + map.key + '">';
       html += '<a href="" class="' + map.key + '">';
-      html += '<div class="wrapper-absolute">';
-      html += '<div class="wrapper-overflow">';
-      html += '<div class="thumb"></div>';
-      html += '</div>';
-      html += '</div>';
+      html += '<div class="wrapper absolute thumb"><div class="image thumb"></div></div>';
+      html += '<div class="wrapper absolute loader"><div>';
+      html += getSpinnerHtmlCallback();
+      html += '</div></div>';
       html += '<p>' + map.name + '</p>';
       html += '</a>';
       html += '</li>';
@@ -145,17 +144,17 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     );
 
     setTransformScale(
-      mapLinks.find('div.thumb'),
+      mapLinks.find('div.image.thumb'),
       thumbImgScale
     );
     mapLinks.hover(function(event) {
       setTransformScale(
-        $(event.target).closest('li').find('div.thumb'),
+        $(event.target).closest('li').find('div.image.thumb'),
         thumbImgScale * THUMB_SCALE_ZOOMED_IN_FACTOR
       );
     }, function(event) {
       setTransformScale(
-        $(event.target).closest('li').find('div.thumb'),
+        $(event.target).closest('li').find('div.image.thumb'),
         thumbImgScale
       );
     });
@@ -173,10 +172,11 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     mainNavEl,
     mapData,
     switchToMapCallback,
-    closeSelectCallback
+    closeSelectCallback,
+    getSpinnerHtmlCallback
   ) {
     headingEl.text(R6MapsLangTerms.terms.selectMaps.selectAMap);
-    selectMapGridEl.html(getMapGridHtml(mapData));
+    selectMapGridEl.html(getMapGridHtml(mapData, getSpinnerHtmlCallback));
     selectMapGridEl.on('click', 'a', function(event) {
       event.preventDefault();
       switchToMapCallback($(event.target).closest('li').data('key'));

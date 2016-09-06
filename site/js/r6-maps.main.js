@@ -284,7 +284,8 @@
       $('#main-nav'),
       R6MapsData.getMapData(),
       switchToMap,
-      tryHideMapSelect
+      tryHideMapSelect,
+      R6MapsRender.getSpinnerHtml
     );
   };
 

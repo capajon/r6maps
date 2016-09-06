@@ -423,12 +423,12 @@ body.about {
   height: 100vh;
   opacity: 0;
   position: fixed;
-  transition: visibility 0.5s, opacity 0.5s linear;
+  transition: visibility 10s, opacity 0.5s linear;
   visibility: hidden;
   width: 100%;
   z-index: 1200; }
-  #select-map-grid.enable-thumb-transition div.thumb {
-    transition: all 0.75s; }
+  #select-map-grid.enable-thumb-transition div.image.thumb {
+    transition: all 0.6s; }
   body.show-select-map #select-map-grid {
     visibility: visible;
     opacity: 1; }
@@ -452,29 +452,29 @@ body.about {
         text-decoration: none;
         transition: box-shadow 0.2s;
         width: 160px; }
-        #select-map-grid ul li a div.wrapper-absolute {
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-          z-index: -1; }
-        #select-map-grid ul li a div.wrapper-overflow {
+        #select-map-grid ul li a div.wrapper.absolute {
           align-items: center;
-          background-color: #3a6082;
           display: flex;
           height: 100%;
           justify-content: center;
+          left: 0;
           overflow: hidden;
+          position: absolute;
+          top: 0;
           width: 100%; }
-        #select-map-grid ul li a div.thumb {
-          background-image: url("../img/map-thumbs.jpg");
-          height: 278px;
-          min-width: 495px;
-          width: 495px;
-          -ms-transform: scale(0.5);
-          -webkit-transform: scale(0.5);
-          transform: scale(2); }
+          #select-map-grid ul li a div.wrapper.absolute.thumb {
+            z-index: -1; }
+            #select-map-grid ul li a div.wrapper.absolute.thumb div {
+              background-image: url("../img/map-thumbs.jpg");
+              height: 278px;
+              min-width: 495px;
+              width: 495px;
+              -ms-transform: scale(0.5);
+              -webkit-transform: scale(0.5);
+              transform: scale(2); }
+          #select-map-grid ul li a div.wrapper.absolute.loader {
+            z-index: -2;
+            background-color: #3a6082; }
         #select-map-grid ul li a p {
           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
           background-color: rgba(16, 26, 36, 0.7);
@@ -506,85 +506,257 @@ body.about {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.bank div.thumb {
+        #select-map-grid ul li a.bank div.image.thumb {
           background-position: 0px 0px; }
         body[loaded-map="bank"] #select-map-grid ul li a.bank p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.border div.thumb {
+        #select-map-grid ul li a.border div.image.thumb {
           background-position: 0px -278px; }
         body[loaded-map="border"] #select-map-grid ul li a.border p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.chalet div.thumb {
+        #select-map-grid ul li a.chalet div.image.thumb {
           background-position: 0px -556px; }
         body[loaded-map="chalet"] #select-map-grid ul li a.chalet p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.club div.thumb {
+        #select-map-grid ul li a.club div.image.thumb {
           background-position: 0px -834px; }
         body[loaded-map="club"] #select-map-grid ul li a.club p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.consulate div.thumb {
+        #select-map-grid ul li a.consulate div.image.thumb {
           background-position: 0px -1112px; }
         body[loaded-map="consulate"] #select-map-grid ul li a.consulate p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.favelas div.thumb {
+        #select-map-grid ul li a.favelas div.image.thumb {
           background-position: 0px -1390px; }
         body[loaded-map="favelas"] #select-map-grid ul li a.favelas p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.hereford div.thumb {
+        #select-map-grid ul li a.hereford div.image.thumb {
           background-position: 0px -1668px; }
         body[loaded-map="hereford"] #select-map-grid ul li a.hereford p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.house div.thumb {
+        #select-map-grid ul li a.house div.image.thumb {
           background-position: 0px -1946px; }
         body[loaded-map="house"] #select-map-grid ul li a.house p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.kafe div.thumb {
+        #select-map-grid ul li a.kafe div.image.thumb {
           background-position: 0px -2224px; }
         body[loaded-map="kafe"] #select-map-grid ul li a.kafe p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.kanal div.thumb {
+        #select-map-grid ul li a.kanal div.image.thumb {
           background-position: 0px -2502px; }
         body[loaded-map="kanal"] #select-map-grid ul li a.kanal p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.oregon div.thumb {
+        #select-map-grid ul li a.oregon div.image.thumb {
           background-position: 0px -2780px; }
         body[loaded-map="oregon"] #select-map-grid ul li a.oregon p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.plane div.thumb {
+        #select-map-grid ul li a.plane div.image.thumb {
           background-position: 0px -3058px; }
         body[loaded-map="plane"] #select-map-grid ul li a.plane p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.yacht div.thumb {
+        #select-map-grid ul li a.yacht div.image.thumb {
           background-position: 0px -3336px; }
         body[loaded-map="yacht"] #select-map-grid ul li a.yacht p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
 
+.sk-circle {
+  margin: 0;
+  width: 140px;
+  height: 140px;
+  position: relative; }
+  @media screen and (max-width: 1400px) {
+    .sk-circle {
+      width: 110px;
+      height: 110px; } }
+  @media screen and (max-width: 620px) {
+    .sk-circle {
+      width: 80px;
+      height: 80px; } }
+  @media screen and (max-width: 400px) {
+    .sk-circle {
+      width: 60px;
+      height: 60px; } }
+  #map-elements .sk-circle {
+    width: 280px;
+    height: 280px;
+    top: -140px;
+    left: -140px; }
+    @media screen and (max-width: 1400px) {
+      #map-elements .sk-circle {
+        width: 220px;
+        height: 220px;
+        top: -110px;
+        left: -110px; } }
+    @media screen and (max-width: 620px) {
+      #map-elements .sk-circle {
+        width: 160px;
+        height: 160px;
+        top: -80px;
+        left: -80px; } }
+    @media screen and (max-width: 400px) {
+      #map-elements .sk-circle {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+        left: -60px; } }
+
+.sk-circle .sk-child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.sk-circle .sk-child:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 15%;
+  height: 15%;
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+  animation: sk-circleBounceDelay 1.2s infinite ease-in-out both; }
+
+.sk-circle .sk-circle2 {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg); }
+
+.sk-circle .sk-circle3 {
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg); }
+
+.sk-circle .sk-circle4 {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.sk-circle .sk-circle5 {
+  -webkit-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  transform: rotate(120deg); }
+
+.sk-circle .sk-circle6 {
+  -webkit-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg); }
+
+.sk-circle .sk-circle7 {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.sk-circle .sk-circle8 {
+  -webkit-transform: rotate(210deg);
+  -ms-transform: rotate(210deg);
+  transform: rotate(210deg); }
+
+.sk-circle .sk-circle9 {
+  -webkit-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  transform: rotate(240deg); }
+
+.sk-circle .sk-circle10 {
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+.sk-circle .sk-circle11 {
+  -webkit-transform: rotate(300deg);
+  -ms-transform: rotate(300deg);
+  transform: rotate(300deg); }
+
+.sk-circle .sk-circle12 {
+  -webkit-transform: rotate(330deg);
+  -ms-transform: rotate(330deg);
+  transform: rotate(330deg); }
+
+.sk-circle .sk-circle2:before {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s; }
+
+.sk-circle .sk-circle3:before {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s; }
+
+.sk-circle .sk-circle4:before {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s; }
+
+.sk-circle .sk-circle5:before {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s; }
+
+.sk-circle .sk-circle6:before {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s; }
+
+.sk-circle .sk-circle7:before {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s; }
+
+.sk-circle .sk-circle8:before {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s; }
+
+.sk-circle .sk-circle9:before {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s; }
+
+.sk-circle .sk-circle10:before {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s; }
+
+.sk-circle .sk-circle11:before {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s; }
+
+.sk-circle .sk-circle12:before {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s; }
+
+@-webkit-keyframes sk-circleBounceDelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+@keyframes sk-circleBounceDelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
 /*
 	jQuery.mmenu position extension CSS
 */

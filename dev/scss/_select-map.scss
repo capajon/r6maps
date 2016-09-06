@@ -18,13 +18,13 @@ $map-thumb-height: 278px;
   height: 100vh;
   opacity: 0;
   position: fixed;
-  transition: visibility 0.5s, opacity 0.5s linear;
+  transition: visibility 10s, opacity 0.5s linear;
   visibility: hidden;
   width: 100%;
   z-index: $z-select-map-grid;
 
-  &.enable-thumb-transition div.thumb {
-    transition: all 0.75s;
+  &.enable-thumb-transition div.image.thumb {
+    transition: all 0.6s;
   }
 
   body.show-select-map & {
@@ -53,34 +53,35 @@ $map-thumb-height: 278px;
         transition: box-shadow $button-transition;
         width: 160px;
 
-
-        div.wrapper-absolute {
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-          z-index: -1;
-        }
-
-        div.wrapper-overflow {
+        div.wrapper.absolute {
           align-items: center;
-          background-color: $r6-blue;
           display: flex;
           height: 100%;
           justify-content: center;
+          left: 0;
           overflow: hidden;
+          position: absolute;
+          top: 0;
           width: 100%;
-        }
 
-        div.thumb {
-          background-image: url($img-location + 'map-thumbs.jpg');
-          height: 278px;
-          min-width: 495px;
-          width: 495px;
-          -ms-transform: scale(0.5);
-          -webkit-transform: scale(0.5);
-          transform: scale(2);
+          &.thumb {
+            z-index: -1;
+
+            div {
+              background-image: url($img-location + 'map-thumbs.jpg');
+              height: 278px;
+              min-width: 495px;
+              width: 495px;
+              -ms-transform: scale(0.5);
+              -webkit-transform: scale(0.5);
+              transform: scale(2);
+            }
+          }
+
+          &.loader {
+            z-index: -2;
+            background-color: $r6-blue;
+          }
         }
 
         p {
@@ -123,91 +124,91 @@ $map-thumb-height: 278px;
           }
         }
 
-        &.bank div.thumb {
+        &.bank div.image.thumb {
           @include map-thumb-icon(1);
         }
         body[loaded-map="bank"] &.bank p {
           @include map-name-selected();
         }
 
-        &.border div.thumb {
+        &.border div.image.thumb {
           @include map-thumb-icon(2);
         }
         body[loaded-map="border"] &.border p {
           @include map-name-selected();
         }
 
-        &.chalet div.thumb {
+        &.chalet div.image.thumb {
           @include map-thumb-icon(3);
         }
         body[loaded-map="chalet"] &.chalet p {
           @include map-name-selected();
         }
 
-        &.club div.thumb {
+        &.club div.image.thumb {
           @include map-thumb-icon(4);
         }
         body[loaded-map="club"] &.club p {
           @include map-name-selected();
         }
 
-        &.consulate div.thumb {
+        &.consulate div.image.thumb {
           @include map-thumb-icon(5);
         }
         body[loaded-map="consulate"] &.consulate p {
           @include map-name-selected();
         }
 
-        &.favelas div.thumb {
+        &.favelas div.image.thumb {
           @include map-thumb-icon(6);
         }
         body[loaded-map="favelas"] &.favelas p {
           @include map-name-selected();
         }
 
-        &.hereford div.thumb {
+        &.hereford div.image.thumb {
           @include map-thumb-icon(7);
         }
         body[loaded-map="hereford"] &.hereford p {
           @include map-name-selected();
         }
 
-        &.house div.thumb {
+        &.house div.image.thumb {
           @include map-thumb-icon(8);
         }
         body[loaded-map="house"] &.house p {
           @include map-name-selected();
         }
 
-        &.kafe div.thumb {
+        &.kafe div.image.thumb {
           @include map-thumb-icon(9);
         }
         body[loaded-map="kafe"] &.kafe p {
           @include map-name-selected();
         }
 
-        &.kanal div.thumb {
+        &.kanal div.image.thumb {
           @include map-thumb-icon(10);
         }
         body[loaded-map="kanal"] &.kanal p {
           @include map-name-selected();
         }
 
-        &.oregon div.thumb {
+        &.oregon div.image.thumb {
           @include map-thumb-icon(11);
         }
         body[loaded-map="oregon"] &.oregon p {
           @include map-name-selected();
         }
 
-        &.plane div.thumb {
+        &.plane div.image.thumb {
           @include map-thumb-icon(12);
         }
         body[loaded-map="plane"] &.plane p {
           @include map-name-selected();
         }
 
-        &.yacht div.thumb {
+        &.yacht div.image.thumb {
           @include map-thumb-icon(13);
         }
         body[loaded-map="yacht"] &.yacht p {

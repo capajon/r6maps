@@ -29,6 +29,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var renderMap = function renderMap(mapData, mapElements, svgElement) {
     var html = '';
 
+    html += getSpinnerHtml();
     html += getFloorsHtml(mapData.floors, mapData.imgUrlPrefix);
     html += getCeilingHatchesHtml(mapData.ceilingHatches);
     html += getSkylightsHtml(mapData.skylights);
@@ -308,9 +309,30 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
+  var getSpinnerHtml = function getSpinnerHtml() {
+    var html = '';
+
+    html += '<div class="sk-circle">';
+    html += '<div class="sk-circle1 sk-child"></div>';
+    html += '<div class="sk-circle2 sk-child"></div>';
+    html += '<div class="sk-circle3 sk-child"></div>';
+    html += '<div class="sk-circle4 sk-child"></div>';
+    html += '<div class="sk-circle5 sk-child"></div>';
+    html += '<div class="sk-circle6 sk-child"></div>';
+    html += '<div class="sk-circle7 sk-child"></div>';
+    html += '<div class="sk-circle8 sk-child"></div>';
+    html += '<div class="sk-circle9 sk-child"></div>';
+    html += '<div class="sk-circle10 sk-child"></div>';
+    html += '<div class="sk-circle11 sk-child"></div>';
+    html += '<div class="sk-circle12 sk-child"></div>';
+    html += '</div>';
+    return html;
+  };
+
   return  {
     renderMap: renderMap,
     showFloor: showFloor,
-    showObjective: showObjective
+    showObjective: showObjective,
+    getSpinnerHtml: getSpinnerHtml
   };
 })(window.jQuery, window, document, R6MapsLangTerms);
