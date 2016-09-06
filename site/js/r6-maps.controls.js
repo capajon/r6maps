@@ -257,7 +257,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     var losOpacityControl = $('#los-opacity-range'),
       handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
         updateLosOpacityFn,
-        Math.max(defaultOpacity, 1)
+        defaultOpacity
       );
 
     losOpacityControl.val(startingValue);
