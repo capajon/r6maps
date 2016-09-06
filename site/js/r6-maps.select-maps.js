@@ -68,6 +68,10 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     return html;
   };
 
+  var getMapLinkMarginVertical = function getMapLinkMarginVertical(availableWidth) {
+    return Math.max(Math.min(Math.floor(availableWidth / 100), 10), 20);
+  };
+
   var getOptimalDimensions = function getOptimalDimensions(
     columnCountsToConsider,
     mapLinkCount,
@@ -89,8 +93,8 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
         ) &&
         mapLinkWidth >= MIN_MAP_LINK_WIDTH
       ) {
-        var mapLinkMarginVertical = 10, // determined experimentally
-          mapLinkMarginHorizontal = 5;
+        var mapLinkMarginVertical = getMapLinkMarginVertical(availableWidth), // determined experimentally
+          mapLinkMarginHorizontal = Math.round(mapLinkMarginVertical / 2);
 
         $.extend(results, {
           _debugColumnCount: columnCount,
@@ -105,7 +109,6 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
         });
       }
     });
-    console.log('results', results);
     return results;
   };
 
