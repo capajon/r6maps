@@ -423,7 +423,7 @@ body.about {
   height: 100vh;
   opacity: 0;
   position: fixed;
-  transition: visibility 10s, opacity 0.5s linear;
+  transition: visibility 0.5s, opacity 0.5s linear;
   visibility: hidden;
   width: 100%;
   z-index: 1200; }
