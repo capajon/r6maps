@@ -16,7 +16,12 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelPercent: '{int} %', // according to: (0.12).toLocaleString('de', { style: 'percent' });
         labelLosDefault: '(Standard)',
         labelLos105: '(Huh?)',
-        labelLos110: '(Wahnsinn!)'
+        labelLos110: '(Wahnsinn!)',
+        labelRoomLabelStyle: 'Zimmer Aufkleberart',
+        roomLabelStyleDefault: 'Standard',
+        roomLabelStyleDarker: 'Dunkler',
+        roomLabelStyleLarger: 'Größer',
+        roomLabelStyleDarkerLarger: 'Dunkler und größer'
       },
       selectMaps: {
         selectAMap: 'Wählen Sie eine Karte',

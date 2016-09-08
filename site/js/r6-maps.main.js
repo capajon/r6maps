@@ -37,7 +37,16 @@
 
     setupEvents();
     R6MapsControls.setupZoom(mapEl, mapElements);
+    R6MapsControls.setupRoomLabelOption(
+      addMapClass,
+      removeMapClass
+    );
   });
+
+  var addMapClass = function addMapClass(newClass) {
+    mapEl.addClass(newClass);
+    //todo should this be part of render really? with enum  also removeclass
+  };
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
     return bodyEl.attr('loaded-map');
@@ -161,6 +170,10 @@
       'left: ' + Math.round(e.pageX - mapElements.offset().left) +
       warning
     );
+  };
+
+  var removeMapClass = function removeMapClass(newClass) {
+    mapEl.removeClass(newClass);
   };
 
   var removeHashFromUrl = function removeHashFromUrl() {

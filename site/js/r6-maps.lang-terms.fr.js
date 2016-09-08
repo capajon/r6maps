@@ -17,7 +17,12 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
         labelLosDefault: '(Défaut)',
         labelLos105: '(Hein?)',
-        labelLos110: '(Folie!)'
+        labelLos110: '(Folie!)',
+        labelRoomLabelStyle: 'Chambre style d\'étiquette',
+        roomLabelStyleDefault: 'Défaut',
+        roomLabelStyleDarker: 'Plus foncé',
+        roomLabelStyleLarger: 'Plus grand',
+        roomLabelStyleDarkerLarger: 'Plus sombre et plus large'
       },
       selectMaps: {
         selectAMap: 'Sélectionnez une carte',

@@ -59,8 +59,14 @@ $custom-mmenu-padding: 0.7em;
   }
 
   label {
+    display: block;
     padding: $custom-mmenu-padding;
     font-weight: 700;
+  }
+
+  select {
+    margin-left: 0.7rem;
+    margin-bottom: 0.5rem;
   }
 
   .zoom.controls {

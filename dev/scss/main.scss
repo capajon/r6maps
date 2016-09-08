@@ -320,7 +320,6 @@ body, button, input, select {
       margin-top: -1.25em;
       opacity: $room-label-opacity;
       text-align: center;
-      transition: opacity 3s;
       width: 220px;
       z-index: $z-room-label;
 
@@ -328,7 +327,7 @@ body, button, input, select {
         @include text-shadow(2px, 1px, 4px, $color: rgba(0,0,0,0.8));
         color: #fff;
         display: inline-block;;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 400;
       }
 

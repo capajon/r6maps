@@ -20,7 +20,12 @@ var R6MapsLangTerms = (function(undefined) {
         labelPercent: '{int}%', // according to: (0.12).toLocaleString('en', { style: 'percent' });
         labelLosDefault: '(Default)',
         labelLos105: '(Huh?)',
-        labelLos110: '(Ludicrous!)'
+        labelLos110: '(Ludicrous!)',
+        labelRoomLabelStyle: 'Room label style',
+        roomLabelStyleDefault: 'Default',
+        roomLabelStyleDarker: 'Darker',
+        roomLabelStyleLarger: 'Larger',
+        roomLabelStyleDarkerLarger: 'Darker & Larger'
       },
       selectMaps: {
         selectAMap: 'Select a map',

@@ -885,8 +885,12 @@ html.mm-pagedim-black #mm-blocker {
     color: grey;
     padding: 0.7em; }
   .mmenu-custom-panel label {
+    display: block;
     padding: 0.7em;
     font-weight: 700; }
+  .mmenu-custom-panel select {
+    margin-left: 0.7rem;
+    margin-bottom: 0.5rem; }
   .mmenu-custom-panel .zoom.controls {
     align-items: center;
     display: flex;
@@ -1213,23 +1217,22 @@ body, button, input, select {
       height: 2.5em;
       margin-left: -110px;
       margin-top: -1.25em;
-      opacity: 0.44;
+      opacity: 0.55;
       text-align: center;
-      transition: opacity 3s;
       width: 220px;
       z-index: 1165; }
       #map #map-elements .room-label p {
         text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.8);
         color: #fff;
         display: inline-block;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 400; }
       #map #map-elements .room-label.hard-to-read {
-        opacity: 0.54; }
+        opacity: 0.65; }
         #map #map-elements .room-label.hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
       #map #map-elements .room-label.very-hard-to-read {
-        opacity: 0.79; }
+        opacity: 0.9; }
         #map #map-elements .room-label.very-hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
     #map #map-elements.show-objective-all .objective {
