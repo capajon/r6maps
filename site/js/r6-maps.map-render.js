@@ -24,6 +24,13 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       3: 'three',
       4: 'four',
       5: 'five'
+    },
+    ROOM_LABEL_STYLES = ['Default', 'Darker', 'Larger', 'DarkerAndLarger'],
+    ROOM_LABEL_CSS_TEXT = {
+      Default: 'room-label-default',
+      Darker: 'room-label-darker',
+      Larger: 'room-label-larger',
+      DarkerAndLarger: 'room-label-darker room-label-larger'
     };
 
   var getBombObjectivesHtml = function getBombObjectivesHtml(bombObjectives) {
@@ -315,6 +322,13 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     svgElement.html(getCamerasLosHtml(mapData.cameras));
   };
 
+  var setRoomLabelStyle = function setRoomLabelStyle(mapElements, style) {
+    ROOM_LABEL_STYLES.forEach(function(roomLabelStyle) {
+      mapElements.removeClass(ROOM_LABEL_CSS_TEXT[roomLabelStyle]);
+    });
+    mapElements.addClass(ROOM_LABEL_CSS_TEXT[style]);
+  };
+
   var showFloor = function showFloor(floor, mapEl) {
     var floorPrefix = 'show-floor-';
 
@@ -332,6 +346,8 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   return  {
     getSpinnerHtml: getSpinnerHtml,
     renderMap: renderMap,
+    roomLabelStyles: ROOM_LABEL_STYLES,
+    setRoomLabelStyle: setRoomLabelStyle,
     showFloor: showFloor,
     showObjective: showObjective
   };

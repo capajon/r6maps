@@ -18,11 +18,13 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelLosDefault: '(Défaut)',
         labelLos105: '(Hein?)',
         labelLos110: '(Folie!)',
-        labelRoomLabelStyle: 'Chambre style d\'étiquette',
-        roomLabelStyleDefault: 'Défaut',
-        roomLabelStyleDarker: 'Plus foncé',
-        roomLabelStyleLarger: 'Plus grand',
-        roomLabelStyleDarkerLarger: 'Plus sombre et plus large'
+        labelRoomLabelStyle: 'Chambre style d\'étiquette'
+      },
+      roomLabelStyles: {
+        Default: 'Défaut',
+        Darker: 'Plus foncé',
+        Larger: 'Plus grand',
+        DarkerAndLarger: 'Plus sombre et plus large'
       },
       selectMaps: {
         selectAMap: 'Sélectionnez une carte',

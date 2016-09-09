@@ -1227,6 +1227,12 @@ body, button, input, select {
         display: inline-block;
         font-size: 16px;
         font-weight: 400; }
+        #map-elements.room-label-larger .room-label p {
+          font-size: 21px !important; }
+        #map-elements.room-label-darker .room-label p {
+          background: rgba(16, 26, 36, 0.9);
+          font-weight: 700 !important;
+          opacity: 1; }
       #map #map-elements .room-label.hard-to-read {
         opacity: 0.65; }
         #map #map-elements .room-label.hard-to-read p {

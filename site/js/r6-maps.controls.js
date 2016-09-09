@@ -6,6 +6,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     floorControl = $('#floor-control'),
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
+    roomLabelStylesControl,
     menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
@@ -64,7 +65,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
       if ( zoomVal > 1.6) {
         mapElements.addClass(ZOOMED_IN_FAR_CLASS);
-      } else if ( zoomVal < 0.8 ) {
+      } else if ( zoomVal < 0.4 ) {
         mapElements.addClass(ZOOMED_OUT_FAR_CLASS);
       } else {
         mapElements.removeClass(ZOOMED_IN_FAR_CLASS);
@@ -124,7 +125,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     trySelectMap(currentMap);
   };
 
-  var populateMenu = function populateMenu() {
+  var populateMenu = function populateMenu(roomLabelStyles) {
     var html = '';
 
     html += '<div class="mmenu-custom-panel">';
@@ -143,12 +144,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<div id="los-opacity" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
-    html += '<select>';
-    html += '<option value="DEF">' + R6MapsLangTerms.terms.general.roomLabelStyleDefault + '</option>';
-    html += '<option value="DARKER">' + R6MapsLangTerms.terms.general.roomLabelStyleDarker + '</option>';
-    html += '<option value="LARGER">' + R6MapsLangTerms.terms.general.roomLabelStyleLarger + '</option>';
-    html += '<option value="DARKERLARGER">' + R6MapsLangTerms.terms.general.roomLabelStyleDarkerLarger + '</option>';
-    html += '</select>';
+    html += '<select id="room-label-style"></select>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
     html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
@@ -160,6 +156,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     menuPanel.html(html);
     menuControl.html(R6MapsLangTerms.terms.general.menu);
+    roomLabelStylesControl = $('#room-label-style');
+    populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
   };
 
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
@@ -183,6 +181,20 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
     objectiveControl.html(options);
     trySelectObjective(initialObjective);
+  };
+
+  var populateRoomLabelStyleOptions = function populateRoomLabelStyleOptions(
+    roomLabelStylesControl,
+    roomLabelStyles
+  ) {
+    var html = '';
+
+    roomLabelStyles.forEach(function(roomLabelStyle) {
+      html += '<option value="' + roomLabelStyle + '">' +
+        R6MapsLangTerms.terms.roomLabelStyles[roomLabelStyle] +
+        '</option>';
+    });
+    roomLabelStylesControl.html(html);
   };
 
   var resetPan = function resetPan(map) {
@@ -251,9 +263,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     objectiveControl.on('change', callback);
   };
 
-  var setupRoomLabelOption = function setupRoomLabelOption(
-    addMapClassCallback,
-    removeMapClassCallback) {
+  var setupRoomLabelStyleChangeEvent = function setupRoomLabelStyleChangeEvent(callback) {
+    roomLabelStylesControl.on('change', function(event) {
+      callback(event.target.value);
+    });
   };
 
   var setupZoom = function setupZoom(mapEl, mapElements) {
@@ -300,7 +313,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var trySelectObjective = function trySelectObjective(objective) {
-    trySelectOption(objectiveControl, objective);
+    return trySelectOption(objectiveControl, objective);
   };
 
   var trySelectOption = function trySelectOption(selectEl, option) {
@@ -311,6 +324,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       return true;
     }
     return false;
+  };
+
+  var trySelectRoomLabelStyle = function trySelectRoomLabelStyle(style) {
+    return trySelectOption(roomLabelStylesControl, style);
   };
 
   return  {
@@ -328,10 +345,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupLosOpacity: setupLosOpacity,
     setupMapChangeEvent: setupMapChangeEvent,
     setupObjectiveChangeEvent: setupObjectiveChangeEvent,
-    setupRoomLabelOption: setupRoomLabelOption,
+    setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
     setupZoom: setupZoom,
     trySelectFloor: trySelectFloor,
     trySelectMap: trySelectMap,
-    trySelectObjective: trySelectObjective
+    trySelectObjective: trySelectObjective,
+    trySelectRoomLabelStyle: trySelectRoomLabelStyle
   };
 })(window.jQuery, window, document, R6MapsLangTerms);

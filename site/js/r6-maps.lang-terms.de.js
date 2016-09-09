@@ -17,11 +17,13 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelLosDefault: '(Standard)',
         labelLos105: '(Huh?)',
         labelLos110: '(Wahnsinn!)',
-        labelRoomLabelStyle: 'Zimmer Aufkleberart',
-        roomLabelStyleDefault: 'Standard',
-        roomLabelStyleDarker: 'Dunkler',
-        roomLabelStyleLarger: 'Größer',
-        roomLabelStyleDarkerLarger: 'Dunkler und größer'
+        labelRoomLabelStyle: 'Zimmer Aufkleberart'
+      },
+      roomLabelStyles: {
+        Default: 'Standard',
+        Darker: 'Dunkler',
+        Larger: 'Größer',
+        DarkerAndLarger: 'Dunkler und größer'
       },
       selectMaps: {
         selectAMap: 'Wählen Sie eine Karte',

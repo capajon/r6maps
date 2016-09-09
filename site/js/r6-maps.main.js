@@ -37,16 +37,8 @@
 
     setupEvents();
     R6MapsControls.setupZoom(mapEl, mapElements);
-    R6MapsControls.setupRoomLabelOption(
-      addMapClass,
-      removeMapClass
-    );
+    tryLoadRoomLabelStyle();
   });
-
-  var addMapClass = function addMapClass(newClass) {
-    mapEl.addClass(newClass);
-    //todo should this be part of render really? with enum  also removeclass
-  };
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
     return bodyEl.attr('loaded-map');
@@ -80,6 +72,11 @@
 
   var getMenuApi = function getMenuApi() {
     return $('#mmenu-menu').data( 'mmenu' );
+  };
+
+  var setRoomLabelStyle = function setRoomLabelStyle(style) {
+    R6MapsRender.setRoomLabelStyle(mapElements, style);
+    localStorage.setItem('roomlabelstyle', style);
   };
 
   var handleCameraIn = function handleCameraHoverIn(event) {
@@ -172,10 +169,6 @@
     );
   };
 
-  var removeMapClass = function removeMapClass(newClass) {
-    mapEl.removeClass(newClass);
-  };
-
   var removeHashFromUrl = function removeHashFromUrl() {
     var scrollV, scrollH, loc = window.location;
 
@@ -244,6 +237,7 @@
     R6MapsControls.setupMapChangeEvent(handleMapChange);
     R6MapsControls.setupFloorChangeEvent(handleFloorChange);
     R6MapsControls.setupFloorHotkeys(showSelectedFloor);
+    R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
 
     navLogoEl.on('click', function(event) {
       event.preventDefault();
@@ -270,7 +264,7 @@
   };
 
   var setupMenu = function setupMenu() {
-    R6MapsControls.populateMenu();
+    R6MapsControls.populateMenu(R6MapsRender.roomLabelStyles);
 
     $('#mmenu-menu').mmenu({
       offCanvas: {
@@ -332,6 +326,14 @@
     } else if (userLang) {
       R6MapsLangTerms.tryLoadLanguage(userLang);
     };  // default will be English otherwise
+  };
+
+  var tryLoadRoomLabelStyle = function tryLoadRoomLabelStyle() {
+    var style = localStorage.getItem('roomlabelstyle');
+    if (style) {
+      R6MapsControls.trySelectRoomLabelStyle(style);
+      R6MapsRender.setRoomLabelStyle(mapElements, style);
+    }    
   };
 
   var trySelectBookmarkedMap = function trySelectBookmarkedMap() {

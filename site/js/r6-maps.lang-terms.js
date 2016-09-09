@@ -21,11 +21,13 @@ var R6MapsLangTerms = (function(undefined) {
         labelLosDefault: '(Default)',
         labelLos105: '(Huh?)',
         labelLos110: '(Ludicrous!)',
-        labelRoomLabelStyle: 'Room label style',
-        roomLabelStyleDefault: 'Default',
-        roomLabelStyleDarker: 'Darker',
-        roomLabelStyleLarger: 'Larger',
-        roomLabelStyleDarkerLarger: 'Darker & Larger'
+        labelRoomLabelStyle: 'Room label style'
+      },
+      roomLabelStyles: {
+        Default: 'Default',
+        Darker: 'Darker',
+        Larger: 'Larger',
+        DarkerAndLarger: 'Darker & Larger'
       },
       selectMaps: {
         selectAMap: 'Select a map',

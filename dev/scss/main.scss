@@ -329,6 +329,15 @@ body, button, input, select {
         display: inline-block;;
         font-size: 16px;
         font-weight: 400;
+
+        @at-root #map-elements.room-label-larger .room-label p {
+          font-size: 21px !important;
+        }
+        @at-root #map-elements.room-label-darker .room-label p {
+          background: $even-less-faded-bg;
+          font-weight: 700 !important;
+          opacity: 1;
+        }
       }
 
       &.hard-to-read {
