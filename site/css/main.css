@@ -1217,7 +1217,7 @@ body, button, input, select {
       height: 2.5em;
       margin-left: -110px;
       margin-top: -1.25em;
-      opacity: 0.55;
+      opacity: 0.7;
       text-align: center;
       width: 220px;
       z-index: 1165; }
@@ -1229,16 +1229,18 @@ body, button, input, select {
         font-weight: 400; }
         #map-elements.room-label-larger .room-label p {
           font-size: 21px !important; }
-        #map-elements.room-label-darker .room-label p {
-          background: rgba(16, 26, 36, 0.9);
-          font-weight: 700 !important;
-          opacity: 1; }
+        #map-elements.room-label-darker .room-label {
+          opacity: 1 !important; }
+          #map-elements.room-label-darker .room-label p {
+            background: rgba(16, 26, 36, 0.7);
+            font-weight: 600 !important;
+            opacity: 1; }
       #map #map-elements .room-label.hard-to-read {
-        opacity: 0.65; }
+        opacity: 0.8; }
         #map #map-elements .room-label.hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
       #map #map-elements .room-label.very-hard-to-read {
-        opacity: 0.9; }
+        opacity: 1.05; }
         #map #map-elements .room-label.very-hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
     #map #map-elements.show-objective-all .objective {

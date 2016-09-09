@@ -333,10 +333,14 @@ body, button, input, select {
         @at-root #map-elements.room-label-larger .room-label p {
           font-size: 21px !important;
         }
-        @at-root #map-elements.room-label-darker .room-label p {
-          background: $even-less-faded-bg;
-          font-weight: 700 !important;
-          opacity: 1;
+        @at-root #map-elements.room-label-darker .room-label {
+          opacity: 1 !important;
+
+          p {
+            background: $less-faded-bg;
+            font-weight: 600 !important;
+            opacity: 1;
+          }
         }
       }
 
