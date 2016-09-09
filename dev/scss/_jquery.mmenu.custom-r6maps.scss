@@ -70,8 +70,8 @@ $custom-mmenu-padding: 0.7em;
   }
 
   .zoom.controls {
-    align-items: center;
-    display: flex;
+    @include align-items(center);
+    @include flexbox;
     margin-left: $custom-mmenu-padding;
   }
 }

@@ -3,8 +3,10 @@
 (function(pagecode) { //eslint-disable-line wrap-iife
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
 }(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, undefined) {
-  var mapEl,
+  var mapPanelsWraper,
+    mapEl,
     mapElements,
+    mapSafetyWrapper,
     svgElements,
     navLogoEl,
     bodyEl,
@@ -14,11 +16,10 @@
     DEFAULT_LOS_OPACITY = 0.15;
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
-    mapEl = $('.map-main');
-    mapElements = mapEl.find('.map-elements');
-    svgElements = mapEl.find('.svg-elements');
+    mapPanelsWraper = $('#map-panels-wrapper')
     navLogoEl = $('#nav-logo');
     bodyEl = $('body');
+    setMapElements();
 
     tryLoadStartingLanguage();
     setupMenu();
@@ -215,6 +216,13 @@
 
   var setLoadedMapKey = function setLoadedMapKey(mapKey) {
     bodyEl.attr('loaded-map', mapKey);
+  };
+
+  var setMapElements = function setMapElements() {
+    mapSafetyWrapper = $('.map-pan-safety-wrapper');
+    mapEl = $('.map-main');
+    mapElements = mapEl.find('.map-elements');
+    svgElements = mapEl.find('.svg-elements');
   };
 
   var setupCameraLos = function setupCameraLos() {

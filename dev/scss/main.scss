@@ -69,10 +69,33 @@ body, button, input, select {
   overflow:hidden;
 }
 
+#map-panels-wrapper {
+  @include align-content(space-around);
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+
+  &[map-panel-count="2"] .map-pan-safety-wrapper {
+    display: inline-block;
+    width: 49vw;
+
+    @media (orientation:portrait) {
+      height: 49vh;
+      width: 100vw;
+    }
+  }
+
+  &[map-panel-count="4"] .map-pan-safety-wrapper {
+    display: inline-block;
+    height: 49vh;
+    width: 49vw;
+  }
+}
+
 .map-main {
-  height: 100vh;
+  height: 100%;
   position: relative;
-  width: 100vw;
+  width: 100%;
 
   .center-helper {
     height: 0;
