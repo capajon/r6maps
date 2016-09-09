@@ -63,13 +63,13 @@ body, button, input, select {
   position: relative;
 }
 
-#map-pan-safety-wrapper {
+.map-pan-safety-wrapper {
   height: 100vh;
   width: 100vw;
   overflow:hidden;
 }
 
-#map {
+.map-main {
   height: 100vh;
   position: relative;
   width: 100vw;
@@ -117,7 +117,7 @@ body, button, input, select {
     }
   }
 
-  #map-elements {
+  .map-elements {
     position: relative;
 
     img, div, a {
@@ -330,10 +330,10 @@ body, button, input, select {
         font-size: 16px;
         font-weight: 400;
 
-        @at-root #map-elements.room-label-larger .room-label p {
+        @at-root .map-elements.room-label-larger .room-label p {
           font-size: 21px !important;
         }
-        @at-root #map-elements.room-label-darker .room-label {
+        @at-root .map-elements.room-label-darker .room-label {
           opacity: 1 !important;
 
           p {

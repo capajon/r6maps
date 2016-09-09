@@ -14,9 +14,9 @@
     DEFAULT_LOS_OPACITY = 0.15;
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
-    mapEl = $('#map');
-    mapElements = mapEl.find('#map-elements');
-    svgElements = mapEl.find('#svg-elements');
+    mapEl = $('.map-main');
+    mapElements = mapEl.find('.map-elements');
+    svgElements = mapEl.find('.svg-elements');
     navLogoEl = $('#nav-logo');
     bodyEl = $('body');
 

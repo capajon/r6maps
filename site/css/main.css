@@ -602,25 +602,25 @@ body.about {
     .sk-circle {
       width: 60px;
       height: 60px; } }
-  #map-elements .sk-circle {
+  .map-elements .sk-circle {
     width: 280px;
     height: 280px;
     top: -140px;
     left: -140px; }
     @media screen and (max-width: 1400px) {
-      #map-elements .sk-circle {
+      .map-elements .sk-circle {
         width: 220px;
         height: 220px;
         top: -110px;
         left: -110px; } }
     @media screen and (max-width: 620px) {
-      #map-elements .sk-circle {
+      .map-elements .sk-circle {
         width: 160px;
         height: 160px;
         top: -80px;
         left: -80px; } }
     @media screen and (max-width: 400px) {
-      #map-elements .sk-circle {
+      .map-elements .sk-circle {
         width: 120px;
         height: 120px;
         top: -60px;
@@ -963,16 +963,16 @@ body, button, input, select {
   height: 100vh;
   position: relative; }
 
-#map-pan-safety-wrapper {
+.map-pan-safety-wrapper {
   height: 100vh;
   width: 100vw;
   overflow: hidden; }
 
-#map {
+.map-main {
   height: 100vh;
   position: relative;
   width: 100vw; }
-  #map .center-helper {
+  .map-main .center-helper {
     height: 0;
     margin: auto;
     position: absolute;
@@ -981,39 +981,39 @@ body, button, input, select {
     bottom: 0;
     right: 0;
     width: 0; }
-  #map svg.center-helper {
+  .map-main svg.center-helper {
     overflow: visible;
     width: 1px;
     height: 1px;
     z-index: 1112; }
-  #map svg .camera-los {
+  .map-main svg .camera-los {
     fill: transparent;
     stroke: #ffdb00;
     stroke-width: 3;
     stroke-linejoin: round;
     stroke-linecap: round;
     transition: opacity 1s; }
-    #map svg .camera-los.show-more {
+    .map-main svg .camera-los.show-more {
       opacity: 1 !important; }
-    #map svg .camera-los.opacity-105, #map svg .camera-los.opacity-110 {
+    .map-main svg .camera-los.opacity-105, .map-main svg .camera-los.opacity-110 {
       stroke: #d65b2b;
       stroke-dasharray: 7; }
-      #map svg .camera-los.opacity-105.show-more, #map svg .camera-los.opacity-110.show-more {
+      .map-main svg .camera-los.opacity-105.show-more, .map-main svg .camera-los.opacity-110.show-more {
         stroke-dasharray: none; }
-    #map svg .camera-los.opacity-110 {
+    .map-main svg .camera-los.opacity-110 {
       stroke-width: 5; }
-  #map #map-elements {
+  .map-main .map-elements {
     position: relative; }
-    #map #map-elements img, #map #map-elements div, #map #map-elements a {
+    .map-main .map-elements img, .map-main .map-elements div, .map-main .map-elements a {
       position: absolute; }
-    #map #map-elements .background {
+    .map-main .map-elements .background {
       -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       z-index: 1000; }
-    #map #map-elements .floor {
+    .map-main .map-elements .floor {
       z-index: 1010; }
-    #map #map-elements .camera {
+    .map-main .map-elements .camera {
       width: 36px;
       height: 36px;
       margin-left: -18px;
@@ -1023,15 +1023,15 @@ body, button, input, select {
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1170; }
-      #map #map-elements .camera.outdoor {
+      .map-main .map-elements .camera.outdoor {
         width: 46px;
         height: 46px;
         margin-left: -23px;
         margin-top: -23px;
         background-size: 46px 46px; }
-      #map #map-elements .camera.other-floor {
+      .map-main .map-elements .camera.other-floor {
         opacity: 0.85; }
-        #map #map-elements .camera.other-floor.up span {
+        .map-main .map-elements .camera.other-floor.up span {
           background: url("../img/icons/up@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1045,7 +1045,7 @@ body, button, input, select {
           top: 25px;
           width: 15px;
           z-index: 1171; }
-        #map #map-elements .camera.other-floor.down span {
+        .map-main .map-elements .camera.other-floor.down span {
           background: url("../img/icons/down@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1059,13 +1059,13 @@ body, button, input, select {
           top: 25px;
           width: 15px;
           z-index: 1171; }
-      #map #map-elements .camera svg {
+      .map-main .map-elements .camera svg {
         background-color: red;
         opacity: 0.3;
         overflow: visible; }
-        #map #map-elements .camera svg path {
+        .map-main .map-elements .camera svg path {
           fill: #ffdb00; }
-    #map #map-elements .objective {
+    .map-main .map-elements .objective {
       width: 30px;
       height: 40px;
       margin-left: -15px;
@@ -1073,25 +1073,25 @@ body, button, input, select {
       border-radius: 5px;
       display: none;
       z-index: 1150; }
-      #map #map-elements .objective.hostage {
+      .map-main .map-elements .objective.hostage {
         background-color: #ab1513;
         z-index: 1153; }
-      #map #map-elements .objective.bomb {
+      .map-main .map-elements .objective.bomb {
         background-color: #d65b2b;
         z-index: 1151; }
-        #map #map-elements .objective.bomb p {
+        .map-main .map-elements .objective.bomb p {
           font-size: 25px; }
-      #map #map-elements .objective.secure {
+      .map-main .map-elements .objective.secure {
         background-color: #00B200;
         z-index: 1152; }
-      #map #map-elements .objective p {
+      .map-main .map-elements .objective p {
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         color: #fff;
         font-size: 30px;
         line-height: 40px;
         text-align: center;
         width: 30px; }
-      #map #map-elements .objective.up span {
+      .map-main .map-elements .objective.up span {
         background: url("../img/icons/up@2x.png");
         background-size: 15px, 22px;
         background-repeat: no-repeat;
@@ -1105,7 +1105,7 @@ body, button, input, select {
         top: 29px;
         width: 15px;
         z-index: 1151; }
-      #map #map-elements .objective.down span {
+      .map-main .map-elements .objective.down span {
         background: url("../img/icons/down@2x.png");
         background-size: 15px, 22px;
         background-repeat: no-repeat;
@@ -1119,7 +1119,7 @@ body, button, input, select {
         top: 29px;
         width: 15px;
         z-index: 1151; }
-    #map #map-elements .ceiling-hatch {
+    .map-main .map-elements .ceiling-hatch {
       width: 29px;
       height: 29px;
       margin-left: -14.5px;
@@ -1129,7 +1129,7 @@ body, button, input, select {
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1020; }
-    #map #map-elements .skylight {
+    .map-main .map-elements .skylight {
       width: 29px;
       height: 29px;
       margin-left: -14.5px;
@@ -1139,9 +1139,9 @@ body, button, input, select {
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1025; }
-      #map #map-elements .skylight.other-floor {
+      .map-main .map-elements .skylight.other-floor {
         opacity: 0.7; }
-        #map #map-elements .skylight.other-floor.up span {
+        .map-main .map-elements .skylight.other-floor.up span {
           background: url("../img/icons/up@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1155,7 +1155,7 @@ body, button, input, select {
           top: 18px;
           width: 15px;
           z-index: 1026; }
-        #map #map-elements .skylight.other-floor.down span {
+        .map-main .map-elements .skylight.other-floor.down span {
           background: url("../img/icons/down@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1169,20 +1169,20 @@ body, button, input, select {
           top: 18px;
           width: 15px;
           z-index: 1026; }
-    #map #map-elements .drone-tunnel {
+    .map-main .map-elements .drone-tunnel {
       background-color: #7B0099;
       border-left: 2px solid #fff;
       border-right: 2px solid #fff;
       margin-left: -6px;
       width: 8px;
       z-index: 1160; }
-      #map #map-elements .drone-tunnel.alternate {
+      .map-main .map-elements .drone-tunnel.alternate {
         background-color: #FF1493; }
-    #map #map-elements .spawn-point {
+    .map-main .map-elements .spawn-point {
       z-index: 1013; }
-      #map #map-elements .spawn-point .spawn-wrapper {
+      .map-main .map-elements .spawn-point .spawn-wrapper {
         position: relative; }
-        #map #map-elements .spawn-point .spawn-wrapper .spawn-letter {
+        .map-main .map-elements .spawn-point .spawn-wrapper .spawn-letter {
           background-color: #4C4C4C;
           left: -33px;
           padding: 4px;
@@ -1190,7 +1190,7 @@ body, button, input, select {
           top: -33px;
           width: 58px;
           height: 58px; }
-          #map #map-elements .spawn-point .spawn-wrapper .spawn-letter p {
+          .map-main .map-elements .spawn-point .spawn-wrapper .spawn-letter p {
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
             border: 2px solid #000;
             color: #fff;
@@ -1199,13 +1199,13 @@ body, button, input, select {
             width: 54px;
             height: 54px;
             line-height: 54px; }
-        #map #map-elements .spawn-point .spawn-wrapper .spawn-description {
+        .map-main .map-elements .spawn-point .spawn-wrapper .spawn-description {
           position: absolute;
           top: 38px;
           left: -150px;
           width: 300px;
           text-align: center; }
-          #map #map-elements .spawn-point .spawn-wrapper .spawn-description p {
+          .map-main .map-elements .spawn-point .spawn-wrapper .spawn-description p {
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
             background-color: #4C4C4C;
             color: #fff;
@@ -1213,7 +1213,7 @@ body, button, input, select {
             font-size: 27px;
             padding: 2px 6px;
             text-transform: uppercase; }
-    #map #map-elements .room-label {
+    .map-main .map-elements .room-label {
       height: 2.5em;
       margin-left: -110px;
       margin-top: -1.25em;
@@ -1221,49 +1221,49 @@ body, button, input, select {
       text-align: center;
       width: 220px;
       z-index: 1165; }
-      #map #map-elements .room-label p {
+      .map-main .map-elements .room-label p {
         text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.8);
         color: #fff;
         display: inline-block;
         font-size: 16px;
         font-weight: 400; }
-        #map-elements.room-label-larger .room-label p {
+        .map-elements.room-label-larger .room-label p {
           font-size: 21px !important; }
-        #map-elements.room-label-darker .room-label {
+        .map-elements.room-label-darker .room-label {
           opacity: 1 !important; }
-          #map-elements.room-label-darker .room-label p {
+          .map-elements.room-label-darker .room-label p {
             background: rgba(16, 26, 36, 0.7);
             font-weight: 600 !important;
             opacity: 1; }
-      #map #map-elements .room-label.hard-to-read {
+      .map-main .map-elements .room-label.hard-to-read {
         opacity: 0.8; }
-        #map #map-elements .room-label.hard-to-read p {
+        .map-main .map-elements .room-label.hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
-      #map #map-elements .room-label.very-hard-to-read {
+      .map-main .map-elements .room-label.very-hard-to-read {
         opacity: 1.05; }
-        #map #map-elements .room-label.very-hard-to-read p {
+        .map-main .map-elements .room-label.very-hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
-    #map #map-elements.show-objective-all .objective {
+    .map-main .map-elements.show-objective-all .objective {
       display: block; }
-    #map #map-elements.show-objective-hostage .hostage {
+    .map-main .map-elements.show-objective-hostage .hostage {
       display: block; }
-    #map #map-elements.show-objective-bomb .bomb {
+    .map-main .map-elements.show-objective-bomb .bomb {
       display: block; }
-    #map #map-elements.show-objective-secure .secure {
+    .map-main .map-elements.show-objective-secure .secure {
       display: block; }
-    #map #map-elements.zoomed-out-far .room-label {
+    .map-main .map-elements.zoomed-out-far .room-label {
       opacity: 0; }
-  #map.show-floor-zero .one, #map.show-floor-zero .two, #map.show-floor-zero .three, #map.show-floor-zero .four, #map.show-floor-zero .five {
+  .map-main.show-floor-zero .one, .map-main.show-floor-zero .two, .map-main.show-floor-zero .three, .map-main.show-floor-zero .four, .map-main.show-floor-zero .five {
     display: none !important; }
-  #map.show-floor-one .zero, #map.show-floor-one .two, #map.show-floor-one .three, #map.show-floor-one .four, #map.show-floor-one .five {
+  .map-main.show-floor-one .zero, .map-main.show-floor-one .two, .map-main.show-floor-one .three, .map-main.show-floor-one .four, .map-main.show-floor-one .five {
     display: none !important; }
-  #map.show-floor-two .zero, #map.show-floor-two .one, #map.show-floor-two .three, #map.show-floor-two .four, #map.show-floor-two .five {
+  .map-main.show-floor-two .zero, .map-main.show-floor-two .one, .map-main.show-floor-two .three, .map-main.show-floor-two .four, .map-main.show-floor-two .five {
     display: none !important; }
-  #map.show-floor-three .zero, #map.show-floor-three .one, #map.show-floor-three .two, #map.show-floor-three .four, #map.show-floor-three .five {
+  .map-main.show-floor-three .zero, .map-main.show-floor-three .one, .map-main.show-floor-three .two, .map-main.show-floor-three .four, .map-main.show-floor-three .five {
     display: none !important; }
-  #map.show-floor-four .zero, #map.show-floor-four .one, #map.show-floor-four .two, #map.show-floor-four .three, #map.show-floor-four .five {
+  .map-main.show-floor-four .zero, .map-main.show-floor-four .one, .map-main.show-floor-four .two, .map-main.show-floor-four .three, .map-main.show-floor-four .five {
     display: none !important; }
-  #map.show-floor-five .zero, #map.show-floor-five .one, #map.show-floor-five .two, #map.show-floor-five .three, #map.show-floor-five .four {
+  .map-main.show-floor-five .zero, .map-main.show-floor-five .one, .map-main.show-floor-five .two, .map-main.show-floor-five .three, .map-main.show-floor-five .four {
     display: none !important; }
 
 /*# sourceMappingURL=main.css.map */
