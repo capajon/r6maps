@@ -170,6 +170,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, description: bankTerms.mainStairway, top: 238, left: -34 },
           { floor: 1, description: bankTerms.skylightStairwell, top: -61, left: 318 },
           { floor: 1, description: bankTerms.lobby, top: -141, left: -234 },
+          { floor: 2, description: bankTerms.lobby, top: -141, left: -234 },
           { floor: 1, description: bankTerms.openArea, top: 183, left: 162 },
           { floor: 1, description: bankTerms.staffRoom, top: 145, left: 283 },
           { floor: 1, description: bankTerms.electricalRoom, top: 18, left: 440 },

@@ -18,13 +18,19 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelLosDefault: '(Défaut)',
         labelLos105: '(Hein?)',
         labelLos110: '(Folie!)',
-        labelRoomLabelStyle: 'Chambre style d\'étiquette'
+        labelRoomLabelStyle: 'Chambre style d\'étiquette',
+        labelNumberFloorsToDisplay: 'Nombre d\'étages pour afficher'
       },
       roomLabelStyles: {
         Default: 'Défaut',
         Darker: 'Plus foncé',
         Larger: 'Plus grand',
         DarkerAndLarger: 'Plus sombre et plus large'
+      },
+      floorDisplayOptions: {
+        one: '1 (Défaut)',
+        two: '2 (Divisé)',
+        four: '4 (Grille)'
       },
       selectMaps: {
         selectAMap: 'Sélectionnez une carte',

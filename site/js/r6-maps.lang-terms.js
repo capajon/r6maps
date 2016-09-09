@@ -21,13 +21,19 @@ var R6MapsLangTerms = (function(undefined) {
         labelLosDefault: '(Default)',
         labelLos105: '(Huh?)',
         labelLos110: '(Ludicrous!)',
-        labelRoomLabelStyle: 'Room label style'
+        labelRoomLabelStyle: 'Room label style',
+        labelNumberFloorsToDisplay: 'Number of floors to display'
       },
       roomLabelStyles: {
         Default: 'Default',
         Darker: 'Darker',
         Larger: 'Larger',
         DarkerAndLarger: 'Darker & Larger'
+      },
+      floorDisplayOptions: {
+        one: '1 (Default)',
+        two: '2 (Split)',
+        four: '4 (Grid)'
       },
       selectMaps: {
         selectAMap: 'Select a map',

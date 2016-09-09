@@ -7,6 +7,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
     roomLabelStylesControl,
+    mapPaneCountControl,
     menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
@@ -125,7 +126,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     trySelectMap(currentMap);
   };
 
-  var populateMenu = function populateMenu(roomLabelStyles) {
+  var setupMenu = function setupMenu(roomLabelStyles) {
     var html = '';
 
     html += '<div class="mmenu-custom-panel">';
@@ -143,6 +144,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     html += '<div id="los-opacity" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
+    html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
+    html += '<select id="map-pane-count">';
+    html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
+    html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
+    html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
+    html += '</select>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
     html += '<select id="room-label-style"></select>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
@@ -158,6 +165,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     menuControl.html(R6MapsLangTerms.terms.general.menu);
     roomLabelStylesControl = $('#room-label-style');
     populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
+    mapPaneCountControl = $('#map-pane-count');
   };
 
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
@@ -205,7 +213,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
   };
 
-  var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
+  var setupMapPaneCountEvent = function setupMapPaneCountEvent(callback) {
     floorControl.on('click', 'button', function(e) {
       var floorButton =  (e.target.tagName == 'SPAN')
         ? $(e.target).parent()
@@ -214,6 +222,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       resetSelectedFloor();
       floorButton.addClass(SELECTED_CLASS);
       callback();
+    });
+  };
+
+  var setupMapPaneCountChangeEvent = function setupMapPaneCountChangeEvent(callback) {
+    mapPaneCountControl.on('change', function(event) {
+      callback(event.target.value)
     });
   };
 
@@ -308,6 +322,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return false;
   };
 
+  var trySelectFloorNumberDisplay = function trySelectFloorNumberDisplay(number) {
+    return trySelectOption(mapPaneCountControl, number);
+  };
+
   var trySelectMap = function trySelectMap(map) {
     return trySelectOption(mapControl, map);
   };
@@ -337,10 +355,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     isZoomed: isZoomed,
     populateFloorOptions: populateFloorOptions,
     populateMapOptions: populateMapOptions,
-    populateMenu: populateMenu,
+    setupMenu: setupMenu,
     populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
-    setupFloorChangeEvent: setupFloorChangeEvent,
+    setupMapPaneCountEvent: setupMapPaneCountEvent,
+    setupMapPaneCountChangeEvent: setupMapPaneCountChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
     setupLosOpacity: setupLosOpacity,
     setupMapChangeEvent: setupMapChangeEvent,
@@ -348,6 +367,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
     setupZoom: setupZoom,
     trySelectFloor: trySelectFloor,
+    trySelectFloorNumberDisplay: trySelectFloorNumberDisplay,
     trySelectMap: trySelectMap,
     trySelectObjective: trySelectObjective,
     trySelectRoomLabelStyle: trySelectRoomLabelStyle

@@ -17,13 +17,19 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelLosDefault: '(Standard)',
         labelLos105: '(Huh?)',
         labelLos110: '(Wahnsinn!)',
-        labelRoomLabelStyle: 'Zimmer Aufkleberart'
+        labelRoomLabelStyle: 'Zimmer Aufkleberart',
+        labelNumberFloorsToDisplay: 'Anzahl der Etagen anzuzeigen'
       },
       roomLabelStyles: {
         Default: 'Standard',
         Darker: 'Dunkler',
         Larger: 'Größer',
         DarkerAndLarger: 'Dunkler und größer'
+      },
+      floorDisplayOptions: {
+        one: '1 (Standard)',
+        two: '2 (Teilt)',
+        four: '4 (Gitter)'
       },
       selectMaps: {
         selectAMap: 'Wählen Sie eine Karte',

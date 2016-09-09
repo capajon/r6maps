@@ -24,6 +24,7 @@
     setupMenu();
     setupSelectMap();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
+    tryLoadMapPaneCount();
 
     if (trySelectBookmarkedMap()) {
       loadMap();
@@ -199,6 +200,11 @@
     sendControlAnalyticsEvent('Floor', R6MapsControls.getCurrentlySelectedFloor());
   };
 
+  var setMapPaneCount = function setMapPaneCount(numberFloorsToDisplay) {
+    localStorage.setItem('mappanecount', numberFloorsToDisplay);
+    console.log('setMapPaneCount to be implemented fully', numberFloorsToDisplay);
+  };
+
   var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
     sendControlAnalyticsEvent('Map', R6MapsControls.getCurrentlySelectedMap());
   };
@@ -235,9 +241,10 @@
 
     R6MapsControls.setupObjectiveChangeEvent(handleObjectiveChange);
     R6MapsControls.setupMapChangeEvent(handleMapChange);
-    R6MapsControls.setupFloorChangeEvent(handleFloorChange);
+    R6MapsControls.setupMapPaneCountEvent(handleFloorChange);
     R6MapsControls.setupFloorHotkeys(showSelectedFloor);
     R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
+    R6MapsControls.setupMapPaneCountChangeEvent(setMapPaneCount);
 
     navLogoEl.on('click', function(event) {
       event.preventDefault();
@@ -264,7 +271,7 @@
   };
 
   var setupMenu = function setupMenu() {
-    R6MapsControls.populateMenu(R6MapsRender.roomLabelStyles);
+    R6MapsControls.setupMenu(R6MapsRender.roomLabelStyles);
 
     $('#mmenu-menu').mmenu({
       offCanvas: {
@@ -317,7 +324,15 @@
     }
   };
 
-  var tryLoadStartingLanguage = function tryLoadStartingLanguage(){
+  var tryLoadMapPaneCount = function tryLoadMapPaneCount() {
+    var mapPaneCount = localStorage.getItem('mappanecount');
+    if (mapPaneCount) {
+      R6MapsControls.trySelectFloorNumberDisplay(mapPaneCount);
+      setMapPaneCount(mapPaneCount);
+    }
+  };
+
+  var tryLoadStartingLanguage = function tryLoadStartingLanguage() {
     var lastChosenLanguage = localStorage.getItem('language'),
       userLang = (navigator.language || navigator.userLanguage).split('-')[0];
 
@@ -333,7 +348,7 @@
     if (style) {
       R6MapsControls.trySelectRoomLabelStyle(style);
       R6MapsRender.setRoomLabelStyle(mapElements, style);
-    }    
+    }
   };
 
   var trySelectBookmarkedMap = function trySelectBookmarkedMap() {
