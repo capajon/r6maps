@@ -21,8 +21,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelNumberFloorsToDisplay: 'Anzahl der Etagen anzuzeigen'
       },
       roomLabelStyles: {
-        Dark: 'Dunkel ( Standard )',
-        Light: 'Licht',
+        Dark: 'Dunkel',
+        Light: 'Licht ( Standard )',
         LightAndLarge: 'Groß und Dunkel',
         DarkAndLarge: 'Groß und Licht'
       },

@@ -22,8 +22,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelNumberFloorsToDisplay: 'Nombre d\'étages pour afficher'
       },
       roomLabelStyles: {
-        Dark: 'Foncé ( Défaut )',
-        Light: 'Lumière',
+        Dark: 'Foncé',
+        Light: 'Lumière ( Défaut )',
         DarkAndLarge: 'Grand et Sombre',
         LightAndLarge: 'Grand et Lumière'
       },

@@ -30,8 +30,8 @@ var R6MapsLangTerms = (function(undefined) {
         button: 'Create/Join'
       },
       roomLabelStyles: {
-        Dark: 'Dark (Default)',
-        Light: 'Light',
+        Dark: 'Dark',
+        Light: 'Light (Default)',
         DarkAndLarge: 'Large and Dark',
         LightAndLarge: 'Large and Light'
       },

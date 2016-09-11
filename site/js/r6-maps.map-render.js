@@ -25,7 +25,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       4: 'four',
       5: 'five'
     },
-    ROOM_LABEL_STYLES = ['Dark', 'Light', 'DarkAndLarge', 'LightAndLarge'],
+    ROOM_LABEL_STYLES = ['Light', 'Dark', 'LightAndLarge', 'DarkAndLarge'],
     ROOM_LABEL_CSS_TEXT = {
       Dark: 'room-label-dark',
       Light: 'room-label-light',
