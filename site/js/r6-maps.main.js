@@ -249,7 +249,7 @@
 
     R6MapsControls.setupObjectiveChangeEvent(handleObjectiveChange);
     R6MapsControls.setupMapChangeEvent(handleMapChange);
-    R6MapsControls.setupMapPaneCountEvent(handleFloorChange);
+    R6MapsControls.setupFloorChangeEvent(handleFloorChange);
     R6MapsControls.setupFloorHotkeys(showSelectedFloor);
     R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
     R6MapsControls.setupMapPaneCountChangeEvent(setMapPaneCount);

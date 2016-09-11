@@ -225,7 +225,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
   };
 
-  var setupMapPaneCountEvent = function setupMapPaneCountEvent(callback) {
+  var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
     floorControl.on('click', 'button', function(e) {
       var floorButton =  (e.target.tagName == 'SPAN')
         ? $(e.target).parent()
@@ -370,7 +370,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupMenu: setupMenu,
     populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
-    setupMapPaneCountEvent: setupMapPaneCountEvent,
+    setupFloorChangeEvent: setupFloorChangeEvent,
     setupMapPaneCountChangeEvent: setupMapPaneCountChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
     setupLosOpacity: setupLosOpacity,
