@@ -143,7 +143,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '</div>';
 
     html += '<!--';
-    html += '<div class="mmenu-custom-panel">'
+    html += '<div class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
     html += '<div class="channel-input-wrapper">';
     html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
