@@ -142,14 +142,26 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
     html += '</div>';
 
+    html += '<!--';
+    html += '<div class="mmenu-custom-panel">'
+    html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
+    html += '<div class="channel-input-wrapper">';
+    html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
+    html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
+    html += '</div>';
+    html += '</div>';
+    html += '-->';
+
     html += '<div id="los-opacity" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
+    html += '<!--';
     html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
     html += '<select id="map-pane-count">';
     html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
     html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
     html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
     html += '</select>';
+    html += '-->';
     html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
     html += '<select id="room-label-style"></select>';
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
@@ -227,7 +239,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var setupMapPaneCountChangeEvent = function setupMapPaneCountChangeEvent(callback) {
     mapPaneCountControl.on('change', function(event) {
-      callback(event.target.value)
+      callback(event.target.value);
     });
   };
 

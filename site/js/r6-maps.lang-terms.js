@@ -24,6 +24,11 @@ var R6MapsLangTerms = (function(undefined) {
         labelRoomLabelStyle: 'Room label style',
         labelNumberFloorsToDisplay: 'Number of floors to display'
       },
+      channels: { // todo: translate
+        title: 'Team channels',
+        name: 'Channel Name (Letters and numbers only)',
+        button: 'Create/Join'
+      },
       roomLabelStyles: {
         Default: 'Default',
         Darker: 'Darker',

@@ -950,6 +950,18 @@ html.mm-pagedim-black #mm-blocker {
   .mmenu-custom-panel select {
     margin-left: 0.7rem;
     margin-bottom: 0.5rem; }
+  .mmenu-custom-panel .channel-input-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0.7rem;
+    width: 100%; }
+    .mmenu-custom-panel .channel-input-wrapper input {
+      font-weight: 400;
+      padding-left: 07rem;
+      width: 100%; }
   .mmenu-custom-panel .zoom.controls {
     -webkit-box-align: center;
     -ms-flex-align: center;

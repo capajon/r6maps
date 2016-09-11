@@ -69,6 +69,18 @@ $custom-mmenu-padding: 0.7em;
     margin-bottom: 0.5rem;
   }
 
+  .channel-input-wrapper {
+    @include flexbox;
+    padding-left: 0.7rem;
+    width: 100%;
+
+    input {
+      font-weight: 400;
+      padding-left: 07rem;
+      width: 100%;
+    }
+  }
+
   .zoom.controls {
     @include align-items(center);
     @include flexbox;

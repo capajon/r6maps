@@ -16,7 +16,7 @@
     DEFAULT_LOS_OPACITY = 0.15;
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
-    mapPanelsWraper = $('#map-panels-wrapper')
+    mapPanelsWraper = $('#map-panels-wrapper');
     navLogoEl = $('#nav-logo');
     bodyEl = $('body');
     setMapElements();
@@ -334,6 +334,7 @@
 
   var tryLoadMapPaneCount = function tryLoadMapPaneCount() {
     var mapPaneCount = localStorage.getItem('mappanecount');
+
     if (mapPaneCount) {
       R6MapsControls.trySelectFloorNumberDisplay(mapPaneCount);
       setMapPaneCount(mapPaneCount);
@@ -353,6 +354,7 @@
 
   var tryLoadRoomLabelStyle = function tryLoadRoomLabelStyle() {
     var style = localStorage.getItem('roomlabelstyle');
+
     if (style) {
       R6MapsControls.trySelectRoomLabelStyle(style);
       R6MapsRender.setRoomLabelStyle(mapElements, style);
