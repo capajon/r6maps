@@ -25,12 +25,12 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       4: 'four',
       5: 'five'
     },
-    ROOM_LABEL_STYLES = ['Default', 'Darker', 'Larger', 'DarkerAndLarger'],
+    ROOM_LABEL_STYLES = ['Dark', 'Light', 'DarkAndLarge', 'LightAndLarge'],
     ROOM_LABEL_CSS_TEXT = {
-      Default: 'room-label-default',
-      Darker: 'room-label-darker',
-      Larger: 'room-label-larger',
-      DarkerAndLarger: 'room-label-darker room-label-larger'
+      Dark: 'room-label-dark',
+      Light: 'room-label-light',
+      DarkAndLarge: 'room-label-dark room-label-large',
+      LightAndLarge: 'room-label-light room-label-large'
     };
 
   var getBombObjectivesHtml = function getBombObjectivesHtml(bombObjectives) {

@@ -353,16 +353,15 @@ body, button, input, select {
         font-size: 16px;
         font-weight: 400;
 
-        @at-root .map-elements.room-label-larger .room-label p {
+        @at-root .map-elements.room-label-large .room-label p {
           font-size: 21px !important;
         }
-        @at-root .map-elements.room-label-darker .room-label {
+        @at-root .map-elements.room-label-dark .room-label {
           opacity: 1 !important;
 
           p {
-            background: $less-faded-bg;
+            background: $faded-bg;
             font-weight: 600 !important;
-            opacity: 1;
           }
         }
       }

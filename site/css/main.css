@@ -1336,14 +1336,13 @@ body, button, input, select {
         display: inline-block;
         font-size: 16px;
         font-weight: 400; }
-        .map-elements.room-label-larger .room-label p {
+        .map-elements.room-label-large .room-label p {
           font-size: 21px !important; }
-        .map-elements.room-label-darker .room-label {
+        .map-elements.room-label-dark .room-label {
           opacity: 1 !important; }
-          .map-elements.room-label-darker .room-label p {
-            background: rgba(16, 26, 36, 0.7);
-            font-weight: 600 !important;
-            opacity: 1; }
+          .map-elements.room-label-dark .room-label p {
+            background: rgba(16, 26, 36, 0.6);
+            font-weight: 600 !important; }
       .map-main .map-elements .room-label.hard-to-read {
         opacity: 0.8; }
         .map-main .map-elements .room-label.hard-to-read p {
