@@ -329,6 +329,25 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     mapElements.addClass(ROOM_LABEL_CSS_TEXT[style]);
   };
 
+  var setupMapPanels = function setupMapPanels(mapPanelsWraper, numPanels) {
+    var html;
+
+    for (var x = 0; x < numPanels; x++) {
+        html = ''
+        html += '<div class="map-pan-safety-wrapper">';
+        html += '<div class="map-main">';
+        html += '<div class="center-helper">';
+        html += '<div class="map-elements"></div>';
+        html += '</div>';
+        html += '<svg class="center-helper">';
+        html += '<g class="svg-elements"></g>';
+        html += '</svg>';
+        html += '</div>';
+        html += '</div>';
+        mapPanelsWraper.append(html);
+    }
+  };
+
   var showFloor = function showFloor(floor, mapEl) {
     var floorPrefix = 'show-floor-';
 
@@ -348,6 +367,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     renderMap: renderMap,
     roomLabelStyles: ROOM_LABEL_STYLES,
     setRoomLabelStyle: setRoomLabelStyle,
+    setupMapPanels: setupMapPanels,
     showFloor: showFloor,
     showObjective: showObjective
   };

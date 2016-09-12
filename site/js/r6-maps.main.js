@@ -17,6 +17,7 @@
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     setPageElements();
+    R6MapsRender.setupMapPanels(mapPanelsWraper, 4)
     setMapElements();
     tryLoadStartingLanguage();
     setupMenu();
