@@ -15,6 +15,10 @@
   @include offscreen;
 }
 
+.feature-flagged {
+  display: none;
+}
+
 .r6-like-font {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
@@ -76,19 +80,17 @@ body, button, input, select {
   @include justify-content(space-around);
 
   &[map-panel-count="2"] .map-pan-safety-wrapper {
-    display: inline-block;
-    width: 49vw;
+    @include flex(1 1 50%);
 
-    @media (orientation:portrait) {
-      height: 49vh;
-      width: 100vw;
+    @media (orientation: portrait) {
+      @include flex(1 1 100%);
+      height: 50vh;
     }
   }
 
   &[map-panel-count="4"] .map-pan-safety-wrapper {
-    display: inline-block;
-    height: 49vh;
-    width: 49vw;
+    @include flex(1 1 50%);
+    height: 50vh;
   }
 }
 

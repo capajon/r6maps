@@ -7,11 +7,28 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
     roomLabelStylesControl,
-    mapPaneCountControl,
+    mapPanelCountControl,
+    channelControl,
     menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
+
+  var disableZoom = function disableZoom(mapElements) {
+    mapElements.panzoom('disable');
+  };
+
+  var enableChannelControl = function enableChannelControl() {
+    $('.feature-flagged.channel-control').css('display', 'block');
+  };
+
+  var enableMapPanelCountControl = function enableMapPanelCountControl() {
+    $('.feature-flagged.map-panel-count-control').css('display', 'block');
+  };
+
+  var enableZoom = function enableZoom(mapElements) {
+    mapElements.panzoom('enable');
+  };
 
   var getCurrentlySelectedFloor = function getCurrentlySelectedFloor() {
     return floorControl.find('.selected').data('index');
@@ -57,6 +74,16 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
       updateLosOpacityFn(opacity);
       setLosLabelsText(opacity, defaultOpacity);
+    };
+  };
+
+  var getHandlePanZoomChangeFn = function getHandlePanZoomChangeFn(mapEl) {
+    return function handlePanZoomChange(event, panzoom, transform) {
+      mapEl.each(function(index, map){
+        if (map !== event.target) {
+          $(map).panzoom('pan', transform[4], transform[5], {silent: true});
+        }
+      });
     };
   };
 
@@ -142,7 +169,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
     html += '</div>';
 
-    html += '<!--';
+    html += '<div class="feature-flagged channel-control">';
     html += '<div class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
     html += '<div class="channel-input-wrapper">';
@@ -150,25 +177,29 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
     html += '</div>';
     html += '</div>';
-    html += '-->';
+    html += '</div>';
 
     html += '<div id="los-opacity" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
-    html += '<!--';
+
+    html += '<div class="feature-flagged map-panel-count-control">';
     html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
     html += '<select id="map-pane-count">';
     html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
     html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
     html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
     html += '</select>';
-    html += '-->';
+    html += '</div>';
+
     html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
     html += '<select id="room-label-style"></select>';
+
     html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
     html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
     html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
     html += '</div>';
+
     html += '</div>';
 
     html += '<div class="faded-logo"></div>';
@@ -177,7 +208,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     menuControl.html(R6MapsLangTerms.terms.general.menu);
     roomLabelStylesControl = $('#room-label-style');
     populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
-    mapPaneCountControl = $('#map-pane-count');
+    mapPanelCountControl = $('#map-pane-count');
   };
 
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
@@ -225,6 +256,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
   };
 
+  var resetZoom = function resetZoom(map) {
+    map.panzoom('resetZoom');
+  };
+
   var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
     floorControl.on('click', 'button', function(e) {
       var floorButton =  (e.target.tagName == 'SPAN')
@@ -237,8 +272,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
   };
 
-  var setupMapPaneCountChangeEvent = function setupMapPaneCountChangeEvent(callback) {
-    mapPaneCountControl.on('change', function(event) {
+  var setupMapPanelCountChangeEvent = function setupMapPanelCountChangeEvent(callback) {
+    mapPanelCountControl.on('change', function(event) {
       callback(event.target.value);
     });
   };
@@ -295,7 +330,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
   };
 
-  var setupZoom = function setupZoom(mapEl, mapElements) {
+  var setupPanZoom = function setupPanZoom(mapEl, mapElements) {
     mapEl.panzoom({
       $zoomRange: zoomControl,
       minScale: 0.3,
@@ -305,7 +340,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     mapEl.on('mousewheel', function(event) {
       zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
       zoomControl.trigger('input');
-      zoomControl.trigger('change');
+      //needed? zoomControl.trigger('change');
     });
 
     zoomControl.on('change', getHandleZoomChangeFn(mapElements));
@@ -320,6 +355,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       $(this).removeClass('hover');
       this.click();
     });
+
+    mapEl.on('panzoomchange', getHandlePanZoomChangeFn(mapEl));
   };
 
   var trySelectFloor = function trySelectFloor(floorIndex) {
@@ -334,8 +371,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return false;
   };
 
-  var trySelectFloorNumberDisplay = function trySelectFloorNumberDisplay(number) {
-    return trySelectOption(mapPaneCountControl, number);
+  var trySelectMapPanelCount = function trySelectMapPanelCount(number) {
+    return trySelectOption(mapPanelCountControl, number);
   };
 
   var trySelectMap = function trySelectMap(map) {
@@ -361,6 +398,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   return  {
+    disableZoom: disableZoom,
+    enableChannelControl: enableChannelControl,
+    enableMapPanelCountControl: enableMapPanelCountControl,
+    enableZoom: enableZoom,
     getCurrentlySelectedFloor: getCurrentlySelectedFloor,
     getCurrentlySelectedMap: getCurrentlySelectedMap,
     getCurrentlySelectedObjective: getCurrentlySelectedObjective,
@@ -370,16 +411,17 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupMenu: setupMenu,
     populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
+    resetZoom: resetZoom,
     setupFloorChangeEvent: setupFloorChangeEvent,
-    setupMapPaneCountChangeEvent: setupMapPaneCountChangeEvent,
+    setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
     setupLosOpacity: setupLosOpacity,
     setupMapChangeEvent: setupMapChangeEvent,
     setupObjectiveChangeEvent: setupObjectiveChangeEvent,
     setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
-    setupZoom: setupZoom,
+    setupPanZoom: setupPanZoom,
     trySelectFloor: trySelectFloor,
-    trySelectFloorNumberDisplay: trySelectFloorNumberDisplay,
+    trySelectMapPanelCount: trySelectMapPanelCount,
     trySelectMap: trySelectMap,
     trySelectObjective: trySelectObjective,
     trySelectRoomLabelStyle: trySelectRoomLabelStyle
