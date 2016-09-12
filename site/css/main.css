@@ -949,7 +949,8 @@ html.mm-pagedim-black #mm-blocker {
     font-weight: 700; }
   .mmenu-custom-panel select {
     margin-left: 0.7rem;
-    margin-bottom: 0.5rem; }
+    margin-bottom: 0.5rem;
+    min-width: 160px; }
   .mmenu-custom-panel .channel-input-wrapper {
     display: -webkit-box;
     display: -webkit-flex;
