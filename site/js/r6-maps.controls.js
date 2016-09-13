@@ -42,6 +42,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return objectiveControl.val();
   };
 
+  var getMaxFloorIndex = function getMaxFloorIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
+    var floorInputs = floorControl.find('button');
+
+    return $(floorInputs[floorInputs.length - 1]).data('index');
+  };
+
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
     var shortcutTip = R6MapsLangTerms.terms.general.shortcutTip;
 
@@ -405,6 +411,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     getCurrentlySelectedFloor: getCurrentlySelectedFloor,
     getCurrentlySelectedMap: getCurrentlySelectedMap,
     getCurrentlySelectedObjective: getCurrentlySelectedObjective,
+    getMaxFloorIndex: getMaxFloorIndex,
     isZoomed: isZoomed,
     populateFloorOptions: populateFloorOptions,
     populateMapOptions: populateMapOptions,

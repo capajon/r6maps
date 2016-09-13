@@ -47,6 +47,7 @@ $zoom-blue: #3071a9;
 $drone-bg-color: #7B0099;
 $drone-bg-alternate-color: #FF1493;
 $spawn-point-bg: #4C4C4C;
+$very-dark-blue: #11171d;
 
 /* Z-INDEXES */
 $z-background: 1000;
@@ -64,5 +65,6 @@ $z-drone: 1160;
 $z-room-label: 1165;
 $z-camera: 1170;
 $z-map-border: 1200;
+$z-map-label: 1201;
 $z-select-map-grid: 1250;
 $z-nav: 1300;

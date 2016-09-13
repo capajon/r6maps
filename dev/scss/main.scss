@@ -79,8 +79,47 @@ body, button, input, select {
   @include flex-wrap(wrap);
   @include justify-content(space-around);
 
+  .helper-border {
+    background-color: $very-dark-blue;
+    display: none;
+    position: absolute;
+    z-index: $z-map-border;
+  }
+  .helper-border.vertical {
+    height: 100%;
+    width: 1px;
+  }
+  .helper-border.horizontal {
+    height: 1px;
+    width: 100%;
+  }
+
+  .map-panel-label {
+    background-color: $faded-bg;
+    border: 2px solid $very-dark-blue;
+    border-radius: 0 0 6px 6px;
+    color: #fff;
+    font-size: 1.4rem;
+    left: 0;
+    padding: 0.2em 0.6em 0.3em 0.6em;
+    position: absolute;
+    z-index: $z-map-label;
+    text-align: center;
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%, 0);
+	  transform-origin: left top 0;
+  }
+
   &[map-panel-count="2"] .map-pan-safety-wrapper {
     @include flex(1 1 50%);
+
+    .helper-border.vertical {
+      display: block;
+    }
+
+    &:first-child .helper-border.vertical {
+      right: 0;
+    }
 
     @media (orientation: portrait) {
       @include flex(1 1 100%);
@@ -91,6 +130,21 @@ body, button, input, select {
   &[map-panel-count="4"] .map-pan-safety-wrapper {
     @include flex(1 1 50%);
     height: 50vh;
+
+    .helper-border.vertical,
+    .helper-border.horizontal {
+      display: block;
+    }
+
+    &:first-child .helper-border.vertical,
+    &:nth-child(3) .helper-border.vertical {
+      right: 0;
+    }
+
+    &:first-child .helper-border.horizontal,
+    &:nth-child(2) .helper-border.horizontal {
+      bottom: 0;
+    }
   }
 }
 

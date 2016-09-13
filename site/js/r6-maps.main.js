@@ -144,7 +144,7 @@
       mapData = R6MapsData.getMapData();
 
     R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
-    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
+    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);//jontemp
     R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgElements);
     R6MapsControls.resetPan(mapEl);
 
@@ -344,7 +344,11 @@
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
-    R6MapsRender.showFloor(R6MapsControls.getCurrentlySelectedFloor(), mapEl);
+    R6MapsRender.showFloor(
+      R6MapsControls.getCurrentlySelectedFloor(),
+      mapEl,
+      R6MapsControls.getMaxFloorIndex()
+    );
   };
 
   var showSelectedObjective =  function showSelectedObjective() {

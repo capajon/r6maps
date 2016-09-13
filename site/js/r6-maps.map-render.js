@@ -3,6 +3,7 @@
 var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var CAMERA_WIDTH = 40,
     CAMERA_HEIGHT = 40,
+    CSS_FLOOR_PREFIX = 'show-floor-',
     langTerms = R6MapsLangTerms.terms;
 
   $.fn.removeClassPrefix = function(prefix) {
@@ -154,7 +155,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var getFloorsHtml = function getFloorsHtml(floors, imgUrlPrefix) {
+  var getMaxFloorIndexHtml = function getMaxFloorIndexHtml(floors, imgUrlPrefix) {
     var html = '',
       prefix,
       imgSrc,
@@ -306,7 +307,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     var html = '';
 
     html += getSpinnerHtml();
-    html += getFloorsHtml(mapData.floors, mapData.imgUrlPrefix);
+    html += getMaxFloorIndexHtml(mapData.floors, mapData.imgUrlPrefix);
     html += getCeilingHatchesHtml(mapData.ceilingHatches);
     html += getSkylightsHtml(mapData.skylights);
     html += getCamerasHtml(mapData.cameras, mapData.imgUrlPrefix);
@@ -335,6 +336,9 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     for (var x = 0; x < numPanels; x++) {
         html = ''
         html += '<div class="map-pan-safety-wrapper">';
+        html += '<div class="helper-border vertical"></div>';
+        html += '<div class="helper-border horizontal"></div>';
+        html += '<div class="map-panel-label"><p>1st Floor</p></div>';
         html += '<div class="map-main">';
         html += '<div class="center-helper">';
         html += '<div class="map-elements"></div>';
@@ -348,11 +352,14 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     }
   };
 
-  var showFloor = function showFloor(floor, mapEl) {
-    var floorPrefix = 'show-floor-';
+  var showFloor = function showFloor(floor, mapEl, maxFloorIndex) { // change to maxFloorIndex
+    var floorIndex = floor;
 
-    mapEl.removeClassPrefix(floorPrefix);
-    mapEl.addClass(floorPrefix + FLOOR_CSS_TEXT[floor]);
+    mapEl.each(function(index, map) {
+      $(map).removeClassPrefix(CSS_FLOOR_PREFIX);
+      $(map).addClass(CSS_FLOOR_PREFIX + FLOOR_CSS_TEXT[Math.min(floorIndex, maxFloorIndex)]);
+      floorIndex++;
+    });
   };
 
   var showObjective = function showObjective(objective, mapElements) {

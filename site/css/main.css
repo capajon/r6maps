@@ -1069,6 +1069,31 @@ body, button, input, select {
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   justify-content: space-around; }
+  #map-panels-wrapper .helper-border {
+    background-color: #11171d;
+    display: none;
+    position: absolute;
+    z-index: 1200; }
+  #map-panels-wrapper .helper-border.vertical {
+    height: 100%;
+    width: 1px; }
+  #map-panels-wrapper .helper-border.horizontal {
+    height: 1px;
+    width: 100%; }
+  #map-panels-wrapper .map-panel-label {
+    background-color: rgba(16, 26, 36, 0.6);
+    border: 2px solid #11171d;
+    border-radius: 0 0 6px 6px;
+    color: #fff;
+    font-size: 1.4rem;
+    left: 0;
+    padding: 0.2em 0.6em 0.3em 0.6em;
+    position: absolute;
+    z-index: 1201;
+    text-align: center;
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%, 0);
+    transform-origin: left top 0; }
   #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 50%;
@@ -1076,6 +1101,10 @@ body, button, input, select {
     -moz-flex: 1 1 50%;
     -ms-flex: 1 1 50%;
     flex: 1 1 50%; }
+    #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper .helper-border.vertical {
+      display: block; }
+    #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper:first-child .helper-border.vertical {
+      right: 0; }
     @media (orientation: portrait) {
       #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper {
         -webkit-box-flex: 1;
@@ -1093,6 +1122,13 @@ body, button, input, select {
     -ms-flex: 1 1 50%;
     flex: 1 1 50%;
     height: 50vh; }
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper .helper-border.vertical,
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper .helper-border.horizontal {
+      display: block; }
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:first-child .helper-border.vertical, #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:nth-child(3) .helper-border.vertical {
+      right: 0; }
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:first-child .helper-border.horizontal, #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:nth-child(2) .helper-border.horizontal {
+      bottom: 0; }
 
 .map-main {
   height: 100%;
