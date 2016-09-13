@@ -14,9 +14,22 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         languageHeader: 'Sprache',
         labelLosOpacity: 'Kamera line-of -sight Opazität',
         labelPercent: '{int} %', // according to: (0.12).toLocaleString('de', { style: 'percent' });
-        labelLosDefault: '(Standard)',
-        labelLos105: '(Huh?)',
-        labelLos110: '(Wahnsinn!)'
+        labelLosDefault: '( Standard )',
+        labelLos105: '( Huh? )',
+        labelLos110: '( Wahnsinn! )',
+        labelRoomLabelStyle: 'Zimmer Aufkleberart',
+        labelNumberFloorsToDisplay: 'Anzahl der Etagen anzuzeigen'
+      },
+      roomLabelStyles: {
+        Dark: 'Dunkel',
+        Light: 'Licht ( Standard )',
+        LightAndLarge: 'Groß und Dunkel',
+        DarkAndLarge: 'Groß und Licht'
+      },
+      floorDisplayOptions: {
+        one: '1 ( Standard )',
+        two: '2 ( Teilt )',
+        four: '4 ( Gitter )'
       },
       selectMaps: {
         selectAMap: 'Wählen Sie eine Karte',
@@ -105,7 +118,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           mainStairway: 'Haupttreppe',
           bankGarage: 'Bank-Garage',
           elevators: 'Aufzüge',
-          tellersOffice: 'Kassier-Büro',
+          tellersOffice: 'Kassier-<br/>Büro',
           archives: 'Archiv',
           tellers: 'Schalter',
           loanOffice: 'Kredit-Büro',

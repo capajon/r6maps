@@ -7,9 +7,10 @@ $nav-font-size: 1.2rem;
 $control-padding-top-bottom: 0.15em;
 $control-padding-left-right: 0.5em;
 $control-padding: $control-padding-top-bottom $control-padding-left-right;
-$room-label-opacity: 0.44;
+$room-label-opacity: 0.7;
 $faded-bg: rgba(16,26,36,0.6);
 $less-faded-bg: rgba(16,26,36,0.7);
+$even-less-faded-bg: rgba(16,26,36,0.9);
 $button-transition: 0.2s;
 
 /* RESPONSIVE BREAKPOINTS */
@@ -46,6 +47,7 @@ $zoom-blue: #3071a9;
 $drone-bg-color: #7B0099;
 $drone-bg-alternate-color: #FF1493;
 $spawn-point-bg: #4C4C4C;
+$very-dark-blue: #11171d;
 
 /* Z-INDEXES */
 $z-background: 1000;
@@ -62,5 +64,7 @@ $z-objective-secure: 1152;
 $z-drone: 1160;
 $z-room-label: 1165;
 $z-camera: 1170;
-$z-select-map-grid: 1200;
+$z-map-border: 1200;
+$z-map-label: 1201;
+$z-select-map-grid: 1250;
 $z-nav: 1300;

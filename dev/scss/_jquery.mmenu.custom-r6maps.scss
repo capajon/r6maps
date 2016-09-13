@@ -59,13 +59,32 @@ $custom-mmenu-padding: 0.7em;
   }
 
   label {
+    display: block;
     padding: $custom-mmenu-padding;
     font-weight: 700;
   }
 
+  select {
+    margin-left: 0.7rem;
+    margin-bottom: 0.5rem;
+    min-width: 160px;
+  }
+
+  .channel-input-wrapper {
+    @include flexbox;
+    padding-left: 0.7rem;
+    width: 100%;
+
+    input {
+      font-weight: 400;
+      padding-left: 07rem;
+      width: 100%;
+    }
+  }
+
   .zoom.controls {
-    align-items: center;
-    display: flex;
+    @include align-items(center);
+    @include flexbox;
     margin-left: $custom-mmenu-padding;
   }
 }

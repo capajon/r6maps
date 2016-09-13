@@ -160,16 +160,36 @@ nav {
   top: 0;
   z-index: 1300; }
   nav .wrapper {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
     align-items: center;
     background: rgba(16, 26, 36, 0.6);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
     justify-content: space-between;
     min-height: 4.2rem;
     width: 100vw; }
   nav select {
     font-size: 1.2rem; }
   nav .left.controls {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
     align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex; }
   nav .right.controls {
     margin: 0.15em 0.5em; }
@@ -416,9 +436,17 @@ body.about {
       line-height: 31px; }
 
 #select-map-grid {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
   align-items: center;
   background-color: rgba(16, 26, 36, 0.7);
   bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   height: 100vh;
   opacity: 0;
@@ -426,15 +454,26 @@ body.about {
   transition: visibility 0.5s, opacity 0.5s linear;
   visibility: hidden;
   width: 100%;
-  z-index: 1200; }
+  z-index: 1250; }
   #select-map-grid.enable-thumb-transition div.image.thumb {
     transition: all 0.6s; }
   body.show-select-map #select-map-grid {
     visibility: visible;
     opacity: 1; }
   #select-map-grid ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
     justify-content: center; }
     #select-map-grid ul li {
       display: inline-block; }
@@ -442,10 +481,18 @@ body.about {
         -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
         -moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        -webkit-align-items: flex-end;
+        -moz-align-items: flex-end;
         align-items: flex-end;
         background-size: 160px;
         border: 1px solid #fff;
         color: #fff;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
         display: flex;
         height: 120px;
         position: relative;
@@ -453,9 +500,21 @@ body.about {
         transition: box-shadow 0.2s;
         width: 160px; }
         #select-map-grid ul li a div.wrapper.absolute {
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          -moz-align-items: center;
           align-items: center;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
           display: flex;
           height: 100%;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          -moz-justify-content: center;
           justify-content: center;
           left: 0;
           overflow: hidden;
@@ -602,25 +661,25 @@ body.about {
     .sk-circle {
       width: 60px;
       height: 60px; } }
-  #map-elements .sk-circle {
+  .map-elements .sk-circle {
     width: 280px;
     height: 280px;
     top: -140px;
     left: -140px; }
     @media screen and (max-width: 1400px) {
-      #map-elements .sk-circle {
+      .map-elements .sk-circle {
         width: 220px;
         height: 220px;
         top: -110px;
         left: -110px; } }
     @media screen and (max-width: 620px) {
-      #map-elements .sk-circle {
+      .map-elements .sk-circle {
         width: 160px;
         height: 160px;
         top: -80px;
         left: -80px; } }
     @media screen and (max-width: 400px) {
-      #map-elements .sk-circle {
+      .map-elements .sk-circle {
         width: 120px;
         height: 120px;
         top: -60px;
@@ -885,10 +944,35 @@ html.mm-pagedim-black #mm-blocker {
     color: grey;
     padding: 0.7em; }
   .mmenu-custom-panel label {
+    display: block;
     padding: 0.7em;
     font-weight: 700; }
+  .mmenu-custom-panel select {
+    margin-left: 0.7rem;
+    margin-bottom: 0.5rem;
+    min-width: 160px; }
+  .mmenu-custom-panel .channel-input-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0.7rem;
+    width: 100%; }
+    .mmenu-custom-panel .channel-input-wrapper input {
+      font-weight: 400;
+      padding-left: 07rem;
+      width: 100%; }
   .mmenu-custom-panel .zoom.controls {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
     align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
     margin-left: 0.7em; }
 
@@ -906,6 +990,9 @@ html.mm-pagedim-black #mm-blocker {
   overflow: hidden;
   width: 1px;
   height: 1px; }
+
+.feature-flagged {
+  display: none; }
 
 .r6-like-font, body, button, input, select {
   font-family: 'Open Sans Condensed', sans-serif;
@@ -959,16 +1046,95 @@ body, button, input, select {
   height: 100vh;
   position: relative; }
 
-#map-pan-safety-wrapper {
+.map-pan-safety-wrapper {
   height: 100vh;
   width: 100vw;
   overflow: hidden; }
 
-#map {
-  height: 100vh;
+#map-panels-wrapper {
+  -webkit-align-content: space-around;
+  -moz-align-content: space-around;
+  -ms-flex-line-pack: space-around;
+  align-content: space-around;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  justify-content: space-around; }
+  #map-panels-wrapper .helper-border {
+    background-color: #11171d;
+    display: none;
+    position: absolute;
+    z-index: 1200; }
+  #map-panels-wrapper .helper-border.vertical {
+    height: 100%;
+    width: 1px; }
+  #map-panels-wrapper .helper-border.horizontal {
+    height: 1px;
+    width: 100%; }
+  #map-panels-wrapper .map-panel-label {
+    background-color: rgba(16, 26, 36, 0.6);
+    border: 2px solid #11171d;
+    border-radius: 0 0 6px 6px;
+    color: #fff;
+    font-size: 1.4rem;
+    left: 0;
+    padding: 0.2em 0.6em 0.3em 0.6em;
+    position: absolute;
+    z-index: 1201;
+    text-align: center;
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%, 0);
+    transform-origin: left top 0; }
+  #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+    -moz-box-flex: 1;
+    -moz-flex: 1 1 50%;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%; }
+    #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper .helper-border.vertical {
+      display: block; }
+    #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper:first-child .helper-border.vertical {
+      right: 0; }
+    @media (orientation: portrait) {
+      #map-panels-wrapper[map-panel-count="2"] .map-pan-safety-wrapper {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 100%;
+        -moz-box-flex: 1;
+        -moz-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+        height: 50vh; } }
+  #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+    -moz-box-flex: 1;
+    -moz-flex: 1 1 50%;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    height: 50vh; }
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper .helper-border.vertical,
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper .helper-border.horizontal {
+      display: block; }
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:first-child .helper-border.vertical, #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:nth-child(3) .helper-border.vertical {
+      right: 0; }
+    #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:first-child .helper-border.horizontal, #map-panels-wrapper[map-panel-count="4"] .map-pan-safety-wrapper:nth-child(2) .helper-border.horizontal {
+      bottom: 0; }
+
+.map-main {
+  height: 100%;
   position: relative;
-  width: 100vw; }
-  #map .center-helper {
+  width: 100%; }
+  .map-main .center-helper {
     height: 0;
     margin: auto;
     position: absolute;
@@ -977,39 +1143,39 @@ body, button, input, select {
     bottom: 0;
     right: 0;
     width: 0; }
-  #map svg.center-helper {
+  .map-main svg.center-helper {
     overflow: visible;
     width: 1px;
     height: 1px;
     z-index: 1112; }
-  #map svg .camera-los {
+  .map-main svg .camera-los {
     fill: transparent;
     stroke: #ffdb00;
     stroke-width: 3;
     stroke-linejoin: round;
     stroke-linecap: round;
     transition: opacity 1s; }
-    #map svg .camera-los.show-more {
+    .map-main svg .camera-los.show-more {
       opacity: 1 !important; }
-    #map svg .camera-los.opacity-105, #map svg .camera-los.opacity-110 {
+    .map-main svg .camera-los.opacity-105, .map-main svg .camera-los.opacity-110 {
       stroke: #d65b2b;
       stroke-dasharray: 7; }
-      #map svg .camera-los.opacity-105.show-more, #map svg .camera-los.opacity-110.show-more {
+      .map-main svg .camera-los.opacity-105.show-more, .map-main svg .camera-los.opacity-110.show-more {
         stroke-dasharray: none; }
-    #map svg .camera-los.opacity-110 {
+    .map-main svg .camera-los.opacity-110 {
       stroke-width: 5; }
-  #map #map-elements {
+  .map-main .map-elements {
     position: relative; }
-    #map #map-elements img, #map #map-elements div, #map #map-elements a {
+    .map-main .map-elements img, .map-main .map-elements div, .map-main .map-elements a {
       position: absolute; }
-    #map #map-elements .background {
+    .map-main .map-elements .background {
       -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       z-index: 1000; }
-    #map #map-elements .floor {
+    .map-main .map-elements .floor {
       z-index: 1010; }
-    #map #map-elements .camera {
+    .map-main .map-elements .camera {
       width: 36px;
       height: 36px;
       margin-left: -18px;
@@ -1019,15 +1185,15 @@ body, button, input, select {
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1170; }
-      #map #map-elements .camera.outdoor {
+      .map-main .map-elements .camera.outdoor {
         width: 46px;
         height: 46px;
         margin-left: -23px;
         margin-top: -23px;
         background-size: 46px 46px; }
-      #map #map-elements .camera.other-floor {
+      .map-main .map-elements .camera.other-floor {
         opacity: 0.85; }
-        #map #map-elements .camera.other-floor.up span {
+        .map-main .map-elements .camera.other-floor.up span {
           background: url("../img/icons/up@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1041,7 +1207,7 @@ body, button, input, select {
           top: 25px;
           width: 15px;
           z-index: 1171; }
-        #map #map-elements .camera.other-floor.down span {
+        .map-main .map-elements .camera.other-floor.down span {
           background: url("../img/icons/down@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1055,13 +1221,13 @@ body, button, input, select {
           top: 25px;
           width: 15px;
           z-index: 1171; }
-      #map #map-elements .camera svg {
+      .map-main .map-elements .camera svg {
         background-color: red;
         opacity: 0.3;
         overflow: visible; }
-        #map #map-elements .camera svg path {
+        .map-main .map-elements .camera svg path {
           fill: #ffdb00; }
-    #map #map-elements .objective {
+    .map-main .map-elements .objective {
       width: 30px;
       height: 40px;
       margin-left: -15px;
@@ -1069,25 +1235,25 @@ body, button, input, select {
       border-radius: 5px;
       display: none;
       z-index: 1150; }
-      #map #map-elements .objective.hostage {
+      .map-main .map-elements .objective.hostage {
         background-color: #ab1513;
         z-index: 1153; }
-      #map #map-elements .objective.bomb {
+      .map-main .map-elements .objective.bomb {
         background-color: #d65b2b;
         z-index: 1151; }
-        #map #map-elements .objective.bomb p {
+        .map-main .map-elements .objective.bomb p {
           font-size: 25px; }
-      #map #map-elements .objective.secure {
+      .map-main .map-elements .objective.secure {
         background-color: #00B200;
         z-index: 1152; }
-      #map #map-elements .objective p {
+      .map-main .map-elements .objective p {
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         color: #fff;
         font-size: 30px;
         line-height: 40px;
         text-align: center;
         width: 30px; }
-      #map #map-elements .objective.up span {
+      .map-main .map-elements .objective.up span {
         background: url("../img/icons/up@2x.png");
         background-size: 15px, 22px;
         background-repeat: no-repeat;
@@ -1101,7 +1267,7 @@ body, button, input, select {
         top: 29px;
         width: 15px;
         z-index: 1151; }
-      #map #map-elements .objective.down span {
+      .map-main .map-elements .objective.down span {
         background: url("../img/icons/down@2x.png");
         background-size: 15px, 22px;
         background-repeat: no-repeat;
@@ -1115,7 +1281,7 @@ body, button, input, select {
         top: 29px;
         width: 15px;
         z-index: 1151; }
-    #map #map-elements .ceiling-hatch {
+    .map-main .map-elements .ceiling-hatch {
       width: 29px;
       height: 29px;
       margin-left: -14.5px;
@@ -1125,7 +1291,7 @@ body, button, input, select {
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1020; }
-    #map #map-elements .skylight {
+    .map-main .map-elements .skylight {
       width: 29px;
       height: 29px;
       margin-left: -14.5px;
@@ -1135,9 +1301,9 @@ body, button, input, select {
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1025; }
-      #map #map-elements .skylight.other-floor {
+      .map-main .map-elements .skylight.other-floor {
         opacity: 0.7; }
-        #map #map-elements .skylight.other-floor.up span {
+        .map-main .map-elements .skylight.other-floor.up span {
           background: url("../img/icons/up@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1151,7 +1317,7 @@ body, button, input, select {
           top: 18px;
           width: 15px;
           z-index: 1026; }
-        #map #map-elements .skylight.other-floor.down span {
+        .map-main .map-elements .skylight.other-floor.down span {
           background: url("../img/icons/down@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1165,20 +1331,20 @@ body, button, input, select {
           top: 18px;
           width: 15px;
           z-index: 1026; }
-    #map #map-elements .drone-tunnel {
+    .map-main .map-elements .drone-tunnel {
       background-color: #7B0099;
       border-left: 2px solid #fff;
       border-right: 2px solid #fff;
       margin-left: -6px;
       width: 8px;
       z-index: 1160; }
-      #map #map-elements .drone-tunnel.alternate {
+      .map-main .map-elements .drone-tunnel.alternate {
         background-color: #FF1493; }
-    #map #map-elements .spawn-point {
+    .map-main .map-elements .spawn-point {
       z-index: 1013; }
-      #map #map-elements .spawn-point .spawn-wrapper {
+      .map-main .map-elements .spawn-point .spawn-wrapper {
         position: relative; }
-        #map #map-elements .spawn-point .spawn-wrapper .spawn-letter {
+        .map-main .map-elements .spawn-point .spawn-wrapper .spawn-letter {
           background-color: #4C4C4C;
           left: -33px;
           padding: 4px;
@@ -1186,7 +1352,7 @@ body, button, input, select {
           top: -33px;
           width: 58px;
           height: 58px; }
-          #map #map-elements .spawn-point .spawn-wrapper .spawn-letter p {
+          .map-main .map-elements .spawn-point .spawn-wrapper .spawn-letter p {
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
             border: 2px solid #000;
             color: #fff;
@@ -1195,13 +1361,13 @@ body, button, input, select {
             width: 54px;
             height: 54px;
             line-height: 54px; }
-        #map #map-elements .spawn-point .spawn-wrapper .spawn-description {
+        .map-main .map-elements .spawn-point .spawn-wrapper .spawn-description {
           position: absolute;
           top: 38px;
           left: -150px;
           width: 300px;
           text-align: center; }
-          #map #map-elements .spawn-point .spawn-wrapper .spawn-description p {
+          .map-main .map-elements .spawn-point .spawn-wrapper .spawn-description p {
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
             background-color: #4C4C4C;
             color: #fff;
@@ -1209,50 +1375,56 @@ body, button, input, select {
             font-size: 27px;
             padding: 2px 6px;
             text-transform: uppercase; }
-    #map #map-elements .room-label {
+    .map-main .map-elements .room-label {
       height: 2.5em;
       margin-left: -110px;
       margin-top: -1.25em;
-      opacity: 0.44;
+      opacity: 0.7;
       text-align: center;
-      transition: opacity 3s;
       width: 220px;
       z-index: 1165; }
-      #map #map-elements .room-label p {
+      .map-main .map-elements .room-label p {
         text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.8);
         color: #fff;
         display: inline-block;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 400; }
-      #map #map-elements .room-label.hard-to-read {
-        opacity: 0.54; }
-        #map #map-elements .room-label.hard-to-read p {
+        .map-elements.room-label-large .room-label p {
+          font-size: 21px !important; }
+        .map-elements.room-label-dark .room-label {
+          opacity: 1 !important; }
+          .map-elements.room-label-dark .room-label p {
+            background: rgba(16, 26, 36, 0.6);
+            font-weight: 600 !important; }
+      .map-main .map-elements .room-label.hard-to-read {
+        opacity: 0.8; }
+        .map-main .map-elements .room-label.hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
-      #map #map-elements .room-label.very-hard-to-read {
-        opacity: 0.79; }
-        #map #map-elements .room-label.very-hard-to-read p {
+      .map-main .map-elements .room-label.very-hard-to-read {
+        opacity: 1.05; }
+        .map-main .map-elements .room-label.very-hard-to-read p {
           background: rgba(16, 26, 36, 0.6); }
-    #map #map-elements.show-objective-all .objective {
+    .map-main .map-elements.show-objective-all .objective {
       display: block; }
-    #map #map-elements.show-objective-hostage .hostage {
+    .map-main .map-elements.show-objective-hostage .hostage {
       display: block; }
-    #map #map-elements.show-objective-bomb .bomb {
+    .map-main .map-elements.show-objective-bomb .bomb {
       display: block; }
-    #map #map-elements.show-objective-secure .secure {
+    .map-main .map-elements.show-objective-secure .secure {
       display: block; }
-    #map #map-elements.zoomed-out-far .room-label {
+    .map-main .map-elements.zoomed-out-far .room-label {
       opacity: 0; }
-  #map.show-floor-zero .one, #map.show-floor-zero .two, #map.show-floor-zero .three, #map.show-floor-zero .four, #map.show-floor-zero .five {
+  .map-main.show-floor-zero .one, .map-main.show-floor-zero .two, .map-main.show-floor-zero .three, .map-main.show-floor-zero .four, .map-main.show-floor-zero .five {
     display: none !important; }
-  #map.show-floor-one .zero, #map.show-floor-one .two, #map.show-floor-one .three, #map.show-floor-one .four, #map.show-floor-one .five {
+  .map-main.show-floor-one .zero, .map-main.show-floor-one .two, .map-main.show-floor-one .three, .map-main.show-floor-one .four, .map-main.show-floor-one .five {
     display: none !important; }
-  #map.show-floor-two .zero, #map.show-floor-two .one, #map.show-floor-two .three, #map.show-floor-two .four, #map.show-floor-two .five {
+  .map-main.show-floor-two .zero, .map-main.show-floor-two .one, .map-main.show-floor-two .three, .map-main.show-floor-two .four, .map-main.show-floor-two .five {
     display: none !important; }
-  #map.show-floor-three .zero, #map.show-floor-three .one, #map.show-floor-three .two, #map.show-floor-three .four, #map.show-floor-three .five {
+  .map-main.show-floor-three .zero, .map-main.show-floor-three .one, .map-main.show-floor-three .two, .map-main.show-floor-three .four, .map-main.show-floor-three .five {
     display: none !important; }
-  #map.show-floor-four .zero, #map.show-floor-four .one, #map.show-floor-four .two, #map.show-floor-four .three, #map.show-floor-four .five {
+  .map-main.show-floor-four .zero, .map-main.show-floor-four .one, .map-main.show-floor-four .two, .map-main.show-floor-four .three, .map-main.show-floor-four .five {
     display: none !important; }
-  #map.show-floor-five .zero, #map.show-floor-five .one, #map.show-floor-five .two, #map.show-floor-five .three, #map.show-floor-five .four {
+  .map-main.show-floor-five .zero, .map-main.show-floor-five .one, .map-main.show-floor-five .two, .map-main.show-floor-five .three, .map-main.show-floor-five .four {
     display: none !important; }
 
 /*# sourceMappingURL=main.css.map */

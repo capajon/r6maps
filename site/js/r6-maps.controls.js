@@ -6,10 +6,130 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     floorControl = $('#floor-control'),
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
+    roomLabelStylesControl,
+    mapPanelCountControl,
+    channelControl,
     menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
+
+  var disableZoom = function disableZoom(mapElements) {
+    mapElements.panzoom('disable');
+  };
+
+  var enableChannelControl = function enableChannelControl() {
+    $('.feature-flagged.channel-control').css('display', 'block');
+  };
+
+  var enableMapPanelCountControl = function enableMapPanelCountControl() {
+    $('.feature-flagged.map-panel-count-control').css('display', 'block');
+  };
+
+  var enableZoom = function enableZoom(mapElements) {
+    mapElements.panzoom('enable');
+  };
+
+  var getCurrentlySelectedFloor = function getCurrentlySelectedFloor() {
+    return floorControl.find('.selected').data('index');
+  };
+
+  var getCurrentlySelectedMap = function getCurrentlySelectedMap() {
+    return mapControl.val();
+  };
+
+  var getCurrentlySelectedObjective = function getCurrentlySelectedObjective() {
+    return objectiveControl.val();
+  };
+
+  var getMaxFloorIndex = function getMaxFloorIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
+    var floorInputs = floorControl.find('button');
+
+    return $(floorInputs[floorInputs.length - 1]).data('index');
+  };
+
+  var getFloorTooltip = function getFloorTooltip(floorIndex) {
+    var shortcutTip = R6MapsLangTerms.terms.general.shortcutTip;
+
+    if (floorIndex == 0) {
+      return shortcutTip.replace('{shortcut}',"'0' or '~'");
+    } else {
+      return shortcutTip.replace('{shortcut}',floorIndex);
+    }
+  };
+
+  var getHandleHotkeyFn = function getHandleHotkeyFn(showSelectedFloorFn) {
+    return function handleHotKey(e) {
+      var keyCode = e.which;
+
+      if (keyCode >= 48 && keyCode <= 53) {  // '0' through '1'
+        if (trySelectFloor(keyCode - 48)) {
+          showSelectedFloorFn();
+        }
+      } else if (keyCode == 192) { // '`'
+        if (trySelectFloor(0)) {
+          showSelectedFloorFn();
+        }
+      }
+    };
+  };
+
+  var getHandleLosOpacityChangeFn = function getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity) {
+    return function handleLosOpacityFn(event) {
+      var opacity = event.target.value;
+
+      updateLosOpacityFn(opacity);
+      setLosLabelsText(opacity, defaultOpacity);
+    };
+  };
+
+  var getHandlePanZoomChangeFn = function getHandlePanZoomChangeFn(mapEl) {
+    return function handlePanZoomChange(event, panzoom, transform) {
+      mapEl.each(function(index, map){
+        if (map !== event.target) {
+          $(map).panzoom('pan', transform[4], transform[5], {silent: true});
+        }
+      });
+    };
+  };
+
+  var getHandleZoomChangeFn = function getHandleZoomChangeFn(mapElements) {
+    return function handleZoomChange() {
+      var zoomVal = zoomControl.val();
+
+      if ( zoomVal > 1.6) {
+        mapElements.addClass(ZOOMED_IN_FAR_CLASS);
+      } else if ( zoomVal < 0.4 ) {
+        mapElements.addClass(ZOOMED_OUT_FAR_CLASS);
+      } else {
+        mapElements.removeClass(ZOOMED_IN_FAR_CLASS);
+        mapElements.removeClass(ZOOMED_OUT_FAR_CLASS);
+      }
+    };
+  };
+
+  var isZoomed = function isZoomed() {
+    return (zoomControl.val() != 1);
+  };
+
+  var populateFloorOptions = function populateFloorOptions(floors) {
+    var buttonsAsString = '',
+      classes = '',
+      tooltip = '',
+      initalFloor = getCurrentlySelectedFloor();
+
+    floors.forEach(function(floor) {
+      classes = '';
+      classes += (floor.default) ? SELECTED_CLASS : '';
+      tooltip = getFloorTooltip(floor.index);
+      buttonsAsString += '<button data-index="' + floor.index + '" class="' + classes + '" title="' + tooltip + '">';
+      buttonsAsString += '<span class="short">' + floor.name.short + '</span>';
+      buttonsAsString += '<span class="full">' + floor.name.full + '</span>';
+      buttonsAsString += '</button>';
+    });
+    floorControl.html(buttonsAsString);
+    trySelectFloor(initalFloor);
+  };
 
   var populateMapOptions = function populateMapOptions(mapData) {
     var optionsAsString = '',
@@ -39,16 +159,62 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     trySelectMap(currentMap);
   };
 
-  var getCurrentlySelectedMap = function getCurrentlySelectedMap() {
-    return mapControl.val();
-  };
+  var setupMenu = function setupMenu(roomLabelStyles) {
+    var html = '';
 
-  var trySelectMap = function trySelectMap(map) {
-    return trySelectOption(mapControl, map);
-  };
+    html += '<div class="mmenu-custom-panel">';
+    html += '<h2>r6maps.com</h2>';
+    html += '<a href="">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</a>';
+    html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
+    html += '</div>';
 
-  var setupMapChangeEvent = function setupMapChangeEvent(callback) {
-    mapControl.on('change', callback);
+    html += '<div id="lang-choices" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
+    for (var langKey in R6MapsLangTerms.loadedLanguages) {
+      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
+    }
+    html += '</div>';
+
+    html += '<div class="feature-flagged channel-control">';
+    html += '<div class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
+    html += '<div class="channel-input-wrapper">';
+    html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
+    html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
+    html += '</div>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div id="los-opacity" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
+
+    html += '<div class="feature-flagged map-panel-count-control">';
+    html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
+    html += '<select id="map-pane-count">';
+    html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
+    html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
+    html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
+    html += '</select>';
+    html += '</div>';
+
+    html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
+    html += '<select id="room-label-style"></select>';
+
+    html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
+    html += '<div class="zoom controls">';
+    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
+    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
+    html += '</div>';
+
+    html += '</div>';
+
+    html += '<div class="faded-logo"></div>';
+
+    menuPanel.html(html);
+    menuControl.html(R6MapsLangTerms.terms.general.menu);
+    roomLabelStylesControl = $('#room-label-style');
+    populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
+    mapPanelCountControl = $('#map-pane-count');
   };
 
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
@@ -74,51 +240,30 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     trySelectObjective(initialObjective);
   };
 
-  var getCurrentlySelectedObjective = function getCurrentlySelectedObjective() {
-    return objectiveControl.val();
-  };
+  var populateRoomLabelStyleOptions = function populateRoomLabelStyleOptions(
+    roomLabelStylesControl,
+    roomLabelStyles
+  ) {
+    var html = '';
 
-  var trySelectObjective = function trySelectObjective(objective) {
-    trySelectOption(objectiveControl, objective);
-  };
-
-  var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
-    objectiveControl.on('change', callback);
-  };
-
-  var populateFloorOptions = function populateFloorOptions(floors) {
-    var buttonsAsString = '',
-      classes = '',
-      tooltip = '',
-      initalFloor = getCurrentlySelectedFloor();
-
-    floors.forEach(function(floor) {
-      classes = '';
-      classes += (floor.default) ? SELECTED_CLASS : '';
-      tooltip = getFloorTooltip(floor.index);
-      buttonsAsString += '<button data-index="' + floor.index + '" class="' + classes + '" title="' + tooltip + '">';
-      buttonsAsString += '<span class="short">' + floor.name.short + '</span>';
-      buttonsAsString += '<span class="full">' + floor.name.full + '</span>';
-      buttonsAsString += '</button>';
+    roomLabelStyles.forEach(function(roomLabelStyle) {
+      html += '<option value="' + roomLabelStyle + '">' +
+        R6MapsLangTerms.terms.roomLabelStyles[roomLabelStyle] +
+        '</option>';
     });
-    floorControl.html(buttonsAsString);
-    trySelectFloor(initalFloor);
+    roomLabelStylesControl.html(html);
   };
 
-  var getCurrentlySelectedFloor = function getCurrentlySelectedFloor() {
-    return floorControl.find('.selected').data('index');
+  var resetPan = function resetPan(map) {
+    map.panzoom('resetPan');
   };
 
-  var trySelectFloor = function trySelectFloor(floorIndex) {
-    var selectedFloor = floorControl.find("[data-index='" + floorIndex + "']");
+  var resetSelectedFloor = function resetSelectedFloor() {
+    floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
+  };
 
-    if (selectedFloor.length) {
-      resetSelectedFloor();
-      selectedFloor.addClass(SELECTED_CLASS);
-      selectedFloor.trigger('click');
-      return true;
-    }
-    return false;
+  var resetZoom = function resetZoom(map) {
+    map.panzoom('resetZoom');
   };
 
   var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
@@ -133,146 +278,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
   };
 
+  var setupMapPanelCountChangeEvent = function setupMapPanelCountChangeEvent(callback) {
+    mapPanelCountControl.on('change', function(event) {
+      callback(event.target.value);
+    });
+  };
+
   var setupFloorHotkeys = function setupFloorHotkeys(showSelectedFloorFn) {
     $(document).on('keydown', getHandleHotkeyFn(showSelectedFloorFn));
-  };
-
-  var resetSelectedFloor = function resetSelectedFloor() {
-    floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
-  };
-
-  var getHandleHotkeyFn = function getHandleHotkeyFn(showSelectedFloorFn) {
-    return function handleHotKey(e) {
-      var keyCode = e.which;
-
-      if (keyCode >= 48 && keyCode <= 53) {  // '0' through '1'
-        if (trySelectFloor(keyCode - 48)) {
-          showSelectedFloorFn();
-        }
-      } else if (keyCode == 192) { // '`'
-        if (trySelectFloor(0)) {
-          showSelectedFloorFn();
-        }
-      }
-    };
-  };
-
-  var setupZoom = function setupZoom(mapEl, mapElements) {
-    mapEl.panzoom({
-      $zoomRange: zoomControl,
-      minScale: 0.3,
-      maxScale: 2.5
-    });
-
-    mapEl.on('mousewheel', function(event) {
-      zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
-      zoomControl.trigger('input');
-      zoomControl.trigger('change');
-    });
-
-    zoomControl.on('change', getHandleZoomChangeFn(mapElements));
-    zoomControl.on('input', getHandleZoomChangeFn(mapElements));
-
-    // camera links were not working on touch devices:
-    mapEl.on('touchstart','a', function(e) {
-      $(this).addClass('hover');
-    });
-
-    mapEl.on('touchend','a', function(e) {
-      $(this).removeClass('hover');
-      this.click();
-    });
-  };
-
-  var isZoomed = function isZoomed() {
-    return (zoomControl.val() != 1);
-  };
-
-  var getHandleZoomChangeFn = function getHandleZoomChangeFn(mapElements) {
-    return function handleZoomChange() {
-      var zoomVal = zoomControl.val();
-
-      if ( zoomVal > 1.6) {
-        mapElements.addClass(ZOOMED_IN_FAR_CLASS);
-      } else if ( zoomVal < 0.8 ) {
-        mapElements.addClass(ZOOMED_OUT_FAR_CLASS);
-      } else {
-        mapElements.removeClass(ZOOMED_IN_FAR_CLASS);
-        mapElements.removeClass(ZOOMED_OUT_FAR_CLASS);
-      }
-    };
-  };
-
-  var trySelectOption = function trySelectOption(selectEl, option) {
-    var selectOption = selectEl.find('option[value="' + option + '"]');
-
-    if (selectOption.length) {
-      selectOption.prop('selected', true);
-      return true;
-    }
-    return false;
-  };
-
-  var getFloorTooltip = function getFloorTooltip(floorIndex) {
-    var shortcutTip = R6MapsLangTerms.terms.general.shortcutTip;
-
-    if (floorIndex == 0) {
-      return shortcutTip.replace('{shortcut}',"'0' or '~'");
-    } else {
-      return shortcutTip.replace('{shortcut}',floorIndex);
-    }
-  };
-
-  var populateMenu = function populateMenu() {
-    var html = '';
-
-    html += '<div class="mmenu-custom-panel">';
-    html += '<a href="">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</a>';
-    html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
-    html += '</div>';
-    html += '<div id="lang-choices" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
-
-    for (var langKey in R6MapsLangTerms.loadedLanguages) {
-      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
-    }
-
-    html += '</div>';
-    html += '<div id="los-opacity" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
-    html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
-    html += '<div class="zoom controls">';
-    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
-    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
-    html += '</div>';
-    html += '</div>';
-
-    html += '<div class="faded-logo"></div>';
-
-    menuPanel.html(html);
-    menuControl.html(R6MapsLangTerms.terms.general.menu);
-  };
-
-  var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
-    var losOpacityControl = $('#los-opacity-range'),
-      handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
-        updateLosOpacityFn,
-        defaultOpacity
-      );
-
-    losOpacityControl.val(startingValue);
-    setLosLabelsText(startingValue, defaultOpacity);
-    losOpacityControl.on('input', handleLosOpacityChangeFn);
-    losOpacityControl.on('change', handleLosOpacityChangeFn);
-  };
-
-  var getHandleLosOpacityChangeFn = function getHandleLosOpacityChangeFn(updateLosOpacityFn, defaultOpacity) {
-    return function handleLosOpacityFn(event) {
-      var opacity = event.target.value;
-
-      updateLosOpacityFn(opacity);
-      setLosLabelsText(opacity, defaultOpacity);
-    };
   };
 
   var setLosLabelsText = function setLosLabelsText(opacity, defaultOpacity) {
@@ -296,32 +309,128 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
-  var resetPan = function resetPan(map) {
-    map.panzoom('resetPan');
+  var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
+    var losOpacityControl = $('#los-opacity-range'),
+      handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
+        updateLosOpacityFn,
+        defaultOpacity
+      );
+
+    losOpacityControl.val(startingValue);
+    setLosLabelsText(startingValue, defaultOpacity);
+    losOpacityControl.on('input', handleLosOpacityChangeFn);
+    losOpacityControl.on('change', handleLosOpacityChangeFn);
+  };
+
+  var setupMapChangeEvent = function setupMapChangeEvent(callback) {
+    mapControl.on('change', callback);
+  };
+
+  var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
+    objectiveControl.on('change', callback);
+  };
+
+  var setupRoomLabelStyleChangeEvent = function setupRoomLabelStyleChangeEvent(callback) {
+    roomLabelStylesControl.on('change', function(event) {
+      callback(event.target.value);
+    });
+  };
+
+  var setupPanZoom = function setupPanZoom(mapEl, mapElements) {
+    mapEl.panzoom({
+      $zoomRange: zoomControl,
+      minScale: 0.3,
+      maxScale: 2.5
+    });
+
+    mapEl.on('mousewheel', function(event) {
+      zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
+      zoomControl.trigger('input');
+      //needed? zoomControl.trigger('change');
+    });
+
+    zoomControl.on('change', getHandleZoomChangeFn(mapElements));
+    zoomControl.on('input', getHandleZoomChangeFn(mapElements));
+
+    // camera links were not working on touch devices:
+    mapEl.on('touchstart','a', function(e) {
+      $(this).addClass('hover');
+    });
+
+    mapEl.on('touchend','a', function(e) {
+      $(this).removeClass('hover');
+      this.click();
+    });
+
+    mapEl.on('panzoomchange', getHandlePanZoomChangeFn(mapEl));
+  };
+
+  var trySelectFloor = function trySelectFloor(floorIndex) {
+    var selectedFloor = floorControl.find("[data-index='" + floorIndex + "']");
+
+    if (selectedFloor.length) {
+      resetSelectedFloor();
+      selectedFloor.addClass(SELECTED_CLASS);
+      selectedFloor.trigger('click');
+      return true;
+    }
+    return false;
+  };
+
+  var trySelectMapPanelCount = function trySelectMapPanelCount(number) {
+    return trySelectOption(mapPanelCountControl, number);
+  };
+
+  var trySelectMap = function trySelectMap(map) {
+    return trySelectOption(mapControl, map);
+  };
+
+  var trySelectObjective = function trySelectObjective(objective) {
+    return trySelectOption(objectiveControl, objective);
+  };
+
+  var trySelectOption = function trySelectOption(selectEl, option) {
+    var selectOption = selectEl.find('option[value="' + option + '"]');
+
+    if (selectOption.length) {
+      selectOption.prop('selected', true);
+      return true;
+    }
+    return false;
+  };
+
+  var trySelectRoomLabelStyle = function trySelectRoomLabelStyle(style) {
+    return trySelectOption(roomLabelStylesControl, style);
   };
 
   return  {
-    populateMapOptions: populateMapOptions,
-    getCurrentlySelectedMap: getCurrentlySelectedMap,
-    trySelectMap: trySelectMap,
-    setupMapChangeEvent: setupMapChangeEvent,
-
-    populateObjectiveOptions: populateObjectiveOptions,
-    getCurrentlySelectedObjective: getCurrentlySelectedObjective,
-    trySelectObjective: trySelectObjective,
-    setupObjectiveChangeEvent: setupObjectiveChangeEvent,
-
-    populateFloorOptions: populateFloorOptions,
+    disableZoom: disableZoom,
+    enableChannelControl: enableChannelControl,
+    enableMapPanelCountControl: enableMapPanelCountControl,
+    enableZoom: enableZoom,
     getCurrentlySelectedFloor: getCurrentlySelectedFloor,
-    trySelectFloor: trySelectFloor,
-    setupFloorChangeEvent: setupFloorChangeEvent,
-    setupFloorHotkeys: setupFloorHotkeys,
-
-    setupZoom: setupZoom,
+    getCurrentlySelectedMap: getCurrentlySelectedMap,
+    getCurrentlySelectedObjective: getCurrentlySelectedObjective,
+    getMaxFloorIndex: getMaxFloorIndex,
     isZoomed: isZoomed,
+    populateFloorOptions: populateFloorOptions,
+    populateMapOptions: populateMapOptions,
+    setupMenu: setupMenu,
+    populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
-
-    populateMenu: populateMenu,
-    setupLosOpacity: setupLosOpacity
+    resetZoom: resetZoom,
+    setupFloorChangeEvent: setupFloorChangeEvent,
+    setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
+    setupFloorHotkeys: setupFloorHotkeys,
+    setupLosOpacity: setupLosOpacity,
+    setupMapChangeEvent: setupMapChangeEvent,
+    setupObjectiveChangeEvent: setupObjectiveChangeEvent,
+    setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
+    setupPanZoom: setupPanZoom,
+    trySelectFloor: trySelectFloor,
+    trySelectMapPanelCount: trySelectMapPanelCount,
+    trySelectMap: trySelectMap,
+    trySelectObjective: trySelectObjective,
+    trySelectRoomLabelStyle: trySelectRoomLabelStyle
   };
 })(window.jQuery, window, document, R6MapsLangTerms);

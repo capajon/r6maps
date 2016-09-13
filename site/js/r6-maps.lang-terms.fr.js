@@ -15,9 +15,22 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         linkAbout: 'about-fr.html',
         labelLosOpacity: 'Appareil photo en ligne de mire l\'opacité',
         labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
-        labelLosDefault: '(Défaut)',
-        labelLos105: '(Hein?)',
-        labelLos110: '(Folie!)'
+        labelLosDefault: '( Défaut )',
+        labelLos105: '( Hein? )',
+        labelLos110: '( Folie! )',
+        labelRoomLabelStyle: 'Chambre style d\'étiquette',
+        labelNumberFloorsToDisplay: 'Nombre d\'étages pour afficher'
+      },
+      roomLabelStyles: {
+        Dark: 'Foncé',
+        Light: 'Lumière ( Défaut )',
+        DarkAndLarge: 'Grand et Sombre',
+        LightAndLarge: 'Grand et Lumière'
+      },
+      floorDisplayOptions: {
+        one: '1 ( Défaut )',
+        two: '2 ( Divisé )',
+        four: '4 ( Grille )'
       },
       selectMaps: {
         selectAMap: 'Sélectionnez une carte',
@@ -82,7 +95,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           mainEntrance: 'Entrée principale',
           garageRamp: 'Rampe<br/>du garage',
           exteriorParking: 'Parking Extérieur',
-          garageRoof: 'Toit du garage',
+          garageRoof: 'Toit du<br/>garage',
           alleyAccess: 'Accès à la ruelle',
           backAlleyRooftop: 'Toit de<br/>la ruelle',
           backAlley: 'Ruelle',
@@ -99,7 +112,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           lockers: 'Vestiaires',
           vaultLobby: 'Hall salle<br/>des coffres',
           vaultEntrance: 'Extrée salle<br/>des coffres',
-          mainStairway: 'Escalier principal',
+          mainStairway: 'Escalier<br/>principal',
           bankGarage: 'Garage de la banque',
           elevators: 'Ascenseurs',
           tellersOffice: 'Guichets',
@@ -185,7 +198,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           greatRoomStairs: 'Escalier<br/>de la<br/>grande<br/>salle',
           storageRoom: 'Salle de<br/>stockage',
           wineCellar: 'Cave<br/>à vin',
-          wineStock: 'Réserve de vin',
+          wineStock: 'Réserve<br/>de vin',
           basementHallway: 'Couloir<br/>du sous-sol',
           backyardStairs: 'Escalier<br/>du jardin',
           mainStairs: 'Escalier<br/>principal',

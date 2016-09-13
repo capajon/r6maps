@@ -20,7 +20,25 @@ var R6MapsLangTerms = (function(undefined) {
         labelPercent: '{int}%', // according to: (0.12).toLocaleString('en', { style: 'percent' });
         labelLosDefault: '(Default)',
         labelLos105: '(Huh?)',
-        labelLos110: '(Ludicrous!)'
+        labelLos110: '(Ludicrous!)',
+        labelRoomLabelStyle: 'Room label style',
+        labelNumberFloorsToDisplay: 'Number of floors to display'
+      },
+      channels: { // todo: translate
+        title: 'Team channels',
+        name: 'Channel Name (Letters and numbers only)',
+        button: 'Create/Join'
+      },
+      roomLabelStyles: {
+        Dark: 'Dark',
+        Light: 'Light (Default)',
+        DarkAndLarge: 'Large and Dark',
+        LightAndLarge: 'Large and Light'
+      },
+      floorDisplayOptions: {
+        one: '1 (Default)',
+        two: '2 (Split)',
+        four: '4 (Grid)'
       },
       selectMaps: {
         selectAMap: 'Select a map',
@@ -98,7 +116,7 @@ var R6MapsLangTerms = (function(undefined) {
           mainEntrance: 'Main Entrance',
           garageRamp: 'Garage<br/>Ramp',
           exteriorParking: 'Exterior Parking',
-          garageRoof: 'Garage Roof',
+          garageRoof: 'Garage<br/>Roof',
           alleyAccess: 'Alley Access',
           backAlleyRooftop: 'Back Alley<br/>Rooftop',
           backAlley: 'Back Alley',
@@ -115,10 +133,10 @@ var R6MapsLangTerms = (function(undefined) {
           lockers: 'Lockers',
           vaultLobby: 'Vault Lobby',
           vaultEntrance: 'Vault<br/>Entrance',
-          mainStairway: 'Main Stairway',
+          mainStairway: 'Main<br/>Stairway',
           bankGarage: 'Bank Garage',
           elevators: 'Elevators',
-          tellersOffice: 'Tellers\' Office',
+          tellersOffice: 'Tellers\'<br/>Office',
           archives: 'Archives',
           tellers: 'Tellers',
           loanOffice: 'Loan Office',
@@ -141,11 +159,11 @@ var R6MapsLangTerms = (function(undefined) {
           conferenceRoom: 'Conference Room'
         },
         border: {
-          workInProgress: 'This map is a<br/>WORK IN PROGRESS',
+          armoryLockers: 'Armory<br/>Lockers',
           tellers: 'Tellers',
           ventilationRoom: 'Venti-<br/>lation<br/>Room',
-          exitHallway: 'Exit Hallway',
-          supplyCorridor: 'Supply Corridor',
+          exitHallway: 'Exit<br/>Hallway',
+          supplyCorridor: 'Supply<br/>Corridor',
           detention: 'Detention',
           customsInspection: 'Customs Inspection',
           customsDesk: 'Customs<br/>Desk',
@@ -157,7 +175,7 @@ var R6MapsLangTerms = (function(undefined) {
           bathroom: 'Bath-<br/>room',
           waitingRoom: 'Waiting<br/>Room',
           eastStairs: 'East<br/>Stairs',
-          passportCheck: 'Passport Check',
+          passportCheck: 'Passport<br/>Check',
           armoryLocker: 'Armory Locker',
           archives: 'Archives',
           offices: 'Offices',
@@ -195,13 +213,13 @@ var R6MapsLangTerms = (function(undefined) {
           spawnCampfire: 'Campfire',
           spawnCliffside: 'Cliffside',
           spawnLakeside: 'Lakeside',
-          libraryStairs: 'Library Stairs',
+          libraryStairs: 'Library<br/>Stairs',
           snowmobileGarageCorridor: 'Snowmobile Garage Corridor',
           snowmobileGarage: 'Snowmobile<br/>Garage',
           greatRoomStairs: 'Great<br/>Room<br/>Stairs',
-          storageRoom: 'Storage Room',
+          storageRoom: 'Storage<br/>Room',
           wineCellar: 'Wine<br/>Cellar',
-          wineStock: 'Wine Stock',
+          wineStock: 'Wine<br/>Stock',
           basementHallway: 'Basement<br/>Hallway',
           backyardStairs: 'Backyard<br/>Stairs',
           mainStairs: 'Main<br/>Stairs',

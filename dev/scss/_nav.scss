@@ -5,10 +5,10 @@ nav {
   z-index: $z-nav;
 
   .wrapper {
-    align-items: center;
+    @include align-items(center);
     background: $faded-bg;
-    display: flex;
-    justify-content: space-between;
+    @include flexbox;
+    @include justify-content(space-between);
     min-height: 4.2rem;
     width: 100vw;
   }
@@ -18,8 +18,8 @@ nav {
   }
 
   .left.controls {
-    align-items: center;
-    display: flex;
+    @include align-items(center);
+    @include flexbox;
   }
 
   .right.controls {

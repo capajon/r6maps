@@ -15,6 +15,10 @@
   @include offscreen;
 }
 
+.feature-flagged {
+  display: none;
+}
+
 .r6-like-font {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
@@ -63,16 +67,91 @@ body, button, input, select {
   position: relative;
 }
 
-#map-pan-safety-wrapper {
+.map-pan-safety-wrapper {
   height: 100vh;
   width: 100vw;
   overflow:hidden;
 }
 
-#map {
-  height: 100vh;
+#map-panels-wrapper {
+  @include align-content(space-around);
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+
+  .helper-border {
+    background-color: $very-dark-blue;
+    display: none;
+    position: absolute;
+    z-index: $z-map-border;
+  }
+  .helper-border.vertical {
+    height: 100%;
+    width: 1px;
+  }
+  .helper-border.horizontal {
+    height: 1px;
+    width: 100%;
+  }
+
+  .map-panel-label {
+    background-color: $faded-bg;
+    border: 2px solid $very-dark-blue;
+    border-radius: 0 0 6px 6px;
+    color: #fff;
+    font-size: 1.4rem;
+    left: 0;
+    padding: 0.2em 0.6em 0.3em 0.6em;
+    position: absolute;
+    z-index: $z-map-label;
+    text-align: center;
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%, 0);
+	  transform-origin: left top 0;
+  }
+
+  &[map-panel-count="2"] .map-pan-safety-wrapper {
+    @include flex(1 1 50%);
+
+    .helper-border.vertical {
+      display: block;
+    }
+
+    &:first-child .helper-border.vertical {
+      right: 0;
+    }
+
+    @media (orientation: portrait) {
+      @include flex(1 1 100%);
+      height: 50vh;
+    }
+  }
+
+  &[map-panel-count="4"] .map-pan-safety-wrapper {
+    @include flex(1 1 50%);
+    height: 50vh;
+
+    .helper-border.vertical,
+    .helper-border.horizontal {
+      display: block;
+    }
+
+    &:first-child .helper-border.vertical,
+    &:nth-child(3) .helper-border.vertical {
+      right: 0;
+    }
+
+    &:first-child .helper-border.horizontal,
+    &:nth-child(2) .helper-border.horizontal {
+      bottom: 0;
+    }
+  }
+}
+
+.map-main {
+  height: 100%;
   position: relative;
-  width: 100vw;
+  width: 100%;
 
   .center-helper {
     height: 0;
@@ -117,7 +196,7 @@ body, button, input, select {
     }
   }
 
-  #map-elements {
+  .map-elements {
     position: relative;
 
     img, div, a {
@@ -320,7 +399,6 @@ body, button, input, select {
       margin-top: -1.25em;
       opacity: $room-label-opacity;
       text-align: center;
-      transition: opacity 3s;
       width: 220px;
       z-index: $z-room-label;
 
@@ -328,8 +406,20 @@ body, button, input, select {
         @include text-shadow(2px, 1px, 4px, $color: rgba(0,0,0,0.8));
         color: #fff;
         display: inline-block;;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 400;
+
+        @at-root .map-elements.room-label-large .room-label p {
+          font-size: 21px !important;
+        }
+        @at-root .map-elements.room-label-dark .room-label {
+          opacity: 1 !important;
+
+          p {
+            background: $faded-bg;
+            font-weight: 600 !important;
+          }
+        }
       }
 
       &.hard-to-read {

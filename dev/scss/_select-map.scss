@@ -11,10 +11,10 @@ $map-thumb-height: 278px;
 }
 
 #select-map-grid {
-  align-items: center;
+  @include align-items(center);
   background-color: $less-faded-bg;
   bottom: 0;
-  display: flex;
+  @include flexbox;
   height: 100vh;
   opacity: 0;
   position: fixed;
@@ -33,20 +33,20 @@ $map-thumb-height: 278px;
   }
 
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @include justify-content(center);
 
     li {
       display: inline-block;
 
       a {
         @include box-shadow(0, 0, 25px, rgba(0,0,0,0.6));
-        align-items: flex-end;
+        @include align-items(flex-end);
         background-size: 160px;
         border: 1px solid #fff;
         color: #fff;
-        display: flex;
+        @include flexbox;
         height: 120px;
         position: relative;
         text-decoration: none;
@@ -54,10 +54,10 @@ $map-thumb-height: 278px;
         width: 160px;
 
         div.wrapper.absolute {
-          align-items: center;
-          display: flex;
+          @include align-items(center);
+          @include flexbox;
           height: 100%;
-          justify-content: center;
+          @include justify-content(center);
           left: 0;
           overflow: hidden;
           position: absolute;

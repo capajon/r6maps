@@ -3,8 +3,10 @@
 (function(pagecode) { //eslint-disable-line wrap-iife
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
 }(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, undefined) {
-  var mapEl,
+  var mapPanelsWraper,
+    mapEl,
     mapElements,
+    mapSafetyWrapper,
     svgElements,
     navLogoEl,
     bodyEl,
@@ -14,15 +16,13 @@
     DEFAULT_LOS_OPACITY = 0.15;
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
-    mapEl = $('#map');
-    mapElements = mapEl.find('#map-elements');
-    svgElements = mapEl.find('#svg-elements');
-    navLogoEl = $('#nav-logo');
-    bodyEl = $('body');
-
+    setPageElements();
+    R6MapsRender.setupMapPanels(mapPanelsWraper, 4)
+    setMapElements();
     tryLoadStartingLanguage();
     setupMenu();
     setupSelectMap();
+    tryLoadMapPanelCount();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
 
     if (trySelectBookmarkedMap()) {
@@ -35,8 +35,12 @@
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
 
+    R6MapsControls.setupPanZoom(mapEl, mapElements);
     setupEvents();
-    R6MapsControls.setupZoom(mapEl, mapElements);
+    tryLoadRoomLabelStyle();
+
+    tryEnableMapPanelCountFeature();
+    tryEnableChannelFeature();
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
@@ -99,13 +103,20 @@
     menuApi.close();
 
     R6MapsLangTerms.tryLoadLanguage(newLang);
-    setupMenu();
     setupSelectMap();
-
+    setupMenu();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
+
+    tryLoadMapPanelCount();
+    R6MapsControls.setupMapPanelCountChangeEvent(setMapPanelCount);
+
+    tryLoadRoomLabelStyle();
+    R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
+
     if (checkIfMapLoaded()) {
       loadMap();
     }
+
     localStorage.setItem('language', newLang);
   };
 
@@ -133,7 +144,7 @@
       mapData = R6MapsData.getMapData();
 
     R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
-    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
+    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);//jontemp
     R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgElements);
     R6MapsControls.resetPan(mapEl);
 
@@ -161,6 +172,13 @@
       'left: ' + Math.round(e.pageX - mapElements.offset().left) +
       warning
     );
+  };
+
+  var queryString = function queryString(key) { // for feature flags
+    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, '\\$&'); // escape RegEx meta chars
+    var match = location.search.match(new RegExp('[?&]' + key + '=([^&]+)(&|$)'));
+
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   };
 
   var removeHashFromUrl = function removeHashFromUrl() {
@@ -193,6 +211,22 @@
     sendControlAnalyticsEvent('Floor', R6MapsControls.getCurrentlySelectedFloor());
   };
 
+  var setMapPanelCount = function setMapPanelCount(numberMapPanelsToDisplay) {
+    localStorage.setItem('mappanelcount', numberMapPanelsToDisplay);
+    mapPanelsWraper.attr('map-panel-count', numberMapPanelsToDisplay);
+    $.each(mapEl, function (index, map) {
+      if (index < numberMapPanelsToDisplay) {
+        $(map).css('display', 'block');
+        R6MapsControls.enableZoom($(map));
+      } else {
+        $(map).css('display', 'none');
+        R6MapsControls.disableZoom($(map));
+      }
+    });
+    R6MapsControls.resetPan(mapEl);
+    R6MapsControls.resetZoom(mapEl);
+  };
+
   var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
     sendControlAnalyticsEvent('Map', R6MapsControls.getCurrentlySelectedMap());
   };
@@ -203,6 +237,24 @@
 
   var setLoadedMapKey = function setLoadedMapKey(mapKey) {
     bodyEl.attr('loaded-map', mapKey);
+  };
+
+  var setMapElements = function setMapElements() {
+    mapSafetyWrapper = $('.map-pan-safety-wrapper');
+    mapEl = $('.map-main');
+    mapElements = mapEl.find('.map-elements');
+    svgElements = mapEl.find('.svg-elements');
+  };
+
+  var setPageElements = function setPageElements() {
+    mapPanelsWraper = $('#map-panels-wrapper');
+    navLogoEl = $('#nav-logo');
+    bodyEl = $('body');
+  };
+
+  var setRoomLabelStyle = function setRoomLabelStyle(style) {
+    R6MapsRender.setRoomLabelStyle(mapElements, style);
+    localStorage.setItem('roomlabelstyle', style);
   };
 
   var setupCameraLos = function setupCameraLos() {
@@ -231,6 +283,8 @@
     R6MapsControls.setupMapChangeEvent(handleMapChange);
     R6MapsControls.setupFloorChangeEvent(handleFloorChange);
     R6MapsControls.setupFloorHotkeys(showSelectedFloor);
+    R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
+    R6MapsControls.setupMapPanelCountChangeEvent(setMapPanelCount);
 
     navLogoEl.on('click', function(event) {
       event.preventDefault();
@@ -257,7 +311,7 @@
   };
 
   var setupMenu = function setupMenu() {
-    R6MapsControls.populateMenu();
+    R6MapsControls.setupMenu(R6MapsRender.roomLabelStyles);
 
     $('#mmenu-menu').mmenu({
       offCanvas: {
@@ -290,7 +344,11 @@
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
-    R6MapsRender.showFloor(R6MapsControls.getCurrentlySelectedFloor(), mapEl);
+    R6MapsRender.showFloor(
+      R6MapsControls.getCurrentlySelectedFloor(),
+      mapEl,
+      R6MapsControls.getMaxFloorIndex()
+    );
   };
 
   var showSelectedObjective =  function showSelectedObjective() {
@@ -310,7 +368,16 @@
     }
   };
 
-  var tryLoadStartingLanguage = function tryLoadStartingLanguage(){
+  var tryLoadMapPanelCount = function tryLoadMapPanelCount() {
+    var mapPanelCount = localStorage.getItem('mappanelcount');
+
+    if (mapPanelCount) {
+      R6MapsControls.trySelectMapPanelCount(mapPanelCount);
+      setMapPanelCount(mapPanelCount);
+    }
+  };
+
+  var tryLoadStartingLanguage = function tryLoadStartingLanguage() {
     var lastChosenLanguage = localStorage.getItem('language'),
       userLang = (navigator.language || navigator.userLanguage).split('-')[0];
 
@@ -319,6 +386,15 @@
     } else if (userLang) {
       R6MapsLangTerms.tryLoadLanguage(userLang);
     };  // default will be English otherwise
+  };
+
+  var tryLoadRoomLabelStyle = function tryLoadRoomLabelStyle() {
+    var style = localStorage.getItem('roomlabelstyle');
+
+    if (style) {
+      R6MapsControls.trySelectRoomLabelStyle(style);
+      R6MapsRender.setRoomLabelStyle(mapElements, style);
+    }
   };
 
   var trySelectBookmarkedMap = function trySelectBookmarkedMap() {
@@ -343,6 +419,18 @@
 
     if (R6MapsControls.trySelectFloor(floorArg)) {
       showSelectedFloor();
+    }
+  };
+
+  var tryEnableChannelFeature = function tryEnableChannelFeature() {
+    if (queryString('channels')) {
+      R6MapsControls.enableChannelControl();
+    }
+  };
+
+  var tryEnableMapPanelCountFeature = function tryEnableMapPanelCountFeature() {
+    if (queryString('panels')) {
+      R6MapsControls.enableMapPanelCountControl();
     }
   };
 
