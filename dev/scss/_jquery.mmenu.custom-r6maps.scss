@@ -1,4 +1,6 @@
-$custom-mmenu-padding: 0.7em;
+$custom-mmenu-padding: 0.7rem;
+$custom-mmenu-padding-smaller: 0.4rem;
+$left-gutter: 0.7rem;
 
 .mm-panel {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
@@ -39,6 +41,9 @@ $custom-mmenu-padding: 0.7em;
   border: 1px solid rgba(0,0,0,0.3);
   font-weight: 400;
   margin-bottom: 1em;
+  padding-bottom: $custom-mmenu-padding-smaller;
+  border-bottom-left-radius: $custom-mmenu-padding-smaller;
+  border-bottom-right-radius: $custom-mmenu-padding-smaller;
 
   a {
     color: #000 !important;
@@ -54,31 +59,49 @@ $custom-mmenu-padding: 0.7em;
   }
 
   h2 {
-    color: grey;
+    border-bottom: 1px solid grey;
+    color: #000;
+    font-size: 1.2rem;
+    margin-bottom: $custom-mmenu-padding-smaller;
     padding: $custom-mmenu-padding;
+    text-transform: uppercase;
   }
 
   label {
     display: block;
-    padding: $custom-mmenu-padding;
     font-weight: 700;
+    padding: $custom-mmenu-padding;
+  }
+  #los-label {
+    margin-bottom: -0.5rem;
   }
 
   select {
-    margin-left: 0.7rem;
-    margin-bottom: 0.5rem;
+    margin-left: $left-gutter;
+    margin-bottom: $custom-mmenu-padding;
     min-width: 160px;
   }
 
   .channel-input-wrapper {
     @include flexbox;
-    padding-left: 0.7rem;
+    margin-left: $left-gutter;
     width: 100%;
 
     input {
       font-weight: 400;
-      padding-left: 07rem;
+      margin-left: $left-gutter;
       width: 100%;
+    }
+  }
+
+  .lock-panning-wrapper {
+    display: inline-block;
+    font-size: 1.15rem;
+    margin-left: $left-gutter;
+    white-space: no-wrap;
+
+    input[type="checkbox"] {
+      margin-right: 0.35rem;
     }
   }
 

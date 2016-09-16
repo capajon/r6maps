@@ -3,10 +3,10 @@
 (function(pagecode) { //eslint-disable-line wrap-iife
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
 }(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, undefined) {
-  var mapPanelsWraper,
-    mapEl,
+  var mapWrappers,
+    mapPanelWrappers,
+    mapMains,
     mapElements,
-    mapSafetyWrapper,
     svgElements,
     navLogoEl,
     bodyEl,
@@ -17,13 +17,15 @@
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     setPageElements();
-    R6MapsRender.setupMapPanels(mapPanelsWraper, 4)
+    R6MapsRender.setupMapPanels(mapPanelWrappers, 4);
     setMapElements();
     tryLoadStartingLanguage();
     setupMenu();
     setupSelectMap();
     tryLoadMapPanelCount();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
+
+    tryEnableChannelFeature();
 
     if (trySelectBookmarkedMap()) {
       loadMap();
@@ -35,12 +37,10 @@
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
 
-    R6MapsControls.setupPanZoom(mapEl, mapElements);
+    R6MapsControls.setupPanZoom(mapMains, mapElements);
     setupEvents();
     tryLoadRoomLabelStyle();
-
-    tryEnableMapPanelCountFeature();
-    tryEnableChannelFeature();
+    tryLoadLockPanningOption();
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
@@ -144,9 +144,9 @@
       mapData = R6MapsData.getMapData();
 
     R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
-    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);//jontemp
+    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
     R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgElements);
-    R6MapsControls.resetPan(mapEl);
+    R6MapsControls.resetPan(mapMains);
 
     setupCameraScreenshots();
     setupCameraLos();
@@ -198,6 +198,13 @@
     }
   };
 
+  var saveLockPanningOption = function saveLockPanningOption(value) {
+    localStorage.setItem('lockpanning', value);
+    if (value) {
+      R6MapsControls.resetPan(mapMains);
+    }
+  };
+
   var sendControlAnalyticsEvent = function sendControlAnalyticsEvent(control, value) {
     ga('send', {
       hitType: 'event',
@@ -213,8 +220,8 @@
 
   var setMapPanelCount = function setMapPanelCount(numberMapPanelsToDisplay) {
     localStorage.setItem('mappanelcount', numberMapPanelsToDisplay);
-    mapPanelsWraper.attr('map-panel-count', numberMapPanelsToDisplay);
-    $.each(mapEl, function (index, map) {
+    mapPanelWrappers.attr('map-panel-count', numberMapPanelsToDisplay);
+    $.each(mapMains, function (index, map) {
       if (index < numberMapPanelsToDisplay) {
         $(map).css('display', 'block');
         R6MapsControls.enableZoom($(map));
@@ -223,8 +230,8 @@
         R6MapsControls.disableZoom($(map));
       }
     });
-    R6MapsControls.resetPan(mapEl);
-    R6MapsControls.resetZoom(mapEl);
+    R6MapsControls.resetPan(mapMains);
+    R6MapsControls.resetZoom(mapMains);
   };
 
   var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
@@ -240,14 +247,14 @@
   };
 
   var setMapElements = function setMapElements() {
-    mapSafetyWrapper = $('.map-pan-safety-wrapper');
-    mapEl = $('.map-main');
-    mapElements = mapEl.find('.map-elements');
-    svgElements = mapEl.find('.svg-elements');
+    mapWrappers = $('.map-wrapper');
+    mapMains = mapWrappers.find('.map-main');
+    mapElements = mapMains.find('.map-elements');
+    svgElements = mapMains.find('.svg-elements');
   };
 
   var setPageElements = function setPageElements() {
-    mapPanelsWraper = $('#map-panels-wrapper');
+    mapPanelWrappers = $('#map-panel-wrapper');
     navLogoEl = $('#nav-logo');
     bodyEl = $('body');
   };
@@ -277,7 +284,7 @@
   };
 
   var setupEvents = function setupEvents() {
-    mapEl.on('click', outputCoordinates);
+    mapMains.on('click', outputCoordinates);
 
     R6MapsControls.setupObjectiveChangeEvent(handleObjectiveChange);
     R6MapsControls.setupMapChangeEvent(handleMapChange);
@@ -285,6 +292,7 @@
     R6MapsControls.setupFloorHotkeys(showSelectedFloor);
     R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
     R6MapsControls.setupMapPanelCountChangeEvent(setMapPanelCount);
+    R6MapsControls.setupLockPanningChangeEvent(saveLockPanningOption);
 
     navLogoEl.on('click', function(event) {
       event.preventDefault();
@@ -346,7 +354,7 @@
   var showSelectedFloor =  function showSelectedFloor() {
     R6MapsRender.showFloor(
       R6MapsControls.getCurrentlySelectedFloor(),
-      mapEl,
+      mapWrappers,
       R6MapsControls.getMaxFloorIndex()
     );
   };
@@ -365,6 +373,14 @@
   var tryHideMapSelect = function tryHideMapSelect() {
     if (checkIfMapLoaded()) {
       showMap();
+    }
+  };
+
+  var tryLoadLockPanningOption = function tryLoadLockPanningOption() {
+    var lockPanningOption = localStorage.getItem('lockpanning');
+
+    if (lockPanningOption !== null) {
+      R6MapsControls.setLockPanningOption(lockPanningOption);
     }
   };
 
@@ -425,12 +441,6 @@
   var tryEnableChannelFeature = function tryEnableChannelFeature() {
     if (queryString('channels')) {
       R6MapsControls.enableChannelControl();
-    }
-  };
-
-  var tryEnableMapPanelCountFeature = function tryEnableMapPanelCountFeature() {
-    if (queryString('panels')) {
-      R6MapsControls.enableMapPanelCountControl();
     }
   };
 

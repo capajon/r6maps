@@ -6,6 +6,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     floorControl = $('#floor-control'),
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
+    lockPanningControl,
     roomLabelStylesControl,
     mapPanelCountControl,
     channelControl,
@@ -20,10 +21,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var enableChannelControl = function enableChannelControl() {
     $('.feature-flagged.channel-control').css('display', 'block');
-  };
-
-  var enableMapPanelCountControl = function enableMapPanelCountControl() {
-    $('.feature-flagged.map-panel-count-control').css('display', 'block');
   };
 
   var enableZoom = function enableZoom(mapElements) {
@@ -83,13 +80,15 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
-  var getHandlePanZoomChangeFn = function getHandlePanZoomChangeFn(mapEl) {
+  var getHandlePanZoomChangeFn = function getHandlePanZoomChangeFn(mapMains) {
     return function handlePanZoomChange(event, panzoom, transform) {
-      mapEl.each(function(index, map){
-        if (map !== event.target) {
-          $(map).panzoom('pan', transform[4], transform[5], {silent: true});
-        }
-      });
+      if (getLockPanningValue()) {
+        mapMains.each(function(index, map){
+          if (map !== event.target) {
+            $(map).panzoom('pan', transform[4], transform[5], {silent: true});
+          }
+        });
+      }
     };
   };
 
@@ -106,6 +105,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
         mapElements.removeClass(ZOOMED_OUT_FAR_CLASS);
       }
     };
+  };
+
+  var getLockPanningValue = function getLockPanningValue() {
+    return lockPanningControl.is(':checked');
   };
 
   var isZoomed = function isZoomed() {
@@ -188,19 +191,22 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<div id="los-opacity" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
 
-    html += '<div class="feature-flagged map-panel-count-control">';
+    html += '<div class="map-panel-count-control">';
     html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
     html += '<select id="map-pane-count">';
     html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
     html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
     html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
     html += '</select>';
+    html += '<div class="lock-panning-wrapper">';
+    html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
+    html += '</div>';
     html += '</div>';
 
     html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
     html += '<select id="room-label-style"></select>';
 
-    html += '<label>' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
+    html += '<label id="los-label">' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
     html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
     html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
@@ -215,6 +221,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     roomLabelStylesControl = $('#room-label-style');
     populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
     mapPanelCountControl = $('#map-pane-count');
+    lockPanningControl = $('#lock-panning');
   };
 
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
@@ -254,16 +261,22 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     roomLabelStylesControl.html(html);
   };
 
-  var resetPan = function resetPan(map) {
-    map.panzoom('resetPan');
+  var resetPan = function resetPan(mapMains) {
+    mapMains.panzoom('resetPan');
   };
 
   var resetSelectedFloor = function resetSelectedFloor() {
     floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
   };
 
-  var resetZoom = function resetZoom(map) {
-    map.panzoom('resetZoom');
+  var resetZoom = function resetZoom(mapMains) {
+    mapMains.panzoom('resetZoom');
+  };
+
+  var setLockPanningOption = function setLockPanningOption(isChecked) {
+    var boolValue = (isChecked === 'true') ? true : false;
+
+    lockPanningControl.prop('checked', boolValue);
   };
 
   var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
@@ -280,6 +293,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var setupMapPanelCountChangeEvent = function setupMapPanelCountChangeEvent(callback) {
     mapPanelCountControl.on('change', function(event) {
+      tryShowLockPanning(event.target.value);
       callback(event.target.value);
     });
   };
@@ -309,6 +323,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
+  var setupLockPanningChangeEvent = function setupLockPanning(callbackFn) {
+    lockPanningControl.change(function(e) {
+      callbackFn(getLockPanningValue());
+    });
+  };
+
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
     var losOpacityControl = $('#los-opacity-range'),
       handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
@@ -336,33 +356,33 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
   };
 
-  var setupPanZoom = function setupPanZoom(mapEl, mapElements) {
-    mapEl.panzoom({
+  var setupPanZoom = function setupPanZoom(mapMains, mapElements) {
+    mapMains.panzoom({
       $zoomRange: zoomControl,
       minScale: 0.3,
       maxScale: 2.5
     });
 
-    mapEl.on('mousewheel', function(event) {
+    mapMains.on('mousewheel', function(event) {
       zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
       zoomControl.trigger('input');
-      //needed? zoomControl.trigger('change');
+      zoomControl.trigger('change'); // todo: needed??
     });
 
     zoomControl.on('change', getHandleZoomChangeFn(mapElements));
     zoomControl.on('input', getHandleZoomChangeFn(mapElements));
 
     // camera links were not working on touch devices:
-    mapEl.on('touchstart','a', function(e) {
+    mapMains.on('touchstart','a', function(e) {
       $(this).addClass('hover');
     });
 
-    mapEl.on('touchend','a', function(e) {
+    mapMains.on('touchend','a', function(e) {
       $(this).removeClass('hover');
       this.click();
     });
 
-    mapEl.on('panzoomchange', getHandlePanZoomChangeFn(mapEl));
+    mapMains.on('panzoomchange', getHandlePanZoomChangeFn(mapMains));
   };
 
   var trySelectFloor = function trySelectFloor(floorIndex) {
@@ -403,10 +423,19 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return trySelectOption(roomLabelStylesControl, style);
   };
 
+  var tryShowLockPanning = function tryShowLockPanning(numberPanels) {
+    var lockPanningControlWrapper = lockPanningControl.closest('.lock-panning-wrapper');
+
+    if (numberPanels > 1) {
+      lockPanningControlWrapper.show(600);
+    } else {
+      lockPanningControlWrapper.hide(600);
+    }
+  };
+
   return  {
     disableZoom: disableZoom,
     enableChannelControl: enableChannelControl,
-    enableMapPanelCountControl: enableMapPanelCountControl,
     enableZoom: enableZoom,
     getCurrentlySelectedFloor: getCurrentlySelectedFloor,
     getCurrentlySelectedMap: getCurrentlySelectedMap,
@@ -419,9 +448,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
     resetZoom: resetZoom,
+    setLockPanningOption: setLockPanningOption,
     setupFloorChangeEvent: setupFloorChangeEvent,
     setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
+    setupLockPanningChangeEvent: setupLockPanningChangeEvent,
     setupLosOpacity: setupLosOpacity,
     setupMapChangeEvent: setupMapChangeEvent,
     setupObjectiveChangeEvent: setupObjectiveChangeEvent,
