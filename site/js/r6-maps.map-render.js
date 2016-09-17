@@ -118,21 +118,21 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var getCommonClasses = function getCommonClasses(mapElement) {
+  var getCommonClasses = function getCommonClasses(element) {
     var classes = '';
 
-    if (mapElement.floor != null) {
-      classes += FLOOR_CSS_TEXT[mapElement.floor] + ' ';
+    if (element.floor != null) {
+      classes += FLOOR_CSS_TEXT[element.floor] + ' ';
     }
 
-    if (mapElement.otherFloor != null && !mapElement.alwaysShow) {
+    if (element.otherFloor != null && !element.alwaysShow) {
       classes += 'other-floor ';
-      classes += mapElement.otherFloor == 'up' ? 'up ' : 'down ';
+      classes += element.otherFloor == 'up' ? 'up ' : 'down ';
     }
 
-    classes += mapElement.outdoor ? 'outdoor ' : '';
-    classes += mapElement.hardToRead ? 'hard-to-read ' : '';
-    classes += mapElement.veryHardToRead ? 'very-hard-to-read ' : '';
+    classes += element.outdoor ? 'outdoor ' : '';
+    classes += element.hardToRead ? 'hard-to-read ' : '';
+    classes += element.veryHardToRead ? 'very-hard-to-read ' : '';
 
     return classes;
   };
@@ -214,8 +214,19 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var getPositionStyle = function getPositionStyle(mapElement) {
-    return 'top: ' + mapElement.top + 'px; left: ' + mapElement.left + 'px; ';
+  var getPanelLabelsHtml = function getPanelLabelsHtml(floors) {
+    var html = '',
+      cssClass = '';
+
+    floors.forEach(function(floor) {
+      cssClass = FLOOR_CSS_TEXT[floor.index];
+      html += '<span class="' + cssClass + '">' + floor.name.full + '</span>';
+    });
+    return html;
+  };
+
+  var getPositionStyle = function getPositionStyle(element) {
+    return 'top: ' + element.top + 'px; left: ' + element.left + 'px; ';
   };
 
   var getRoomLabelsHtml = function getRoomLabelsHtml(roomLabels) {
@@ -320,6 +331,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     html += getLegendHtml();
 
     mapElements.html(html);
+    $('.map-panel-label').html(getPanelLabelsHtml(mapData.floors));
     svgElement.html(getCamerasLosHtml(mapData.cameras));
   };
 
@@ -330,32 +342,32 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     mapElements.addClass(ROOM_LABEL_CSS_TEXT[style]);
   };
 
-  var setupMapPanels = function setupMapPanels(mapPanelsWraper, numPanels) {
+  var setupMapPanels = function setupMapPanels(mapPanelWrappers, numPanels) {
     var html;
 
     for (var x = 0; x < numPanels; x++) {
-        html = ''
-        html += '<div class="map-pan-safety-wrapper">';
-        html += '<div class="helper-border vertical"></div>';
-        html += '<div class="helper-border horizontal"></div>';
-        html += '<div class="map-panel-label"><p>1st Floor</p></div>';
-        html += '<div class="map-main">';
-        html += '<div class="center-helper">';
-        html += '<div class="map-elements"></div>';
-        html += '</div>';
-        html += '<svg class="center-helper">';
-        html += '<g class="svg-elements"></g>';
-        html += '</svg>';
-        html += '</div>';
-        html += '</div>';
-        mapPanelsWraper.append(html);
+      html = '';
+      html += '<div class="map-wrapper">';
+      html += '<div class="helper-border vertical"></div>';
+      html += '<div class="helper-border horizontal"></div>';
+      html += '<p class="map-panel-label"></p>';
+      html += '<div class="map-main">';
+      html += '<div class="center-helper">';
+      html += '<div class="map-elements"></div>';
+      html += '</div>';
+      html += '<svg class="center-helper">';
+      html += '<g class="svg-elements"></g>';
+      html += '</svg>';
+      html += '</div>';
+      html += '</div>';
+      mapPanelWrappers.append(html);
     }
   };
 
-  var showFloor = function showFloor(floor, mapEl, maxFloorIndex) { // change to maxFloorIndex
+  var showFloor = function showFloor(floor, mapWrappers, maxFloorIndex) { // change to maxFloorIndex
     var floorIndex = floor;
 
-    mapEl.each(function(index, map) {
+    mapWrappers.each(function(index, map) {
       $(map).removeClassPrefix(CSS_FLOOR_PREFIX);
       $(map).addClass(CSS_FLOOR_PREFIX + FLOOR_CSS_TEXT[Math.min(floorIndex, maxFloorIndex)]);
       floorIndex++;

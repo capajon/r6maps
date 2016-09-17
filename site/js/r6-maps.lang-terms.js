@@ -22,7 +22,8 @@ var R6MapsLangTerms = (function(undefined) {
         labelLos105: '(Huh?)',
         labelLos110: '(Ludicrous!)',
         labelRoomLabelStyle: 'Room label style',
-        labelNumberFloorsToDisplay: 'Number of floors to display'
+        labelNumberFloorsToDisplay: 'Number of floors to display',
+        lockPanning: 'Lock panning'
       },
       channels: { // todo: translate
         title: 'Team channels',
