@@ -332,10 +332,20 @@ body, button, input, select {
       p {
         @include text-shadow();
         color: #fff;
-        font-size: 30px;
+        font-size: $objective-font-size;
         line-height: $objective-height;
         text-align: center;
         width: $objective-width;
+      }
+
+      &.smaller {
+        @include icon-size($objective-width-smaller, $objective-height-smaller);
+
+        p {
+          font-size: $objective-font-size-smaller;
+          line-height: $objective-height-smaller;
+          width: $objective-width-smaller;
+        }
       }
 
       &.up {
@@ -454,6 +464,10 @@ body, button, input, select {
       width: 220px;
       z-index: $z-room-label;
 
+      &.smaller p {
+        font-size: 14px;
+      }
+
       p {
         @include text-shadow(2px, 1px, 4px, $color: rgba(0,0,0,0.8));
         color: #fff;
@@ -461,8 +475,13 @@ body, button, input, select {
         font-size: 16px;
         font-weight: 400;
 
-        @at-root .map-elements.room-label-large .room-label p {
-          font-size: 21px !important;
+        @at-root .map-elements.room-label-large .room-label {
+          &.smaller p {
+            font-size: 18px !important;
+          }
+          p {
+            font-size: 21px !important;
+          }
         }
         @at-root .map-elements.room-label-dark .room-label {
           opacity: 1 !important;

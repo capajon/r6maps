@@ -133,6 +133,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     classes += element.outdoor ? 'outdoor ' : '';
     classes += element.hardToRead ? 'hard-to-read ' : '';
     classes += element.veryHardToRead ? 'very-hard-to-read ' : '';
+    classes += element.smaller ? 'smaller ' : '';
 
     return classes;
   };
