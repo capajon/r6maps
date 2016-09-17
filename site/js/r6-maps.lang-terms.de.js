@@ -74,6 +74,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
       },
       mapNames: {
         bank: 'Bank',
+        border: 'Angreifen',
         chalet: 'Chalet',
         club: 'Clubhaus',
         consulate: 'Konsulat',
@@ -139,11 +140,61 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           terrace: 'Terrasse',
           stockTradingRoom: 'Aktienhandels-<br/>raum',
           conferenceRoom: 'Konferenzraum'
+        },
+        border: {
+          armorLockers: 'Waffenlager-schränke',
+          tellers: 'Schalter',
+          ventilationRoom: 'Lüftungs-<br/>raum',
+          exitHallway: 'Gang zum<br/>Ausgang',
+          supplyCorridor: 'Vorrats-<br/>korridor',
+          detention: 'Arrestzelle',
+          customsInspection: 'Zollinspektion',
+          customsDesk: 'Zoll schalter',
+          centralStairs: 'Mittlere Treppe',
+          serverRoom: 'Serverraum',
+          supplyRoom: 'Vorrats-<br/>raum',
+          workshop: 'Arbeits-<br/>raum',
+          mainLobby: 'Haupt-<br/>lobby',
+          bathroom: 'Toilette',
+          waitingRoom: 'Warte-<br/>raum',
+          eastStairs: 'Ost-<br/>treppe',
+          passportCheck: 'Passkontrolle',
+          archives: 'Archiv',
+          offices: 'Büros',
+          officesHallway: 'Büro-<br/>gang',
+          fountain: 'Wasserbecken',
+          mainHallway: 'Haupt-<br/>flur',
+          armoryDesk: 'Waffen-<br/>lager',
+          securityRoom: 'Sicherheits-<br/>raum',
+          breakRoom: 'Pausen-<br/>raum',
+          spawnEastVehicleEntrance: 'Östliche Einfahrt',
+          spawnValley: 'Schlucht',
+          spawnWestVehicleExit: 'Westliche Ausfahrt',
+          westTower: 'West-<br/>turm',
+          pedestrianExit: 'FuBganger-<br/>ausgang',
+          valley: 'Schlucht',
+          parkingLotEntrance: 'Fußgänger-<br/>Zollstelle',
+          parkingLot: 'Parkplatz',
+          westRoad: 'Westliche Straße',
+          vehicleCustoms: 'Fahrzeug-Zollstelle',
+          crashScene: 'Unfall-stelle',
+          eastRoad: 'Östliche Straße',
+          pedestrianEntrance: 'Fußgänger-<br/>eingang',
+          pedestrianCustoms: 'Fußgänger-<br/>Zollstelle',
+          watchTower: 'Wach-<br/>turm',
+          eastAlley: 'Östliche Gasse',
+          parkingLotAlley: 'Parkplatz-<br/>gasse',
+          northBalcony: 'Nord-balkon',
+          eastBalcony: 'Ost-<br/>balkon',
+          westBalcony: 'West-<br/>balkon',
+          southBalcony: 'Süd-balkon',
+          roof: 'Dach'
         }
+        //  ß  ä  Ä  é  ö  Ö  ü  Ü
       }
     };
 
-  //R6MapsLangTerms.registerLanguage(name, terms);
+  R6MapsLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
