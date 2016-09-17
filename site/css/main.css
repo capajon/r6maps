@@ -1331,6 +1331,15 @@ body, button, input, select {
         line-height: 40px;
         text-align: center;
         width: 30px; }
+      .map-main .map-elements .objective.smaller {
+        width: 25px;
+        height: 32px;
+        margin-left: -12.5px;
+        margin-top: -16px; }
+        .map-main .map-elements .objective.smaller p {
+          font-size: 23px;
+          line-height: 32px;
+          width: 25px; }
       .map-main .map-elements .objective.up span {
         background: url("../img/icons/up@2x.png");
         background-size: 15px, 22px;
@@ -1461,12 +1470,16 @@ body, button, input, select {
       text-align: center;
       width: 220px;
       z-index: 1165; }
+      .map-main .map-elements .room-label.smaller p {
+        font-size: 14px; }
       .map-main .map-elements .room-label p {
         text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.8);
         color: #fff;
         display: inline-block;
         font-size: 16px;
         font-weight: 400; }
+        .map-elements.room-label-large .room-label.smaller p {
+          font-size: 18px !important; }
         .map-elements.room-label-large .room-label p {
           font-size: 21px !important; }
         .map-elements.room-label-dark .room-label {
