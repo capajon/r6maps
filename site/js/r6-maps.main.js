@@ -24,7 +24,11 @@
     setupSelectMap();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
 
+    setupEvents();
     tryEnableChannelFeature();
+    tryLoadMapPanelCount();
+    tryLoadLockPanningOption();
+    tryLoadRoomLabelStyle();
 
     if (trySelectBookmarkedMap()) {
       loadMap();
@@ -37,10 +41,6 @@
     }
 
     R6MapsControls.setupPanZoom(mapMains, mapElements);
-    setupEvents();
-    tryLoadMapPanelCount();
-    tryLoadRoomLabelStyle();
-    tryLoadLockPanningOption();
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
