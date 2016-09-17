@@ -4,7 +4,7 @@
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
 }(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, undefined) {
   var mapWrappers,
-    mapPanelWrappers,
+    mapPanelWrapper,
     mapMains,
     mapElements,
     svgElements,
@@ -17,12 +17,11 @@
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     setPageElements();
-    R6MapsRender.setupMapPanels(mapPanelWrappers, 4);
+    R6MapsRender.setupMapPanels(mapPanelWrapper, 4);
     setMapElements();
     tryLoadStartingLanguage();
     setupMenu();
     setupSelectMap();
-    tryLoadMapPanelCount();
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
 
     tryEnableChannelFeature();
@@ -39,6 +38,7 @@
 
     R6MapsControls.setupPanZoom(mapMains, mapElements);
     setupEvents();
+    tryLoadMapPanelCount();
     tryLoadRoomLabelStyle();
     tryLoadLockPanningOption();
   });
@@ -218,11 +218,12 @@
     sendControlAnalyticsEvent('Floor', R6MapsControls.getCurrentlySelectedFloor());
   };
 
-  var setMapPanelCount = function setMapPanelCount(numberMapPanelsToDisplay) {
-    localStorage.setItem('mappanelcount', numberMapPanelsToDisplay);
-    mapPanelWrappers.attr('map-panel-count', numberMapPanelsToDisplay);
+  var setMapPanelCount = function setMapPanelCount(numPanels) {
+    localStorage.setItem('mappanelcount', numPanels);
+    mapPanelWrapper.attr('map-panel-count', numPanels);
+
     $.each(mapMains, function (index, map) {
-      if (index < numberMapPanelsToDisplay) {
+      if (index < numPanels) {
         $(map).css('display', 'block');
         R6MapsControls.enableZoom($(map));
       } else {
@@ -230,6 +231,7 @@
         R6MapsControls.disableZoom($(map));
       }
     });
+
     R6MapsControls.resetPan(mapMains);
     R6MapsControls.resetZoom(mapMains);
   };
@@ -254,7 +256,7 @@
   };
 
   var setPageElements = function setPageElements() {
-    mapPanelWrappers = $('#map-panel-wrapper');
+    mapPanelWrapper = $('#map-panel-wrapper');
     navLogoEl = $('#nav-logo');
     bodyEl = $('body');
   };
@@ -352,10 +354,14 @@
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
+    var minMadFlorIndexes = R6MapsControls.getMinAndMaxFloorIndex();
+
     R6MapsRender.showFloor(
       R6MapsControls.getCurrentlySelectedFloor(),
+      mapPanelWrapper,
       mapWrappers,
-      R6MapsControls.getMaxFloorIndex()
+      minMadFlorIndexes.min,
+      minMadFlorIndexes.max
     );
   };
 

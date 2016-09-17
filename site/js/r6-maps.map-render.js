@@ -3,7 +3,6 @@
 var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var CAMERA_WIDTH = 40,
     CAMERA_HEIGHT = 40,
-    CSS_FLOOR_PREFIX = 'show-floor-',
     langTerms = R6MapsLangTerms.terms;
 
   $.fn.removeClassPrefix = function(prefix) {
@@ -342,7 +341,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     mapElements.addClass(ROOM_LABEL_CSS_TEXT[style]);
   };
 
-  var setupMapPanels = function setupMapPanels(mapPanelWrappers, numPanels) {
+  var setupMapPanels = function setupMapPanels(mapPanelWrapper, numPanels) {
     var html;
 
     for (var x = 0; x < numPanels; x++) {
@@ -360,18 +359,34 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       html += '</svg>';
       html += '</div>';
       html += '</div>';
-      mapPanelWrappers.append(html);
+      mapPanelWrapper.append(html);
     }
   };
 
-  var showFloor = function showFloor(floor, mapWrappers, maxFloorIndex) { // change to maxFloorIndex
-    var floorIndex = floor;
+  var showFloor = function showFloor(
+    selectedFloorIndex,
+    mapPanelWrapper,
+    mapWrappers,
+    minFloorIndex,
+    maxFloorIndex
+  ) {
+    mapPanelWrapper.attr('selected-floor-index', selectedFloorIndex);
+
+    var numPanels = mapPanelWrapper.attr('map-panel-count');
+
+    if (numPanels > 2)  {
+      selectedFloorIndex = Math.max(minFloorIndex, selectedFloorIndex - 1);
+    }
+    var tempMinIndex = Math.max(minFloorIndex, maxFloorIndex - numPanels + 1),
+      startingIndex = Math.min(tempMinIndex, selectedFloorIndex);
 
     mapWrappers.each(function(index, map) {
-      $(map).removeClassPrefix(CSS_FLOOR_PREFIX);
-      $(map).addClass(CSS_FLOOR_PREFIX + FLOOR_CSS_TEXT[Math.min(floorIndex, maxFloorIndex)]);
-      floorIndex++;
+      var mapWrapper = $(map)
+
+      $(mapWrapper).attr('show-floor-index', Math.min(startingIndex, maxFloorIndex));
+      startingIndex++;
     });
+
   };
 
   var showObjective = function showObjective(objective, mapElements) {

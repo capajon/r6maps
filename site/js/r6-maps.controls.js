@@ -39,10 +39,13 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return objectiveControl.val();
   };
 
-  var getMaxFloorIndex = function getMaxFloorIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
+  var getMinAndMaxFloorIndex = function getMinAndMaxFloorIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
     var floorInputs = floorControl.find('button');
 
-    return $(floorInputs[floorInputs.length - 1]).data('index');
+    return {
+      min: $(floorInputs[0]).data('index'),
+      max: $(floorInputs[floorInputs.length - 1]).data('index')
+    };
   };
 
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
@@ -273,6 +276,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     mapMains.panzoom('resetZoom');
   };
 
+  var restrictFloorsByPanelCount = function restrictFloorsByPanelCount(numPanels) {
+    console.log('restrictFloorsByPanelCount not implemented start');
+    var currentIndex = getCurrentlySelectedFloor(),
+      maxIndex = getMaxFloorIndex();
+    // change selected level if necessary       trySelectFloor()
+    // disable bad floors   Need a new function
+  };
+
   var setLockPanningOption = function setLockPanningOption(isChecked) {
     var boolValue = (isChecked === 'true') ? true : false;
 
@@ -293,13 +304,20 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var setupMapPanelCountChangeEvent = function setupMapPanelCountChangeEvent(callback) {
     mapPanelCountControl.on('change', function(event) {
-      tryShowLockPanning(event.target.value);
-      callback(event.target.value);
+      var panelCount = mapPanelCountControl.val();
+      tryShowLockPanning(panelCount);
+      callback(panelCount);
     });
   };
 
   var setupFloorHotkeys = function setupFloorHotkeys(showSelectedFloorFn) {
     $(document).on('keydown', getHandleHotkeyFn(showSelectedFloorFn));
+  };
+
+  var setupLockPanningChangeEvent = function setupLockPanning(callback) {
+    lockPanningControl.change(function(e) {
+      callback(getLockPanningValue());
+    });
   };
 
   var setLosLabelsText = function setLosLabelsText(opacity, defaultOpacity) {
@@ -321,12 +339,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     } else {
       losNote.text('');
     }
-  };
-
-  var setupLockPanningChangeEvent = function setupLockPanning(callbackFn) {
-    lockPanningControl.change(function(e) {
-      callbackFn(getLockPanningValue());
-    });
   };
 
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
@@ -398,7 +410,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var trySelectMapPanelCount = function trySelectMapPanelCount(number) {
-    return trySelectOption(mapPanelCountControl, number);
+    var result = trySelectOption(mapPanelCountControl, number);
+
+    mapPanelCountControl.trigger('change');
+    return result;
   };
 
   var trySelectMap = function trySelectMap(map) {
@@ -440,7 +455,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     getCurrentlySelectedFloor: getCurrentlySelectedFloor,
     getCurrentlySelectedMap: getCurrentlySelectedMap,
     getCurrentlySelectedObjective: getCurrentlySelectedObjective,
-    getMaxFloorIndex: getMaxFloorIndex,
+    getMinAndMaxFloorIndex: getMinAndMaxFloorIndex,
     isZoomed: isZoomed,
     populateFloorOptions: populateFloorOptions,
     populateMapOptions: populateMapOptions,
@@ -448,6 +463,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
     resetZoom: resetZoom,
+    restrictFloorsByPanelCount: restrictFloorsByPanelCount,
     setLockPanningOption: setLockPanningOption,
     setupFloorChangeEvent: setupFloorChangeEvent,
     setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,

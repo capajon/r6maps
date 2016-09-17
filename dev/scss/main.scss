@@ -11,6 +11,12 @@
 @import "_jquery.mmenu.pagedim.scss";
 @import "_jquery.mmenu.custom-r6maps.scss";
 
+@mixin current-label {
+  background-color: $r6-yellow;
+  color: #000;
+  text-shadow: none;
+}
+
 .offscreen {
   @include offscreen;
 }
@@ -72,37 +78,37 @@ body, button, input, select {
   width: 100vw;
   overflow:hidden;
 
-  &.show-floor-zero {
+  &[show-floor-index="0"] {
     .one, .two, .three, .four, .five {
       display: none !important;
     }
   }
 
-  &.show-floor-one {
+  &[show-floor-index="1"] {
     .zero, .two, .three, .four, .five {
       display: none !important;
     }
   }
 
-  &.show-floor-two {
+  &[show-floor-index="2"]{
     .zero, .one, .three, .four, .five {
       display: none !important;
     }
   }
 
-  &.show-floor-three {
+  &[show-floor-index="3"] {
     .zero, .one, .two, .four, .five {
       display: none !important;
     }
   }
 
-  &.show-floor-four {
+  &[show-floor-index="4"] {
     .zero, .one, .two, .three, .five {
       display: none !important;
     }
   }
 
-  &.show-floor-five {
+  &[show-floor-index="5"] {
     .zero, .one, .two, .three, .four {
       display: none !important;
     }
@@ -115,8 +121,28 @@ body, button, input, select {
   @include flex-wrap(wrap);
   @include justify-content(space-around);
 
+  &[selected-floor-index="0"] .map-wrapper[show-floor-index="0"] .map-panel-label {
+     @include current-label();
+  }
+  &[selected-floor-index="1"] .map-wrapper[show-floor-index="1"] .map-panel-label {
+     @include current-label();
+  }
+  &[selected-floor-index="2"] .map-wrapper[show-floor-index="2"] .map-panel-label {
+     @include current-label();
+  }
+  &[selected-floor-index="3"] .map-wrapper[show-floor-index="3"] .map-panel-label {
+     @include current-label();
+  }
+  &[selected-floor-index="4"] .map-wrapper[show-floor-index="4"] .map-panel-label {
+     @include current-label();
+  }
+  &[selected-floor-index="5"] .map-wrapper[show-floor-index="5"] .map-panel-label {
+     @include current-label();
+  }
+
   .helper-border {
-    background-color: $very-dark-blue;
+    @include box-shadow(0, 0, 8px, rgba(0,0,0,1));
+    background-color: #fff;
     display: none;
     position: absolute;
     z-index: $z-map-border;
@@ -150,6 +176,20 @@ body, button, input, select {
     }
   }
 
+  .map-wrapper {
+    display: none;
+
+    &:first-child {
+      display: block;
+    }
+    &:nth-child(2),
+    &:nth-child(4) {
+      .map-panel-label {
+        left: 1px;
+      }
+    }
+  }
+
   &[map-panel-count="2"] .map-wrapper {
     @include flex(1 1 50%);
 
@@ -161,9 +201,30 @@ body, button, input, select {
       right: 0;
     }
 
+    &:nth-child(2) {
+      display: block;
+    }
+
     @media (orientation: portrait) {
       @include flex(1 1 100%);
       height: 50vh;
+
+      .helper-border.vertical {
+        display: none;
+      }
+      .helper-border.horizontal {
+        display: block;
+      }
+      &:first-child {
+        .helper-border.horizontal {
+          bottom: 0;
+        }
+      }
+      &:nth-child(2) {
+        .map-panel-label {
+          left: 0;
+        }
+      }
     }
 
     .map-panel-label {
@@ -175,6 +236,7 @@ body, button, input, select {
 
   &[map-panel-count="4"] .map-wrapper {
     @include flex(1 1 50%);
+    display: block;
     height: 50vh;
 
     .helper-border.vertical,
