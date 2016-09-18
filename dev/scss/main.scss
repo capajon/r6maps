@@ -161,6 +161,7 @@ body, button, input, select {
     background-color: $faded-bg;
     border-radius: 0 0 6px 6px;
     color: #fff;
+    display: none;
     font-size: 1.4rem;
     left: 0;
     padding: 0.2em 0.6em 0.3em 0.6em;
@@ -192,6 +193,10 @@ body, button, input, select {
 
   &[map-panel-count="2"] .map-wrapper {
     @include flex(1 1 50%);
+
+    .map-panel-label {
+      display: block;
+    }
 
     .helper-border.vertical {
       display: block;
@@ -238,6 +243,10 @@ body, button, input, select {
     @include flex(1 1 50%);
     display: block;
     height: 50vh;
+
+    .map-panel-label {
+      display: block;
+    }
 
     .helper-border.vertical,
     .helper-border.horizontal {

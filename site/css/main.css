@@ -1140,6 +1140,7 @@ body, button, input, select {
     background-color: rgba(16, 26, 36, 0.6);
     border-radius: 0 0 6px 6px;
     color: #fff;
+    display: none;
     font-size: 1.4rem;
     left: 0;
     padding: 0.2em 0.6em 0.3em 0.6em;
@@ -1164,6 +1165,8 @@ body, button, input, select {
     -moz-flex: 1 1 50%;
     -ms-flex: 1 1 50%;
     flex: 1 1 50%; }
+    #map-panel-wrapper[map-panel-count="2"] .map-wrapper .map-panel-label {
+      display: block; }
     #map-panel-wrapper[map-panel-count="2"] .map-wrapper .helper-border.vertical {
       display: block; }
     #map-panel-wrapper[map-panel-count="2"] .map-wrapper:first-child .helper-border.vertical {
@@ -1198,6 +1201,8 @@ body, button, input, select {
     flex: 1 1 50%;
     display: block;
     height: 50vh; }
+    #map-panel-wrapper[map-panel-count="4"] .map-wrapper .map-panel-label {
+      display: block; }
     #map-panel-wrapper[map-panel-count="4"] .map-wrapper .helper-border.vertical,
     #map-panel-wrapper[map-panel-count="4"] .map-wrapper .helper-border.horizontal {
       display: block; }
