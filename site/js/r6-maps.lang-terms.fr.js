@@ -112,7 +112,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           sewer: 'Tunnel',
           lockers: 'Vestiaires',
           vaultLobby: 'Hall salle<br/>des coffres',
-          vaultEntrance: 'Extrée salle<br/>des coffres',
+          vaultEntrance: 'Extrée<br/>salle des<br/>coffres',
           mainStairway: 'Escalier<br/>principal',
           bankGarage: 'Garage de la banque',
           elevators: 'Ascen-<br/>seurs',
@@ -125,7 +125,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           officeHallway: 'Couloir du bureau',
           skylightStairwell: 'Cage d\'escalier<br/>éclairée',
           lobby: 'Entrée',
-          staffRoom: 'Salle du personnel',
+          staffRoom: 'Salle du<br/>personnel',
           electricalRoom: 'Local<br/>électrique',
           adminOffice: 'Administration',
           ATMs: 'Distributeurs de billets',
@@ -136,8 +136,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           janitorCloset: 'Local du concierge',
           hallway: 'Couloir',
           terrace: 'Terrasse',
-          stockTradingRoom: 'Salle<br/>des<br/>transactions',
-          conferenceRoom: 'Salle de conférences'
+          stockTradingRoom: 'Salle des<br/>transactions',
+          conferenceRoom: 'Salle de<br/>conférences'
         },
         border: {
           tellers: 'Guichets',

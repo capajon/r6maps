@@ -148,7 +148,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, floor: 3, description: bankTerms.lowRoof, top: 56, left: 129 },
           { floor: 0, description: bankTerms.vault, top: -150, left: -151 },
           { floor: 0, description: bankTerms.goldVault, top: -128, left: 100 },
-          { floor: 0, description: bankTerms.serverRoomStairs, top: -161, left: 275 },
+          { floor: 0, description: bankTerms.serverRoomStairs, top: -161, left: 278 },
           { floor: 0, description: bankTerms.serverRoom, top: -59, left: 321 },
           { floor: 0, description: bankTerms.CCTVRoom, top: 53, left: 208 },
           { floor: 0, description: bankTerms.loadingDock, top: 167, left: 56 },
@@ -160,7 +160,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 0, description: bankTerms.vaultEntrance, top: 13, left: -189 },
           { floor: 0, description: bankTerms.mainStairway, top: 237, left: -34 },
           { floor: 0, description: bankTerms.bankGarage, top: 315, left: -137 },
-          { floor: 0, description: bankTerms.elevators, top: 170, left: -183 },
+          { floor: 0, smaller: true, description: bankTerms.elevators, top: 170, left: -183 },
           { floor: 1, description: bankTerms.printerRoom, top: 255, left: 265 },
           { floor: 1, description: bankTerms.tellersOffice, top: -92, left: 27 },
           { floor: 1, description: bankTerms.archives, top: -56, left: 153 },
@@ -174,10 +174,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, description: bankTerms.openArea, top: 183, left: 162 },
           { floor: 1, description: bankTerms.staffRoom, top: 145, left: 283 },
           { floor: 1, description: bankTerms.electricalRoom, top: 18, left: 441 },
-          { floor: 1, description: bankTerms.adminOffice, top: 32, left: 143 },
+          { floor: 1, description: bankTerms.adminOffice, top: 34, left: 143 },
           { floor: 1, description: bankTerms.ATMs, top: -318, left: -223 },
-          { floor: 1, description: bankTerms.elevators, top: 170, left: -118 },
-          { floor: 1, description: bankTerms.elevators, top: 170, left: -183 },
+          { floor: 1, smaller: true, description: bankTerms.elevators, top: 170, left: -118 },
+          { floor: 1, smaller: true, description: bankTerms.elevators, top: 170, left: -183 },
           { floor: 2, description: bankTerms.executiveHallway, top: -166, left: 22 },
           { floor: 2, description: bankTerms.frontDesk, top: -41, left: -138 },
           { floor: 2, description: bankTerms.executiveLounge, top: -75, left: 39 },
@@ -187,9 +187,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, description: bankTerms.hallway, top: 127, left: -20 },
           { floor: 2, description: bankTerms.mainStairway, top: 237, left: -34 },
           { floor: 2, description: bankTerms.terrace, top: 147, left: 320 },
-          { floor: 2, description: bankTerms.stockTradingRoom, top: 212, left: 57 },
+          { floor: 2, description: bankTerms.stockTradingRoom, top: 235, left: 117 },
           { floor: 2, description: bankTerms.conferenceRoom, top: 22, left: -32 },
-          { floor: 2, description: bankTerms.elevators, top: 170, left: -118 }
+          { floor: 2, smaller: true, description: bankTerms.elevators, top: 170, left: -118 }
         ]
       },
       border: {

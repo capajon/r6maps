@@ -157,7 +157,7 @@ var R6MapsLangTerms = (function(undefined) {
           hallway: 'Hallway',
           terrace: 'Terrace',
           stockTradingRoom: 'Stock<br/>Trading<br/>Room',
-          conferenceRoom: 'Conference Room'
+          conferenceRoom: 'Conference<br/>Room'
         },
         border: {
           armoryLockers: 'Armory<br/>Lockers',
