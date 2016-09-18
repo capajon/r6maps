@@ -95,6 +95,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
+  var handlePanZoomEnd = function handlePanZoomEnd() {
+    zoomControl.trigger('input');
+  };
+
   var getHandleZoomChangeFn = function getHandleZoomChangeFn(mapElements) {
     return function handleZoomChange() {
       var zoomVal = zoomControl.val();
@@ -384,6 +388,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
 
     mapMains.on('panzoomchange', getHandlePanZoomChangeFn(mapMains));
+    mapMains.on('panzoomend', handlePanZoomEnd);
   };
 
   var setupRoomLabelStyleChangeEvent = function setupRoomLabelStyleChangeEvent(callback) {
