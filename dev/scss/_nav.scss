@@ -9,12 +9,17 @@ nav {
     background: $faded-bg;
     @include flexbox;
     @include justify-content(space-between);
-    min-height: 4.2rem;
+    pointer-events: none;
     width: 100vw;
   }
 
   select {
     font-size: $nav-font-size;
+    pointer-events: auto;
+  }
+
+  button {
+    pointer-events: auto;
   }
 
   .left.controls {
@@ -35,6 +40,7 @@ nav {
     cursor: auto;
     border: 0;
     margin-left: 0.5rem;
+    pointer-events: auto;
     padding: 0;
 
     &.enabled {
@@ -152,6 +158,7 @@ nav {
     }
 
     button {
+
       @media screen and (max-width: $break-small) {
         padding-left: 0.7em;
         padding-right: 0.7em;
@@ -161,6 +168,7 @@ nav {
 
   #zoom-range {
     display: none;
+    pointer-events: auto;
 
     body.show-map & {
       display: inline-block;

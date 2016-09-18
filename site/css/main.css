@@ -38,7 +38,7 @@ table {
 /* Z-INDEXES */
 input[type=range] {
   -webkit-appearance: none;
-  margin: 18px 0;
+  margin: 8px 0;
   width: 100px; }
   @media screen and (max-width: 620px) {
     input[type=range] {
@@ -176,10 +176,13 @@ nav {
     -webkit-justify-content: space-between;
     -moz-justify-content: space-between;
     justify-content: space-between;
-    min-height: 4.2rem;
+    pointer-events: none;
     width: 100vw; }
   nav select {
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    pointer-events: auto; }
+  nav button {
+    pointer-events: auto; }
   nav .left.controls {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -200,6 +203,7 @@ nav {
     cursor: auto;
     border: 0;
     margin-left: 0.5rem;
+    pointer-events: auto;
     padding: 0; }
     nav #nav-logo.enabled {
       cursor: pointer; }
@@ -277,7 +281,8 @@ nav {
         padding-left: 0.7em;
         padding-right: 0.7em; } }
   nav #zoom-range {
-    display: none; }
+    display: none;
+    pointer-events: auto; }
     body.show-map nav #zoom-range {
       display: inline-block; }
     @media screen and (max-width: 400px) {
