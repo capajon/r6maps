@@ -372,8 +372,6 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     maxFloorIndex
   ) {
     mapPanelWrapper.attr('selected-floor-index', selectedFloorIndex);
-    console.log(selectedFloorIndex, mapPanelWrapper, mapWrappers, minFloorIndex, maxFloorIndex);
-
     var numPanels = mapPanelWrapper.attr('map-panel-count');
 
     if (numPanels > 2)  {

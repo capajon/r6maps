@@ -86,7 +86,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var getHandlePanZoomChangeFn = function getHandlePanZoomChangeFn(mapMains) {
     return function handlePanZoomChange(event, panzoom, transform) {
       if (getLockPanningValue()) {
-        mapMains.each(function(index, map){
+        mapMains.each(function(index, map) {
           if (map !== event.target) {
             $(map).panzoom('pan', transform[4], transform[5], {silent: true});
           }
