@@ -165,68 +165,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     trySelectMap(currentMap);
   };
 
-  var setupMenu = function setupMenu(roomLabelStyles) {
-    var html = '';
-
-    html += '<div class="mmenu-custom-panel">';
-    html += '<h2>r6maps.com</h2>';
-    html += '<a href="">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</a>';
-    html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
-    html += '</div>';
-
-    html += '<div id="lang-choices" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
-    for (var langKey in R6MapsLangTerms.loadedLanguages) {
-      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
-    }
-    html += '</div>';
-
-    html += '<div class="feature-flagged channel-control">';
-    html += '<div class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
-    html += '<div class="channel-input-wrapper">';
-    html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
-    html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
-    html += '</div>';
-    html += '</div>';
-    html += '</div>';
-
-    html += '<div id="los-opacity" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
-
-    html += '<div class="map-panel-count-control">';
-    html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
-    html += '<select id="map-pane-count">';
-    html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
-    html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
-    html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
-    html += '</select>';
-    html += '<div class="lock-panning-wrapper">';
-    html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
-    html += '</div>';
-    html += '</div>';
-
-    html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
-    html += '<select id="room-label-style"></select>';
-
-    html += '<label id="los-label">' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
-    html += '<div class="zoom controls">';
-    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
-    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
-    html += '</div>';
-
-    html += '</div>';
-
-    html += '<div class="faded-logo"></div>';
-
-    menuPanel.html(html);
-    menuControl.html(R6MapsLangTerms.terms.general.menu);
-    roomLabelStylesControl = $('#room-label-style');
-    populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
-    mapPanelCountControl = $('#map-pane-count');
-    lockPanningControl = $('#lock-panning');
-  };
-
   var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
     var options = '',
       objectiveTerms = R6MapsLangTerms.terms.objectives,
@@ -296,14 +234,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
   };
 
-  var setupMapPanelCountChangeEvent = function setupMapPanelCountChangeEvent(callback) {
-    mapPanelCountControl.on('change', function(event) {
-      var panelCount = mapPanelCountControl.val();
-      tryShowLockPanning(panelCount);
-      callback(panelCount);
-    });
-  };
-
   var setupFloorHotkeys = function setupFloorHotkeys(showSelectedFloorFn) {
     $(document).on('keydown', getHandleHotkeyFn(showSelectedFloorFn));
   };
@@ -352,14 +282,79 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     mapControl.on('change', callback);
   };
 
-  var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
-    objectiveControl.on('change', callback);
+  var setupMapPanelCountChangeEvent = function setupMapPanelCountChangeEvent(callback) {
+    mapPanelCountControl.on('change', function(event) {
+      var panelCount = mapPanelCountControl.val();
+
+      tryShowLockPanning(panelCount);
+      callback(panelCount);
+    });
   };
 
-  var setupRoomLabelStyleChangeEvent = function setupRoomLabelStyleChangeEvent(callback) {
-    roomLabelStylesControl.on('change', function(event) {
-      callback(event.target.value);
-    });
+  var setupMenu = function setupMenu(roomLabelStyles) {
+    var html = '';
+
+    html += '<div class="mmenu-custom-panel">';
+    html += '<h2>r6maps.com</h2>';
+    html += '<a href="">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</a>';
+    html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
+    html += '</div>';
+
+    html += '<div id="lang-choices" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
+    for (var langKey in R6MapsLangTerms.loadedLanguages) {
+      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
+    }
+    html += '</div>';
+
+    html += '<div class="feature-flagged channel-control">';
+    html += '<div class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
+    html += '<div class="channel-input-wrapper">';
+    html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
+    html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
+    html += '</div>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div id="los-opacity" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
+
+    html += '<div class="map-panel-count-control">';
+    html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
+    html += '<select id="map-pane-count">';
+    html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
+    html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
+    html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
+    html += '</select>';
+    html += '<div class="lock-panning-wrapper">';
+    html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
+    html += '<select id="room-label-style"></select>';
+
+    html += '<label id="los-label">' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
+    html += '<div class="zoom controls">';
+    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
+    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
+    html += '</div>';
+
+    html += '</div>';
+
+    html += '<div class="faded-logo"></div>';
+
+    menuPanel.html(html);
+    menuControl.html(R6MapsLangTerms.terms.general.menu);
+    roomLabelStylesControl = $('#room-label-style');
+    populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
+    mapPanelCountControl = $('#map-pane-count');
+    lockPanningControl = $('#lock-panning');
+  };
+
+  var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
+    objectiveControl.on('change', callback);
   };
 
   var setupPanZoom = function setupPanZoom(mapMains, mapElements) {
@@ -389,6 +384,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
 
     mapMains.on('panzoomchange', getHandlePanZoomChangeFn(mapMains));
+  };
+
+  var setupRoomLabelStyleChangeEvent = function setupRoomLabelStyleChangeEvent(callback) {
+    roomLabelStylesControl.on('change', function(event) {
+      callback(event.target.value);
+    });
   };
 
   var trySelectFloor = function trySelectFloor(floorIndex) {
@@ -459,14 +460,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     resetZoom: resetZoom,
     setLockPanningOption: setLockPanningOption,
     setupFloorChangeEvent: setupFloorChangeEvent,
-    setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
     setupLockPanningChangeEvent: setupLockPanningChangeEvent,
     setupLosOpacity: setupLosOpacity,
     setupMapChangeEvent: setupMapChangeEvent,
+    setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
     setupObjectiveChangeEvent: setupObjectiveChangeEvent,
-    setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
     setupPanZoom: setupPanZoom,
+    setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
     trySelectFloor: trySelectFloor,
     trySelectMapPanelCount: trySelectMapPanelCount,
     trySelectMap: trySelectMap,

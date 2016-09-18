@@ -383,12 +383,11 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       startingIndex = Math.min(tempMinIndex, selectedFloorIndex);
 
     mapWrappers.each(function(index, map) {
-      var mapWrapper = $(map)
+      var mapWrapper = $(map);
 
       $(mapWrapper).attr('show-floor-index', Math.min(startingIndex, maxFloorIndex));
       startingIndex++;
     });
-
   };
 
   var showObjective = function showObjective(objective, mapElements) {
