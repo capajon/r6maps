@@ -1314,8 +1314,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         spawnPoints: [
           { letter: spawnTerms.a, top: -559, left: 205, description: kafeTerms.spawnRiverDocks },
           { letter: spawnTerms.b, top: 146, left: -904, description: kafeTerms.spawnChristmasMarket },
-          { letter: spawnTerms.c, top: 571, left: 161, description: kafeTerms.spawnPark },
-          { letter: spawnTerms.d, top: -402, left: 904, description: kafeTerms.spawnRemoved }
+          { letter: spawnTerms.c, top: 571, left: 161, description: kafeTerms.spawnPark }
+          //{ letter: spawnTerms.d, top: -402, left: 904, description: kafeTerms.spawnRemoved }
         ],
         roomLabels: [
           { floor: 1, top: -162, left: -32, description: kafeTerms.frontStairs },
