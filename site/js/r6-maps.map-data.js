@@ -114,8 +114,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, otherFloor: 'up', top: 201, left: -36 },
           { floor: 2, top: -102, left: 320 },
           { floor: 2, top: -176, left: -314 },
-          { floor: 2, top: 32, left: -314 },
-          { floor: 2, top: 201, left: -36 }
+          { floor: 2, top: 40, left: -314 },
+          { floor: 2, top: 201, left: -36 },
+          { floor: 3, otherFloor: 'down', top: -102, left: 320 },
+          { floor: 3, otherFloor: 'down', top: -176, left: -314 },
+          { floor: 3, otherFloor: 'down', top: 40, left: -314 },
+          { floor: 3, otherFloor: 'down', top: 201, left: -36 }
         ],
         droneTunnels: [
           { floor: 0, top: -190, left: -422, rotate: 116, size: 22 },
@@ -727,7 +731,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, otherFloor: 'up', top: -102, left: 10 },
           { floor: 1, otherFloor: 'up', top: -24, left: -303 },
           { floor: 2, top: -24, left: -303 },
-          { floor: 2, top: -102, left: 10 }
+          { floor: 2, top: -102, left: 10 },
+          { floor: 3, otherFloor: 'down', top: -24, left: -303 },
+          { floor: 3, otherFloor: 'down', top: -102, left: 10 }
         ],
         droneTunnels: [
           { floor: 0, top: 26, left: -356, rotate: 90, size: DRONE_MED },
@@ -1293,7 +1299,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: -54, left: -19 }
         ],
         skylights: [
-          { floor: 3, top: -43, left: 260 }
+          { floor: 3, top: -43, left: 260 },
+          { floor: 4, otherFloor: 'down', top: -43, left: 260 }
         ],
         droneTunnels: [
           { floor: 1, top: -15, left: -55, rotate: 0, size: 28 },
