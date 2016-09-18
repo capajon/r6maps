@@ -234,6 +234,8 @@
 
     R6MapsControls.resetPan(mapMains);
     R6MapsControls.resetZoom(mapMains);
+
+    showSelectedFloor();
   };
 
   var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {

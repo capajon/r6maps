@@ -266,6 +266,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var resetPan = function resetPan(mapMains) {
     mapMains.panzoom('resetPan');
+    // todo: per map option
   };
 
   var resetSelectedFloor = function resetSelectedFloor() {
@@ -274,14 +275,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var resetZoom = function resetZoom(mapMains) {
     mapMains.panzoom('resetZoom');
-  };
-
-  var restrictFloorsByPanelCount = function restrictFloorsByPanelCount(numPanels) {
-    console.log('restrictFloorsByPanelCount not implemented start');
-    var currentIndex = getCurrentlySelectedFloor(),
-      maxIndex = getMaxFloorIndex();
-    // change selected level if necessary       trySelectFloor()
-    // disable bad floors   Need a new function
+    // todo: per map option
   };
 
   var setLockPanningOption = function setLockPanningOption(isChecked) {
@@ -463,7 +457,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
     resetZoom: resetZoom,
-    restrictFloorsByPanelCount: restrictFloorsByPanelCount,
     setLockPanningOption: setLockPanningOption,
     setupFloorChangeEvent: setupFloorChangeEvent,
     setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
