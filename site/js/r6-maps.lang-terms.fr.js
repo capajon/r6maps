@@ -534,7 +534,6 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           spawnRiverDocks: 'Pontons',
           spawnChristmasMarket: 'Marché de Noël',
           spawnPark: 'Allée du parc',
-          spawnRemoved: 'Enlevé dans le patch',
           laundryRoom: 'Buanderie',
           frontStairs: 'Escalier<br/>avant',
           bakery: 'Boulangerie',
