@@ -349,6 +349,38 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           westFrontYard: 'Westlicher Vorhof',
           frontAlley: 'Front-Einfahrt',
           buildingRoof: 'Gebäudedach'
+        },
+        favelas: {
+          packagingRoom: 'Packraum',
+          footballApartment: 'Fußball-<br/>Appartment',
+          armoryRoom: 'Waffenraum',
+          auntsApartment: 'Tantchens<br/>Appartment',
+          auntsBedroom: 'Tantchens<br/>Schlafzimmer',
+          growRoom: 'Anbau-<br/>raum',
+          bikersApartment: 'Biker-<br/>Appartment',
+          methLab: 'Meth-Labor',
+          footballBedroom: 'Fußball-<br/>Schlafzimmer',
+          footballOffice: 'Fußball-<br/>Büro',
+          bikersBedroom: 'Biker-<br/>Schlafzimmer',
+          backStairs: 'Hintere<br/>Treppe',
+          auntsHall: 'Tantchens<br/>Diele',
+          kidsRoom: 'Kinderzimmer',
+          mainStairs: 'Haupt-<br/>treppe',
+          stairHall: 'Treppen-<br/>haus',
+          roof: 'Dächer',
+          laundryRoom: 'Waschküche',
+          vaultRoom: 'Tresor-<br/>raum',
+          bikersGarage: 'Biker-<br/>Garage',
+          backAlley: 'Seitengasse',
+          schoolAlley: 'Schul-Gasse',
+          footballPitch: 'Fußballfeld',
+          market: 'Markt',
+          street: 'Straße',
+          rooftops: 'Dächer',
+          courtyard: 'Hof',
+          accessAlley: 'Zugangsstraße',
+          shop: 'Laden<br/>( nicht gezeigt )',
+          marketRooftops: 'Markt-Dächer'
         }
         //  ß  ä  Ä  é  ö  Ö  ü  Ü
       }

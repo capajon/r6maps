@@ -270,7 +270,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           rooftops: 'Toits',
           courtyard: 'Cour',
           accessAlley: 'Voie d\'accès',
-          shop: 'Magasin<br/>(pas montré)',
+          shop: 'Magasin<br/>( pas montré )',
           marketRooftops: 'Toits du marché'
           //Allée du marché TO DO
         },
