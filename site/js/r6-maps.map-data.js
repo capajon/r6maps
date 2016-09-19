@@ -1040,6 +1040,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         roomLabels: [
           { floor: 0, top: 199, left: -100, description: herefordTerms.armory },
           { floor: 0, top: 50, left: 200, description: herefordTerms.alleyStairs },
+          { floor: 1, top: 50, left: 200, description: herefordTerms.alleyStairs },
           { floor: 0, top: 191, left: 94, description: herefordTerms.lockers },
           { floor: 0, top: 272, left: 2, description: herefordTerms.corridor },
           { floor: 0, top: 407, left: 1, description: herefordTerms.mainStairs },
@@ -1068,8 +1069,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 408, left: 1, description: herefordTerms.mainStairs },
           { floor: 3, top: 374, left: 92, description: herefordTerms.dummyDepot },
           { floor: 3, top: 261, left: 72, description: herefordTerms.workshop },
-          { outdoor: true, top: -220, left: -215, description: herefordTerms.shootingRangeWestEntrance },
-          { outdoor: true, top: -264, left: 254, description: herefordTerms.shootingRangeEastEntrance },
+          { outdoor: true, top: -284, left: -215, description: herefordTerms.shootingRangeWestEntrance },
+          { outdoor: true, top: -284, left: 254, description: herefordTerms.shootingRangeEastEntrance },
           { outdoor: true, top: -114, left: 12, description: herefordTerms.tireSetting },
           { outdoor: true, top: -264, left: 25, description: herefordTerms.observationRamp },
           { outdoor: true, top: -38, left: 335, description: herefordTerms.barracks },
