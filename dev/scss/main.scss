@@ -162,15 +162,26 @@ body, button, input, select {
     border-radius: 0 0 6px 6px;
     color: #fff;
     display: none;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     left: 0;
     padding: 0.2em 0.6em 0.3em 0.6em;
+    pointer-events: none;
     position: absolute;
     z-index: $z-map-label;
     text-align: center;
     top: 50%;
     transform: rotate(-90deg) translate(-50%, 0);
 	  transform-origin: left top 0;
+
+    @media screen and (max-width: $break-large) {
+      font-size: 1.3rem;
+    }
+    @media screen and (max-width: $break-small) {
+      font-size: 1.1rem;
+    }
+    @media screen and (max-width: $break-very-small) {
+      font-size: 0.95rem;
+    }
 
     span {
       display: none;

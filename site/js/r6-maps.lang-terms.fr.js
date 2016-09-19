@@ -20,7 +20,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelLos110: '( Folie! )',
         labelRoomLabelStyle: 'Chambre style d\'étiquette',
         labelNumberFloorsToDisplay: 'Nombre d\'étages pour afficher',
-        lockPanning: 'Panoramique serrure'
+        lockPanning: 'Panoramique serrure',
+        lockZooming: 'Panoramique serrure',
+        labelCameraScreenshots: 'captures d\'écran de l\'appareil photo'
       },
       roomLabelStyles: {
         Dark: 'Foncé',

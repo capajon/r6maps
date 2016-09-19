@@ -3,7 +3,9 @@ $img-location: '../img/';
 $img-icons-location: $img-location + 'icons/';
 
 /* MISC */
-$nav-font-size: 1.2rem;
+$nav-font-size: 1.1rem;
+$nav-font-size-small: 1rem;
+$nav-font-size-very-small: 0.9rem;
 $control-padding-top-bottom: 0.15em;
 $control-padding-left-right: 0.5em;
 $control-padding: $control-padding-top-bottom $control-padding-left-right;
@@ -52,6 +54,8 @@ $drone-bg-color: #7B0099;
 $drone-bg-alternate-color: #FF1493;
 $spawn-point-bg: #4C4C4C;
 $very-dark-blue: #11171d;
+$grey: #808080;
+$light-grey: #a4a4a4;
 
 /* Z-INDEXES */
 $z-background: 1000;

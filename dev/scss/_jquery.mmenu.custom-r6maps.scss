@@ -42,6 +42,7 @@ $left-gutter: 0.7rem;
   font-weight: 400;
   margin-bottom: 1em;
   padding-bottom: $custom-mmenu-padding-smaller;
+  pointer-events: auto;
   border-bottom-left-radius: $custom-mmenu-padding-smaller;
   border-bottom-right-radius: $custom-mmenu-padding-smaller;
 
@@ -59,7 +60,7 @@ $left-gutter: 0.7rem;
   }
 
   h2 {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid $grey;
     color: #000;
     font-size: 1.2rem;
     margin-bottom: $custom-mmenu-padding-smaller;
@@ -71,9 +72,6 @@ $left-gutter: 0.7rem;
     display: block;
     font-weight: 700;
     padding: $custom-mmenu-padding;
-  }
-  #los-label {
-    margin-bottom: -0.5rem;
   }
 
   select {
@@ -94,10 +92,9 @@ $left-gutter: 0.7rem;
     }
   }
 
-  .lock-panning-wrapper {
+  .checkbox-wrapper {
     display: inline-block;
-    font-size: 1.15rem;
-    margin-left: $left-gutter;
+    margin-left: $left-gutter - 0.1;
     white-space: no-wrap;
 
     input[type="checkbox"] {
@@ -110,11 +107,29 @@ $left-gutter: 0.7rem;
     @include flexbox;
     margin-left: $custom-mmenu-padding;
   }
+
+  hr {
+    color: $light-grey;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+#options-wrapper {
+  padding-bottom: 1rem;
+}
+
+#lock-wrapper {
+    margin-bottom: 0.3rem;
+}
+
+#los-wrapper {
+  margin-bottom: $custom-mmenu-padding;
 }
 
 #camera-los-percent {
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-left: 0.5rem;
 }
 

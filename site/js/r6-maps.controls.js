@@ -321,7 +321,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '</div>';
     html += '</div>';
 
-    html += '<div id="los-opacity" class="mmenu-custom-panel">';
+    html += '<div id="options-wrapper" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
 
     html += '<div class="map-panel-count-control">';
@@ -331,18 +331,34 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
     html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
     html += '</select>';
-    html += '<div class="lock-panning-wrapper">';
+
+    html += '<div id="lock-wrapper">';
+    html += '<div class="checkbox-wrapper">';
     html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
     html += '</div>';
+    html += '<div class="checkbox-wrapper">';
+    html += '<input type="checkbox" checked="checked" id="lock-zooming">' + R6MapsLangTerms.terms.general.lockZooming + '</input>';
+    html += '</div>';
+    html += '</div>';
+
     html += '</div>';
 
     html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
     html += '<select id="room-label-style"></select>';
 
+    html += '<hr>';
+
+    html += '<div id="los-wrapper">';
     html += '<label id="los-label">' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
     html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
     html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<label>' + R6MapsLangTerms.terms.general.labelCameraScreenshots + '</label>';
+    html += '<div class="checkbox-wrapper">';
+    html += '<input type="checkbox" checked>Enable screen shots</input>';
     html += '</div>';
 
     html += '</div>';
@@ -439,12 +455,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var tryShowLockPanning = function tryShowLockPanning(numberPanels) {
-    var lockPanningControlWrapper = lockPanningControl.closest('.lock-panning-wrapper');
+    var lockWrapper = lockPanningControl.closest('#lock-wrapper');
 
     if (numberPanels > 1) {
-      lockPanningControlWrapper.show(600);
+      lockWrapper.show(600);
     } else {
-      lockPanningControlWrapper.hide(600);
+      lockWrapper.hide(600);
     }
   };
 

@@ -19,7 +19,9 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelLos110: '( Wahnsinn! )',
         labelRoomLabelStyle: 'Zimmer Aufkleberart',
         labelNumberFloorsToDisplay: 'Anzahl der Etagen anzuzeigen',
-        lockPanning: 'Schloss panning'
+        lockPanning: 'Schloss panning',
+        lockZooming: 'Schloss panning',
+        labelCameraScreenshots: 'Kamera bildschirmfoto'
       },
       roomLabelStyles: {
         Dark: 'Dunkel',
