@@ -12,6 +12,8 @@
 	{
 		.mm-slideout
 		{
+      -ms-transform: translate3d( percentage( $width ), 0, 0 );
+      -webkit-transform: translate3d( percentage( $width ), 0, 0 );
 			transform: translate3d( percentage( $width ), 0, 0 );
 		}
 	}
@@ -20,6 +22,8 @@
 		{
 			.mm-slideout
 			{
+        -ms-transform: translate3d( $minWidth, 0, 0 );
+        -webkit-transform: translate3d( $minWidth, 0, 0 );
 				transform: translate3d( $minWidth, 0, 0 );
 			}
 		}
@@ -29,6 +33,8 @@
 		{
 			.mm-slideout
 			{
+        -ms-transform: translate3d( $maxWidth, 0, 0 );
+        -webkit-transform: translate3d( $maxWidth, 0, 0 );
 				transform: translate3d( $maxWidth, 0, 0 );
 			}
 		}
@@ -43,6 +49,8 @@
 	{
 		.mm-slideout
 		{
+      -ms-transform: translate3d( -( percentage( $width ) ), 0, 0 );
+      -webkit-transform: translate3d( -( percentage( $width ) ), 0, 0 );
 			transform: translate3d( -( percentage( $width ) ), 0, 0 );
 		}
 	}
@@ -51,6 +59,8 @@
 		{
 			.mm-slideout
 			{
+        -ms-transform: translate3d( -$minWidth, 0, 0 );
+        -webkit-transform: translate3d( -$minWidth, 0, 0 );
 				transform: translate3d( -$minWidth, 0, 0 );
 			}
 		}
@@ -60,6 +70,8 @@
 		{
 			.mm-slideout
 			{
+        -ms-transform: translate3d( -$maxWidth, 0, 0 );
+        -webkit-transform: translate3d( -$maxWidth, 0, 0 );
 				transform: translate3d( -$maxWidth, 0, 0 );
 			}
 		}

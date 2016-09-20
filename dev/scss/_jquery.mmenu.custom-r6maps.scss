@@ -48,17 +48,27 @@ $left-gutter: 0.7rem;
   border-bottom-left-radius: $custom-mmenu-padding-smaller;
   border-bottom-right-radius: $custom-mmenu-padding-smaller;
 
-  a {
-    color: #000 !important;
+  a,
+  button.menu-link {
+    border: 0;
+    color: #000;
     display: block;
     font-weight: 700;
+    font-size: 1rem;
+    line-height: 100%;
     padding: $custom-mmenu-padding;
+    text-align: left;
     transition: background-color $button-transition;
 
     &:hover, &:focus {
       background-color: $r6-yellow;
       text-decoration: none !important;
     }
+  }
+
+  button.menu-link {
+    width: 100%;
+    padding: 0.6rem;
   }
 
   h2 {

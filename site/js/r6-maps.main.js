@@ -49,7 +49,7 @@
     return bodyEl.attr('loaded-map');
   };
 
-  var checkIfShowingMap = function checkIfShowingMap() {
+  var isShowingMap = function isShowingMap() {
     return bodyEl.hasClass(SHOW_MAP);
   };
 
@@ -119,11 +119,11 @@
       loadMap();
     }
 
-    localStorage.setItem('language', newLang);
+    localStorageSetItem('language', newLang);
   };
 
   var handleEnableScreenshotsChange = function handleEnableScreenshotsChange(value) {
-    localStorage.setItem('enablescreenshots', value);
+    localStorageSetItem('enablescreenshots', value);
     R6MapsRender.setEnableScreenshots(mapWrappers, value);
   };
 
@@ -144,6 +144,14 @@
     sendObjectiveSelectAnalyticsEvent();
     showSelectedObjective();
     updateUrl();
+  };
+
+  var localStorageSetItem = function localStorageSetItem(index, value) {
+    try {
+      localStorage.setItem(index, value);
+    } catch (e) {
+      //guarding against safari in private browsing mode
+    }
   };
 
   var loadMap = function loadMap() {
@@ -206,14 +214,14 @@
   };
 
   var saveLockPanningOption = function saveLockPanningOption(value) {
-    localStorage.setItem('lockpanning', value);
+    localStorageSetItem('lockpanning', value);
     if (value) {
       R6MapsControls.resetPan(mapMains);
     }
   };
 
   var saveLockZoomingOption = function saveLockZoomingOption(value) {
-    localStorage.setItem('lockzooming', value);
+    localStorageSetItem('lockzooming', value);
     if (value) {
       R6MapsControls.resetZoom(mapMains);
     }
@@ -233,7 +241,7 @@
   };
 
   var setMapPanelCount = function setMapPanelCount(numPanels) {
-    localStorage.setItem('mappanelcount', numPanels);
+    localStorageSetItem('mappanelcount', numPanels);
     mapPanelWrapper.attr('map-panel-count', numPanels);
 
     $.each(mapMains, function (index, map) {
@@ -279,7 +287,7 @@
 
   var setRoomLabelStyle = function setRoomLabelStyle(style) {
     R6MapsRender.setRoomLabelStyle(mapElements, style);
-    localStorage.setItem('roomlabelstyle', style);
+    localStorageSetItem('roomlabelstyle', style);
   };
 
   var setupCameraLos = function setupCameraLos() {
@@ -302,8 +310,9 @@
   };
 
   var setupEvents = function setupEvents() {
-    mapMains.on('click', outputCoordinates);
+    var closeMenu = getMenuApi().close;
 
+    mapMains.on('click', outputCoordinates);
     R6MapsControls.setupObjectiveChangeEvent(handleObjectiveChange);
     R6MapsControls.setupMapChangeEvent(handleMapChange);
     R6MapsControls.setupFloorChangeEvent(handleFloorChange);
@@ -313,15 +322,9 @@
     R6MapsControls.setupLockPanningChangeEvent(saveLockPanningOption);
     R6MapsControls.setupLockZoomingChangeEvent(saveLockZoomingOption);
     R6MapsControls.setupEnableScreenshotsChangeEvent(handleEnableScreenshotsChange);
-
-    navLogoEl.on('click', function(event) {
-      event.preventDefault();
-      if (checkIfShowingMap()) {
-        showSelectMap();
-      } else if (checkIfMapLoaded()) {
-        showMap();
-      }
-    });
+    R6MapsControls.setupMenuSelectMaps(showSelectMap, closeMenu);
+    R6MapsControls.setupFullScreenControl(closeMenu);
+    navLogoEl.on('click', toggleShowSelectMap);
   };
 
   var showMap = function showMap() {
@@ -391,6 +394,19 @@
     if (R6MapsControls.trySelectMap(mapArg)) {
       loadMap();
       showMap();
+    }
+  };
+
+  var toggleShowSelectMap = function toggleShowSelectMap(event) {
+    var menuApi = getMenuApi();
+
+    event.preventDefault();
+    if (isShowingMap()) {
+      showSelectMap();
+      menuApi.close();
+    } else if (checkIfMapLoaded()) {
+      showMap();
+      menuApi.close();
     }
   };
 
@@ -486,7 +502,7 @@
   };
 
   var updateUrl = function updateUrl() {
-    if (checkIfShowingMap()) {
+    if (isShowingMap()) {
       var hashText = '';
 
       hashText += '' + R6MapsControls.getCurrentlySelectedMap();
@@ -501,7 +517,7 @@
   var updateLosOpacity = function updateLosOpacity(opacity) {
     var cameraLines = $('.camera-los');
 
-    localStorage.setItem('cameralosopacity', opacity);
+    localStorageSetItem('cameralosopacity', opacity);
     cameraLines.css('opacity', opacity);
     cameraLines.removeClass('opacity-105');
     cameraLines.removeClass('opacity-110');
@@ -513,7 +529,7 @@
   };
 
   var updateTitle = function updateTitle() {
-    document.title = checkIfShowingMap() ?
+    document.title = isShowingMap() ?
       R6MapsLangTerms.terms.general.pageTitle.replace(
         '{mapName}',
         R6MapsData.getMapData()[getLoadedMapKey()].name

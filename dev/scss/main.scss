@@ -176,7 +176,11 @@ body, button, input, select {
     z-index: $z-map-label;
     text-align: center;
     top: 50%;
+    -ms-transform: rotate(-90deg) translate(-50%, 0);
+    -webkit-transform: rotate(-90deg) translate(-50%, 0);
     transform: rotate(-90deg) translate(-50%, 0);
+    -ms-transform-origin: left top 0;
+    -webkit-transform-origin: left top 0;
 	  transform-origin: left top 0;
 
     @media screen and (max-width: $break-large) {

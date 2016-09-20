@@ -11,7 +11,9 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     enableScreenshotsControl,
     roomLabelStylesControl,
     mapPanelCountControl,
+    fullScreenControl,
     channelControl,
+    menuSelectMapsControl,
     menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
@@ -126,6 +128,117 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var getLockZoomingValue = function getLockZoomingValue() {
     return lockZoomingControl.is(':checked');
+  };
+
+  var getMenuLanguageHtml = function getMenuLanguageHtml() {
+    var html = '';
+
+    html += '<div id="lang-choices" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
+    for (var langKey in R6MapsLangTerms.loadedLanguages) {
+      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
+    }
+    html += '</div>';
+    return html;
+  };
+
+  var getMenuOptionsHtml = function getMenuOptionsHtml() {
+    var html = '';
+
+    html += '<div id="options-wrapper" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
+
+    html += '<div class="map-panel-count-control">';
+    html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
+    html += '<select id="map-pane-count">';
+    html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
+    html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
+    html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
+    html += '</select>';
+
+    html += '<div id="lock-wrapper">';
+    html += '<div class="checkbox-wrapper">';
+    html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
+    html += '</div>';
+    html += '<div style="display: none" class="checkbox-wrapper">';
+    html += '<input type="checkbox" checked="checked" id="lock-zooming">' + R6MapsLangTerms.terms.general.lockZooming + '</input>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '</div>';
+
+    html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
+    html += '<select id="room-label-style"></select>';
+
+    html += '<hr>';
+
+    html += '<div id="los-wrapper">';
+    html += '<label id="los-label">' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
+    html += '<div class="zoom controls">';
+    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
+    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<label>' + R6MapsLangTerms.terms.general.labelCameraScreenshots + '</label>';
+    html += '<div class="checkbox-wrapper">';
+    html += '<input type="checkbox" id="enable-screenshtos" checked>Enable screen shots</input>';
+    html += '</div>';
+
+    html += '</div>';
+
+    return html;
+  };
+
+  var getMenuR6MapsHtml = function getMenuR6MapsHtml() {
+    var html = '',
+      fullScreenTerm;
+
+    html += '<div class="mmenu-custom-panel">';
+    html += '<h2>r6maps.com</h2>';
+    html += '<button id="menu-select-maps" class="menu-link">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</button>';
+    html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
+    if (isFullScreenAvailable() && false) { // TEMP DISABLE IN PROGRESS
+      fullScreenTerm = isCurrentlyFullScreen() ?
+        R6MapsLangTerms.terms.general.disableFullScreen :
+        R6MapsLangTerms.terms.general.enableFullScreen;
+      html += '<button class="menu-link" href="" id="full-screen">' + fullScreenTerm + '</button>';
+    }
+    html += '</div>';
+    return html;
+  };
+
+  var getMenuSessionHtml = function getMenuSessionHtml() {
+    var html = '';
+
+    html += '<div class="feature-flagged channel-control">';
+    html += '<div class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
+    html += '<div class="channel-input-wrapper">';
+    html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
+    html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
+    html += '</div>';
+    html += '</div>';
+    html += '</div>';
+    return html;
+  };
+
+  var isCurrentlyFullScreen = function isCurrentlyFullScreen() {
+    return (
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement
+    );
+  };
+
+  var isFullScreenAvailable = function isFullScreenAvailable() {
+    return (
+      document.fullscreenEnabled ||
+      document.webkitFullscreenEnabled ||
+      document.mozFullScreenEnabled ||
+      document.msFullscreenEnabled
+    );
   };
 
   var isZoomed = function isZoomed() {
@@ -303,6 +416,26 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
+  var setupFullScreenControl = function setupFullScreenControl(closeMenuCallback) {
+    if (fullScreenControl) {
+      fullScreenControl.on('click', function() {
+        var rootEl = document.documentElement;
+
+        if (rootEl.requestFullscreen) {
+          rootEl.requestFullscreen();
+        } else if (rootEl.webkitRequestFullscreen) {
+          rootEl.webkitRequestFullscreen();
+        } else if (rootEl.webkitEnterFullscreen) {
+          rootEl.webkitEnterFullscreen();
+        } else if (rootEl.mozRequestFullScreen) {
+          rootEl.mozRequestFullScreen();
+        } else if (rootEl.msRequestFullscreen) {
+          rootEl.msRequestFullscreen();
+        }
+      });
+    }
+  };
+
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
     var losOpacityControl = $('#los-opacity-range'),
       handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
@@ -332,74 +465,13 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var setupMenu = function setupMenu(roomLabelStyles) {
     var html = '';
 
-    html += '<div class="mmenu-custom-panel">';
-    html += '<h2>r6maps.com</h2>';
-    html += '<a href="">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</a>';
-    html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
-    html += '</div>';
-
-    html += '<div id="lang-choices" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
-    for (var langKey in R6MapsLangTerms.loadedLanguages) {
-      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
-    }
-    html += '</div>';
-
-    html += '<div class="feature-flagged channel-control">';
-    html += '<div class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
-    html += '<div class="channel-input-wrapper">';
-    html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
-    html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
-    html += '</div>';
-    html += '</div>';
-    html += '</div>';
-
-    html += '<div id="options-wrapper" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.general.optionsHeader + '</h2>';
-
-    html += '<div class="map-panel-count-control">';
-    html += '<label>' + R6MapsLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
-    html += '<select id="map-pane-count">';
-    html += '<option value="1">' + R6MapsLangTerms.terms.floorDisplayOptions.one + '</option>';
-    html += '<option value="2">' + R6MapsLangTerms.terms.floorDisplayOptions.two + '</option>';
-    html += '<option value="4">' + R6MapsLangTerms.terms.floorDisplayOptions.four + '</option>';
-    html += '</select>';
-
-    html += '<div id="lock-wrapper">';
-    html += '<div class="checkbox-wrapper">';
-    html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
-    html += '</div>';
-    html += '<div style="display: none" class="checkbox-wrapper">';
-    html += '<input type="checkbox" checked="checked" id="lock-zooming">' + R6MapsLangTerms.terms.general.lockZooming + '</input>';
-    html += '</div>';
-    html += '</div>';
-
-    html += '</div>';
-
-    html += '<label>' + R6MapsLangTerms.terms.general.labelRoomLabelStyle + '</label>';
-    html += '<select id="room-label-style"></select>';
-
-    html += '<hr>';
-
-    html += '<div id="los-wrapper">';
-    html += '<label id="los-label">' + R6MapsLangTerms.terms.general.labelLosOpacity + '</label>';
-    html += '<div class="zoom controls">';
-    html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
-    html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
-    html += '</div>';
-    html += '</div>';
-
-    html += '<label>' + R6MapsLangTerms.terms.general.labelCameraScreenshots + '</label>';
-    html += '<div class="checkbox-wrapper">';
-    html += '<input type="checkbox" id="enable-screenshtos" checked>Enable screen shots</input>';
-    html += '</div>';
-
-    html += '</div>';
-
+    html += getMenuR6MapsHtml();
+    html += getMenuLanguageHtml();
+    html += getMenuSessionHtml();
+    html += getMenuOptionsHtml();
     html += '<div class="faded-logo"></div>';
-
     menuPanel.html(html);
+
     menuControl.html(R6MapsLangTerms.terms.general.menu);
     roomLabelStylesControl = $('#room-label-style');
     populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
@@ -407,6 +479,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     lockPanningControl = $('#lock-panning');
     lockZoomingControl = $('#lock-zooming');
     enableScreenshotsControl = $('#enable-screenshtos');
+    fullScreenControl = $('#full-screen');
+    menuSelectMapsControl = $('#menu-select-maps');
   };
 
   var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
@@ -441,6 +515,17 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     mapMains.on('panzoomchange', getHandlePanZoomChangeFn(mapMains));
     mapMains.on('panzoomend', handlePanZoomEnd);
+  };
+
+  var setupMenuSelectMaps = function setupMenuSelectMaps(
+    showSelectMapCallback,
+    closeMenuCallback
+  ) {
+    menuSelectMapsControl.on('click', function(event) {
+      event.preventDefault();
+      showSelectMapCallback();
+      closeMenuCallback();
+    });
   };
 
   var setupRoomLabelStyleChangeEvent = function setupRoomLabelStyleChangeEvent(callback) {
@@ -521,11 +606,13 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setupEnableScreenshotsChangeEvent: setupEnableScreenshotsChangeEvent,
     setupFloorChangeEvent: setupFloorChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
+    setupFullScreenControl: setupFullScreenControl,
     setupLockPanningChangeEvent: setupLockPanningChangeEvent,
     setupLockZoomingChangeEvent: setupLockZoomingChangeEvent,
     setupLosOpacity: setupLosOpacity,
     setupMapChangeEvent: setupMapChangeEvent,
     setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
+    setupMenuSelectMaps: setupMenuSelectMaps,
     setupObjectiveChangeEvent: setupObjectiveChangeEvent,
     setupPanZoom: setupPanZoom,
     setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
