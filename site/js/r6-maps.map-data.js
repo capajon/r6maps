@@ -986,6 +986,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 176, left: 6 },
           { floor: 3, top: 295, left: 86 }
         ],
+        zoomPoints: [
+          { top: 26, left: -273 },
+          { top: 459, left: 224 }
+        ],
         cameras: [
           {
             floor: 3, top: 205, left: -12, id: 1, location: herefordTerms.rooftop,

@@ -28,6 +28,7 @@
     tryEnableChannelFeature();
     tryLoadMapPanelCount();
     tryLoadLockPanningOption();
+    tryLoadLockZoomingOption();
     tryLoadRoomLabelStyle();
 
     if (trySelectBookmarkedMap()) {
@@ -211,6 +212,13 @@
     }
   };
 
+  var saveLockZoomingOption = function saveLockZoomingOption(value) {
+    localStorage.setItem('lockzooming', value);
+    if (value) {
+      R6MapsControls.resetZoom(mapMains);
+    }
+  };
+
   var sendControlAnalyticsEvent = function sendControlAnalyticsEvent(control, value) {
     ga('send', {
       hitType: 'event',
@@ -303,6 +311,7 @@
     R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
     R6MapsControls.setupMapPanelCountChangeEvent(setMapPanelCount);
     R6MapsControls.setupLockPanningChangeEvent(saveLockPanningOption);
+    R6MapsControls.setupLockZoomingChangeEvent(saveLockZoomingOption);
     R6MapsControls.setupEnableScreenshotsChangeEvent(handleEnableScreenshotsChange);
 
     navLogoEl.on('click', function(event) {
@@ -405,6 +414,14 @@
 
     if (lockPanningOption !== null) {
       R6MapsControls.setLockPanningOption(lockPanningOption);
+    }
+  };
+
+  var tryLoadLockZoomingOption = function tryLoadLockZoomingOption() {
+    var lockZoomingOption = localStorage.getItem('lockzooming');
+
+    if (lockZoomingOption !== null) {
+      R6MapsControls.setLockZoomingOption(lockZoomingOption);
     }
   };
 

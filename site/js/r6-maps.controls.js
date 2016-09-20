@@ -7,6 +7,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
     lockPanningControl,
+    lockZoomingControl,
     enableScreenshotsControl,
     roomLabelStylesControl,
     mapPanelCountControl,
@@ -123,6 +124,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return lockPanningControl.is(':checked');
   };
 
+  var getLockZoomingValue = function getLockZoomingValue() {
+    return lockZoomingControl.is(':checked');
+  };
+
   var isZoomed = function isZoomed() {
     return (zoomControl.val() != 1);
   };
@@ -237,6 +242,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     lockPanningControl.prop('checked', boolValue);
   };
 
+  var setLockZoomingOption = function setLockZoomingOption(isChecked) {
+    var boolValue = (isChecked === 'true') ? true : false;
+
+    lockZoomingControl.prop('checked', boolValue);
+  };
+
   var setupEnableScreenshotsChangeEvent = function setupEnableScreenshotsChangeEvent(callback) {
     enableScreenshotsControl.change(function(e) {
       callback(getEnableScreenshotValue());
@@ -259,9 +270,15 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     $(document).on('keydown', getHandleHotkeyFn(showSelectedFloorFn));
   };
 
-  var setupLockPanningChangeEvent = function setupLockPanning(callback) {
+  var setupLockPanningChangeEvent = function setupLockPanningChangeEvent(callback) {
     lockPanningControl.change(function(e) {
       callback(getLockPanningValue());
+    });
+  };
+
+  var setupLockZoomingChangeEvent = function setupLockZoomingChangeEvent(callback) {
+    lockZoomingControl.change(function(e) {
+      callback(getLockZoomingValue());
     });
   };
 
@@ -388,6 +405,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
     mapPanelCountControl = $('#map-pane-count');
     lockPanningControl = $('#lock-panning');
+    lockZoomingControl = $('#lock-zooming');
     enableScreenshotsControl = $('#enable-screenshtos');
   };
 
@@ -473,7 +491,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var tryShowLockControls = function tryShowLockControls(numberPanels) {
-    var lockWrapper = lockPanningControl.closest('#lock-wrapper');
+    var lockWrapper = $('#lock-wrapper');
 
     if (numberPanels > 1) {
       lockWrapper.show(600);
@@ -499,10 +517,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     resetZoom: resetZoom,
     setEnableScreenshotsOption: setEnableScreenshotsOption,
     setLockPanningOption: setLockPanningOption,
+    setLockZoomingOption: setLockZoomingOption,
     setupEnableScreenshotsChangeEvent: setupEnableScreenshotsChangeEvent,
     setupFloorChangeEvent: setupFloorChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
     setupLockPanningChangeEvent: setupLockPanningChangeEvent,
+    setupLockZoomingChangeEvent: setupLockZoomingChangeEvent,
     setupLosOpacity: setupLosOpacity,
     setupMapChangeEvent: setupMapChangeEvent,
     setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
