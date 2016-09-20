@@ -2,6 +2,9 @@ $custom-mmenu-padding: 0.7rem;
 $custom-mmenu-padding-smaller: 0.4rem;
 $left-gutter: 0.7rem;
 
+#mmenu-menu {
+  pointer-events: auto;
+}
 .mm-panel {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
   background: #3a6082 !important; /* Old browsers */
@@ -42,7 +45,6 @@ $left-gutter: 0.7rem;
   font-weight: 400;
   margin-bottom: 1em;
   padding-bottom: $custom-mmenu-padding-smaller;
-  pointer-events: auto;
   border-bottom-left-radius: $custom-mmenu-padding-smaller;
   border-bottom-right-radius: $custom-mmenu-padding-smaller;
 

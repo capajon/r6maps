@@ -335,6 +335,14 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     svgElement.html(getCamerasLosHtml(mapData.cameras));
   };
 
+  var setEnableScreenshots = function setEnableScreenshots(mapWrappers, isEnabled) {
+    if (isEnabled) {
+      mapWrappers.removeClass('disable-cameras');
+    } else {
+      mapWrappers.addClass('disable-cameras');
+    }
+  };
+
   var setRoomLabelStyle = function setRoomLabelStyle(mapElements, style) {
     ROOM_LABEL_STYLES.forEach(function(roomLabelStyle) {
       mapElements.removeClass(ROOM_LABEL_CSS_TEXT[roomLabelStyle]);
@@ -399,6 +407,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     getSpinnerHtml: getSpinnerHtml,
     renderMap: renderMap,
     roomLabelStyles: ROOM_LABEL_STYLES,
+    setEnableScreenshots: setEnableScreenshots,
     setRoomLabelStyle: setRoomLabelStyle,
     setupMapPanels: setupMapPanels,
     showFloor: showFloor,

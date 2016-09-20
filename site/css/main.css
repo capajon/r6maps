@@ -458,7 +458,7 @@ body.about {
   display: flex;
   height: 100vh;
   opacity: 0;
-  padding-top: 5px;
+  padding-top: 10px;
   position: fixed;
   transition: visibility 0.5s, opacity 0.5s linear;
   visibility: hidden;
@@ -895,6 +895,9 @@ html.mm-pagedim-white #mm-blocker {
 html.mm-pagedim-black #mm-blocker {
   background: #000; }
 
+#mmenu-menu {
+  pointer-events: auto; }
+
 .mm-panel {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
   background: #3a6082 !important;
@@ -941,7 +944,6 @@ html.mm-pagedim-black #mm-blocker {
   font-weight: 400;
   margin-bottom: 1em;
   padding-bottom: 0.4rem;
-  pointer-events: auto;
   border-bottom-left-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem; }
   .mmenu-custom-panel a {
@@ -1086,6 +1088,8 @@ body, button, input, select {
   height: 100vh;
   width: 100vw;
   overflow: hidden; }
+  .map-wrapper.disable-cameras .camera {
+    pointer-events: none; }
   .map-wrapper[show-floor-index="0"] .one, .map-wrapper[show-floor-index="0"] .two, .map-wrapper[show-floor-index="0"] .three, .map-wrapper[show-floor-index="0"] .four, .map-wrapper[show-floor-index="0"] .five {
     display: none !important; }
   .map-wrapper[show-floor-index="1"] .zero, .map-wrapper[show-floor-index="1"] .two, .map-wrapper[show-floor-index="1"] .three, .map-wrapper[show-floor-index="1"] .four, .map-wrapper[show-floor-index="1"] .five {

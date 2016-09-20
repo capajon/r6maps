@@ -40,6 +40,7 @@
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
 
+    tryLoadEnableScreenshotsOption();
     R6MapsControls.setupPanZoom(mapMains, mapElements);
   });
 
@@ -118,6 +119,11 @@
     }
 
     localStorage.setItem('language', newLang);
+  };
+
+  var handleEnableScreenshotsChange = function handleEnableScreenshotsChange(value) {
+    localStorage.setItem('enablescreenshots', value);
+    R6MapsRender.setEnableScreenshots(mapWrappers, value);
   };
 
   var handleMapChange = function handleMapChange() {
@@ -297,6 +303,7 @@
     R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
     R6MapsControls.setupMapPanelCountChangeEvent(setMapPanelCount);
     R6MapsControls.setupLockPanningChangeEvent(saveLockPanningOption);
+    R6MapsControls.setupEnableScreenshotsChangeEvent(handleEnableScreenshotsChange);
 
     navLogoEl.on('click', function(event) {
       event.preventDefault();
@@ -381,6 +388,15 @@
   var tryHideMapSelect = function tryHideMapSelect() {
     if (checkIfMapLoaded()) {
       showMap();
+    }
+  };
+
+  var tryLoadEnableScreenshotsOption = function tryLoadEnableScreenshotsOption() {
+    var enableScreenshotsOption = localStorage.getItem('enablescreenshots');
+
+    if (enableScreenshotsOption !== null) {
+      R6MapsControls.setEnableScreenshotsOption(enableScreenshotsOption);
+      handleEnableScreenshotsChange((enableScreenshotsOption === 'true'));
     }
   };
 

@@ -78,6 +78,12 @@ body, button, input, select {
   width: 100vw;
   overflow:hidden;
 
+  &.disable-cameras {
+    .camera {
+      pointer-events: none;
+    }
+  }
+
   &[show-floor-index="0"] {
     .one, .two, .three, .four, .five {
       display: none !important;

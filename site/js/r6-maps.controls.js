@@ -7,6 +7,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
     lockPanningControl,
+    enableScreenshotsControl,
     roomLabelStylesControl,
     mapPanelCountControl,
     channelControl,
@@ -97,6 +98,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var handlePanZoomEnd = function handlePanZoomEnd() {
     zoomControl.trigger('input');
+  };
+
+  var getEnableScreenshotValue = function getEnableScreenshotValue() {
+    return enableScreenshotsControl.is(':checked');
   };
 
   var getHandleZoomChangeFn = function getHandleZoomChangeFn(mapElements) {
@@ -220,10 +225,22 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     // todo: per map option
   };
 
+  var setEnableScreenshotsOption = function setEnableScreenshotsOption(isEnabled) {
+    var boolValue = (isEnabled === 'true') ? true : false;
+
+    enableScreenshotsControl.prop('checked', boolValue);
+  };
+
   var setLockPanningOption = function setLockPanningOption(isChecked) {
     var boolValue = (isChecked === 'true') ? true : false;
 
     lockPanningControl.prop('checked', boolValue);
+  };
+
+  var setupEnableScreenshotsChangeEvent = function setupEnableScreenshotsChangeEvent(callback) {
+    enableScreenshotsControl.change(function(e) {
+      callback(getEnableScreenshotValue());
+    });
   };
 
   var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
@@ -290,7 +307,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     mapPanelCountControl.on('change', function(event) {
       var panelCount = mapPanelCountControl.val();
 
-      tryShowLockPanning(panelCount);
+      tryShowLockControls(panelCount);
       callback(panelCount);
     });
   };
@@ -336,7 +353,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<div class="checkbox-wrapper">';
     html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
     html += '</div>';
-    html += '<div class="checkbox-wrapper">';
+    html += '<div style="display: none" class="checkbox-wrapper">';
     html += '<input type="checkbox" checked="checked" id="lock-zooming">' + R6MapsLangTerms.terms.general.lockZooming + '</input>';
     html += '</div>';
     html += '</div>';
@@ -358,7 +375,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     html += '<label>' + R6MapsLangTerms.terms.general.labelCameraScreenshots + '</label>';
     html += '<div class="checkbox-wrapper">';
-    html += '<input type="checkbox" checked>Enable screen shots</input>';
+    html += '<input type="checkbox" id="enable-screenshtos" checked>Enable screen shots</input>';
     html += '</div>';
 
     html += '</div>';
@@ -371,6 +388,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
     mapPanelCountControl = $('#map-pane-count');
     lockPanningControl = $('#lock-panning');
+    enableScreenshotsControl = $('#enable-screenshtos');
   };
 
   var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
@@ -454,7 +472,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return trySelectOption(roomLabelStylesControl, style);
   };
 
-  var tryShowLockPanning = function tryShowLockPanning(numberPanels) {
+  var tryShowLockControls = function tryShowLockControls(numberPanels) {
     var lockWrapper = lockPanningControl.closest('#lock-wrapper');
 
     if (numberPanels > 1) {
@@ -479,7 +497,9 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     populateObjectiveOptions: populateObjectiveOptions,
     resetPan: resetPan,
     resetZoom: resetZoom,
+    setEnableScreenshotsOption: setEnableScreenshotsOption,
     setLockPanningOption: setLockPanningOption,
+    setupEnableScreenshotsChangeEvent: setupEnableScreenshotsChangeEvent,
     setupFloorChangeEvent: setupFloorChangeEvent,
     setupFloorHotkeys: setupFloorHotkeys,
     setupLockPanningChangeEvent: setupLockPanningChangeEvent,

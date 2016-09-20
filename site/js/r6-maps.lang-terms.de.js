@@ -20,7 +20,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelRoomLabelStyle: 'Zimmer Aufkleberart',
         labelNumberFloorsToDisplay: 'Anzahl der Etagen anzuzeigen',
         lockPanning: 'Schloss panning',
-        lockZooming: 'Schloss panning',
+        lockZooming: 'Schloss zoom',
         labelCameraScreenshots: 'Kamera bildschirmfoto'
       },
       roomLabelStyles: {
@@ -478,7 +478,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  //R6MapsLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
