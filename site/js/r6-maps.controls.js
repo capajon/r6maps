@@ -445,7 +445,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
-  var setupFullScreenControl = function setupFullScreenControl(closeMenuCallback) {
+  var setupFullScreenControl = function setupFullScreenControl() {
     if (fullScreenControl) {
       fullScreenControl.on('click', toggleFullScreen);
     }

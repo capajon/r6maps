@@ -17,7 +17,7 @@ $map-thumb-height: 278px;
   @include flexbox;
   height: 100vh;
   opacity: 0;
-  padding-top: 20px;
+  padding-top: 10px; /* also set in r6-maps.select-maps.js VIEWPORT_PADDING_HEIGHT */
   position: fixed;
   transition: visibility 0.5s, opacity 0.5s linear;
   visibility: hidden;

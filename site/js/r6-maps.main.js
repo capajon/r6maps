@@ -25,11 +25,7 @@
     R6MapsControls.populateMapOptions(R6MapsData.getMapData());
 
     setupEvents();
-    tryEnableChannelFeature();
-    tryLoadMapPanelCount();
-    tryLoadLockPanningOption();
-    tryLoadLockZoomingOption();
-    tryLoadRoomLabelStyle();
+    tryLoadMenuOptions();
 
     if (trySelectBookmarkedMap()) {
       loadMap();
@@ -41,7 +37,6 @@
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
 
-    tryLoadEnableScreenshotsOption();
     R6MapsControls.setupPanZoom(mapMains, mapElements);
   });
 
@@ -98,27 +93,21 @@
   };
 
   var handleLangChange = function handleLangChange(event) {
-    var menuApi = getMenuApi(),
-      newLang = $(event.target).data('lang');
+    var newLang = $(event.target).data('lang');
 
     event.preventDefault();
 
     R6MapsLangTerms.tryLoadLanguage(newLang);
+    localStorageSetItem('language', newLang);
+
     setupSelectMap();
     setupMenu();
-    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
-
-    tryLoadMapPanelCount();
-    R6MapsControls.setupMapPanelCountChangeEvent(setMapPanelCount);
-
-    tryLoadRoomLabelStyle();
-    R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
+    setupEvents();
+    tryLoadMenuOptions();
 
     if (checkIfMapLoaded()) {
       loadMap();
     }
-
-    localStorageSetItem('language', newLang);
   };
 
   var handleEnableScreenshotsChange = function handleEnableScreenshotsChange(value) {
@@ -213,6 +202,7 @@
   };
 
   var saveLockPanningOption = function saveLockPanningOption(value) {
+    console.log('saveLockPanningOption save start');
     localStorageSetItem('lockpanning', value);
     if (value) {
       R6MapsControls.resetPan(mapMains);
@@ -332,7 +322,7 @@
     R6MapsControls.setupLockZoomingChangeEvent(saveLockZoomingOption);
     R6MapsControls.setupEnableScreenshotsChangeEvent(handleEnableScreenshotsChange);
     R6MapsControls.setupMenuSelectMaps(showSelectMap, closeMenu);
-    R6MapsControls.setupFullScreenControl(closeMenu);
+    R6MapsControls.setupFullScreenControl();
     navLogoEl.on('click', toggleShowSelectMap);
   };
 
@@ -457,6 +447,15 @@
       R6MapsControls.trySelectMapPanelCount(mapPanelCount);
       setMapPanelCount(mapPanelCount);
     }
+  };
+
+  var tryLoadMenuOptions = function tryLoadMenuOptions() {
+    tryEnableChannelFeature();
+    tryLoadMapPanelCount();
+    tryLoadLockPanningOption();
+    tryLoadLockZoomingOption();
+    tryLoadRoomLabelStyle();
+    tryLoadEnableScreenshotsOption();
   };
 
   var tryLoadStartingLanguage = function tryLoadStartingLanguage() {
