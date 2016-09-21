@@ -240,6 +240,33 @@
     sendControlAnalyticsEvent('Floor', R6MapsControls.getCurrentlySelectedFloor());
   };
 
+  var sendMapPanelCountEvent = function sendMapPanelCountEvent(panelCount) {
+    sendControlAnalyticsEvent('PanelsCount', panelCount);
+  };
+
+  var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
+    sendControlAnalyticsEvent('Map', R6MapsControls.getCurrentlySelectedMap());
+  };
+
+  var sendObjectiveSelectAnalyticsEvent = function sendObjectiveSelectAnalyticsEvent() {
+    sendControlAnalyticsEvent('Objective', R6MapsControls.getCurrentlySelectedObjective());
+  };
+
+  var sendRoomLabelEvent = function sendRoomLabelEvent(style) {
+    sendControlAnalyticsEvent('RoomLabel', style);
+  };
+
+  var setLoadedMapKey = function setLoadedMapKey(mapKey) {
+    bodyEl.attr('loaded-map', mapKey);
+  };
+
+  var setMapElements = function setMapElements() {
+    mapWrappers = $('.map-wrapper');
+    mapMains = mapWrappers.find('.map-main');
+    mapElements = mapMains.find('.map-elements');
+    svgElements = mapMains.find('.svg-elements');
+  };
+
   var setMapPanelCount = function setMapPanelCount(numPanels) {
     localStorageSetItem('mappanelcount', numPanels);
     mapPanelWrapper.attr('map-panel-count', numPanels);
@@ -258,25 +285,7 @@
     R6MapsControls.resetZoom(mapMains);
 
     showSelectedFloor();
-  };
-
-  var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Map', R6MapsControls.getCurrentlySelectedMap());
-  };
-
-  var sendObjectiveSelectAnalyticsEvent = function sendObjectiveSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Objective', R6MapsControls.getCurrentlySelectedObjective());
-  };
-
-  var setLoadedMapKey = function setLoadedMapKey(mapKey) {
-    bodyEl.attr('loaded-map', mapKey);
-  };
-
-  var setMapElements = function setMapElements() {
-    mapWrappers = $('.map-wrapper');
-    mapMains = mapWrappers.find('.map-main');
-    mapElements = mapMains.find('.map-elements');
-    svgElements = mapMains.find('.svg-elements');
+    sendMapPanelCountEvent(numPanels);
   };
 
   var setPageElements = function setPageElements() {
@@ -288,6 +297,7 @@
   var setRoomLabelStyle = function setRoomLabelStyle(style) {
     R6MapsRender.setRoomLabelStyle(mapElements, style);
     localStorageSetItem('roomlabelstyle', style);
+    sendRoomLabelEvent(style);
   };
 
   var setupCameraLos = function setupCameraLos() {
