@@ -39,6 +39,7 @@ table {
 input[type=range] {
   -webkit-appearance: none;
   margin: 0;
+  padding: 0;
   width: 80px; }
   @media screen and (max-width: 620px) {
     input[type=range] {

@@ -9,6 +9,7 @@ $input-width-large: 100px;
   input[type=range] {
     -webkit-appearance: none;
     margin: 0;
+    padding: 0;
     width: $input-width;
     @media screen and (max-width: $break-small) {
       width: $input-width-small;

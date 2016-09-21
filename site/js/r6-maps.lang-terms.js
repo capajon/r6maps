@@ -26,8 +26,7 @@ var R6MapsLangTerms = (function(undefined) {
         lockPanning: 'Lock panning',
         lockZooming: 'Lock zooming',
         labelCameraScreenshots: 'Camera screenshots',
-        disableFullScreen: 'Disable full screen',
-        enableFullScreen: 'Enable full screen'
+        fullScreen: 'Full screen'
       },
       channels: { // todo: translate
         title: 'Team channels',

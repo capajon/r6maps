@@ -19,12 +19,42 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
 
+  var disableFullScreen = function disableFullScreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  };
+
   var disableZoom = function disableZoom(mapElements) {
     mapElements.panzoom('disable');
   };
 
   var enableChannelControl = function enableChannelControl() {
     $('.feature-flagged.channel-control').css('display', 'block');
+  };
+
+  var enableFullScreen = function enableFunctionScreen() {
+    var rootEl = document.documentElement;
+
+    if (rootEl.requestFullscreen) {
+      rootEl.requestFullscreen();
+    } else if (rootEl.webkitRequestFullscreen) {
+      rootEl.webkitRequestFullscreen();
+    } else if (rootEl.webkitEnterFullscreen) {
+      rootEl.webkitEnterFullscreen();
+    } else if (rootEl.mozRequestFullScreen) {
+      rootEl.mozRequestFullScreen();
+    } else if (rootEl.msRequestFullscreen) {
+      rootEl.msRequestFullscreen();
+    }
   };
 
   var enableZoom = function enableZoom(mapElements) {
@@ -198,11 +228,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<h2>r6maps.com</h2>';
     html += '<button id="menu-select-maps" class="menu-link">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</button>';
     html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
-    if (isFullScreenAvailable() && false) { // TEMP DISABLE IN PROGRESS
-      fullScreenTerm = isCurrentlyFullScreen() ?
-        R6MapsLangTerms.terms.general.disableFullScreen :
-        R6MapsLangTerms.terms.general.enableFullScreen;
-      html += '<button class="menu-link" href="" id="full-screen">' + fullScreenTerm + '</button>';
+    if (isFullScreenAvailable()) {
+      html += '<button class="menu-link" href="" id="full-screen">' + R6MapsLangTerms.terms.general.fullScreen + '</button>';
     }
     html += '</div>';
     return html;
@@ -227,6 +254,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return (
       document.fullscreenElement ||
       document.webkitFullscreenElement ||
+      document.webkitCurrentFullScreenElement ||
       document.mozFullScreenElement ||
       document.msFullscreenElement
     );
@@ -236,6 +264,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return (
       document.fullscreenEnabled ||
       document.webkitFullscreenEnabled ||
+      document.webkitCancelFullScreen ||
       document.mozFullScreenEnabled ||
       document.msFullscreenEnabled
     );
@@ -418,21 +447,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var setupFullScreenControl = function setupFullScreenControl(closeMenuCallback) {
     if (fullScreenControl) {
-      fullScreenControl.on('click', function() {
-        var rootEl = document.documentElement;
-
-        if (rootEl.requestFullscreen) {
-          rootEl.requestFullscreen();
-        } else if (rootEl.webkitRequestFullscreen) {
-          rootEl.webkitRequestFullscreen();
-        } else if (rootEl.webkitEnterFullscreen) {
-          rootEl.webkitEnterFullscreen();
-        } else if (rootEl.mozRequestFullScreen) {
-          rootEl.mozRequestFullScreen();
-        } else if (rootEl.msRequestFullscreen) {
-          rootEl.msRequestFullscreen();
-        }
-      });
+      fullScreenControl.on('click', toggleFullScreen);
     }
   };
 
@@ -544,6 +559,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       return true;
     }
     return false;
+  };
+
+  var toggleFullScreen = function toggleFullScreen() {
+    if (isCurrentlyFullScreen()) {
+      disableFullScreen();
+    } else {
+      enableFullScreen();
+    }
   };
 
   var trySelectMapPanelCount = function trySelectMapPanelCount(number) {

@@ -22,7 +22,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         labelNumberFloorsToDisplay: 'Nombre d\'étages pour afficher',
         lockPanning: 'Panoramique serrure',
         lockZooming: 'Zoom serrure',
-        labelCameraScreenshots: 'captures d\'écran de l\'appareil photo'
+        labelCameraScreenshots: 'captures d\'écran de l\'appareil photo',
+        fullScreen: 'Plein écran'
       },
       roomLabelStyles: {
         Dark: 'Foncé',
