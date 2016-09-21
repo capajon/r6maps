@@ -3,6 +3,7 @@ nav {
   pointer-events: none;
   position: absolute;
   top: 0;
+  width: 100%;
   z-index: $z-nav;
 
   .wrapper {
@@ -10,8 +11,17 @@ nav {
     @include flexbox;
     @include justify-content(space-between);
     background: $faded-bg;
-    padding: 2px 0;
-    width: 100vw;
+    padding: 6px;
+
+    @media screen and (max-width: $break-large) {
+      padding: 8px;
+    }
+    @media screen and (max-width: $break-small) {
+      padding: 4px;
+    }
+    @media screen and (max-width: $break-very-small) {
+      padding: 2px;
+    }
   }
 
   select {
@@ -31,19 +41,10 @@ nav {
     @include flexbox;
   }
 
-  .right.controls {
-    margin: $control-padding;
-  }
-
-  .middle.controls {
-    margin: $control-padding;
-  }
-
   #nav-logo {
     background-color: transparent;
     cursor: auto;
     border: 0;
-    margin-left: 2px;
     pointer-events: auto;
     padding: 0;
 
@@ -81,7 +82,7 @@ nav {
     display: none;
     font-size: 1.4rem;
     font-weight: 700;
-    margin-left: 0.6rem;
+    margin-left: $control-padding-left-right;
     color: #fff;
 
     body.show-select-map & {
@@ -98,7 +99,6 @@ nav {
 
   #map-controls-wrapper {
     display: none;
-    margin-left: 0.3rem;
 
     body.show-map & {
       display: inline-block;
@@ -106,8 +106,8 @@ nav {
   }
 
   #map-control {
-    margin: $control-padding-top-bottom 0;
     width: 120px;
+    margin-left: $control-padding-left-right;
 
     @media screen and (max-width: $break-small) {
       width: 80px;
@@ -115,8 +115,6 @@ nav {
   }
 
   #objective-control {
-    margin: $control-padding-top-bottom 0;
-
     @media screen and (max-width: $break-small) {
       width: 80px;
     }
@@ -133,7 +131,7 @@ nav {
 
   #floor-control {
     display: inline-block;
-    margin: $control-padding;
+    margin-left: $control-padding-left-right;
 
     .short {
       display: none;
@@ -158,6 +156,7 @@ nav {
 
   #zoom-range {
     display: none;
+    margin: 0 1rem 0 $control-padding-left-right;
     pointer-events: auto;
 
     body.show-map & {

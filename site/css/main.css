@@ -160,6 +160,7 @@ nav {
   pointer-events: none;
   position: absolute;
   top: 0;
+  width: 100%;
   z-index: 1300; }
   nav .wrapper {
     -webkit-box-align: center;
@@ -178,8 +179,16 @@ nav {
     -moz-justify-content: space-between;
     justify-content: space-between;
     background: rgba(16, 26, 36, 0.6);
-    padding: 2px 0;
-    width: 100vw; }
+    padding: 6px; }
+    @media screen and (max-width: 1400px) {
+      nav .wrapper {
+        padding: 8px; } }
+    @media screen and (max-width: 620px) {
+      nav .wrapper {
+        padding: 4px; } }
+    @media screen and (max-width: 400px) {
+      nav .wrapper {
+        padding: 2px; } }
   nav select {
     font-size: 1.15rem;
     pointer-events: auto; }
@@ -200,15 +209,10 @@ nav {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex; }
-  nav .right.controls {
-    margin: 0.15em 0.5em; }
-  nav .middle.controls {
-    margin: 0.15em 0.5em; }
   nav #nav-logo {
     background-color: transparent;
     cursor: auto;
     border: 0;
-    margin-left: 2px;
     pointer-events: auto;
     padding: 0; }
     nav #nav-logo.enabled {
@@ -231,7 +235,7 @@ nav {
     display: none;
     font-size: 1.4rem;
     font-weight: 700;
-    margin-left: 0.6rem;
+    margin-left: 0.5em;
     color: #fff; }
     body.show-select-map nav #select-map-heading {
       display: inline; }
@@ -242,21 +246,18 @@ nav {
       nav #select-map-heading {
         font-size: 1.25rem; } }
   nav #map-controls-wrapper {
-    display: none;
-    margin-left: 0.3rem; }
+    display: none; }
     body.show-map nav #map-controls-wrapper {
       display: inline-block; }
   nav #map-control {
-    margin: 0.15em 0;
-    width: 120px; }
+    width: 120px;
+    margin-left: 0.5em; }
     @media screen and (max-width: 620px) {
       nav #map-control {
         width: 80px; } }
-  nav #objective-control {
-    margin: 0.15em 0; }
-    @media screen and (max-width: 620px) {
-      nav #objective-control {
-        width: 80px; } }
+  @media screen and (max-width: 620px) {
+    nav #objective-control {
+      width: 80px; } }
   nav a {
     color: #fff;
     text-decoration: none; }
@@ -264,7 +265,7 @@ nav {
       text-decoration: underline; }
   nav #floor-control {
     display: inline-block;
-    margin: 0.15em 0.5em; }
+    margin-left: 0.5em; }
     nav #floor-control .short {
       display: none; }
       @media screen and (max-width: 620px) {
@@ -279,6 +280,7 @@ nav {
         padding-right: 0.7em; } }
   nav #zoom-range {
     display: none;
+    margin: 0 1rem 0 0.5em;
     pointer-events: auto; }
     body.show-map nav #zoom-range {
       display: inline-block; }
