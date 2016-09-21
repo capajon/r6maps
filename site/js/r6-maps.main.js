@@ -102,7 +102,6 @@
       newLang = $(event.target).data('lang');
 
     event.preventDefault();
-    menuApi.close();
 
     R6MapsLangTerms.tryLoadLanguage(newLang);
     setupSelectMap();
