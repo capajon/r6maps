@@ -109,10 +109,13 @@
       debugPanelHeight: panelHeight,
       debugPaddingWidth: paddingWidth,
       debugPaddingHeight: paddingHeight,
-      zoomValue: Math.min(
-        1,
-        panelWidth / zoomWidth,
-        panelHeight / zoomHeight
+      zoomValue: Math.max(
+        Math.min(
+          1,
+          panelWidth / zoomWidth,
+          panelHeight / zoomHeight
+        ),
+        0.5
       )
     };
 
