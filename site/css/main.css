@@ -1183,15 +1183,15 @@ body, button, input, select {
     -webkit-box-shadow: 0 0 8px black;
     -moz-box-shadow: 0 0 8px black;
     box-shadow: 0 0 8px black;
-    background-color: #fff;
+    background-color: transparent;
     display: none;
     position: absolute;
     -ms-transition: background-color 0.3s;
     -webkit-transition: background-color 0.3s;
     transition: background-color 0.3s;
     z-index: 1200; }
-    body.show-select-map #map-panel-wrapper .helper-border {
-      background-color: transparent; }
+    body.show-map #map-panel-wrapper .helper-border {
+      background-color: #fff; }
   #map-panel-wrapper .helper-border.vertical {
     height: 100%;
     width: 1px; }

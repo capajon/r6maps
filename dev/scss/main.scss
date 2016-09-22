@@ -148,7 +148,7 @@ body, button, input, select {
 
   .helper-border {
     @include box-shadow(0, 0, 8px, rgba(0,0,0,1));
-    background-color: #fff;
+    background-color: transparent;
     display: none;
     position: absolute;
     -ms-transition:  background-color 0.3s;
@@ -156,8 +156,8 @@ body, button, input, select {
     transition: background-color 0.3s;
     z-index: $z-map-border;
 
-    body.show-select-map & {
-      background-color: transparent;
+    body.show-map & {
+      background-color: #fff;
     }
   }
   .helper-border.vertical {
