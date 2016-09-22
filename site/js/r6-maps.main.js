@@ -149,6 +149,7 @@
     localStorageSetItem('language', newLang);
 
     setupSelectMap();
+    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
     setupMenu();
     setupEvents();
     tryLoadMenuOptions();
