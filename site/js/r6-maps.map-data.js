@@ -64,6 +64,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -100, left: 125 },
           { floor: 2, top: -52, left: 121 }
         ],
+        zoomPoints: {
+          topLeft: { top: -368, left: -483 },
+          bottomRight: { top: 310, left: 397 }
+        },
         cameras: [
           { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
           {
@@ -229,6 +233,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -212, left: 193 },
           { floor: 2, top: -325, left: -103 }
         ],
+        zoomPoints: {
+          topLeft: { top: -443, left: -305 },
+          bottomRight: { top: 125, left: 350 }
+        },
         cameras: [
           {
             floor: 2, top: -92, left: 326, id: 1, location: borderTerms.eastStairs,
@@ -372,6 +380,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 188, left: 47 },
           { floor: 2, top: 244, left: -54 }
         ],
+        zoomPoints: {
+          topLeft: { top: -456, left: -113 },
+          bottomRight: { top: 382, left: 494 }
+        },
         cameras: [
           { floor: 1, otherFloor: 'up', top: -114, left: 198, id: 1, location: chaletTerms.bedroomHallway },
           {
@@ -520,6 +532,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 170, left: 277 },
           { floor: 2, top: -109, left: 25 }
         ],
+        zoomPoints: {
+          topLeft: { top: -336, left: -416 },
+          bottomRight: { top: 275, left: 397 }
+        },
         cameras: [
           {
             floor: 2, top: -191, left: 3, id: 1, location: clubTerms.bedroomHallway,
@@ -675,6 +691,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -6, left: 326 },
           { floor: 2, top: 25, left: 319 }
         ],
+        zoomPoints: {
+          topLeft: { top: -196, left: -354 },
+          bottomRight: { top: 299, left: 455 }
+        },
         cameras: [
           {
             floor: 2, top: 26, left: -220, id: 1, location: consulateTerms.consulFrontDesk,
@@ -852,6 +872,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -153, left: -125 },
           { floor: 1, top: 269, left: -109 }
         ],
+        zoomPoints: {
+          topLeft: { top: -310, left: -584 },
+          bottomRight: { top: 354, left: 183 }
+        },
         cameras: [
           {
             floor: 3, top: -295, left: -45, id: 1, location: favelasTerms.backStairs,
@@ -1131,6 +1155,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 123, left: -144 },
           { floor: 2, top: 61, left: 109 }
         ],
+        zoomPoints: {
+          topLeft: { top: -180, left: -259 },
+          bottomRight: { top: 177, left: 213 }
+        },
         cameras: [
           {
             floor: 2, top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop,
@@ -1262,6 +1290,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 20, left: 337 },
           { floor: 3, top: 127, left: -50 }
         ],
+        zoomPoints: {
+          topLeft: { top: -209, left: -238 },
+          bottomRight: { top: 335, left: 479 }
+        },
         cameras: [
           { floor: 2, otherFloor: 'up', top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
           {
@@ -1405,6 +1437,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 76, left: -460 },
           { floor: 2, top: -101, left: 278 }
         ],
+        zoomPoints: {
+          topLeft: { top: -337, left: -507 },
+          bottomRight: { top: 259, left: 547 }
+        },
         cameras: [
           {
             floor: 3, top: 27, left: 253, id: 1, location: kanalTerms.controlRoomHallway,
@@ -1565,6 +1601,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -61, left: -264 },
           { floor: 2, top: 99, left: 46 }
         ],
+        zoomPoints: {
+          topLeft: { top: -355, left: -509 },
+          bottomRight: { top: 303, left: 463 }
+        },
         cameras: [
           {
             floor: 2, top: 70, left: 221, id: 1, location: oregonTerms.armoryCorridor,
@@ -1721,6 +1761,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 31, left: 325, smaller: true },
           { floor: 2, top: 30, left: -17, smaller: true }
         ],
+        zoomPoints: {
+          topLeft: { top: -218, left: -515 },
+          bottomRight: { top: 178, left: 482 }
+        },
         cameras: [
           {
             floor: 3, top: -14, left: 248, id: 1, location: planeTerms.cabinStaff,
@@ -1853,6 +1897,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
             { floor: 2, top: 61, left: 343 },
             { floor: 4, top: 14, left: 180 }
         ],
+        zoomPoints: {
+          topLeft: { top: -139, left: -610 },
+          bottomRight: { top: 160, left: 590 }
+        },
         cameras: [
           {
             floor: 4, top: 87, left: -134, id: 1, location: yachtTerms.helipadEntrance,
@@ -2017,6 +2065,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         hostageObjectives: [],
         bombObjectives: [],
         secureObjectives: [],
+        zoomPoints: {
+          topLeft: {},
+          bottomRight: {}
+        },
         cameras: [],
         ceilingHatches: [],
         skylights: [],

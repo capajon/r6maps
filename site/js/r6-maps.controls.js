@@ -358,18 +358,24 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     roomLabelStylesControl.html(html);
   };
 
-  var resetPan = function resetPan(mapMains) {
-    mapMains.panzoom('resetPan');
-    // todo: per map option
+  var resetPan = function resetPan(mapMains, getResetDimensions) {
+    var resetDimensions = getResetDimensions();
+
+    mapMains.panzoom(
+      'pan',
+      -resetDimensions.centerLeft * resetDimensions.zoomValue,
+      -resetDimensions.centerTop * resetDimensions.zoomValue
+    );
   };
 
   var resetSelectedFloor = function resetSelectedFloor() {
     floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
   };
 
-  var resetZoom = function resetZoom(mapMains) {
-    mapMains.panzoom('resetZoom');
-    // todo: per map option
+  var resetZoom = function resetZoom(mapMains, getResetDimensions) {
+    var resetDimensions = getResetDimensions();
+
+    mapMains.panzoom('zoom', resetDimensions.zoomValue);
   };
 
   var setEnableScreenshotsOption = function setEnableScreenshotsOption(isEnabled) {
