@@ -431,6 +431,46 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           garageTop: 'Garagendach',
           rooftop: 'Dach'
         },
+        house: {
+          spawnConstructionSite: 'Baustelle',
+          spawnRiverDocks: 'Flussdock',
+          spawnAPCArea: 'Panzerwagen-<br/>Bereich',
+          spawnSideStreet: 'Seitenstraße',
+          depot: 'Depot',
+          trainingRoom: 'Fitnessraum',
+          kitchenStairs: 'Kücheen-<br/>treppe',
+          sideStairs: 'Seiten-<br/>treppe',
+          laundryRoom: 'Wasch-<br/>küche',
+          garage: 'Garage',
+          livingRoom: 'Wohn-<br/>zimmer',
+          backEntrance: 'Hintereingang',
+          lobby: 'Lobby',
+          kitchen: 'Küche',
+          office: 'Büro',
+          diningRoom: 'Ess-<br/>zimmer',
+          workshop: 'Arbeitsraum',
+          kidsBedroom: 'Kinder-<br/>schlafzimmer',
+          upperHallway: 'Oberer<br/>Gang',
+          lobbyStairs: 'Lobby-<br/>Treppe',
+          walkIn: 'Begehbarer<br/>Schrank',
+          masterBedroom: 'haupt-<br/>schlafzimmer',
+          bathroom: 'Badezimmer',
+          sideStreet: 'Seiten-<br/>straße',
+          garageEntrance: 'Garagen-<br/>eingang',
+          garden: 'Garten',
+          backAlley: 'Hintergasse',
+          patio: 'Terrasse',
+          jacuzzi: 'Whirlpool',
+          basementStairs: 'Keller-<br/>treppe',
+          treehouseAlley: 'Baumhaus-<br/>gasse',
+          frontYard: 'Vorgarten',
+          frontStreet: 'Vordere Straße',
+          frontPorch: 'Vordere Veranda',
+          backPorch: 'Hintere Veranda',
+          backPorchTop: 'Hintere Veranda oben',
+          frontPorchTop: 'Vordere Veranda oben',
+          rooftop: 'Dach'
+        },
         kafe: {
           spawnRiverDocks: 'Fluss-Docks',
           spawnChristmasMarket: 'Weihnachtsmarkt',
@@ -479,7 +519,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  //R6MapsLangTerms.registerLanguage(name, terms);
+  R6MapsLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
