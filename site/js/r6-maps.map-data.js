@@ -1010,10 +1010,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 176, left: 6 },
           { floor: 3, top: 295, left: 86 }
         ],
-        zoomPoints: [
-          { top: 26, left: -273 },
-          { top: 459, left: 224 }
-        ],
+        zoomPoints: {
+          topLeft: { top: 25, left: -268 },
+          bottomRight: { top: 463, left: 210 }
+        },
         cameras: [
           {
             floor: 3, top: 205, left: -12, id: 1, location: herefordTerms.rooftop,
@@ -1695,7 +1695,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 148, left: 314, description: oregonTerms.garage },
           { floor: 2, top: 10, left: -390, hardToRead: true, description: oregonTerms.officeStorage },
           { floor: 2, top: -20, left: -111, hardToRead: true, description: oregonTerms.kidsDorm },
-          { floor: 2, hardToRead: true, top: 82, left: -7, hardToRead: true, description: oregonTerms.dormMainHall },
+          { floor: 2, hardToRead: true, top: 82, left: -7, description: oregonTerms.dormMainHall },
           { floor: 2, hardToRead: true, top: 213, left: -70, description: oregonTerms.dormStairs },
           { floor: 2, top: 169, left: 54, hardToRead: true, description: oregonTerms.smallDorms },
           { floor: 2, top: 82, left: 162, hardToRead: true, description: oregonTerms.armoryCorridor },
