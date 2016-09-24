@@ -836,9 +836,7 @@ svg.session-markers {
     visibility: visible; }
   svg.session-markers circle.ping-marker.tapped {
     stroke: #FF1493;
-    fill: #fff;
-    -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35)); }
+    fill: #fff; }
   svg.session-markers line.ping-marker {
     stroke: rgba(255, 20, 147, 0.2); }
 
