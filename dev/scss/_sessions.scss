@@ -1,0 +1,20 @@
+svg.session-markers {
+  visibility: hidden;
+  z-index: $z-session-markers;
+
+  [map-panel-count="2"] &,
+  [map-panel-count="4"] & {
+    visibility: visible;
+  }
+
+  circle.ping-marker.tapped {
+    stroke: $panel-marker;
+    fill: #fff;
+    -webkit-filter: drop-shadow( 0 0 5px rgba(0,0,0,0.35) );
+    filter: drop-shadow( 0 0 5px rgba(0,0,0,0.35) );
+  }
+
+  line.ping-marker {
+    stroke: $panel-marker-faded;
+  }
+}

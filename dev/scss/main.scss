@@ -7,6 +7,7 @@
 @import "_legend.scss";
 @import "_select-map.scss";
 @import "_spinner.scss";
+@import "_sessions.scss";
 @import "_jquery.mmenu.positioning.scss";
 @import "_jquery.mmenu.pagedim.scss";
 @import "_jquery.mmenu.custom-r6maps.scss";
@@ -317,32 +318,35 @@ body, button, input, select {
       overflow: visible;
       width: 1px;
       height: 1px;
-      z-index: $z-camera-los;
     }
 
-    .camera-los {
-      fill: transparent;
-      stroke: $r6-yellow;
-      stroke-width: 3;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-      transition: opacity 1s;
+    &.map {
+      z-index: $z-svg-map;
 
-      &.show-more {
-        opacity: 1 !important;
-      }
-
-      &.opacity-105,
-      &.opacity-110 {
-        stroke: $r6-orange;
-        stroke-dasharray: 7;
+      .camera-los {
+        fill: transparent;
+        stroke: $r6-yellow;
+        stroke-width: 3;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        transition: opacity 1s;
 
         &.show-more {
-          stroke-dasharray: none;
+          opacity: 1 !important;
         }
-      }
-      &.opacity-110 {
-        stroke-width: 5;
+
+        &.opacity-105,
+        &.opacity-110 {
+          stroke: $r6-orange;
+          stroke-dasharray: 7;
+
+          &.show-more {
+            stroke-dasharray: none;
+          }
+        }
+        &.opacity-110 {
+          stroke-width: 5;
+        }
       }
     }
   }
