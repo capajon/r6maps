@@ -8,6 +8,7 @@
     mapMains,
     mapElements,
     svgElements,
+    sessionMarkerElements,
     navLogoEl,
     bodyEl,
     mainNavEl,
@@ -39,6 +40,11 @@
       showSelectMap();
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
+
+    R6MapsSessions.setup(
+      mapMains,
+      sessionMarkerElements
+    );
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
@@ -208,6 +214,8 @@
 
     setLoadedMapKey(currentlySelectedMap);
     navLogoEl.addClass('enabled');
+
+    R6MapsSessions.reset(sessionMarkerElements);
   };
 
   var outputCoordinates = function outputCoordinates(e) {
@@ -302,7 +310,8 @@
     mapWrappers = $('.map-wrapper');
     mapMains = mapWrappers.find('.map-main');
     mapElements = mapMains.find('.map-elements');
-    svgElements = mapMains.find('.svg-elements');
+    svgElements = mapMains.find('svg.map g');
+    sessionMarkerElements = mapMains.find('svg.session-markers g');
   };
 
   var setMapPanelCount = function setMapPanelCount(numPanels) {

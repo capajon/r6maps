@@ -375,7 +375,9 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var resetZoom = function resetZoom(mapMains, getResetDimensions) {
     var resetDimensions = getResetDimensions();
 
-    mapMains.panzoom('zoom', resetDimensions.zoomValue);
+    zoomControl.val(resetDimensions.zoomValue);
+    zoomControl.trigger('input');
+    //zoomControl.trigger('change'); // todo: needed??
   };
 
   var setEnableScreenshotsOption = function setEnableScreenshotsOption(isEnabled) {
@@ -518,7 +520,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     mapMains.on('mousewheel', function(event) {
       zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
       zoomControl.trigger('input');
-      zoomControl.trigger('change'); // todo: needed??
+      //zoomControl.trigger('change'); // todo: needed??
     });
 
     zoomControl.on('change', getHandleZoomChangeFn(mapElements));

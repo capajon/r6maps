@@ -363,9 +363,8 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       html += '<div class="center-helper">';
       html += '<div class="map-elements"></div>';
       html += '</div>';
-      html += '<svg class="center-helper">';
-      html += '<g class="svg-elements"></g>';
-      html += '</svg>';
+      html += '<svg class="center-helper map"><g></g></svg>';
+      html += '<svg class="center-helper session-markers"><g></g></svg>';
       html += '</div>';
       html += '</div>';
       mapPanelWrapper.append(html);

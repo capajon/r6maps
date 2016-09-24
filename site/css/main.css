@@ -161,7 +161,7 @@ nav {
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 1300; }
+  z-index: 1400; }
   nav .wrapper {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -467,7 +467,7 @@ body.about {
   transition: visibility 0.5s, opacity 0.5s linear;
   visibility: hidden;
   width: 100%;
-  z-index: 1250; }
+  z-index: 1350; }
   #select-map-grid.enable-thumb-transition div.image.thumb {
     transition: all 0.6s; }
   body.show-select-map #select-map-grid {
@@ -829,6 +829,19 @@ body.about {
   40% {
     -webkit-transform: scale(1);
     transform: scale(1); } }
+svg.session-markers {
+  visibility: hidden;
+  z-index: 1200; }
+  [map-panel-count="2"] svg.session-markers, [map-panel-count="4"] svg.session-markers {
+    visibility: visible; }
+  svg.session-markers circle.ping-marker.tapped {
+    stroke: #FF1493;
+    fill: #fff;
+    -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.35)); }
+  svg.session-markers line.ping-marker {
+    stroke: rgba(255, 20, 147, 0.2); }
+
 /*
 	jQuery.mmenu position extension CSS
 */
@@ -1189,7 +1202,7 @@ body, button, input, select {
     -ms-transition: background-color 0.3s;
     -webkit-transition: background-color 0.3s;
     transition: background-color 0.3s;
-    z-index: 1200; }
+    z-index: 1300; }
     body.show-map #map-panel-wrapper .helper-border {
       background-color: #fff; }
   #map-panel-wrapper .helper-border.vertical {
@@ -1209,7 +1222,7 @@ body, button, input, select {
     padding: 0.2em 0.6em 0.3em 0.6em;
     pointer-events: none;
     position: absolute;
-    z-index: 1201;
+    z-index: 1301;
     text-align: center;
     top: 50%;
     -ms-transform: rotate(-90deg) translate(-50%, 0);
@@ -1306,24 +1319,25 @@ body, button, input, select {
   .map-main svg.center-helper {
     overflow: visible;
     width: 1px;
-    height: 1px;
+    height: 1px; }
+  .map-main svg.map {
     z-index: 1112; }
-  .map-main svg .camera-los {
-    fill: transparent;
-    stroke: #ffdb00;
-    stroke-width: 3;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-    transition: opacity 1s; }
-    .map-main svg .camera-los.show-more {
-      opacity: 1 !important; }
-    .map-main svg .camera-los.opacity-105, .map-main svg .camera-los.opacity-110 {
-      stroke: #d65b2b;
-      stroke-dasharray: 7; }
-      .map-main svg .camera-los.opacity-105.show-more, .map-main svg .camera-los.opacity-110.show-more {
-        stroke-dasharray: none; }
-    .map-main svg .camera-los.opacity-110 {
-      stroke-width: 5; }
+    .map-main svg.map .camera-los {
+      fill: transparent;
+      stroke: #ffdb00;
+      stroke-width: 3;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      transition: opacity 1s; }
+      .map-main svg.map .camera-los.show-more {
+        opacity: 1 !important; }
+      .map-main svg.map .camera-los.opacity-105, .map-main svg.map .camera-los.opacity-110 {
+        stroke: #d65b2b;
+        stroke-dasharray: 7; }
+        .map-main svg.map .camera-los.opacity-105.show-more, .map-main svg.map .camera-los.opacity-110.show-more {
+          stroke-dasharray: none; }
+      .map-main svg.map .camera-los.opacity-110 {
+        stroke-width: 5; }
   .map-main .map-elements {
     position: relative; }
     .map-main .map-elements img, .map-main .map-elements div, .map-main .map-elements a {
