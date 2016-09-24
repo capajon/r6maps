@@ -253,7 +253,6 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           graffitiArea: 'Graffiti-Bereich',
           recreationArea: 'Erholungsberich',
           junkyard: 'Schrottplatz',
-          shippingDock: 'Laderampe',
           VIPParking: 'VIP-Parkplatz',
           mainGate: 'Haupttor',
           parking: 'Parkplatz',
@@ -514,6 +513,63 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           backAlley: 'Seitengasse',
           garrage: 'Garage',
           parkAlley: 'Parkgasse'
+        },
+        kanal: {
+          spawnFloatingDock: 'Schwimm-Dock',
+          spawnSailboats: 'Segelboote',
+          spawnConstructionSite: 'Baustelle',
+          boatGarage: 'Boat Garage',//
+          boatSupplies: 'Boat Supplies',//
+          pipes: 'Pipes',//
+          boatSuppliesHallway: 'Boat<br/>Supplies<br/>Hallway',//
+          lockerRoom: 'Locker Room',//
+          coastGuardStairs: 'Coast Guard<br/>Stairs',//
+          showers: 'Showers',//
+          loadingDock: 'Loading Dock',//
+          machineHallway: 'Machine<br/>Hallway',//
+          controlCenterStairs: 'Control<br/>Center<br/>Stairs',//
+          holdingRoom: 'Holding<br/>Room',//
+          holdingRoomHallway: 'Holding<br/>Room<br/>Hallway',//
+          radio: 'Radio',//
+          coastGuardOffice: 'Coast Guard<br/>Office',//  ß  ä  Ä  é  ö  Ö  ü  Ü
+          archives: 'Archives',//
+          coastGuardHall: 'Coast<br/>Guard<br/>Hall',//
+          mainEntrance: 'Main<br/>Entrance',//
+          lounge: 'Lounge',//
+          bridge: 'Bridge',//
+          modelRoom: 'Model Room',//
+          securityRoom: 'Security<br/>Room',//
+          projectorRoom: 'Projector<br/>Room',//
+          mapsOffice: 'Maps<br/>Office',//
+          mapsOfficeHallway: 'Maps Office<br/>Hallway',//
+          kitchen: 'Kitchen',//
+          cafeteria: 'Cafeteria',//
+          plantsHallway: 'Plants Hallway',//
+          thirdFloorExit: 'Third<br/>Floor<br/>Exit',//
+          controlRoom: 'Control<br/>Room',//
+          electricRoom: 'Electric<br/>Room',//
+          controlRoomHallway: 'Control Room Hallway',//
+          serverRoom: 'Server<br/>Room',//
+          lockgate: 'Schleusentor',
+          quayContainers: 'Kai-Container',
+          lockgateTunnel: 'Schleusentor-<br/>Tunnel',//  ß  ä  Ä  é  ö  Ö  ü  Ü
+          waterWalkway: 'Steg',
+          quayConstruction: 'Kai-<br/>Baustelle',
+          constructionSite: 'Baustelle',
+          constructionEntrance: 'Baustellen-<br/>eingang',
+          parkingAlley: 'Parkplatzgasse',
+          parkingEntrance: 'Parkplatz-<br/>einfahrt',
+          middleRoad: 'Mittlere<br/>Straße',
+          forkliftAlley: 'Gabelstapler-<br/>Gasse',
+          frontLawn: 'Vorgarten',
+          basementStairs: 'Kellertreppe',
+          coastGuardRoof: 'Küstenwache-<br/>Dache',
+          roofBrickPile: 'Ziegelhaufen<br/>Dach',
+          balcony: 'Balkon',
+          controlCenterRoof: 'Kontrollzentrum-<br/>Dach',
+          dockStairs: 'Dock-Treppe',
+          parking: 'Parkplatz',
+          boatCrane: 'Boat Crane'//
         },
         oregon: {
           spawnJunkyard: 'Schrottplatz',

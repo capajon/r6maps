@@ -345,7 +345,6 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           graffitiArea: 'Zone de graffitis',
           recreationArea: 'Zone<br/>de loisirs',
           junkyard: 'Décharge',
-          shippingDock: 'Quai de<br/>chargement',
           VIPParking: 'Parking VIP',
           mainGate: 'Porte principale',
           parking: 'Parking',

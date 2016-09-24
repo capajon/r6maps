@@ -604,7 +604,6 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outside: true, description: clubTerms.graffitiArea, top: -366, left: 22 },
           { outside: true, description: clubTerms.recreationArea, top: -127, left: -317 },
           { outside: true, description: clubTerms.junkyard, top: 64, left: -473 },
-          { outside: true, description: clubTerms.shippingDock, top: 52, left: -689 },
           { outside: true, description: clubTerms.VIPParking, top: 322, left: -241 },
           { outside: true, description: clubTerms.mainGate, top: 485, left: 3 },
           { outside: true, description: clubTerms.parking, top: 160, left: -14 },

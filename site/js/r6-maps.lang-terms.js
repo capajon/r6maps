@@ -276,7 +276,6 @@ var R6MapsLangTerms = (function(undefined) {
           graffitiArea: 'Graffiti Area',
           recreationArea: 'Recreation<br/>Area',
           junkyard: 'Junkyard',
-          shippingDock: 'Shipping<br/>Dock',
           VIPParking: 'VIP Parking',
           mainGate: 'Main Gate',
           parking: 'Parking',
