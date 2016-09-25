@@ -514,10 +514,11 @@
   var tryLoadMapPanelCount = function tryLoadMapPanelCount() {
     var mapPanelCount = localStorage.getItem('mappanelcount');
 
-    if (mapPanelCount) {
-      R6MapsControls.trySelectMapPanelCount(mapPanelCount);
-      setMapPanelCount(mapPanelCount);
+    if (!mapPanelCount) {
+      mapPanelCount = ($(window).width() > 1000) ? 2 : 1;
     }
+    R6MapsControls.trySelectMapPanelCount(mapPanelCount);
+    setMapPanelCount(mapPanelCount);
   };
 
   var tryLoadMenuOptions = function tryLoadMenuOptions() {

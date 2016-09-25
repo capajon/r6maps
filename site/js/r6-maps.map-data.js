@@ -1384,7 +1384,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: -162, left: -34, description: kafeTerms.frontStairs },
           { floor: 3, top: -1, left: 67, description: kafeTerms.cigarShop },
           { floor: 3, top: 132, left: 38, hardToRead: true, description: kafeTerms.cigarLounge },
-          { floor: 3, top: 24, left: 257, hardToRead: true, hardToRead: true, description: kafeTerms.bar },
+          { floor: 3, top: 24, left: 257, hardToRead: true, description: kafeTerms.bar },
           { floor: 3, top: 120, left: 257, hardToRead: true, description: kafeTerms.barBackstore },
           { floor: 3, top: 182, left: 218, description: kafeTerms.washrooms },
           { floor: 3, top: 256, left: 310, description: kafeTerms.washroomCorridor },
