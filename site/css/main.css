@@ -838,7 +838,11 @@ svg.session-markers {
     stroke: #FF1493;
     fill: #fff; }
   svg.session-markers line.ping-marker {
-    stroke: rgba(255, 20, 147, 0.2); }
+    stroke: rgba(255, 20, 147, 0.2);
+    transition: stroke 0.6s linear; }
+    svg.session-markers line.ping-marker.highlight {
+      stroke: #fff;
+      transition: none; }
 
 /*
 	jQuery.mmenu position extension CSS

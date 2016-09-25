@@ -14,5 +14,11 @@ svg.session-markers {
 
   line.ping-marker {
     stroke: $panel-marker-faded;
+    transition: stroke 0.6s linear;
+
+    &.highlight {
+      stroke: #fff;
+      transition: none;
+    }
   }
 }

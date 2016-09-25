@@ -30,6 +30,12 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
         pingMarkerVertical.attr('x2', pingPosition.left);
         pingMarkerHorizontal.attr('y1', pingPosition.top);
         pingMarkerHorizontal.attr('y2', pingPosition.top);
+        pingMarkerVertical.addClass('highlight');
+        pingMarkerHorizontal.addClass('highlight');
+        setTimeout(function() {
+          pingMarkerVertical.removeClass('highlight');
+          pingMarkerHorizontal.removeClass('highlight');
+        }, 1);
       }
     };
   };
