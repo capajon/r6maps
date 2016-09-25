@@ -189,6 +189,10 @@
     updateUrl();
   };
 
+  var hideSelectMap = function hideSelectMap() {
+    bodyEl.removeClass(SHOW_SELECT_MAP);
+  };
+
   var localStorageSetItem = function localStorageSetItem(index, value) {
     try {
       localStorage.setItem(index, value);
@@ -391,7 +395,7 @@
   };
 
   var showMap = function showMap() {
-    bodyEl.removeClass(SHOW_SELECT_MAP);
+    hideSelectMap();
     bodyEl.addClass(SHOW_MAP);
     updateUrl();
     updateTitle();
@@ -455,8 +459,11 @@
 
   var switchToMap = function switchToMap(mapArg) {
     if (R6MapsControls.trySelectMap(mapArg)) {
-      loadMap();
-      showMap();
+      hideSelectMap();
+      setTimeout(function() {
+        loadMap();
+        showMap();
+      },1);
     }
   };
 
