@@ -518,41 +518,41 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           spawnFloatingDock: 'Schwimm-Dock',
           spawnSailboats: 'Segelboote',
           spawnConstructionSite: 'Baustelle',
-          boatGarage: 'Boat Garage',//
-          boatSupplies: 'Boat Supplies',//
-          pipes: 'Pipes',//
-          boatSuppliesHallway: 'Boat<br/>Supplies<br/>Hallway',//
-          lockerRoom: 'Locker Room',//
-          coastGuardStairs: 'Coast Guard<br/>Stairs',//
-          showers: 'Showers',//
-          loadingDock: 'Loading Dock',//
-          machineHallway: 'Machine<br/>Hallway',//
-          controlCenterStairs: 'Control<br/>Center<br/>Stairs',//
-          holdingRoom: 'Holding<br/>Room',//
-          holdingRoomHallway: 'Holding<br/>Room<br/>Hallway',//
-          radio: 'Radio',//
-          coastGuardOffice: 'Coast Guard<br/>Office',//  ß  ä  Ä  é  ö  Ö  ü  Ü
-          archives: 'Archives',//
-          coastGuardHall: 'Coast<br/>Guard<br/>Hall',//
-          mainEntrance: 'Main<br/>Entrance',//
-          lounge: 'Lounge',//
-          bridge: 'Bridge',//
-          modelRoom: 'Model Room',//
-          securityRoom: 'Security<br/>Room',//
-          projectorRoom: 'Projector<br/>Room',//
-          mapsOffice: 'Maps<br/>Office',//
-          mapsOfficeHallway: 'Maps Office<br/>Hallway',//
-          kitchen: 'Kitchen',//
-          cafeteria: 'Cafeteria',//
-          plantsHallway: 'Plants Hallway',//
-          thirdFloorExit: 'Third<br/>Floor<br/>Exit',//
-          controlRoom: 'Control<br/>Room',//
-          electricRoom: 'Electric<br/>Room',//
-          controlRoomHallway: 'Control Room Hallway',//
-          serverRoom: 'Server<br/>Room',//
+          boatGarage: 'Bootsgarage',
+          boatSupplies: 'Bootsvorräte',
+          pipes: 'Undichte Rohre',
+          boatSuppliesHallway: 'Boots-<br/>borräte-<br/>Gang',
+          lockerRoom: 'Umkleideraum',
+          coastGuardStairs: 'Küstenwache-<br/>Treppe',
+          showers: 'Duschen',
+          loadingDock: 'Laderampe',
+          machineHallway: 'Maschinen-<br/>Gang',
+          controlCenterStairs: 'Kontroll-<br/>zentrum-<br/>Treppe',
+          holdingRoom: 'Güterraum',
+          holdingRoomHallway: 'Güterraum-<br/>Gang',
+          radio: 'Funk',
+          coastGuardOffice: 'Küstenwache<br/>Büro',
+          archives: 'Archiv',
+          coastGuardHall: 'Küsten-<br/>wache<br/>Gang',
+          mainEntrance: 'Haupt-<br/>eingang',
+          lounge: 'Lounge',
+          bridge: 'Brücke',
+          modelRoom: 'Modellraum',
+          securityRoom: 'Sicherheits-<br/>raum',
+          projectorRoom: 'Projektorraum',
+          mapsOffice: 'Kartenbüro',
+          mapsOfficeHallway: 'Kartenbüro-<br/>Gang',
+          kitchen: 'Küche',
+          cafeteria: 'Cafeteria',
+          plantsHallway: 'Pflanzengang',
+          thirdFloorExit: 'Ausgang<br/>zweiter<br/>Stock',
+          controlRoom: 'Kontrollraum',
+          electricRoom: 'Elektrik',
+          controlRoomHallway: 'Kontrollraum-Gang',
+          serverRoom: 'Server-<br/>Raum',
           lockgate: 'Schleusentor',
           quayContainers: 'Kai-Container',
-          lockgateTunnel: 'Schleusentor-<br/>Tunnel',//  ß  ä  Ä  é  ö  Ö  ü  Ü
+          lockgateTunnel: 'Schleusentor-<br/>Tunnel',
           waterWalkway: 'Steg',
           quayConstruction: 'Kai-<br/>Baustelle',
           constructionSite: 'Baustelle',
@@ -569,7 +569,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           controlCenterRoof: 'Kontrollzentrum-<br/>Dach',
           dockStairs: 'Dock-Treppe',
           parking: 'Parkplatz',
-          boatCrane: 'Boat Crane'//
+          boatCrane: 'Bootskran'
         },
         oregon: {
           spawnJunkyard: 'Schrottplatz',
@@ -625,6 +625,47 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           garageRoof: 'Garagendach',
           dormsRoof: 'Schlafsaaldach',
           meetingHallRoof: 'Versammlungs-<br/>hallendach'
+        },
+        plane: {
+          spawnOfficialEntrance: 'Haupteingang',
+          spawnReporterEntrance: 'Reporter-Eingang',
+          spawnServiceEntrance: 'Vorderer Service-Eingang',
+          pressBathroom: 'Presse-<br/>Toilette',
+          meetingRoom: 'Besprechungs-<br/>zimmer',
+          frontHallway: 'Vorderer<br/>Gang',
+          executiveOffice: 'VIP-<br/>Büro',
+          mainEntrance: 'Haupteingang',
+          frontStairs: 'Vordere Treppe',
+          pantry: 'Speisekammer',
+          kitchen: 'Küche',
+          executiveHallway: 'VIP-Gang',
+          executiveBedroom: 'VIP-<br/>Schlafzimmer',
+          changeRoom: 'Umkleide',
+          laund: 'Waschküche.',
+          frontServiceEntrance: 'Vorderer Service-Eingang',
+          rightWing: 'Rechter Flügel',
+          backServiceEntrance: 'Hinterer<br/>Service-Eingang',
+          reporterEntrance: 'Reporter-<br/>Eingang',
+          leftWing: 'Linker Flügel',
+          staffSection: 'Personalbereich',
+          securityRoom: 'Sicherheits-<br/>raum',
+          pressSectionA: 'Pressebereich<br/>A',
+          pressSectionB: 'Pressebereich<br/>B',
+          backStairs: 'Hintere Treppe',
+          cargoHold: 'Frachtraum',
+          serviceCorridor: 'Dienstkorridor',
+          storage: 'Lager',
+          luggageHold: 'Gepäckraum',
+          firstAidStation: 'Erste-Hilfe-Station',
+          cargoFrontEntrance: 'Vorderer<br/>Frachteingang',
+          cockpitStairs: 'Cockpit-Treppe',
+          cabinStaff: 'Kabinen-<br/>personal',
+          radioCabin: 'Funkkabine',
+          cabin: 'Cockpit',
+          caterer: 'Caterer',
+          serverRoomA: 'Server-Raum A',
+          serverRoomB: 'Server-Raum B',
+          technicalSeating: 'Technikersitz'
         },
         yacht: {
           spawnSubmarine: 'U-Boot',
