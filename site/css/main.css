@@ -830,13 +830,11 @@ body.about {
     -webkit-transform: scale(1);
     transform: scale(1); } }
 svg.session-markers {
-  visibility: hidden;
   z-index: 1200; }
-  [map-panel-count="2"] svg.session-markers, [map-panel-count="4"] svg.session-markers {
-    visibility: visible; }
   svg.session-markers circle.ping-marker.tapped {
     stroke: #FF1493;
-    fill: #fff; }
+    fill: #fff;
+    cursor: pointer; }
   svg.session-markers line.ping-marker {
     stroke: rgba(255, 20, 147, 0.2);
     transition: stroke 0.6s linear; }

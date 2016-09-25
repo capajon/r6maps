@@ -1,15 +1,10 @@
 svg.session-markers {
-  visibility: hidden;
   z-index: $z-session-markers;
-
-  [map-panel-count="2"] &,
-  [map-panel-count="4"] & {
-    visibility: visible;
-  }
 
   circle.ping-marker.tapped {
     stroke: $panel-marker;
     fill: #fff;
+    cursor: pointer;
   }
 
   line.ping-marker {

@@ -15,6 +15,13 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     });
   };
 
+  var getCurrentPosition = function getCurrentPosition(pingMarker) {
+    return {
+      y: parseInt(pingMarker.attr('cy')),
+      x: parseInt(pingMarker.attr('cx'))
+    };
+  };
+
   var getHandleTapFn = function getHandleTapFn(sessionMarkerElements) {
     return function(event) {
       if (sessionMarkerElements.css('visibility') === 'visible') {
@@ -22,20 +29,22 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
           pingPosition = getPingPosition(event.center.x, event.center.y, mapWrapper),
           pingMarker = sessionMarkerElements.find('.ping-marker.tapped'),
           pingMarkerVertical = sessionMarkerElements.find('.ping-marker.vertical'),
-          pingMarkerHorizontal = sessionMarkerElements.find('.ping-marker.horizontal');
+          pingMarkerHorizontal = sessionMarkerElements.find('.ping-marker.horizontal'),
+          currentPosition = getCurrentPosition(pingMarker),
+          newX = pingPosition.x,
+          newY = pingPosition.y;
 
-        pingMarker.attr('cx', pingPosition.left);
-        pingMarker.attr('cy', pingPosition.top);
-        pingMarkerVertical.attr('x1', pingPosition.left);
-        pingMarkerVertical.attr('x2', pingPosition.left);
-        pingMarkerHorizontal.attr('y1', pingPosition.top);
-        pingMarkerHorizontal.attr('y2', pingPosition.top);
-        pingMarkerVertical.addClass('highlight');
-        pingMarkerHorizontal.addClass('highlight');
-        setTimeout(function() {
-          pingMarkerVertical.removeClass('highlight');
-          pingMarkerHorizontal.removeClass('highlight');
-        }, 1);
+        if (isOnCurrentPing(pingPosition, currentPosition)) {
+          newX = -10000;
+          newY = -10000;
+        }
+        movePingMarker(
+          pingMarker,
+          pingMarkerVertical,
+          pingMarkerHorizontal,
+          newX,
+          newY
+        );
       }
     };
   };
@@ -50,9 +59,37 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
       scale = transforms[0];
 
     return {
-      left: Math.round((x - centerX - transformX) / scale),
-      top: Math.round((y - centerY - transformY) / scale)
+      x: Math.round((x - centerX - transformX) / scale),
+      y: Math.round((y - centerY - transformY) / scale)
     };
+  };
+
+  var isOnCurrentPing = function isOnCurrentPing(pingPosition, currentPosition) {
+    return (
+      Math.abs(pingPosition.x - currentPosition.x) < 6 &&
+      Math.abs(pingPosition.y - currentPosition.y) < 6
+    );
+  };
+
+  var movePingMarker = function movePingMarker(
+    pingMarker,
+    pingMarkerVertical,
+    pingMarkerHorizontal,
+    x,
+    y
+  ) {
+    pingMarker.attr('cx', x);
+    pingMarker.attr('cy', y);
+    pingMarkerVertical.attr('x1', x);
+    pingMarkerVertical.attr('x2', x);
+    pingMarkerHorizontal.attr('y1', y);
+    pingMarkerHorizontal.attr('y2', y);
+    pingMarkerVertical.addClass('highlight');
+    pingMarkerHorizontal.addClass('highlight');
+    setTimeout(function() {
+      pingMarkerVertical.removeClass('highlight');
+      pingMarkerHorizontal.removeClass('highlight');
+    }, 1);
   };
 
   var populateStartingMarkers = function populateStartingMarkers(sessionMarkerElements) {
