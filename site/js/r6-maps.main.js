@@ -515,7 +515,11 @@
     var mapPanelCount = localStorage.getItem('mappanelcount');
 
     if (!mapPanelCount) {
-      mapPanelCount = ($(window).width() > 1000) ? 2 : 1;
+      var windowEl = $(window);
+
+      mapPanelCount = (
+        (windowEl.width() > 1000) || (windowEl.height() > 1000)
+      ) ? 2 : 1;
     }
     R6MapsControls.trySelectMapPanelCount(mapPanelCount);
     setMapPanelCount(mapPanelCount);
