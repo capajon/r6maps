@@ -24,7 +24,10 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var getHandleTapFn = function getHandleTapFn(sessionMarkerElements) {
     return function(event) {
-      if (sessionMarkerElements.css('visibility') === 'visible') {
+      if (
+        (sessionMarkerElements.css('visibility') === 'visible') &&
+        !$(event.srcEvent.target).hasClass('camera')
+      ) {
         var mapWrapper =  $(event.target).closest('.map-wrapper'),
           pingPosition = getPingPosition(event.center.x, event.center.y, mapWrapper),
           pingMarker = sessionMarkerElements.find('.ping-marker.tapped'),
