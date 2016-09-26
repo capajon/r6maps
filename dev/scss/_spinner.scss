@@ -1,49 +1,46 @@
 // from http://tobiasahlin.com/spinkit/
 .sk-circle {
-  &.select-map {
-    margin: 0;
-    width: 140px;
-    height: 140px;
-    position: relative;
+  margin: 0;
+  width: 140px;
+  height: 140px;
+  position: relative;
 
-    @media screen and (max-width: $break-large) {
-      width: 110px;
-      height: 110px;
-    }
-    @media screen and (max-width: $break-small) {
-      width: 80px;
-      height: 80px;
-    }
-    @media screen and (max-width: $break-very-small) {
-      width: 60px;
-      height: 60px;
-    }
+  @media screen and (max-width: $break-large) {
+    width: 110px;
+    height: 110px;
   }
-  .map-wrapper & {
-    bottom: 0;
+  @media screen and (max-width: $break-small) {
+    width: 80px;
+    height: 80px;
+  }
+  @media screen and (max-width: $break-very-small) {
+    width: 60px;
+    height: 60px;
+  }
+
+  .map-elements & {
     width: 280px;
     height: 280px;
-    top: 0;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    right: 0;
-
-    body.show-select-map & {
-      display: none;
-    }
+    top: -140px;
+    left: -140px;
 
     @media screen and (max-width: $break-large) {
       width: 220px;
       height: 220px;
+      top: -110px;
+      left: -110px;
     }
     @media screen and (max-width: $break-small) {
       width: 160px;
       height: 160px;
+      top: -80px;
+      left: -80px;
     }
     @media screen and (max-width: $break-very-small) {
       width: 120px;
       height: 120px;
+      top: -60px;
+      left: -60px;
     }
   }
 }
