@@ -317,7 +317,6 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var renderMap = function renderMap(mapData, mapElements, svgElement) {
     var html = '';
 
-    html += getSpinnerHtml();
     html += getMaxFloorIndexHtml(mapData.floors, mapData.imgUrlPrefix);
     html += getCeilingHatchesHtml(mapData.ceilingHatches);
     html += getSkylightsHtml(mapData.skylights);
@@ -359,6 +358,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       html += '<div class="helper-border vertical"></div>';
       html += '<div class="helper-border horizontal"></div>';
       html += '<p class="map-panel-label"></p>';
+      html += getSpinnerHtml();
       html += '<div class="map-main">';
       html += '<div class="center-helper">';
       html += '<div class="map-elements"></div>';
