@@ -207,7 +207,7 @@
 
     R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
     R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgElements);
+    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgElements, getResetDimensions);
     R6MapsControls.resetPan(mapMains, getResetDimensions);
     R6MapsControls.resetZoom(mapMains, getResetDimensions);
 

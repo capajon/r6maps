@@ -294,10 +294,12 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var getSpinnerHtml = function getSpinnerHtml() {
-    var html = '';
+  var getSpinnerHtml = function getSpinnerHtml(marginLeft, marginTop) {
+    var html = '',
+      marginLeft = marginLeft || 0,
+      marginTop = marginTop || 0;
 
-    html += '<div class="sk-circle">';
+    html += '<div class="sk-circle" style="margin-top: ' + marginTop + 'px; margin-left: ' + marginLeft + 'px">';
     html += '<div class="sk-circle1 sk-child"></div>';
     html += '<div class="sk-circle2 sk-child"></div>';
     html += '<div class="sk-circle3 sk-child"></div>';
@@ -314,10 +316,14 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var renderMap = function renderMap(mapData, mapElements, svgElement) {
-    var html = '';
+  var renderMap = function renderMap(mapData, mapElements, svgElement, getResetDimensions) {
+    var html = '',
+      zoomPoints = mapData.zoomPoints,
+      resetDimensions = getResetDimensions(),
+      spinnerMarginLeft = resetDimensions.centerLeft,
+      spinnerMarginTop = resetDimensions.centerTop;
 
-    html += getSpinnerHtml();
+    html += getSpinnerHtml(spinnerMarginLeft, spinnerMarginTop);
     html += getMaxFloorIndexHtml(mapData.floors, mapData.imgUrlPrefix);
     html += getCeilingHatchesHtml(mapData.ceilingHatches);
     html += getSkylightsHtml(mapData.skylights);
