@@ -1,129 +1,132 @@
 $custom-mmenu-padding: 0.7rem;
-$custom-mmenu-padding-smaller: 0.4rem;
-$left-gutter: 0.7rem;
+$custom-mmenu-padding-smaller: 0.5rem;
 
 #mmenu-menu {
   pointer-events: auto;
-}
-.mm-panel {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
-  background: #3a6082 !important; /* Old browsers */
-  background: -moz-linear-gradient(top, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important; /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #3a6082 0%,#3a6082 51%,#1d2f3f 100%) !important; /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #3a6082 0%,#3a6082 51%,#1d2f3f 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a6082', endColorstr='#1d2f3f',GradientType=0 ) !important;
-  padding-top: 0 !important;
-}
 
-.faded-logo {
-  position: absolute;
-  bottom: 0px;
-  right: 0;
-  z-index: -100;
-  background-image: url($img-location + 'r6maps-logo-blue.png');
-  background-position: center bottom;
-  background-position: 100% calc(100% + 18px);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 100%;
-  opacity: 0.7;
-}
+  .mm-panel {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
+    background: #3a6082 !important; /* Old browsers */
+    background: -moz-linear-gradient(top, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important; /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #3a6082 0%,#3a6082 51%,#1d2f3f 100%) !important; /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #3a6082 0%,#3a6082 51%,#1d2f3f 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a6082', endColorstr='#1d2f3f',GradientType=0 ) !important;
+    padding-top: 0 !important;
 
-.mm-opening #mm-blocker {
-  opacity: 0.5 !important;
-}
-
-.mm-navbar {
-  @include offscreen;
-}
-
-.mmenu-custom-panel {
-  @include box-shadow(0, 0, 8px, rgba(0,0,0,0.25));
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.3);
-  font-weight: 400;
-  margin-bottom: 1em;
-  padding-bottom: $custom-mmenu-padding-smaller;
-  border-bottom-left-radius: $custom-mmenu-padding-smaller;
-  border-bottom-right-radius: $custom-mmenu-padding-smaller;
-
-  a,
-  button.menu-link {
-    border: 0;
-    color: #000;
-    display: block;
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 100%;
-    padding: $custom-mmenu-padding;
-    text-align: left;
-    transition: background-color $button-transition;
-
-    &:hover, &:focus {
-      background-color: $r6-yellow;
-      text-decoration: none !important;
+    &::before {
+      height: 10px;
     }
   }
 
-  button.menu-link {
+  .faded-logo {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    z-index: -100;
+    background-image: url($img-location + 'r6maps-logo-blue.png');
+    background-position: center bottom;
+    background-position: 100% calc(100% + 18px);
+    background-repeat: no-repeat;
+    background-size: 100%;
     width: 100%;
-    padding: 0.6rem;
+    height: 100%;
+    opacity: 0.7;
   }
 
-  h2 {
-    border-bottom: 1px solid $grey;
-    color: #000;
-    font-size: 1.2rem;
-    margin-bottom: $custom-mmenu-padding-smaller;
-    padding: $custom-mmenu-padding;
-    text-transform: uppercase;
+  .mm-opening #mm-blocker {
+    opacity: 0.5 !important;
   }
 
-  label {
-    display: block;
-    font-weight: 700;
-    padding: $custom-mmenu-padding;
+  .mm-navbar {
+    @include offscreen;
   }
 
-  select {
-    margin-left: $left-gutter;
-    margin-bottom: $custom-mmenu-padding;
-    min-width: 160px;
-  }
+  .mmenu-custom-panel {
+    @include box-shadow(0, 0, 8px, rgba(0,0,0,0.25));
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    padding-bottom: $custom-mmenu-padding-smaller;
+    border-bottom-left-radius: $custom-mmenu-padding-smaller;
+    border-bottom-right-radius: $custom-mmenu-padding-smaller;
 
-  .channel-input-wrapper {
-    @include flexbox;
-    margin-left: $left-gutter;
-    width: 100%;
+    button {
+      border: 0;
+      color: #000;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 100%;
+      padding: $custom-mmenu-padding-smaller $custom-mmenu-padding;
+      text-align: left;
+      transition: background-color $button-transition;
+      width: 100%;
 
-    input {
-      font-weight: 400;
-      margin-left: $left-gutter;
+      &:hover, &:focus {
+        background-color: $r6-yellow;
+        text-decoration: none !important;
+      }
+    }
+
+    h2 {
+      border-bottom: 1px solid $grey;
+      color: #000;
+      font-size: 1rem;
+      margin-bottom: $custom-mmenu-padding-smaller;
+      padding: $custom-mmenu-padding;
+      text-transform: uppercase;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: $custom-mmenu-padding 0 $custom-mmenu-padding-smaller $custom-mmenu-padding;
+    }
+
+    select {
+      font-size: 1rem;
+      margin-left: $custom-mmenu-padding;
+      margin-bottom: $custom-mmenu-padding;
+      min-width: 160px;
+    }
+
+    .channel-input-wrapper {
+      @include flexbox;
+      margin-left: $custom-mmenu-padding;
+      width: 100%;
+
+      input {
+        font-weight: 400;
+        margin-left: $custom-mmenu-padding;
+        width: 100%;
+      }
+    }
+
+    .checkbox-wrapper {
+      display: inline-block;
+      font-size: 1.05rem;
+      margin-bottom: $custom-mmenu-padding-smaller;
+      margin-left: $custom-mmenu-padding - 0.1;
+      white-space: no-wrap;
+
+      input[type="checkbox"] {
+        margin-right: 0.35rem;
+      }
+    }
+
+    .zoom.controls {
+      @include align-items(center);
+      @include flexbox;
+      margin-left: $custom-mmenu-padding;
+    }
+
+    hr {
+      color: $light-grey;
+      height: 1px;
       width: 100%;
     }
-  }
-
-  .checkbox-wrapper {
-    display: inline-block;
-    margin-left: $left-gutter - 0.1;
-    white-space: no-wrap;
-
-    input[type="checkbox"] {
-      margin-right: 0.35rem;
-    }
-  }
-
-  .zoom.controls {
-    @include align-items(center);
-    @include flexbox;
-    margin-left: $custom-mmenu-padding;
-  }
-
-  hr {
-    color: $light-grey;
-    height: 1px;
-    width: 100%;
   }
 }
 
@@ -132,7 +135,7 @@ $left-gutter: 0.7rem;
 }
 
 #lock-wrapper {
-    margin-bottom: 0.3rem;
+  margin-top: -0.3rem;
 }
 
 #los-wrapper {
@@ -140,7 +143,7 @@ $left-gutter: 0.7rem;
 }
 
 #camera-los-percent {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 400;
   margin-left: 0.5rem;
 }

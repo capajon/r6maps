@@ -942,135 +942,131 @@ html.mm-pagedim-black #mm-blocker {
 
 #mmenu-menu {
   pointer-events: auto; }
-
-.mm-panel {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
-  background: #3a6082 !important;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important;
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important;
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important;
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a6082', endColorstr='#1d2f3f',GradientType=0 ) !important;
-  padding-top: 0 !important; }
-
-.faded-logo {
-  position: absolute;
-  bottom: 0px;
-  right: 0;
-  z-index: -100;
-  background-image: url("../img/r6maps-logo-blue.png");
-  background-position: center bottom;
-  background-position: 100% calc(100% + 18px);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 100%;
-  opacity: 0.7; }
-
-.mm-opening #mm-blocker {
-  opacity: 0.5 !important; }
-
-.mm-navbar {
-  position: absolute !important;
-  left: -10000px;
-  overflow: hidden;
-  width: 1px;
-  height: 1px; }
-
-.mmenu-custom-panel {
-  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  font-weight: 400;
-  margin-bottom: 1em;
-  padding-bottom: 0.4rem;
-  border-bottom-left-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem; }
-  .mmenu-custom-panel a,
-  .mmenu-custom-panel button.menu-link {
-    border: 0;
-    color: #000;
-    display: block;
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 100%;
-    padding: 0.7rem;
-    text-align: left;
-    transition: background-color 0.2s; }
-    .mmenu-custom-panel a:hover, .mmenu-custom-panel a:focus,
-    .mmenu-custom-panel button.menu-link:hover,
-    .mmenu-custom-panel button.menu-link:focus {
-      background-color: #ffdb00;
-      text-decoration: none !important; }
-  .mmenu-custom-panel button.menu-link {
+  #mmenu-menu .mm-panel {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a6082+0,3a6082+51,1d2f3f+100 */
+    background: #3a6082 !important;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important;
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important;
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #3a6082 0%, #3a6082 51%, #1d2f3f 100%) !important;
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a6082', endColorstr='#1d2f3f',GradientType=0 ) !important;
+    padding-top: 0 !important; }
+    #mmenu-menu .mm-panel::before {
+      height: 10px; }
+  #mmenu-menu .faded-logo {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    z-index: -100;
+    background-image: url("../img/r6maps-logo-blue.png");
+    background-position: center bottom;
+    background-position: 100% calc(100% + 18px);
+    background-repeat: no-repeat;
+    background-size: 100%;
     width: 100%;
-    padding: 0.6rem; }
-  .mmenu-custom-panel h2 {
-    border-bottom: 1px solid #808080;
-    color: #000;
-    font-size: 1.2rem;
-    margin-bottom: 0.4rem;
-    padding: 0.7rem;
-    text-transform: uppercase; }
-  .mmenu-custom-panel label {
-    display: block;
-    font-weight: 700;
-    padding: 0.7rem; }
-  .mmenu-custom-panel select {
-    margin-left: 0.7rem;
-    margin-bottom: 0.7rem;
-    min-width: 160px; }
-  .mmenu-custom-panel .channel-input-wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    margin-left: 0.7rem;
-    width: 100%; }
-    .mmenu-custom-panel .channel-input-wrapper input {
-      font-weight: 400;
+    height: 100%;
+    opacity: 0.7; }
+  #mmenu-menu .mm-opening #mm-blocker {
+    opacity: 0.5 !important; }
+  #mmenu-menu .mm-navbar {
+    position: absolute !important;
+    left: -10000px;
+    overflow: hidden;
+    width: 1px;
+    height: 1px; }
+  #mmenu-menu .mmenu-custom-panel {
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem; }
+    #mmenu-menu .mmenu-custom-panel button {
+      border: 0;
+      color: #000;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 100%;
+      padding: 0.5rem 0.7rem;
+      text-align: left;
+      transition: background-color 0.2s;
+      width: 100%; }
+      #mmenu-menu .mmenu-custom-panel button:hover, #mmenu-menu .mmenu-custom-panel button:focus {
+        background-color: #ffdb00;
+        text-decoration: none !important; }
+    #mmenu-menu .mmenu-custom-panel h2 {
+      border-bottom: 1px solid #808080;
+      color: #000;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      padding: 0.7rem;
+      text-transform: uppercase; }
+    #mmenu-menu .mmenu-custom-panel label {
+      display: block;
+      font-weight: 700;
+      margin: 0.7rem 0 0.5rem 0.7rem; }
+    #mmenu-menu .mmenu-custom-panel select {
+      font-size: 1rem;
+      margin-left: 0.7rem;
+      margin-bottom: 0.7rem;
+      min-width: 160px; }
+    #mmenu-menu .mmenu-custom-panel .channel-input-wrapper {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
       margin-left: 0.7rem;
       width: 100%; }
-  .mmenu-custom-panel .checkbox-wrapper {
-    display: inline-block;
-    margin-left: 0.6rem;
-    white-space: no-wrap; }
-    .mmenu-custom-panel .checkbox-wrapper input[type="checkbox"] {
-      margin-right: 0.35rem; }
-  .mmenu-custom-panel .zoom.controls {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    margin-left: 0.7rem; }
-  .mmenu-custom-panel hr {
-    color: #a4a4a4;
-    height: 1px;
-    width: 100%; }
+      #mmenu-menu .mmenu-custom-panel .channel-input-wrapper input {
+        font-weight: 400;
+        margin-left: 0.7rem;
+        width: 100%; }
+    #mmenu-menu .mmenu-custom-panel .checkbox-wrapper {
+      display: inline-block;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      margin-left: 0.6rem;
+      white-space: no-wrap; }
+      #mmenu-menu .mmenu-custom-panel .checkbox-wrapper input[type="checkbox"] {
+        margin-right: 0.35rem; }
+    #mmenu-menu .mmenu-custom-panel .zoom.controls {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-left: 0.7rem; }
+    #mmenu-menu .mmenu-custom-panel hr {
+      color: #a4a4a4;
+      height: 1px;
+      width: 100%; }
 
 #options-wrapper {
   padding-bottom: 1rem; }
 
 #lock-wrapper {
-  margin-bottom: 0.3rem; }
+  margin-top: -0.3rem; }
 
 #los-wrapper {
   margin-bottom: 0.7rem; }
 
 #camera-los-percent {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 400;
   margin-left: 0.5rem; }
 

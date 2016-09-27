@@ -25,7 +25,6 @@ var R6MapsLangTerms = (function(undefined) {
         labelNumberFloorsToDisplay: 'Number of floors to display',
         lockPanning: 'Lock panning',
         lockZooming: 'Lock zooming',
-        labelCameraScreenshots: 'Camera screenshots',
         fullScreen: 'Full screen'
       },
       channels: { // todo: translate

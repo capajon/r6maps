@@ -429,7 +429,7 @@
       });
 
     $('#mmenu-link').click(handleMenuClick);
-    $('#lang-choices').on('click','a', handleLangChange);
+    $('#lang-choices').on('click','button', handleLangChange);
 
     R6MapsControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
   };

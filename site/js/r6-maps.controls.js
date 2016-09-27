@@ -166,7 +166,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<div id="lang-choices" class="mmenu-custom-panel">';
     html += '<h2>' + R6MapsLangTerms.terms.general.languageHeader + '</h2>';
     for (var langKey in R6MapsLangTerms.loadedLanguages) {
-      html += '<a href="" data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</a>';
+      html += '<button data-lang="' + langKey + '">' + R6MapsLangTerms.terms.languages[langKey] + '</button>';
     }
     html += '</div>';
     return html;
@@ -209,8 +209,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
     html += '</div>';
     html += '</div>';
-
-    html += '<label>' + R6MapsLangTerms.terms.general.labelCameraScreenshots + '</label>';
     html += '<div class="checkbox-wrapper">';
     html += '<input type="checkbox" id="enable-screenshtos" checked>Enable screen shots</input>';
     html += '</div>';
@@ -226,10 +224,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     html += '<div class="mmenu-custom-panel">';
     html += '<h2>r6maps.com</h2>';
-    html += '<button id="menu-select-maps" class="menu-link">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</button>';
-    html += '<a href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
+    html += '<button id="menu-select-maps">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</button>';
+    html += '<button id="menu-about">' + R6MapsLangTerms.terms.general.about + '</button>';
     if (isFullScreenAvailable()) {
-      html += '<button class="menu-link" href="" id="full-screen">' + R6MapsLangTerms.terms.general.fullScreen + '</button>';
+      html += '<button href="" id="full-screen">' + R6MapsLangTerms.terms.general.fullScreen + '</button>';
     }
     html += '</div>';
     return html;
@@ -504,6 +502,9 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     enableScreenshotsControl = $('#enable-screenshtos');
     fullScreenControl = $('#full-screen');
     menuSelectMapsControl = $('#menu-select-maps');
+    $('#menu-about').on('click', function() {
+      window.location = R6MapsLangTerms.terms.general.linkAbout;
+    });
   };
 
   var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
