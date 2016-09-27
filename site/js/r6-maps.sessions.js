@@ -1,54 +1,63 @@
 'use strict';
 
+var PING_MARKER_RADIUS = 10,
+  MIN_PING_MARKER_RADIUS = 5,
+  MAX_PING_MARKER_RADIUS = 16,
+  PING_MARKER_BORDER_PERCENT = 0.2,
+  MIN_PING_MARKER_BORDER = 1;
+
 var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) {
-  var setup = function setup (
-    mapMains,
-    sessionMarkerElements
-  ) {
-    populateStartingMarkers(sessionMarkerElements);
-
-    mapMains.each(function(index, main) {
-      var mc = new Hammer(main);
-
-      mc.on('press', getHandleTapFn(sessionMarkerElements));
-      mc.on('tap', getHandleTapFn(sessionMarkerElements));
-    });
-  };
-
-  var getCurrentPosition = function getCurrentPosition(pingMarker) {
+  var getCurrentPosition = function getCurrentPosition(pingMarkers) {
     return {
-      y: parseInt(pingMarker.attr('cy')),
-      x: parseInt(pingMarker.attr('cx'))
+      y: parseInt(pingMarkers.attr('cy')),
+      x: parseInt(pingMarkers.attr('cx'))
     };
   };
 
-  var getHandleTapFn = function getHandleTapFn(sessionMarkerElements) {
-    return function(event) {
-      if (
-        (sessionMarkerElements.css('visibility') === 'visible') &&
-        !$(event.srcEvent.target).hasClass('camera')
-      ) {
+  var getHandleTapFn = function getHandleTapFn(
+    pingMarkers,
+    pingMarkerAccents,
+    pingMarkersVertical,
+    pingMarkersHorizontal,
+    isCameraCallback
+  ) {
+    return function handleTap(event) {
+      var targetEl = $(event.srcEvent.target);
+
+      if (isCameraCallback) {
         var mapWrapper =  $(event.target).closest('.map-wrapper'),
           pingPosition = getPingPosition(event.center.x, event.center.y, mapWrapper),
-          pingMarker = sessionMarkerElements.find('.ping-marker.tapped'),
-          pingMarkerVertical = sessionMarkerElements.find('.ping-marker.vertical'),
-          pingMarkerHorizontal = sessionMarkerElements.find('.ping-marker.horizontal'),
-          currentPosition = getCurrentPosition(pingMarker),
+          currentPosition = getCurrentPosition(pingMarkers),
           newX = pingPosition.x,
           newY = pingPosition.y;
 
-        if (isOnCurrentPing(pingPosition, currentPosition)) {
-          newX = -10000;
-          newY = -10000;
-        }
-        movePingMarker(
-          pingMarker,
-          pingMarkerVertical,
-          pingMarkerHorizontal,
+        movePingMarkers(
+          pingMarkers,
+          pingMarkerAccents,
+          pingMarkersVertical,
+          pingMarkersHorizontal,
           newX,
           newY
         );
       }
+    };
+  };
+
+  var getHidePingMarkersFn = function getHidePingMarkersFn(
+    pingMarkers,
+    pingMarkerAccents,
+    pingMarkersVertical,
+    pingMarkersHorizontal
+  ) {
+    return function hidePingMarkers() {
+      movePingMarkers(
+        pingMarkers,
+        pingMarkerAccents,
+        pingMarkersVertical,
+        pingMarkersHorizontal,
+        -10000,
+        -10000
+      );
     };
   };
 
@@ -67,6 +76,25 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
+  var getResizePingMarkersFn = function getResizePingMarkersFn(
+    pingMarkers,
+    pingMarkerAccents,
+    mapMains
+  ) {
+    return function resizePingMarkers() {
+      var scale = $(mapMains[0]).panzoom('getMatrix')[0],
+        radius = Math.round(PING_MARKER_RADIUS / scale),
+        radius = Math.max(MIN_PING_MARKER_RADIUS, radius),
+        radius = Math.min(MAX_PING_MARKER_RADIUS, radius),
+        strokeWidth = Math.max(MIN_PING_MARKER_BORDER, Math.floor(radius * PING_MARKER_BORDER_PERCENT));
+
+      radius -= strokeWidth;
+      pingMarkers.attr('r', radius);
+      pingMarkerAccents.attr('r', radius * 2);
+      pingMarkers.attr('stroke-width', strokeWidth);
+    };
+  };
+
   var isOnCurrentPing = function isOnCurrentPing(pingPosition, currentPosition) {
     return (
       Math.abs(pingPosition.x - currentPosition.x) < 6 &&
@@ -74,24 +102,29 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     );
   };
 
-  var movePingMarker = function movePingMarker(
-    pingMarker,
-    pingMarkerVertical,
-    pingMarkerHorizontal,
+  var movePingMarkers = function movePingMarkers(
+    pingMarkers,
+    pingMarkerAccents,
+    pingMarkersVertical,
+    pingMarkersHorizontal,
     x,
     y
   ) {
-    pingMarker.attr('cx', x);
-    pingMarker.attr('cy', y);
-    pingMarkerVertical.attr('x1', x);
-    pingMarkerVertical.attr('x2', x);
-    pingMarkerHorizontal.attr('y1', y);
-    pingMarkerHorizontal.attr('y2', y);
-    pingMarkerVertical.addClass('highlight');
-    pingMarkerHorizontal.addClass('highlight');
+    pingMarkers.attr('cx', x);
+    pingMarkers.attr('cy', y);
+    pingMarkerAccents.attr('cx', x);
+    pingMarkerAccents.attr('cy', y);
+    pingMarkersVertical.attr('x1', x);
+    pingMarkersVertical.attr('x2', x);
+    pingMarkersHorizontal.attr('y1', y);
+    pingMarkersHorizontal.attr('y2', y);
+    pingMarkerAccents.addClass('highlight');
+    pingMarkersVertical.addClass('highlight');
+    pingMarkersHorizontal.addClass('highlight');
     setTimeout(function() {
-      pingMarkerVertical.removeClass('highlight');
-      pingMarkerHorizontal.removeClass('highlight');
+      pingMarkerAccents.removeClass('highlight');
+      pingMarkersVertical.removeClass('highlight');
+      pingMarkersHorizontal.removeClass('highlight');
     }, 1);
   };
 
@@ -100,13 +133,41 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
 
     html += '<line class="ping-marker vertical" x1="-9000" y1="-715" x2="-9000" y2="725" stroke-width="2"/>';
     html += '<line class="ping-marker horizontal" x1="-1275" y1="-9000" x2="1285" y2="-9000" stroke-width="2"/>';
-    html += '<circle class="ping-marker tapped" cx="-9000" cy="-9000" r="6" stroke-width="2"/>';
+    html += '<circle class="ping-marker accent" cx="-9000" cy="-9000" r="6" stroke-width="2"/>';
+    html += '<circle class="ping-marker center" cx="-9000" cy="-9000" r="6" stroke-width="2"/>';
     sessionMarkerElements.html(html);
     //future note: if using append: sessionMarkerElements.html(sessionMarkerElements.html());
   };
 
   var reset = function reset(sessionMarkerElements) {
     populateStartingMarkers(sessionMarkerElements);
+  };
+
+  var setup = function setup (
+    mapMains,
+    sessionMarkerElements,
+    isCameraCallback
+  ) {
+    populateStartingMarkers(sessionMarkerElements);
+
+    var pingMarkers = sessionMarkerElements.find('.ping-marker.center'),
+      pingMarkerAccents = sessionMarkerElements.find('.ping-marker.accent'),
+      pingMarkersVertical = sessionMarkerElements.find('.ping-marker.vertical'),
+      pingMarkersHorizontal = sessionMarkerElements.find('.ping-marker.horizontal'),
+      handleTap = getHandleTapFn(pingMarkers, pingMarkerAccents, pingMarkersVertical, pingMarkersHorizontal, isCameraCallback),
+      resizePingMarkers = getResizePingMarkersFn(pingMarkers, pingMarkerAccents, mapMains),
+      hidePingMarkers = getHidePingMarkersFn(pingMarkers, pingMarkerAccents, pingMarkersVertical, pingMarkersHorizontal);
+
+    mapMains.each(function(index, main) {
+      var mc = new Hammer(main),
+        mainEl = $(main);
+
+      mc.on('press', handleTap);
+      mc.on('tap', handleTap);
+    });
+    pingMarkers.on('click', hidePingMarkers);
+    mapMains.on('panzoomzoom', resizePingMarkers);
+    resizePingMarkers();
   };
 
   return  {

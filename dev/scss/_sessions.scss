@@ -1,10 +1,21 @@
 svg.session-markers {
   z-index: $z-session-markers;
 
-  circle.ping-marker.tapped {
+  circle.ping-marker.center {
     stroke: $panel-marker;
     fill: #fff;
     cursor: pointer;
+  }
+  circle.ping-marker.accent {
+    animation: pulse 1s infinite;
+    -webkit-animation: pulse 1s infinite;
+    fill: $panel-marker-faded;
+    transition: fill 0.6s linear;
+
+    &.highlight {
+      fill: #fff;
+      transition: none;
+    }
   }
 
   line.ping-marker {

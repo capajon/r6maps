@@ -43,12 +43,17 @@
 
     R6MapsSessions.setup(
       mapMains,
-      sessionMarkerElements
+      sessionMarkerElements,
+      isCamera
     );
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
     return bodyEl.attr('loaded-map');
+  };
+
+  var isCamera = function isCamera(element) {
+    return element.hasClass('camera');
   };
 
   var isShowingMap = function isShowingMap() {
