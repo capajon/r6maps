@@ -139,10 +139,6 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     //future note: if using append: sessionMarkerElements.html(sessionMarkerElements.html());
   };
 
-  var reset = function reset(sessionMarkerElements) {
-    populateStartingMarkers(sessionMarkerElements);
-  };
-
   var setup = function setup (
     mapMains,
     sessionMarkerElements,
@@ -171,7 +167,6 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   return  {
-    reset: reset,
     setup: setup
   };
 })(window.jQuery, window, document, R6MapsLangTerms);

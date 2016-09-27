@@ -40,12 +40,6 @@
       showSelectMap();
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
-
-    R6MapsSessions.setup(
-      mapMains,
-      sessionMarkerElements,
-      isCamera
-    );
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
@@ -224,7 +218,11 @@
     setLoadedMapKey(currentlySelectedMap);
     navLogoEl.addClass('enabled');
 
-    R6MapsSessions.reset(sessionMarkerElements);
+    R6MapsSessions.setup(
+      mapMains,
+      sessionMarkerElements,
+      isCamera
+    );
   };
 
   var outputCoordinates = function outputCoordinates(e) {
