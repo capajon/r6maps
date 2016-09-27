@@ -841,7 +841,7 @@ svg.session-markers {
     fill: rgba(255, 20, 147, 0.2);
     transition: fill 0.6s linear; }
     svg.session-markers circle.ping-marker.accent.highlight {
-      fill: #fff;
+      fill: rgba(255, 255, 255, 0.5);
       transition: none; }
   svg.session-markers line.ping-marker {
     stroke: rgba(255, 20, 147, 0.2);
