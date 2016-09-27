@@ -24,7 +24,7 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     return function handleTap(event) {
       var targetEl = $(event.srcEvent.target);
 
-      if (isCameraCallback) {
+      if (!isCameraCallback(targetEl)) {
         var mapWrapper =  $(event.target).closest('.map-wrapper'),
           pingPosition = getPingPosition(event.center.x, event.center.y, mapWrapper),
           currentPosition = getCurrentPosition(pingMarkers),
