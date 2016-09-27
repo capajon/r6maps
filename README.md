@@ -3,30 +3,24 @@
 
 **Hosted at http://www.r6maps.com**
 
-r6maps.com is designed to be a quick reference resource primarily for learning Rainbow Six Siege maps.  Please see the about.html page for more details.
+r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Please see the about.html page for more details.
 
 ## Things to work on
 Contributions are welcome. :)
 
-### Short-term
+### Short-term (active)
 (will likely do)
-- [ ] Open Issues (see Github issue tracking and Reddit post)
-- [ ] German localization, maybe Portuguese Brazil
-- [ ] Better initial home view, grid selection
+- [ ] Open Issues (see Github issue tracking)
+- [ ] Initial team session beta (change map, basic ping, etc)
 
-### Medium-term
-(might do)
-- [ ] World globe map locations
-- [ ] More localization - Spanish, Finish, Russian, etc?
-- [ ] Split grid view (multiple levels at once in sync, maybe x4 layout?)
+### Medium-term (probably)
+- [ ] More team session features
+- [ ] More localization - Get Help? - Portuguese Brazil, Spanish, Russian?
 - CI, Build & Deploy Improvements:
    - [ ] scss linting
-   - [ ] Automated site deployments from master
-   - [ ] Some perceptual diff tests & basic UI tests
-   - [ ] Improve distribution size (min, gzip, etc)
-   - [ ] scss -> css part of deploy (no longer check in processed css)
+   - [ ] Perceptual diff tests & basic UI tests
+   - [ ] Improve distribution size (min, gzip, etc) if an issue
 
-### Long-term
-(probably out of scope)
-- [ ] Socket.io for some kind of collaboration or coach mode?
-- [ ] Helpful tips / strats (community contributions, maybe posts?)
+### Long-term (maybe)
+- [ ] World globe map locations
+- [ ] Helpful tips / strats (community contributions, maybe posts? save?)
