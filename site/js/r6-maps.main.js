@@ -271,7 +271,7 @@
   var saveLockPanningOption = function saveLockPanningOption(value) {
     localStorageSetItem('lockpanning', value);
     if (value) {
-      R6MapsControls.resetPan(mapMains);
+      R6MapsControls.resetPan(mapMains, getResetDimensions);
     }
   };
 
