@@ -343,7 +343,8 @@ body.about {
     margin-bottom: 0.5em;
     text-transform: uppercase; }
     body.about h2.top-header {
-      margin-left: 0.5rem; }
+      margin-left: 0.5rem;
+      margin-bottom: 1rem; }
     body.about h2 span {
       background-color: #fff;
       color: #000;
