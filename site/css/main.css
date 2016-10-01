@@ -395,6 +395,8 @@ body.about {
     border: 2px solid white;
     margin: 0 0.5rem;
     max-width: calc(100% - 1rem); }
+  body.about footer {
+    margin-bottom: 2rem; }
   body.about footer div,
   body.about header div {
     margin-bottom: 1.5rem; }
