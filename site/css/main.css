@@ -325,22 +325,35 @@ body.about {
   font-size: 1.3rem;
   overflow: visible; }
   body.about h1 {
-    font-size: 3.9rem;
-    margin: 2rem 0;
-    padding-left: 100px;
-    font-weight: 700;
-    background-image: url("../img/r6maps-logo.png");
-    background-repeat: no-repeat;
-    line-height: 80px;
-    background-size: 80px; }
-  body.about .logo {
-    text-decoration: none; }
+    margin: 2rem 0.5rem; }
+    body.about h1 a {
+      background-image: url("../img/r6maps-logo.png");
+      background-repeat: no-repeat;
+      background-size: 80px;
+      font-size: 3.9rem;
+      font-weight: 700;
+      line-height: 80px;
+      padding-left: 90px;
+      text-decoration: none; }
   body.about h2 {
     color: #ffdb00;
     font-size: 2.2rem;
     font-weight: 700;
-    padding-bottom: 0.5em;
+    line-height: 160%;
+    margin-bottom: 0.5em;
     text-transform: uppercase; }
+    body.about h2.top-header {
+      margin-left: 0.5rem; }
+    body.about h2 span {
+      background-color: #fff;
+      color: #000;
+      border-radius: 5px;
+      padding: 0 4px;
+      margin: 0 0.5rem 0.2rem 0; }
+    body.about h2 strong {
+      display: block;
+      text-transform: none;
+      font-size: 3.4rem; }
   body.about h3 {
     font-weight: 700;
     padding-bottom: 0.4em; }
@@ -358,21 +371,37 @@ body.about {
   body.about ul {
     margin: 1.5rem 0 0 0.5rem; }
     body.about ul li {
-      padding: 0 0 2rem 0; }
+      line-height: 160%;
+      padding: 0 0 1.2rem 0; }
+    body.about ul strong {
+      font-weight: 700; }
     body.about ul span {
       background-color: #fff;
       color: #000;
       border-radius: 5px;
-      padding: 5px;
+      padding: 2px 5px;
       font-weight: 700;
       margin-right: 0.5rem; }
   body.about section {
     background-color: rgba(16, 26, 36, 0.6);
     margin-bottom: 30px;
     padding: 10px; }
+    body.about section:last-child {
+      margin-bottom: 0; }
   body.about .about-wrapper {
     margin: 0 auto;
     max-width: 900px; }
+  body.about img.update-ss {
+    border: 2px solid white;
+    margin: 0 0.5rem;
+    max-width: calc(100% - 1rem); }
+  body.about footer div,
+  body.about header div {
+    margin-bottom: 1.5rem; }
+  body.about footer a,
+  body.about header a {
+    font-size: 1.8rem;
+    margin-left: 1rem; }
 
 #legend {
   background-color: #000;

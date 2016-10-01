@@ -11,26 +11,45 @@ body {
     overflow: visible;
 
     h1 {
-      font-size: 3.9rem;
-      margin: 2rem 0;
-      padding-left: 100px;
-      font-weight: 700;
-      background-image: url($img-location + 'r6maps-logo.png');
-      background-repeat: no-repeat;
-      line-height: 80px;
-      background-size: 80px;
-    }
+      margin: 2rem 0.5rem;
 
-    .logo {
-      text-decoration: none;
+      a {
+        background-image: url($img-location + 'r6maps-logo.png');
+        background-repeat: no-repeat;
+        background-size: 80px;
+        font-size: 3.9rem;
+        font-weight: 700;
+        line-height: 80px;
+        padding-left: 90px;
+        text-decoration: none;
+      }
     }
 
     h2 {
       color: $r6-yellow;
       font-size: 2.2rem;
       font-weight: 700;
-      padding-bottom: 0.5em;
+      line-height: 160%;
+      margin-bottom: 0.5em;
       text-transform: uppercase;
+
+      &.top-header {
+        margin-left: 0.5rem;
+      }
+
+      span {
+        background-color: #fff;
+        color: #000;
+        border-radius: 5px;
+        padding: 0 4px;
+        margin: 0 0.5rem 0.2rem 0;
+      }
+
+      strong {
+        display: block;
+        text-transform: none;
+        font-size: 3.4rem;
+      }
     }
 
     h3 {
@@ -59,14 +78,19 @@ body {
       margin: 1.5rem 0 0 0.5rem;
 
       li {
-        padding: 0 0 2rem 0;
+        line-height: 160%;
+        padding: 0 0 1.2rem 0;
+      }
+
+      strong {
+        font-weight: 700;
       }
 
       span {
         background-color: #fff;
         color: #000;
         border-radius: 5px;
-        padding: 5px;
+        padding: 2px 5px;
         font-weight: 700;
         margin-right: 0.5rem;
       }
@@ -76,11 +100,33 @@ body {
       background-color: $faded-bg;
       margin-bottom: 30px;
       padding: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     .about-wrapper {
       margin: 0 auto;
       max-width: 900px;
+    }
+
+    img.update-ss {
+      border: 2px solid white;
+      margin: 0 0.5rem;
+      max-width: calc(100% - 1rem);
+    }
+
+    footer,
+    header {
+      div {
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        font-size: 1.8rem;
+        margin-left: 1rem;
+      }
     }
   }
 }
