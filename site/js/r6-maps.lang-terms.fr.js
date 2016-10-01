@@ -32,9 +32,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         LightAndLarge: 'Grand et Lumière'
       },
       floorDisplayOptions: {
-        one: '1 ( Défaut )',
-        two: '2 ( Divisé )',
-        four: '4 ( Grille )'
+        one: '1 - Plein',
+        two: '2 - Divisé',
+        four: '4 - Grille'
       },
       selectMaps: {
         selectAMap: 'Sélectionnez une carte',

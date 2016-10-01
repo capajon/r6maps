@@ -40,9 +40,9 @@ var R6MapsLangTerms = (function(undefined) {
         LightAndLarge: 'Large and Light'
       },
       floorDisplayOptions: {
-        one: '1 (Default)',
-        two: '2 (Split)',
-        four: '4 (Grid)'
+        one: '1 - Full',
+        two: '2 - Split',
+        four: '4 - Grid'
       },
       selectMaps: {
         selectAMap: 'Select a map',

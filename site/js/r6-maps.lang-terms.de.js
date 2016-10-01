@@ -31,9 +31,9 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         DarkAndLarge: 'Groß und Licht'
       },
       floorDisplayOptions: {
-        one: '1 ( Standard )',
-        two: '2 ( Teilt )',
-        four: '4 ( Gitter )'
+        one: '1 - Voll',
+        two: '2 - Teilt',
+        four: '4 - Gitter'
       },
       selectMaps: {
         selectAMap: 'Wählen Sie eine Karte',
