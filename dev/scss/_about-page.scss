@@ -131,6 +131,19 @@ body {
       a {
         font-size: 1.8rem;
         margin-left: 1rem;
+
+        &.updates {
+          font-weight: 700;
+          margin-top: 0.5rem;
+
+          span {
+            background-color: #fff;
+            color: #000;
+            border-radius: 5px;
+            padding: 2px 5px;
+            margin-right: 0.5rem;
+          }
+        }
       }
     }
   }
