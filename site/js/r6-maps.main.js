@@ -175,6 +175,11 @@
     updateUrl();
   };
 
+  var handleMapPanelCountChange = function handleMapPanelCountChange(numPanels) {
+    sendMapPanelCountEvent(numPanels);
+    setMapPanelCount(numPanels);
+  };
+
   var handleMenuClick = function handleMenuClick(e) {
     var menuApi = getMenuApi();
 
@@ -339,7 +344,6 @@
     R6MapsControls.resetZoom(mapMains, getResetDimensions);
 
     showSelectedFloor();
-    sendMapPanelCountEvent(numPanels);
   };
 
   var setPageElements = function setPageElements() {
@@ -383,7 +387,7 @@
     R6MapsControls.setupFloorChangeEvent(handleFloorChange);
     R6MapsControls.setupFloorHotkeys(showSelectedFloor);
     R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
-    R6MapsControls.setupMapPanelCountChangeEvent(setMapPanelCount);
+    R6MapsControls.setupMapPanelCountChangeEvent(handleMapPanelCountChange);
     R6MapsControls.setupLockPanningChangeEvent(saveLockPanningOption);
     R6MapsControls.setupLockZoomingChangeEvent(saveLockZoomingOption);
     R6MapsControls.setupEnableScreenshotsChangeEvent(handleEnableScreenshotsChange);
