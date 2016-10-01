@@ -210,7 +210,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '</div>';
     html += '</div>';
     html += '<div class="checkbox-wrapper">';
-    html += '<input type="checkbox" id="enable-screenshtos" checked>Enable screen shots</input>';
+    html += '<input type="checkbox" id="enable-screenshtos" checked>' + R6MapsLangTerms.terms.general.enableScreenshots + '</input>';
     html += '</div>';
 
     html += '</div>';

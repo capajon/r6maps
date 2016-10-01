@@ -21,7 +21,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         labelNumberFloorsToDisplay: 'Anzahl der Etagen anzuzeigen',
         lockPanning: 'Schloss panning',
         lockZooming: 'Schloss zoom',
-        fullScreen: 'Vollbild'
+        fullScreen: 'Vollbild',
+        enableScreenshots: 'Aktivieren Screenshots'
       },
       roomLabelStyles: {
         Dark: 'Dunkel',
