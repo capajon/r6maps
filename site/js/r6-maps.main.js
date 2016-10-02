@@ -8,7 +8,7 @@
     mapMains,
     mapElements,
     svgElements,
-    sessionMarkerElements,
+    sessionMarkerWrapper,
     navLogoEl,
     bodyEl,
     mainNavEl,
@@ -225,8 +225,9 @@
 
     R6MapsSessions.setup(
       mapMains,
-      sessionMarkerElements,
-      isCamera
+      sessionMarkerWrapper,
+      isCamera,
+      R6MapsRender.SVG_DIM
     );
   };
 
@@ -323,7 +324,7 @@
     mapMains = mapWrappers.find('.map-main');
     mapElements = mapMains.find('.map-elements');
     svgElements = mapMains.find('svg.map g');
-    sessionMarkerElements = mapMains.find('svg.session-markers g');
+    sessionMarkerWrapper = mapMains.find('.svg-wrapper.session-markers');
   };
 
   var setMapPanelCount = function setMapPanelCount(numPanels) {

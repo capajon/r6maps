@@ -1361,10 +1361,15 @@ body, button, input, select {
     bottom: 0;
     right: 0;
     width: 0; }
+  .map-main .svg-wrapper {
+    position: relative; }
   .map-main svg.center-helper {
     overflow: visible;
     width: 1px;
     height: 1px; }
+  .map-main svg.svg-elements {
+    position: absolute;
+    overflow: visible; }
   .map-main svg.map {
     z-index: 1112; }
     .map-main svg.map .camera-los {

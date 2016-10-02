@@ -3,6 +3,12 @@
 var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var CAMERA_WIDTH = 40,
     CAMERA_HEIGHT = 40,
+    SVG_DIM = {
+      WIDTH: 2560,
+      HEIGHT: 1440,
+      TOP_OFFSET: 1500 / 2,
+      LEFT_OFFSET: 2500 / 2
+    },
     langTerms = R6MapsLangTerms.terms;
 
   $.fn.removeClassPrefix = function(prefix) {
@@ -368,11 +374,12 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       html += '<div class="map-main">';
       html += '<div class="center-helper">';
       html += '<div class="map-elements"></div>';
-      html += '</div>';
+      html += '<div class="svg-wrapper session-markers">';
+      html += '</div>'; // end svg-wrapper
+      html += '</div>'; // end center-helper
       html += '<svg class="center-helper map"><g></g></svg>';
-      html += '<svg class="center-helper session-markers"><g></g></svg>';
-      html += '</div>';
-      html += '</div>';
+      html += '</div>'; // end map-main
+      html += '</div>'; // end map-wrapper
       mapPanelWrapper.append(html);
     }
   };
@@ -416,6 +423,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     setRoomLabelStyle: setRoomLabelStyle,
     setupMapPanels: setupMapPanels,
     showFloor: showFloor,
-    showObjective: showObjective
+    showObjective: showObjective,
+    SVG_DIM: SVG_DIM
   };
 })(window.jQuery, window, document, R6MapsLangTerms);
