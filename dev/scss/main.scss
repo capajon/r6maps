@@ -315,6 +315,7 @@ body, button, input, select {
 
   .svg-wrapper {
     position :relative;
+    pointer-events: none;
   }
 
   svg {
@@ -324,7 +325,7 @@ body, button, input, select {
       width: 1px;
       height: 1px;
     }
-    
+
     &.svg-elements {
       position: absolute;
       overflow: visible;

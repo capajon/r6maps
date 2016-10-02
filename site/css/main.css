@@ -875,9 +875,10 @@ body.about {
 svg.session-markers {
   z-index: 1200; }
   svg.session-markers circle.ping-marker.center {
-    stroke: #fff;
+    cursor: pointer;
     fill: #FF1493;
-    cursor: pointer; }
+    pointer-events: auto;
+    stroke: #fff; }
   svg.session-markers circle.ping-marker.accent {
     fill: rgba(255, 20, 147, 0.2);
     transition: fill 0.6s linear; }
@@ -1362,7 +1363,8 @@ body, button, input, select {
     right: 0;
     width: 0; }
   .map-main .svg-wrapper {
-    position: relative; }
+    position: relative;
+    pointer-events: none; }
   .map-main svg.center-helper {
     overflow: visible;
     width: 1px;
