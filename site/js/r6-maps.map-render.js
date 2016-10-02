@@ -3,11 +3,13 @@
 var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var CAMERA_WIDTH = 40,
     CAMERA_HEIGHT = 40,
+    SVG_WIDTH = 2560,
+    SVG_HEIGHT = 1474,
     SVG_DIM = {
-      WIDTH: 2560,
-      HEIGHT: 1440,
-      TOP_OFFSET: 1500 / 2,
-      LEFT_OFFSET: 2500 / 2
+      WIDTH: SVG_WIDTH,
+      HEIGHT: SVG_HEIGHT,
+      TOP_OFFSET: (SVG_HEIGHT / 2) + 12,
+      LEFT_OFFSET: (SVG_WIDTH / 2) - 5
     },
     langTerms = R6MapsLangTerms.terms;
 
