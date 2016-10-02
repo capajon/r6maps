@@ -6,9 +6,9 @@ var R6MapsLangTerms = (function(undefined) {
     translations = {},
     englishTerms = {
       general: {
-        pageTitle: 'Siege Maps - {mapName}',
-        pageTitleSelectMap: 'Siege Maps - Select a map',
-        pageTitleStart: 'Siege Maps',
+        pageTitle: 'R6 Siege Maps - {mapName}',
+        pageTitleSelectMap: 'R6 Siege Maps - Select a map',
+        pageTitleStart: 'R6 Siege Maps',
         cameraViewCaption: '{floorName} Camera View',
         shortcutTip: 'Shortcut: {shortcut}',
         menu: 'Menu',
