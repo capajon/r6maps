@@ -19,7 +19,8 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     pingMarkerAccents,
     pingMarkersVertical,
     pingMarkersHorizontal,
-    isCameraCallback
+    isCameraCallback,
+    SVG_DIM
   ) {
     return function handleTap(event) {
       var targetEl = $(event.srcEvent.target);
@@ -36,8 +37,8 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
           pingMarkerAccents,
           pingMarkersVertical,
           pingMarkersHorizontal,
-          newX,
-          newY
+          newX + SVG_DIM.LEFT_OFFSET,
+          newY + SVG_DIM.TOP_OFFSET
         );
       }
     };
@@ -128,29 +129,33 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     }, 1);
   };
 
-  var populateStartingMarkers = function populateStartingMarkers(sessionMarkerElements) {
+  var populateStartingMarkers = function populateStartingMarkers(sessionMarkerWrapper, SVG_DIM) {
     var html = '';
 
-    html += '<line class="ping-marker vertical" x1="-9000" y1="-715" x2="-9000" y2="725" stroke-width="2"/>';
-    html += '<line class="ping-marker horizontal" x1="-1275" y1="-9000" x2="1285" y2="-9000" stroke-width="2"/>';
-    html += '<circle class="ping-marker accent" cx="-9000" cy="-9000" r="6" stroke-width="2"/>';
-    html += '<circle class="ping-marker center" cx="-9000" cy="-9000" r="6" stroke-width="2"/>';
-    sessionMarkerElements.html(html);
-    //future note: if using append: sessionMarkerElements.html(sessionMarkerElements.html());
+    html += '<svg class="svg-elements session-markers" style="width: ' + SVG_DIM.WIDTH + 'px; left: -' + SVG_DIM.LEFT_OFFSET + 'px; height: ' + SVG_DIM.HEIGHT + 'px; top: -' + SVG_DIM.TOP_OFFSET + 'px;">';
+    html += '<g>';
+    html += '<line class="ping-marker vertical" x1="-9000" y1="35" x2="-10000" y2="' + (SVG_DIM.HEIGHT + 35) + '" stroke-width="2"/>';
+    html += '<line class="ping-marker horizontal" x1="-25" y1="-10000" x2="' + (SVG_DIM.WIDTH - 25) + '" y2="-9000" stroke-width="2"/>';
+    html += '<circle class="ping-marker accent" cx="-10000" cy="-10000" r="6" stroke-width="2"/>';
+    html += '<circle class="ping-marker center" cx="-10000" cy="-10000" r="6" stroke-width="2"/>';
+    html += '</g>';
+    html += '</svg>';
+    sessionMarkerWrapper.html(html);
   };
 
   var setup = function setup (
     mapMains,
-    sessionMarkerElements,
-    isCameraCallback
+    sessionMarkerWrapper,
+    isCameraCallback,
+    SVG_DIM
   ) {
-    populateStartingMarkers(sessionMarkerElements);
+    populateStartingMarkers(sessionMarkerWrapper, SVG_DIM);
 
-    var pingMarkers = sessionMarkerElements.find('.ping-marker.center'),
-      pingMarkerAccents = sessionMarkerElements.find('.ping-marker.accent'),
-      pingMarkersVertical = sessionMarkerElements.find('.ping-marker.vertical'),
-      pingMarkersHorizontal = sessionMarkerElements.find('.ping-marker.horizontal'),
-      handleTap = getHandleTapFn(pingMarkers, pingMarkerAccents, pingMarkersVertical, pingMarkersHorizontal, isCameraCallback),
+    var pingMarkers = sessionMarkerWrapper.find('.ping-marker.center'),
+      pingMarkerAccents = sessionMarkerWrapper.find('.ping-marker.accent'),
+      pingMarkersVertical = sessionMarkerWrapper.find('.ping-marker.vertical'),
+      pingMarkersHorizontal = sessionMarkerWrapper.find('.ping-marker.horizontal'),
+      handleTap = getHandleTapFn(pingMarkers, pingMarkerAccents, pingMarkersVertical, pingMarkersHorizontal, isCameraCallback, SVG_DIM),
       resizePingMarkers = getResizePingMarkersFn(pingMarkers, pingMarkerAccents, mapMains),
       hidePingMarkers = getHidePingMarkersFn(pingMarkers, pingMarkerAccents, pingMarkersVertical, pingMarkersHorizontal);
 

@@ -313,11 +313,15 @@ body, button, input, select {
     width: 0;
   }
 
+  .svg-wrapper {
+    position :relative;
+    pointer-events: none;
+  }
+
   svg {
-    &.center-helper {
-      overflow: visible;
-      width: 1px;
-      height: 1px;
+
+    &.svg-elements {
+      position: absolute;
     }
 
     &.map {

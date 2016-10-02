@@ -3,9 +3,10 @@ svg.session-markers {
 
   circle.ping-marker {
     &.center {
-      stroke: #fff;
-      fill: $panel-marker;
       cursor: pointer;
+      fill: $panel-marker;
+      pointer-events: auto;
+      stroke: #fff;
     }
 
     &.accent {

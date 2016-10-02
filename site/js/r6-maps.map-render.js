@@ -3,6 +3,12 @@
 var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var CAMERA_WIDTH = 40,
     CAMERA_HEIGHT = 40,
+    SVG_DIM = {
+      WIDTH: 2560,
+      HEIGHT: 1440,
+      TOP_OFFSET: 1500 / 2,
+      LEFT_OFFSET: 2500 / 2
+    },
     langTerms = R6MapsLangTerms.terms;
 
   $.fn.removeClassPrefix = function(prefix) {
@@ -83,6 +89,9 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     var html = '',
       classes = '';
 
+    html += '<svg class="svg-elements map" style="width: ' + SVG_DIM.WIDTH + 'px; left: -' + SVG_DIM.LEFT_OFFSET + 'px; height: ' + SVG_DIM.HEIGHT + 'px; top: -' + SVG_DIM.TOP_OFFSET + 'px;">';
+    html += '<g>';
+
     cameras.forEach(function(camera) {
       classes = 'camera-los camera-' + camera.id + ' ' + getCommonClasses(camera);
       if (camera.los) {
@@ -91,6 +100,10 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
         });
       }
     });
+
+    html += '</g>';
+    html += '</svg>';
+
     return html;
   };
 
@@ -98,7 +111,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     var points = '';
 
     losData.forEach(function(data) {
-      points += data.left + ',' + data.top + ' ';
+      points += (data.left + SVG_DIM.LEFT_OFFSET) + ',' + (data.top + SVG_DIM.TOP_OFFSET) + ' ';
     });
     return points;
   };
@@ -316,7 +329,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var renderMap = function renderMap(mapData, mapElements, svgElement, getResetDimensions) {
+  var renderMap = function renderMap(mapData, mapElements, svgMapWrapper, getResetDimensions) {
     var html = '',
       zoomPoints = mapData.zoomPoints,
       resetDimensions = getResetDimensions(),
@@ -338,7 +351,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
 
     mapElements.html(html);
     $('.map-panel-label').html(getPanelLabelsHtml(mapData.floors));
-    svgElement.html(getCamerasLosHtml(mapData.cameras));
+    svgMapWrapper.html(getCamerasLosHtml(mapData.cameras));
   };
 
   var setEnableScreenshots = function setEnableScreenshots(mapWrappers, isEnabled) {
@@ -368,11 +381,11 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       html += '<div class="map-main">';
       html += '<div class="center-helper">';
       html += '<div class="map-elements"></div>';
-      html += '</div>';
-      html += '<svg class="center-helper map"><g></g></svg>';
-      html += '<svg class="center-helper session-markers"><g></g></svg>';
-      html += '</div>';
-      html += '</div>';
+      html += '<div class="svg-wrapper session-markers"></div>';
+      html += '<div class="svg-wrapper map"></div>';
+      html += '</div>'; // end center-helper
+      html += '</div>'; // end map-main
+      html += '</div>'; // end map-wrapper
       mapPanelWrapper.append(html);
     }
   };
@@ -416,6 +429,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     setRoomLabelStyle: setRoomLabelStyle,
     setupMapPanels: setupMapPanels,
     showFloor: showFloor,
-    showObjective: showObjective
+    showObjective: showObjective,
+    SVG_DIM: SVG_DIM
   };
 })(window.jQuery, window, document, R6MapsLangTerms);
