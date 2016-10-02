@@ -320,15 +320,8 @@ body, button, input, select {
 
   svg {
 
-    &.center-helper {
-      overflow: visible;
-      width: 1px;
-      height: 1px;
-    }
-
     &.svg-elements {
       position: absolute;
-      overflow: visible;
     }
 
     &.map {

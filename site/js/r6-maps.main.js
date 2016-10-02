@@ -7,7 +7,7 @@
     mapPanelWrapper,
     mapMains,
     mapElements,
-    svgElements,
+    svgMapWrappers,
     sessionMarkerWrapper,
     navLogoEl,
     bodyEl,
@@ -211,7 +211,7 @@
 
     R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
     R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgElements, getResetDimensions);
+    R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgMapWrappers, getResetDimensions);
     R6MapsControls.resetPan(mapMains, getResetDimensions);
     R6MapsControls.resetZoom(mapMains, getResetDimensions);
 
@@ -323,7 +323,7 @@
     mapWrappers = $('.map-wrapper');
     mapMains = mapWrappers.find('.map-main');
     mapElements = mapMains.find('.map-elements');
-    svgElements = mapMains.find('svg.map g');
+    svgMapWrappers = mapMains.find('.svg-wrapper.map');
     sessionMarkerWrapper = mapMains.find('.svg-wrapper.session-markers');
   };
 
