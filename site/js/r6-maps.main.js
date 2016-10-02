@@ -24,7 +24,7 @@
     tryLoadStartingLanguage();
     setupMenu();
     setupSelectMap();
-    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
+    R6MapsControls.maps.populate(R6MapsData.getMapData());
 
     setupEvents();
     tryLoadMenuOptions();
@@ -81,7 +81,7 @@
   };
 
   var getResetDimensions = function getResetDimensions() {
-    var currentMapKey = R6MapsControls.getCurrentlySelectedMap(),
+    var currentMapKey = R6MapsControls.maps.get(),
       zoomPoints = {
         topLeft: { top: -180, left: -312 }, // default
         bottomRight: { top: 180, left: 312 }
@@ -154,7 +154,7 @@
     localStorageSetItem('language', newLang);
 
     setupSelectMap();
-    R6MapsControls.populateMapOptions(R6MapsData.getMapData());
+    R6MapsControls.maps.populate(R6MapsData.getMapData());
     setupMenu();
     setupEvents();
     tryLoadMenuOptions();
@@ -207,14 +207,14 @@
   };
 
   var loadMap = function loadMap() {
-    var currentlySelectedMap = R6MapsControls.getCurrentlySelectedMap(),
+    var currentlySelectedMap = R6MapsControls.maps.get(),
       mapData = R6MapsData.getMapData();
 
-    R6MapsControls.populateObjectiveOptions(mapData[currentlySelectedMap].objectives);
-    R6MapsControls.populateFloorOptions(mapData[currentlySelectedMap].floors);
+    R6MapsControls.objectives.populate(mapData[currentlySelectedMap].objectives);
+    R6MapsControls.floors.populate(mapData[currentlySelectedMap].floors);
     R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgMapWrappers, getResetDimensions);
-    R6MapsControls.resetPan(mapMains, getResetDimensions);
-    R6MapsControls.resetZoom(mapMains, getResetDimensions);
+    R6MapsControls.pan.reset(mapMains, getResetDimensions);
+    R6MapsControls.zoom.reset(mapMains, getResetDimensions);
 
     setupCameraScreenshots();
     setupCameraLos();
@@ -233,7 +233,7 @@
   };
 
   var outputCoordinates = function outputCoordinates(e) {
-    var warning = R6MapsControls.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
+    var warning = R6MapsControls.zoom.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
 
     console.log('SINGLE LINE TEXT:');
     console.log(
@@ -276,14 +276,7 @@
   var saveLockPanningOption = function saveLockPanningOption(value) {
     localStorageSetItem('lockpanning', value);
     if (value) {
-      R6MapsControls.resetPan(mapMains, getResetDimensions);
-    }
-  };
-
-  var saveLockZoomingOption = function saveLockZoomingOption(value) {
-    localStorageSetItem('lockzooming', value);
-    if (value) {
-      R6MapsControls.resetZoom(mapMains, getResetDimensions);
+      R6MapsControls.pan.reset(mapMains, getResetDimensions);
     }
   };
 
@@ -297,7 +290,7 @@
   };
 
   var sendFloorSelectAnalyticsEvent = function sendFloorSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Floor', R6MapsControls.getCurrentlySelectedFloor());
+    sendControlAnalyticsEvent('Floor', R6MapsControls.floors.get());
   };
 
   var sendMapPanelCountEvent = function sendMapPanelCountEvent(panelCount) {
@@ -305,11 +298,11 @@
   };
 
   var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Map', R6MapsControls.getCurrentlySelectedMap());
+    sendControlAnalyticsEvent('Map', R6MapsControls.maps.get());
   };
 
   var sendObjectiveSelectAnalyticsEvent = function sendObjectiveSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Objective', R6MapsControls.getCurrentlySelectedObjective());
+    sendControlAnalyticsEvent('Objective', R6MapsControls.objectives.get());
   };
 
   var sendRoomLabelEvent = function sendRoomLabelEvent(style) {
@@ -335,15 +328,15 @@
     $.each(mapMains, function (index, map) {
       if (index < numPanels) {
         $(map).css('display', 'block');
-        R6MapsControls.enableZoom($(map));
+        R6MapsControls.zoom.enable($(map));
       } else {
         $(map).css('display', 'none');
-        R6MapsControls.disableZoom($(map));
+        R6MapsControls.zoom.disable($(map));
       }
     });
 
-    R6MapsControls.resetPan(mapMains, getResetDimensions);
-    R6MapsControls.resetZoom(mapMains, getResetDimensions);
+    R6MapsControls.pan.reset(mapMains, getResetDimensions);
+    R6MapsControls.zoom.reset(mapMains, getResetDimensions);
 
     showSelectedFloor();
   };
@@ -384,22 +377,20 @@
     var closeMenu = getMenuApi().close;
 
     mapMains.on('click', outputCoordinates);
-    R6MapsControls.setupObjectiveChangeEvent(handleObjectiveChange);
-    R6MapsControls.setupMapChangeEvent(handleMapChange);
-    R6MapsControls.setupFloorChangeEvent(handleFloorChange);
-    R6MapsControls.setupFloorHotkeys(showSelectedFloor);
-    R6MapsControls.setupRoomLabelStyleChangeEvent(setRoomLabelStyle);
-    R6MapsControls.setupMapPanelCountChangeEvent(handleMapPanelCountChange);
-    R6MapsControls.setupLockPanningChangeEvent(saveLockPanningOption);
-    R6MapsControls.setupLockZoomingChangeEvent(saveLockZoomingOption);
-    R6MapsControls.setupEnableScreenshotsChangeEvent(handleEnableScreenshotsChange);
-    R6MapsControls.setupMenuSelectMaps(showSelectMap, closeMenu);
-    R6MapsControls.setupFullScreenControl();
+    R6MapsControls.objectives.setup(handleObjectiveChange);
+    R6MapsControls.maps.setup(handleMapChange);
+    R6MapsControls.floors.setup(handleFloorChange, showSelectedFloor);
+    R6MapsControls.roomLabelStyles.setup(setRoomLabelStyle);
+    R6MapsControls.mapPanels.setup(handleMapPanelCountChange);
+    R6MapsControls.pan.setupLockOption(saveLockPanningOption);
+    R6MapsControls.enableScreenshots.setup(handleEnableScreenshotsChange);
+    R6MapsControls.menu.setupSelectMaps(showSelectMap, closeMenu);
+    R6MapsControls.menu.setupFullScreen();
     navLogoEl.on('click', toggleShowSelectMap);
 
     $(window).on('orientationchange', function() {
-      R6MapsControls.resetPan(mapMains, getResetDimensions);
-      R6MapsControls.resetZoom(mapMains, getResetDimensions);
+      R6MapsControls.pan.reset(mapMains, getResetDimensions);
+      R6MapsControls.zoom.reset(mapMains, getResetDimensions);
     });
   };
 
@@ -418,7 +409,7 @@
   };
 
   var setupMenu = function setupMenu() {
-    R6MapsControls.setupMenu(R6MapsRender.roomLabelStyles);
+    R6MapsControls.menu.setup(R6MapsRender.roomLabelStyles);
 
     $('#mmenu-menu').mmenu({
       offCanvas: {
@@ -451,10 +442,10 @@
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
-    var minMadFlorIndexes = R6MapsControls.getMinAndMaxFloorIndex();
+    var minMadFlorIndexes = R6MapsControls.floors.getMinMaxIndex();
 
     R6MapsRender.showFloor(
-      R6MapsControls.getCurrentlySelectedFloor(),
+      R6MapsControls.floors.get(),
       mapPanelWrapper,
       mapWrappers,
       minMadFlorIndexes.min,
@@ -463,11 +454,11 @@
   };
 
   var showSelectedObjective =  function showSelectedObjective() {
-    R6MapsRender.showObjective(R6MapsControls.getCurrentlySelectedObjective(), mapElements);
+    R6MapsRender.showObjective(R6MapsControls.objectives.get(), mapElements);
   };
 
   var switchToMap = function switchToMap(mapArg) {
-    if (R6MapsControls.trySelectMap(mapArg)) {
+    if (R6MapsControls.maps.trySelect(mapArg)) {
       hideSelectMap();
       setTimeout(function() {
         loadMap();
@@ -499,7 +490,7 @@
     var enableScreenshotsOption = localStorage.getItem('enablescreenshots');
 
     if (enableScreenshotsOption !== null) {
-      R6MapsControls.setEnableScreenshotsOption(enableScreenshotsOption);
+      R6MapsControls.enableScreenshots.set(enableScreenshotsOption);
       handleEnableScreenshotsChange((enableScreenshotsOption === 'true'));
     }
   };
@@ -508,15 +499,7 @@
     var lockPanningOption = localStorage.getItem('lockpanning');
 
     if (lockPanningOption !== null) {
-      R6MapsControls.setLockPanningOption(lockPanningOption);
-    }
-  };
-
-  var tryLoadLockZoomingOption = function tryLoadLockZoomingOption() {
-    var lockZoomingOption = localStorage.getItem('lockzooming');
-
-    if (lockZoomingOption !== null) {
-      R6MapsControls.setLockZoomingOption(lockZoomingOption);
+      R6MapsControls.pan.setLockOption(lockPanningOption);
     }
   };
 
@@ -530,7 +513,7 @@
         (windowEl.width() > 1000) || (windowEl.height() > 1000)
       ) ? 2 : 1;
     }
-    R6MapsControls.trySelectMapPanelCount(mapPanelCount);
+    R6MapsControls.mapPanels.trySelect(mapPanelCount);
     setMapPanelCount(mapPanelCount);
   };
 
@@ -538,7 +521,6 @@
     tryEnableChannelFeature();
     tryLoadMapPanelCount();
     tryLoadLockPanningOption();
-    tryLoadLockZoomingOption();
     tryLoadRoomLabelStyle();
     tryLoadEnableScreenshotsOption();
   };
@@ -558,7 +540,7 @@
     var style = localStorage.getItem('roomlabelstyle');
 
     if (style) {
-      R6MapsControls.trySelectRoomLabelStyle(style);
+      R6MapsControls.roomLabelStyles.trySelect(style);
       R6MapsRender.setRoomLabelStyle(mapElements, style);
     }
   };
@@ -567,14 +549,14 @@
     var hashArgs = getHashArgs(),
       mapArg = hashArgs[0];
 
-    return R6MapsControls.trySelectMap(mapArg);
+    return R6MapsControls.maps.trySelect(mapArg);
   };
 
   var trySelectBookmarkedObjective = function trySelectBookmarkedObjective() {
     var hashArgs = getHashArgs(),
       objectiveArg = hashArgs[2];
 
-    if (R6MapsControls.trySelectObjective(objectiveArg)) {
+    if (R6MapsControls.objectives.trySelect(objectiveArg)) {
       showSelectedObjective();
     }
   };
@@ -583,7 +565,7 @@
     var hashArgs = getHashArgs(),
       floorArg = hashArgs[1];
 
-    if (R6MapsControls.trySelectFloor(floorArg)) {
+    if (R6MapsControls.floors.trySelect(floorArg)) {
       showSelectedFloor();
     }
   };
@@ -598,9 +580,9 @@
     if (isShowingMap()) {
       var hashText = '';
 
-      hashText += '' + R6MapsControls.getCurrentlySelectedMap();
-      hashText += HASH_SPLIT_CHAR + R6MapsControls.getCurrentlySelectedFloor();
-      hashText += HASH_SPLIT_CHAR + R6MapsControls.getCurrentlySelectedObjective();
+      hashText += '' + R6MapsControls.maps.get();
+      hashText += HASH_SPLIT_CHAR + R6MapsControls.floors.get();
+      hashText += HASH_SPLIT_CHAR + R6MapsControls.objectives.get();
       window.location.hash = hashText;
     } else {
       removeHashFromUrl();

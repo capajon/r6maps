@@ -7,7 +7,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     zoomControl = $('#zoom-range'),
     menuControl = $('#mmenu-link'),
     lockPanningControl,
-    lockZoomingControl,
     enableScreenshotsControl,
     roomLabelStylesControl,
     mapPanelCountControl,
@@ -33,10 +32,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
-  var disableZoom = function disableZoom(mapElements) {
-    mapElements.panzoom('disable');
-  };
-
   var enableChannelControl = function enableChannelControl() {
     $('.feature-flagged.channel-control').css('display', 'block');
   };
@@ -57,29 +52,69 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
-  var enableZoom = function enableZoom(mapElements) {
-    mapElements.panzoom('enable');
+  var enableScreenshotsSetOption = function enableScreenshotsSetOption(isEnabled) {
+    var boolValue = (isEnabled === 'true') ? true : false;
+
+    enableScreenshotsControl.prop('checked', boolValue);
   };
 
-  var getCurrentlySelectedFloor = function getCurrentlySelectedFloor() {
+  var enableScreenshotsSetupChangeEvent = function enableScreenshotsSetupChangeEvent(callback) {
+    enableScreenshotsControl.change(function(e) {
+      callback(getEnableScreenshotValue());
+    });
+  };
+
+  var floorsGetCurrentIndex = function floorsGetCurrentIndex() {
     return floorControl.find('.selected').data('index');
   };
 
-  var getCurrentlySelectedMap = function getCurrentlySelectedMap() {
-    return mapControl.val();
-  };
-
-  var getCurrentlySelectedObjective = function getCurrentlySelectedObjective() {
-    return objectiveControl.val();
-  };
-
-  var getMinAndMaxFloorIndex = function getMinAndMaxFloorIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
+  var floorsGetMinAndMaxIndex = function floorsGetMinAndMaxIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
     var floorInputs = floorControl.find('button');
 
     return {
       min: $(floorInputs[0]).data('index'),
       max: $(floorInputs[floorInputs.length - 1]).data('index')
     };
+  };
+
+  var floorsPopulate = function floorsPopulate(floors) {
+    var buttonsAsString = '',
+      classes = '',
+      tooltip = '',
+      initalFloor = floorsGetCurrentIndex();
+
+    floors.forEach(function(floor) {
+      classes = '';
+      classes += (floor.default) ? SELECTED_CLASS : '';
+      tooltip = getFloorTooltip(floor.index);
+      buttonsAsString += '<button data-index="' + floor.index + '" class="' + classes + '" title="' + tooltip + '">';
+      buttonsAsString += '<span class="short">' + floor.name.short + '</span>';
+      buttonsAsString += '<span class="full">' + floor.name.full + '</span>';
+      buttonsAsString += '</button>';
+    });
+    floorControl.html(buttonsAsString);
+    floorsTrySelect(initalFloor);
+  };
+
+  var floorsSetup = function floorsSetup(handleChangeCallback, showSelectedFloorFn) {
+    setupFloorChangeEvent(handleChangeCallback);
+    setupFloorHotkeys(showSelectedFloorFn);
+  };
+
+  var floorsTrySelect = function floorsTrySelect(floorIndex) {
+    var selectedFloor = floorControl.find("[data-index='" + floorIndex + "']");
+
+    if (selectedFloor.length) {
+      resetSelectedFloor();
+      selectedFloor.addClass(SELECTED_CLASS);
+      selectedFloor.trigger('click');
+      return true;
+    }
+    return false;
+  };
+
+  var getEnableScreenshotValue = function getEnableScreenshotValue() {
+    return enableScreenshotsControl.is(':checked');
   };
 
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
@@ -97,11 +132,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       var keyCode = e.which;
 
       if (keyCode >= 48 && keyCode <= 53) {  // '0' through '1'
-        if (trySelectFloor(keyCode - 48)) {
+        if (floorsTrySelect(keyCode - 48)) {
           showSelectedFloorFn();
         }
       } else if (keyCode == 192) { // '`'
-        if (trySelectFloor(0)) {
+        if (floorsTrySelect(0)) {
           showSelectedFloorFn();
         }
       }
@@ -129,14 +164,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
-  var handlePanZoomEnd = function handlePanZoomEnd() {
-    zoomControl.trigger('input');
-  };
-
-  var getEnableScreenshotValue = function getEnableScreenshotValue() {
-    return enableScreenshotsControl.is(':checked');
-  };
-
   var getHandleZoomChangeFn = function getHandleZoomChangeFn(mapElements) {
     return function handleZoomChange() {
       var zoomVal = zoomControl.val();
@@ -154,10 +181,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var getLockPanningValue = function getLockPanningValue() {
     return lockPanningControl.is(':checked');
-  };
-
-  var getLockZoomingValue = function getLockZoomingValue() {
-    return lockZoomingControl.is(':checked');
   };
 
   var getMenuLanguageHtml = function getMenuLanguageHtml() {
@@ -189,9 +212,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<div id="lock-wrapper">';
     html += '<div class="checkbox-wrapper">';
     html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsLangTerms.terms.general.lockPanning + '</input>';
-    html += '</div>';
-    html += '<div style="display: none" class="checkbox-wrapper">';
-    html += '<input type="checkbox" checked="checked" id="lock-zooming">' + R6MapsLangTerms.terms.general.lockZooming + '</input>';
     html += '</div>';
     html += '</div>';
 
@@ -248,6 +268,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return html;
   };
 
+  var handlePanZoomEnd = function handlePanZoomEnd() {
+    zoomControl.trigger('input');
+  };
+
   var isCurrentlyFullScreen = function isCurrentlyFullScreen() {
     return (
       document.fullscreenElement ||
@@ -268,33 +292,27 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     );
   };
 
-  var isZoomed = function isZoomed() {
-    return (zoomControl.val() != 1);
+  var mapsSetupChangeEvent = function mapsSetupChangeEvent(callback) {
+    mapControl.on('change', callback);
   };
 
-  var populateFloorOptions = function populateFloorOptions(floors) {
-    var buttonsAsString = '',
-      classes = '',
-      tooltip = '',
-      initalFloor = getCurrentlySelectedFloor();
+  var mapPanelsSetupChangeEvent = function mapPanelsSetupChangeEvent(callback) {
+    mapPanelCountControl.on('change', function(event) {
+      var panelCount = mapPanelCountControl.val();
 
-    floors.forEach(function(floor) {
-      classes = '';
-      classes += (floor.default) ? SELECTED_CLASS : '';
-      tooltip = getFloorTooltip(floor.index);
-      buttonsAsString += '<button data-index="' + floor.index + '" class="' + classes + '" title="' + tooltip + '">';
-      buttonsAsString += '<span class="short">' + floor.name.short + '</span>';
-      buttonsAsString += '<span class="full">' + floor.name.full + '</span>';
-      buttonsAsString += '</button>';
+      tryShowLockControls(panelCount);
+      callback(panelCount);
     });
-    floorControl.html(buttonsAsString);
-    trySelectFloor(initalFloor);
   };
 
-  var populateMapOptions = function populateMapOptions(mapData) {
+  var mapsGetCurrentlySelected = function mapsGetCurrentlySelected() {
+    return mapControl.val();
+  };
+
+  var mapsPopulateOptions = function mapsPopulateOptions(mapData) {
     var optionsAsString = '',
       maps = [],
-      currentMap = getCurrentlySelectedMap();
+      currentMap = mapsGetCurrentlySelected();
 
     for (var mapKey in mapData) {
       if (mapData.hasOwnProperty(mapKey)) {
@@ -316,30 +334,73 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     });
 
     mapControl.html(optionsAsString);
-    trySelectMap(currentMap);
+    mapsTrySelect(currentMap);
   };
 
-  var populateObjectiveOptions = function populateObjectiveOptions(objectives) {
-    var options = '',
-      objectiveTerms = R6MapsLangTerms.terms.objectives,
-      initialObjective = getCurrentlySelectedObjective();
+  var mapsTrySelect = function mapsTrySelect(map) {
+    return trySelectOption(mapControl, map);
+  };
 
-    objectives.sort(function(a,b) {
-      if (objectiveTerms[a] < objectiveTerms[b]) {
-        return -1;
-      }
-      if (objectiveTerms[a] > objectiveTerms[b]) {
-        return 1;
-      }
-      return 0;
-    });
+  var menuSetup = function menuSetup(roomLabelStyles) {
+    var html = '';
 
-    options += '<option value="all">' + objectiveTerms.showAll + '</option>';
-    objectives.forEach(function(objective) {
-      options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
+    html += getMenuR6MapsHtml();
+    html += getMenuLanguageHtml();
+    html += getMenuSessionHtml();
+    html += getMenuOptionsHtml();
+    html += '<div class="faded-logo"></div>';
+    menuPanel.html(html);
+
+    menuControl.html(R6MapsLangTerms.terms.general.menu);
+    roomLabelStylesControl = $('#room-label-style');
+    populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
+    mapPanelCountControl = $('#map-pane-count');
+    lockPanningControl = $('#lock-panning');
+    enableScreenshotsControl = $('#enable-screenshtos');
+    fullScreenControl = $('#full-screen');
+    menuSelectMapsControl = $('#menu-select-maps');
+    $('#menu-about').on('click', function() {
+      window.location = R6MapsLangTerms.terms.general.linkAbout;
     });
-    objectiveControl.html(options);
-    trySelectObjective(initialObjective);
+  };
+
+  var menuSetupFullScreen = function menuSetupFullScreen() {
+    if (fullScreenControl) {
+      fullScreenControl.on('click', toggleFullScreen);
+    }
+  };
+
+  var menuSetupSelectMaps = function menuSetupSelectMaps(
+    showSelectMapCallback,
+    closeMenuCallback
+  ) {
+    menuSelectMapsControl.on('click', function(event) {
+      event.preventDefault();
+      showSelectMapCallback();
+      closeMenuCallback();
+    });
+  };
+
+  var panReset = function panReset(mapMains, getResetDimensions) {
+    var resetDimensions = getResetDimensions();
+
+    mapMains.panzoom(
+      'pan',
+      -resetDimensions.centerLeft * resetDimensions.zoomValue,
+      -resetDimensions.centerTop * resetDimensions.zoomValue
+    );
+  };
+
+  var panSetLockOption = function panSetLockOption(isChecked) {
+    var boolValue = (isChecked === 'true') ? true : false;
+
+    lockPanningControl.prop('checked', boolValue);
+  };
+
+  var panSetupLockPanningChangeEvent = function panSetupLockPanningChangeEvent(callback) {
+    lockPanningControl.change(function(e) {
+      callback(getLockPanningValue());
+    });
   };
 
   var populateRoomLabelStyleOptions = function populateRoomLabelStyleOptions(
@@ -356,50 +417,18 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     roomLabelStylesControl.html(html);
   };
 
-  var resetPan = function resetPan(mapMains, getResetDimensions) {
-    var resetDimensions = getResetDimensions();
-
-    mapMains.panzoom(
-      'pan',
-      -resetDimensions.centerLeft * resetDimensions.zoomValue,
-      -resetDimensions.centerTop * resetDimensions.zoomValue
-    );
-  };
-
   var resetSelectedFloor = function resetSelectedFloor() {
     floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
   };
 
-  var resetZoom = function resetZoom(mapMains, getResetDimensions) {
-    var resetDimensions = getResetDimensions();
-
-    zoomControl.val(resetDimensions.zoomValue);
-    zoomControl.trigger('input');
-    //zoomControl.trigger('change'); // todo: needed??
-  };
-
-  var setEnableScreenshotsOption = function setEnableScreenshotsOption(isEnabled) {
-    var boolValue = (isEnabled === 'true') ? true : false;
-
-    enableScreenshotsControl.prop('checked', boolValue);
-  };
-
-  var setLockPanningOption = function setLockPanningOption(isChecked) {
-    var boolValue = (isChecked === 'true') ? true : false;
-
-    lockPanningControl.prop('checked', boolValue);
-  };
-
-  var setLockZoomingOption = function setLockZoomingOption(isChecked) {
-    var boolValue = (isChecked === 'true') ? true : false;
-
-    lockZoomingControl.prop('checked', boolValue);
-  };
-
-  var setupEnableScreenshotsChangeEvent = function setupEnableScreenshotsChangeEvent(callback) {
-    enableScreenshotsControl.change(function(e) {
-      callback(getEnableScreenshotValue());
+  var roomLabelStylesSetupChangeEvent = function roomLabelStylesSetupChangeEvent(callback) {
+    roomLabelStylesControl.on('change', function(event) {
+      callback(event.target.value);
     });
+  };
+
+  var roomLabelStylesTrySelect = function roomLabelStylesTrySelect(style) {
+    return trySelectOption(roomLabelStylesControl, style);
   };
 
   var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
@@ -416,18 +445,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var setupFloorHotkeys = function setupFloorHotkeys(showSelectedFloorFn) {
     $(document).on('keydown', getHandleHotkeyFn(showSelectedFloorFn));
-  };
-
-  var setupLockPanningChangeEvent = function setupLockPanningChangeEvent(callback) {
-    lockPanningControl.change(function(e) {
-      callback(getLockPanningValue());
-    });
-  };
-
-  var setupLockZoomingChangeEvent = function setupLockZoomingChangeEvent(callback) {
-    lockZoomingControl.change(function(e) {
-      callback(getLockZoomingValue());
-    });
   };
 
   var setLosLabelsText = function setLosLabelsText(opacity, defaultOpacity) {
@@ -451,12 +468,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
-  var setupFullScreenControl = function setupFullScreenControl() {
-    if (fullScreenControl) {
-      fullScreenControl.on('click', toggleFullScreen);
-    }
-  };
-
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
     var losOpacityControl = $('#los-opacity-range'),
       handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
@@ -468,47 +479,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     setLosLabelsText(startingValue, defaultOpacity);
     losOpacityControl.on('input', handleLosOpacityChangeFn);
     losOpacityControl.on('change', handleLosOpacityChangeFn);
-  };
-
-  var setupMapChangeEvent = function setupMapChangeEvent(callback) {
-    mapControl.on('change', callback);
-  };
-
-  var setupMapPanelCountChangeEvent = function setupMapPanelCountChangeEvent(callback) {
-    mapPanelCountControl.on('change', function(event) {
-      var panelCount = mapPanelCountControl.val();
-
-      tryShowLockControls(panelCount);
-      callback(panelCount);
-    });
-  };
-
-  var setupMenu = function setupMenu(roomLabelStyles) {
-    var html = '';
-
-    html += getMenuR6MapsHtml();
-    html += getMenuLanguageHtml();
-    html += getMenuSessionHtml();
-    html += getMenuOptionsHtml();
-    html += '<div class="faded-logo"></div>';
-    menuPanel.html(html);
-
-    menuControl.html(R6MapsLangTerms.terms.general.menu);
-    roomLabelStylesControl = $('#room-label-style');
-    populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
-    mapPanelCountControl = $('#map-pane-count');
-    lockPanningControl = $('#lock-panning');
-    lockZoomingControl = $('#lock-zooming');
-    enableScreenshotsControl = $('#enable-screenshtos');
-    fullScreenControl = $('#full-screen');
-    menuSelectMapsControl = $('#menu-select-maps');
-    $('#menu-about').on('click', function() {
-      window.location = R6MapsLangTerms.terms.general.linkAbout;
-    });
-  };
-
-  var setupObjectiveChangeEvent = function setupObjectiveChangeEvent(callback) {
-    objectiveControl.on('change', callback);
   };
 
   var setupPanZoom = function setupPanZoom(mapMains, mapElements) {
@@ -541,35 +511,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     mapMains.on('panzoomend', handlePanZoomEnd);
   };
 
-  var setupMenuSelectMaps = function setupMenuSelectMaps(
-    showSelectMapCallback,
-    closeMenuCallback
-  ) {
-    menuSelectMapsControl.on('click', function(event) {
-      event.preventDefault();
-      showSelectMapCallback();
-      closeMenuCallback();
-    });
-  };
-
-  var setupRoomLabelStyleChangeEvent = function setupRoomLabelStyleChangeEvent(callback) {
-    roomLabelStylesControl.on('change', function(event) {
-      callback(event.target.value);
-    });
-  };
-
-  var trySelectFloor = function trySelectFloor(floorIndex) {
-    var selectedFloor = floorControl.find("[data-index='" + floorIndex + "']");
-
-    if (selectedFloor.length) {
-      resetSelectedFloor();
-      selectedFloor.addClass(SELECTED_CLASS);
-      selectedFloor.trigger('click');
-      return true;
-    }
-    return false;
-  };
-
   var toggleFullScreen = function toggleFullScreen() {
     if (isCurrentlyFullScreen()) {
       disableFullScreen();
@@ -578,18 +519,45 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
-  var trySelectMapPanelCount = function trySelectMapPanelCount(number) {
+  var mapPanelsTrySelect = function mapPanelsTrySelect(number) {
     var result = trySelectOption(mapPanelCountControl, number);
 
     mapPanelCountControl.trigger('change');
     return result;
   };
 
-  var trySelectMap = function trySelectMap(map) {
-    return trySelectOption(mapControl, map);
+  var objectivesGetCurrentlySelected = function objectivesGetCurrentlySelected() {
+    return objectiveControl.val();
   };
 
-  var trySelectObjective = function trySelectObjective(objective) {
+  var objectivesPopulateOptions = function objectivesPopulateOptions(objectives) {
+    var options = '',
+      objectiveTerms = R6MapsLangTerms.terms.objectives,
+      initialObjective = objectivesGetCurrentlySelected();
+
+    objectives.sort(function(a,b) {
+      if (objectiveTerms[a] < objectiveTerms[b]) {
+        return -1;
+      }
+      if (objectiveTerms[a] > objectiveTerms[b]) {
+        return 1;
+      }
+      return 0;
+    });
+
+    options += '<option value="all">' + objectiveTerms.showAll + '</option>';
+    objectives.forEach(function(objective) {
+      options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
+    });
+    objectiveControl.html(options);
+    objectivesTrySelect(initialObjective);
+  };
+
+  var objectivesSetupChangeEvent = function objectivesSetupChangeEvent(callback) {
+    objectiveControl.on('change', callback);
+  };
+
+  var objectivesTrySelect = function objectivesTrySelect(objective) {
     return trySelectOption(objectiveControl, objective);
   };
 
@@ -603,10 +571,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return false;
   };
 
-  var trySelectRoomLabelStyle = function trySelectRoomLabelStyle(style) {
-    return trySelectOption(roomLabelStylesControl, style);
-  };
-
   var tryShowLockControls = function tryShowLockControls(numberPanels) {
     var lockWrapper = $('#lock-wrapper');
 
@@ -617,41 +581,76 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
+  var zoomDisable = function zoomDisable(mapElements) {
+    mapElements.panzoom('disable');
+  };
+
+  var zoomEnable = function zoomEnable(mapElements) {
+    mapElements.panzoom('enable');
+  };
+
+  var zoomIsZoomed = function zoomIsZoomed() {
+    return (zoomControl.val() != 1);
+  };
+
+  var zoomReset = function zoomReset(mapMains, getResetDimensions) {
+    var resetDimensions = getResetDimensions();
+
+    zoomControl.val(resetDimensions.zoomValue);
+    zoomControl.trigger('input');
+    //zoomControl.trigger('change'); // todo: needed??
+  };
+
   return  {
-    disableZoom: disableZoom,
-    enableChannelControl: enableChannelControl,
-    enableZoom: enableZoom,
-    getCurrentlySelectedFloor: getCurrentlySelectedFloor,
-    getCurrentlySelectedMap: getCurrentlySelectedMap,
-    getCurrentlySelectedObjective: getCurrentlySelectedObjective,
-    getMinAndMaxFloorIndex: getMinAndMaxFloorIndex,
-    isZoomed: isZoomed,
-    populateFloorOptions: populateFloorOptions,
-    populateMapOptions: populateMapOptions,
-    setupMenu: setupMenu,
-    populateObjectiveOptions: populateObjectiveOptions,
-    resetPan: resetPan,
-    resetZoom: resetZoom,
-    setEnableScreenshotsOption: setEnableScreenshotsOption,
-    setLockPanningOption: setLockPanningOption,
-    setLockZoomingOption: setLockZoomingOption,
-    setupEnableScreenshotsChangeEvent: setupEnableScreenshotsChangeEvent,
-    setupFloorChangeEvent: setupFloorChangeEvent,
-    setupFloorHotkeys: setupFloorHotkeys,
-    setupFullScreenControl: setupFullScreenControl,
-    setupLockPanningChangeEvent: setupLockPanningChangeEvent,
-    setupLockZoomingChangeEvent: setupLockZoomingChangeEvent,
+    enableScreenshots: {
+      set: enableScreenshotsSetOption,
+      setup: enableScreenshotsSetupChangeEvent
+    },
+    floors: {
+      get: floorsGetCurrentIndex,
+      getMinMaxIndex: floorsGetMinAndMaxIndex,
+      populate: floorsPopulate,
+      setup: floorsSetup,
+      trySelect: floorsTrySelect
+    },
+    mapPanels: {
+      setup: mapPanelsSetupChangeEvent,
+      trySelect: mapPanelsTrySelect
+    },
+    maps: {
+      get: mapsGetCurrentlySelected,
+      populate: mapsPopulateOptions,
+      setup: mapsSetupChangeEvent,
+      trySelect: mapsTrySelect
+    },
+    menu: {
+      setup: menuSetup,
+      setupFullScreen: menuSetupFullScreen,
+      setupSelectMaps: menuSetupSelectMaps
+    },
+    objectives: {
+      get: objectivesGetCurrentlySelected,
+      populate: objectivesPopulateOptions,
+      setup: objectivesSetupChangeEvent,
+      trySelect: objectivesTrySelect
+    },
+    pan: {
+      reset: panReset,
+      setLockOption: panSetLockOption,
+      setupLockOption: panSetupLockPanningChangeEvent
+    },
+    roomLabelStyles: {
+      setup: roomLabelStylesSetupChangeEvent,
+      trySelect: roomLabelStylesTrySelect
+    },
+    zoom: {
+      disable: zoomDisable,
+      enable: zoomEnable,
+      isZoomed: zoomIsZoomed,
+      reset: zoomReset
+    },
+    enableChannelControl: enableChannelControl, // feature flag temp
     setupLosOpacity: setupLosOpacity,
-    setupMapChangeEvent: setupMapChangeEvent,
-    setupMapPanelCountChangeEvent: setupMapPanelCountChangeEvent,
-    setupMenuSelectMaps: setupMenuSelectMaps,
-    setupObjectiveChangeEvent: setupObjectiveChangeEvent,
-    setupPanZoom: setupPanZoom,
-    setupRoomLabelStyleChangeEvent: setupRoomLabelStyleChangeEvent,
-    trySelectFloor: trySelectFloor,
-    trySelectMapPanelCount: trySelectMapPanelCount,
-    trySelectMap: trySelectMap,
-    trySelectObjective: trySelectObjective,
-    trySelectRoomLabelStyle: trySelectRoomLabelStyle
+    setupPanZoom: setupPanZoom
   };
 })(window.jQuery, window, document, R6MapsLangTerms);
