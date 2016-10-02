@@ -158,6 +158,7 @@
     setupMenu();
     setupEvents();
     tryLoadMenuOptions();
+    updateTitle();
 
     if (checkIfMapLoaded()) {
       loadMap();
