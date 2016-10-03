@@ -506,6 +506,7 @@ body.about {
   opacity: 0;
   padding-top: 10px;
   /* also set in r6-maps.select-maps.js VIEWPORT_PADDING_HEIGHT */
+  pointer-events: none;
   position: fixed;
   transition: visibility 0.5s, opacity 0.5s linear;
   visibility: hidden;
@@ -515,7 +516,8 @@ body.about {
     transition: all 0.6s; }
   body.show-select-map #select-map-grid {
     visibility: visible;
-    opacity: 1; }
+    opacity: 1;
+    pointer-events: auto; }
   #select-map-grid ul {
     display: -webkit-box;
     display: -webkit-flex;
