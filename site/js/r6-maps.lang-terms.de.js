@@ -141,7 +141,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           conferenceRoom: 'Konferenzraum'
         },
         border: {
-          armorLockers: 'Waffenlager-schränke',
+          armoryLockers: 'Waffenlager-schränke',
           tellers: 'Schalter',
           ventilationRoom: 'Lüftungs-<br/>raum',
           exitHallway: 'Gang zum<br/>Ausgang',

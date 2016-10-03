@@ -180,7 +180,6 @@ var R6MapsLangTerms = (function(undefined) {
           waitingRoom: 'Waiting<br/>Room',
           eastStairs: 'East<br/>Stairs',
           passportCheck: 'Passport<br/>Check',
-          armoryLocker: 'Armory Locker',
           archives: 'Archives',
           offices: 'Offices',
           officesHallway: 'Offices Hallway',
