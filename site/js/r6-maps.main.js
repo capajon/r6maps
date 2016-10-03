@@ -27,6 +27,7 @@
     R6MapsControls.maps.populate(R6MapsData.getMapData());
 
     setupEvents();
+    navLogoEl.on('click', toggleShowSelectMap);
     tryLoadMenuOptions();
 
     R6MapsControls.setupPanZoom(mapMains, mapElements);
@@ -235,7 +236,7 @@
   var outputCoordinates = function outputCoordinates(e) {
     var warning = R6MapsControls.zoom.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
 
-    console.log('SINGLE LINE TEXT:');
+    /*console.log('SINGLE LINE TEXT:');
     console.log(
       'top: ' + Math.round(e.pageY - mapElements.offset().top + 14) + ', ' +
       'left: ' + Math.round(e.pageX - mapElements.offset().left)
@@ -246,7 +247,7 @@
       'top: ' + Math.round(e.pageY - mapElements.offset().top) + ', ' +
       'left: ' + Math.round(e.pageX - mapElements.offset().left) +
       warning
-    );
+    );*/
   };
 
   var queryString = function queryString(key) { // for feature flags
@@ -386,7 +387,6 @@
     R6MapsControls.enableScreenshots.setup(handleEnableScreenshotsChange);
     R6MapsControls.menu.setupSelectMaps(showSelectMap, closeMenu);
     R6MapsControls.menu.setupFullScreen();
-    navLogoEl.on('click', toggleShowSelectMap);
 
     $(window).on('orientationchange', function() {
       R6MapsControls.pan.reset(mapMains, getResetDimensions);
