@@ -12,6 +12,8 @@ Contributions are welcome. :)
 (will likely do)
 - [ ] Open Issues (see Github issue tracking)
 - [ ] Initial team session beta (change map, basic ping, etc)
+- [ ] 'Camera dots' (indicating camera order) including option to disable/enable4
+- [ ] Japanese translations (getting help from community)
 
 ### Medium-term (probably)
 - [ ] More team session features
