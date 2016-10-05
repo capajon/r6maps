@@ -50,8 +50,9 @@ var R6MapsLangTerms = (function(undefined) {
       },
       languages: {
         en: 'English',
+        de: 'Deutsch',
         fr: 'Français',
-        de: 'Deutsch'
+        ja: '日本語'
       },
       floorNames: {
         basement: { full: 'Basement', short: 'B' },
