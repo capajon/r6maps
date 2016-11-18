@@ -20,6 +20,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     kafeTerms = mapRoomTerms.kafe,
     oregonTerms = mapRoomTerms.oregon,
     planeTerms = mapRoomTerms.plane,
+    skyscraperTerms = mapRoomTerms.skyscraper,
     yachtTerms = mapRoomTerms.yacht;
 
   String.prototype.removeBreakTags = function() {
@@ -1860,6 +1861,31 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 0, left: -428, hardToRead: true, description: planeTerms.serverRoomB },
           { floor: 1, top: -30, left: 222, smaller: true, description: planeTerms.technicalSeating }
         ]
+      },
+      skyscraper: {
+        name: 'Skyscraper',
+        imgUrlPrefix: 'skyscraper',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -653, left: -539, name: floorTerms.secondFloor },
+          { index: 3, top: -653, left: -539, name: floorTerms.roof }
+        ],
+        hostageObjectives: [],
+        bombObjectives: [],
+        secureObjectives: [],
+        zoomPoints: {
+          topLeft: { top: -323, left: -235 },
+          bottomRight: { top: 461, left: 820 }
+        },
+        cameras: [],
+        ceilingHatches: [],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [],
+        roomLabels: []
       },
       yacht: {
         name: mapNameTerms.yacht,

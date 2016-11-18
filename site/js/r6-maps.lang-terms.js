@@ -106,6 +106,7 @@ var R6MapsLangTerms = (function(undefined) {
         kafe: 'Kafe Dostoyevsky',
         oregon: 'Oregon',
         plane: 'Plane',
+        skyscraper: 'Skyscraper',
         yacht: 'Yacht'
       },
       mapRooms: {
@@ -690,6 +691,9 @@ var R6MapsLangTerms = (function(undefined) {
           serverRoomA: 'Server Room A',
           serverRoomB: 'Server Room B',
           technicalSeating: 'Technical Seating'
+        },
+        skyscraper: {
+          workInProgress: 'This map is a<br/>WORK IN PROGRESS'
         },
         yacht: {
           spawnSubmarine: 'Submarine',

@@ -695,6 +695,12 @@ body.about {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
+        #select-map-grid ul li a.skyscraper div.image.thumb {
+          background-position: 0px -3614px; }
+        body[loaded-map="skyscraper"] #select-map-grid ul li a.skyscraper p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
         #select-map-grid ul li a.yacht div.image.thumb {
           background-position: 0px -3336px; }
         body[loaded-map="yacht"] #select-map-grid ul li a.yacht p {
