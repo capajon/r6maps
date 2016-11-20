@@ -1873,19 +1873,157 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { index: 2, top: -653, left: -539, name: floorTerms.secondFloor },
           { index: 3, top: -653, left: -539, name: floorTerms.roof }
         ],
-        hostageObjectives: [],
-        bombObjectives: [],
-        secureObjectives: [],
+        hostageObjectives: [
+          { floor: 2, top: 210, left: -100 },
+          { floor: 2, top: 294, left: 599 },
+          { floor: 1, top: 266, left: -22 },
+          { floor: 1, top: 241, left: 617 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: 32, left: 118, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 32, left: -100, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 294, left: 566, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 161, left: 620, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 66, left: -113, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 266, left: 10, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 241, left: 651, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 241, left: 474, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+          { floor: 2, top: 32, left: 82 },
+          { floor: 2, top: 341, left: 583 },
+          { floor: 1, top: 66, left: -78 },
+          { floor: 1, top: 286, left: 617 }
+        ],
         zoomPoints: {
           topLeft: { top: -323, left: -235 },
           bottomRight: { top: 461, left: 820 }
         },
-        cameras: [],
-        ceilingHatches: [],
+        cameras: [
+          {
+            floor: 2, top: 126, left: 167, id: 1, location: skyscraperTerms.hallway,
+            los: [
+              [{top: 134, left: -146}, {top: 125, left: -32}, {top: 112, left: -32}, {top: 112, left: 184}, {top: 283, left: 184}]
+            ]
+          },
+          {
+            floor: 1, top: -145, left: 38, id: 2, location: skyscraperTerms.restaurant,
+            los: [
+              [{top: -60, left: 4}, {top: -27, left: -15}],
+              [{top: 32, left: 125}, {top: 138, left: 163}]
+            ]
+          },
+          {
+            floor: 2, top: -11, left: 655, id: 3, location: skyscraperTerms.houseStairs,
+            los: [
+              [{top: -25, left: 567}, {top: -23, left: 457}],
+              [{top: 84, left: 637}, {top: 197, left: 636}]
+            ]
+          },
+          { floor: 1, top: -5, left: 622, otherFloor: 'up', id: 3, location: skyscraperTerms.houseStairs },
+          {
+            floor: 1, top: 65, left: 447, id: 4, location: skyscraperTerms.houseLobby,
+            los: [
+              [{top: 51, left: 555}, {top: 41, left: 584}],
+              [{top: 171, left: 486}, {top: 205, left: 501}],
+              [{top: 179, left: 554}, {top: 312, left: 673}],
+              [{top: 202, left: 554}, {top: 312, left: 642}]
+            ]
+          },
+          {
+            outdoor: true, top: -420, left: -226, id: 5, location: skyscraperTerms.westGarden,
+            los: [
+              [{top: -441, left: -308}, {top: -309, left: -395}],
+              [{top: -499, left: -166}, {top: -465, left: 62}]
+            ]
+          },
+          {
+            outdoor: true, top: -114, left: 856, id: 6, location: skyscraperTerms.eastGarden,
+            los: [
+              [{top: -212, left: 494}, {top: -212, left: 849}, {top: -168, left: 879}, {top: 507, left: 860}]
+            ]
+          },
+          {
+            outdoor: true, top: 597, left: 543, id: 7, location: skyscraperTerms.ventilationUnits,
+            los: [
+              [{top: 393, left: -213}, {top: 614, left: 228}],
+              [{top: 441, left: 365}, {top: 346, left: 273}],
+              [{top: 461, left: 818}, {top: 395, left: 877}]
+            ]
+          }
+        ],
+        ceilingHatches: [
+          { floor: 1, top: 210, left: -61 },
+          { floor: 1, top: 289, left: 654 }
+        ],
         skylights: [],
-        droneTunnels: [],
-        spawnPoints: [],
-        roomLabels: []
+        droneTunnels: [
+          { floor: 1, top: 374, left: 632, rotate: 0, size: DRONE_MED },
+          { floor: 2, top: 189, left: 740, rotate: 90, size: DRONE_MED },
+          { floor: 2, top: 86, left: 450, rotate: 90, size: DRONE_MED },
+          { floor: 2, top: -124, left: 47, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 138, left: -154, rotate: 90, size: DRONE_MED }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -147, left: -789, description: skyscraperTerms.helipad },
+          { letter: spawnTerms.b, top: -556, left: 920, description: skyscraperTerms.tower },
+          { letter: spawnTerms.c, top: 581, left: 301, description: skyscraperTerms.ventilationUnits }
+        ],
+        roomLabels: [
+          { floor: 1, top: 252, left: -77, description: skyscraperTerms.kitchen },
+          { floor: 1, top: 290, left: 126, description: skyscraperTerms.pantry },
+          { floor: 1, top: 259, left: 346, description: skyscraperTerms.deliveryRoom },
+          { floor: 1, top: 128, left: 565, description: skyscraperTerms.houseLobby },
+          { floor: 1, top: 2, left: 504, description: skyscraperTerms.houseEntrance },
+          { floor: 1, top: 8, left: 373, description: skyscraperTerms.mainEntrance },
+          { floor: 1, top: 76, left: 231, description: skyscraperTerms.reception },
+          { floor: 1, top: 214, left: 631, description: skyscraperTerms.bedroom, hardToRead: true },
+          { floor: 1, top: 352, left: 627, description: skyscraperTerms.closet },
+          { floor: 1, top: 302, left: 483, description: skyscraperTerms.bathroom, hardToRead: true },
+          { floor: 1, top: 2, left: 577, description: skyscraperTerms.houseStairs },
+          { floor: 1, top: 33, left: 79, description: skyscraperTerms.restaurant },
+          { floor: 1, top: -104, left: -69, description: skyscraperTerms.toilet },
+          { floor: 1, top: 33, left: -70, description: skyscraperTerms.bbq },
+          { floor: 1, top: -32, left: -70, description: skyscraperTerms.backHallway },
+          { floor: 1, top: 182, left: 110, description: skyscraperTerms.mainStairs, hardToRead: true },
+          { floor: 2, top: 257, left: -44, description: skyscraperTerms.geishaRoom, hardToRead: true },
+          { floor: 2, top: 147, left: 87, description: skyscraperTerms.hallway, hardToRead: true },
+          { floor: 2, top: 1, left: -5, description: skyscraperTerms.hallway, hardToRead: true },
+          { floor: 2, top: -29, left: 103, description: skyscraperTerms.teaRoom, hardToRead: true },
+          { floor: 2, top: 6, left: -90, description: skyscraperTerms.karaoke, hardToRead: true },
+          { floor: 2, top: -135, left: -93, description: skyscraperTerms.backStairs.removeBreakTags(), hardToRead: true },
+          { floor: 1, top: -95, left: -124, description: skyscraperTerms.backStairs, hardToRead: true },
+          { floor: 2, top: 263, left: 217, description: skyscraperTerms.taiko, hardToRead: true },
+          { floor: 2, top: 263, left: 370, description: skyscraperTerms.terrace, hardToRead: true },
+          { floor: 1, top: 27, left: 691, description: skyscraperTerms.houseBalcony },
+          { floor: 2, top: 62, left: 367, description: skyscraperTerms.dragonStatue },
+          { floor: 2, top: -12, left: 501, description: skyscraperTerms.clearance, hardToRead: true },
+          { floor: 2, top: 2, left: 577, description: skyscraperTerms.houseStairs, hardToRead: true },
+          { floor: 2, top: 178, left: 498, description: skyscraperTerms.clearance, hardToRead: true },
+          { floor: 2, top: 135, left: 628, description: skyscraperTerms.exhibition, hardToRead: true },
+          { floor: 2, top: 244, left: 628, description: skyscraperTerms.workOffice, hardToRead: true },
+          { outdoor: true, top: 104, left: -291, description: skyscraperTerms.peacefullTree },
+          { outdoor: true, top: -543, left: -294, description: skyscraperTerms.contemplationGarden },
+          { outdoor: true, top: -392, left: -128, description: skyscraperTerms.westGarden },
+          { outdoor: true, top: -419, left: 215, description: skyscraperTerms.gazeebo, hardToRead: true },
+          { outdoor: true, top: -271, left: 215, description: skyscraperTerms.bridge },
+          { outdoor: true, top: -181, left: 191, description: skyscraperTerms.restBalcony.removeBreakTags() },
+          { floor: 1, top: -78, left: 348, description: skyscraperTerms.mainEntrance },
+          { outdoor: true, top: -562, left: 305, description: skyscraperTerms.northGarden },
+          { outdoor: true, top: -134, left: 765, description: skyscraperTerms.eastGarden },
+          { outdoor: true, top: 151, left: 819, description: skyscraperTerms.sandGarden },
+          { outdoor: true, top: -96, left: 943, description: skyscraperTerms.sidePath },
+          { outdoor: true, top: 110, left: 943, description: skyscraperTerms.sidePath },
+          { outdoor: true, top: 432, left: 918, description: skyscraperTerms.sideStairs },
+          { outdoor: true, top: 529, left: 634, description: skyscraperTerms.ventilationUnits },
+          { outdoor: true, top: -362, left: 714, description: skyscraperTerms.tower },
+          { outdoor: true, top: -295, left: -494, description: skyscraperTerms.helipad },
+          { outdoor: true, top: -16, left: -409, description: skyscraperTerms.helipad },
+          { floor: 1, top: 376, left: 92, description: skyscraperTerms.restBalcony.removeBreakTags() },
+          { floor: 2, top: 390, left: 92, description: skyscraperTerms.restBalcony.removeBreakTags() },
+          { outdoor: true, top: 39, left: -185, description: skyscraperTerms.restBalcony },
+          { floor: 2, top: -45, left: 720, description: skyscraperTerms.houseBalcony }
+        ]
       },
       yacht: {
         name: mapNameTerms.yacht,
