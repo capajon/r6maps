@@ -730,16 +730,12 @@ var R6MapsLangTerms = (function(undefined) {
           bridge: 'Bridge',
           gazeebo: 'Gazeebo',
           restBalcony: 'Rest.<br/>Balcony',
-          mainEntrance: 'Main Entrance',
           northGarden: 'North<br/>Garden',
           eastGarden: 'East<br/>Garden',
           sandGarden: 'Sand<br/>Garden',
           sidePath: 'Side<br/>Path',
           sideStairs: 'Side<br/>Stairs',
           dragonStatue: 'Dragon<br/>Statue'
-
-
-
         },
         yacht: {
           spawnSubmarine: 'Submarine',

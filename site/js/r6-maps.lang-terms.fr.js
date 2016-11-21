@@ -671,6 +671,51 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           serverRoomB: 'Salle des serveurs B',
           technicalSeating: 'Centre technique'
         },
+        skyscraper: {
+          helipad: 'Helipad',//
+          tower: 'Tower',//
+          ventilationUnits: 'Ventilation Units',//
+          kitchen: 'Kitchen',//
+          pantry: 'Pantry',//
+          deliveryRoom: 'Delivery<br/>Room',//
+          houseLobby: 'House Lobby',//
+          houseEntrance: 'House<br/>Entrance',//
+          mainEntrance: 'Main<br/>Entrance',//
+          reception: 'Reception',//
+          bedroom: 'Bedroom',//
+          closet: 'Closet',//
+          bathroom: 'Bathroom',//
+          houseStairs: 'House<br/>Stairs',//
+          restaurant: 'Restaurant',//
+          toilet: 'Toilet',//
+          bbq: 'BBQ',//
+          backHallway: 'Back Hallway',//
+          mainStairs: 'Main<br/>Stairs',//
+          geishaRoom: 'Geisha<br/>Room',//
+          hallway: 'Hallway',//
+          karaoke: 'Karaoke',//
+          teaRoom: 'Tea Room',//
+          taiko: 'Taiko',//
+          terrace: 'Terrace',//
+          backStairs: 'Back<br/>Stairs',//
+          houseBalcony: 'House<br/>Balcony',//
+          exhibition: 'Exhibition',//
+          lounge: 'Lounge',//
+          workOffice: 'Work<br/>Office',//
+          clearance: 'Clearance',//
+          peacefullTree: 'Peacefull<br/>Tree',//
+          contemplationGarden: 'Contemplation<br/>Garden',//
+          westGarden: 'West<br/>Garden',//
+          bridge: 'Bridge',//
+          gazeebo: 'Gazeebo',//
+          restBalcony: 'Rest.<br/>Balcony',//
+          northGarden: 'North<br/>Garden',//
+          eastGarden: 'East<br/>Garden',//
+          sandGarden: 'Sand<br/>Garden',//
+          sidePath: 'Side<br/>Path',//
+          sideStairs: 'Side<br/>Stairs',//
+          dragonStatue: 'Dragon<br/>Statue'//
+        },
         yacht: {
           spawnSubmarine: 'Sous-marin',
           spawnZodiak: 'Bateau pneumatique',
