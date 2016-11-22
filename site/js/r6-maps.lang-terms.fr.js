@@ -672,49 +672,48 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           technicalSeating: 'Centre technique'
         },
         skyscraper: {
-          helipad: 'Helipad',//
-          tower: 'Tower',//
-          ventilationUnits: 'Ventilation Units',//
+          helipad: 'Héliport',
+          tower: 'Tour',
+          ventilationUnits: 'Unités de ventilation',
           kitchen: 'Kitchen',//
           pantry: 'Pantry',//
           deliveryRoom: 'Delivery<br/>Room',//
           houseLobby: 'House Lobby',//
           houseEntrance: 'House<br/>Entrance',//
-          mainEntrance: 'Main<br/>Entrance',//
+          mainEntrance: 'Entrée<br/>principale',
           reception: 'Reception',//
           bedroom: 'Bedroom',//
           closet: 'Closet',//
           bathroom: 'Bathroom',//
-          houseStairs: 'House<br/>Stairs',//
+          houseStairs: 'Escalier de<br/>la maison',
           restaurant: 'Restaurant',//
           toilet: 'Toilet',//
           bbq: 'BBQ',//
-          backHallway: 'Back Hallway',//
-          mainStairs: 'Main<br/>Stairs',//
+          backHallway: 'Back Hallway',// À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+          mainStairs: 'Escalier<br/>principal',
           geishaRoom: 'Geisha<br/>Room',//
-          hallway: 'Hallway',//
-          karaoke: 'Karaoke',//
-          teaRoom: 'Tea Room',//
-          taiko: 'Taiko',//
-          terrace: 'Terrace',//
-          backStairs: 'Back<br/>Stairs',//
-          houseBalcony: 'House<br/>Balcony',//
-          exhibition: 'Exhibition',//
-          lounge: 'Lounge',//
-          workOffice: 'Work<br/>Office',//
-          clearance: 'Clearance',//
-          peacefullTree: 'Peacefull<br/>Tree',//
-          contemplationGarden: 'Contemplation<br/>Garden',//
-          westGarden: 'West<br/>Garden',//
-          bridge: 'Bridge',//
-          gazeebo: 'Gazeebo',//
-          restBalcony: 'Rest.<br/>Balcony',//
-          northGarden: 'North<br/>Garden',//
-          eastGarden: 'East<br/>Garden',//
-          sandGarden: 'Sand<br/>Garden',//
-          sidePath: 'Side<br/>Path',//
-          sideStairs: 'Side<br/>Stairs',//
-          dragonStatue: 'Dragon<br/>Statue'//
+          hallway: 'Couloir',
+          karaoke: 'Karaoké',
+          teaRoom: 'Salon de thé',
+          terrace: 'Terrasse',
+          backStairs: 'Escalier<br/>arrière',
+          houseBalcony: 'RDC Balcon<br/>maison',
+          exhibition: 'Exposition',
+          lounge: 'Salon',
+          workOffice: 'Bureau',
+          clearance: 'Accès VIP',
+          peacefullTree: 'Arbre<br/>paisible',
+          contemplationGarden: 'Jardin<br/>contemplatif',
+          westGarden: 'Jardin<br/>ouest',
+          bridge: 'Pont',
+          gazeebo: 'Belvédère',
+          restBalcony: 'RDC<br/>Balcon<br/>du<br/>restaurant',// À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+          northGarden: 'Jardin<br/>nord',
+          eastGarden: 'Jardin<br/>est',
+          sandGarden: 'Jardin<br/>zen',
+          sidePath: 'Chemin<br/>latéral',
+          sideStairs: 'Escalier<br/>latéral',
+          dragonStatue: 'Statue de<br/>dragon'
         },
         yacht: {
           spawnSubmarine: 'Sous-marin',
@@ -774,6 +773,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
     };
 
   R6MapsLangTerms.registerLanguage(name, terms);
+
+  // À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
 
   return  {
     name: name,
