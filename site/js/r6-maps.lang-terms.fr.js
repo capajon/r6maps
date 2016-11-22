@@ -675,29 +675,29 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           helipad: 'Héliport',
           tower: 'Tour',
           ventilationUnits: 'Unités de ventilation',
-          kitchen: 'Kitchen',//
-          pantry: 'Pantry',//
-          deliveryRoom: 'Delivery<br/>Room',//
-          houseLobby: 'House Lobby',//
-          houseEntrance: 'House<br/>Entrance',//
+          kitchen: 'Cuisine',
+          pantry: 'Réserve',
+          deliveryRoom: 'Salle de<br/>livraison',
+          houseLobby: 'Hall de la maison',
+          houseEntrance: 'Entrée de<br/>la maison',
           mainEntrance: 'Entrée<br/>principale',
-          reception: 'Reception',//
-          bedroom: 'Bedroom',//
-          closet: 'Closet',//
-          bathroom: 'Bathroom',//
+          reception: 'Réception',
+          bedroom: 'Chambre',
+          closet: 'Dressing',
+          bathroom: 'Salle de bain',
           houseStairs: 'Escalier de<br/>la maison',
-          restaurant: 'Restaurant',//
-          toilet: 'Toilet',//
-          bbq: 'BBQ',//
-          backHallway: 'Back Hallway',// À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+          restaurant: 'Restaurant',
+          toilet: 'Toilettes',
+          bbq: 'Barbecues',
+          backHallway: 'Couloir arrière',
           mainStairs: 'Escalier<br/>principal',
-          geishaRoom: 'Geisha<br/>Room',//
+          geishaRoom: 'Chambre<br/>de geisha',
           hallway: 'Couloir',
           karaoke: 'Karaoké',
           teaRoom: 'Salon de thé',
           terrace: 'Terrasse',
           backStairs: 'Escalier<br/>arrière',
-          houseBalcony: 'RDC Balcon<br/>maison',
+          houseBalcony: 'Balcon<br/>maison',
           exhibition: 'Exposition',
           lounge: 'Salon',
           workOffice: 'Bureau',
@@ -707,7 +707,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           westGarden: 'Jardin<br/>ouest',
           bridge: 'Pont',
           gazeebo: 'Belvédère',
-          restBalcony: 'RDC<br/>Balcon<br/>du<br/>restaurant',// À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+          restBalcony: 'Balcon<br/>du<br/>restaurant',
           northGarden: 'Jardin<br/>nord',
           eastGarden: 'Jardin<br/>est',
           sandGarden: 'Jardin<br/>zen',
