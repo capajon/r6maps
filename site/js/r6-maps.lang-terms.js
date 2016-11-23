@@ -735,7 +735,8 @@ var R6MapsLangTerms = (function(undefined) {
           sandGarden: 'Sand<br/>Garden',
           sidePath: 'Side<br/>Path',
           sideStairs: 'Side<br/>Stairs',
-          dragonStatue: 'Dragon<br/>Statue'
+          dragonStatue: 'Dragon<br/>Statue',
+          coveredWalkway: 'Covered<br/>Walkway'
         },
         yacht: {
           spawnSubmarine: 'Submarine',

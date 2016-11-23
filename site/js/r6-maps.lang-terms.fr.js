@@ -713,7 +713,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           sandGarden: 'Jardin<br/>zen',
           sidePath: 'Chemin<br/>latéral',
           sideStairs: 'Escalier<br/>latéral',
-          dragonStatue: 'Statue de<br/>dragon'
+          dragonStatue: 'Statue de<br/>dragon',
+          coveredWalkway: 'Chemin<br/>couvert'
         },
         yacht: {
           spawnSubmarine: 'Sous-marin',

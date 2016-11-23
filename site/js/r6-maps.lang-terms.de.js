@@ -668,9 +668,9 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           technicalSeating: 'Technikersitz'
         },
         skyscraper: {
-          helipad: 'Helipad',//
-          tower: 'Tower',//
-          ventilationUnits: 'Ventilation Units',//
+          helipad: 'Helipad',
+          tower: 'Turm',
+          ventilationUnits: 'Lüftungseinheiten',
           kitchen: 'Küche',
           pantry: 'Speisekammer',
           deliveryRoom: 'Annahmeraum',
@@ -681,36 +681,37 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           bedroom: 'Schlafzimmer',
           closet: 'Schrank',
           bathroom: 'Toilette',
-          houseStairs: 'Haus-<br/>treppe',//
+          houseStairs: 'Haus-<br/>treppe',
           restaurant: 'Restaurant',
           toilet: 'WC',//  ß  ä  Ä  é  ö  Ö  ü  Ü
           bbq: 'Barbecue',
           backHallway: 'Hinterer Flur',
           mainStairs: 'Haupt-<br/>treppe',
-          geishaRoom: 'Geisha<br/>Room',//
-          hallway: 'Hallway',//
-          karaoke: 'Karaoke',//
-          teaRoom: 'Tea Room',//
-          taiko: 'Taiko',//
-          terrace: 'Terrace',//
-          backStairs: 'Back<br/>Stairs',//
+          geishaRoom: 'Geisha-<br/>Zimmer',
+          hallway: 'Flur',
+          karaoke: 'Karaoke',
+          teaRoom: 'Teezimmer',
+          taiko: 'Taiko',
+          terrace: 'Terrasse',
+          backStairs: 'Hintere<br/>Treppe',
           houseBalcony: 'Haus-<br/>balkon',
-          exhibition: 'Exhibition',//
-          lounge: 'Lounge',//
-          workOffice: 'Work<br/>Office',//  ß  ä  Ä  é  ö  Ö  ü  Ü
-          clearance: 'Clearance',//
-          peacefullTree: 'Peacefull<br/>Tree',//
-          contemplationGarden: 'Contemplation<br/>Garden',//
-          westGarden: 'West<br/>Garden',//
-          bridge: 'Bridge',//
-          gazeebo: 'Gazeebo',//
-          restBalcony: 'Rest.<br/>Balcony',//
-          northGarden: 'North<br/>Garden',//
-          eastGarden: 'East<br/>Garden',//
+          exhibition: 'Ausstellung',
+          lounge: 'Lounge',
+          workOffice: 'Büro',//  ß  ä  Ä  é  ö  Ö  ü  Ü
+          clearance: 'VIP-Bereich',
+          peacefullTree: 'Friedensbaum',
+          contemplationGarden: 'Meditations-<br/>garten',
+          westGarden: 'Westlicher<br/>Garten',
+          bridge: 'Brücke',
+          gazeebo: 'Pavillon',
+          restBalcony: 'Restaurant-.<br/>balkon',
+          northGarden: 'Nördlicher<br/>Garten',
+          eastGarden: 'Östlicher<br/>Garten',
           sandGarden: 'Sandgarten',
-          sidePath: 'Side<br/>Path',//
-          sideStairs: 'Side<br/>Stairs',//
-          dragonStatue: 'Dragon<br/>Statue'//
+          sidePath: 'Seiten-<br/>pfad',
+          sideStairs: 'Seiten-<br/>treppe',
+          dragonStatue: 'Drachen-<br/>statue',
+          coveredWalkway: 'Überdachter<br/>Weg'
         },
         yacht: {
           spawnSubmarine: 'U-Boot',

@@ -1896,8 +1896,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 286, left: 617 }
         ],
         zoomPoints: {
-          topLeft: { top: -323, left: -235 },
-          bottomRight: { top: 461, left: 820 }
+          topLeft: { top: -213, left: -207 },
+          bottomRight: { top: 426, left: 762 }
         },
         cameras: [
           {
@@ -2024,7 +2024,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 376, left: 92, description: skyscraperTerms.restBalcony.removeBreakTags() },
           { floor: 2, top: 390, left: 92, description: skyscraperTerms.restBalcony.removeBreakTags() },
           { outdoor: true, top: 39, left: -185, description: skyscraperTerms.restBalcony },
-          { floor: 2, top: -45, left: 720, description: skyscraperTerms.houseBalcony }
+          { floor: 2, top: -45, left: 720, description: skyscraperTerms.houseBalcony },
+          { outdoor: true, top: -420, left: 417, description: skyscraperTerms.coveredWalkway }
         ]
       },
       yacht: {
