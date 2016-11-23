@@ -671,22 +671,22 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           helipad: 'Helipad',//
           tower: 'Tower',//
           ventilationUnits: 'Ventilation Units',//
-          kitchen: 'Kitchen',//
-          pantry: 'Pantry',//
-          deliveryRoom: 'Delivery<br/>Room',//
-          houseLobby: 'House Lobby',//
-          houseEntrance: 'House<br/>Entrance',//
-          mainEntrance: 'Main<br/>Entrance',//
-          reception: 'Reception',//
-          bedroom: 'Bedroom',//
-          closet: 'Closet',//
-          bathroom: 'Bathroom',//
-          houseStairs: 'House<br/>Stairs',//
-          restaurant: 'Restaurant',//
-          toilet: 'Toilet',//
-          bbq: 'BBQ',//
-          backHallway: 'Back Hallway',//
-          mainStairs: 'Main<br/>Stairs',//
+          kitchen: 'Küche',
+          pantry: 'Speisekammer',
+          deliveryRoom: 'Annahmeraum',
+          houseLobby: 'Lobby',
+          houseEntrance: 'Haus-<br/>eingang',
+          mainEntrance: 'Haupt-<br/>eingang',
+          reception: 'Empfang',
+          bedroom: 'Schlafzimmer',
+          closet: 'Schrank',
+          bathroom: 'Toilette',
+          houseStairs: 'Haus-<br/>treppe',//
+          restaurant: 'Restaurant',
+          toilet: 'WC',//  ß  ä  Ä  é  ö  Ö  ü  Ü
+          bbq: 'Barbecue',
+          backHallway: 'Hinterer Flur',
+          mainStairs: 'Haupt-<br/>treppe',
           geishaRoom: 'Geisha<br/>Room',//
           hallway: 'Hallway',//
           karaoke: 'Karaoke',//
@@ -694,10 +694,10 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           taiko: 'Taiko',//
           terrace: 'Terrace',//
           backStairs: 'Back<br/>Stairs',//
-          houseBalcony: 'House<br/>Balcony',//
+          houseBalcony: 'Haus-<br/>balkon',
           exhibition: 'Exhibition',//
           lounge: 'Lounge',//
-          workOffice: 'Work<br/>Office',//
+          workOffice: 'Work<br/>Office',//  ß  ä  Ä  é  ö  Ö  ü  Ü
           clearance: 'Clearance',//
           peacefullTree: 'Peacefull<br/>Tree',//
           contemplationGarden: 'Contemplation<br/>Garden',//
@@ -707,7 +707,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           restBalcony: 'Rest.<br/>Balcony',//
           northGarden: 'North<br/>Garden',//
           eastGarden: 'East<br/>Garden',//
-          sandGarden: 'Sand<br/>Garden',//
+          sandGarden: 'Sandgarten',
           sidePath: 'Side<br/>Path',//
           sideStairs: 'Side<br/>Stairs',//
           dragonStatue: 'Dragon<br/>Statue'//
