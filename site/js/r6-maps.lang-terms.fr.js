@@ -85,6 +85,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         kafe: 'Café Dostoyevsky',
         oregon: 'Oregon',
         plane: 'Avion Présidentiel',
+        skyscraper: 'Gratte-ciel',
         yacht: 'Yacht'
       },
       mapRooms: {

@@ -83,6 +83,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         kafe: 'Café Dostojewski',
         oregon: 'Oregon',
         plane: 'Präsidentenflugzeug',
+        skyscraper: 'Skyscraper',
         yacht: 'Jacht'
       },
       mapRooms: {
