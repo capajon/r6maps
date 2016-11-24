@@ -1864,7 +1864,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ]
       },
       skyscraper: {
-        name: 'Skyscraper',
+        name: mapNameTerms.skyscraper,
         imgUrlPrefix: 'skyscraper',
         objectives: [
           'bomb', 'hostage', 'secure'
