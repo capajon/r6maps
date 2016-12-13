@@ -1064,7 +1064,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         spawnPoints: [
           { letter: spawnTerms.a, top: 322, left: -789, description: herefordTerms.spawnTrainingCourse },
           { letter: spawnTerms.b, top: 236, left: 703, description: herefordTerms.spawnBarrak },
-          { letter: spawnTerms.c, top: -630, left: 27, description: herefordTerms.spawnTrainingCourse }
+          { letter: spawnTerms.c, top: -630, left: 27, description: herefordTerms.spawnShootingRange }
         ],
         roomLabels: [
           { floor: 0, top: 199, left: -100, description: herefordTerms.armory },
