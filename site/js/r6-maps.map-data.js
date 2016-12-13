@@ -1860,7 +1860,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 3, left: 8, hardToRead: true, description: planeTerms.serverRoomA },
           { floor: 3, top: 3, left: -221, hardToRead: true, description: planeTerms.serverRoomB },
           { floor: 3, top: 0, left: -428, hardToRead: true, description: planeTerms.serverRoomB },
-          { floor: 1, top: -30, left: 222, smaller: true, description: planeTerms.technicalSeating }
+          { floor: 1, top: -30, left: 222, smaller: true, description: planeTerms.technicalSeating },
+          { floor: 2, top: 112, left: -453, hardToRead: true, description: planeTerms.caterer }
         ]
       },
       skyscraper: {
