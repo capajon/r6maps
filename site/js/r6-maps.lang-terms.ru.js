@@ -1,7 +1,7 @@
 'use strict';
 
 var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
-    var name = 'ru',
+  var name = 'ru',
     terms = {
       general: {
         pageTitle: 'R6 Siege Maps - {mapName}',
@@ -40,14 +40,6 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
       selectMaps: {
         selectAMap: 'Выберите карту',
         homeLink: 'Выберите карту'
-      },
-      languages: {
-        en: 'English',
-        de: 'Deutsch',
-        fr: 'Français',
-        ja: '日本語',
-        kr: '한국어',
-		ru: 'Русский'
       },
       floorNames: {
         basement: { full: 'Подвал', short: 'П' },
@@ -792,10 +784,10 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-	R6MapsLangTerms.registerLanguage(name, terms)
+  R6MapsLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
-    terms: terms,
+    terms: terms
   };
 })(R6MapsLangTerms);
