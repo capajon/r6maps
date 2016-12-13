@@ -832,8 +832,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, top: -127, left: -660, description: consulateTerms.memorialGarden },
           { outdoor: true, top: 622, left: -85, description: consulateTerms.policeLine },
           { outdoor: true, top: 622, left: 358, description: consulateTerms.riotBarracade },
-          { outdoor: true, top: 438, left: -219, description: consulateTerms.eastFrontYard },
-          { outdoor: true, top: 438, left: 224, description: consulateTerms.westFrontYard },
+          { outdoor: true, top: 438, left: -219, description: consulateTerms.westFrontYard },
+          { outdoor: true, top: 438, left: 224, description: consulateTerms.eastFrontYard },
           { outdoor: true, top: 438, left: 9, description: consulateTerms.frontAlley },
           { floor: 3, top: 42, left: -166, description: consulateTerms.buildingRoof },
           { floor: 3, top: 42, left: 177, description: consulateTerms.buildingRoof }
