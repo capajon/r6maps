@@ -97,6 +97,7 @@ var R6MapsLangTerms = (function(undefined) {
       },
       mapNames: {
         bank: 'Bank',
+        bartlett: 'Bartlett University',
         border: 'Border',
         chalet: 'Chalet',
         club: 'Club House',
@@ -165,6 +166,9 @@ var R6MapsLangTerms = (function(undefined) {
           terrace: 'Terrace',
           stockTradingRoom: 'Stock<br/>Trading<br/>Room',
           conferenceRoom: 'Conference<br/>Room'
+        },
+        bartlett: {
+          workInProgress: 'This map is a<br/>WORK-IN-PROGRESS'
         },
         border: {
           armoryLockers: 'Armory<br/>Lockers',

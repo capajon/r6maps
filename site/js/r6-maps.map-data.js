@@ -21,6 +21,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     oregonTerms = mapRoomTerms.oregon,
     planeTerms = mapRoomTerms.plane,
     skyscraperTerms = mapRoomTerms.skyscraper,
+    bartlettTerms = mapRoomTerms.bartlett,
     yachtTerms = mapRoomTerms.yacht;
 
   String.prototype.removeBreakTags = function() {
@@ -201,6 +202,27 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, smaller: true, description: bankTerms.elevators, top: 170, left: -118 }
         ]
       },
+      /*bartlett: {
+        name: 'Bartlett University',
+        imgUrlPrefix: 'bartlett',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [],
+        hostageObjectives: [],
+        bombObjectives: [],
+        secureObjectives: [],
+        zoomPoints: {
+          topLeft: {},
+          bottomRight: {}
+        },
+        cameras: [],
+        ceilingHatches: [],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [],
+        roomLabels: []
+      },*/
       border: {
         name: mapNameTerms.border,
         imgUrlPrefix: 'border',

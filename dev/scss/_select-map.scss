@@ -134,6 +134,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.bartlett div.image.thumb {
+          @include map-thumb-icon(15);
+        }
+        body[loaded-map="bartlett"] &.bartlett p {
+          @include map-name-selected();
+        }
+
         &.border div.image.thumb {
           @include map-thumb-icon(2);
         }

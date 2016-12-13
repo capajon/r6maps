@@ -629,6 +629,12 @@ body.about {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
+        #select-map-grid ul li a.bartlett div.image.thumb {
+          background-position: 0px -3892px; }
+        body[loaded-map="bartlett"] #select-map-grid ul li a.bartlett p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
         #select-map-grid ul li a.border div.image.thumb {
           background-position: 0px -278px; }
         body[loaded-map="border"] #select-map-grid ul li a.border p {
