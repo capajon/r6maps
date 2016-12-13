@@ -507,6 +507,7 @@ var R6MapsLangTerms = (function(undefined) {
           lockerRoom: 'Locker Room',
           coastGuardStairs: 'Coast Guard<br/>Stairs',
           showers: 'Showers',
+          showersCorridor: 'Showers<br/>Corridor',
           loadingDock: 'Loading Dock',
           machineHallway: 'Machine<br/>Hallway',
           controlCenterStairs: 'Control<br/>Center<br/>Stairs',

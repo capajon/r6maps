@@ -1510,6 +1510,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 140, left: -266, smaller: true, description: kanalTerms.boatSuppliesHallway },
           { floor: 1, top: -66, left: -180, description: kanalTerms.lockerRoom },
           { floor: 1, hardToRead: true, smaller: true, top: 68, left: -202, description: kanalTerms.coastGuardStairs },
+          { floor: 1, hardToRead: true, top: 68, left: -141, smaller: true, description: kanalTerms.showersCorridor },
           { floor: 1, top: 239, left: -180, description: kanalTerms.showers },
           { floor: 1, top: -142, left: 165, description: kanalTerms.loadingDock },
           { floor: 1, top: -140, left: 351, description: kanalTerms.machineHallway },
