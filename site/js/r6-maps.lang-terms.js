@@ -547,6 +547,7 @@ var R6MapsLangTerms = (function(undefined) {
           frontLawn: 'Front Lawn',
           basementStairs: 'Basement Stairs',
           coastGuardRoof: 'Coast<br/>Guard<br/>Roof',
+          bridgeRoof: 'Bridge<br/>Roof',
           roofBrickPile: 'Roof<br/>Brick<br/>Pile',
           balcony: 'Balcony',
           controlCenterRoof: 'Control<br/>Center<br/>Roof',

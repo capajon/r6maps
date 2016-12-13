@@ -1559,6 +1559,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 302, left: -413, description: kanalTerms.basementStairs },
           { floor: 4, top: 107, left: -356, description: kanalTerms.coastGuardRoof },
           { floor: 3, top: 107, left: -356, description: kanalTerms.coastGuardRoof },
+          { floor: 3, top: 147, left: -16, description: kanalTerms.bridgeRoof },
           { floor: 4, top: 160, left: 154, description: kanalTerms.roofBrickPile },
           { floor: 3, top: 160, left: 154, description: kanalTerms.roofBrickPile },
           { floor: 4, top: 125, left: 444, description: kanalTerms.balcony },
