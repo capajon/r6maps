@@ -11,18 +11,20 @@ Contributions are welcome. :)
 ### Short-term (active)
 (will likely do)
 - [ ] Open Issues (see Github issue tracking)
-- [ ] Initial team session beta (change map, basic ping, etc)
-- [ ] 'Camera dots' (indicating camera order) including option to disable/enable4
-- [ ] Japanese translations (getting help from community)
+- [ ] Translations for more languages (looking for contributions - example PR: https://github.com/capajon/r6maps/pull/27)
+- [ ] 'Camera #s' (indicating camera order)
+- [ ] Better payload management (combine and minify js and other assets, version #?)
+- [ ] Experiment with progressive web app - ie offline app access?
+- [ ] Any new maps as released by Ubisoft
 
 ### Medium-term (probably)
-- [ ] More team session features
-- [ ] More localization - Get Help? - Portuguese Brazil, Spanish, Russian?
+- [ ] Initial team session beta (shared change map, basic ping, etc)
+- [ ] More team session features (planning by role?)
 - CI, Build & Deploy Improvements:
    - [ ] scss linting
    - [ ] Perceptual diff tests & basic UI tests
    - [ ] Improve distribution size (min, gzip, etc) if an issue
 
 ### Long-term (maybe)
-- [ ] World globe map locations
+- [ ] Real world globe map locations
 - [ ] Helpful tips / strats (community contributions, maybe posts? save?)
