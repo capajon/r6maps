@@ -202,13 +202,17 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, smaller: true, description: bankTerms.elevators, top: 170, left: -118 }
         ]
       },
-      /*bartlett: {
+      bartlett: {
         name: 'Bartlett University',
         imgUrlPrefix: 'bartlett',
         objectives: [
           'bomb', 'hostage', 'secure'
         ],
-        floors: [],
+        floors: [
+          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -465, left: -451, name: floorTerms.secondFloor },
+          { index: 3, top: -465, left: -451, name: floorTerms.roof }
+        ],
         hostageObjectives: [],
         bombObjectives: [],
         secureObjectives: [],
@@ -221,8 +225,13 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         skylights: [],
         droneTunnels: [],
         spawnPoints: [],
-        roomLabels: []
-      },*/
+        roomLabels: [
+          { floor: 2, top: 27, left: -241, description: bartlettTerms.workInProgress, hardToRead: true },
+          { floor: 2, top: 170, left: 349, description: bartlettTerms.workInProgress, hardToRead: true },
+          { floor: 1, top: 106, left: 368, description: bartlettTerms.workInProgress, hardToRead: true },
+          { floor: 1, top: -111, left: -229, description: bartlettTerms.workInProgress, hardToRead: true }
+        ]
+      },
       border: {
         name: mapNameTerms.border,
         imgUrlPrefix: 'border',
