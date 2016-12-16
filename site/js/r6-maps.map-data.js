@@ -213,23 +213,56 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { index: 2, top: -465, left: -451, name: floorTerms.secondFloor },
           { index: 3, top: -465, left: -451, name: floorTerms.roof }
         ],
-        hostageObjectives: [],
-        bombObjectives: [],
-        secureObjectives: [],
+        hostageObjectives: [
+          { floor: 1, top: 248, left: -255 },
+          { floor: 1, top: -96, left: -296 },
+          { floor: 1, top: -199, left: 643 },
+          { floor: 2, top: -171, left: 577 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: -116, left: 577, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 92, left: 596, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 102, left: 524, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -199, left: 573, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: -63, left: -255, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 293, left: -255, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 148, left: -265, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -18, left: -298, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+          { floor: 1, top: -172, left: -353, otherFloor: 'up' },
+          { floor: 2, top: -172, left: -353, otherFloor: 'down' },
+          { floor: 1, top: 125, left: 312 },
+          { floor: 2, top: 193, left: -265 },
+          { floor: 2, top: -17, left: 388 }
+        ],
         zoomPoints: {
-          topLeft: {},
-          bottomRight: {}
+          topLeft: { top: -426, left: -389 },
+          bottomRight: { top: 330, left: 731 }
         },
         cameras: [],
-        ceilingHatches: [],
+        ceilingHatches: [
+          { floor: 1, top: 233, left: -337 },
+          { floor: 1, top: 56, left: -17 },
+          { floor: 1, top: 168, left: 194 },
+          { floor: 1, top: 64, left: 374 },
+          { floor: 1, top: -17, left: 482 },
+          { floor: 1, top: 95, left: 558 }
+        ],
         skylights: [],
-        droneTunnels: [],
+        droneTunnels: [
+          { floor: 1, top: -274, left: 137, rotate: 90, size: DRONE_MED },
+          { floor: 1, top: 109, left: 704, rotate: 90, size: DRONE_MED },
+          { floor: 1, top: 176, left: 140, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -103, left: -390, rotate: 90, size: DRONE_MED },
+          { floor: 2, top: 1, left: 267, rotate: 90, size: 120 }
+        ],
         spawnPoints: [],
         roomLabels: [
           { floor: 2, top: 27, left: -241, description: bartlettTerms.workInProgress, hardToRead: true },
           { floor: 2, top: 170, left: 349, description: bartlettTerms.workInProgress, hardToRead: true },
-          { floor: 1, top: 106, left: 368, description: bartlettTerms.workInProgress, hardToRead: true },
-          { floor: 1, top: -111, left: -229, description: bartlettTerms.workInProgress, hardToRead: true }
+          { floor: 1, top: -111, left: -76, description: bartlettTerms.workInProgress, hardToRead: true },
+          { floor: 1, top: 120, left: 226, description: bartlettTerms.workInProgress, hardToRead: true }
         ]
       },
       border: {
