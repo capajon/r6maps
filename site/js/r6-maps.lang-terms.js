@@ -168,7 +168,13 @@ var R6MapsLangTerms = (function(undefined) {
           conferenceRoom: 'Conference<br/>Room'
         },
         bartlett: {
-          workInProgress: 'This map is a<br/>WORK-IN-PROGRESS'
+          workInProgress: 'This map is a<br/>WORK-IN-PROGRESS',
+          lobby: 'Lobby',
+          archwayHall: 'Archway Hall',
+          compassHallway: 'Compass Hallway',
+          parking: 'Parking',
+          diningRoom: 'Dining Room',
+          mainGate: 'Main Gate'
         },
         border: {
           armoryLockers: 'Armory<br/>Lockers',

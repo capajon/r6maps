@@ -240,7 +240,32 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -426, left: -389 },
           bottomRight: { top: 330, left: 731 }
         },
-        cameras: [],
+        cameras: [
+          {
+            floor: 2, top: 175, left: 67, id: 1, location: bartlettTerms.compassHallway,
+            los: [[{top: 14, left: 86}, {top: -58, left: 79}], [{top: 16, left: 27}, {top: -38, left: 9}], [{top: 124, left: 2}, {top: 29, left: -115}], [{top: 154, left: -147}, {top: 114, left: -324}], [{top: 178, left: -147}, {top: 172, left: -324}]]
+          },
+          {
+            floor: 1, top: -188, left: -106, id: 2, location: bartlettTerms.archwayHall,
+            los: [[{top: -144, left: -153}, {top: -110, left: -218}], [{top: -98, left: -154}, {top: -41, left: -190}], [{top: -45, left: -11}, {top: 81, left: 70}], [{top: 17, left: 21}, {top: 111, left: 70}], [{top: -45, left: 69}, {top: 11, left: 138}]]
+          },
+          {
+            floor: 1, top: 176, left: -126, id: 3, location: bartlettTerms.lobby,
+            los: []
+          },
+          {
+            floor: 1, top: -400, left: 356, id: 4, location: bartlettTerms.diningRoom,
+            los: []
+          },
+          {
+            outdoor: true, top: 666, left: 457, id: 5, location: bartlettTerms.mainGate,
+            los: [[{top: 518, left: 633}, {top: 724, left: 431}]]
+          },
+          {
+            outdoor: true, top: -525, left: 551, id: 6, location: bartlettTerms.parking,
+            los: []
+          }
+        ],
         ceilingHatches: [
           { floor: 1, top: 233, left: -337 },
           { floor: 1, top: 56, left: -17 },
