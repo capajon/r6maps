@@ -224,7 +224,7 @@
 
     setLoadedMapKey(currentlySelectedMap);
     navLogoEl.addClass('enabled');
-	updateTitle();
+    updateTitle();
 
     R6MapsSessions.setup(
       mapMains,
