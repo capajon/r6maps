@@ -1,5 +1,5 @@
 'use strict';
-var DEV_MODE = true;
+var DEV_MODE = false;
 
 (function(pagecode) { //eslint-disable-line wrap-iife
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
@@ -215,7 +215,7 @@ var DEV_MODE = true;
     R6MapsControls.objectives.populate(mapData[currentlySelectedMap].objectives);
     R6MapsControls.floors.populate(mapData[currentlySelectedMap].floors);
     R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgMapWrappers, getResetDimensions);
-    if(!DEV_MODE) {
+    if (!DEV_MODE) {
       R6MapsControls.pan.reset(mapMains, getResetDimensions);
       R6MapsControls.zoom.reset(mapMains, getResetDimensions);
     }
@@ -238,7 +238,7 @@ var DEV_MODE = true;
   };
 
   var outputCoordinates = function outputCoordinates(e) {
-    if(!DEV_MODE) {
+    if (!DEV_MODE) {
       return;
     }
 
