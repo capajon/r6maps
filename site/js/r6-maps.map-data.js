@@ -202,27 +202,145 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, smaller: true, description: bankTerms.elevators, top: 170, left: -118 }
         ]
       },
-      /*bartlett: {
+      bartlett: {
         name: 'Bartlett University',
         imgUrlPrefix: 'bartlett',
         objectives: [
           'bomb', 'hostage', 'secure'
         ],
-        floors: [],
-        hostageObjectives: [],
-        bombObjectives: [],
-        secureObjectives: [],
+        floors: [
+          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -465, left: -451, name: floorTerms.secondFloor },
+          { index: 3, top: -465, left: -451, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 1, top: 248, left: -255 },
+          { floor: 1, top: -96, left: -296 },
+          { floor: 1, top: -199, left: 643 },
+          { floor: 2, top: -171, left: 577 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: -116, left: 577, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 92, left: 596, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 102, left: 524, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -199, left: 573, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: -63, left: -255, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 293, left: -255, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 148, left: -265, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -18, left: -298, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+          { floor: 1, top: -172, left: -353, otherFloor: 'up' },
+          { floor: 2, top: -172, left: -353, otherFloor: 'down' },
+          { floor: 1, top: 125, left: 312 },
+          { floor: 2, top: 193, left: -265 },
+          { floor: 2, top: -17, left: 388 }
+        ],
         zoomPoints: {
-          topLeft: {},
-          bottomRight: {}
+          topLeft: { top: -426, left: -389 },
+          bottomRight: { top: 330, left: 731 }
         },
-        cameras: [],
-        ceilingHatches: [],
+        cameras: [
+          {
+            floor: 2, top: 175, left: 67, id: 1, location: bartlettTerms.compassHallway,
+            los: [[{top: 14, left: 86}, {top: -58, left: 79}], [{top: 16, left: 27}, {top: -38, left: 9}], [{top: 124, left: 2}, {top: 29, left: -115}], [{top: 154, left: -147}, {top: 114, left: -324}], [{top: 178, left: -147}, {top: 172, left: -324}]]
+          },
+          {
+            floor: 1, top: -188, left: -106, id: 2, location: bartlettTerms.archwayHall,
+            los: [[{top: -144, left: -154}, {top: -110, left: -218}], [{top: -96, left: -154}, {top: -41, left: -190}], [{top: -43, left: -11}, {top: 81, left: 72}], [{top: 18, left: 21}, {top: 111, left: 72}], [{top: -43, left: 69}, {top: 13, left: 138}]]
+          },
+          {
+            floor: 1, top: 177, left: -124, id: 3, location: bartlettTerms.lobby,
+            los: [[{top: 111, left: 22},{top: 55, left: 71}],[{top: 26, left: -141},{top: 192, left: -141},{top: 192, left: 71}]]
+          },
+          {
+            floor: 1, top: -400, left: 356, id: 4, location: bartlettTerms.diningRoom,
+            los: [[{top: -196, left: 223},{top: -119, left: 145}], [{top: -197, left: 271},{top: -147, left: 247}], [{top: -142, left: 194},{top: -81, left: 145}]]
+          },
+          {
+            outdoor: true, top: 666, left: 457, id: 5, location: bartlettTerms.mainGate,
+            los: [[{top: 518, left: 633}, {top: 724, left: 431}]]
+          },
+          {
+            outdoor: true, top: -525, left: 551, id: 6, location: bartlettTerms.parking,
+            los: [[{top: -309, left: 710},{top: -163, left: 798}],[{top: -428, left: 130},{top: -390, left: 63}]]
+          }
+        ],
+        ceilingHatches: [
+          { floor: 1, top: 233, left: -337 },
+          { floor: 1, top: 56, left: -17 },
+          { floor: 1, top: 168, left: 194 },
+          { floor: 1, top: 64, left: 374 },
+          { floor: 1, top: -17, left: 482 },
+          { floor: 1, top: 95, left: 558 }
+        ],
         skylights: [],
-        droneTunnels: [],
-        spawnPoints: [],
-        roomLabels: []
-      },*/
+        droneTunnels: [
+          { floor: 1, top: -274, left: 137, rotate: 90, size: DRONE_MED },
+          { floor: 1, top: 109, left: 704, rotate: 90, size: DRONE_MED },
+          { floor: 1, top: 176, left: 140, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -31, left: -408, rotate: 0, size: 86 },
+          { floor: 1, top: -69, left: -395, rotate: 90, size: 34 },
+
+          { floor: 2, top: 1, left: 267, rotate: 90, size: 120 }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: 595, left: -793, description: bartlettTerms.festival },
+          { letter: spawnTerms.b, top: 628, left: 320, description: bartlettTerms.mainGate },
+          { letter: spawnTerms.c, top: -640, left: -329, description: bartlettTerms.courtyard }
+        ],
+        roomLabels: [
+          { floor: 1, top: 186, left: -261, description: bartlettTerms.readingRoom, hardToRead: true },
+          { floor: 1, top: 9, left: -254, description: bartlettTerms.lowerLibrary, hardToRead: true },
+          { floor: 2, top: 9, left: -254, description: bartlettTerms.upperLibrary, hardToRead: true },
+          { floor: 1, top: 143, left: -5, description: bartlettTerms.lobby, hardToRead: true },
+          { floor: 1, top: 93, left: 109, description: bartlettTerms.coatRoom },
+          { floor: 1, top: -123, left: -1, description: bartlettTerms.archwayHall, hardToRead: true },
+          { floor: 1, top: -9, left: -1, description: bartlettTerms.archwayHall, hardToRead: true },
+          { floor: 1, top: -94, left: 172, description: bartlettTerms.centralHallway, hardToRead: true },
+          { floor: 1, top: -160, left: 298, description: bartlettTerms.centralHallway.removeBreakTags(), hardToRead: true },
+          { floor: 1, top: -53, left: 249, description: bartlettTerms.eastStairs, hardToRead: true },
+          { floor: 2, top: -53, left: 256, description: bartlettTerms.eastStairs, hardToRead: true },
+          { floor: 1, top: -90, left: 401, description: bartlettTerms.bathroom },
+          { floor: 1, top: -304, left: 260, description: bartlettTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: -247, left: 583, description: bartlettTerms.kitchen, hardToRead: true },
+          { floor: 1, top: -254, left: 427, description: bartlettTerms.serviceRoom, hardToRead: true },
+          { floor: 1, top: -34, left: 665, description: bartlettTerms.eastCorridor },
+          { floor: 1, top: -46, left: 530, description: bartlettTerms.pantry },
+          { floor: 1, top: 76, left: 567, description: bartlettTerms.pianoRoom, hardToRead: true },
+          { floor: 1, top: 140, left: 253, description: bartlettTerms.lounge, hardToRead: true },
+          { floor: 2, top: -250, left: 532, description: bartlettTerms.roof, hardToRead: true },
+          { floor: 3, top: -250, left: 532, description: bartlettTerms.roof, hardToRead: true },
+          { floor: 2, top: 106, left: -358, description: bartlettTerms.westCorridor, hardToRead: true },
+          { floor: 2, top: 164, left: -207, description: bartlettTerms.classroom, hardToRead: true },
+          { floor: 2, top: 164, left: -11, description: bartlettTerms.compassHallway, hardToRead: true },
+          { floor: 2, top: -112, left: -109, description: bartlettTerms.vistaHallway, hardToRead: true },
+          { floor: 2, top: -5, left: 57, description: bartlettTerms.vistaHallway.removeBreakTags(), hardToRead: true },
+          { floor: 2, top: -157, left: 339, description: bartlettTerms.vistaHallway.removeBreakTags(), hardToRead: true },
+          { floor: 2, top: 75, left: 189, description: bartlettTerms.frontOffice, hardToRead: true },
+          { floor: 2, top: 185, left: 344, description: bartlettTerms.mainOffice, hardToRead: true },
+          { floor: 2, top: 90, left: 654, description: bartlettTerms.rowingMuseum, hardToRead: true },
+          { floor: 2, top: 37, left: 389, description: bartlettTerms.modelHall, hardToRead: true },
+          { floor: 2, top: -61, left: 577, description: bartlettTerms.trophyRoom, hardToRead: true },
+          { floor: 3, top: 30, left: -70, description: bartlettTerms.roof, hardToRead: true },
+          { floor: 3, top: 30, left: 465, description: bartlettTerms.roof, hardToRead: true },
+          { outdoor: true, top: 377, left: -200, description: bartlettTerms.frontPatio, hardToRead: true },
+          { outdoor: true, top: 377, left: 289, description: bartlettTerms.frontPatio, hardToRead: true },
+          { outdoor: true, top: 619, left: 36, description: bartlettTerms.frontEntrance, hardToRead: true },
+          { outdoor: true, top: 619, left: -448, description: bartlettTerms.festival, hardToRead: true },
+          { outdoor: true, top: -70, left: -797, description: bartlettTerms.campusField, hardToRead: true },
+          { outdoor: true, top: -250, left: -251, description: bartlettTerms.terrace },
+          { outdoor: true, top: -310, left: 69, description: bartlettTerms.terrace },
+          { outdoor: true, top: -486, left: -127, description: bartlettTerms.backAlley, hardToRead: true },
+          { outdoor: true, top: -431, left: 587, description: bartlettTerms.parking, hardToRead: true },
+          { floor: 1, top: -204, left: 754, description: bartlettTerms.gardenPass },
+          { floor: 1, top: 73, left: 754, description: bartlettTerms.gardenPass },
+          { floor: 2, top: -204, left: 764, description: bartlettTerms.gardenPass },
+          { floor: 2, top: 73, left: 764, description: bartlettTerms.gardenPass },
+          { outdoor: true, top: 298, left: 655, description: bartlettTerms.mainGate, hardToRead: true },
+          { outdoor: true, top: 615, left: 655, description: bartlettTerms.mainGate, hardToRead: true }
+        ]
+      },
       border: {
         name: mapNameTerms.border,
         imgUrlPrefix: 'border',

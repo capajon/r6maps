@@ -1,4 +1,5 @@
 'use strict';
+var DEV_MODE = false;
 
 (function(pagecode) { //eslint-disable-line wrap-iife
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms);
@@ -214,8 +215,10 @@
     R6MapsControls.objectives.populate(mapData[currentlySelectedMap].objectives);
     R6MapsControls.floors.populate(mapData[currentlySelectedMap].floors);
     R6MapsRender.renderMap(mapData[currentlySelectedMap], mapElements, svgMapWrappers, getResetDimensions);
-    R6MapsControls.pan.reset(mapMains, getResetDimensions);
-    R6MapsControls.zoom.reset(mapMains, getResetDimensions);
+    if (!DEV_MODE) {
+      R6MapsControls.pan.reset(mapMains, getResetDimensions);
+      R6MapsControls.zoom.reset(mapMains, getResetDimensions);
+    }
 
     setupCameraScreenshots();
     setupCameraLos();
@@ -235,6 +238,10 @@
   };
 
   var outputCoordinates = function outputCoordinates(e) {
+    if (!DEV_MODE) {
+      return;
+    }
+
     var warning = R6MapsControls.zoom.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
 
     console.log('SINGLE LINE TEXT:');
