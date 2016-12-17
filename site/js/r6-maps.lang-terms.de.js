@@ -74,6 +74,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
       mapNames: {
         bank: 'Bank',
         border: 'Grenze',
+        bartlett: 'Bartlett U.',
         chalet: 'Chalet',
         club: 'Clubhaus',
         consulate: 'Konsulat',
