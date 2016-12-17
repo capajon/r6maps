@@ -203,7 +203,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ]
       },
       bartlett: {
-        name: 'Bartlett University',
+        name: mapNameTerms.bartlett,
         imgUrlPrefix: 'bartlett',
         objectives: [
           'bomb', 'hostage', 'secure'
