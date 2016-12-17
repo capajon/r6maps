@@ -286,8 +286,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: 595, left: -793, description: bartlettTerms.festival },
-          { letter: spawnTerms.b, top: 628, left: 320, description: bartlettTerms.mainGate },
-          { letter: spawnTerms.c, top: -640, left: -329, description: bartlettTerms.courtyard }
+          { letter: spawnTerms.b, top: 646, left: 320, description: bartlettTerms.mainGate.removeBreakTags() },
+          { letter: spawnTerms.c, top: -650, left: -329, description: bartlettTerms.courtyard }
         ],
         roomLabels: [
           { floor: 1, top: 186, left: -261, description: bartlettTerms.readingRoom, hardToRead: true },
