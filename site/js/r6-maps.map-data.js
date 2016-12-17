@@ -282,7 +282,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -103, left: -390, rotate: 90, size: DRONE_MED },
           { floor: 2, top: 1, left: 267, rotate: 90, size: 120 }
         ],
-        spawnPoints: [],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: 595, left: -793, description: bartlettTerms.festival },
+          { letter: spawnTerms.b, top: 641, left: 320, description: bartlettTerms.mainGate },
+          { letter: spawnTerms.c, top: -640, left: -329, description: bartlettTerms.courtyard }
+        ],
         roomLabels: [
           { floor: 2, top: 27, left: -241, description: bartlettTerms.workInProgress, hardToRead: true },
           { floor: 2, top: 170, left: 349, description: bartlettTerms.workInProgress, hardToRead: true },

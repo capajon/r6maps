@@ -174,7 +174,10 @@ var R6MapsLangTerms = (function(undefined) {
           compassHallway: 'Compass Hallway',
           parking: 'Parking',
           diningRoom: 'Dining Room',
-          mainGate: 'Main Gate'
+          mainGate: 'Main Gate',
+          festival: 'Festival',
+          mainGate: 'Main Gate',
+          courtyard: 'Courtyard'
         },
         border: {
           armoryLockers: 'Armory<br/>Lockers',
