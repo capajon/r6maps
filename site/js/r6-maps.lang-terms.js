@@ -97,7 +97,7 @@ var R6MapsLangTerms = (function(undefined) {
       },
       mapNames: {
         bank: 'Bank',
-        bartlett: 'Bartlett University',
+        bartlett: 'Bartlett U.',
         border: 'Border',
         chalet: 'Chalet',
         club: 'Club House',
