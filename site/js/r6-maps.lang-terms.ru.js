@@ -154,7 +154,6 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         },
         bartlett: {
           archwayHall: 'Зал с арками',
-          archwaylHallway: 'Archway Hallway',
           backAlley: 'Переулок',
           bathroom: 'Сан-<br/>узел',
           campusField: 'Парк на<br/>кампусе',

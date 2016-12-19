@@ -146,7 +146,6 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         },
         bartlett: {
           archwayHall: '아치 홀',
-          archwaylHallway: '아치 복도',
           backAlley: '뒷골목',
           bathroom: '화장실',
           campusField: '대학<br/>잔디밭',

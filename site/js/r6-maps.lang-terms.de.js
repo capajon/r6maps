@@ -144,7 +144,6 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         },
         bartlett: {
           archwayHall: 'Bogengang-Halle',
-          archwaylHallway: 'Bogengang-Halle',
           backAlley: 'Seitengasse',
           bathroom: 'Bade-<br/>zimmer',
           campusField: 'Campusfeld',
