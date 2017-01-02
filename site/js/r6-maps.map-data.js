@@ -133,7 +133,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 80, left: -101, rotate: 0, size: DRONE_SMALL },
           { floor: 1, top: 5, left: 84, rotate: 0, size: DRONE_MED },
           { floor: 2, top: -6, left: 90, rotate: 0, size: DRONE_MED },
-          { floor: 2, top: 89, left: 95, rotate: 0, size: DRONE_MED }
+          { floor: 2, top: 89, left: 95, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: 277, left: 321, rotate: 90, size: DRONE_MED }
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -590, left: -888, description: bankTerms.spawnBoulevard },
