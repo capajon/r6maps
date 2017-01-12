@@ -90,7 +90,6 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: 'Parkplatz-Front',
-          spawnSewerAccess: 'Juwelier-Front',
           spawnBackAlley: 'Seiteneingang',
           printerRoom: 'Druckerraum',
           parkingLot: 'Parkplatz-Front',

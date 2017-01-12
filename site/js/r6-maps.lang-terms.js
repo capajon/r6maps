@@ -115,7 +115,6 @@ var R6MapsLangTerms = (function(undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: 'Boulevard',
-          spawnSewerAccess: 'Sewer Access',
           spawnBackAlley: 'Back Alley',
           printerRoom: 'Printer Room',
           parkingLot: 'Parking Lot',

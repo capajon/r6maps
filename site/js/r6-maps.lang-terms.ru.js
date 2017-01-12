@@ -100,7 +100,6 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: 'Парковка<br/>(перед.ч.)',
-          spawnSewerAccess: 'Ювелирный (фасад)',
           spawnBackAlley: 'Проход к переулку',
           printerRoom: 'Оргтехника',
           parkingLot: 'Парковка<br/>(перед. ч.)',

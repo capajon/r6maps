@@ -92,7 +92,6 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: 'Devant le parking',
-          spawnSewerAccess: 'Devant la bijouterie',
           spawnBackAlley: 'Accès à la ruelle',
           parkingLot: 'Devant le parking',
           boulevard: 'Boulevard',

@@ -138,7 +138,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -590, left: -888, description: bankTerms.spawnBoulevard },
-          { letter: spawnTerms.b, top: -446, left: 641, description: bankTerms.spawnSewerAccess },
+          { letter: spawnTerms.b, top: -446, left: 641, description: bankTerms.jewelryFront },
           { letter: spawnTerms.c, top: 534, left: 652, description: bankTerms.spawnBackAlley }
         ],
         roomLabels: [

@@ -92,7 +92,6 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: '주차장 앞',
-          spawnSewerAccess: '귀금속점 앞',
           spawnBackAlley: '골목 진입로',
           printerRoom: '인쇄실',
           parkingLot: '주차장',
