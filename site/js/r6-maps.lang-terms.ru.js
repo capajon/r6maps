@@ -30,7 +30,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         Dark: 'Жирный',
         Light: 'Тонкий (по умолчанию)',
         DarkAndLarge: 'Большой и жирный',
-        LightAndLarge: 'Большой и тонкий'
+        LightAndLarge: 'Большой и тонкий',
+        DisplayNone: 'Выключить'
       },
       floorDisplayOptions: {
         one: 'По одному',

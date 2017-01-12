@@ -598,6 +598,9 @@ body, button, input, select {
             font-weight: 600 !important;
           }
         }
+        @at-root .map-elements.room-label-display-none .room-label {
+          display: none;
+        }
       }
 
       &.hard-to-read {

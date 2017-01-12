@@ -29,7 +29,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         Dark: '어둡게',
         Light: '밝게 (기본값)',
         DarkAndLarge: '크고 어둡게',
-        LightAndLarge: '크고 밝게'
+        LightAndLarge: '크고 밝게',
+        DisplayNone: '끄다'
       },
       floorDisplayOptions: {
         one: '1 - 꽉 찬 화면',

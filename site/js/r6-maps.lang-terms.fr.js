@@ -29,7 +29,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         Dark: 'Foncé',
         Light: 'Lumière ( Défaut )',
         DarkAndLarge: 'Grand et Sombre',
-        LightAndLarge: 'Grand et Lumière'
+        LightAndLarge: 'Grand et Lumière',
+        DisplayNone: 'Éteindre'
       },
       floorDisplayOptions: {
         one: '1 - Plein',

@@ -33,12 +33,13 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       4: 'four',
       5: 'five'
     },
-    ROOM_LABEL_STYLES = ['Light', 'Dark', 'LightAndLarge', 'DarkAndLarge'],
+    ROOM_LABEL_STYLES = ['Light', 'Dark', 'LightAndLarge', 'DarkAndLarge', 'DisplayNone'],
     ROOM_LABEL_CSS_TEXT = {
       Dark: 'room-label-dark',
       Light: 'room-label-light',
       DarkAndLarge: 'room-label-dark room-label-large',
-      LightAndLarge: 'room-label-light room-label-large'
+      LightAndLarge: 'room-label-light room-label-large',
+      DisplayNone: 'room-label-display-none'
     };
 
   var getBombObjectivesHtml = function getBombObjectivesHtml(bombObjectives) {
