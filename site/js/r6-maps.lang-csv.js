@@ -53,18 +53,21 @@
     keys.forEach(function(key1) {
       html += '<strong>' + key1 + '</strong><br/>';
       for (var key2 in terms[key1]) {
-        if(!terms[key1].hasOwnProperty(key2)) continue;
+        if (!terms[key1].hasOwnProperty(key2)) {
+          continue;
+        }
         html += key2 + ',';
         translatedTerms.forEach(function(translated) {
           var tempTerms = subKey ? translated[subKey] : translated;
+
           //console.log('tempTerms', tempTerms, key1, key2);
-          if(tempTerms[key1] && tempTerms[key1][key2]){
+          if (tempTerms[key1] && tempTerms[key1][key2]){
             html += escapeHTML(tempTerms[key1][key2]) + ',';
           } else {
             html += ',';
           }
         });
-        html += '<br/>'
+        html += '<br/>';
       };
     });
 
@@ -95,5 +98,4 @@
     escape.textContent = html;
     return escape.innerHTML;
   };
-
 }));
