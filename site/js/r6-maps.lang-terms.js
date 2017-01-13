@@ -55,6 +55,7 @@ var R6MapsLangTerms = (function(undefined) {
         fr: 'Français',
         ja: '日本語',
         kr: '한국어',
+        pt: 'Português do Brasil',
         ru: 'Русский'
       },
       floorNames: {
