@@ -629,7 +629,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  //R6MapsLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
