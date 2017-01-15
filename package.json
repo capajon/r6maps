@@ -7,7 +7,7 @@
     "build:js": "dev/scss/*.js"
   },
   "scripts": {
-    "test:js": "eslint site/js/r6-maps*js",
+    "test:js": "eslint dev/js/*.js dev/utils/*.js",
     "test": "npm run test:js",
     "build:scss": "scss 'dev/scss/main.scss':'site/css/main.1.2.0.css'",
     "watch:scss": "scss --watch 'dev/scss/main.scss':'site/css/main.1.2.0.css'",
