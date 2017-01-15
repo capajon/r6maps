@@ -1,9 +1,7 @@
 'use strict';
 
 var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
-  var CAMERA_WIDTH = 40,
-    CAMERA_HEIGHT = 40,
-    SVG_WIDTH = 2560,
+  var SVG_WIDTH = 2560,
     SVG_HEIGHT = 1474,
     SVG_DIM = {
       WIDTH: SVG_WIDTH,
@@ -62,12 +60,10 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     var html = '',
       positionStyle,
       classes,
-      data,
       grouping,
       title,
       tagStart,
-      tagEnd,
-      view;
+      tagEnd;
 
     cameras.forEach(function(camera) {
       positionStyle = getPositionStyle(camera);
@@ -334,7 +330,6 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
 
   var renderMap = function renderMap(mapData, mapElements, svgMapWrapper, getResetDimensions) {
     var html = '',
-      zoomPoints = mapData.zoomPoints,
       resetDimensions = getResetDimensions(),
       spinnerMarginLeft = resetDimensions.centerLeft,
       spinnerMarginTop = resetDimensions.centerTop;
