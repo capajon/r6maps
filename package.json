@@ -1,6 +1,7 @@
 {
   "name": "r6maps",
-  "//": "WHEN UPDATING VERSION #: Search and replace # in package.json & index.html (hacky for now - did this because # doesn't increment often and avoided some complexities)",
+  "//": "WHEN UPDATING VERSION #: Search and replace # in: 1) package.json, 2) index.html, 3) about(-fr).html, 4)thanks.html",
+  "//": "(this is hacky for now - did this because # doesn't increment often and avoided some complexities)",
   "version": "1.2.0",
   "description": "Rainbow Six Siege map quick references",
   "watch": {
