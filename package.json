@@ -1,18 +1,20 @@
 {
   "name": "r6maps",
-  "//": "WHEN UPDATING VERSION #: Search and replace # in package.json & index.html, also delete old js and css files (hacky for now as # doesn't increment often and this avoided some issues)",
+  "//": "WHEN UPDATING VERSION #: Search and replace # in package.json & index.html (hacky for now - did this because # doesn't increment often and avoided some complexities)",
   "version": "1.2.0",
   "description": "Rainbow Six Siege map quick references",
   "watch": {
     "build:js": "dev/scss/*.js"
   },
   "scripts": {
-    "test:js": "eslint dev/js/*.js dev/utils/*.js",
+    "test:js": "eslint dev/js/*.js dev/utils/*",
     "test": "npm run test:js",
-    "build:scss": "scss 'dev/scss/main.scss':'site/css/main.1.2.0.css'",
-    "watch:scss": "scss --watch 'dev/scss/main.scss':'site/css/main.1.2.0.css'",
-    "build:js": "uglifyjs --compress --mangle -o ./site/js/r6-maps.1.2.0.min.js --source-map  ./site/js/r6-maps.1.2.0.min.js.map --source-map-url r6-maps.1.2.0.min.js.map --source-map-include-sources -- ./dev/js/r6-maps.lang-terms.js ./dev/js/r6-maps.lang-terms.*.js ./dev/js/r6-maps.map-data.js ./dev/js/r6-maps.map-render.js ./dev/js/r6-maps.controls.js ./dev/js/r6-maps.select-maps.js ./dev/js/r6-maps.sessions.js ./dev/js/r6-maps.main.js",
-    "watch:js": "npm-watch"
+    "clean:scss": "rimraf site/css/*",
+    "build:scss": "npm run clean:scss && scss 'dev/scss/main.scss':'site/css/main.1.2.0.css'",
+    "watch:scss": "npm run clean:scss && scss --watch 'dev/scss/main.scss':'site/css/main.1.2.0.css'",
+    "clean:js": "rimraf site/js/*",
+    "build:js": "npm run clean:js && uglifyjs --compress --mangle -o ./site/js/r6-maps.1.2.0.min.js --source-map  ./site/js/r6-maps.1.2.0.min.js.map --source-map-url r6-maps.1.2.0.min.js.map --source-map-include-sources -- ./dev/js/r6-maps.lang-terms.js ./dev/js/r6-maps.lang-terms.*.js ./dev/js/r6-maps.map-data.js ./dev/js/r6-maps.map-render.js ./dev/js/r6-maps.controls.js ./dev/js/r6-maps.select-maps.js ./dev/js/r6-maps.sessions.js ./dev/js/r6-maps.main.js",
+    "watch:js": "npm run clean:js && npm-watch"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,7 @@
   "homepage": "https://github.com/capajon/r6maps#readme",
   "devDependencies": {
     "eslint": "^2.2.0",
-    "npm-watch": "^0.1.7"
+    "npm-watch": "^0.1.7",
+    "rimraf": "^2.5.4"
   }
 }
