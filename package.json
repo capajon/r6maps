@@ -4,7 +4,7 @@
   "version": "1.2.0",
   "description": "Rainbow Six Siege map quick references",
   "watch": {
-    "build:js": "dev/scss/*.js"
+    "build:js": "dev/js/*.js"
   },
   "scripts": {
     "test:js": "eslint dev/js/*.js dev/utils/*",
