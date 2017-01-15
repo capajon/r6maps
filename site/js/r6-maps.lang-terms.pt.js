@@ -31,7 +31,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         Light: 'Claro (Padrão)',
         DarkAndLarge: 'Grande e Escuro',
         LightAndLarge: 'Grande e Claro',
-        DisableAll: 'Desligar'
+        DisplayNone: 'Desligar'
       },
       floorDisplayOptions: {
         one: '1 - Único',
@@ -101,7 +101,6 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: 'Avenida',
-          spawnSewerAccess: 'Accesso pelo Esgoto',
           spawnBackAlley: 'Beco dos Fundos',
           printerRoom: 'Sala de Impressoras',
           parkingLot: 'Estacionamento',
