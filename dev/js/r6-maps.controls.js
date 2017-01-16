@@ -182,6 +182,22 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return lockPanningControl.is(':checked');
   };
 
+  var getMenuContributionsHtml = function getMenuContributionsHtml() {
+    var html = '';
+
+    html += '<div id="contributions" class="mmenu-custom-panel">';
+    html += '<h2>' + R6MapsLangTerms.terms.general.contributions + '</h2>';
+    html += '<p>' + R6MapsLangTerms.terms.general.supportSiteNote + '</p>';
+    html += '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">';
+    html += '<input type="hidden" name="cmd" value="_s-xclick">';
+    html += '<input type="hidden" name="hosted_button_id" value="4Z2F2PS6VMDLC">';
+    html += '<input type="image" src="' + R6MapsLangTerms.terms.general.donateImg + '" border="0" name="submit" alt="PayPal">';
+    html += '<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">';
+    html += '</form>';
+    html += '</div>';
+    return html;
+  };
+
   var getMenuLanguageHtml = function getMenuLanguageHtml() {
     var html = '';
 
@@ -346,6 +362,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += getMenuLanguageHtml();
     html += getMenuSessionHtml();
     html += getMenuOptionsHtml();
+    html += getMenuContributionsHtml();
     html += '<div class="faded-logo"></div>';
     menuPanel.html(html);
 

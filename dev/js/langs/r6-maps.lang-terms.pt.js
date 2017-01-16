@@ -24,7 +24,10 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         lockPanning: 'Mover em sincronismo',
         lockZooming: 'Zoom em sincronismo',
         fullScreen: 'Tela cheia',
-        enableScreenshots: 'Habilitar captura de tela'
+        enableScreenshots: 'Habilitar captura de tela',
+        contributions: 'Contribuições',
+        supportSiteNote: 'Uma maneira de considerar mostrar o seu apoio é através de uma pequena doação.',
+        donateImg: 'https://www.paypalobjects.com/pt_PT/i/btn/btn_donate_LG.gif'
       },
       roomLabelStyles: {
         Dark: 'Escuro',

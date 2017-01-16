@@ -24,7 +24,10 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         lockPanning: 'Перемещать одновременно',
         lockZooming: 'Заблокировать зум',
         fullScreen: 'Полный экран',
-        enableScreenshots: 'Разрешить скриншоты'
+        enableScreenshots: 'Разрешить скриншоты',
+        contributions: 'взносы',
+        supportSiteNote: 'Один из способов рассмотреть показывая вашу поддержку через небольшое пожертвование.',
+        donateImg: 'https://www.paypalobjects.com/ru_RU/i/btn/btn_donate_LG.gif'
       },
       roomLabelStyles: {
         Dark: 'Жирный',
