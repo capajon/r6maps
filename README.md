@@ -5,7 +5,7 @@
 
 r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Please see the about.html page for more details.
 
-## Things to work on
+## Running locally
 - Install npm and install packages (npm i)
 - Build scss from dev/scss to site/cs: 'npm run build:scss'
 - Build js from dev/js to site/js (uglified): 'npm run build:js'
@@ -16,7 +16,7 @@ Contributions are welcome. :)
 
 ### Short-term
 - [ ] Open Issues (see Github issue tracking)
-- [ ] Translations for more languages (looking for contributions - example PR: https://github.com/capajon/r6maps/pull/27)
+- [ ] Translations for more languages (looking for contributions - example branch: https://github.com/capajon/r6maps/compare/Example_Lang?expand=1)
 - [ ] 'Camera #s' (indicating camera order)
 - [ ] Initial team session beta (shared change map, basic ping, etc)
 - [ ] Separate about/info pages css from main
