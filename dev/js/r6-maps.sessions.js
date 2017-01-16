@@ -7,7 +7,6 @@ var PING_MARKER_RADIUS = 10,
   MIN_PING_MARKER_BORDER = 1;
 
 var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) {
-
   var getHandleTapFn = function getHandleTapFn(
     pingMarkers,
     pingMarkerAccents,

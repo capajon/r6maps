@@ -8,7 +8,7 @@
     "build:js": "dev/js/*.js"
   },
   "scripts": {
-    "test:js": "eslint dev/js/*.js dev/utils/*",
+    "test:js": "eslint dev/js/*.js dev/utils/*.js",
     "test": "npm run test:js",
     "clean:scss": "rimraf site/css/*",
     "build:scss": "npm run clean:scss && scss 'dev/scss/main.scss':'site/css/main.1.2.0.css'",
