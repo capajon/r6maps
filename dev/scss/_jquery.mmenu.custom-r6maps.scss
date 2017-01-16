@@ -151,3 +151,9 @@ $custom-mmenu-padding-smaller: 0.5rem;
 #camera-los-note {
   margin-left: 0.25rem;
 }
+
+#contributions {
+  p, form {
+    margin: $custom-mmenu-padding;
+  }
+}

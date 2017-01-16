@@ -12,7 +12,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         menu: 'Menu',
         about: 'Information',
         languageHeader: 'La Langue',
-        linkAbout: 'about-fr.html',
+        linkAbout: 'about/about-fr.html',
         labelLosOpacity: 'Appareil photo en ligne de mire l\'opacité',
         labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
         labelLosDefault: '( Défaut )',
@@ -23,7 +23,10 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         lockPanning: 'Panoramique serrure',
         lockZooming: 'Zoom serrure',
         fullScreen: 'Plein écran',
-        enableScreenshots: 'Activer captures d\'écran'
+        enableScreenshots: 'Activer captures d\'écran',
+        contributions: 'Contributions',
+        supportSiteNote: 'Une façon d\'envisager de montrer votre soutien est grâce à un petit don.',
+        donateImg: 'https://www.paypalobjects.com/fr_FR/i/btn/btn_donate_LG.gif'
       },
       roomLabelStyles: {
         Dark: 'Foncé',

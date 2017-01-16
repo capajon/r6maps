@@ -325,14 +325,14 @@ body.about {
   font-size: 1.3rem;
   overflow: visible; }
   body.about h1 {
-    margin: 2rem 0.5rem; }
+    margin: 2rem 0.5rem;
+    font-size: 3.9rem;
+    font-weight: 700;
+    line-height: 80px; }
     body.about h1 a {
       background-image: url("../img/r6maps-logo.png");
       background-repeat: no-repeat;
       background-size: 80px;
-      font-size: 3.9rem;
-      font-weight: 700;
-      line-height: 80px;
       padding-left: 90px;
       text-decoration: none; }
   body.about h2 {
@@ -389,6 +389,15 @@ body.about {
     padding: 10px; }
     body.about section:last-child {
       margin-bottom: 0; }
+    body.about section a.updates {
+      font-weight: 700;
+      margin-top: 0.5rem; }
+      body.about section a.updates span {
+        background-color: #fff;
+        color: #000;
+        border-radius: 5px;
+        padding: 2px 5px;
+        margin-right: 0.5rem; }
   body.about .about-wrapper {
     margin: 0 auto;
     max-width: 900px; }
@@ -405,17 +414,6 @@ body.about {
   body.about header a {
     font-size: 1.8rem;
     margin-left: 1rem; }
-    body.about footer a.updates,
-    body.about header a.updates {
-      font-weight: 700;
-      margin-top: 0.5rem; }
-      body.about footer a.updates span,
-      body.about header a.updates span {
-        background-color: #fff;
-        color: #000;
-        border-radius: 5px;
-        padding: 2px 5px;
-        margin-right: 0.5rem; }
 
 #legend {
   background-color: #000;
@@ -1129,6 +1127,9 @@ html.mm-pagedim-black #mm-blocker {
 #camera-los-note {
   margin-left: 0.25rem; }
 
+#contributions p, #contributions form {
+  margin: 0.7rem; }
+
 .offscreen {
   position: absolute !important;
   left: -10000px;
@@ -1665,4 +1666,4 @@ body, button, input, select {
     .map-main .map-elements.zoomed-out-far .room-label {
       opacity: 0; }
 
-/*# sourceMappingURL=main.1.2.0.css.map */
+/*# sourceMappingURL=main.1.2.1.css.map */

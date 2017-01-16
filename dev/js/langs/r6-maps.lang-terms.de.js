@@ -22,7 +22,10 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         lockPanning: 'Schloss panning',
         lockZooming: 'Schloss zoom',
         fullScreen: 'Vollbild',
-        enableScreenshots: 'Aktivieren Screenshots'
+        enableScreenshots: 'Aktivieren Screenshots',
+        contributions: 'Beiträge',
+        supportSiteNote: 'Eine Möglichkeit zu prüfen, Ihre Unterstützung ist durch eine kleine Spende.',
+        donateImg: 'https://www.paypalobjects.com/de_DE/i/btn/btn_donate_LG.gif'
       },
       roomLabelStyles: {
         Dark: 'Dunkel',

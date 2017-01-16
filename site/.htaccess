@@ -1,1 +1,4 @@
-RedirectMatch 301 /maps/(.*) /updates/maps/$1
+RedirectMatch 301 /maps/bartlett-map.html /about/maps/bartlett.html
+RedirectMatch 301 /maps/skyscraper-map.html /about/maps/skyscraper.html
+RedirectMatch 301 /maps/border-map.html /about/maps/border.html
+RedirectMatch 301 /updates/2016-october(.*) /about/updates/2016-Oct/index.html

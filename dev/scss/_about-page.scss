@@ -12,14 +12,14 @@ body {
 
     h1 {
       margin: 2rem 0.5rem;
+      font-size: 3.9rem;
+      font-weight: 700;
+      line-height: 80px;
 
       a {
         background-image: url($img-location + 'r6maps-logo.png');
         background-repeat: no-repeat;
         background-size: 80px;
-        font-size: 3.9rem;
-        font-weight: 700;
-        line-height: 80px;
         padding-left: 90px;
         text-decoration: none;
       }
@@ -105,6 +105,21 @@ body {
       &:last-child {
         margin-bottom: 0;
       }
+
+      a {
+        &.updates {
+          font-weight: 700;
+          margin-top: 0.5rem;
+
+          span {
+            background-color: #fff;
+            color: #000;
+            border-radius: 5px;
+            padding: 2px 5px;
+            margin-right: 0.5rem;
+          }
+        }
+      }
     }
 
     .about-wrapper {
@@ -132,19 +147,6 @@ body {
       a {
         font-size: 1.8rem;
         margin-left: 1rem;
-
-        &.updates {
-          font-weight: 700;
-          margin-top: 0.5rem;
-
-          span {
-            background-color: #fff;
-            color: #000;
-            border-radius: 5px;
-            padding: 2px 5px;
-            margin-right: 0.5rem;
-          }
-        }
       }
     }
   }

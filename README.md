@@ -16,7 +16,7 @@ Contributions are welcome. :)
 
 ### Short-term
 - [ ] Open Issues (see Github issue tracking)
-- [ ] Translations for more languages (looking for contributions - example branch: https://github.com/capajon/r6maps/compare/Example_Lang?expand=1)
+- [ ] Translations for more languages (looking for contributions: https://www.r6maps.com/about/translations-help.html))
 - [ ] 'Camera #s' (indicating camera order)
 - [ ] Initial team session beta (shared change map, basic ping, etc)
 - [ ] Separate about/info pages css from main
