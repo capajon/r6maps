@@ -1048,14 +1048,14 @@ html.mm-pagedim-black #mm-blocker {
     #mmenu-menu .mmenu-custom-panel button {
       border: 0;
       color: #000;
-      display: block;
+      display: inline-block;
       font-size: 0.95rem;
       font-weight: 700;
       line-height: 100%;
       padding: 0.5rem 0.7rem;
       text-align: left;
       transition: background-color 0.2s;
-      width: 100%; }
+      width: 50%; }
       #mmenu-menu .mmenu-custom-panel button:hover, #mmenu-menu .mmenu-custom-panel button:focus {
         background-color: #ffdb00;
         text-decoration: none !important; }
@@ -1665,4 +1665,4 @@ body, button, input, select {
     .map-main .map-elements.zoomed-out-far .room-label {
       opacity: 0; }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main.1.2.0.css.map */

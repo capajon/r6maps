@@ -634,7 +634,6 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           diningHall: '식당',
           diningHallCorridor: '식당 통로',
           showers: '샤워실',
-          showersCorridor: 'Showers<br/>Corridor',
           kitchen: '주방',
           bathroom: '화장실',
           dormStairs: '기숙사 계단',

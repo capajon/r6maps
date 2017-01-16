@@ -7,13 +7,6 @@ var PING_MARKER_RADIUS = 10,
   MIN_PING_MARKER_BORDER = 1;
 
 var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) {
-  var getCurrentPosition = function getCurrentPosition(pingMarkers) {
-    return {
-      y: parseInt(pingMarkers.attr('cy')),
-      x: parseInt(pingMarkers.attr('cx'))
-    };
-  };
-
   var getHandleTapFn = function getHandleTapFn(
     pingMarkers,
     pingMarkerAccents,
@@ -28,7 +21,6 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
       if (!isCameraCallback(targetEl)) {
         var mapWrapper =  $(event.target).closest('.map-wrapper'),
           pingPosition = getPingPosition(event.center.x, event.center.y, mapWrapper),
-          currentPosition = getCurrentPosition(pingMarkers),
           newX = pingPosition.x,
           newY = pingPosition.y;
 
@@ -96,13 +88,6 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
-  var isOnCurrentPing = function isOnCurrentPing(pingPosition, currentPosition) {
-    return (
-      Math.abs(pingPosition.x - currentPosition.x) < 6 &&
-      Math.abs(pingPosition.y - currentPosition.y) < 6
-    );
-  };
-
   var movePingMarkers = function movePingMarkers(
     pingMarkers,
     pingMarkerAccents,
@@ -160,8 +145,7 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
       hidePingMarkers = getHidePingMarkersFn(pingMarkers, pingMarkerAccents, pingMarkersVertical, pingMarkersHorizontal);
 
     mapMains.each(function(index, main) {
-      var mc = new Hammer(main),
-        mainEl = $(main);
+      var mc = new Hammer(main);
 
       mc.on('press', handleTap);
       mc.on('tap', handleTap);

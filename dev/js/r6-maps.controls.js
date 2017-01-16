@@ -11,7 +11,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     roomLabelStylesControl,
     mapPanelCountControl,
     fullScreenControl,
-    channelControl,
     menuSelectMapsControl,
     menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
@@ -239,8 +238,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var getMenuR6MapsHtml = function getMenuR6MapsHtml() {
-    var html = '',
-      fullScreenTerm;
+    var html = '';
 
     html += '<div class="mmenu-custom-panel">';
     html += '<h2>r6maps.com</h2>';

@@ -55,14 +55,14 @@ $custom-mmenu-padding-smaller: 0.5rem;
     button {
       border: 0;
       color: #000;
-      display: block;
+      display: inline-block;
       font-size: 0.95rem;
       font-weight: 700;
       line-height: 100%;
       padding: $custom-mmenu-padding-smaller $custom-mmenu-padding;
       text-align: left;
       transition: background-color $button-transition;
-      width: 100%;
+      width: 50%;
 
       &:hover, &:focus {
         background-color: $r6-yellow;

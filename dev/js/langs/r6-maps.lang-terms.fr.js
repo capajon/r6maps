@@ -54,7 +54,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         bombShortB: 'B',
         bomb: 'Bombe',
         hostageShort: 'O',
-        hostage: 'Orage',
+        hostage: 'Otage',
         secureShort: 'S',
         secure: 'Sécurisation',
         showAll: 'Montre tout'
