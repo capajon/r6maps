@@ -1,9 +1,9 @@
 @import "_meyer-reset.scss";
-@import "_range-input.scss";
 @import "_helpers.scss";
+@import "_range-input.scss";
 @import "_settings.scss";
+@import "_common.scss";
 @import "_nav.scss";
-@import "_about-page.scss";
 @import "_legend.scss";
 @import "_select-map.scss";
 @import "_spinner.scss";
@@ -18,36 +18,8 @@
   text-shadow: none;
 }
 
-.offscreen {
-  @include offscreen;
-}
-
 .feature-flagged {
   display: none;
-}
-
-.r6-like-font {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 700;
-}
-
-body {
-  @include meyer-reset;
-  background-color: #111111;
-  background: #000000; /* Old browsers */
-  background: -moz-linear-gradient(left, #000000 0%, #151515 50%, #111111 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #000000 0%,#151515 50%,#111111 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #000000 0%,#151515 50%,#111111 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#111111',GradientType=1 ); /* IE6-9 */
-}
-
-body {
-  overflow:hidden;
-}
-
-body, button, input, select {
-  @extend .r6-like-font;
-  font-size: 1rem;
 }
 
 @mixin other-floor-icon ($width, $height, $direction, $z-index, $width-offset, $height-offset) {

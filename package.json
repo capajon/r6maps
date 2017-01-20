@@ -10,9 +10,9 @@
   "scripts": {
     "test:js": "eslint dev/js/*.js dev/utils/*.js",
     "test": "npm run test:js",
-    "clean:scss": "rimraf site/css/*",
-    "build:scss": "npm run clean:scss && scss 'dev/scss/main.scss':'site/css/main.1.2.2.css'",
-    "watch:scss": "npm run clean:scss && scss --watch 'dev/scss/main.scss':'site/css/main.1.2.2.css'",
+    "build:aboutcss": "rimraf site/css/about* && scss 'dev/scss/about.scss':'site/css/about.1.1.0.css'",
+    "build:css": "rimraf site/css/main* && scss 'dev/scss/main.scss':'site/css/main.1.2.2.css'",
+    "watch:css": "rimraf site/css/main* && scss --watch 'dev/scss/main.scss':'site/css/main.1.2.2.css'",
     "clean:js": "rimraf site/js/*",
     "build:js": "npm run clean:js && uglifyjs --compress --mangle -o ./site/js/r6-maps.1.2.2.min.js --source-map  ./site/js/r6-maps.1.2.2.min.js.map --source-map-url r6-maps.1.2.2.min.js.map --source-map-include-sources -- ./dev/js/langs/r6-maps.lang-terms.js ./dev/js/langs/r6-maps.lang-terms.*.js ./dev/js/r6-maps.map-data.js ./dev/js/r6-maps.map-render.js ./dev/js/r6-maps.controls.js ./dev/js/r6-maps.select-maps.js ./dev/js/r6-maps.sessions.js ./dev/js/r6-maps.main.js",
     "watch:js": "npm run clean:js && npm-watch"
