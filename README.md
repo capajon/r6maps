@@ -15,21 +15,20 @@ r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Plea
 Contributions are welcome. :)
 
 ### Short-term
-- [ ] Open Issues (see Github issue tracking)
 - [ ] Translations for more languages (looking for contributions: https://www.r6maps.com/about/translations-help.html))
-- [ ] 'Camera #s' (indicating camera order)
+- [ ] Open Issues (see Github issue tracking)
 - [ ] Initial team session beta (shared change map, basic ping, etc)
-- [ ] Separate about/info pages css from main
+- [ ] Initial drawing tools
 - [ ] Any new maps as released by Ubisoft
 
 ### Medium-term
-- [ ] Tactics planning and saving
-- [ ] Experiment with progressive web app - ie offline app access?
-- [ ] More team session features (planning by role?)
+- [ ] Robust tactics planning and saving
+- [ ] More team session features
 - CI, Build & Deploy Improvements:
    - [ ] scss linting
    - [ ] Perceptual diff tests & basic UI tests
 
 ### Long-term
+- [ ] Experiment with progressive web app - ie offline app access?
 - [ ] Real world globe map locations
 - [ ] Helpful tips / strats (community contributions, maybe posts? save?)
