@@ -79,7 +79,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       tagEnd = (camera.id && !camera.otherFloor)
         ? '</a>'
         : '</div>';
-      html += tagStart + 'style="' + positionStyle + '" class="' + classes + '"><span></span>' + tagEnd;
+      html += tagStart + 'style="' + positionStyle + '" class="' + classes + '"><span class="other-floor"></span><span class="cam-num">' + camera.id + '</span>' + tagEnd;
     });
     return html;
   };

@@ -351,22 +351,65 @@
       background-position: center;
       z-index: $z-camera;
 
+      span.cam-num {
+        background-color: #000;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        color: #fff;
+        display: block;
+        font-size: 11px;
+        height: 12px;
+        left: 12px;
+        line-height: 12px;
+        position: absolute;
+        text-align: center;
+        top: 16px;
+        -ms-transition: background-color 0.3s, color 0.3s;
+        -webkit-transition: background-color 0.3s, color 0.3s;
+        transition: background-color 0.3s, color 0.3s;
+        width: 13px;
+      }
+
+      &:hover,
+      &:focus {
+        span.cam-num {
+          @include text-shadow();
+          background-color: $r6-yellow;
+          color: #000;
+        }
+      }
+
       &.outdoor {
         @include icon-size($camera-outdoor-width, $camera-outdoor-height);
         background-size: $camera-outdoor-width $camera-outdoor-height;
+
+        span.cam-num {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+          font-size: 15px;
+          height: 16px;
+          left: 15px;
+          line-height: 16px;
+          top: 21px;
+          width: 16px;
+        }
       }
 
       &.other-floor {
         opacity: 0.85;
 
         &.up {
-          span {
+          span.other-floor {
             @include other-floor-icon ($camera-width, $camera-height, 'up', $z-camera, -6px, -8px);
           }
         }
 
         &.down {
-          span {
+          span.other-floor {
             @include other-floor-icon ($camera-width, $camera-height, 'down', $z-camera, -6px, -8px);
           }
         }

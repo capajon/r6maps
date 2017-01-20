@@ -1320,15 +1320,49 @@ html.mm-pagedim-black #mm-blocker {
       background-repeat: no-repeat;
       background-position: center;
       z-index: 1170; }
+      .map-main .map-elements .camera span.cam-num {
+        background-color: #000;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        color: #fff;
+        display: block;
+        font-size: 11px;
+        height: 12px;
+        left: 12px;
+        line-height: 12px;
+        position: absolute;
+        text-align: center;
+        top: 16px;
+        -ms-transition: background-color 0.3s, color 0.3s;
+        -webkit-transition: background-color 0.3s, color 0.3s;
+        transition: background-color 0.3s, color 0.3s;
+        width: 13px; }
+      .map-main .map-elements .camera:hover span.cam-num, .map-main .map-elements .camera:focus span.cam-num {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        background-color: #ffdb00;
+        color: #000; }
       .map-main .map-elements .camera.outdoor {
         width: 46px;
         height: 46px;
         margin-left: -23px;
         margin-top: -23px;
         background-size: 46px 46px; }
+        .map-main .map-elements .camera.outdoor span.cam-num {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+          font-size: 15px;
+          height: 16px;
+          left: 15px;
+          line-height: 16px;
+          top: 21px;
+          width: 16px; }
       .map-main .map-elements .camera.other-floor {
         opacity: 0.85; }
-        .map-main .map-elements .camera.other-floor.up span {
+        .map-main .map-elements .camera.other-floor.up span.other-floor {
           background: url("../img/icons/up@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1342,7 +1376,7 @@ html.mm-pagedim-black #mm-blocker {
           top: 25px;
           width: 15px;
           z-index: 1171; }
-        .map-main .map-elements .camera.other-floor.down span {
+        .map-main .map-elements .camera.other-floor.down span.other-floor {
           background: url("../img/icons/down@2x.png");
           background-size: 15px, 22px;
           background-repeat: no-repeat;
@@ -1565,4 +1599,4 @@ html.mm-pagedim-black #mm-blocker {
     .map-main .map-elements.zoomed-out-far .room-label {
       opacity: 0; }
 
-/*# sourceMappingURL=main.1.2.2.css.map */
+/*# sourceMappingURL=main.1.2.3.css.map */
