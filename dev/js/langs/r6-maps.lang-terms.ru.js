@@ -45,6 +45,12 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         selectAMap: 'Выберите карту',
         homeLink: 'Выберите карту'
       },
+      compass: {
+        letterN: 'С',
+        letterE: 'В',
+        letterS: 'Ю',
+        letterW: 'З'
+      },
       floorNames: {
         basement: { full: 'Подвал', short: 'П' },
         firstFloor: { full: '1 этаж', short: '1' },

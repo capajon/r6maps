@@ -1,18 +1,18 @@
 'use strict';
 
 var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) {
-  var mapControl = $('#map-control'),
-    objectiveControl = $('#objective-control'),
-    floorControl = $('#floor-control'),
-    zoomControl = $('#zoom-range'),
-    menuControl = $('#mmenu-link'),
-    lockPanningControl,
-    enableScreenshotsControl,
-    roomLabelStylesControl,
-    mapPanelCountControl,
-    fullScreenControl,
-    menuSelectMapsControl,
-    menuPanel = $('#menu-panel'),
+  var $mapControl = $('#map-control'),
+    $objectiveControl = $('#objective-control'),
+    $floorControl = $('#floor-control'),
+    $zoomControl = $('#zoom-range'),
+    $menuControl = $('#mmenu-link'),
+    $lockPanningControl,
+    $enableScreenshotsControl,
+    $roomLabelStylesControl,
+    $mapPanelCountControl,
+    $fullScreenControl,
+    $menuSelectMapsControl,
+    $menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
@@ -54,21 +54,21 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var enableScreenshotsSetOption = function enableScreenshotsSetOption(isEnabled) {
     var boolValue = (isEnabled === 'true') ? true : false;
 
-    enableScreenshotsControl.prop('checked', boolValue);
+    $enableScreenshotsControl.prop('checked', boolValue);
   };
 
   var enableScreenshotsSetupChangeEvent = function enableScreenshotsSetupChangeEvent(callback) {
-    enableScreenshotsControl.change(function(e) {
+    $enableScreenshotsControl.change(function(e) {
       callback(getEnableScreenshotValue());
     });
   };
 
   var floorsGetCurrentIndex = function floorsGetCurrentIndex() {
-    return floorControl.find('.selected').data('index');
+    return $floorControl.find('.selected').data('index');
   };
 
   var floorsGetMinAndMaxIndex = function floorsGetMinAndMaxIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
-    var floorInputs = floorControl.find('button');
+    var floorInputs = $floorControl.find('button');
 
     return {
       min: $(floorInputs[0]).data('index'),
@@ -91,7 +91,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       buttonsAsString += '<span class="full">' + floor.name.full + '</span>';
       buttonsAsString += '</button>';
     });
-    floorControl.html(buttonsAsString);
+    $floorControl.html(buttonsAsString);
     floorsTrySelect(initalFloor);
   };
 
@@ -101,7 +101,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var floorsTrySelect = function floorsTrySelect(floorIndex) {
-    var selectedFloor = floorControl.find("[data-index='" + floorIndex + "']");
+    var selectedFloor = $floorControl.find("[data-index='" + floorIndex + "']");
 
     if (selectedFloor.length) {
       resetSelectedFloor();
@@ -113,7 +113,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var getEnableScreenshotValue = function getEnableScreenshotValue() {
-    return enableScreenshotsControl.is(':checked');
+    return $enableScreenshotsControl.is(':checked');
   };
 
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
@@ -151,10 +151,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
-  var getHandlePanZoomChangeFn = function getHandlePanZoomChangeFn(mapMains) {
+  var getHandlePanZoomChangeFn = function getHandlePanZoomChangeFn($mapMains) {
     return function handlePanZoomChange(event, panzoom, transform) {
       if (getLockPanningValue()) {
-        mapMains.each(function(index, map) {
+        $mapMains.each(function(index, map) {
           if (map !== event.target) {
             $(map).panzoom('pan', transform[4], transform[5], {silent: true});
           }
@@ -163,23 +163,23 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     };
   };
 
-  var getHandleZoomChangeFn = function getHandleZoomChangeFn(mapElements) {
+  var getHandleZoomChangeFn = function getHandleZoomChangeFn($mapElements) {
     return function handleZoomChange() {
-      var zoomVal = zoomControl.val();
+      var zoomVal = $zoomControl.val();
 
       if ( zoomVal > 1.6) {
-        mapElements.addClass(ZOOMED_IN_FAR_CLASS);
+        $mapElements.addClass(ZOOMED_IN_FAR_CLASS);
       } else if ( zoomVal < 0.4 ) {
-        mapElements.addClass(ZOOMED_OUT_FAR_CLASS);
+        $mapElements.addClass(ZOOMED_OUT_FAR_CLASS);
       } else {
-        mapElements.removeClass(ZOOMED_IN_FAR_CLASS);
-        mapElements.removeClass(ZOOMED_OUT_FAR_CLASS);
+        $mapElements.removeClass(ZOOMED_IN_FAR_CLASS);
+        $mapElements.removeClass(ZOOMED_OUT_FAR_CLASS);
       }
     };
   };
 
   var getLockPanningValue = function getLockPanningValue() {
-    return lockPanningControl.is(':checked');
+    return $lockPanningControl.is(':checked');
   };
 
   var getMenuContributionsHtml = function getMenuContributionsHtml() {
@@ -283,7 +283,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var handlePanZoomEnd = function handlePanZoomEnd() {
-    zoomControl.trigger('input');
+    $zoomControl.trigger('input');
   };
 
   var isCurrentlyFullScreen = function isCurrentlyFullScreen() {
@@ -307,12 +307,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var mapsSetupChangeEvent = function mapsSetupChangeEvent(callback) {
-    mapControl.on('change', callback);
+    $mapControl.on('change', callback);
   };
 
   var mapPanelsSetupChangeEvent = function mapPanelsSetupChangeEvent(callback) {
-    mapPanelCountControl.on('change', function(event) {
-      var panelCount = mapPanelCountControl.val();
+    $mapPanelCountControl.on('change', function(event) {
+      var panelCount = $mapPanelCountControl.val();
 
       tryShowLockControls(panelCount);
       callback(panelCount);
@@ -320,7 +320,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var mapsGetCurrentlySelected = function mapsGetCurrentlySelected() {
-    return mapControl.val();
+    return $mapControl.val();
   };
 
   var mapsPopulateOptions = function mapsPopulateOptions(mapData) {
@@ -347,12 +347,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       optionsAsString += '<option value="' + map.key + '">' + map.name + '</option>';
     });
 
-    mapControl.html(optionsAsString);
+    $mapControl.html(optionsAsString);
     mapsTrySelect(currentMap);
   };
 
   var mapsTrySelect = function mapsTrySelect(map) {
-    return trySelectOption(mapControl, map);
+    return trySelectOption($mapControl, map);
   };
 
   var menuSetup = function menuSetup(roomLabelStyles) {
@@ -364,24 +364,24 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += getMenuOptionsHtml();
     html += getMenuContributionsHtml();
     html += '<div class="faded-logo"></div>';
-    menuPanel.html(html);
+    $menuPanel.html(html);
 
-    menuControl.html(R6MapsLangTerms.terms.general.menu);
-    roomLabelStylesControl = $('#room-label-style');
-    populateRoomLabelStyleOptions(roomLabelStylesControl, roomLabelStyles);
-    mapPanelCountControl = $('#map-pane-count');
-    lockPanningControl = $('#lock-panning');
-    enableScreenshotsControl = $('#enable-screenshtos');
-    fullScreenControl = $('#full-screen');
-    menuSelectMapsControl = $('#menu-select-maps');
+    $menuControl.html(R6MapsLangTerms.terms.general.menu);
+    $roomLabelStylesControl = $('#room-label-style');
+    populateRoomLabelStyleOptions($roomLabelStylesControl, roomLabelStyles);
+    $mapPanelCountControl = $('#map-pane-count');
+    $lockPanningControl = $('#lock-panning');
+    $enableScreenshotsControl = $('#enable-screenshtos');
+    $fullScreenControl = $('#full-screen');
+    $menuSelectMapsControl = $('#menu-select-maps');
     $('#menu-about').on('click', function() {
       window.location = R6MapsLangTerms.terms.general.linkAbout;
     });
   };
 
   var menuSetupFullScreen = function menuSetupFullScreen() {
-    if (fullScreenControl) {
-      fullScreenControl.on('click', toggleFullScreen);
+    if ($fullScreenControl) {
+      $fullScreenControl.on('click', toggleFullScreen);
     }
   };
 
@@ -389,17 +389,17 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     showSelectMapCallback,
     closeMenuCallback
   ) {
-    menuSelectMapsControl.on('click', function(event) {
+    $menuSelectMapsControl.on('click', function(event) {
       event.preventDefault();
       showSelectMapCallback();
       closeMenuCallback();
     });
   };
 
-  var panReset = function panReset(mapMains, getResetDimensions) {
+  var panReset = function panReset($mapMains, getResetDimensions) {
     var resetDimensions = getResetDimensions();
 
-    mapMains.panzoom(
+    $mapMains.panzoom(
       'pan',
       -resetDimensions.centerLeft * resetDimensions.zoomValue,
       -resetDimensions.centerTop * resetDimensions.zoomValue
@@ -409,17 +409,17 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   var panSetLockOption = function panSetLockOption(isChecked) {
     var boolValue = (isChecked === 'true') ? true : false;
 
-    lockPanningControl.prop('checked', boolValue);
+    $lockPanningControl.prop('checked', boolValue);
   };
 
   var panSetupLockPanningChangeEvent = function panSetupLockPanningChangeEvent(callback) {
-    lockPanningControl.change(function(e) {
+    $lockPanningControl.change(function(e) {
       callback(getLockPanningValue());
     });
   };
 
   var populateRoomLabelStyleOptions = function populateRoomLabelStyleOptions(
-    roomLabelStylesControl,
+    $roomLabelStylesControl,
     roomLabelStyles
   ) {
     var html = '';
@@ -429,25 +429,25 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
         R6MapsLangTerms.terms.roomLabelStyles[roomLabelStyle] +
         '</option>';
     });
-    roomLabelStylesControl.html(html);
+    $roomLabelStylesControl.html(html);
   };
 
   var resetSelectedFloor = function resetSelectedFloor() {
-    floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
+    $floorControl.find('.' + SELECTED_CLASS + '').removeClass(SELECTED_CLASS);
   };
 
   var roomLabelStylesSetupChangeEvent = function roomLabelStylesSetupChangeEvent(callback) {
-    roomLabelStylesControl.on('change', function(event) {
+    $roomLabelStylesControl.on('change', function(event) {
       callback(event.target.value);
     });
   };
 
   var roomLabelStylesTrySelect = function roomLabelStylesTrySelect(style) {
-    return trySelectOption(roomLabelStylesControl, style);
+    return trySelectOption($roomLabelStylesControl, style);
   };
 
   var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
-    floorControl.on('click', 'button', function(e) {
+    $floorControl.on('click', 'button', function(e) {
       var floorButton =  (e.target.tagName == 'SPAN')
         ? $(e.target).parent()
         : $(e.target);
@@ -463,7 +463,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var setLosLabelsText = function setLosLabelsText(opacity, defaultOpacity) {
-    var losNote = $('#camera-los-note');
+    var $losNote = $('#camera-los-note');
 
     $('#camera-los-percent').text(
       R6MapsLangTerms.terms.general.labelPercent.replace(
@@ -473,57 +473,57 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     );
 
     if (opacity == defaultOpacity) {
-      losNote.text(R6MapsLangTerms.terms.general.labelLosDefault);
+      $losNote.text(R6MapsLangTerms.terms.general.labelLosDefault);
     } else if (opacity == 1.05) {
-      losNote.text(R6MapsLangTerms.terms.general.labelLos105);
+      $losNote.text(R6MapsLangTerms.terms.general.labelLos105);
     } else if (opacity == 1.10) {
-      losNote.text(R6MapsLangTerms.terms.general.labelLos110);
+      $losNote.text(R6MapsLangTerms.terms.general.labelLos110);
     } else {
-      losNote.text('');
+      $losNote.text('');
     }
   };
 
   var setupLosOpacity = function setupLosOpacity(updateLosOpacityFn, startingValue, defaultOpacity) {
-    var losOpacityControl = $('#los-opacity-range'),
+    var $losOpacityControl = $('#los-opacity-range'),
       handleLosOpacityChangeFn = getHandleLosOpacityChangeFn(
         updateLosOpacityFn,
         defaultOpacity
       );
 
-    losOpacityControl.val(startingValue);
+    $losOpacityControl.val(startingValue);
     setLosLabelsText(startingValue, defaultOpacity);
-    losOpacityControl.on('input', handleLosOpacityChangeFn);
-    losOpacityControl.on('change', handleLosOpacityChangeFn);
+    $losOpacityControl.on('input', handleLosOpacityChangeFn);
+    $losOpacityControl.on('change', handleLosOpacityChangeFn);
   };
 
-  var setupPanZoom = function setupPanZoom(mapMains, mapElements) {
-    mapMains.panzoom({
-      $zoomRange: zoomControl,
+  var setupPanZoom = function setupPanZoom($mapMains, $mapElements) {
+    $mapMains.panzoom({
+      $zoomRange: $zoomControl,
       minScale: 0.3,
       maxScale: 2.5
     });
 
-    mapMains.on('mousewheel', function(event) {
-      zoomControl.val(+zoomControl.val() + (event.deltaY * 0.06));
-      zoomControl.trigger('input');
-      //zoomControl.trigger('change'); // todo: needed??
+    $mapMains.on('mousewheel', function(event) {
+      $zoomControl.val(+$zoomControl.val() + (event.deltaY * 0.06));
+      $zoomControl.trigger('input');
+      //$zoomControl.trigger('change'); // todo: needed??
     });
 
-    zoomControl.on('change', getHandleZoomChangeFn(mapElements));
-    zoomControl.on('input', getHandleZoomChangeFn(mapElements));
+    $zoomControl.on('change', getHandleZoomChangeFn($mapElements));
+    $zoomControl.on('input', getHandleZoomChangeFn($mapElements));
 
     // camera links were not working on touch devices:
-    mapMains.on('touchstart','a', function(e) {
+    $mapMains.on('touchstart','a', function(e) {
       $(this).addClass('hover');
     });
 
-    mapMains.on('touchend','a', function(e) {
+    $mapMains.on('touchend','a', function(e) {
       $(this).removeClass('hover');
       this.click();
     });
 
-    mapMains.on('panzoomchange', getHandlePanZoomChangeFn(mapMains));
-    mapMains.on('panzoomend', handlePanZoomEnd);
+    $mapMains.on('panzoomchange', getHandlePanZoomChangeFn($mapMains));
+    $mapMains.on('panzoomend', handlePanZoomEnd);
   };
 
   var toggleFullScreen = function toggleFullScreen() {
@@ -535,14 +535,14 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var mapPanelsTrySelect = function mapPanelsTrySelect(number) {
-    var result = trySelectOption(mapPanelCountControl, number);
+    var result = trySelectOption($mapPanelCountControl, number);
 
-    mapPanelCountControl.trigger('change');
+    $mapPanelCountControl.trigger('change');
     return result;
   };
 
   var objectivesGetCurrentlySelected = function objectivesGetCurrentlySelected() {
-    return objectiveControl.val();
+    return $objectiveControl.val();
   };
 
   var objectivesPopulateOptions = function objectivesPopulateOptions(objectives) {
@@ -564,16 +564,16 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     objectives.forEach(function(objective) {
       options += '<option value="' + objective + '">' + objectiveTerms[objective] + '</option>';
     });
-    objectiveControl.html(options);
+    $objectiveControl.html(options);
     objectivesTrySelect(initialObjective);
   };
 
   var objectivesSetupChangeEvent = function objectivesSetupChangeEvent(callback) {
-    objectiveControl.on('change', callback);
+    $objectiveControl.on('change', callback);
   };
 
   var objectivesTrySelect = function objectivesTrySelect(objective) {
-    return trySelectOption(objectiveControl, objective);
+    return trySelectOption($objectiveControl, objective);
   };
 
   var trySelectOption = function trySelectOption(selectEl, option) {
@@ -587,33 +587,33 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var tryShowLockControls = function tryShowLockControls(numberPanels) {
-    var lockWrapper = $('#lock-wrapper');
+    var $lockWrapper = $('#lock-wrapper');
 
     if (numberPanels > 1) {
-      lockWrapper.show(600);
+      $lockWrapper.show(600);
     } else {
-      lockWrapper.hide(600);
+      $lockWrapper.hide(600);
     }
   };
 
-  var zoomDisable = function zoomDisable(mapElements) {
-    mapElements.panzoom('disable');
+  var zoomDisable = function zoomDisable($mapElements) {
+    $mapElements.panzoom('disable');
   };
 
-  var zoomEnable = function zoomEnable(mapElements) {
-    mapElements.panzoom('enable');
+  var zoomEnable = function zoomEnable($mapElements) {
+    $mapElements.panzoom('enable');
   };
 
   var zoomIsZoomed = function zoomIsZoomed() {
-    return (zoomControl.val() != 1);
+    return ($zoomControl.val() != 1);
   };
 
-  var zoomReset = function zoomReset(mapMains, getResetDimensions) {
+  var zoomReset = function zoomReset($mapMains, getResetDimensions) {
     var resetDimensions = getResetDimensions();
 
-    zoomControl.val(resetDimensions.zoomValue);
-    zoomControl.trigger('input');
-    //zoomControl.trigger('change'); // todo: needed??
+    $zoomControl.val(resetDimensions.zoomValue);
+    $zoomControl.trigger('input');
+    //$zoomControl.trigger('change'); // todo: needed??
   };
 
   return  {

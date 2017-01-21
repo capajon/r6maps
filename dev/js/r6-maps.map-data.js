@@ -70,6 +70,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -368, left: -483 },
           bottomRight: { top: 310, left: 397 }
         },
+        compassPoints: {
+          top: 316, left: 741
+        },
         cameras: [
           { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
           {
@@ -241,29 +244,36 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -426, left: -389 },
           bottomRight: { top: 330, left: 731 }
         },
+        compassPoints: {
+          top: 392, left: 699
+        },
         cameras: [
           {
             floor: 2, top: 175, left: 67, id: 1, location: bartlettTerms.compassHallway,
             los: [[{top: 14, left: 86}, {top: -58, left: 79}], [{top: 16, left: 27}, {top: -38, left: 9}], [{top: 124, left: 2}, {top: 29, left: -115}], [{top: 154, left: -147}, {top: 114, left: -324}], [{top: 178, left: -147}, {top: 172, left: -324}]]
           },
           {
-            floor: 1, top: -188, left: -106, id: 2, location: bartlettTerms.archwayHall,
+            floor: 2, top: -185, left: 176, id: 2, location: bartlettTerms.vistaHallway,
+            los: [[{top: 15, left: 143}, {top: -52, left: 159}, {top: -199, left: 159}, {top: -199, left: 207}, {top: -193, left: 207}, {top: -151, left: 432}], [{top: -101, left: 290}, {top: -87, left: 254}]]
+          },
+          {
+            floor: 1, top: -188, left: -106, id: 3, location: bartlettTerms.archwayHall,
             los: [[{top: -144, left: -154}, {top: -110, left: -218}], [{top: -96, left: -154}, {top: -41, left: -190}], [{top: -43, left: -11}, {top: 81, left: 72}], [{top: 18, left: 21}, {top: 111, left: 72}], [{top: -43, left: 69}, {top: 13, left: 138}]]
           },
           {
-            floor: 1, top: 177, left: -124, id: 3, location: bartlettTerms.lobby,
+            floor: 1, top: 177, left: -124, id: 4, location: bartlettTerms.lobby,
             los: [[{top: 111, left: 22},{top: 55, left: 71}],[{top: 26, left: -141},{top: 192, left: -141},{top: 192, left: 71}]]
           },
           {
-            floor: 1, top: -400, left: 356, id: 4, location: bartlettTerms.diningRoom,
+            floor: 1, top: -400, left: 356, id: 5, location: bartlettTerms.diningRoom,
             los: [[{top: -196, left: 223},{top: -119, left: 145}], [{top: -197, left: 271},{top: -147, left: 247}], [{top: -142, left: 194},{top: -81, left: 145}]]
           },
           {
-            outdoor: true, top: 666, left: 457, id: 5, location: bartlettTerms.mainGate,
+            outdoor: true, top: 666, left: 457, id: 6, location: bartlettTerms.mainGate,
             los: [[{top: 518, left: 633}, {top: 724, left: 431}]]
           },
           {
-            outdoor: true, top: -525, left: 551, id: 6, location: bartlettTerms.parking,
+            outdoor: true, top: -525, left: 551, id: 7, location: bartlettTerms.parking,
             los: [[{top: -309, left: 710},{top: -163, left: 798}],[{top: -428, left: 130},{top: -390, left: 63}]]
           }
         ],
@@ -378,6 +388,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -443, left: -305 },
           bottomRight: { top: 125, left: 350 }
+        },
+        compassPoints: {
+          top: 252, left: 387
         },
         cameras: [
           {
@@ -525,6 +538,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -456, left: -113 },
           bottomRight: { top: 382, left: 494 }
+        },
+        compassPoints: {
+          top: 494, left: 560
         },
         cameras: [
           { floor: 1, otherFloor: 'up', top: -114, left: 198, id: 1, location: chaletTerms.bedroomHallway },
@@ -678,6 +694,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -336, left: -416 },
           bottomRight: { top: 275, left: 397 }
+        },
+        compassPoints: {
+          top: -297, left: 403
         },
         cameras: [
           {
@@ -836,6 +855,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -196, left: -354 },
           bottomRight: { top: 299, left: 455 }
+        },
+        compassPoints: {
+          top: 314, left: 422
         },
         cameras: [
           {
@@ -1018,6 +1040,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -310, left: -584 },
           bottomRight: { top: 354, left: 183 }
         },
+        compassPoints: {
+          top: 280, left: 330
+        },
         cameras: [
           {
             floor: 3, top: -295, left: -45, id: 1, location: favelasTerms.backStairs,
@@ -1155,6 +1180,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: 25, left: -268 },
           bottomRight: { top: 463, left: 210 }
+        },
+        compassPoints: {
+          top: 356, left: 497
         },
         cameras: [
           {
@@ -1301,6 +1329,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -180, left: -259 },
           bottomRight: { top: 177, left: 213 }
         },
+        compassPoints: {
+          top: 380, left: 397
+        },
         cameras: [
           {
             floor: 2, top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop,
@@ -1434,6 +1465,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -209, left: -238 },
           bottomRight: { top: 335, left: 479 }
+        },
+        compassPoints: {
+          top: 393, left: 295
         },
         cameras: [
           { floor: 2, otherFloor: 'up', top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
@@ -1581,6 +1615,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -337, left: -507 },
           bottomRight: { top: 259, left: 547 }
+        },
+        compassPoints: {
+          top: 168, left: 515
         },
         cameras: [
           {
@@ -1748,6 +1785,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -355, left: -509 },
           bottomRight: { top: 303, left: 463 }
         },
+        compassPoints: {
+          top: 288, left: 503
+        },
         cameras: [
           {
             floor: 2, top: 70, left: 221, id: 1, location: oregonTerms.armoryCorridor,
@@ -1909,6 +1949,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -218, left: -515 },
           bottomRight: { top: 178, left: 482 }
         },
+        compassPoints: {
+          top: 97, left: 418
+        },
         cameras: [
           {
             floor: 3, top: -14, left: 248, id: 1, location: planeTerms.cabinStaff,
@@ -2043,6 +2086,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -213, left: -207 },
           bottomRight: { top: 426, left: 762 }
+        },
+        compassPoints: {
+          top: 409, left: 960
         },
         cameras: [
           {
@@ -2217,6 +2263,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -139, left: -610 },
           bottomRight: { top: 160, left: 590 }
+        },
+        compassPoints: {
+          top: 331, left: 220
         },
         cameras: [
           {

@@ -149,6 +149,28 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return classes;
   };
 
+  var getCompassHtml = function getCompassHtml(compassPoints) {
+    var html = '',
+      positionPoints,
+      positionStyle;
+
+    positionPoints = { top: 448, left: 550 }; // default if none provided
+    positionPoints = $.extend(
+        positionPoints,
+        compassPoints
+      );
+    positionStyle = getPositionStyle(positionPoints);
+
+    html += '<div id="compass" style="' + positionStyle + '">';
+    html += '<div class="compass-background"></div>';
+    html += '<p class="letter-n"><span>' + langTerms.compass.letterN + '</span></p>';
+    html += '<p class="letter-e"><span>' + langTerms.compass.letterE + '</span></p>';
+    html += '<p class="letter-s"><span>' + langTerms.compass.letterS + '</span></p>';
+    html += '<p class="letter-w"><span>' + langTerms.compass.letterW + '</span></p>';
+    html += '</div>';
+    return html;
+  };
+
   var getDroneTunnelsHtml = function getDroneTunnelsHtml(droneTunnels) {
     var html = '',
       inlineStyle,
@@ -328,7 +350,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var renderMap = function renderMap(mapData, mapElements, svgMapWrapper, getResetDimensions) {
+  var renderMap = function renderMap(mapData, $mapElements, $svgMapWrappers, $mapPanelLabels, getResetDimensions) {
     var html = '',
       resetDimensions = getResetDimensions(),
       spinnerMarginLeft = resetDimensions.centerLeft,
@@ -345,29 +367,30 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     html += getRoomLabelsHtml(mapData.roomLabels);
     html += getDroneTunnelsHtml(mapData.droneTunnels);
     html += getSpawnPointsHtml(mapData.spawnPoints);
+    html += getCompassHtml(mapData.compassPoints);
     html += getLegendHtml();
 
-    mapElements.html(html);
-    $('.map-panel-label').html(getPanelLabelsHtml(mapData.floors));
-    svgMapWrapper.html(getCamerasLosHtml(mapData.cameras));
+    $mapElements.html(html);
+    $mapPanelLabels.html(getPanelLabelsHtml(mapData.floors));
+    $svgMapWrappers.html(getCamerasLosHtml(mapData.cameras));
   };
 
-  var setEnableScreenshots = function setEnableScreenshots(mapWrappers, isEnabled) {
+  var setEnableScreenshots = function setEnableScreenshots($mapWrappers, isEnabled) {
     if (isEnabled) {
-      mapWrappers.removeClass('disable-cameras');
+      $mapWrappers.removeClass('disable-cameras');
     } else {
-      mapWrappers.addClass('disable-cameras');
+      $mapWrappers.addClass('disable-cameras');
     }
   };
 
-  var setRoomLabelStyle = function setRoomLabelStyle(mapElements, style) {
+  var setRoomLabelStyle = function setRoomLabelStyle($mapElements, style) {
     ROOM_LABEL_STYLES.forEach(function(roomLabelStyle) {
-      mapElements.removeClass(ROOM_LABEL_CSS_TEXT[roomLabelStyle]);
+      $mapElements.removeClass(ROOM_LABEL_CSS_TEXT[roomLabelStyle]);
     });
-    mapElements.addClass(ROOM_LABEL_CSS_TEXT[style]);
+    $mapElements.addClass(ROOM_LABEL_CSS_TEXT[style]);
   };
 
-  var setupMapPanels = function setupMapPanels(mapPanelWrapper, numPanels) {
+  var setupMapPanels = function setupMapPanels($mapPanelWrappers, numPanels) {
     var html;
 
     for (var x = 0; x < numPanels; x++) {
@@ -384,19 +407,19 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       html += '</div>'; // end center-helper
       html += '</div>'; // end map-main
       html += '</div>'; // end map-wrapper
-      mapPanelWrapper.append(html);
+      $mapPanelWrappers.append(html);
     }
   };
 
   var showFloor = function showFloor(
     selectedFloorIndex,
-    mapPanelWrapper,
-    mapWrappers,
+    $mapPanelWrappers,
+    $mapWrappers,
     minFloorIndex,
     maxFloorIndex
   ) {
-    mapPanelWrapper.attr('selected-floor-index', selectedFloorIndex);
-    var numPanels = mapPanelWrapper.attr('map-panel-count');
+    $mapPanelWrappers.attr('selected-floor-index', selectedFloorIndex);
+    var numPanels = $mapPanelWrappers.attr('map-panel-count');
 
     if (numPanels > 2)  {
       selectedFloorIndex = Math.max(minFloorIndex, selectedFloorIndex - 1);
@@ -404,19 +427,17 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     var tempMinIndex = Math.max(minFloorIndex, maxFloorIndex - numPanels + 1),
       startingIndex = Math.min(tempMinIndex, selectedFloorIndex);
 
-    mapWrappers.each(function(index, map) {
-      var mapWrapper = $(map);
-
-      $(mapWrapper).attr('show-floor-index', Math.min(startingIndex, maxFloorIndex));
+    $mapWrappers.each(function(index, map) {
+      $(map).attr('show-floor-index', Math.min(startingIndex, maxFloorIndex));
       startingIndex++;
     });
   };
 
-  var showObjective = function showObjective(objective, mapElements) {
+  var showObjective = function showObjective(objective, $mapElements) {
     var objectivePrefix = 'show-objective-';
 
-    mapElements.removeClassPrefix(objectivePrefix);
-    mapElements.addClass(objectivePrefix + objective);
+    $mapElements.removeClassPrefix(objectivePrefix);
+    $mapElements.addClass(objectivePrefix + objective);
   };
 
   return  {

@@ -121,11 +121,11 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
 
   var resizeMapLinks = function resizeMapLinks(
     mapLinks,
-    mainNavEl,
+    $mainNav,
     mapLinksContainerEl
   ) {
     var viewportDimensions = getViewportDimensions(),
-      navHeight = mainNavEl.height(),
+      navHeight = $mainNav.height(),
       mapLinkCount = mapLinks.length,
       columnCounts = getColumnCounts(mapLinkCount),
       availableHeight = viewportDimensions.height - navHeight - VIEWPORT_PADDING_HEIGHT,
@@ -172,7 +172,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
   var setup = function setup(
     selectMapGridEl,
     headingEl,
-    mainNavEl,
+    $mainNav,
     mapData,
     switchToMapCallback,
     closeSelectCallback,
@@ -189,7 +189,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     var handleResize = function handleResize() {
       resizeMapLinks(
         selectMapGridEl.find('a'),
-        mainNavEl,
+        $mainNav,
         selectMapGridEl.find('ul')
       );
     };

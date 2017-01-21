@@ -368,6 +368,62 @@ nav {
         background-color: #3a6082;
         text-shadow: none; }
 
+/* FOLDERS */
+/* MISC */
+/* RESPONSIVE BREAKPOINTS */
+/* MAP ELEMENTS */
+/* COLORS */
+/* Z-INDEXES */
+#compass {
+  height: 95px;
+  --pointer-events: none;
+  position: absolute;
+  width: 88px;
+  z-index: 1015; }
+  #compass .compass-background {
+    background-image: url("../img/compass@2x.png");
+    background-repeat: no-repeat;
+    background-size: 88px 95px;
+    height: 100%;
+    opacity: 0.4;
+    width: 100%; }
+  #compass .letter-n,
+  #compass .letter-e,
+  #compass .letter-s,
+  #compass .letter-w {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    width: 30px; }
+    #compass .letter-n span,
+    #compass .letter-e span,
+    #compass .letter-s span,
+    #compass .letter-w span {
+      background-color: rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      padding: 0 1px;
+      text-align: center; }
+  #compass .letter-n {
+    left: 29px;
+    text-align: center;
+    top: 19px; }
+    #compass .letter-n span {
+      background-color: #ab1513; }
+  #compass .letter-e {
+    left: 45px;
+    text-align: right;
+    top: 45px; }
+  #compass .letter-s {
+    left: 29px;
+    text-align: center;
+    top: 70px; }
+  #compass .letter-w {
+    left: 12px;
+    text-align: left;
+    top: 45px; }
+
 #legend {
   background-color: #000;
   border-radius: 10px 10px 0 0;
@@ -1335,14 +1391,12 @@ html.mm-pagedim-black #mm-blocker {
         position: absolute;
         text-align: center;
         top: 16px;
-        -ms-transition: background-color 0.3s, color 0.3s;
-        -webkit-transition: background-color 0.3s, color 0.3s;
-        transition: background-color 0.3s, color 0.3s;
+        -ms-transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+        transition: background-color 0.3s;
         width: 13px; }
       .map-main .map-elements .camera:hover span.cam-num, .map-main .map-elements .camera:focus span.cam-num {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-        background-color: #ffdb00;
-        color: #000; }
+        background-color: #3a6082; }
       .map-main .map-elements .camera.outdoor {
         width: 46px;
         height: 46px;
@@ -1350,18 +1404,19 @@ html.mm-pagedim-black #mm-blocker {
         margin-top: -23px;
         background-size: 46px 46px; }
         .map-main .map-elements .camera.outdoor span.cam-num {
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-          border-bottom-left-radius: 8px;
-          border-bottom-right-radius: 8px;
-          font-size: 15px;
-          height: 16px;
-          left: 15px;
-          line-height: 16px;
+          border-top-left-radius: 7px;
+          border-top-right-radius: 7px;
+          border-bottom-left-radius: 7px;
+          border-bottom-right-radius: 7px;
+          font-size: 13px;
+          height: 14px;
+          left: 16px;
+          line-height: 15px;
           top: 21px;
-          width: 16px; }
+          width: 14px; }
       .map-main .map-elements .camera.other-floor {
-        opacity: 0.85; }
+        opacity: 0.85;
+        pointer-events: none; }
         .map-main .map-elements .camera.other-floor.up span.other-floor {
           background: url("../img/icons/up@2x.png");
           background-size: 15px, 22px;
@@ -1599,4 +1654,4 @@ html.mm-pagedim-black #mm-blocker {
     .map-main .map-elements.zoomed-out-far .room-label {
       opacity: 0; }
 
-/*# sourceMappingURL=main.1.2.3.css.map */
+/*# sourceMappingURL=main.1.2.4.css.map */

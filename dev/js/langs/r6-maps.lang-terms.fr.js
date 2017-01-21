@@ -44,6 +44,12 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         selectAMap: 'Sélectionnez une carte',
         homeLink: 'Sélectionnez une carte'
       },
+      compass: {
+        letterN: 'N',
+        letterE: 'E',
+        letterS: 'S',
+        letterW: 'O'
+      },
       floorNames: {
         basement: { full: 'Sous-sol', short: 'S' },
         firstFloor: { full: 'Rez-de-chaussée', short: 'R' },

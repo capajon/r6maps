@@ -43,6 +43,12 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         selectAMap: 'Wählen Sie eine Karte',
         homeLink: 'Wählen Sie eine Karte'
       },
+      compass: {
+        letterN: 'N',
+        letterE: 'O',
+        letterS: 'S',
+        letterW: 'W'
+      },
       floorNames: {
         basement: { full: 'K', short: 'K' },
         firstFloor: { full: 'EG', short: 'EG' },
