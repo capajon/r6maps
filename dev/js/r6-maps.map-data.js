@@ -70,6 +70,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -368, left: -483 },
           bottomRight: { top: 310, left: 397 }
         },
+        compassPoints: {
+          top: 316, left: 741
+        },
         cameras: [
           { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
           {
@@ -241,6 +244,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -426, left: -389 },
           bottomRight: { top: 330, left: 731 }
         },
+        compassPoints: {
+          top: 392, left: 699
+        },
         cameras: [
           {
             floor: 2, top: 175, left: 67, id: 1, location: bartlettTerms.compassHallway,
@@ -382,6 +388,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -443, left: -305 },
           bottomRight: { top: 125, left: 350 }
+        },
+        compassPoints: {
+          top: 252, left: 387
         },
         cameras: [
           {
@@ -529,6 +538,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -456, left: -113 },
           bottomRight: { top: 382, left: 494 }
+        },
+        compassPoints: {
+          top: 494, left: 560
         },
         cameras: [
           { floor: 1, otherFloor: 'up', top: -114, left: 198, id: 1, location: chaletTerms.bedroomHallway },
@@ -682,6 +694,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -336, left: -416 },
           bottomRight: { top: 275, left: 397 }
+        },
+        compassPoints: {
+          top: -297, left: 403
         },
         cameras: [
           {
@@ -840,6 +855,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -196, left: -354 },
           bottomRight: { top: 299, left: 455 }
+        },
+        compassPoints: {
+          top: 314, left: 422
         },
         cameras: [
           {
@@ -1022,6 +1040,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -310, left: -584 },
           bottomRight: { top: 354, left: 183 }
         },
+        compassPoints: {
+          top: 280, left: 330
+        },
         cameras: [
           {
             floor: 3, top: -295, left: -45, id: 1, location: favelasTerms.backStairs,
@@ -1159,6 +1180,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: 25, left: -268 },
           bottomRight: { top: 463, left: 210 }
+        },
+        compassPoints: {
+          top: 356, left: 497
         },
         cameras: [
           {
@@ -1305,6 +1329,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -180, left: -259 },
           bottomRight: { top: 177, left: 213 }
         },
+        compassPoints: {
+          top: 380, left: 397
+        },
         cameras: [
           {
             floor: 2, top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop,
@@ -1438,6 +1465,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -209, left: -238 },
           bottomRight: { top: 335, left: 479 }
+        },
+        compassPoints: {
+          top: 393, left: 295
         },
         cameras: [
           { floor: 2, otherFloor: 'up', top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
@@ -1585,6 +1615,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -337, left: -507 },
           bottomRight: { top: 259, left: 547 }
+        },
+        compassPoints: {
+          top: 168, left: 515
         },
         cameras: [
           {
@@ -1752,6 +1785,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -355, left: -509 },
           bottomRight: { top: 303, left: 463 }
         },
+        compassPoints: {
+          top: 288, left: 503
+        },
         cameras: [
           {
             floor: 2, top: 70, left: 221, id: 1, location: oregonTerms.armoryCorridor,
@@ -1913,6 +1949,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           topLeft: { top: -218, left: -515 },
           bottomRight: { top: 178, left: 482 }
         },
+        compassPoints: {
+          top: 97, left: 418
+        },
         cameras: [
           {
             floor: 3, top: -14, left: 248, id: 1, location: planeTerms.cabinStaff,
@@ -2047,6 +2086,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -213, left: -207 },
           bottomRight: { top: 426, left: 762 }
+        },
+        compassPoints: {
+          top: 409, left: 960
         },
         cameras: [
           {
@@ -2221,6 +2263,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: { top: -139, left: -610 },
           bottomRight: { top: 160, left: 590 }
+        },
+        compassPoints: {
+          top: 331, left: 220
         },
         cameras: [
           {

@@ -52,6 +52,12 @@ var R6MapsLangTerms = (function(undefined) {
         selectAMap: 'Select a map',
         homeLink: 'Select a map'
       },
+      compass: {
+        letterN: 'N',
+        letterE: 'E',
+        letterS: 'S',
+        letterW: 'W'
+      },
       languages: {
         en: 'English',
         de: 'Deutsch',

@@ -149,6 +149,28 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return classes;
   };
 
+  var getCompassHtml = function getCompassHtml(compassPoints) {
+    var html = '',
+      positionPoints,
+      positionStyle;
+
+    positionPoints = { top: 448, left: 550 }; // default if none provided
+    positionPoints = $.extend(
+        positionPoints,
+        compassPoints
+      );
+    positionStyle = getPositionStyle(positionPoints);
+
+    html += '<div id="compass" style="' + positionStyle + '">';
+    html += '<div class="compass-background"></div>';
+    html += '<p class="letter-n"><span>' + langTerms.compass.letterN + '</span></p>';
+    html += '<p class="letter-e"><span>' + langTerms.compass.letterE + '</span></p>';
+    html += '<p class="letter-s"><span>' + langTerms.compass.letterS + '</span></p>';
+    html += '<p class="letter-w"><span>' + langTerms.compass.letterW + '</span></p>';
+    html += '</div>';
+    return html;
+  };
+
   var getDroneTunnelsHtml = function getDroneTunnelsHtml(droneTunnels) {
     var html = '',
       inlineStyle,
@@ -345,6 +367,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     html += getRoomLabelsHtml(mapData.roomLabels);
     html += getDroneTunnelsHtml(mapData.droneTunnels);
     html += getSpawnPointsHtml(mapData.spawnPoints);
+    html += getCompassHtml(mapData.compassPoints);
     html += getLegendHtml();
 
     $mapElements.html(html);
