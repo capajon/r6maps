@@ -2,7 +2,7 @@
 var DEV_MODE = false;
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsSessions);
+  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsDrawing);
 }(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsSessions, undefined) {
   var $mapWrappers,
     $mapPanelWrappers,
@@ -230,7 +230,7 @@ var DEV_MODE = false;
     $navLogo.addClass('enabled');
     updateTitle();
 
-    R6MapsSessions.setup(
+    R6MapsDrawing.setup(
       $mapMains,
       $sessionMarkerWrappers,
       isCamera,

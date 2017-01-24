@@ -6,7 +6,7 @@ var PING_MARKER_RADIUS = 10,
   PING_MARKER_BORDER_PERCENT = 0.2,
   MIN_PING_MARKER_BORDER = 1;
 
-var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) {
+var R6MapsDrawing = (function($, window, document, undefined) {
   var getHandleTapFn = function getHandleTapFn(
     pingMarkers,
     pingMarkerAccents,
@@ -19,10 +19,11 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
       var targetEl = $(event.srcEvent.target);
 
       if (!isCameraCallback(targetEl)) {
-        var mapWrapper =  $(event.target).closest('.map-wrapper'),
-          pingPosition = getPingPosition(event.center.x, event.center.y, mapWrapper),
+        var $mapWrapper =  $(event.target).closest('.map-wrapper'),
+          pingPosition = getPingPosition(event.center.x, event.center.y, $mapWrapper),
           newX = pingPosition.x,
-          newY = pingPosition.y;
+          newY = pingPosition.y,
+          floorIndex = $mapWrapper.attr('show-floor-index');
 
         movePingMarkers(
           pingMarkers,
@@ -30,7 +31,8 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
           pingMarkersVertical,
           pingMarkersHorizontal,
           newX + SVG_DIM.LEFT_OFFSET,
-          newY + SVG_DIM.TOP_OFFSET
+          newY + SVG_DIM.TOP_OFFSET,
+          floorIndex
         );
       }
     };
@@ -94,7 +96,8 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
     pingMarkersVertical,
     pingMarkersHorizontal,
     x,
-    y
+    y,
+    floorIndex // TO DO NEXT STEP CHECK FOR THIS COULD BE NULL
   ) {
     pingMarkers.attr('cx', x);
     pingMarkers.attr('cy', y);
@@ -158,4 +161,4 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
   return  {
     setup: setup
   };
-})(window.jQuery, window, document, R6MapsLangTerms);
+})(window.jQuery, window, document);
