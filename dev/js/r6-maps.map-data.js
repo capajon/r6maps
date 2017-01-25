@@ -22,6 +22,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     planeTerms = mapRoomTerms.plane,
     skyscraperTerms = mapRoomTerms.skyscraper,
     bartlettTerms = mapRoomTerms.bartlett,
+    coastlineTerms = mapRoomTerms.coastline,
     yachtTerms = mapRoomTerms.yacht;
 
   String.prototype.removeBreakTags = function() {
@@ -820,6 +821,29 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, description: clubTerms.easternSubroof, top: 7, left: 360 }
         ]
       },
+      /*coastline: {
+        name: mapNameTerms.coastline,
+        imgUrlPrefix: 'coastline',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [],
+        hostageObjectives: [],
+        bombObjectives: [],
+        secureObjectives: [],
+        zoomPoints: {
+          topLeft: {},
+          bottomRight: {}
+        },
+        compassPoints: {
+        },
+        cameras: [],
+        ceilingHatches: [],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [],
+        roomLabels: []
+      },*/
       consulate: {
         name: mapNameTerms.consulate,
         imgUrlPrefix: 'consulate',
@@ -2434,6 +2458,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         zoomPoints: {
           topLeft: {},
           bottomRight: {}
+        },
+        compassPoints: {
         },
         cameras: [],
         ceilingHatches: [],

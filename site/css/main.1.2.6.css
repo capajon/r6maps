@@ -666,6 +666,12 @@ nav {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
+        #select-map-grid ul li a.coastline div.image.thumb {
+          background-position: 0px -4170px; }
+        body[loaded-map="coastline"] #select-map-grid ul li a.coastline p {
+          background-color: #ffdb00;
+          color: #000;
+          text-shadow: none; }
         #select-map-grid ul li a.favelas div.image.thumb {
           background-position: 0px -1390px; }
         body[loaded-map="favelas"] #select-map-grid ul li a.favelas p {

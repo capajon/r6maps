@@ -113,6 +113,7 @@ var R6MapsLangTerms = (function(undefined) {
         chalet: 'Chalet',
         club: 'Club House',
         consulate: 'Consulate',
+        coastline: 'Coastline',
         favelas: 'Favelas',
         hereford: 'Hereford',
         house: 'House',
@@ -428,6 +429,9 @@ var R6MapsLangTerms = (function(undefined) {
           westFrontYard: 'West Front Yard',
           frontAlley: 'Front Alley',
           buildingRoof: 'Building Roof'
+        },
+        coastline: {
+          workInProgress: 'This map is a<br/>WORK-IN-PROGRESS'
         },
         favelas: {
           packagingRoom: 'Packaging<br/>Room',

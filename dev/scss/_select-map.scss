@@ -169,6 +169,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.coastline div.image.thumb {
+          @include map-thumb-icon(16);
+        }
+        body[loaded-map="coastline"] &.coastline p {
+          @include map-name-selected();
+        }
+
         &.favelas div.image.thumb {
           @include map-thumb-icon(6);
         }
