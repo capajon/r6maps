@@ -4,9 +4,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
   var name = 'pt',
     terms = {
       general: {
-        pageTitle: 'R6 Siege Mapas - {mapName}',
-        pageTitleSelectMap: 'R6 Siege Mapas - Selecione um mapa',
-        pageTitleStart: 'R6 Siege Mapas',
+        pageTitleSelectMap: 'R6Maps.com - Selecione um mapa',
         cameraViewCaption: '{floorName} Visão da Câmera',
         shortcutTip: 'Atalho: {shortcut}',
         menu: 'Menu',

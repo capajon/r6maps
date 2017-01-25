@@ -4,9 +4,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
   var name = 'ru',
     terms = {
       general: {
-        pageTitle: 'R6 Siege Maps - {mapName}',
-        pageTitleSelectMap: 'R6 Siege Maps - Выберите карту',
-        pageTitleStart: 'R6 Siege Maps',
+        pageTitleSelectMap: 'R6Maps.com - Выберите карту',
         cameraViewCaption: '{floorName} (вид с камеры)',
         shortcutTip: 'Горячая клавиша: {shortcut}',
         menu: 'Меню',

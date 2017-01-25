@@ -4,9 +4,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
   var name = 'fr',
     terms = {
       general: {
-        pageTitle: 'Carte de siège - {mapName}',
-        pageTitleSelectMap: 'Carte de siège - Choisir une carte',
-        pageTitleStart: 'Carte de siège',
+        pageTitleSelectMap: 'R6Maps.com - Choisir une carte',
         cameraViewCaption: '{floorName} de caméra',
         shortcutTip: 'Raccourci: 1 {shortcut}',
         menu: 'Menu',

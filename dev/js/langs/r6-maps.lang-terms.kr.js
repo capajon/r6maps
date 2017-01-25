@@ -4,9 +4,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
   var name = 'kr',
     terms = {
       general: {
-        pageTitle: '레인보우 식스: 시즈 맵 - {mapName}',
-        pageTitleSelectMap: '레인보우 식스: 시즈 맵 - 맵 선택',
-        pageTitleStart: '레인보우 식스: 시즈 맵',
+        pageTitleSelectMap: 'R6Maps.com - 맵 선택',
         cameraViewCaption: '{floorName} 카메라 시점',
         shortcutTip: '단축키: {shortcut}',
         menu: '메뉴',
