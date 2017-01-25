@@ -18,6 +18,18 @@ svg.session-markers {
         transition: none;
       }
     }
+
+    &.other-floor {
+      stroke: $panel-marker;
+    }
+  }
+
+  polygon.ping-marker {
+    &.other-floor {
+      fill: $panel-marker;
+      pointer-events: none;
+      stroke: #fff;
+    }
   }
 
   line.ping-marker {

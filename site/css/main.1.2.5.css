@@ -906,6 +906,12 @@ svg.session-markers {
     svg.session-markers circle.ping-marker.accent.highlight {
       fill: rgba(255, 255, 255, 0.5);
       transition: none; }
+  svg.session-markers circle.ping-marker.other-floor {
+    stroke: #FF1493; }
+  svg.session-markers polygon.ping-marker.other-floor {
+    fill: #FF1493;
+    pointer-events: none;
+    stroke: #fff; }
   svg.session-markers line.ping-marker {
     stroke: rgba(255, 20, 147, 0.2);
     transition: stroke 0.6s linear; }
@@ -1654,4 +1660,4 @@ html.mm-pagedim-black #mm-blocker {
     .map-main .map-elements.zoomed-out-far .room-label {
       opacity: 0; }
 
-/*# sourceMappingURL=main.1.2.4.css.map */
+/*# sourceMappingURL=main.1.2.5.css.map */

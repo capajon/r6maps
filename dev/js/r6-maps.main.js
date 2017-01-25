@@ -3,7 +3,7 @@ var DEV_MODE = false;
 
 (function(pagecode) { //eslint-disable-line wrap-iife
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsDrawing);
-}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsSessions, undefined) {
+}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsDrawing, undefined) {
   var $mapWrappers,
     $mapPanelWrappers,
     $mapMains,
@@ -146,6 +146,7 @@ var DEV_MODE = false;
     sendFloorSelectAnalyticsEvent();
     showSelectedFloor();
     updateUrl();
+    R6MapsDrawing.refreshPings(); // hacky drawing module for now
   };
 
   var handleLangChange = function handleLangChange(event) {
