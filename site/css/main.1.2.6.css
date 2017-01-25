@@ -899,29 +899,29 @@ nav {
   40% {
     -webkit-transform: scale(1);
     transform: scale(1); } }
-svg.session-markers {
+svg.drawing-markers {
   z-index: 1200; }
-  svg.session-markers circle.ping-marker.center {
+  svg.drawing-markers circle.ping-marker.center {
     cursor: pointer;
     fill: #FF1493;
     pointer-events: auto;
     stroke: #fff; }
-  svg.session-markers circle.ping-marker.accent {
+  svg.drawing-markers circle.ping-marker.accent {
     fill: rgba(255, 20, 147, 0.2);
     transition: fill 0.6s linear; }
-    svg.session-markers circle.ping-marker.accent.highlight {
+    svg.drawing-markers circle.ping-marker.accent.highlight {
       fill: rgba(255, 255, 255, 0.5);
       transition: none; }
-  svg.session-markers circle.ping-marker.other-floor {
+  svg.drawing-markers circle.ping-marker.other-floor {
     stroke: #FF1493; }
-  svg.session-markers polygon.ping-marker.other-floor {
+  svg.drawing-markers polygon.ping-marker.other-floor {
     fill: #FF1493;
     pointer-events: none;
     stroke: #fff; }
-  svg.session-markers line.ping-marker {
+  svg.drawing-markers line.ping-marker {
     stroke: rgba(255, 20, 147, 0.2);
     transition: stroke 0.6s linear; }
-    svg.session-markers line.ping-marker.highlight {
+    svg.drawing-markers line.ping-marker.highlight {
       stroke: #fff;
       transition: none; }
 
@@ -1152,7 +1152,7 @@ html.mm-pagedim-black #mm-blocker {
   margin: 0.7rem; }
 
 .feature-flagged {
-  display: none; }
+  display: none !important; }
 
 #mmenu-page {
   width: 100vw;

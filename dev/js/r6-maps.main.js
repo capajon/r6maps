@@ -10,7 +10,7 @@ var DEV_MODE = false;
     $mapElements,
     $svgMapWrappers,
     $mapPanelLabels,
-    $sessionMarkerWrappers,
+    $drawingMarkerWrappers,
     $navLogo,
     $body,
     $mainNav,
@@ -233,7 +233,7 @@ var DEV_MODE = false;
 
     R6MapsDrawing.setup(
       $mapMains,
-      $sessionMarkerWrappers,
+      $drawingMarkerWrappers,
       isCamera,
       R6MapsRender.SVG_DIM
     );
@@ -330,7 +330,7 @@ var DEV_MODE = false;
     $mapElements = $mapMains.find('.map-elements');
     $svgMapWrappers = $mapMains.find('.svg-wrapper.map');
     $mapPanelLabels = $('.map-panel-label');
-    $sessionMarkerWrappers = $mapMains.find('.svg-wrapper.session-markers');
+    $drawingMarkerWrappers = $mapMains.find('.svg-wrapper.drawing-markers');
   };
 
   var setMapPanelCount = function setMapPanelCount(numPanels) {
@@ -529,7 +529,7 @@ var DEV_MODE = false;
   };
 
   var tryLoadMenuOptions = function tryLoadMenuOptions() {
-    tryEnableChannelFeature();
+    tryEnableSessionFeature();
     tryLoadMapPanelCount();
     tryLoadLockPanningOption();
     tryLoadRoomLabelStyle();
@@ -581,9 +581,9 @@ var DEV_MODE = false;
     }
   };
 
-  var tryEnableChannelFeature = function tryEnableChannelFeature() {
-    if (queryString('channels')) {
-      R6MapsControls.enableChannelControl();
+  var tryEnableSessionFeature = function tryEnableSessionFeature() {
+    if (queryString('sessions')) {
+      R6MapsControls.enableSessionControl();
     }
   };
 

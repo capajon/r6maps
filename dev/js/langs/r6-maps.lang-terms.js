@@ -31,10 +31,8 @@ var R6MapsLangTerms = (function(undefined) {
         supportSiteNote: 'One way to consider showing your support is through a small donation. :)',
         donateImg: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif'
       },
-      channels: { // todo: translate
-        title: 'Team channels',
-        name: 'Channel Name (Letters and numbers only)',
-        button: 'Create/Join'
+      sessions: {
+        button: 'Sessions (BETA)'
       },
       roomLabelStyles: {
         Dark: 'Dark',

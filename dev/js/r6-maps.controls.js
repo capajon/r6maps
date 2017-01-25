@@ -31,8 +31,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     }
   };
 
-  var enableChannelControl = function enableChannelControl() {
-    $('.feature-flagged.channel-control').css('display', 'block');
+  var enableSessionControl = function enableSessionControl() {
+    $('.session-launcher').removeClass('feature-flagged');
   };
 
   var enableFullScreen = function enableFunctionScreen() {
@@ -263,21 +263,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     if (isFullScreenAvailable()) {
       html += '<button href="" id="full-screen">' + R6MapsLangTerms.terms.general.fullScreen + '</button>';
     }
-    html += '</div>';
-    return html;
-  };
-
-  var getMenuSessionHtml = function getMenuSessionHtml() {
-    var html = '';
-
-    html += '<div class="feature-flagged channel-control">';
-    html += '<div class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsLangTerms.terms.channels.title + '</h2>';
-    html += '<div class="channel-input-wrapper">';
-    html += '<input id="channel-name" placeholder="' + R6MapsLangTerms.terms.channels.name + '"></input>';
-    html += '<button>' + R6MapsLangTerms.terms.channels.button + '</button>';
-    html += '</div>';
-    html += '</div>';
+    html += '<button class="feature-flagged session-launcher">' + R6MapsLangTerms.terms.sessions.button + '</button>';
     html += '</div>';
     return html;
   };
@@ -360,7 +346,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     html += getMenuR6MapsHtml();
     html += getMenuLanguageHtml();
-    html += getMenuSessionHtml();
     html += getMenuOptionsHtml();
     html += getMenuContributionsHtml();
     html += '<div class="faded-logo"></div>';
@@ -664,7 +649,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       isZoomed: zoomIsZoomed,
       reset: zoomReset
     },
-    enableChannelControl: enableChannelControl, // feature flag temp
+    enableSessionControl: enableSessionControl, // feature flag temp
     setupLosOpacity: setupLosOpacity,
     setupPanZoom: setupPanZoom
   };

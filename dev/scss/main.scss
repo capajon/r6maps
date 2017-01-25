@@ -20,7 +20,7 @@
 }
 
 .feature-flagged {
-  display: none;
+  display: none !important;
 }
 
 @mixin other-floor-icon ($width, $height, $direction, $z-index, $width-offset, $height-offset) {
