@@ -3,6 +3,8 @@
 var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   var SVG_WIDTH = 2560,
     SVG_HEIGHT = 1474,
+    RETINA_WIDTH_CUTOFF = 1280,
+    RETINA_HEIGHT_CUTOFF = 720,
     SVG_DIM = {
       WIDTH: SVG_WIDTH,
       HEIGHT: SVG_HEIGHT,
@@ -63,7 +65,11 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       grouping,
       title,
       tagStart,
-      tagEnd;
+      tagEnd,
+      retinaUrl = (
+          window.innerWidth > RETINA_WIDTH_CUTOFF
+          && window.innerHeight > RETINA_HEIGHT_CUTOFF
+        ) ? '@2x' : '';
 
     cameras.forEach(function(camera) {
       positionStyle = getPositionStyle(camera);
@@ -74,7 +80,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
         : 'data-fancybox-group="camera"';
       title = R6MapsLangTerms.terms.general.cameraViewCaption.replace('{floorName}',camera.location.removeBreakTags());
       tagStart = (camera.id && !camera.otherFloor)
-        ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + '@2x.jpg" title="' + title + '" ' + grouping + ' data-camera-id="' + camera.id + '"'
+        ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + retinaUrl + '.jpg" title="' + title + '" ' + grouping + ' data-camera-id="' + camera.id + '"'
         : '<div ';
       tagEnd = (camera.id && !camera.otherFloor)
         ? '</a>'
