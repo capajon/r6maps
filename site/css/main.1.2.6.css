@@ -925,6 +925,9 @@ svg.drawing-markers {
       stroke: #fff;
       transition: none; }
 
+#sessions-dialog {
+  display: none; }
+
 /*
 	jQuery.mmenu position extension CSS
 */

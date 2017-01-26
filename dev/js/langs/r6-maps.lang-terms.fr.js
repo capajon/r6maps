@@ -26,6 +26,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         supportSiteNote: 'Une façon d\'envisager de montrer votre soutien est grâce à un petit don.',
         donateImg: 'https://www.paypalobjects.com/fr_FR/i/btn/btn_donate_LG.gif'
       },
+      sessions: {
+        button: 'FR-Sessions (BETA)'
+      },
       roomLabelStyles: {
         Dark: 'Foncé',
         Light: 'Lumière ( Défaut )',

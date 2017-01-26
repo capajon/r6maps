@@ -12,6 +12,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     $mapPanelCountControl,
     $fullScreenControl,
     $menuSelectMapsControl,
+    $sessionsControl,
     $menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
@@ -29,10 +30,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     } else if (document.msExitFullscreen) {
       document.msExitFullscreen();
     }
-  };
-
-  var enableSessionControl = function enableSessionControl() {
-    $('.session-launcher').removeClass('feature-flagged');
   };
 
   var enableFullScreen = function enableFunctionScreen() {
@@ -263,7 +260,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     if (isFullScreenAvailable()) {
       html += '<button href="" id="full-screen">' + R6MapsLangTerms.terms.general.fullScreen + '</button>';
     }
-    html += '<button class="feature-flagged session-launcher">' + R6MapsLangTerms.terms.sessions.button + '</button>';
+    html += '<button class="feature-flagged" id="menu-sessions-launcher">' + R6MapsLangTerms.terms.sessions.button + '</button>';
     html += '</div>';
     return html;
   };
@@ -359,6 +356,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     $enableScreenshotsControl = $('#enable-screenshtos');
     $fullScreenControl = $('#full-screen');
     $menuSelectMapsControl = $('#menu-select-maps');
+    $sessionsControl = $('#menu-sessions-launcher');
     $('#menu-about').on('click', function() {
       window.location = R6MapsLangTerms.terms.general.linkAbout;
     });
@@ -429,6 +427,21 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var roomLabelStylesTrySelect = function roomLabelStylesTrySelect(style) {
     return trySelectOption($roomLabelStylesControl, style);
+  };
+
+  var sessionsEnable = function sessionsEnable() {
+    $sessionsControl.removeClass('feature-flagged');
+  };
+
+  var sessionsSetupClickEvent = function sessionsSetupClickEvent(
+    sessionsLaunchCallback,
+    closeMenuCallback
+  ) {
+    $sessionsControl.on('click', function(event) {
+      event.preventDefault();
+      closeMenuCallback();
+      sessionsLaunchCallback();
+    });
   };
 
   var setupFloorChangeEvent = function setupFloorChangeEvent(callback) {
@@ -643,13 +656,16 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       setup: roomLabelStylesSetupChangeEvent,
       trySelect: roomLabelStylesTrySelect
     },
+    sessions: {
+      enable: sessionsEnable,
+      setup: sessionsSetupClickEvent
+    },
     zoom: {
       disable: zoomDisable,
       enable: zoomEnable,
       isZoomed: zoomIsZoomed,
       reset: zoomReset
     },
-    enableSessionControl: enableSessionControl, // feature flag temp
     setupLosOpacity: setupLosOpacity,
     setupPanZoom: setupPanZoom
   };

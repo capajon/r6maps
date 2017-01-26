@@ -398,6 +398,7 @@ var DEV_MODE = false;
     R6MapsControls.enableScreenshots.setup(handleEnableScreenshotsChange);
     R6MapsControls.menu.setupSelectMaps(showSelectMap, closeMenu);
     R6MapsControls.menu.setupFullScreen();
+    R6MapsControls.sessions.setup(function() { console.log('session menu not implemented yet TO DO'); }, closeMenu);
 
     $(window).on('orientationchange', function() {
       R6MapsControls.pan.reset($mapMains, getResetDimensions);
@@ -583,7 +584,7 @@ var DEV_MODE = false;
 
   var tryEnableSessionFeature = function tryEnableSessionFeature() {
     if (queryString('sessions')) {
-      R6MapsControls.enableSessionControl();
+      R6MapsControls.sessions.enable();
     }
   };
 
