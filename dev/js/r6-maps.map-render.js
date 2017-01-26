@@ -408,7 +408,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       html += '<div class="map-main">';
       html += '<div class="center-helper">';
       html += '<div class="map-elements"></div>';
-      html += '<div class="svg-wrapper session-markers"></div>';
+      html += '<div class="svg-wrapper drawing-markers"></div>';
       html += '<div class="svg-wrapper map"></div>';
       html += '</div>'; // end center-helper
       html += '</div>'; // end map-main
