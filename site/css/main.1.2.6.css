@@ -926,7 +926,16 @@ svg.drawing-markers {
       transition: none; }
 
 #sessions-dialog {
-  display: none; }
+  display: none;
+  margin: 1rem 1rem 1rem 1.5rem; }
+  #sessions-dialog h2 {
+    display: block;
+    font-size: 1.5rem;
+    border-bottom: 1px solid black;
+    margin-bottom: 0.75rem; }
+  #sessions-dialog input[type="text"] {
+    display: block;
+    width: 100%; }
 
 /*
 	jQuery.mmenu position extension CSS

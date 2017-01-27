@@ -14,6 +14,7 @@ var DEV_MODE = false;
     $navLogo,
     $body,
     $mainNav,
+    $sessionsDialog,
     SHOW_MAP = 'show-map',
     SHOW_SELECT_MAP = 'show-select-map',
     HASH_SPLIT_CHAR = '/',
@@ -27,6 +28,9 @@ var DEV_MODE = false;
     setupMenu();
     setupSelectMap();
     R6MapsControls.maps.populate(R6MapsData.getMapData());
+
+    $sessionsDialog = $('#sessions-dialog');
+    R6MapsSessions.createJoinDialog.setup($sessionsDialog);
 
     setupEvents();
     $navLogo.on('click', toggleShowSelectMap);
@@ -398,7 +402,7 @@ var DEV_MODE = false;
     R6MapsControls.enableScreenshots.setup(handleEnableScreenshotsChange);
     R6MapsControls.menu.setupSelectMaps(showSelectMap, closeMenu);
     R6MapsControls.menu.setupFullScreen();
-    R6MapsControls.sessions.setup(function() { console.log('session menu not implemented yet TO DO'); }, closeMenu);
+    R6MapsControls.sessions.setup(R6MapsSessions.createJoinDialog.getOpenFn($sessionsDialog), closeMenu);
 
     $(window).on('orientationchange', function() {
       R6MapsControls.pan.reset($mapMains, getResetDimensions);

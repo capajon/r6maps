@@ -1,3 +1,16 @@
 #sessions-dialog {
   display: none;
+  margin: 1rem 1rem 1rem 1.5rem;
+
+  h2 {
+    display: block;
+    font-size: 1.5rem;
+    border-bottom: 1px solid black;
+    margin-bottom: 0.75rem;
+  }
+
+  input[type="text"] {
+    display: block;
+    width: 100%;
+  }
 }
