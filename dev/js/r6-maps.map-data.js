@@ -1180,23 +1180,23 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { index: 4, top: -63, left: -414, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 0, top: 146, left: -114 },
+          { floor: 0, top: 193, left: -94 },
           { floor: 1, top: 335, left: -111 },
           { floor: 2, top: 224, left: -27 },
           { floor: 3, top: 339, left: -84 }
         ],
         bombObjectives: [
-          { floor: 0, top: 145, left: -40, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: 323, left: 77, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 332, left: -63, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 132, left: -96, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 1, otherFloor: 'up', top: 352, left: 73, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 2, otherFloor: 'down', top: 352, left: 73, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 3, top: 399, left: 86, set: 4, letter: objectiveTerms.bombShortB },
-          { floor: 3, top: 386, left: -101, set: 4, letter: objectiveTerms.bombShortA }
+          { floor: 0, top: 145, left: -57, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: 323, left: 77, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 332, left: -63, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 132, left: -96, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, otherFloor: 'up', top: 352, left: 73, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, otherFloor: 'down', top: 352, left: 73, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 3, top: 399, left: 86, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 3, top: 386, left: -101, set: 1, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
-          { floor: 0, top: 146, left: -77 },
+          { floor: 0, top: 146, left: -94 },
           { floor: 1, top: 296, left: 111 },
           { floor: 2, top: 176, left: 6 },
           { floor: 3, top: 295, left: 86 }
@@ -1229,7 +1229,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
             ]
           },
           {
-            floor: 0, top: 122, left: 125, id: 4, location: herefordTerms.lockers,
+            floor: 0, top: 123, left: 125, id: 4, location: herefordTerms.lockers,
             los: [[{top: 213, left: -27}, {top: 179, left: 47}, {top: 110, left: 47}, {top: 110, left: 142}, {top: 248, left: 142}, {top: 248, left: 36}, {top: 333, left: -27}]]
           },
           {
@@ -1250,7 +1250,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         skylights: [],
         droneTunnels: [
           { floor: 1, top: 239, left: -267, rotate: 90, size: DRONE_MED },
-          { floor: 0, top: 93, left: 31, rotate: 45, size: 56 },
+          { floor: 0, top: 98, left: 24, rotate: 0, size: 26 },
+          { floor: 0, top: 83, left: 34, rotate: 90, size: 32 },
           { floor: 1, top: 442, left: -13, rotate: 0, size: 52 },
           { floor: 1, top: 340, left: 147, rotate: 90, size: DRONE_MED }
         ],
@@ -1260,7 +1261,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { letter: spawnTerms.c, top: -630, left: 27, description: herefordTerms.spawnShootingRange }
         ],
         roomLabels: [
-          { floor: 0, top: 199, left: -100, description: herefordTerms.armory },
+          { floor: 0, top: 263, left: -86, description: herefordTerms.armory },
           { floor: 0, top: 50, left: 200, description: herefordTerms.alleyStairs },
           { floor: 1, top: 50, left: 200, description: herefordTerms.alleyStairs },
           { floor: 0, top: 191, left: 94, description: herefordTerms.lockers },
