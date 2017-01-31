@@ -857,24 +857,24 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { index: 3, top: -282, left: -452, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 1, top: 41, left: 142 },
-          { floor: 2, top: 121, left: -256 },
-          { floor: 2, top: 74, left: 319 },
-          { floor: 0, top: -67, left: 269 }
+          { floor: 1, top: 41, left: 203 },
+          { floor: 2, top: 121, left: -294 },
+          { floor: 2, top: 45, left: 328 },
+          { floor: 0, top: -34, left: 302 }
         ],
         bombObjectives: [
-          { floor: 0, top: 56, left: -239, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: 128, left: -29, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 0, top: 56, left: -239, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: 130, left: -29, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: 153, left: -255, set: 2, letter: objectiveTerms.bombShortA },
           { floor: 1, top: 153, left: 11, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: 167, left: 11, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 121, left: -294, set: 3, letter: objectiveTerms.bombShortB }
+          { floor: 2, top: 167, left: 11, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 121, left: -256, set: 1, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
           { floor: 0, top: -26, left: -183 },
-          { floor: 0, top: -21, left: 338 },
+          { floor: 0, top: -34, left: 346 },
           { floor: 1, top: -6, left: 326 },
-          { floor: 2, top: 25, left: 319 }
+          { floor: 2, top: 0, left: 310 }
         ],
         zoomPoints: {
           topLeft: { top: -196, left: -354 },
@@ -968,7 +968,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 0, top: 144, left: 139, smaller: true, description: consulateTerms.serviceStairs },
           { floor: 0, top: -68, left: 113, smaller: true, description: consulateTerms.electricRoom },
           { floor: 0, top: 98, left: 139, description: consulateTerms.storageRoom },
-          { floor: 0, top: -17, left: 277, description: consulateTerms.archives },
+          { floor: 0, top: -24, left: 245, description: consulateTerms.archives },
           { floor: 0, top: 180, left: 245, description: consulateTerms.archivesCorridor },
           { floor: 1, top: -59, left: -237, description: consulateTerms.exitStairs },
           { floor: 1, top: 105, left: -276, description: consulateTerms.pressRoom },
@@ -977,12 +977,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 49, left: -105, description: consulateTerms.publicBathroom },
           { floor: 1, top: 167, left: -139, description: consulateTerms.antechamber },
           { floor: 1, top: 44, left: 9, description: consulateTerms.lobby },
-          { floor: 1, top: -60, left: 192, description: consulateTerms.eastCorridor },
-          { floor: 1, top: 50, left: 198, description: consulateTerms.tellers },
+          { floor: 1, top: -60, left: 192, description: consulateTerms.eastCorridor, hardToRead: true },
+          { floor: 1, top: 52, left: 138, description: consulateTerms.tellers, hardToRead: true },
           { floor: 1, top: 144, left: 139, smaller: true, description: consulateTerms.serviceStairs },
           { floor: 1, top: 184, left: 184, smaller: true, description: consulateTerms.serviceStairs },
-          { floor: 1, top: -9, left: 270, description: consulateTerms.visaOffice },
-          { floor: 1, top: 112, left: 352, description: consulateTerms.visaOffice },
+          { floor: 1, top: -9, left: 270, description: consulateTerms.visaOffice, hardToRead: true },
+          { floor: 1, top: 112, left: 352, description: consulateTerms.visaOffice, hardToRead: true },
           { floor: 1, top: -50, left: 10, description: consulateTerms.mainStairs },
           { floor: 1, top: 160, left: 430, description: consulateTerms.visaEntrance },
           { floor: 1, top: 298, left: 10, description: consulateTerms.frontDoor },
@@ -992,7 +992,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -48, left: 161, description: consulateTerms.copyRoom },
           { floor: 2, top: 39, left: -275, hardToRead: true, description: consulateTerms.cabinet },
           { floor: 2, top: -48, left: 279, hardToRead: true, description: consulateTerms.administrationOffice },
-          { floor: 2, top: 118, left: 279, hardToRead: true, description: consulateTerms.administrationOffice },
+          { floor: 2, top: 112, left: 279, hardToRead: true, description: consulateTerms.administrationOffice },
           { floor: 2, top: -50, left: 10, description: consulateTerms.mainStairs },
           { floor: 2, top: 29, left: 182, description: consulateTerms.breakRoom },
           { floor: 2, top: 118, left: 148, description: consulateTerms.frontOffice },
