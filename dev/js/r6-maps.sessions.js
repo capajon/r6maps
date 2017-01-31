@@ -1,12 +1,11 @@
 'use strict';
 
 var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) {
-
   var setup = function setup($dialog) {
     var html = '';
 
     html += '<h2>Shared Sessions</h2>';
-    html += '<label>Session name'
+    html += '<label>Session name';
     html += '<input type="text" placeholder=""></input>';
     html += '</label>';
     html += '<button>Creat/Join</button>';
@@ -25,7 +24,7 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
           }
         }
       });
-    }
+    };
   };
 
   return  {
