@@ -1,5 +1,9 @@
 Corel Auto-preserve
 
+/site/js/r6-maps*min*
+/site/css/main*css
+/site/css/about*css
+
 ###### SASS ######
 
 .sass-cache/
