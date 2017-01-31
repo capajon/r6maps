@@ -399,7 +399,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           frontAlley: 'Front-Einfahrt',
           buildingRoof: 'Gebäudedach'
         },
-        favelas: {
+        favela: {
           packagingRoom: 'Packraum',
           footballApartment: 'Fußball-<br/>Appartment',
           armoryRoom: 'Waffenraum',

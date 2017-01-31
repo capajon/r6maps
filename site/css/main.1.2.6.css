@@ -672,9 +672,9 @@ nav {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }
-        #select-map-grid ul li a.favelas div.image.thumb {
+        #select-map-grid ul li a.favela div.image.thumb {
           background-position: 0px -1390px; }
-        body[loaded-map="favelas"] #select-map-grid ul li a.favelas p {
+        body[loaded-map="favela"] #select-map-grid ul li a.favela p {
           background-color: #ffdb00;
           color: #000;
           text-shadow: none; }

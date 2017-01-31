@@ -90,7 +90,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         chalet: 'Chalet',
         club: 'Club House',
         consulate: 'Consulat',
-        favelas: 'Favelas',
+        favela: 'Favelas',
         hereford: 'Hereford',
         house: 'Maison',
         kanal: 'Canal',
@@ -294,7 +294,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           bedroomBalcony: 'Balcon de la<br/>chambre',
           snowmobiles: 'Montoneiges'
         },
-        favelas: {
+        favela: {
           packagingRoom: 'Salle de<br/>conditionement',
           footballApartment: 'Apartement de<br/>footballeur',
           armoryRoom: 'Armurerie',

@@ -80,7 +80,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         chalet: '별장',
         club: '클럽 하우스',
         consulate: '영사관',
-        favelas: '빈민가',
+        favela: '빈민가',
         hereford: '헤리퍼드 기지',
         house: '저택',
         kanal: '운하',
@@ -395,7 +395,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           frontAlley: '정면 골목',
           buildingRoof: '건물 지붕'
         },
-        favelas: {
+        favela: {
           packagingRoom: '포장실',
           footballApartment: '축구장<br/>아파트',
           armoryRoom: '무기고',

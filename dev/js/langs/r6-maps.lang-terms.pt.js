@@ -88,7 +88,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         chalet: 'Chalé',
         club: 'Club House',
         consulate: 'Consulado',
-        favelas: 'Favelas',
+        favela: 'Favelas',
         hereford: 'Hereford',
         house: 'Residência',
         kanal: 'Canal',
@@ -404,7 +404,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           frontAlley: 'Passagem<br/>Frontal',
           buildingRoof: 'Telhado do<br/>Prédio'
         },
-        favelas: {
+        favela: {
           packagingRoom: 'Sala dos<br/>Pacotes',
           footballApartment: 'Apartamento do<br/>Futebol',
           armoryRoom: 'Sala das<br/>Armas',

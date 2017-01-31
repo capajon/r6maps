@@ -13,7 +13,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
     chaletTerms = mapRoomTerms.chalet,
     clubTerms = mapRoomTerms.club,
     consulateTerms = mapRoomTerms.consulate,
-    favelasTerms = mapRoomTerms.favelas,
+    favelaTerms = mapRoomTerms.favela,
     herefordTerms = mapRoomTerms.hereford,
     houseTerms = mapRoomTerms.house,
     kanalTerms = mapRoomTerms.kanal,
@@ -1026,9 +1026,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 42, left: 177, description: consulateTerms.buildingRoof }
         ]
       },
-      favelas: {
-        name: mapNameTerms.favelas,
-        imgUrlPrefix: 'favelas',
+      favela: {
+        name: mapNameTerms.favela,
+        imgUrlPrefix: 'favela',
         objectives: [
           'bomb', 'hostage', 'secure'
         ],
@@ -1069,31 +1069,31 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         },
         cameras: [
           {
-            floor: 3, top: -295, left: -45, id: 1, location: favelasTerms.backStairs,
+            floor: 3, top: -295, left: -45, id: 1, location: favelaTerms.backStairs,
             los: [[{top: -187, left: -62 }, {top: -310, left: -62}, {top: -310, left: 31}]]
           },
           {
-            floor: 2, top: 299, left: -210, id: 2, location: favelasTerms.mainStairs,
+            floor: 2, top: 299, left: -210, id: 2, location: favelaTerms.mainStairs,
             los: [[{top: 153, left: -256}, {top: 312, left: -256}, {top: 312, left: -124}]]
           },
           {
-            floor: 1, top: -126, left: -69, id: 3, location: favelasTerms.laundryRoom,
+            floor: 1, top: -126, left: -69, id: 3, location: favelaTerms.laundryRoom,
             los: [[{top: -200, left: -86}, {top: -111, left: -86}, {top: -111, left: 50}], [{top: -201, left: 11}, {top: -285, left: 46}]]
           },
           {
-            floor: 1, top: 156, left: -246, id: 4, location: favelasTerms.stairHall,
+            floor: 1, top: 156, left: -246, id: 4, location: favelaTerms.stairHall,
             los: [[{top: 224, left: -256}, {top: -60, left: -266}], [{top: 167, left: -209}, {top: 181, left: -102}]]
           },
           {
-            outdoor: true, top: -384, left: -498, id: 5, location: favelasTerms.schoolAlley,
+            outdoor: true, top: -384, left: -498, id: 5, location: favelaTerms.schoolAlley,
             los: [[{top: 74, left: -600}, {top: -416, left: -521}, {top: -446, left: -453}]]
           },
           {
-            outdoor: true, top: 346, left: 18, id: 6, location: favelasTerms.street,
+            outdoor: true, top: 346, left: 18, id: 6, location: favelaTerms.street,
             los: [[{top: 434, left: -615}, {top: 408, left: 484}]]
           },
           {
-            outdoor: true, top: -525, left: 230, id: 7, location: favelasTerms.backAlley,
+            outdoor: true, top: -525, left: 230, id: 7, location: favelaTerms.backAlley,
             los: [[{top: -562, left: -89}, {top: -562, left: 248}, {top: -320, left: 401}]]
           }
         ],
@@ -1115,55 +1115,55 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 126, left: -99, rotate: 0, size: DRONE_SMALL }
         ],
         spawnPoints: [
-          { letter: spawnTerms.a, top: -162, left: 562, description: favelasTerms.rooftops },
-          { letter: spawnTerms.b, top: 464, left: -668, description: favelasTerms.market },
-          { letter: spawnTerms.c, top: -617, left: -469, description: favelasTerms.schoolAlley }
+          { letter: spawnTerms.a, top: -162, left: 562, description: favelaTerms.rooftops },
+          { letter: spawnTerms.b, top: 464, left: -668, description: favelaTerms.market },
+          { letter: spawnTerms.c, top: -617, left: -469, description: favelaTerms.schoolAlley }
         ],
         roomLabels: [
-          { floor: 3, top: -266, left: 109, description: favelasTerms.packagingRoom, veryHardToRead: true },
-          { floor: 2, top: -54, left: -142, description: favelasTerms.footballApartment },
-          { floor: 2, top: 112, left: -142, description: favelasTerms.footballApartment.removeBreakTags() },
-          { floor: 1, top: -178, left: -213, description: favelasTerms.armoryRoom },
-          { floor: 1, top: 210, left: -159, description: favelasTerms.auntsApartment, veryHardToRead: true },
-          { floor: 1, top: 173, left: -61, description: favelasTerms.auntsApartment, veryHardToRead: true },
-          { floor: 2, top: 190, left: -46, description: favelasTerms.auntsBedroom, veryHardToRead: true },
-          { floor: 2, top: -205, left: -191, description: favelasTerms.growRoom, veryHardToRead: true },
-          { floor: 1, top: -60, left: -136, description: favelasTerms.bikersApartment, hardToRead: true },
-          { floor: 1, top: 78, left: -162, description: favelasTerms.bikersApartment, veryHardToRead: true },
-          { floor: 2, top: -253, left: 95, description: favelasTerms.methLab, veryHardToRead: true },
-          { floor: 2, top: -69, left: -321, description: favelasTerms.footballBedroom },
-          { floor: 2, top: 85, left: -321, description: favelasTerms.footballOffice, hardToRead: true },
-          { floor: 1, top: 44, left: -340, description: favelasTerms.bikersBedroom },
-          { floor: 3, top: -266, left: -10, description: favelasTerms.backStairs, hardToRead: true },
-          { floor: 2, top: -250, left: -37, description: favelasTerms.backStairs, hardToRead: true },
-          { floor: 1, top: -250, left: -37, description: favelasTerms.backStairs, hardToRead: true },
-          { floor: 2, top: 279, left: -165, description: favelasTerms.auntsHall, hardToRead: true },
-          { floor: 2, top: 299, left: -63, description: favelasTerms.kidsRoom, hardToRead: true },
-          { floor: 2, top: 223, left: -233, smaller: true, description: favelasTerms.mainStairs, hardToRead: true },
-          { floor: 3, top: 223, left: -228, smaller: true, description: favelasTerms.mainStairs, hardToRead: true },
-          { floor: 1, top: 223, left: -236, smaller: true, description: favelasTerms.mainStairs, hardToRead: true },
-          { floor: 1, top: 86, left: -245, smaller: true, description: favelasTerms.stairHall },
-          { floor: 2, top: -167, left: -299, description: favelasTerms.roof, hardToRead: true },
-          { floor: 3, top: 33, left: -188, description: favelasTerms.roof },
-          { floor: 1, top: -155, left: -3, description: favelasTerms.laundryRoom, hardToRead: true },
-          { floor: 1, top: -241, left: -157, description: favelasTerms.vaultRoom },
-          { floor: 1, top: -63, left: -306, description: favelasTerms.bikersGarage, hardToRead: true },
-          { outdoor: true, top: -356, left: 524, description: favelasTerms.backAlley },
-          { outdoor: true, top: -487, left: 213, description: favelasTerms.backAlley },
-          { outdoor: true, top: -646, left: -157, description: favelasTerms.schoolAlley },
-          { outdoor: true, top: -147, left: -478, description: favelasTerms.footballPitch },
-          { floor: 1, top: 310, left: -417, description: favelasTerms.market },
-          { floor: 2, top: 310, left: -417, description: favelasTerms.market },
-          { outdoor: true, top: 232, left: 580, description: favelasTerms.street },
-          { outdoor: true, top: 394, left: 122, description: favelasTerms.street },
-          { outdoor: true, top: 103, left: 365, description: favelasTerms.rooftops, hardToRead: true },
-          { outdoor: true, top: 130, left: 79, description: favelasTerms.courtyard },
-          { floor: 1, top: -143, left: 213, description: favelasTerms.courtyard },
-          { floor: 2, top: -143, left: 213, description: favelasTerms.courtyard },
-          { outdoor: true, top: -330, left: -34, description: favelasTerms.accessAlley },
-          { floor: 1, top: 344, left: -90, description: favelasTerms.shop },
-          { floor: 3, top: 237, left: -412, description: favelasTerms.marketRooftops, hardToRead: true },
-          { floor: 3, top: 420, left: -412, description: favelasTerms.marketRooftops, hardToRead: true }
+          { floor: 3, top: -266, left: 109, description: favelaTerms.packagingRoom, veryHardToRead: true },
+          { floor: 2, top: -54, left: -142, description: favelaTerms.footballApartment },
+          { floor: 2, top: 112, left: -142, description: favelaTerms.footballApartment.removeBreakTags() },
+          { floor: 1, top: -178, left: -213, description: favelaTerms.armoryRoom },
+          { floor: 1, top: 210, left: -159, description: favelaTerms.auntsApartment, veryHardToRead: true },
+          { floor: 1, top: 173, left: -61, description: favelaTerms.auntsApartment, veryHardToRead: true },
+          { floor: 2, top: 190, left: -46, description: favelaTerms.auntsBedroom, veryHardToRead: true },
+          { floor: 2, top: -205, left: -191, description: favelaTerms.growRoom, veryHardToRead: true },
+          { floor: 1, top: -60, left: -136, description: favelaTerms.bikersApartment, hardToRead: true },
+          { floor: 1, top: 78, left: -162, description: favelaTerms.bikersApartment, veryHardToRead: true },
+          { floor: 2, top: -253, left: 95, description: favelaTerms.methLab, veryHardToRead: true },
+          { floor: 2, top: -69, left: -321, description: favelaTerms.footballBedroom },
+          { floor: 2, top: 85, left: -321, description: favelaTerms.footballOffice, hardToRead: true },
+          { floor: 1, top: 44, left: -340, description: favelaTerms.bikersBedroom },
+          { floor: 3, top: -266, left: -10, description: favelaTerms.backStairs, hardToRead: true },
+          { floor: 2, top: -250, left: -37, description: favelaTerms.backStairs, hardToRead: true },
+          { floor: 1, top: -250, left: -37, description: favelaTerms.backStairs, hardToRead: true },
+          { floor: 2, top: 279, left: -165, description: favelaTerms.auntsHall, hardToRead: true },
+          { floor: 2, top: 299, left: -63, description: favelaTerms.kidsRoom, hardToRead: true },
+          { floor: 2, top: 223, left: -233, smaller: true, description: favelaTerms.mainStairs, hardToRead: true },
+          { floor: 3, top: 223, left: -228, smaller: true, description: favelaTerms.mainStairs, hardToRead: true },
+          { floor: 1, top: 223, left: -236, smaller: true, description: favelaTerms.mainStairs, hardToRead: true },
+          { floor: 1, top: 86, left: -245, smaller: true, description: favelaTerms.stairHall },
+          { floor: 2, top: -167, left: -299, description: favelaTerms.roof, hardToRead: true },
+          { floor: 3, top: 33, left: -188, description: favelaTerms.roof },
+          { floor: 1, top: -155, left: -3, description: favelaTerms.laundryRoom, hardToRead: true },
+          { floor: 1, top: -241, left: -157, description: favelaTerms.vaultRoom },
+          { floor: 1, top: -63, left: -306, description: favelaTerms.bikersGarage, hardToRead: true },
+          { outdoor: true, top: -356, left: 524, description: favelaTerms.backAlley },
+          { outdoor: true, top: -487, left: 213, description: favelaTerms.backAlley },
+          { outdoor: true, top: -646, left: -157, description: favelaTerms.schoolAlley },
+          { outdoor: true, top: -147, left: -478, description: favelaTerms.footballPitch },
+          { floor: 1, top: 310, left: -417, description: favelaTerms.market },
+          { floor: 2, top: 310, left: -417, description: favelaTerms.market },
+          { outdoor: true, top: 232, left: 580, description: favelaTerms.street },
+          { outdoor: true, top: 394, left: 122, description: favelaTerms.street },
+          { outdoor: true, top: 103, left: 365, description: favelaTerms.rooftops, hardToRead: true },
+          { outdoor: true, top: 130, left: 79, description: favelaTerms.courtyard },
+          { floor: 1, top: -143, left: 213, description: favelaTerms.courtyard },
+          { floor: 2, top: -143, left: 213, description: favelaTerms.courtyard },
+          { outdoor: true, top: -330, left: -34, description: favelaTerms.accessAlley },
+          { floor: 1, top: 344, left: -90, description: favelaTerms.shop },
+          { floor: 3, top: 237, left: -412, description: favelaTerms.marketRooftops, hardToRead: true },
+          { floor: 3, top: 420, left: -412, description: favelaTerms.marketRooftops, hardToRead: true }
         ]
       },
       hereford: {

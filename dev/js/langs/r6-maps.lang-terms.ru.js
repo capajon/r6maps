@@ -95,7 +95,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         chalet: 'Шале',
         club: 'Клуб',
         consulate: 'Консульство',
-        favelas: 'Фавелы',
+        favela: 'Фавелы',
         hereford: 'База Херефорд',
         house: 'Дом',
         kanal: 'Канал',
@@ -410,7 +410,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           frontAlley: 'Аллея',
           buildingRoof: 'Крыша'
         },
-        favelas: {
+        favela: {
           packagingRoom: 'Комната для<br/>фасовки',
           footballApartment: 'Квартира<br/>футболиста',
           armoryRoom: 'Оружейная',
