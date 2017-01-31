@@ -1041,7 +1041,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         hostageObjectives: [
           { floor: 3, top: -159, left: 114 },
           { floor: 2, top: -207, left: -141 },
-          { floor: 2, top: 171, left: -138 },
+          { floor: 2, top: 204, left: -116 },
           { floor: 1, top: -12, left: -144 }
         ],
         bombObjectives: [
@@ -1049,7 +1049,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -217, left: 45, otherFloor: 'up', set: 1, letter: objectiveTerms.bombShortA },
           { floor: 2, top: -27, left: -262, set: 2, letter: objectiveTerms.bombShortB },
           { floor: 2, top: 78, left: -263, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 171, left: -99, otherFloor: 'down', set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 155, left: -96, otherFloor: 'down', set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: 270, left: -151, otherFloor: 'up', set: 3, letter: objectiveTerms.bombShortB },
           { floor: 1, top: -62, left: -190, set: 4, letter: objectiveTerms.bombShortA },
           { floor: 1, top: 83, left: -344, set: 4, letter: objectiveTerms.bombShortB }
@@ -1126,7 +1126,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -178, left: -213, description: favelaTerms.armoryRoom },
           { floor: 1, top: 210, left: -159, description: favelaTerms.auntsApartment, veryHardToRead: true },
           { floor: 1, top: 173, left: -61, description: favelaTerms.auntsApartment, veryHardToRead: true },
-          { floor: 2, top: 190, left: -46, description: favelaTerms.auntsBedroom, veryHardToRead: true },
+          { floor: 2, top: 190, left: -42, description: favelaTerms.auntsBedroom, veryHardToRead: true },
           { floor: 2, top: -205, left: -191, description: favelaTerms.growRoom, veryHardToRead: true },
           { floor: 1, top: -60, left: -136, description: favelaTerms.bikersApartment, hardToRead: true },
           { floor: 1, top: 78, left: -162, description: favelaTerms.bikersApartment, veryHardToRead: true },
