@@ -518,23 +518,23 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 0, top: 62, left: 286 },
           { floor: 1, top: -147, left: 412 },
           { floor: 2, top: -267, left: 415 },
-          { floor: 2, top: 244, left: -5 }
+          { floor: 2, top: 275, left: -30 }
         ],
         bombObjectives: [
-          { floor: 0, top: 220, left: 128, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: 100, left: 250, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: -403, left: 220, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: -254, left: 412, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 118, left: 98, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: 186, left: -82, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: -160, left: 376, set: 4, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: -18, left: 317, set: 4, letter: objectiveTerms.bombShortA }
+          { floor: 0, top: 220, left: 128, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: 100, left: 250, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -403, left: 220, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: -254, left: 412, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 118, left: 98, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 186, left: -82, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -160, left: 376, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -18, left: 317, set: 1, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
           { floor: 0, top: 252, left: 164 },
           { floor: 1, top: -5, left: 284 },
           { floor: 1, top: 188, left: 47 },
-          { floor: 2, top: 244, left: -54 }
+          { floor: 2, top: 214, left: -54 }
         ],
         zoomPoints: {
           topLeft: { top: -456, left: -113 },
@@ -1474,12 +1474,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 178, left: 288 }
         ],
         bombObjectives: [
-          { floor: 1, top: -52, left: -157, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 140, left: 59, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: -52, left: -157, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 140, left: 59, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 2, top: 63, left: 51, set: 2, letter: objectiveTerms.bombShortA },
           { floor: 2, top: 210, left: 240, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 3, top: 120, left: 429, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 3, top: -69, left: 240, set: 3, letter: objectiveTerms.bombShortB }
+          { floor: 3, top: 120, left: 429, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 3, top: -69, left: 240, set: 1, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
           { floor: 1, top: 89, left: 59 },
@@ -1787,22 +1787,23 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         hostageObjectives: [
           { floor: 0, top: -7, left: 208 },
-          { floor: 1, top: -38, left: 161 },
-          { floor: 2, top: 114, left: -96 }
+          { floor: 1, top: -84, left: 161 },
+          { floor: 2, top: 114, left: -96 },
+          { floor: 1, top: 3, left: -54 }
         ],
         bombObjectives: [
-          { floor: 0, top: -49, left: 163, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: 123, left: 89, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 0, top: -49, left: 163, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: 123, left: 89, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -17, left: -264, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: -17, left: -53, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 1, otherFloor: 'up', top: -311, left: 216, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 2, otherFloor: 'down', top: -311, left: 216, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: -3, left: -42, set: 4, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: 114, left: -51, set: 4, letter: objectiveTerms.bombShortA }
+          { floor: 1, top: -42, left: -54, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 1, otherFloor: 'up', top: -311, left: 216, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 2, otherFloor: 'down', top: -311, left: 216, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -3, left: -42, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 114, left: -51, set: 1, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
           { floor: 0, top: 166, left: 160 },
-          { floor: 1, top: -84, left: 161 },
+          { floor: 1, top: -38, left: 161 },
           { floor: 1, top: -61, left: -264 },
           { floor: 2, top: 99, left: 46 }
         ],
@@ -1889,7 +1890,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 13, left: -218, description: oregonTerms.diningHall },
           { floor: 1, top: 100, left: -260, description: oregonTerms.diningHallCorridor },
           { floor: 1, hardToRead: true, top: 154, left: -268, description: oregonTerms.showers },
-          { floor: 1, top: 40, left: -62, description: oregonTerms.kitchen },
+          { floor: 1, top: 40, left: -109, description: oregonTerms.kitchen },
           { floor: 1, top: 97, left: -62, description: oregonTerms.bathroom },
           { floor: 1, hardToRead: true, top: 213, left: -70, description: oregonTerms.dormStairs },
           { floor: 1, hardToRead: true, top: 6, left: 11, description: oregonTerms.pantry },
@@ -2270,14 +2271,14 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -24, left: -415 }
         ],
         bombObjectives: [
-          { floor: 4, top: 14, left: 141, set: 4, letter: objectiveTerms.bombShortA },
-          { floor: 4, top: -32, left: -6, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 4, top: 14, left: 141, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 4, top: -32, left: -6, set: 1, letter: objectiveTerms.bombShortB },
           { floor: 2, top: 11, left: -297, set: 2, letter: objectiveTerms.bombShortA },
           { floor: 2, top: 9, left: -101, set: 2, letter: objectiveTerms.bombShortB },
           { floor: 2, top: 93, left: 45, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 2, top: -86, left: 52, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: -95, left: -275, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 116, left: -259, set: 1, letter: objectiveTerms.bombShortB }
+          { floor: 1, top: -95, left: -275, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 116, left: -259, set: 4, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
             { floor: 3, top: -6, left: 31 },
