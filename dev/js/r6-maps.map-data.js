@@ -286,7 +286,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -17, left: 482 },
           { floor: 1, top: 95, left: 558 }
         ],
-        skylights: [],
+        skylights: [
+          { floor: 1, top: -319, left: 272, otherFloor: 'up' },
+          { floor: 2, top: -319, left: 272 },
+          { floor: 3, top: -319, left: 272 }
+        ],
         droneTunnels: [
           { floor: 1, top: -274, left: 137, rotate: 90, size: DRONE_MED },
           { floor: 1, top: 109, left: 704, rotate: 90, size: DRONE_MED },
@@ -314,7 +318,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -53, left: 249, description: bartlettTerms.eastStairs, hardToRead: true },
           { floor: 2, top: -53, left: 256, description: bartlettTerms.eastStairs, hardToRead: true },
           { floor: 1, top: -90, left: 401, description: bartlettTerms.bathroom },
-          { floor: 1, top: -304, left: 260, description: bartlettTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: -264, left: 265, description: bartlettTerms.diningRoom, hardToRead: true },
           { floor: 1, top: -247, left: 583, description: bartlettTerms.kitchen, hardToRead: true },
           { floor: 1, top: -254, left: 427, description: bartlettTerms.serviceRoom, hardToRead: true },
           { floor: 1, top: -34, left: 665, description: bartlettTerms.eastCorridor },
