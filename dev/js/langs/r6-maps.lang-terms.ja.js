@@ -5,7 +5,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
     terms = {
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  //R6MapsLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
