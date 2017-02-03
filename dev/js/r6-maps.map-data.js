@@ -1335,24 +1335,24 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { index: 3, top: -251, left: -382, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 2, top: -110, left: -188 },
-          { floor: 0, top: 55, left: -19 },
-          { floor: 1, top: 57, left: 137 },
-          { floor: 2, top: 61, left: 71 }
+          { floor: 2, top: -110, left: -178 },
+          { floor: 0, top: 55, left: -29 },
+          { floor: 1, top: 57, left: 147 },
+          { floor: 2, top: 61, left: 91 }
         ],
         bombObjectives: [
-          { floor: 0, top: -59, left: -189, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 0, top: -59, left: -189, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 0, top: 10, left: 75, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 0, top: -59, otherFloor: 'up', left: -153, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 0, top: 10, left: 75, set: 1, letter: objectiveTerms.bombShortB },
           { floor: 1, top: -66, otherFloor: 'down', left: -154, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: -110, left: -152, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 123, left: -105, set: 3, letter: objectiveTerms.bombShortB }
+          { floor: 2, top: -110, left: -142, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 123, left: -105, set: 1, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
           { floor: 0, top: 85, left: 75 },
           { floor: 1, top: -111, left: -154 },
           { floor: 2, top: 123, left: -144 },
-          { floor: 2, top: 61, left: 109 }
+          { floor: 2, top: 61, left: 129 }
         ],
         zoomPoints: {
           topLeft: { top: -180, left: -259 },
@@ -1625,21 +1625,23 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         hostageObjectives: [
           { floor: 1, top: 95, left: -416 },
-          { floor: 2, top: 48, left: -395 },
-          { floor: 3, top: -111, left: 142 }
+          { floor: 2, top: 48, left: -418 },
+          { floor: 3, top: -111, left: 163 },
+          { floor: 2, top: -101, left: 278 }
         ],
         bombObjectives: [
-          { floor: 2, top: 125, left: -460, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: -140, left: -422, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 125, left: -460, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -140, left: -422, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 2, top: -174, left: 139, set: 2, letter: objectiveTerms.bombShortA },
           { floor: 2, top: -174, left: 428, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 3, top: -111, left: 180, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 3, top: -27, left: 408, set: 3, letter: objectiveTerms.bombShortB }
+          { floor: 3, top: -111, left: 203, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 3, top: -27, left: 408, set: 1, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
           { floor: 1, top: 95, left: -381 },
           { floor: 2, top: 76, left: -460 },
-          { floor: 2, top: -101, left: 278 }
+          { floor: 2, top: -114, left: 328 },
+          { floor: 3, top: -76, left: 429 }
         ],
         zoomPoints: {
           topLeft: { top: -337, left: -507 },
@@ -1957,23 +1959,23 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         hostageObjectives: [
           { floor: 2, top: 30, left: 358, smaller: true },
-          { floor: 2, top: 14, left: -255, smaller: true },
-          { floor: 1, top: 24, left: 81, smaller: true },
-          { floor: 2, top: 30, left: -44, smaller: true }
+          { floor: 2, top: -12, left: -278, smaller: true },
+          { floor: 1, top: -47, left: 75, smaller: true },
+          { floor: 2, top: 30, left: -15, smaller: true }
         ],
         bombObjectives: [
-          { floor: 1, top: -20, left: 95, set: 1, letter: objectiveTerms.bombShortB, smaller: true },
-          { floor: 1, top: -29, left: -203, set: 1, letter: objectiveTerms.bombShortA, smaller: true },
-          { floor: 2, top: 31, left: 293, set: 3, letter: objectiveTerms.bombShortB, smaller: true },
-          { floor: 2, top: -28, left: 459, set: 3, letter: objectiveTerms.bombShortA, smaller: true },
-          { floor: 2, top: 30, left: 12, set: 2, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 1, top: -10, left: 103, set: 3, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 1, top: -33, left: -203, set: 3, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 2, top: 31, left: 293, set: 1, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 2, top: -28, left: 459, set: 1, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 2, top: 30, left: 14, set: 2, letter: objectiveTerms.bombShortA, smaller: true },
           { floor: 2, top: -45, left: -105, set: 2, letter: objectiveTerms.bombShortB, smaller: true }
         ],
         secureObjectives: [
-          { floor: 1, top: -20, left: 61, smaller: true },
+          { floor: 1, top: -10, left: 75, smaller: true },
           { floor: 2, top: -45, left: -140, smaller: true },
           { floor: 2, top: 31, left: 325, smaller: true },
-          { floor: 2, top: 30, left: -17, smaller: true }
+          { floor: 2, top: 30, left: -43, smaller: true }
         ],
         zoomPoints: {
           topLeft: { top: -218, left: -515 },
@@ -2036,16 +2038,16 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { letter: spawnTerms.c, top: 385, left: 342, description: planeTerms.spawnServiceEntrance }
         ],
         roomLabels: [
-          { floor: 2, top: -1, left: 325, description: planeTerms.meetingRoom },
-          { floor: 2, top: -20, left: 408, description: planeTerms.frontHallway },
-          { floor: 2, top: 9, left: 474, description: planeTerms.executiveOffice },
+          { floor: 2, top: -1, left: 325, description: planeTerms.meetingRoom, smaller: true },
+          { floor: 2, top: -20, left: 408, description: planeTerms.frontHallway, smaller: true },
+          { floor: 2, top: 9, left: 474, description: planeTerms.executiveOffice, smaller: true },
           { outdoor: true, top: -295, left: 389, description: planeTerms.mainEntrance },
-          { floor: 2, top: -37, left: 247, description: planeTerms.frontHallway.removeBreakTags()  },
+          { floor: 2, top: -37, left: 247, description: planeTerms.frontHallway.removeBreakTags(), smaller: true  },
           { floor: 2, top: -5, hardToRead: true, left: 240, smaller: true, description: planeTerms.frontStairs },
-          { floor: 2, top: 33, left: 233, description: planeTerms.pantry },
-          { floor: 2, top: 33, left: 158, description: planeTerms.kitchen },
+          { floor: 2, top: 33, left: 233, description: planeTerms.pantry, smaller: true },
+          { floor: 2, top: 33, left: 158, description: planeTerms.kitchen, smaller: true },
           { floor: 2, top: -32, left: 114, smaller: true, description: planeTerms.executiveHallway },
-          { floor: 2, top: -11, left: -15, description: planeTerms.executiveBedroom },
+          { floor: 2, top: -11, left: -15, description: planeTerms.executiveBedroom, smaller: true },
           { floor: 2, top: 40, left: 68, hardToRead: true, smaller: true, description: planeTerms.changeRoom },
           { floor: 2, top: -4, hardToRead: true, smaller: true, left: 84, description: planeTerms.laund },
           { outdoor: true, top: 162, left: 277, hardToRead: true, description: planeTerms.frontServiceEntrance },
@@ -2053,23 +2055,23 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, top: 221, left: -609, hardToRead: true, description: planeTerms.backServiceEntrance },
           { outdoor: true, top: -295, left: -367, description: planeTerms.reporterEntrance },
           { outdoor: true , top: -295, left: -124, description: planeTerms.leftWing },
-          { floor: 2, top: -3, left: -109, description: planeTerms.staffSection },
+          { floor: 2, top: -3, left: -109, description: planeTerms.staffSection, smaller: true },
           { floor: 2, top: 0, left: -184, smaller: true, description: planeTerms.securityRoom },
-          { floor: 2, top: -44, left: -270, description: planeTerms.pressSectionA },
-          { floor: 2, top: -44, left: -375, description: planeTerms.pressSectionB },
+          { floor: 2, top: -44, left: -270, description: planeTerms.pressSectionA, smaller: true },
+          { floor: 2, top: -44, left: -375, description: planeTerms.pressSectionB, smaller: true },
           { floor: 2, top: 2, hardToRead: true, smaller: true, left: -408, description: planeTerms.backStairs },
           { floor: 1, top: 2, hardToRead: true, smaller: true, left: -400, description: planeTerms.backStairs },
           { floor: 2, top: 2, left: -337, smaller: true, description: planeTerms.pressBathroom },
           { floor: 1, top: 34, left: -202, description: planeTerms.cargoHold },
           { floor: 1, top: -13, left: -48, smaller: true, description: planeTerms.serviceCorridor },
-          { floor: 1, top: 18, left: -48, description: planeTerms.storage },
-          { floor: 1, top: -40, left: 86, description: planeTerms.luggageHold },
+          { floor: 1, top: 16, left: -48, description: planeTerms.storage, smaller: true },
+          { floor: 1, top: -3, left: 38, description: planeTerms.luggageHold, smaller: true, hardToRead: true },
           { floor: 1, top: 25, left: 174, smaller: true, description: planeTerms.firstAidStation },
           { floor: 1, top: 20, left: 262, smaller: true, description: planeTerms.cargoFrontEntrance },
           { floor: 1, top: -6, left: 253, smaller: true, description: planeTerms.frontStairs },
           { floor: 2, top: -5, left: 160, smaller: true, description: planeTerms.cockpitStairs },
           { floor: 3, top: -5, left: 175, smaller: true, description: planeTerms.cockpitStairs },
-          { floor: 3, top: 20, left: 241, hardToRead: true, description: planeTerms.cabinStaff },
+          { floor: 3, top: 20, left: 241, hardToRead: true, description: planeTerms.cabinStaff, smaller: true },
           { floor: 3, top: 3, left: 315, description: planeTerms.radioCabin },
           { floor: 3, top: 3, left: 402, description: planeTerms.cabin },
           { floor: 3, top: 99, left: 358, hardToRead: true, description: planeTerms.caterer },

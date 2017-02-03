@@ -715,7 +715,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           cargoHold: 'Грузовой отсек',
           serviceCorridor: 'Служебный коридор',
           storage: 'Кладовая',
-          luggageHold: 'Багажный отсек',
+          luggageHold: 'Багажный<br/>отсек',
           firstAidStation: 'Пункт первой помощи',
           cargoFrontEntrance: 'Грузовой отсек<br/>Вход',
           cockpitStairs: 'Кабина Лестница',

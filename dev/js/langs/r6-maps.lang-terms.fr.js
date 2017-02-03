@@ -709,7 +709,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           cargoHold: 'Soute',
           serviceCorridor: 'Couloir de service',
           storage: 'Stockage',
-          luggageHold: 'Soute à bagages',
+          luggageHold: 'Soute à<br/>bagages',
           firstAidStation: 'Poste de secours',
           cargoFrontEntrance: 'Entrée avant<br/>de l\'avion',
           cockpitStairs: 'Escalier<br/>du cockpit',

@@ -736,7 +736,7 @@ var R6MapsLangTerms = (function(undefined) {
           cargoHold: 'Cargo Hold',
           serviceCorridor: 'Service Corridor',
           storage: 'Storage',
-          luggageHold: 'Luggage Hold',
+          luggageHold: 'Luggage<br/>Hold',
           firstAidStation: 'First Aid Station',
           cargoFrontEntrance: 'Cargo Front<br/>Entrance',
           cockpitStairs: 'Cockpit Stairs',

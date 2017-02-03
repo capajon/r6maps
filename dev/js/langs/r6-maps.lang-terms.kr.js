@@ -700,7 +700,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           cargoHold: '화물 적재실',
           serviceCorridor: '서비스 통로',
           storage: '저장실',
-          luggageHold: '수화물 적재실',
+          luggageHold: '수화물<br/>적재실',
           firstAidStation: '응급 치료실',
           cargoFrontEntrance: '화무실<br/>정문',
           cockpitStairs: '조종실 계단',
