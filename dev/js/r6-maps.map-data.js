@@ -1000,7 +1000,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -50, left: 10, description: consulateTerms.mainStairs },
           { floor: 2, top: 29, left: 182, description: consulateTerms.breakRoom },
           { floor: 2, top: 118, left: 148, description: consulateTerms.frontOffice },
-          { floor: 2, top: 106, left: 33, hardToRead: true, description: consulateTerms.meetingRoom, hardToRead: true },
+          { floor: 2, top: 106, left: 33, hardToRead: true, description: consulateTerms.meetingRoom },
           { floor: 2, top: 28, left: 11, description: consulateTerms.hallway },
           { floor: 2, top: 27, left: -125, description: consulateTerms.consulFrontDesk },
           { floor: 2, top: -59, left: -149, description: consulateTerms.privateBathroom },
