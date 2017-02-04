@@ -14,7 +14,6 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         languageHeader: '言語',
         optionsHeader: '設定',
         labelLosOpacity: 'カメラ視界の透明さ',
-        linkAbout: 'about.html',
         labelPercent: '{int}%',
         labelLosDefault: '(Default)',
         labelLos105: '(あれ?)',
