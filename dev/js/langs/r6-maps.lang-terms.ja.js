@@ -88,7 +88,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         chalet: '山荘',
         club: 'クラブハウス',
         consulate: '領事館',
-        favelas: 'ファべーラ',
+        favela: 'ファべーラ',
         hereford: 'ヘレフォード基地',
         house: '民家',
         kanal: '運河',
@@ -405,7 +405,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           frontAlley: '正面路地',
           buildingRoof: '建物屋上'
         },
-        favelas: {
+        favela: {
           packagingRoom: '包装室',
           footballApartment: 'フットボール<br/>アパート',
           armoryRoom: '武器庫',
