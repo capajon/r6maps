@@ -944,8 +944,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, top: -239, left: 445, description: coastlineTerms.garageRoof, hardToRead: true },
           { outdoor: true, top: 573, left: -211, description: coastlineTerms.southPromenade },
           { outdoor: true, top: 397, left: 43, description: coastlineTerms.southPromenade },
-          { floor:3 , top: 111, left: -121, description: coastlineTerms.rooftop, hardToRead: true },
-          { floor:3 , top: 78, left: 221, description: coastlineTerms.rooftop, hardToRead: true }
+          { floor: 3 , top: 111, left: -121, description: coastlineTerms.rooftop, hardToRead: true },
+          { floor: 3 , top: 78, left: 221, description: coastlineTerms.rooftop, hardToRead: true }
         ]
       },
       consulate: {
