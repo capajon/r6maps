@@ -226,6 +226,22 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
+  var getLaddersHtml = function getLaddersHtml(ladders) {
+    var html = '',
+      positionStyle,
+      classes;
+
+    if (ladders) {
+      ladders.forEach(function(ladder) {
+        positionStyle = getPositionStyle(ladder);
+        classes = 'ladder ';
+        classes += getCommonClasses(ladder);
+        html += '<div style="' + positionStyle + '" class="' + classes + '"><span class="other-floor"></span></div>';
+      });
+    }
+    return html;
+  };
+
   var getLegendHtml = function getLegendHtml() {
     var html = '',
       legendTerms = langTerms.legend,
@@ -242,7 +258,8 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
         { class: CSS_ABBREV + 'security-camera', description: legendTerms.securityCameras },
         { class: CSS_ABBREV + 'skylight', description: legendTerms.skylights },
         { class: CSS_ABBREV + 'down-and-up', description: legendTerms.onFloorAboveOrBelow },
-        { class: CSS_ABBREV + 'camera-line-of-sight', description: legendTerms.cameraLineOfSight }
+        { class: CSS_ABBREV + 'camera-line-of-sight', description: legendTerms.cameraLineOfSight },
+        { class: CSS_ABBREV + 'ladder', description: legendTerms.ladders }
       ];
 
     html += '<ul id="legend">';
@@ -374,6 +391,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     html += getDroneTunnelsHtml(mapData.droneTunnels);
     html += getSpawnPointsHtml(mapData.spawnPoints);
     html += getCompassHtml(mapData.compassPoints);
+    html += getLaddersHtml(mapData.ladders);
     html += getLegendHtml();
 
     $mapElements.html(html);

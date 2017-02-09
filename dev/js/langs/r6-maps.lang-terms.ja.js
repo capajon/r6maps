@@ -79,7 +79,8 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         securityCameras: '監視カメラ',
         skylights: '天窓',
         onFloorAboveOrBelow: '上か下の階にある',
-        cameraLineOfSight: 'カメラの視界'
+        cameraLineOfSight: 'カメラの視界',
+        ladders: 'はしご'
       },
       mapNames: {
         bank: '銀行',

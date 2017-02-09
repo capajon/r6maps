@@ -1,4 +1,4 @@
-$legend-number-items: 11;
+$legend-number-items: 13;
 $legend-number-rows: ($legend-number-items  + ($legend-number-items % 2))/2;
 
 $legend-icon-height: 35px;
@@ -96,6 +96,10 @@ $legend-item-smaller-height: $legend-item-height - $legend-item-smaller-height-d
 
     &.legend-camera-line-of-sight {
       @include legend-smaller(12);
+    }
+
+    &.legend-ladder {
+      @include legend-smaller(13);
     }
 
   }

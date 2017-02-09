@@ -81,7 +81,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         securityCameras: 'Des caméras de sécurité',
         skylights: 'Puits de lumière',
         onFloorAboveOrBelow: 'A l\'étage au-dessus ou au-dessous',
-        cameraLineOfSight: 'Ligne de mire de la caméra'
+        cameraLineOfSight: 'Ligne de mire de la caméra',
+        ladders: 'Échelles'
       },
       mapNames: {
         bank: 'Banque',

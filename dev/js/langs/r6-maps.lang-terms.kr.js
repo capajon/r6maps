@@ -71,7 +71,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         securityCameras: '감시카메라',
         skylights: '지붕창',
         onFloorAboveOrBelow: '같은 층에 없을 수 있음',
-        cameraLineOfSight: '카메라 시야'
+        cameraLineOfSight: '카메라 시야',
+        ladders: '사다리'
       },
       mapNames: {
         bank: '은행',

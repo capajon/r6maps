@@ -95,7 +95,8 @@ var R6MapsLangTerms = (function(undefined) {
         securityCameras: 'Security cameras',
         skylights: 'Skylights',
         onFloorAboveOrBelow: 'On floor above or below',
-        cameraLineOfSight: 'Camera line of sight'
+        cameraLineOfSight: 'Camera line of sight',
+        ladders: 'Ladders'
       },
       spawnPoints: {
         a: 'A',

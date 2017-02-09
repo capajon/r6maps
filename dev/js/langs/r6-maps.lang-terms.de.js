@@ -77,7 +77,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         securityCameras: 'Überwachungskamera',
         skylights: 'Oberlicht',
         onFloorAboveOrBelow: 'Im Stockwerk darüber/darunter',
-        cameraLineOfSight: 'Kamerasichtlinie'
+        cameraLineOfSight: 'Kamerasichtlinie',
+        ladders: 'Leitern'
       },
       mapNames: {
         bank: 'Bank',

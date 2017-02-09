@@ -428,6 +428,29 @@
       }
     }
 
+    .ladder {
+      @include icon-size($ladder-width, $ladder-height);
+      background: url($img-icons-location + 'ladder@2x.png');
+      background-size: $ladder-width, $ladder-height;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: $z-ladder;
+
+      &.other-floor {
+        &.up {
+          span.other-floor {
+            @include other-floor-icon ($ladder-width, $ladder-height, 'up', $z-ladder, 0, -2px);
+          }
+        }
+
+        &.down {
+          span.other-floor {
+            @include other-floor-icon ($ladder-width, $ladder-height, 'down', $z-ladder, 0, -2px);
+          }
+        }
+      }
+    }
+
     .objective {
       @include icon-size($objective-width, $objective-height);
       border-radius: 5px;

@@ -79,7 +79,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         securityCameras: 'Камеры наблюдения',
         skylights: 'Застеклённая крыша',
         onFloorAboveOrBelow: 'На этаж выше/ниже',
-        cameraLineOfSight: 'Поле зрения камеры'
+        cameraLineOfSight: 'Поле зрения камеры',
+        ladders: 'Стремянки'
       },
       spawnPoints: {
         a: 'A',

@@ -58,8 +58,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -100, left: 169, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 1, top: 160, left: 97, set: 2, letter: objectiveTerms.bombShortA },
           { floor: 1, top: 100, left: 345, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: -52, left: -13, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: -151, left: 138, set: 1, letter: objectiveTerms.bombShortB }
+          { floor: 2, top: -52, left: -13, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -151, left: 138, set: 1, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
           { floor: 0, top: 10, left: -67 },
@@ -74,6 +74,14 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 316, left: 741
         },
+        ladders: [
+          { floor: 1, top: -440, left: 554, otherFloor: 'down' },
+          { floor: 0, top: -440, left: 554, otherFloor: 'up' },
+          { floor: 1, top: -415, left: -711, otherFloor: 'up' },
+          { floor: 2, top: -415, left: -711, otherFloor: 'down' },
+          { floor: 1, top: 542, left: 588, otherFloor: 'up' },
+          { floor: 2, top: 542, left: 588, otherFloor: 'down' }
+        ],
         cameras: [
           { floor: 1, otherFloor: 'up', top: -157, left: -392, id: 1, location: bankTerms.lobby },
           {
@@ -547,6 +555,18 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 494, left: 560
         },
+        ladders: [
+          { floor: 1, top: 69, left: -166, otherFloor: 'up' },
+          { floor: 2, top: 69, left: -166, otherFloor: 'down' },
+          { floor: 1, top: 6, left: 64, otherFloor: 'up' },
+          { floor: 2, top: 6, left: 64, otherFloor: 'down' },
+          { floor: 1, top: 319, left: 344, otherFloor: 'up' },
+          { floor: 2, top: 319, left: 344, otherFloor: 'down' },
+          { floor: 1, top: 14, left: 440, otherFloor: 'up' },
+          { floor: 2, top: 14, left: 440, otherFloor: 'down' },
+          { floor: 1, top: -91, left: -647, otherFloor: 'up' },
+          { floor: 2, top: -91, left: -647, otherFloor: 'down' }
+        ],
         cameras: [
           { floor: 1, otherFloor: 'up', top: -114, left: 198, id: 1, location: chaletTerms.bedroomHallway },
           {
@@ -681,8 +701,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -94, left: 211 }
         ],
         bombObjectives: [
-          { floor: 0, top: -244, left: 20, set: 4, letter: objectiveTerms.bombShortA },
-          { floor: 0, top: -128, left: 94, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: -244, left: 20, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: -218, left: 110, set: 4, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -29, left: 18, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -89, left: 198, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 2, top: -58, left: 25, set: 1, letter: objectiveTerms.bombShortA },
@@ -691,7 +711,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 52, left: 243, set: 2, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
-          { floor: 0, top: -244, left: 97 },
+          { floor: 0, top: -128, left: 94 },
           { floor: 1, top: -29, left: -38 },
           { floor: 1, top: 170, left: 277 },
           { floor: 2, top: -109, left: 25 }
@@ -703,6 +723,16 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: -297, left: 403
         },
+        ladders: [
+          { floor: 1, top: 224, left: 235, otherFloor: 'down' },
+          { floor: 0, top: 224, left: 235, otherFloor: 'up' },
+          { floor: 1, top: 254, left: 189, otherFloor: 'up' },
+          { floor: 2, top: 254, left: 189, otherFloor: 'down' },
+          { floor: 1, top: -191, left: 223, otherFloor: 'up' },
+          { floor: 2, top: -191, left: 223, otherFloor: 'down' },
+          { floor: 1, top: -577, left: 335, otherFloor: 'up' },
+          { floor: 2, top: -577, left: 335, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 2, top: -191, left: 3, id: 1, location: clubTerms.bedroomHallway,
@@ -763,7 +793,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { letter: spawnTerms.a, top: 634, left: 144, description: clubTerms.spawnMainEntrance },
           { letter: spawnTerms.b, top: 32, left: -813, description: clubTerms.spawnShippingDocks },
           { letter: spawnTerms.c, top: 239, left: 798, description: clubTerms.spawnWarehouse },
-          { letter: spawnTerms.d, top: -573, left: 348, description: clubTerms.spawnConstructionSite }
+          { letter: spawnTerms.d, top: -675, left: 348, description: clubTerms.spawnConstructionSite }
         ],
         roomLabels: [
           { outside: true, description: clubTerms.constructionSite, top: -528, left: 123 },
@@ -775,10 +805,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outside: true, description: clubTerms.mainGate, top: 485, left: 3 },
           { outside: true, description: clubTerms.parking, top: 160, left: -14 },
           { outside: true, description: clubTerms.kennels, top: 125, left: 392 },
-          { floor: 1, description: clubTerms.trash, top: -205, left: 205 },
-          { floor: 2, description: clubTerms.trash, top: -205, left: 205 },
-          { floor: 3, description: clubTerms.trash, top: -205, left: 205 },
-          { floor: 2, description: clubTerms.trash, top: -205, left: 205 },
+          { floor: 1, description: clubTerms.trash, top: -212, left: 205 },
+          { floor: 2, description: clubTerms.trash, top: -212, left: 205 },
+          { floor: 3, description: clubTerms.trash, top: -212, left: 205 },
           { floor: 3, description: clubTerms.centralSubroof, top: 12, left: 119 },
           { floor: 2, description: clubTerms.centralSubroof, top: 12, left: 119 },
           { floor: 3, description: clubTerms.easternRoof, top: 15, left: 210 },
@@ -829,7 +858,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         name: mapNameTerms.coastline,
         imgUrlPrefix: 'coastline',
         objectives: [
-          'bomb'
+          'bomb', 'hostage', 'secure'
         ],
         floors: [
           { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
@@ -1312,6 +1341,14 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 356, left: 497
         },
+        ladders: [
+          { floor: 1, top: 434, left: 605, otherFloor: 'up' },
+          { floor: 2, top: 434, left: 605, otherFloor: 'down' },
+          { floor: 1, top: 444, left: -44, otherFloor: 'up' },
+          { floor: 2, top: 444, left: -44, otherFloor: 'down' },
+          { floor: 1, top: 346, left: -171, otherFloor: 'down' },
+          { floor: 0, top: 346, left: -171, otherFloor: 'up' }
+        ],
         cameras: [
           {
             floor: 3, top: 205, left: -12, id: 1, location: herefordTerms.rooftop,
@@ -1461,6 +1498,16 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 380, left: 397
         },
+        ladders: [
+          { floor: 1, top: 476, left: 33, otherFloor: 'up' },
+          { floor: 2, top: 476, left: 33, otherFloor: 'down' },
+          { floor: 1, top: 117, left: -342, otherFloor: 'up' },
+          { floor: 2, top: 117, left: -342, otherFloor: 'down' },
+          { floor: 1, top: -486, left: -364, otherFloor: 'up' },
+          { floor: 2, top: -486, left: -364, otherFloor: 'down' },
+          { floor: 1, top: 61, left: 421, otherFloor: 'up' },
+          { floor: 2, top: 61, left: 421, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 2, top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop,
@@ -1598,6 +1645,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 393, left: 295
         },
+        ladders: [
+          { floor: 1, top: 158, left: -486, otherFloor: 'up' },
+          { floor: 2, top: 158, left: -486, otherFloor: 'down' },
+          { floor: 1, top: 710, left: 389, otherFloor: 'up' },
+          { floor: 2, top: 710, left: 389, otherFloor: 'down' }
+        ],
         cameras: [
           { floor: 2, otherFloor: 'up', top: -183, left: 391, id: 1, location: kafeTerms.cocktailLounge },
           {
@@ -1750,6 +1803,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 168, left: 515
         },
+        ladders: [
+          { floor: 1, top: 269, left: 317, otherFloor: 'up' },
+          { floor: 2, top: 269, left: 317, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 3, top: 27, left: 253, id: 1, location: kanalTerms.controlRoomHallway,
@@ -1903,7 +1960,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -17, left: -264, set: 2, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -42, left: -54, set: 2, letter: objectiveTerms.bombShortB },
           { floor: 1, otherFloor: 'up', top: -311, left: 216, set: 4, letter: objectiveTerms.bombShortA },
-          { floor: 2, otherFloor: 'down', top: -311, left: 216, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 2, otherFloor: 'down', top: -291, left: 225, set: 4, letter: objectiveTerms.bombShortB },
           { floor: 2, top: -3, left: -42, set: 1, letter: objectiveTerms.bombShortB },
           { floor: 2, top: 114, left: -51, set: 1, letter: objectiveTerms.bombShortA }
         ],
@@ -1920,6 +1977,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 288, left: 503
         },
+        ladders: [
+          { floor: 1, top: -5, left: 130, otherFloor: 'up' },
+          { floor: 2, top: -5, left: 130, otherFloor: 'down' },
+          { floor: 2, top: -324, left: 191, otherFloor: 'up' },
+          { floor: 3, top: -324, left: 191, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 2, top: 70, left: 221, id: 1, location: oregonTerms.armoryCorridor,
@@ -2084,6 +2147,32 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 97, left: 418
         },
+        ladders: [
+          { floor: 2, top: -33, left: -186, otherFloor: 'up' },
+          { floor: 3, top: -33, left: -186, otherFloor: 'down' },
+          { floor: 2, top: -4, left: -373, otherFloor: 'up' },
+          { floor: 3, top: -4, left: -373, otherFloor: 'down' },
+          { floor: 1, top: -166, left: -232, otherFloor: 'up' },
+          { floor: 2, top: -166, left: -232, otherFloor: 'down' },
+          { floor: 1, top: -127, left: -330, otherFloor: 'up' },
+          { floor: 2, top: -127, left: -330, otherFloor: 'down' },
+          { floor: 1, top: -323, left: -304, otherFloor: 'up' },
+          { floor: 2, top: -323, left: -304, otherFloor: 'down' },
+          { floor: 1, top: -152, left: 248, otherFloor: 'up' },
+          { floor: 2, top: -152, left: 248, otherFloor: 'down' },
+          { floor: 1, top: -296, left: 145, otherFloor: 'up' },
+          { floor: 2, top: -296, left: 145, otherFloor: 'down' },
+          { floor: 1, top: 136, left: 329, otherFloor: 'up' },
+          { floor: 2, top: 136, left: 329, otherFloor: 'down' },
+          { floor: 1, top: 207, left: 335, otherFloor: 'up' },
+          { floor: 2, top: 207, left: 335 },
+          { floor: 3, top: 207, left: 335, otherFloor: 'down' },
+          { floor: 2, top: 156, left: -470, otherFloor: 'up' },
+          { floor: 3, top: 156, left: -470 },
+          { floor: 4, top: 156, left: -470, otherFloor: 'down' },
+          { floor: 1, top: 218, left: -497, otherFloor: 'up' },
+          { floor: 2, top: 218, left: -497, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 3, top: -14, left: 248, id: 1, location: planeTerms.cabinStaff,
@@ -2399,6 +2488,18 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 331, left: 220
         },
+        ladders: [
+          { floor: 3, top: -11, left: 232, otherFloor: 'up' },
+          { floor: 4, top: -11, left: 232, otherFloor: 'down' },
+          { floor: 1, top: -109, left: -239, otherFloor: 'up' },
+          { floor: 2, top: -109, left: -239, otherFloor: 'down' },
+          { floor: 3, top: 116, left: -206, otherFloor: 'up' },
+          { floor: 4, top: 116, left: -206, otherFloor: 'down' },
+          { floor: 3, top: 116, left: 331, otherFloor: 'up' },
+          { floor: 4, top: 116, left: 331, otherFloor: 'down' },
+          { floor: 3, top: -93, left: 331, otherFloor: 'up' },
+          { floor: 4, top: -93, left: 331, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 4, top: 87, left: -134, id: 1, location: yachtTerms.helipadEntrance,
@@ -2569,6 +2670,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         },
         compassPoints: {
         },
+        ladders: [
+        ],
         cameras: [],
         ceilingHatches: [],
         skylights: [],

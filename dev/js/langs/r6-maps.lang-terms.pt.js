@@ -72,7 +72,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         securityCameras: 'Câmeras de segurança',
         skylights: 'Clarabóias',
         onFloorAboveOrBelow: 'No piso acima ou abaixo',
-        cameraLineOfSight: 'Linha de visão da câmera'
+        cameraLineOfSight: 'Linha de visão da câmera',
+        ladders: 'Escadas'
       },
       spawnPoints: {
         a: 'A',

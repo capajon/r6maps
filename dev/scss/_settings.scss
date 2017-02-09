@@ -40,6 +40,8 @@ $drone-border-width: 2px;
 $spawn-point-width: 66px;
 $spawn-point-padding: 4px;
 $spawn-point-border: 2px;
+$ladder-width: 18px;
+$ladder-height: 27px;
 
 /* COLORS */
 $r6-yellow: #ffdb00;
@@ -70,6 +72,7 @@ $z-compass: 1014;
 $z-legend: 1015;
 $z-ceiling-hatch: 1020;
 $z-skylight: 1025;
+$z-ladder: 1030;
 $z-objective: 1150;
 $z-objective-hostage: 1153;
 $z-objective-bomb: 1151;
