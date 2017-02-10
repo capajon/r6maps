@@ -907,7 +907,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 74, left: -178 },
           { floor: 1, top: 315, left: -192 },
           { floor: 1, top: 274, left: 105 },
-          { floor: 1, top: 77, left: 191 }
+          { floor: 1, top: 77, left: 191 },
+          { floor: 2, top: -72, left: 286 }
         ],
         skylights: [],
         droneTunnels: [
@@ -951,7 +952,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 292, left: 44, description: coastlineTerms.southHallway, hardToRead: true },
           { floor: 2, top: 301, left: -121, description: coastlineTerms.aquarium, hardToRead: true },
           { floor: 2, top: -52, left: 185, description: coastlineTerms.hallOfFame, hardToRead: true },
-          { floor: 2, top: -52, left: 285, description: coastlineTerms.bathroom, hardToRead: true },
+          { floor: 2, top: -36, left: 285, description: coastlineTerms.bathroom, hardToRead: true },
           { floor: 2, top: 27, left: 212, description: coastlineTerms.penthouse, hardToRead: true },
           { floor: 2, top: 212, left: 230, description: coastlineTerms.theater, hardToRead: true },
           { floor: 2, top: 1, left: -271, description: coastlineTerms.hookahDeck, hardToRead: true },
