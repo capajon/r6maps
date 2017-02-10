@@ -25,7 +25,10 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
 
     for (var columnCount = MIN_COLUMN_NUM; columnCount <= MAX_COLUMN_NUM; columnCount++) {
       numThumbsLastRow = (numThumbs % columnCount);
-      if (columnCount - numThumbsLastRow < (numThumbsLastRow * 2)) {
+      if (
+          ((numThumbsLastRow * 2) >= columnCount) ||
+          ((columnCount - numThumbsLastRow) < 3 )
+        ) {
         result.push(columnCount);
       }
     }

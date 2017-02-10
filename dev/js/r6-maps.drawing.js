@@ -143,15 +143,17 @@ var R6MapsDrawing = (function($, window, document, undefined) {
     };
     refreshPings();
 
+    $pingMarkers.addClass('highlight');
     $pingMarkerAccents.addClass('highlight');
     $pingMarkersVertical.addClass('highlight');
     $pingMarkersHorizontal.addClass('highlight');
 
     setTimeout(function() {
+      $pingMarkers.removeClass('highlight');
       $pingMarkerAccents.removeClass('highlight');
       $pingMarkersVertical.removeClass('highlight');
       $pingMarkersHorizontal.removeClass('highlight');
-    }, 1);
+    }, 100);
   };
 
   var populateStartingMarkers = function populateStartingMarkers($drawingMarkerWrappers, SVG_DIM) {
