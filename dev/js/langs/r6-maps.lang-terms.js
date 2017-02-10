@@ -63,7 +63,8 @@ var R6MapsLangTerms = (function(undefined) {
         ja: '日本語',
         kr: '한국어',
         pt: 'Português',
-        ru: 'Русский'
+        ru: 'Русский',
+        zh_cn: '简体中文'
       },
       floorNames: {
         basement: { full: 'Basement', short: 'B' },

@@ -9,6 +9,10 @@ svg.drawing-markers {
       stroke: #fff;
     }
 
+    &.highlight {
+      pointer-events: none;
+    }
+
     &.accent {
       fill: $panel-marker-faded;
       transition: fill 0.6s linear;
