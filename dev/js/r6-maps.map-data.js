@@ -405,6 +405,12 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 252, left: 387
         },
+        ladders: [
+          { floor: 1, top: -128, left: -767, otherFloor: 'up' },
+          { floor: 2, top: -128, left: -767, otherFloor: 'down' },
+          { floor: 1, top: -505, left: -52, otherFloor: 'up' },
+          { floor: 2, top: -505, left: -52, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 2, top: -92, left: 326, id: 1, location: borderTerms.eastStairs,
@@ -473,7 +479,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -56, left: 327, description: borderTerms.eastStairs, hardToRead: true },
           { floor: 1, top: -230, left: -220, description: borderTerms.exitHallway },
           { floor: 1, top: -343, left: -176, description: borderTerms.ventilationRoom },
-          { floor: 1, top: -73, left: -247, description: borderTerms.supplyRoom },
+          { floor: 1, top: -57, left: -247, description: borderTerms.supplyRoom },
           { floor: 1, top: -10, left: -250, description: borderTerms.supplyCorridor },
           { floor: 1, top: 46, left: -249, description: borderTerms.detention },
           { floor: 1, top: -105, left: 65, description: borderTerms.mainLobby },
@@ -499,7 +505,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, top: 200, left: 264, description: borderTerms.pedestrianCustoms },
           { outdoor: true, top: 257, left: -89, description: borderTerms.pedestrianCustoms },
           { outdoor: true, top: 442, left: 74, description: borderTerms.valley },
-          { outdoor: true, top: 317, left: 295, description: borderTerms.watchTower },
+          { outdoor: true, top: 317, left: 293, description: borderTerms.watchTower },
           { outdoor: true, top: -156, left: 366, description: borderTerms.eastAlley },
           { outdoor: true, top: -12, left: -350, description: borderTerms.parkingLotAlley },
           { outdoor: true, top: -311, left: -304, description: borderTerms.parkingLotAlley },
@@ -1201,6 +1207,16 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         compassPoints: {
           top: 280, left: 330
         },
+        ladders: [
+          { floor: 1, top: 476, left: -161, otherFloor: 'up' },
+          { floor: 2, top: 476, left: -161, otherFloor: 'down' },
+          { floor: 1, top: 309, left: 19, otherFloor: 'up' },
+          { floor: 2, top: 309, left: 19, otherFloor: 'down' },
+          { floor: 2, top: 166, left: 343, otherFloor: 'up' },
+          { floor: 3, top: 166, left: 343, otherFloor: 'down' },
+          { floor: 3, top: -138, left: 477, otherFloor: 'up' },
+          { floor: 4, top: -138, left: 477, otherFloor: 'down' }
+        ],
         cameras: [
           {
             floor: 3, top: -295, left: -45, id: 1, location: favelaTerms.backStairs,
