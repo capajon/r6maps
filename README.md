@@ -15,7 +15,7 @@ r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Plea
 Contributions are welcome. :)
 
 ### Short-term
-- [ ] Translations for more languages (looking for contributions: https://www.r6maps.com/about/translations-help.html))
+- [ ] Translations for more languages (looking for contributions: http://www.r6maps.com/about/translations-help.html))
 - [ ] Open Issues (see Github issue tracking)
 - [ ] Initial team session beta (shared change map, basic ping, etc)
 - [ ] Initial drawing tools
