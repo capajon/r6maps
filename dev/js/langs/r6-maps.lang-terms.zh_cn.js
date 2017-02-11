@@ -103,7 +103,6 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: '泊车柜台',
-          spawnSewerAccess: '首饰柜台',
           spawnBackAlley: '巷弄出入口',
           printerRoom: '列印室',
           parkingLot: '泊车柜台',

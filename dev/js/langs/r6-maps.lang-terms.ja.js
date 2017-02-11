@@ -102,7 +102,6 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
       mapRooms: {
         bank: {
           spawnBoulevard: '大通り',
-          spawnSewerAccess: '下水道入口',
           spawnBackAlley: '裏路地',
           printerRoom: 'コピー室',
           parkingLot: '駐車場',
