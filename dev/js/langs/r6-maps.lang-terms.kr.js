@@ -408,7 +408,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           blueBar: '블루 바',
           cantina: '식당 창구',
           courtyard: '정원',
-          djBooth: 'DJ 부스 (맵에 안보임',
+          djBooth: 'DJ 부스 (맵에 안보임)',
           garageRoof: '차고 지붕',
           hallOfFame: '명예의 전당',
           hallway: '복도',
