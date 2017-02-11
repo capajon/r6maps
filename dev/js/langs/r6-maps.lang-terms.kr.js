@@ -412,7 +412,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           garageRoof: '차고 지붕',
           hallOfFame: '명예의 전당',
           hallway: '복도',
-          hookahDeck: '물담배<br/>덱<br/>(맵에 안보임)',
+          hookahDeck: '물담배 덱<br/>(맵에 안보임)',
           hookahLounge: '물담배 라운지',
           kitchen: '주방',
           mainEntrance: '정문',
