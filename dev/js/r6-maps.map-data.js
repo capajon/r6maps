@@ -362,7 +362,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -204, left: 764, description: bartlettTerms.gardenPass },
           { floor: 2, top: 73, left: 764, description: bartlettTerms.gardenPass },
           { outdoor: true, top: 298, left: 655, description: bartlettTerms.mainGate, hardToRead: true },
-          { outdoor: true, top: 615, left: 655, description: bartlettTerms.mainGate, hardToRead: true }
+          { outdoor: true, top: 615, left: 655, description: bartlettTerms.mainGate, hardToRead: true },
+          { outdoor: true, top: 704, left: 573, description: bartlettTerms.eastBalcony, hardToRead: true },
+          { outdoor: true, top: 704, left: -349, description: bartlettTerms.westBalcony, hardToRead: true }
         ]
       },
       border: {
@@ -1311,6 +1313,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -143, left: 213, description: favelaTerms.courtyard },
           { floor: 2, top: -143, left: 213, description: favelaTerms.courtyard },
           { outdoor: true, top: -330, left: -34, description: favelaTerms.accessAlley },
+          { outdoor: true, top: 242, left: -294, description: favelaTerms.marketAlley, smaller: true },
+          { outdoor: true, top: -552, left: -227, description: favelaTerms.schoolRooftops },
+          { outdoor: true, top: -403, left: 95, description: favelaTerms.schoolRooftops, smaller: true },
           { floor: 1, top: 344, left: -90, description: favelaTerms.shop },
           { floor: 3, top: 237, left: -412, description: favelaTerms.marketRooftops, hardToRead: true },
           { floor: 3, top: 420, left: -412, description: favelaTerms.marketRooftops, hardToRead: true }
@@ -1415,13 +1420,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: 322, left: -789, description: herefordTerms.spawnTrainingCourse },
-          { letter: spawnTerms.b, top: 236, left: 703, description: herefordTerms.spawnBarrak },
+          { letter: spawnTerms.b, top: 236, left: 703, description: herefordTerms.spawnParking },
           { letter: spawnTerms.c, top: -630, left: 27, description: herefordTerms.spawnShootingRange }
         ],
         roomLabels: [
           { floor: 0, top: 263, left: -86, description: herefordTerms.armory },
-          { floor: 0, top: 50, left: 200, description: herefordTerms.alleyStairs },
-          { floor: 1, top: 50, left: 200, description: herefordTerms.alleyStairs },
           { floor: 0, top: 191, left: 94, description: herefordTerms.lockers },
           { floor: 0, top: 272, left: 2, description: herefordTerms.corridor },
           { floor: 0, top: 407, left: 1, description: herefordTerms.mainStairs },
@@ -1465,7 +1468,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, top: 29, left: -317, description: herefordTerms.chapelGate },
           { outdoor: true, top: 286, left: -336, description: herefordTerms.forkliftArea },
           { outdoor: true, top: 187, left: 266, description: herefordTerms.sideStairsAlley },
-          { outdoor: true, top: 50, left: 117, description: herefordTerms.basementEntrance },
+          { outdoor: true, top: 50, left: 132, description: herefordTerms.basementEntrance },
+          { outdoor: true, top: 583, left: 646, description: herefordTerms.parkingEntrance },
           { floor: 1, top: 116, left: 190, description: herefordTerms.sideStairs },
           { floor: 2, top: 116, left: 190, description: herefordTerms.sideStairs },
           { floor: 3, top: 116, left: 190, description: herefordTerms.sideStairs },
@@ -1768,6 +1772,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 129, left: 353, smaller: true, description: kafeTerms.cocktailLoungeEntrance },
           { outdoor: true, top: -379, left: -588, description: kafeTerms.westMainStreet },
           { outdoor: true,  top: -379, left: 132, description: kafeTerms.mainStreet },
+          { outdoor: true,  top: -379, left: 851, description: kafeTerms.eastMainStreet },
           { outdoor: true,  top: 71, left: -337, description: kafeTerms.bakeryParking },
           { floor: 2,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
           { floor: 3,  top: 174, left: -162, description: kafeTerms.bakeryRoof },
@@ -1939,6 +1944,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { outdoor: true, top: -171, left: -568, description: kanalTerms.forkliftAlley },
           { outdoor: true, top: 122, left: -568, description: kanalTerms.forkliftAlley },
           { outdoor: true, top: 390, left: -331, description: kanalTerms.frontLawn },
+          { floor: 2, top: -36, left: 342, description: kanalTerms.mapArchives, hardToRead: true },
           { floor: 1, top: 302, left: -413, description: kanalTerms.basementStairs },
           { floor: 4, top: 107, left: -356, description: kanalTerms.coastGuardRoof },
           { floor: 3, top: 107, left: -356, description: kanalTerms.coastGuardRoof },
@@ -2062,6 +2068,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         roomLabels: [
           { floor: 0, top: -321, left: 142, description: oregonTerms.towerStairs },
+          { floor: 0, top: 29, left: 150, description: oregonTerms.supplyCloset, hardToRead: true },
           { floor: 0, top: -198, left: 197, description: oregonTerms.boilerRoom },
           { floor: 0, top: -146, left: 219, description: oregonTerms.electricRoom },
           { floor: 0, top: -173, left: 299, description: oregonTerms.bunkerEntrance },
@@ -2285,7 +2292,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 3, left: -221, hardToRead: true, description: planeTerms.serverRoomB },
           { floor: 3, top: 0, left: -428, hardToRead: true, description: planeTerms.serverRoomB },
           { floor: 1, top: -30, left: 222, smaller: true, description: planeTerms.technicalSeating },
-          { floor: 2, top: 112, left: -453, hardToRead: true, description: planeTerms.caterer }
+          { floor: 2, top: 112, left: -453, hardToRead: true, description: planeTerms.caterer },
+          { floor: 2, top: -54, left: -177, hardToRead: true, description: planeTerms.ladderRoom, smaller: true }
         ]
       },
       skyscraper: {
@@ -2515,7 +2523,9 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 116, left: 331, otherFloor: 'up' },
           { floor: 4, top: 116, left: 331, otherFloor: 'down' },
           { floor: 3, top: -93, left: 331, otherFloor: 'up' },
-          { floor: 4, top: -93, left: 331, otherFloor: 'down' }
+          { floor: 4, top: -93, left: 331, otherFloor: 'down' },
+          { floor: 2, top: -39, left: 610, otherFloor: 'up' },
+          { floor: 3, top: -39, left: 610, otherFloor: 'down' }
         ],
         cameras: [
           {
@@ -2627,6 +2637,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: -89, left: 226, description: yachtTerms.westDeck },
           { floor: 3, top: 17, left: 390, description: yachtTerms.frontDeck },
           { floor: 3, top: 17, left: 723, description: yachtTerms.frontDeck },
+          { floor: 3, top: 17, left: 801, description: yachtTerms.kingOfTheWorld, hardToRead: true },
+          { floor: 5, top: 17, left: 108, description: yachtTerms.roof },
           { floor: 3, top: 17, left: 325, description: yachtTerms.masterBedroom },
           { floor: 3, top: 4, left: 77, description: yachtTerms.casino },
           { floor: 3, top: -9, left: 170, description: yachtTerms.pokerRoom },
@@ -2664,11 +2676,13 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: -57, left: 252, description: yachtTerms.frontStairs },
           { outdoor: true, hardToRead: true, top: -262, left: -43, description: yachtTerms.submarine },
           { outdoor: true, hardToRead: true, top: -206, left: -306, description: yachtTerms.westGlacier },
-          { outdoor: true, hardToRead: true, top: 259, left: 304, description: yachtTerms.eastHullBreach },
+          { outdoor: true, hardToRead: true, top: 232, left: 617, description: yachtTerms.eastHullBreach },
           { outdoor: true, hardToRead: true, top: 388, left: 100, description: yachtTerms.eastGlacier },
           { outdoor: true, hardToRead: true, top: 388, left: -304, description: yachtTerms.frozenRiver },
           { outdoor: true, top: 245, left: -569, hardToRead: true, description: yachtTerms.zodiac },
-          { outdoor: true, hardToRead: true, top: -145, left: 261, description: yachtTerms.westHullBreach }
+          { outdoor: true, hardToRead: true, top: -145, left: 261, description: yachtTerms.westHullBreach },
+          { floor: 2, top: -15, left: 553, description: yachtTerms.anchorName },
+          { floor: 2, top: 85, left: 454, description: yachtTerms.aklarkSubEntrance, smaller: true, hardToRead: true }
         ]
       }
       /*emptytemplate: {

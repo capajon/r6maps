@@ -165,6 +165,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           courtyard: 'Pátio',
           centralHallway: 'Corredor<br/>Central',
           diningRoom: 'Sala de<br/>Jantar',
+          eastBalcony: '',
           eastCorridor: 'Corredor<br/>Leste',
           eastStairs: 'Escadaria<br/>Leste',
           festival: 'Festival',
@@ -190,6 +191,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           trophyRoom: 'Sala de<br/>Troféus',
           upperLibrary: 'Biblioteca<br/>Superior',
           vistaHallway: 'Corredor<br/>Vista',
+          westBalcony: '',
           westCorridor: 'Corredor<br/>Oeste'
         },
         border: {
@@ -430,6 +432,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           schoolAlley: 'Beco da<br/>Escola',
           footballPitch: 'Campo da<br/>Pelada',
           market: 'Mercado',
+          marketAlley: '',
+          schoolRooftops: '',
           street: 'Rua',
           rooftops: 'Telhados',
           courtyard: 'Pátio',
@@ -439,10 +443,9 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         },
         hereford: {
           spawnTrainingCourse: 'Pista de<br/>Treinamento',
-          spawnBarrak: 'Alojamento',
+          spawnParking: 'Alojamento',
           spawnShootingRange: 'Estand de<br/>Tiro',
           armory: 'Armaria',
-          alleyStairs: 'Escadaria do<br/>Beco',
           lockers: 'Vestiário',
           corridor: 'Corredor',
           mainStairs: 'Escadaria<br/>Principal',
@@ -481,7 +484,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           sideStairsAlley: 'Beco da<br/>Escadaria<br/>Lateral',
           sideStairs: 'Escadaria<br/>Lateral',
           garageTop: 'Telhado da<br/>Garagem',
-          rooftop: 'Telhado'
+          rooftop: 'Telhado',
+          parkingEntrance: ''
         },
         house: {
           spawnConstructionSite: 'Canteiro de<br/>Obras',
@@ -580,7 +584,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           controlCenterRoof: 'Telhado do<br/>Controle',
           dockStairs: 'Escadaria das<br/>Docas',
           parking: 'Estacionamento',
-          boatCrane: 'Grua dos<br/>Botes'
+          boatCrane: 'Grua dos<br/>Botes',
+          mapArchives: ''
         },
         kafe: {
           spawnRiverDocks: 'Docas',
@@ -618,6 +623,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: 'Entrada do<br/>Cocktail',
           westMainStreet: 'Rua<br/>Principal<br/>Oeste',
           mainStreet: 'Rua<br/>Principal',
+          eastMainStreet: '',
           bakeryParking: 'Estacionamento da<br/>Padaria',
           bakeryRoof: 'Telhado da<br/>Padaria',
           cafeRoofTop: 'Telhado do<br/>Cafe',
@@ -679,7 +685,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           meetingHallEntrance: 'Entrada da<br/>Sala de<br/>Reuniões',
           garageRoof: 'Telhado da<br/>Garagem',
           dormsRoof: 'Telhado do<br/>Dormitório',
-          meetingHallRoof: 'Telhado da<br/>Sala de<br/>Reuniões'
+          meetingHallRoof: 'Telhado da<br/>Sala de<br/>Reuniões',
+          supplyCloset: ''
         },
         plane: {
           spawnOfficialEntrance: 'Entrada<br/>Oficial',
@@ -720,7 +727,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           caterer: 'Serviço<br/>Caterer',
           serverRoomA: 'Sala do<br/>Servidor A',
           serverRoomB: 'Sala do<br/>Servidor B',
-          technicalSeating: 'Área<br/>Técnica'
+          technicalSeating: 'Área<br/>Técnica',
+          ladderRoom: ''
         },
         skyscraper: {
           helipad: 'Heliponto',
@@ -820,7 +828,11 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           eastGlacier: 'Geleria<br/>Leste',
           frozenRiver: 'Rio<br/>Congelado',
           zodiac: 'Bote',
-          westHullBreach: 'Buraco no Casco<br/>Oeste'
+          westHullBreach: 'Buraco no Casco<br/>Oeste',
+          kingOfTheWorld: '',
+          roof: '',
+          anchorName: '',
+          aklarkSubEntrance: ''
         }
       }
     };

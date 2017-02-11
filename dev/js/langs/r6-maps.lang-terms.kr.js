@@ -156,6 +156,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           courtyard: '정원',
           centralHallway: '중앙<br/>복도',
           diningRoom: '식당',
+          eastBalcony: '',
           eastCorridor: '동쪽<br/>통로',
           eastStairs: '동쪽<br/>계단',
           festival: '캠퍼스 공터',
@@ -181,6 +182,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           trophyRoom: '트로피<br/>전시실',
           upperLibrary: '도서관<br/>상부',
           vistaHallway: '조망<br/>복도',
+          westBalcony: '',
           westCorridor: '서쪽<br/>통로'
         },
         border: {
@@ -421,6 +423,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           schoolAlley: '학교 골목',
           footballPitch: '축구 경기장',
           market: '시장',
+          marketAlley: '',
+          schoolRooftops: '',
           street: '도로',
           rooftops: '옥상',
           courtyard: '정원',
@@ -430,10 +434,9 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         },
         hereford: {
           spawnTrainingCourse: '훈련 코스',
-          spawnBarrak: '주차장',
+          spawnParking: '주차장',
           spawnShootingRange: '사격장',
           armory: '무기고',
-          alleyStairs: '골목<br/>계단',
           lockers: '탈의실',
           corridor: '통로',
           mainStairs: '중앙<br/>계단',
@@ -472,7 +475,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           sideStairsAlley: '측면 계단<br/>골목',
           sideStairs: '측면<br/>계단',
           garageTop: '차고 지붕',
-          rooftop: '옥상'
+          rooftop: '옥상',
+          parkingEntrance: ''
         },
         house: {
           spawnConstructionSite: '건설 현장',
@@ -571,7 +575,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           controlCenterRoof: '통제소<br/>지붕',
           dockStairs: '선착장 계단',
           parking: '주차장',
-          boatCrane: '보트 기중기'
+          boatCrane: '보트 기중기',
+          mapArchives: ''
         },
         kafe: {
           spawnRiverDocks: '강 선착장',
@@ -609,6 +614,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: '칵테일<br/>라운지<br/>입구',
           westMainStreet: '서쪽 대로',
           mainStreet: '대로',
+          eastMainStreet: '',
           bakeryParking: '제과점<br/>주차장',
           bakeryRoof: '제과점 지붕',
           cafeRoofTop: '카페 옥상',
@@ -670,7 +676,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           meetingHallEntrance: '회관<br/>입구',
           garageRoof: '차고 지붕',
           dormsRoof: '기숙사<br/>지붕',
-          meetingHallRoof: '회관 지붕'
+          meetingHallRoof: '회관 지붕',
+          supplyCloset: ''
         },
         plane: {
           spawnOfficialEntrance: '주 출입구',
@@ -711,7 +718,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           caterer: '기내식<br/>공급 지점',
           serverRoomA: '서버실 A',
           serverRoomB: '서버실 B',
-          technicalSeating: '정비공 좌석'
+          technicalSeating: '정비공 좌석',
+          ladderRoom: ''
         },
         skyscraper: {
           helipad: '외부 헬기장',
@@ -811,7 +819,11 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           eastGlacier: '동쪽 빙하',
           frozenRiver: '얼어붙은 강',
           zodiac: '구명정',
-          westHullBreach: '서쪽 선체 균열'
+          westHullBreach: '서쪽 선체 균열',
+          kingOfTheWorld: '',
+          roof: '',
+          anchorName: '',
+          aklarkSubEntrance: ''
         }
       }
     };

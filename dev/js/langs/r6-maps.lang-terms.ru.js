@@ -171,6 +171,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           courtyard: 'Внутренний двор',
           centralHallway: 'Главный<br/>вестибюль',
           diningRoom: 'Столовая',
+          eastBalcony: '',
           eastCorridor: 'Восточный<br/>коридор',
           eastStairs: 'Восточная<br/>лестница',
           festival: 'Ярмарка',
@@ -196,6 +197,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           trophyRoom: 'Комната<br/>трофеев',
           upperLibrary: 'Верхняя<br/>библиотека',
           vistaHallway: 'Открытый<br/>коридор',
+          westBalcony: '',
           westCorridor: 'Западный<br/>коридор'
         },
         border: {
@@ -436,6 +438,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           schoolAlley: 'Школа – Переулок',
           footballPitch: 'Площадка (футбол)',
           market: 'Рынок',
+          marketAlley: '',
+          schoolRooftops: '',
           street: 'Улица',
           rooftops: 'Крыша',
           courtyard: 'Двор',
@@ -445,10 +449,9 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         },
         hereford: {
           spawnTrainingCourse: 'Полоса препятствий',
-          spawnBarrak: 'Парковка',
+          spawnParking: 'Парковка',
           spawnShootingRange: 'Стрельбище',
           armory: 'Оружейная',
-          alleyStairs: 'Бок. лестница<br/>Проход',
           lockers: 'Раздевалка',
           corridor: 'Коридор',
           mainStairs: 'Главная<br/>лестница',
@@ -487,7 +490,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           sideStairsAlley: 'Бок. лестница<br/>Проход',
           sideStairs: 'Боковая<br/>лестница',
           garageTop: 'Крыша гаража',
-          rooftop: 'Крыша'
+          rooftop: 'Крыша',
+          parkingEntrance: ''
         },
         house: {
           spawnConstructionSite: 'Стройплощадка',
@@ -586,7 +590,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           controlCenterRoof: 'Диспетческая<br/>Крыша',
           dockStairs: 'Док – Лестница',
           parking: 'Парковка',
-          boatCrane: 'Кран'
+          boatCrane: 'Кран',
+          mapArchives: ''
         },
         kafe: {
           spawnRiverDocks: 'Причал',
@@ -624,6 +629,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: 'Кокт. зал<br/>Вход',
           westMainStreet: 'Центральная улица, запад',
           mainStreet: 'Центральная улица',
+          eastMainStreet: '',
           bakeryParking: 'Парковка у<br/>пекарни',
           bakeryRoof: 'Крыша пекарни',
           cafeRoofTop: 'Крыша кафе',
@@ -685,7 +691,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           meetingHallEntrance: 'Конференц-зал<br/>Вход',
           garageRoof: 'Крыша гаража',
           dormsRoof: 'Крыша спальн. комнаты',
-          meetingHallRoof: 'Крыша<br/>конференц-зала'
+          meetingHallRoof: 'Крыша<br/>конференц-зала',
+          supplyCloset: ''
         },
         plane: {
           spawnOfficialEntrance: 'Главный вход',
@@ -726,7 +733,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           caterer: 'Поставки провизии',
           serverRoomA: 'Серверная A',
           serverRoomB: 'Серверная B',
-          technicalSeating: 'Место техника'
+          technicalSeating: 'Место техника',
+          ladderRoom: ''
         },
         skyscraper: {
           helipad: 'Верт. площадка',
@@ -826,7 +834,11 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           eastGlacier: 'Восток<br/>Ледник',
           frozenRiver: 'Замёрзшая река',
           zodiac: 'Шлюпка',
-          westHullBreach: 'Западная часть<br/>Брешь'
+          westHullBreach: 'Западная часть<br/>Брешь',
+          kingOfTheWorld: '',
+          roof: '',
+          anchorName: '',
+          aklarkSubEntrance: ''
         }
       }
     };

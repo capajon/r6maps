@@ -86,6 +86,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         bartlett: 'Bartlett U.',
         chalet: 'Chalet',
         club: 'Clubhaus',
+        coastline: 'Küste',
         consulate: 'Konsulat',
         hereford: 'Hereford-Basis',
         house: 'Haus',
@@ -161,6 +162,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           courtyard: 'Hof',
           centralHallway: 'Mittel-<br/>gang',
           diningRoom: 'Esszimmer',
+          eastBalcony: 'Ostbalkon<br/>( nicht gezeigt )',
           eastCorridor: 'Ost-<br/>korridor',
           eastStairs: 'Ost-<br/>treppe',
           festival: 'Fest',
@@ -186,6 +188,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           trophyRoom: 'Trophäen-<br/>raum',
           upperLibrary: 'Obere<br/>Bibliothek',
           vistaHallway: 'Offener<br/>Gang',
+          westBalcony: 'Westbalkon<br/>( nicht gezeigt )',
           westCorridor: 'West-<br/>korridor'
         },
         border: {
@@ -425,6 +428,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           schoolAlley: 'Schul-Gasse',
           footballPitch: 'Fußballfeld',
           market: 'Markt',
+          marketAlley: 'Markt-<br/>Gasse',
+          schoolRooftops: 'Schul-<br/>Dächer',
           street: 'Straße',
           rooftops: 'Dächer',
           courtyard: 'Hof',
@@ -434,10 +439,9 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         },
         hereford: {
           spawnTrainingCourse: 'Ausbildungsparcours',
-          spawnBarrak: 'Parkplatz',
+          spawnParking: 'Parkplatz',
           spawnShootingRange: 'SchieBplatz',
           armory: 'Waffenlager',
-          alleyStairs: 'Seitentreppen-<br/>gasse',
           lockers: 'Spinde',
           corridor: 'Korridor',
           mainStairs: 'Haupt-<br/>treppe',
@@ -476,7 +480,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           sideStairsAlley: 'Seitentreppen-<br/>gasse',
           sideStairs: 'Seiten-<br/>treppen',
           garageTop: 'Garagendach',
-          rooftop: 'Dach'
+          rooftop: 'Dach',
+          parkingEntrance: 'Parkplatz-einfahrt'
         },
         house: {
           spawnConstructionSite: 'Baustelle',
@@ -554,6 +559,7 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: 'Cocktail-<br/>Lounge-<br/>Eingang',
           westMainStreet: 'Westliche Hauptstraße',
           mainStreet: 'Hauptstraße',
+          eastMainStreet: 'Östliche Hauptstraße',
           bakeryParking: 'Bäckerei-<br/>Parkplatz',
           bakeryRoof: 'Bäckereidach',
           cafeRoofTop: 'Café-Dach',
@@ -617,7 +623,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           controlCenterRoof: 'Kontrollzentrum-<br/>Dach',
           dockStairs: 'Dock-Treppe',
           parking: 'Parkplatz',
-          boatCrane: 'Bootskran'
+          boatCrane: 'Bootskran',
+          mapArchives: 'Karten-<br/>archiv'
         },
         oregon: {
           spawnJunkyard: 'Schrottplatz',
@@ -672,7 +679,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           meetingHallEntrance: 'Versammlungs-<br/>hallen-Eingang',
           garageRoof: 'Garagendach',
           dormsRoof: 'Schlafsaaldach',
-          meetingHallRoof: 'Versammlungs-<br/>hallendach'
+          meetingHallRoof: 'Versammlungs-<br/>hallendach',
+          supplyCloset: 'Vorrats-<br/>raum'
         },
         plane: {
           spawnOfficialEntrance: 'Haupteingang',
@@ -713,7 +721,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           caterer: 'Caterer',
           serverRoomA: 'Server-Raum A',
           serverRoomB: 'Server-Raum B',
-          technicalSeating: 'Technikersitz'
+          technicalSeating: 'Technikersitz',
+          ladderRoom: 'Leiter-<br/>raum'
         },
         skyscraper: {
           helipad: 'Helipad',
@@ -813,7 +822,11 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
           eastGlacier: 'Östliches Gletscher',
           frozenRiver: 'Gefrorener Fluss',
           zodiac: 'Schlauchboot',
-          westHullBreach: 'Westliches Leck'
+          westHullBreach: 'Westliches Leck',
+          kingOfTheWorld: 'König der<br/>Weit',
+          roof: 'Dach',
+          anchorName: 'Anker',
+          aklarkSubEntrance: 'Aklark<br/>U-Boot-Eingang'
         }
         //  ß  ä  Ä  é  ö  Ö  ü  Ü
       }

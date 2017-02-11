@@ -90,6 +90,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         border: 'Frontière',
         chalet: 'Chalet',
         club: 'Club House',
+        coastline: 'Littoral',
         consulate: 'Consulat',
         favela: 'Favelas',
         hereford: 'Hereford',
@@ -166,6 +167,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           courtyard: 'Cour',
           centralHallway: 'Couloir<br/>central',
           diningRoom: 'Salle à manger',
+          eastBalcony: 'Balcon est<br/>( pas montré )',
           eastCorridor: 'Couloir<br/>est',
           eastStairs: 'Escalier<br/>est',
           festival: 'Festival',
@@ -191,6 +193,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           trophyRoom: 'Salle des<br/>trophées',
           upperLibrary: 'Bibliothèque<br/>niv. supérieur',
           vistaHallway: 'Couloir<br/>dégagé',
+          westBalcony: 'Balcon ouest<br/>( pas montré )',
           westCorridor: 'Couloir<br/>ouest'
         },
         border: {
@@ -320,13 +323,14 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           schoolAlley: 'Allé de l\'école',
           footballPitch: 'Terrain de foot',
           market: 'Marché',
+          marketAlley: 'Allée du<br/>marché',
+          schoolRooftops: 'Toits de<br/>l\'école',
           street: 'Rue',
           rooftops: 'Toits',
           courtyard: 'Cour',
           accessAlley: 'Voie d\'accès',
           shop: 'Magasin<br/>( pas montré )',
           marketRooftops: 'Toits du marché'
-          //Allée du marché TO DO
         },
         kanal: {
           spawnFloatingDock: 'Quai flottant',
@@ -383,7 +387,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           controlCenterRoof: 'Toit<br/>du centre<br/>de contrôle',
           dockStairs: 'Escalier du quai',
           parking: 'Parking',
-          boatCrane: 'Grue'
+          boatCrane: 'Grue',
+          mapArchives: 'Archives<br/>des cartes'
         },
         club: {
           spawnMainEntrance: 'Porte principale',
@@ -498,10 +503,9 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         },
         hereford: {
           spawnTrainingCourse: 'Terrain d\'entraînement',
-          spawnBarrak: 'Parking',
+          spawnParking: 'Parking',
           spawnShootingRange: 'Stand de tir',
           armory: 'Armuererie',
-          alleyStairs: 'Allée avec<br/>escalier latéral',
           lockers: 'Vestiaires',
           corridor: 'Couloir',
           mainStairs: 'Escalier<br/>principal',
@@ -540,7 +544,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           sideStairsAlley: 'Allée avec<br/>escalier latéral',
           sideStairs: 'Escalier<br/>latéral',
           garageTop: 'Toit du garage',
-          rooftop: 'Toit'
+          rooftop: 'Toit',
+          parkingEntrance: 'Entrée du parking'
         },
         house: {
           spawnConstructionSite: 'Chantier',
@@ -618,6 +623,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: 'Entrée<br/>du bar à<br/>cocktails',
           westMainStreet: 'Rue principale - Ouest',
           mainStreet: 'Rue principale',
+          eastMainStreet: 'Rue principale - Est',
           bakeryParking: 'Parking de la<br/>boulangerie',
           bakeryRoof: 'Toit de la<br/>boulangerie',
           cafeRoofTop: 'Toit du café',
@@ -679,7 +685,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           meetingHallEntrance: 'Entrée de la<br/>salle de réunion',
           garageRoof: 'Toit du garage',
           dormsRoof: 'Toit du<br/>dortoir',
-          meetingHallRoof: 'Toit de<br/>la salle<br/>de réunnion'
+          meetingHallRoof: 'Toit de<br/>la salle<br/>de réunnion',
+          supplyCloset: 'Placard'
         },
         plane: {
           spawnOfficialEntrance: 'Entrée principale',
@@ -720,7 +727,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           caterer: 'Cafétéria',
           serverRoomA: 'Salle des serveurs A',
           serverRoomB: 'Salle des serveurs B',
-          technicalSeating: 'Centre technique'
+          technicalSeating: 'Centre technique',
+          ladderRoom: 'Salle avec<br/>une échelle'
         },
         skyscraper: {
           helipad: 'Héliport',
@@ -819,7 +827,11 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
           eastGlacier: 'Glacier est',
           frozenRiver: 'Rivière gelée',
           zodiac: 'Bateau pneumatique',
-          westHullBreach: 'Brèche de la coque ouest'
+          westHullBreach: 'Brèche de la coque ouest',
+          kingOfTheWorld: 'Roi du<br/>monde',
+          roof: 'Toit',
+          anchorName: 'Ancre',
+          aklarkSubEntrance: 'Entrée de la<br/>salle de<br/>l\'Aklark'
         }
       }
     };

@@ -190,6 +190,7 @@ var R6MapsLangTerms = (function(undefined) {
           courtyard: 'Courtyard',
           centralHallway: 'Central<br/>Hallway',
           diningRoom: 'Dining Room',
+          eastBalcony: 'East Balcony<br/>(not shown)',
           eastCorridor: 'East<br/>Corridor',
           eastStairs: 'East<br/>Stairs',
           festival: 'Festival',
@@ -215,6 +216,7 @@ var R6MapsLangTerms = (function(undefined) {
           trophyRoom: 'Trophy<br/>Room',
           upperLibrary: 'Upper<br/>Library',
           vistaHallway: 'Vista<br/>Hallway',
+          westBalcony: 'West Balcony<br/>(not shown)',
           westCorridor: 'West<br/>Corridor'
         },
         border: {
@@ -494,6 +496,8 @@ var R6MapsLangTerms = (function(undefined) {
           schoolAlley: 'School Alley',
           footballPitch: 'Football Pitch',
           market: 'Market',
+          marketAlley: 'Market<br/>Alley',
+          schoolRooftops: 'School<br/>Rooftops',
           street: 'Street',
           rooftops: 'Rooftops',
           courtyard: 'Courtyard',
@@ -503,10 +507,9 @@ var R6MapsLangTerms = (function(undefined) {
         },
         hereford: {
           spawnTrainingCourse: 'Training Course',
-          spawnBarrak: 'Barrak',
+          spawnParking: 'Parking',
           spawnShootingRange: 'Shooting Range',
           armory: 'Armory',
-          alleyStairs: 'Alley<br/>Stairs',
           lockers: 'Lockers',
           corridor: 'Corridor',
           mainStairs: 'Main<br/>Stairs',
@@ -545,7 +548,8 @@ var R6MapsLangTerms = (function(undefined) {
           sideStairsAlley: 'Side Stairs<br/>Alley',
           sideStairs: 'Side<br/>Stairs',
           garageTop: 'Garage Top',
-          rooftop: 'Rooftop'
+          rooftop: 'Rooftop',
+          parkingEntrance: 'Parking Entrance'
         },
         house: {
           spawnConstructionSite: 'Construction Site',
@@ -644,7 +648,8 @@ var R6MapsLangTerms = (function(undefined) {
           controlCenterRoof: 'Control<br/>Center<br/>Roof',
           dockStairs: 'Dock Stairs',
           parking: 'Parking',
-          boatCrane: 'Boat Crane'
+          boatCrane: 'Boat Crane',
+          mapArchives: 'Map<br/>Archives'
         },
         kafe: {
           spawnRiverDocks: 'River Docks',
@@ -682,6 +687,7 @@ var R6MapsLangTerms = (function(undefined) {
           cocktailLoungeEntrance: 'Cocktail<br/>Lounge<br/>Entrance',
           westMainStreet: 'West Main Street',
           mainStreet: 'Main Street',
+          eastMainStreet: 'East Main Street',
           bakeryParking: 'Bakery<br/>Parking',
           bakeryRoof: 'Bakery Roof',
           cafeRoofTop: 'Cafe Roof Top',
@@ -743,7 +749,8 @@ var R6MapsLangTerms = (function(undefined) {
           meetingHallEntrance: 'Meeting Hall<br/>Entrance',
           garageRoof: 'Garage Roof',
           dormsRoof: 'Dorms<br/>Roof',
-          meetingHallRoof: 'Meeting<br/>Hall<br/>Roof'
+          meetingHallRoof: 'Meeting<br/>Hall<br/>Roof',
+          supplyCloset: 'Supply<br/>Closet'
         },
         plane: {
           spawnOfficialEntrance: 'Official Entrance',
@@ -784,7 +791,8 @@ var R6MapsLangTerms = (function(undefined) {
           caterer: 'Caterer',
           serverRoomA: 'Server Room A',
           serverRoomB: 'Server Room B',
-          technicalSeating: 'Technical Seating'
+          technicalSeating: 'Technical Seating',
+          ladderRoom: 'Ladder<br/>Room'
         },
         skyscraper: {
           helipad: 'Helipad',
@@ -884,7 +892,11 @@ var R6MapsLangTerms = (function(undefined) {
           eastGlacier: 'East Glacier',
           frozenRiver: 'Frozen River',
           zodiac: 'Zodiac',
-          westHullBreach: 'West Hull Breach'
+          westHullBreach: 'West Hull Breach',
+          kingOfTheWorld: 'King of<br/>the World',
+          roof: 'Roof',
+          anchorName: 'Anchor',
+          aklarkSubEntrance: 'Aklark Sub<br/>Entrance'
         }
       }
     };
