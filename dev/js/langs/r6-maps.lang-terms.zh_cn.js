@@ -167,6 +167,7 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           courtyard: '庭院',
           centralHallway: '中央过道',
           diningRoom: '饭厅',
+          eastBalcony: '',
           eastCorridor: '东侧廊道',
           eastStairs: '东侧<br/>楼梯',
           festival: '展览场',
@@ -192,6 +193,7 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           trophyRoom: '奖杯陈列室',
           upperLibrary: '上层图书馆',
           vistaHallway: '景观厅<br/>过道',
+          westBalcony: '',
           westCorridor: '西侧廊道'
         },
         border: {
@@ -471,6 +473,8 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           schoolAlley: '学校走道',
           footballPitch: '美式足球场',
           market: '市场',
+          marketAlley: '',
+          schoolRooftops: '',
           street: '街道',
           rooftops: '屋上',
           courtyard: '中庭',
@@ -480,10 +484,9 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
         },
         hereford: {
           spawnTrainingCourse: '训练场',
-          spawnBarrak: '停车场',
+          spawnParking: '停车场',
           spawnShootingRange: '靶场',
           armory: '军械室',
-          alleyStairs: '侧边楼梯<br/>小径',
           lockers: '寄物柜区',
           corridor: '廊道',
           mainStairs: '主楼梯',
@@ -522,7 +525,8 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           sideStairsAlley: '侧边楼梯<br/>小径',
           sideStairs: '侧边楼梯',
           garageTop: '车库顶部',
-          rooftop: '屋顶'
+          rooftop: '屋顶',
+          parkingEntrance: ''
         },
         house: {
           spawnConstructionSite: '建筑工地<br/>（施工场）',
@@ -621,7 +625,8 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           controlCenterRoof: '控制中心屋顶',
           dockStairs: '码头楼梯',
           parking: '停车场',
-          boatCrane: '船只起重机'
+          boatCrane: '船只起重机',
+          mapArchives: ''
         },
         kafe: {
           spawnRiverDocks: '河岸码头',
@@ -659,6 +664,7 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: '酒吧间<br/>入口',
           westMainStreet: '西侧主街',
           mainStreet: '主街',
+          eastMainStreet: '',
           bakeryParking: '烘焙坊<br/>停车场',
           bakeryRoof: '烘焙坊屋顶',
           cafeRoofTop: '咖啡馆屋顶',
@@ -720,7 +726,8 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           meetingHallEntrance: '会议厅入口',
           garageRoof: '车库屋顶',
           dormsRoof: '宿舍屋顶',
-          meetingHallRoof: '会议厅<br/>屋顶'
+          meetingHallRoof: '会议厅<br/>屋顶',
+          supplyCloset: ''
         },
         plane: {
           spawnOfficialEntrance: '主要入口',
@@ -761,7 +768,8 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           caterer: '供餐口',
           serverRoomA: '机房 A',
           serverRoomB: '机房 B',
-          technicalSeating: '技术人员座位'
+          technicalSeating: '技术人员座位',
+          ladderRoom: ''
         },
         skyscraper: {
           helipad: '停机坪',
@@ -861,7 +869,11 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
           eastGlacier: '东侧冰川',
           frozenRiver: '冰河',
           zodiac: '黄道带',
-          westHullBreach: '西船身突破口'
+          westHullBreach: '西船身突破口',
+          kingOfTheWorld: '',
+          roof: '',
+          anchorName: '',
+          aklarkSubEntrance: ''
         }
       }
     };
