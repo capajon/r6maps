@@ -157,7 +157,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           courtyard: '정원',
           centralHallway: '중앙<br/>복도',
           diningRoom: '식당',
-          eastBalcony: '',
+          eastBalcony: '동쪽 발코니<br/>(맵에 안보임)',
           eastCorridor: '동쪽<br/>통로',
           eastStairs: '동쪽<br/>계단',
           festival: '캠퍼스 공터',
@@ -183,7 +183,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           trophyRoom: '트로피<br/>전시실',
           upperLibrary: '도서관<br/>상부',
           vistaHallway: '조망<br/>복도',
-          westBalcony: '',
+          westBalcony: '서쪽 발코니<br/>(맵에 안보임)',
           westCorridor: '서쪽<br/>통로'
         },
         border: {
@@ -402,17 +402,17 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         coastline: {
           aquarium: '수족관',
           backAlley: '뒷골목',
-          balcony: '발코니<br/>(보이지 않음)',
+          balcony: '발코니<br/>(맵에 안보임)',
           bathroom: '화장실',
           billiardsRoom: '당구장',
           blueBar: '블루 바',
           cantina: '식당 창구',
           courtyard: '정원',
-          djBooth: 'DJ 부스 (보이지 않음)',
+          djBooth: 'DJ 부스 (맵에 안보임',
           garageRoof: '차고 지붕',
           hallOfFame: '명예의 전당',
           hallway: '복도',
-          hookahDeck: '물담배<br/>덱<br/>(보이지 않음)',
+          hookahDeck: '물담배<br/>덱<br/>(맵에 안보임)',
           hookahLounge: '물담배 라운지',
           kitchen: '주방',
           mainEntrance: '정문',
@@ -463,13 +463,13 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           schoolAlley: '학교 골목',
           footballPitch: '축구 경기장',
           market: '시장',
-          marketAlley: '',
-          schoolRooftops: '',
+          marketAlley: '시장 골목',
+          schoolRooftops: '학교 지붕',
           street: '도로',
           rooftops: '옥상',
           courtyard: '정원',
           accessAlley: '골목 진입로',
-          shop: '매장<br/>(보이지 않음)',
+          shop: '매장<br/>(맵에 안보임)',
           marketRooftops: '시장 옥상'
         },
         hereford: {
@@ -516,7 +516,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           sideStairs: '측면<br/>계단',
           garageTop: '차고 지붕',
           rooftop: '옥상',
-          parkingEntrance: ''
+          parkingEntrance: '주차장 입구'
         },
         house: {
           spawnConstructionSite: '건설 현장',
@@ -616,7 +616,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           dockStairs: '선착장 계단',
           parking: '주차장',
           boatCrane: '보트 기중기',
-          mapArchives: ''
+          mapArchives: '지도 보관소'
         },
         kafe: {
           spawnRiverDocks: '강 선착장',
@@ -654,7 +654,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: '칵테일<br/>라운지<br/>입구',
           westMainStreet: '서쪽 대로',
           mainStreet: '대로',
-          eastMainStreet: '',
+          eastMainStreet: '동쪽 대로',
           bakeryParking: '제과점<br/>주차장',
           bakeryRoof: '제과점 지붕',
           cafeRoofTop: '카페 옥상',
@@ -717,7 +717,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           garageRoof: '차고 지붕',
           dormsRoof: '기숙사<br/>지붕',
           meetingHallRoof: '회관 지붕',
-          supplyCloset: ''
+          supplyCloset: '비품 벽장'
         },
         plane: {
           spawnOfficialEntrance: '주 출입구',
@@ -759,7 +759,7 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           serverRoomA: '서버실 A',
           serverRoomB: '서버실 B',
           technicalSeating: '정비공 좌석',
-          ladderRoom: ''
+          ladderRoom: '사다리실'
         },
         skyscraper: {
           helipad: '외부 헬기장',
@@ -860,10 +860,10 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
           frozenRiver: '얼어붙은 강',
           zodiac: '구명정',
           westHullBreach: '서쪽 선체 균열',
-          kingOfTheWorld: '',
-          roof: '',
-          anchorName: '',
-          aklarkSubEntrance: ''
+          kingOfTheWorld: 'King of the World',
+          roof: '지붕',
+          anchorName: '닻',
+          aklarkSubEntrance: 'Aklark 보조실 입구'
         }
       }
     };
