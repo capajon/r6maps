@@ -88,6 +88,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         border: '国境',
         chalet: '山荘',
         club: 'クラブハウス',
+        coastline: '海岸線',
         consulate: '領事館',
         favela: 'ファべーラ',
         hereford: 'ヘレフォード基地',
