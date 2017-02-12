@@ -903,13 +903,57 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           top: 522, left: 610
         },
         cameras: [
-          { floor: 1, top: 95, left: -84, id: 1, location: coastlineTerms.hallway },
-          { floor: 1, top: 292, left: 198, id: 2, location: coastlineTerms.mainLobby },
-          { floor: 2, top: 317, left: -195, id: 3, location: coastlineTerms.aquarium },
-          { floor: 2, top: 75, left: 157, id: 4, location: coastlineTerms.hallway },
-          { outdoor: true, top: -208, left: 440, id: 5, location: coastlineTerms.garageRoof },
-          { outdoor: true, top: 423, left: -295, id: 6, location: coastlineTerms.ruins },
-          { outdoor: true, top: -131, left: -555, id: 7, location: coastlineTerms.ruins }
+          {
+            floor: 1, top: 95, left: -84, id: 1, location: coastlineTerms.hallway,
+            los: [
+              [{top: 40, left: -30}, {top: -55, left: 41}],
+              [{top: 25, left: -30}, {top: -73, left: 31}],
+              [{top: -92, left: -64}, {top: -33, left: -74}, {top: -33, left: -101}, {top: 108, left: -101}, {top: 108, left: -64}, {top: 98, left: -64}, {top: 67, left: 16}]
+            ]
+          },
+          {
+            floor: 1, top: 292, left: 198, id: 2, location: coastlineTerms.mainLobby,
+            los: [
+              [{top: 149, left: 133}, {top: 288, left: 178}],
+              [{top: 66, left: 154}, {top: 248, left: 177}],
+              [{top: 248, left: 246}, {top: 200, left: 287}],
+              [{top: 306, left: 186}, {top: 306, left: 287}]
+            ]
+          },
+          {
+            floor: 2, top: 316, left: -194, id: 3, location: coastlineTerms.aquarium,
+            los: [
+              [{top: 261, left: -210}, {top: 330, left: -210}, {top: 330, left: -46}, {top: 288, left: -46}, {top: 288, left: -37}, {top: 262, left: 86}],
+              [{top: 275, left: -37}, {top: 262, left: -22}]
+            ]
+          },
+          {
+            floor: 2, top: 77, left: 156, id: 4, location: coastlineTerms.hallway,
+            los: [
+              [{top: 105, left: -46}, {top: 105, left: 110}, {top: 97, left: 120}],
+              [{top: 64, left: -27}, {top: 64, left: 119}],
+              [{top: 347, left: 172}, {top: 64, left: 172}, {top: 64, left: 127}]
+            ]
+          },
+          {
+            outdoor: true, top: -195, left: 415, id: 5, location: coastlineTerms.garageRoof,
+            los: [
+              [{top: -114, left: 436}, {top: -211, left: 436}, {top: -211, left: -342}]
+            ]
+          },
+          {
+            outdoor: true, top: 436, left: -300, id: 6, location: coastlineTerms.ruins,
+            los: [
+              [{top: 485, left: 743}, {top: 454, left: -355}, {top: 276, left: -355}, {top: -115, left: -525}]
+            ]
+          },
+          {
+            outdoor: true, top: -109, left: -551, id: 7, location: coastlineTerms.ruins,
+            los: [
+              [{top: -279, left: -250}, {top: -164, left: -538}, {top: -124, left: -589}, {top: -18, left: -565}],
+              [{top: 485, left: -219}, {top: -43, left: -510}]
+            ]
+          }
         ],
         ceilingHatches: [
           { floor: 1, top: 74, left: -178 },
