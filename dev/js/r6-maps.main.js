@@ -1,5 +1,5 @@
 'use strict';
-var DEV_MODE = true;
+var DEV_MODE = false;
 
 (function(pagecode) { //eslint-disable-line wrap-iife
   pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsDrawing);
