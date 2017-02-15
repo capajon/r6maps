@@ -24,7 +24,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         fullScreen: 'Полный экран',
         enableScreenshots: 'Разрешить скриншоты',
         contributions: 'взносы',
-        supportSiteNote: 'Один из способов рассмотреть показывая вашу поддержку через небольшое пожертвование.',
+        supportSiteNote: 'Один из способов оказать поддержку – небольшое пожертвование.',
         donateImg: 'https://www.paypalobjects.com/ru_RU/i/btn/btn_donate_LG.gif'
       },
       roomLabelStyles: {
@@ -80,7 +80,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         skylights: 'Застеклённая крыша',
         onFloorAboveOrBelow: 'На этаж выше/ниже',
         cameraLineOfSight: 'Поле зрения камеры',
-        ladders: 'Стремянки'
+        ladders: 'Лестницы'
       },
       spawnPoints: {
         a: 'A',
@@ -96,6 +96,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         chalet: 'Шале',
         club: 'Клуб',
         consulate: 'Консульство',
+        coastline: 'Побережье',
         favela: 'Фавелы',
         hereford: 'База Херефорд',
         house: 'Дом',
@@ -171,7 +172,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           courtyard: 'Внутренний двор',
           centralHallway: 'Главный<br/>вестибюль',
           diningRoom: 'Столовая',
-          eastBalcony: '',
+          eastBalcony: 'Восточный<br/>балкон',
           eastCorridor: 'Восточный<br/>коридор',
           eastStairs: 'Восточная<br/>лестница',
           festival: 'Ярмарка',
@@ -197,7 +198,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           trophyRoom: 'Комната<br/>трофеев',
           upperLibrary: 'Верхняя<br/>библиотека',
           vistaHallway: 'Открытый<br/>коридор',
-          westBalcony: '',
+          westBalcony: 'Западный<br/>балкон',
           westCorridor: 'Западный<br/>коридор'
         },
         border: {
@@ -413,6 +414,45 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           frontAlley: 'Аллея',
           buildingRoof: 'Крыша'
         },
+        coastline: {
+          aquarium: 'Аквариум',
+          backAlley: 'Пере-<br/>улок',
+          balcony: 'Балкон (не отобр.)',
+          bathroom: 'Санузел',
+          billiardsRoom: 'Бильярдная',
+          blueBar: 'Синий бар',
+          cantina: 'Служ. окно',
+          courtyard: 'Внутренний двор',
+          djBooth: 'DJ (не отобр.)',
+          garageRoof: 'Гараж – крыша',
+          hallOfFame: 'Зал славы',
+          hallway: 'Коридор',
+          hookahDeck: 'Терраса<br/>Кальяны<br/>(не отобр.)',
+          hookahLounge: 'Кальянная',
+          kitchen: 'Кухня',
+          mainEntrance: 'Главный<br/>вход',
+          mainLobby: 'Главный<br/>холл',
+          northStairs: 'Северная<br/>лестница',
+          office: 'Офис',
+          penthouse: 'Пентхаус',
+          pool: 'Бассейн',
+          poolEntrance: 'Бассейн – вход',
+          poolSide: 'У бассейна',
+          rooftop: 'Крыша',
+          ruins: 'Развалины',
+          securityRoom: 'Комната<br/>охраны',
+          serviceEntrance: 'Служебный<br/>вход',
+          southHallway: 'Коридор – Юг',
+          southPromenade: 'Набережная – Юг',
+          southStairs: 'Южная<br/>лестница',
+          sunriseBar: 'Бар "Восход"',
+          sunRoom: 'Зимний сад',
+          theater: 'Дом. кинотеатр',
+          terrace: 'Терраса',
+          toilets: 'Уборные',
+          vipLounge: 'VIP-зал',
+          walkway: 'Пешеходная зона'
+        },
         favela: {
           packagingRoom: 'Комната для<br/>фасовки',
           footballApartment: 'Квартира<br/>футболиста',
@@ -438,8 +478,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           schoolAlley: 'Школа – Переулок',
           footballPitch: 'Площадка (футбол)',
           market: 'Рынок',
-          marketAlley: '',
-          schoolRooftops: '',
+          marketAlley: 'Рынок<br/>переулок',
+          schoolRooftops: 'Школа – крыша',
           street: 'Улица',
           rooftops: 'Крыша',
           courtyard: 'Двор',
@@ -491,7 +531,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           sideStairs: 'Боковая<br/>лестница',
           garageTop: 'Крыша гаража',
           rooftop: 'Крыша',
-          parkingEntrance: ''
+          parkingEntrance: 'Въезд на<br/>парковку'
         },
         house: {
           spawnConstructionSite: 'Стройплощадка',
@@ -591,7 +631,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           dockStairs: 'Док – Лестница',
           parking: 'Парковка',
           boatCrane: 'Кран',
-          mapArchives: ''
+          mapArchives: 'Архив<br/>карт'
         },
         kafe: {
           spawnRiverDocks: 'Причал',
@@ -629,7 +669,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: 'Кокт. зал<br/>Вход',
           westMainStreet: 'Центральная улица, запад',
           mainStreet: 'Центральная улица',
-          eastMainStreet: '',
+          eastMainStreet: 'Центральная улица, восток',
           bakeryParking: 'Парковка у<br/>пекарни',
           bakeryRoof: 'Крыша пекарни',
           cafeRoofTop: 'Крыша кафе',
@@ -692,7 +732,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           garageRoof: 'Крыша гаража',
           dormsRoof: 'Крыша спальн. комнаты',
           meetingHallRoof: 'Крыша<br/>конференц-зала',
-          supplyCloset: ''
+          supplyCloset: 'Чулан'
         },
         plane: {
           spawnOfficialEntrance: 'Главный вход',
@@ -734,7 +774,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           serverRoomA: 'Серверная A',
           serverRoomB: 'Серверная B',
           technicalSeating: 'Место техника',
-          ladderRoom: ''
+          ladderRoom: 'Комн. с<br/>лестницей'
         },
         skyscraper: {
           helipad: 'Верт. площадка',
@@ -835,10 +875,10 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
           frozenRiver: 'Замёрзшая река',
           zodiac: 'Шлюпка',
           westHullBreach: 'Западная часть<br/>Брешь',
-          kingOfTheWorld: '',
-          roof: '',
-          anchorName: '',
-          aklarkSubEntrance: ''
+          kingOfTheWorld: 'Король<br/>мира',
+          roof: 'Крыша',
+          anchorName: 'Якорь',
+          aklarkSubEntrance: 'Aklark: вход<br/>в комн. с подл.'
         }
       }
     };
