@@ -166,7 +166,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           courtyard: '中庭',
           centralHallway: '中央廊下',
           diningRoom: 'ダイニングルーム',
-          eastBalcony: '',
+          eastBalcony: '東バルコニー<br/>(表示されてない)',
           eastCorridor: '東通路',
           eastStairs: '東階段',
           festival: 'フェスティバル会場',
@@ -192,7 +192,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           trophyRoom: '記念品室',
           upperLibrary: '図書室2階',
           vistaHallway: '吹き抜け<br/>の廊下',
-          westBalcony: '',
+          westBalcony: '西バルコニー<br/>(表示されてない)',
           westCorridor: '西通路'
         },
         border: {
@@ -472,8 +472,8 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           schoolAlley: '学校通り',
           footballPitch: 'フットボール場',
           market: '市場',
-          marketAlley: '',
-          schoolRooftops: '',
+          marketAlley: '市場<br/>通り',
+          schoolRooftops: '学校屋上',
           street: '通り',
           rooftops: '屋上',
           courtyard: '中庭',
@@ -483,7 +483,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         },
         hereford: {
           spawnTrainingCourse: '訓練場',
-          spawnParking: '兵舎',
+          spawnParking: '駐車場',
           spawnShootingRange: '射撃練習場',
           armory: '武器庫',
           lockers: 'ロッカー',
@@ -525,7 +525,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           sideStairs: '側面階段',
           garageTop: 'ガレージ屋根',
           rooftop: '屋上',
-          parkingEntrance: ''
+          parkingEntrance: '駐車場入口'
         },
         house: {
           spawnConstructionSite: '資材置き場',
@@ -625,7 +625,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           dockStairs: 'ドック階段',
           parking: '駐車場',
           boatCrane: 'ボートクレーン',
-          mapArchives: ''
+          mapArchives: 'マップ資料室'
         },
         kafe: {
           spawnRiverDocks: '桟橋',
@@ -663,7 +663,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: 'カクテル<br/>ラウンジ<br/>入口',
           westMainStreet: 'メインストリート西',
           mainStreet: 'メインストリート',
-          eastMainStreet: '',
+          eastMainStreet: 'メインストリート東',
           bakeryParking: 'ベーカリー<br/>駐車場',
           bakeryRoof: 'ベーカリー屋上',
           cafeRoofTop: 'カフェ屋上',
@@ -726,7 +726,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           garageRoof: 'ガレージ屋上',
           dormsRoof: '共同寝室<br/>屋根',
           meetingHallRoof: '会議ホール<br/>屋根',
-          supplyCloset: ''
+          supplyCloset: '備品収納棚'
         },
         plane: {
           spawnOfficialEntrance: '前方搭乗口',
@@ -768,7 +768,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           serverRoomA: 'サーバールームA',
           serverRoomB: 'サーバールームB',
           technicalSeating: 'テックシート',
-          ladderRoom: ''
+          ladderRoom: 'ハシゴ室'
         },
         skyscraper: {
           helipad: 'ヘリポート',
@@ -869,10 +869,10 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
           frozenRiver: '冷たい川',
           zodiac: 'ゾディアック',
           westHullBreach: '船体西側ブリーチ',
-          kingOfTheWorld: '',
-          roof: '',
-          anchorName: '',
-          aklarkSubEntrance: ''
+          kingOfTheWorld: 'キング・<br/>オブ・ザ・<br/>ワールド',
+          roof: '屋上',
+          anchorName: 'アンカー',
+          aklarkSubEntrance: 'アクラーク号<br/>船倉入口'
         }
       }
     };
