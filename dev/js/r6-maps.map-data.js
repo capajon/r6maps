@@ -2681,7 +2681,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: -89, left: 226, description: yachtTerms.westDeck },
           { floor: 3, top: 17, left: 390, description: yachtTerms.frontDeck },
           { floor: 3, top: 17, left: 723, description: yachtTerms.frontDeck },
-          { floor: 3, top: 17, left: 801, description: yachtTerms.kingOfTheWorld, hardToRead: true },
+          { floor: 3, top: 20, left: 801, description: yachtTerms.kingOfTheWorld, hardToRead: true, smaller: true },
           { floor: 5, top: 17, left: 108, description: yachtTerms.roof },
           { floor: 3, top: 17, left: 325, description: yachtTerms.masterBedroom },
           { floor: 3, top: 4, left: 77, description: yachtTerms.casino },
