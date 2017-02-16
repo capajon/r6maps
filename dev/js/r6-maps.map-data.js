@@ -627,7 +627,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         spawnPoints: [
           { letter: spawnTerms.a, top: -309, left: -790, description: chaletTerms.spawnFrontYard },
           { letter: spawnTerms.b, top: -652, left: 680, description: chaletTerms.spawnCampfire },
-          { letter: spawnTerms.c, top: 447, left: 886, description: chaletTerms.spawnCliffside },
+          { letter: spawnTerms.c, top: 412, left: 886, description: chaletTerms.spawnCliffside },
           { letter: spawnTerms.d, top: 540, left: -819, description: chaletTerms.spawnLakeside }
         ],
         roomLabels: [
@@ -676,7 +676,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: -288, left: 925, description: chaletTerms.gazeebo },
           { floor: 2, top: -288, left: 925, description: chaletTerms.gazeebo },
           { outdoor: true, top: 177, left: 915, description: chaletTerms.cliffsideStairs },
-          { outdoor: true, top: 485, left: 778, description: chaletTerms.cliffsideWoods },
+          { outdoor: true, top: 451, left: 722, description: chaletTerms.cliffsideWoods },
           { outdoor: true, top: -75, left: 642, description: chaletTerms.backyard },
           { floor: 1, top: 138, left: 512, description: chaletTerms.backyardPatio },
           { floor: 2, top: 168, left: 363, description: chaletTerms.officeBalcony },
