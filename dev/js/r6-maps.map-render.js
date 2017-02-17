@@ -353,35 +353,9 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var getSpinnerHtml = function getSpinnerHtml(marginLeft, marginTop) {
-    var html = '',
-      marginLeft = marginLeft || 0,
-      marginTop = marginTop || 0;
+  var renderMap = function renderMap(mapData, $mapElements, $svgMapWrappers, $mapPanelLabels) {
+    var html = '';
 
-    html += '<div class="sk-circle" style="margin-top: ' + marginTop + 'px; margin-left: ' + marginLeft + 'px">';
-    html += '<div class="sk-circle1 sk-child"></div>';
-    html += '<div class="sk-circle2 sk-child"></div>';
-    html += '<div class="sk-circle3 sk-child"></div>';
-    html += '<div class="sk-circle4 sk-child"></div>';
-    html += '<div class="sk-circle5 sk-child"></div>';
-    html += '<div class="sk-circle6 sk-child"></div>';
-    html += '<div class="sk-circle7 sk-child"></div>';
-    html += '<div class="sk-circle8 sk-child"></div>';
-    html += '<div class="sk-circle9 sk-child"></div>';
-    html += '<div class="sk-circle10 sk-child"></div>';
-    html += '<div class="sk-circle11 sk-child"></div>';
-    html += '<div class="sk-circle12 sk-child"></div>';
-    html += '</div>';
-    return html;
-  };
-
-  var renderMap = function renderMap(mapData, $mapElements, $svgMapWrappers, $mapPanelLabels, getResetDimensions) {
-    var html = '',
-      resetDimensions = getResetDimensions(),
-      spinnerMarginLeft = resetDimensions.centerLeft,
-      spinnerMarginTop = resetDimensions.centerTop;
-
-    html += getSpinnerHtml(spinnerMarginLeft, spinnerMarginTop);
     html += getMaxFloorIndexHtml(mapData.floors, mapData.imgUrlPrefix);
     html += getCeilingHatchesHtml(mapData.ceilingHatches);
     html += getSkylightsHtml(mapData.skylights);
@@ -467,7 +441,6 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
   };
 
   return  {
-    getSpinnerHtml: getSpinnerHtml,
     renderMap: renderMap,
     roomLabelStyles: ROOM_LABEL_STYLES,
     setEnableScreenshots: setEnableScreenshots,
