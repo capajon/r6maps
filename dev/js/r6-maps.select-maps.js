@@ -35,7 +35,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     return result;
   };
 
-  var getMapGridHtml = function getMapGridHtml(mapData, getSpinnerHtmlCallback) {
+  var getMapGridHtml = function getMapGridHtml(mapData) {
     var maps = [],
       html = '<ul>';
 
@@ -60,7 +60,6 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
       html += '<a href="" class="' + map.key + '">';
       html += '<div class="wrapper absolute thumb"><div class="image thumb"></div></div>';
       html += '<div class="wrapper absolute loader"><div>';
-      html += getSpinnerHtmlCallback();
       html += '</div></div>';
       html += '<p>' + map.name + '</p>';
       html += '</a>';
@@ -178,11 +177,10 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     $mainNav,
     mapData,
     switchToMapCallback,
-    closeSelectCallback,
-    getSpinnerHtmlCallback
+    closeSelectCallback
   ) {
     headingEl.text(R6MapsLangTerms.terms.selectMaps.selectAMap);
-    selectMapGridEl.html(getMapGridHtml(mapData, getSpinnerHtmlCallback));
+    selectMapGridEl.html(getMapGridHtml(mapData));
     selectMapGridEl.on('click', 'a', function(event) {
       event.preventDefault();
       switchToMapCallback($(event.target).closest('li').data('key'));

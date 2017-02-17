@@ -1946,7 +1946,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 239, left: -180, description: kanalTerms.showers },
           { floor: 1, top: -142, left: 165, description: kanalTerms.loadingDock },
           { floor: 1, top: -140, left: 351, description: kanalTerms.machineHallway },
-          { floor: 1, top: 115, left: 279, hardToRead: true, description: kanalTerms.controlCenterStairs },
+          { floor: 1, top: 115, left: 298, hardToRead: true, description: kanalTerms.controlCenterStairs },
           { floor: 2, top: -236, left: -434, description: kanalTerms.holdingRoom },
           { floor: 2, top: -269, left: -332, description: kanalTerms.holdingRoomHallway },
           { floor: 2, top: -51, left: -426, hardToRead: true, description: kanalTerms.radio },
@@ -1962,7 +1962,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: -108, left: 130, hardToRead: true, description: kanalTerms.projectorRoom },
           { floor: 2, top: -189, left: 278, hardToRead: true, description: kanalTerms.mapsOffice },
           { floor: 2, top: 42, left: 279, description: kanalTerms.mapsOfficeHallway },
-          { floor: 2, top: 115, left: 279, description: kanalTerms.controlCenterStairs },
+          { floor: 2, top: 115, left: 298, description: kanalTerms.controlCenterStairs },
           { floor: 2, top: -95, left: 430, description: kanalTerms.kitchen },
           { floor: 2, top: 63, left: 433, description: kanalTerms.cafeteria },
           { floor: 2, top: 137, left: 433, hardToRead: true, description: kanalTerms.plantsHallway },
@@ -1970,7 +1970,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: 52, left: 204, description: kanalTerms.thirdFloorExit },
           { floor: 3, top: -150, left: 166, description: kanalTerms.controlRoom },
           { floor: 3, top: -180, left: 288, hardToRead: true, description: kanalTerms.electricRoom },
-          { floor: 3, top: 115, left: 279, description: kanalTerms.controlCenterStairs },
+          { floor: 3, top: 115, left: 298, description: kanalTerms.controlCenterStairs },
           { floor: 3, top: 48, left: 359, description: kanalTerms.controlRoomHallway },
           { floor: 3, top: -112, left: 405, hardToRead: true, description: kanalTerms.serverRoom },
           { outdoor: true, top: -377, left: -745, description: kanalTerms.lockgate },
@@ -2378,7 +2378,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           bottomRight: { top: 426, left: 762 }
         },
         compassPoints: {
-          top: 409, left: 960
+          top: 505, left: 656
         },
         cameras: [
           {
@@ -2501,7 +2501,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 110, left: 943, description: skyscraperTerms.sidePath },
           { floor: 2, top: 110, left: 943, description: skyscraperTerms.sidePath },
           { outdoor: true, top: 432, left: 918, description: skyscraperTerms.sideStairs },
-          { outdoor: true, top: 529, left: 634, description: skyscraperTerms.ventilationUnits },
+          { outdoor: true, top: 529, left: 542, description: skyscraperTerms.ventilationUnits },
           { floor: 1, top: -362, left: 714, description: skyscraperTerms.tower },
           { floor: 2, top: -362, left: 714, description: skyscraperTerms.tower },
           { outdoor: true, top: -295, left: -494, description: skyscraperTerms.helipad },

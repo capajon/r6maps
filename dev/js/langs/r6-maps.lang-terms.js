@@ -39,6 +39,8 @@ var R6MapsLangTerms = (function(undefined) {
         Light: 'Light (Default)',
         DarkAndLarge: 'Large and Dark',
         LightAndLarge: 'Large and Light',
+        DarkAndSmall: 'Small and Dark',
+        LightAndSmall: 'Small and Light',
         DisplayNone: 'Turn Off'
       },
       floorDisplayOptions: {

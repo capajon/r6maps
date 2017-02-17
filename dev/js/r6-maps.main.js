@@ -220,7 +220,7 @@ var DEV_MODE = false;
 
     R6MapsControls.objectives.populate(mapData[currentlySelectedMap].objectives);
     R6MapsControls.floors.populate(mapData[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(mapData[currentlySelectedMap], $mapElements, $svgMapWrappers, $mapPanelLabels, getResetDimensions);
+    R6MapsRender.renderMap(mapData[currentlySelectedMap], $mapElements, $svgMapWrappers, $mapPanelLabels);
     if (!DEV_MODE) {
       R6MapsControls.pan.reset($mapMains, getResetDimensions);
       R6MapsControls.zoom.reset($mapMains, getResetDimensions);
@@ -452,8 +452,7 @@ var DEV_MODE = false;
       $mainNav,
       R6MapsData.getMapData(),
       switchToMap,
-      tryHideMapSelect,
-      R6MapsRender.getSpinnerHtml
+      tryHideMapSelect
     );
   };
 

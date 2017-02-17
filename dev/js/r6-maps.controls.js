@@ -348,7 +348,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<div class="faded-logo"></div>';
     $menuPanel.html(html);
 
-    $menuControl.html(R6MapsLangTerms.terms.general.menu);
+    $menuControl.find('.menu-text').html(R6MapsLangTerms.terms.general.menu);
     $roomLabelStylesControl = $('#room-label-style');
     populateRoomLabelStyleOptions($roomLabelStylesControl, roomLabelStyles);
     $mapPanelCountControl = $('#map-pane-count');

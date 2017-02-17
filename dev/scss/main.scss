@@ -7,7 +7,6 @@
 @import "_compass.scss";
 @import "_legend.scss";
 @import "_select-map.scss";
-@import "_spinner.scss";
 @import "_drawing.scss";
 @import "_sessions.scss";
 @import "_jquery.mmenu.positioning.scss";
@@ -46,6 +45,46 @@
   width: 100vw;
   height: 100vh;
   position: relative;
+}
+
+#mmenu-link {
+  min-width: 30px;
+  min-height: 30px;
+
+  span.menu-wrapper {
+      align-items: center;
+      display: flex;
+  }
+
+  span.menu-icon {
+    @include inline-flex;
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    margin-right: 5px;
+    width: 18px;
+
+    @media screen and (max-width: $break-small) {
+      margin-right: 0;
+    }
+
+    span {
+      border-radius: 1px;
+      height: 4px;
+      width: 100%;
+
+      &:nth-child(odd) {
+        @include box-shadow(2px, 2px, 5px, rgba(0,0,0,.4));
+        background-color: #fff;
+        height: 2px;
+      }
+    }
+  }
+
+  span.menu-text {
+    @media screen and (max-width: $break-small) {
+      display: none
+    }
+  }
 }
 
 .map-wrapper {
@@ -628,6 +667,14 @@
           }
           p {
             font-size: 21px !important;
+          }
+        }
+        @at-root .map-elements.room-label-small .room-label {
+          &.smaller p {
+            font-size: 11px !important;
+          }
+          p {
+            font-size: 11px !important;
           }
         }
         @at-root .map-elements.room-label-dark .room-label {
