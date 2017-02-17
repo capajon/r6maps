@@ -670,6 +670,14 @@
             font-size: 21px !important;
           }
         }
+        @at-root .map-elements.room-label-small .room-label {
+          &.smaller p {
+            font-size: 11px !important;
+          }
+          p {
+            font-size: 11px !important;
+          }
+        }
         @at-root .map-elements.room-label-dark .room-label {
           opacity: 1 !important;
 
