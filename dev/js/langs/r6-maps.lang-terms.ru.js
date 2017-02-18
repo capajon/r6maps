@@ -12,7 +12,7 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         languageHeader: 'Язык',
         optionsHeader: 'Настройки',
         labelLosOpacity: 'Прозрачность угла зрения камер',
-        linkAbout: 'about.html',
+        linkAbout: 'about/about.html',
         labelPercent: '{int}%', // according to: (0.12).toLocaleString('en', { style: 'percent' });
         labelLosDefault: '(по умолчанию)',
         labelLos105: '(Эээ?)',
@@ -32,6 +32,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         Light: 'Тонкий (по умолчанию)',
         DarkAndLarge: 'Большой и жирный',
         LightAndLarge: 'Большой и тонкий',
+        DarkAndSmall: 'Маленький и тёмный',
+        LightAndSmall: 'Маленький и светлый',
         DisplayNone: 'Выключить'
       },
       floorDisplayOptions: {
