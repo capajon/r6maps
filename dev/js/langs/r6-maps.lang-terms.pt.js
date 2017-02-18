@@ -31,6 +31,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         Light: 'Claro (Padrão)',
         DarkAndLarge: 'Grande e Escuro',
         LightAndLarge: 'Grande e Claro',
+        DarkAndSmall: 'Pequeno e Escuro',
+        LightAndSmall: 'Pequeno e Leve',
         DisplayNone: 'Desligar'
       },
       floorDisplayOptions: {

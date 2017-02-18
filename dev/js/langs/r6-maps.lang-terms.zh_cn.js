@@ -32,6 +32,8 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
         Light: '透明背景(默认)',
         DarkAndLarge: '大号字体&黑色背景',
         LightAndLarge: '大号字体&透明背景',
+        DarkAndSmall: '小和黑暗',
+        LightAndSmall: '小和轻',
         DisplayNone: '关闭'
       },
       floorDisplayOptions: {

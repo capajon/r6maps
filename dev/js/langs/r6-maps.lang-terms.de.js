@@ -30,6 +30,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         Light: 'Licht ( Standard )',
         LightAndLarge: 'Groß und Dunkel',
         DarkAndLarge: 'Groß und Licht',
+        DarkAndSmall: 'Klein und Dunkel',
+        LightAndSmall: 'Klein und Licht',
         DisplayNone: 'Abschalten'
       },
       floorDisplayOptions: {

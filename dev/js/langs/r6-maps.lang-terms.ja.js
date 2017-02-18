@@ -32,6 +32,8 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         Light: '明るい(標準)',
         DarkAndLarge: '大きく暗い',
         LightAndLarge: '大きく明るい',
+        DarkAndSmall: '小さく暗い',
+        LightAndSmall: '小型軽量',
         DisplayNone: 'オフ'
       },
       floorDisplayOptions: {

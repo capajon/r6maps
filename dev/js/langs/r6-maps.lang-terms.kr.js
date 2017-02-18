@@ -30,6 +30,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         Light: '밝게 (기본값)',
         DarkAndLarge: '크고 어둡게',
         LightAndLarge: '크고 밝게',
+        DarkAndSmall: '작고 어두운',
+        LightAndSmall: '작고 가벼운',
         DisplayNone: '끄다'
       },
       floorDisplayOptions: {

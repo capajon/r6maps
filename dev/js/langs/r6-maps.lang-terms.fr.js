@@ -34,6 +34,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         Light: 'Lumière ( Défaut )',
         DarkAndLarge: 'Grand et Sombre',
         LightAndLarge: 'Grand et Lumière',
+        DarkAndSmall: 'Petit et Sombre',
+        LightAndSmall: 'Petit et léger',
         DisplayNone: 'Éteindre'
       },
       floorDisplayOptions: {
