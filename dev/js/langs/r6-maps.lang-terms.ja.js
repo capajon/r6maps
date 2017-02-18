@@ -71,8 +71,8 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
       },
       legend: {
         breakableWalls: '破壊できる壁',
-        breakableFloorTraps: '破壊できる床の<br/>落とし戸',
-        ceilingHatches: '破壊できる天井の<br/>落とし戸',
+        breakableFloorTraps: '床の落とし戸',
+        ceilingHatches: '天井の落とし戸',
         lineOfSightWalls: '視界の壁',
         lineOfSightFloors: '視界の床',
         droneTunnels: 'ドローンのトンネル',
