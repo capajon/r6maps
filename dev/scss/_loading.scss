@@ -2,5 +2,37 @@
   background-image: url($img-location + 'spinner.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 400px 400px;
+  background-size: 50%;
+}
+
+body.loading {
+  @media all and (min-width: 1000px ) {
+    background-size: 500px;
+  }
+}
+
+#map-panel-wrapper {
+  &[map-panel-count="1"] {
+    .map-wrapper.loading {
+      @media all and (min-width: 1000px ) {
+        background-size: 500px;
+      }
+    }
+  }
+
+  &[map-panel-count="2"] {
+    .map-wrapper.loading {
+      @media all and (min-width: 2000px ) {
+        background-size: 500px;
+      }
+    }
+  }
+
+  &[map-panel-count="4"] {
+    .map-wrapper.loading {
+      @media all and (min-width: 1200px ) {
+        background-size: 280px;
+      }
+    }
+  }
 }
