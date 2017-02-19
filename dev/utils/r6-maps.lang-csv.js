@@ -69,7 +69,6 @@
         translatedTerms.forEach(function(translated) {
           var tempTerms = subKey ? translated[subKey] : translated;
 
-          //console.log('tempTerms', tempTerms, key1, key2);
           if (tempTerms[key1] && tempTerms[key1][key2]){
             html += escapeHTML(tempTerms[key1][key2]) + ',';
           } else {
