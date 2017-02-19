@@ -197,20 +197,41 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var getMaxFloorIndexHtml = function getMaxFloorIndexHtml(floors, imgUrlPrefix) {
+  var getMaxFloorIndexHtml = function getMaxFloorIndexHtml($mapWrappers, floors, imgUrlPrefix) {
     var html = '',
       prefix,
       imgSrc,
       positionStyle,
-      classes;
+      classes,
+      deferrs = [];
+
+    $mapWrappers.addClass('loading');
 
     floors.forEach(function(floor) {
+      var currentDeferr = $.Deferred();
+
       prefix = imgUrlPrefix;
       imgSrc = IMG_URL + prefix + '/' + prefix + '-' + floor.index + '.jpg';
       positionStyle = getPositionStyle(floor);
       classes = floor.background ? 'background ' : 'floor ' + FLOOR_CSS_TEXT[floor.index];
       html += '<img src="' + imgSrc + '" style="' + positionStyle + '" class="' + classes + '"></img>';
+
+      $('<img/>').attr('src', imgSrc).load(function() {
+        $(this).remove(); // prevent memory leaks
+        currentDeferr.resolve();
+      });
+      deferrs.push(currentDeferr);
     });
+
+    $.when.apply($, deferrs).then(function() {
+      $mapWrappers.removeClass('loading');
+    });
+
+    $('<img/>').attr('src', 'http://picture.de/image.png').load(function() {
+      $(this).remove(); // prevent memory leaks as @benweet suggested
+      $('body').css('background-image', 'url(http://picture.de/image.png)');
+    });
+
     return html;
   };
 
@@ -353,10 +374,10 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     return html;
   };
 
-  var renderMap = function renderMap(mapData, $mapElements, $svgMapWrappers, $mapPanelLabels) {
+  var renderMap = function renderMap(mapData, $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels) {
     var html = '';
 
-    html += getMaxFloorIndexHtml(mapData.floors, mapData.imgUrlPrefix);
+    html += getMaxFloorIndexHtml($mapWrappers, mapData.floors, mapData.imgUrlPrefix);
     html += getCeilingHatchesHtml(mapData.ceilingHatches);
     html += getSkylightsHtml(mapData.skylights);
     html += getCamerasHtml(mapData.cameras, mapData.imgUrlPrefix);

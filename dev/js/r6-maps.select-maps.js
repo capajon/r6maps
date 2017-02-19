@@ -59,7 +59,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
       html += '<li data-key="' + map.key + '">';
       html += '<a href="" class="' + map.key + '">';
       html += '<div class="wrapper absolute thumb"><div class="image thumb"></div></div>';
-      html += '<div class="wrapper absolute loader"><div>';
+      html += '<div class="wrapper absolute spinner loading"><div>';
       html += '</div></div>';
       html += '<p>' + map.name + '</p>';
       html += '</a>';
@@ -122,13 +122,13 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
   };
 
   var resizeMapLinks = function resizeMapLinks(
-    mapLinks,
+    $mapLinks,
     $mainNav,
-    mapLinksContainerEl
+    $mapLinksContainer
   ) {
     var viewportDimensions = getViewportDimensions(),
       navHeight = $mainNav.height(),
-      mapLinkCount = mapLinks.length,
+      mapLinkCount = $mapLinks.length,
       columnCounts = getColumnCounts(mapLinkCount),
       availableHeight = viewportDimensions.height - navHeight - VIEWPORT_PADDING_HEIGHT,
       availableWidth = viewportDimensions.width - VIEWPORT_PADDING_WIDTH,
@@ -138,21 +138,24 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
         availableWidth,
         availableHeight
       ),
-      thumbImgScale = getBackgroundImgScale(mapLinkDimensions);
+      thumbImgScale = getBackgroundImgScale(mapLinkDimensions),
+      $spinners = $mapLinks.find('.spinner');
 
-    mapLinksContainerEl.css('margin-top', navHeight + 'px');
-    mapLinks.height(mapLinkDimensions.height);
-    mapLinks.width(mapLinkDimensions.width);
-    mapLinks.css(
+
+    $mapLinksContainer.css('padding-top', navHeight + 'px');
+    $mapLinks.height(mapLinkDimensions.height);
+    $mapLinks.width(mapLinkDimensions.width);
+    $mapLinks.css(
       'margin',
       '0 ' + mapLinkDimensions.marginHorizontal + 'px ' + mapLinkDimensions.marginVertical + 'px ' + mapLinkDimensions.marginHorizontal + 'px'
     );
+    $spinners.css('background-size', (Math.min(mapLinkDimensions.height, mapLinkDimensions.width) - 20) + 'px');
 
     setTransformScale(
-      mapLinks.find('div.image.thumb'),
+      $mapLinks.find('div.image.thumb'),
       thumbImgScale
     );
-    mapLinks.hover(function(event) {
+    $mapLinks.hover(function(event) {
       setTransformScale(
         $(event.target).closest('li').find('div.image.thumb'),
         thumbImgScale * THUMB_SCALE_ZOOMED_IN_FACTOR
@@ -200,6 +203,11 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     setTimeout(function() {
       selectMapGridEl.addClass('enable-thumb-transition');
     }, 1);
+
+    $('<img/>').attr('src', 'img/map-thumbs.jpg').load(function() {
+      $(this).remove(); // prevent memory leaks
+      selectMapGridEl.find('.spinner').removeClass('loading');
+    });
   };
 
   return  {

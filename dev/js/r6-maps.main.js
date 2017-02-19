@@ -47,6 +47,10 @@ var DEV_MODE = false;
       showSelectMap();
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
+
+    setTimeout(function() {
+      $body.removeClass('loading');
+    }, 10);
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
@@ -220,7 +224,7 @@ var DEV_MODE = false;
 
     R6MapsControls.objectives.populate(mapData[currentlySelectedMap].objectives);
     R6MapsControls.floors.populate(mapData[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(mapData[currentlySelectedMap], $mapElements, $svgMapWrappers, $mapPanelLabels);
+    R6MapsRender.renderMap(mapData[currentlySelectedMap], $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels);
     if (!DEV_MODE) {
       R6MapsControls.pan.reset($mapMains, getResetDimensions);
       R6MapsControls.zoom.reset($mapMains, getResetDimensions);

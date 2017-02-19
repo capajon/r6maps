@@ -81,9 +81,9 @@ $map-thumb-height: 278px;
             }
           }
 
-          &.loader {
+          &.spinner {
+            background-color: #111;
             z-index: -2;
-            background-color: $r6-blue;
           }
         }
 

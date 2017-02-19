@@ -9,7 +9,7 @@
 
 body {
   @include meyer-reset;
-  background-color: #111111;
+  background-color: #111111 !important;
   background: #000000; /* Old browsers */
   background: -moz-linear-gradient(left, #000000 0%, #151515 50%, #111111 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #000000 0%,#151515 50%,#111111 100%); /* Chrome10-25,Safari5.1-6 */
