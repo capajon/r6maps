@@ -11,13 +11,9 @@ $map-thumb-height: 278px;
 }
 
 #select-map-grid {
-  @include align-items(center);
   background-color: $less-faded-bg;
-  bottom: 0;
-  @include flexbox;
   height: 100vh;
   opacity: 0;
-  padding-top: 10px; /* also set in r6-maps.select-maps.js VIEWPORT_PADDING_HEIGHT */
   pointer-events: none;
   position: fixed;
   transition: visibility 0.5s, opacity 0.5s linear;

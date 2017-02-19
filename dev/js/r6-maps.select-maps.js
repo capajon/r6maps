@@ -5,7 +5,7 @@ var MIN_COLUMN_NUM = 2,
   NATIVE_THUMB_IMG_WIDTH = 495,
   NATIVE_THUMB_IMG_HEIGHT = 278,
   NATIVE_THUMB_IMG_RATIO = NATIVE_THUMB_IMG_WIDTH / NATIVE_THUMB_IMG_HEIGHT,
-  VIEWPORT_PADDING_HEIGHT = 10, /* also set as padding in _select-map.scss */
+  VIEWPORT_PADDING_HEIGHT = 10,
   VIEWPORT_PADDING_WIDTH = 15,
   MAP_LINK_TOTAL_BORDER_SIZE = 2,
   MIN_MAP_LINK_WIDTH = 100,
@@ -122,6 +122,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
   };
 
   var resizeMapLinks = function resizeMapLinks(
+    $selectMapGrid,
     $mapLinks,
     $mainNav,
     $mapLinksContainer
@@ -142,7 +143,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
       $spinners = $mapLinks.find('.spinner');
 
 
-    $mapLinksContainer.css('padding-top', navHeight + 'px');
+    $selectMapGrid.css('padding-top', (navHeight + VIEWPORT_PADDING_HEIGHT) + 'px');
     $mapLinks.height(mapLinkDimensions.height);
     $mapLinks.width(mapLinkDimensions.width);
     $mapLinks.css(
@@ -175,38 +176,39 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
   };
 
   var setup = function setup(
-    selectMapGridEl,
-    headingEl,
+    $selectMapGrid,
+    $heading,
     $mainNav,
     mapData,
     switchToMapCallback,
     closeSelectCallback
   ) {
-    headingEl.text(R6MapsLangTerms.terms.selectMaps.selectAMap);
-    selectMapGridEl.html(getMapGridHtml(mapData));
-    selectMapGridEl.on('click', 'a', function(event) {
+    $heading.text(R6MapsLangTerms.terms.selectMaps.selectAMap);
+    $selectMapGrid.html(getMapGridHtml(mapData));
+    $selectMapGrid.on('click', 'a', function(event) {
       event.preventDefault();
       switchToMapCallback($(event.target).closest('li').data('key'));
     });
-    selectMapGridEl.on('click', closeSelectCallback);
+    $selectMapGrid.on('click', closeSelectCallback);
 
     var handleResize = function handleResize() {
       resizeMapLinks(
-        selectMapGridEl.find('a'),
+        $selectMapGrid,
+        $selectMapGrid.find('a'),
         $mainNav,
-        selectMapGridEl.find('ul')
+        $selectMapGrid.find('ul')
       );
     };
 
     handleResize();
     $(window).on('resize', handleResize);
     setTimeout(function() {
-      selectMapGridEl.addClass('enable-thumb-transition');
+      $selectMapGrid.addClass('enable-thumb-transition');
     }, 1);
 
     $('<img/>').attr('src', 'img/map-thumbs.jpg').load(function() {
       $(this).remove(); // prevent memory leaks
-      selectMapGridEl.find('.spinner').removeClass('loading');
+      $selectMapGrid.find('.spinner').removeClass('loading');
     });
   };
 
