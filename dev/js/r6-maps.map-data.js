@@ -574,8 +574,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 14, left: 440, otherFloor: 'down' },
           { floor: 1, top: -91, left: -647, otherFloor: 'up' },
           { floor: 2, top: -91, left: -647, otherFloor: 'down' },
-          { floor: 1, top: 353, left: -474, otherFloor: 'up' },
-          { floor: 2, top: 353, left: -474, otherFloor: 'down' }
+          { floor: 1, top: 353, left: -485, otherFloor: 'up' },
+          { floor: 2, top: 353, left: -485, otherFloor: 'down' }
         ],
         cameras: [
           { floor: 1, otherFloor: 'up', top: -114, left: 198, id: 1, location: chaletTerms.bedroomHallway },
