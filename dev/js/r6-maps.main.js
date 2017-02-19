@@ -48,7 +48,9 @@ var DEV_MODE = false;
       document.title = R6MapsLangTerms.terms.general.pageTitleStart;
     }
 
-    $body.removeClass('loading');
+    setTimeout(function() {
+      $body.removeClass('loading');
+    }, 10);
   });
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
