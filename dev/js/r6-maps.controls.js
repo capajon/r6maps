@@ -65,11 +65,11 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var floorsGetMinAndMaxIndex = function floorsGetMinAndMaxIndex() { // TO DO CHANGE TO MAX FLOOR INDEX
-    var floorInputs = $floorControl.find('button');
+    var $floorInputs = $floorControl.find('button');
 
     return {
-      min: $(floorInputs[0]).data('index'),
-      max: $(floorInputs[floorInputs.length - 1]).data('index')
+      min: $($floorInputs[0]).data('index'),
+      max: $($floorInputs[floorInputs.length - 1]).data('index')
     };
   };
 
@@ -98,12 +98,12 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var floorsTrySelect = function floorsTrySelect(floorIndex) {
-    var selectedFloor = $floorControl.find("[data-index='" + floorIndex + "']");
+    var SselectedFloor = $floorControl.find("[data-index='" + floorIndex + "']");
 
-    if (selectedFloor.length) {
+    if ($selectedFloor.length) {
       resetSelectedFloor();
-      selectedFloor.addClass(SELECTED_CLASS);
-      selectedFloor.trigger('click');
+      $selectedFloor.addClass(SELECTED_CLASS);
+      $selectedFloor.trigger('click');
       return true;
     }
     return false;
@@ -575,10 +575,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var trySelectOption = function trySelectOption(selectEl, option) {
-    var selectOption = selectEl.find('option[value="' + option + '"]');
+    var $selectOption = selectEl.find('option[value="' + option + '"]');
 
-    if (selectOption.length) {
-      selectOption.prop('selected', true);
+    if ($selectOption.length) {
+      $selectOption.prop('selected', true);
       return true;
     }
     return false;
