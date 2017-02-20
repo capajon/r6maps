@@ -69,7 +69,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
     return {
       min: $($floorInputs[0]).data('index'),
-      max: $($floorInputs[floorInputs.length - 1]).data('index')
+      max: $($floorInputs[$floorInputs.length - 1]).data('index')
     };
   };
 
