@@ -121,6 +121,13 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     };
   };
 
+  var checkIe11orLess = function checkIe11orLess() {
+    return (navigator && (
+      (navigator.appName == 'Microsoft Internet Explorer') || // IE <= 10
+      ((navigator.appName == 'Netscape') && (navigator.appVersion.indexOf('Trident') > 0))  // IE = 11 and not Edge
+    ));
+  };
+
   var resizeMapLinks = function resizeMapLinks(
     $selectMapGrid,
     $mapLinks,
@@ -140,8 +147,8 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
         availableHeight
       ),
       thumbImgScale = getBackgroundImgScale(mapLinkDimensions),
-      $spinners = $mapLinks.find('.spinner');
-
+      $spinners = $mapLinks.find('.spinner'),
+      isIe11OrLess;
 
     $selectMapGrid.css('padding-top', (navHeight + VIEWPORT_PADDING_HEIGHT) + 'px');
     $mapLinks.height(mapLinkDimensions.height);
@@ -152,20 +159,30 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     );
     $spinners.css('background-size', (Math.min(mapLinkDimensions.height, mapLinkDimensions.width) - 20) + 'px');
 
-    setTransformScale(
-      $mapLinks.find('div.image.thumb'),
-      thumbImgScale
-    );
-    $mapLinks.hover(function(event) {
+    isIe11OrLess = checkIe11orLess();
+    // IE11 had an issue with transform scale that caused thumbnails to not center and look awkward
+    // This is a workaround that seems fine given the scale/zoom effect is just nice-to-have and it doesn't look awkward now
+    if (!isIe11OrLess) {
+      console.log('IS NOT IE11 OR LESS');
       setTransformScale(
-        $(event.target).closest('li').find('div.image.thumb'),
-        thumbImgScale * THUMB_SCALE_ZOOMED_IN_FACTOR
-      );
-    }, function(event) {
-      setTransformScale(
-        $(event.target).closest('li').find('div.image.thumb'),
+        $mapLinks.find('div.image.thumb'),
         thumbImgScale
       );
+    }
+    $mapLinks.hover(function(event) {
+      if (!isIe11OrLess) {
+        setTransformScale(
+          $(event.target).closest('li').find('div.image.thumb'),
+          thumbImgScale * THUMB_SCALE_ZOOMED_IN_FACTOR
+        );
+      }
+    }, function(event) {
+      if (!isIe11OrLess) {
+        setTransformScale(
+          $(event.target).closest('li').find('div.image.thumb'),
+          thumbImgScale
+        );
+      }
     });
   };
 
