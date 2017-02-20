@@ -1579,7 +1579,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
         ],
         cameras: [
           {
-            floor: 2, top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop,
+            floor: 2, top: -105, left: 50, id: 1, location: houseTerms.frontPorchTop,
             los: [[{top: -120, left: -71}, {top: -120, left: 69}, {top: 18, left: 69}]]
           },
           { floor: 1, otherFloor: 'up', top: -93, left: 50, id: 1, location: houseTerms.frontPorchTop },
@@ -1633,11 +1633,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 0, top: -128, left: -141, description: houseTerms.depot },
           { floor: 0, top: 2, left: -140, description: houseTerms.trainingRoom },
           { floor: 0, top: 11, hardToRead: true, smaller: true, left: -55, description: houseTerms.kitchenStairs },
-          { floor: 0, top: 64, left: -232, description: houseTerms.sideStairs },
+          { floor: 0, top: 69, left: -232, description: houseTerms.sideStairs },
           { floor: 0, top: 112, left: -90, description: houseTerms.laundryRoom },
           { floor: 0, top: 64, left: 169, description: houseTerms.garage },
           { floor: 1, top: -118, left: -109, hardToRead: true, description: houseTerms.livingRoom },
-          { floor: 1, top: 64, left: -232, description: houseTerms.sideStairs },
+          { floor: 1, top: 69, left: -232, description: houseTerms.sideStairs },
           { floor: 1, top: 119, left: -117, hardToRead: true, description: houseTerms.backEntrance },
           { floor: 1, top: -54, left: -33, hardToRead: true, description: houseTerms.lobby },
           { floor: 1, top: 11, hardToRead: true, smaller: true, left: -55, description: houseTerms.kitchenStairs },
@@ -1646,7 +1646,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 58, left: 99, hardToRead: true, description: houseTerms.diningRoom },
           { floor: 2, top: -25, left: -158, description: houseTerms.workshop },
           { floor: 2, top: 64, left: -232, description: houseTerms.sideStairs },
-          { floor: 2, top: 88, left: -122, description: houseTerms.kidsBedroom },
+          { floor: 2, top: 93, left: -122, description: houseTerms.kidsBedroom },
           { floor: 2, top: 19, left: -74, hardToRead: true, description: houseTerms.upperHallway },
           { floor: 2, top: -53, left: 53, hardToRead: true, smaller: true, description: houseTerms.lobbyStairs },
           { floor: 1, top: -53, left: 53, hardToRead: true, smaller: true, description: houseTerms.lobbyStairs },
