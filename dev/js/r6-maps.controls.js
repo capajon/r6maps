@@ -98,7 +98,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
   };
 
   var floorsTrySelect = function floorsTrySelect(floorIndex) {
-    var SselectedFloor = $floorControl.find("[data-index='" + floorIndex + "']");
+    var $selectedFloor = $floorControl.find("[data-index='" + floorIndex + "']");
 
     if ($selectedFloor.length) {
       resetSelectedFloor();
