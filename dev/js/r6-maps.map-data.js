@@ -2243,10 +2243,10 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 136, left: 329, otherFloor: 'up' },
           { floor: 2, top: 136, left: 329, otherFloor: 'down' },
           { floor: 1, top: 207, left: 335, otherFloor: 'up' },
-          { floor: 2, top: 207, left: 335 },
+          { floor: 2, top: 207, left: 335, otherFloor: 'upanddown' },
           { floor: 3, top: 207, left: 335, otherFloor: 'down' },
           { floor: 2, top: 156, left: -470, otherFloor: 'up' },
-          { floor: 3, top: 156, left: -470 },
+          { floor: 3, top: 156, left: -470, otherFloor: 'upanddown' },
           { floor: 4, top: 156, left: -470, otherFloor: 'down' },
           { floor: 1, top: 218, left: -497, otherFloor: 'up' },
           { floor: 2, top: 218, left: -497, otherFloor: 'down' }
