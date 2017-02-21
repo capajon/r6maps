@@ -146,7 +146,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
 
     if (element.otherFloor != null && !element.alwaysShow) {
       classes += 'other-floor ';
-      classes += element.otherFloor == 'up' ? 'up ' : 'down ';
+      classes += element.otherFloor;
     }
 
     classes += element.outdoor ? 'outdoor ' : '';
@@ -192,7 +192,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       classes = 'drone-tunnel ';
       classes += getCommonClasses(droneTunnel);
       classes += (droneTunnel.alternate) ? 'alternate ' : '';
-      html += '<div style="' + inlineStyle + '" class="' + classes + '"><span class="entrance"></span><span class="exit"></span></div>';
+      html += '<div style="' + inlineStyle + '" class="' + classes + '"><span class="other-floor"></span></div>';
     });
     return html;
   };

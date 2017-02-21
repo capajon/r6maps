@@ -488,6 +488,12 @@
             @include other-floor-icon ($ladder-width, $ladder-height, 'down', $z-ladder, 0, -2px);
           }
         }
+
+        &.upanddown {
+          span.other-floor {
+            @include other-floor-icon ($ladder-width, $ladder-height, 'upanddown', $z-ladder, 0, -2px);
+          }
+        }
       }
     }
 
@@ -592,6 +598,26 @@
 
       &.alternate {
         background-color: $drone-bg-alternate-color;
+      }
+
+      &.other-floor {
+        &.up {
+          span.other-floor {
+            @include other-floor-icon ($other-floor-drone-width, $other-floor-drone-height, 'up', $z-camera, -2px, 0);
+          }
+        }
+
+        &.down {
+          span.other-floor {
+            @include other-floor-icon ($other-floor-drone-width, $other-floor-drone-height, 'down', $z-camera, -2px, 0);
+          }
+        }
+
+        &.upanddown {
+          span.other-floor {
+            @include other-floor-icon ($other-floor-drone-width, $other-floor-drone-height, 'upanddown', $z-camera, -2px, 0);
+          }
+        }
       }
     }
 
