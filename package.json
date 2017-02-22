@@ -10,7 +10,7 @@
     "test:js": "eslint dev/js/*.js dev/utils/*.js",
     "test": "npm run test:js",
     "mkdir:css": "mkdirp ./site/css",
-    "build:aboutcss": "npm run mkdir:css && scss './dev/scss/about.scss':'./site/css/about.1.1.0.css'",
+    "build:aboutcss": "npm run mkdir:css && scss './dev/scss/about.scss':'./site/css/about.1.1.1.css'",
     "build:css": "npm run mkdir:css && scss './dev/scss/main.scss':'./site/css/main.1.2.12.css'",
     "watch:css": "npm run mkdir:css && scss --watch './dev/scss/main.scss':'./site/css/main.1.2.12.css'",
     "mkdir:js": "mkdirp ./site/js",

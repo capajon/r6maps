@@ -154,5 +154,21 @@ body {
         margin-left: 1rem;
       }
     }
+
+    #lang-message {
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .bullet-list {
+      list-style-type: circle;
+      margin-left: 2.5rem;
+      margin-top: 0.5rem;
+
+      li {
+        padding-bottom: 0.2rem;
+      }
+    }
   }
 }

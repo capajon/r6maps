@@ -6,7 +6,7 @@
     <title>R6Maps.com - Feb 2017 update - Summary of changes since October</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../../../css/about.1.1.0.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../../css/about.1.1.1.css" media="all" />
     <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
     <link rel="icon" href="/favicon.ico?v=1">
     <meta name="msapplication-TileColor" content="#141c24">
@@ -27,6 +27,7 @@
       <h1 class="top-header"><a href="../../../index.html" class="logo">r6maps.com</a></h1>
       <header>
         <div><a href="../../../index.html">r6maps.com Home</a></div>
+        <p style="display: none;" id="lang-message"></p>
       </header>
       <h2 class="top-header"><span>February 2017 Update</span><strong>Summary of changes since October</strong></h2>
       <section>
@@ -34,38 +35,83 @@
         <img src="ss-translations.jpg" class="update-ss"></img>
         <ul>
           <li>
-            <strong>Thank you</strong> very much to those who contributed new translations recently:
-            <ul>
-              <li>Simplified Chinese</li>
-              <li>Japanese</li>
-              <li>Russian</li>
-              <li>Portuguese</li>
-              <li>Korean</li>
+            <strong>Huge thanks</strong> to those who contributed new translations recently:
+            <ul class="bullet-list">
+              <li><strong>Simplified Chinese</strong> - <a href="https://game-rainbow6.ubi.com/zh-cn/uplay/player-statistics/2baec204-2ebe-451e-8651-55e6280503d3/multiplayer">Warcy Zhu</a></li>
+              <li><strong>Japanese</strong> - <a href="https://game-rainbow6.ubi.com/en-us/psn/player-statistics/45e07bd6-0efa-403f-afc1-1b2ddb694c82/multiplayer">Matthew Davis</a></li>
+              <li><strong>Russian</strong> - <a href="https://game-rainbow6.ubi.com/ru-ru/uplay/player-statistics/ceea36ce-b339-47ff-b198-738e6a62cfc0/multiplayer">MasterGroosha</a></li>
+              <li><strong>Portuguese</strong> - <a href="https://game-rainbow6.ubi.com/pt-br/xbl/player-statistics/ee17faa5-daf2-49a2-8456-911d1e5b7319/multiplayer">Paulo Novelli</a></li>
+              <li><strong>Korean</strong> - <a href="https://game-rainbow6.ubi.com/es-mx/uplay/player-statistics/53420818-60b0-4926-8621-09396295411b/multiplayer">LittleM0zart</a></li>
             </ul>
           </li>
           <li><strong>The total number of languages supported is now eight</strong> (English, French and German were already available)!</li>
-          <li><span>Want to help add more?</span><a href="../../translations-help.html">This page has information on how you can do that.</a>&nbsp; :)</li>
+          <li><span>Want to help add another?</span><a href="../../translations-help.html">This page has info on helping add a language.</a>&nbsp; :)</li>
         </ul>
       </section>
       <section>
         <h2>3 new maps</h2>
         <img src="ss-maps.jpg" class="update-ss"></img>
         <ul>
-          <li><span>Skyscraper,</span><span>Bartlett University &</span><span>Coastline</span></li>
-          <li>Posted here within a day of their releases (Coastline was 2 days early!). :)</li>
+          <li>
+            <ul class="bullet-list">
+              <li><strong>Skyscraper</strong></li>
+              <li><strong>Bartlett University</strong></li>
+              <li><strong>Coastline</strong></li>
+            </ul>
+          <li>Each was added to R6Maps within a day of their releases, or even sooner!</li>
         </ul>
       </section>
       <section>
-        <h2>Map detail improvements</h2>
+        <h2>Accuracy improvements</h2>
         <img src="ss-details.jpg" class="update-ss"></img>
         <ul>
-          <li>Some line-of-sight floors added or removed</li>
+          <li>
+            <strong>Objective markers:</strong>
+            <ul class="bullet-list">
+              <li>Added a few missing objectives (!).</li>
+              <li>Updated hostage locations to be accurate within a few feet.&nbsp; Note: Bomb and secure locations may be less accurate, but should always be in the right room.</li>
+              <li>Ensured bomb location #s match rank selection screen order, and letters (A & B) match room.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Breakable Surfaces:</strong>
+            <ul class="bullet-list">
+              <li>Some line-of-sight floors were added or removed (e.g. main floor of Consulate).</li>
+              <li>Added some missing breakable walls and updated others to indicate # of reinforcements required.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>& More:</strong>
+            <ul class="bullet-list">
+              <li>Added ladder locations on all maps.</li>
+              <li>Added some missing room names.</li>
+            </ul>
+          </li>
+          <li><span>Notice something wrong?</span><a href="https://github.com/capajon/r6maps/issues">Submit an issue on Github here</a> OR <a href="mailto:r6maps@gmail.com?Subject=r6maps">email r6maps@gmail.com</a>.  Thanks!</li>
         </ul>
       </section>
       <section>
         <h2>Miscellaneous</h2>
         <img src="ss-misc.jpg" class="update-ss"></img>
         <ul>
+          <li>
+            <strong>Performance improvements:</strong>
+            <ul class="bullet-list">
+              <li>Surprisingly huge CPU savings by changing the loading spinner.</li>
+              <li>Better initial load time by packaging page assets more effeciently.</li>
+              <li>Load smaller version of camera screen shots on smaller devices.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>But wait, there's more!</strong>
+            <ul class="bullet-list">
+              <li>New room label styles - none/disable and small.</li>
+              <li>Order number shown on camera icons.</li>
+              <li>On newer iPhones, uses more of the screen when added to the site is added to the home screen.</li>
+              <li>Added a compass (in case you forget that north always points up :).</li>
+              <li>& More! including several defect fixes <a href="https://github.com/capajon/r6maps/issues?q=is%3Aissue+is%3Aclosed">listed here.</a></li>
+            </ul>
+          </li>
           <li></li>
         </ul>
       </section>
@@ -74,5 +120,7 @@
         <div><a href="../../../index.html">r6maps.com Home</a></div>
       </footer>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="../../about.js"></script>
   </body>
 <html>
