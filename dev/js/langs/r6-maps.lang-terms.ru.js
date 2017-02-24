@@ -25,7 +25,8 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         enableScreenshots: 'Разрешить скриншоты',
         contributions: 'взносы',
         supportSiteNote: 'Один из способов оказать поддержку – небольшое пожертвование.',
-        donateImg: 'https://www.paypalobjects.com/ru_RU/i/btn/btn_donate_LG.gif'
+        donateImg: 'https://www.paypalobjects.com/ru_RU/i/btn/btn_donate_LG.gif',
+        latestUpdate: 'Февраль 2017 года Обновления',
       },
       roomLabelStyles: {
         Dark: 'Жирный',

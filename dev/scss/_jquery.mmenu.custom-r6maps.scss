@@ -52,6 +52,10 @@ $custom-mmenu-padding-smaller: 0.5rem;
     border-bottom-left-radius: $custom-mmenu-padding-smaller;
     border-bottom-right-radius: $custom-mmenu-padding-smaller;
 
+    #menu-latest-updates {
+      @include highlighted-item();
+    }
+
     button {
       border: 0;
       color: #000;

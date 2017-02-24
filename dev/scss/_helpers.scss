@@ -19,6 +19,16 @@
 	height: 1px;
 }
 
+@mixin highlighted-item() {
+	&.highlighted-item {
+		background-color: $r6-yellow;
+	}
+
+	&.highlighted-item-in-transition {
+		transition: background-color 1.8s ease !important;
+	}
+}
+
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow:inset $top $left $blur $color;

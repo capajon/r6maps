@@ -25,7 +25,8 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
         fullScreen: '全屏',
         enableScreenshots: '启用截屏',
         contributions: '贡献',
-        supportSiteNote: '如果感觉本站对您有帮助，可以通过下方捐赠链接支持本项目。'
+        supportSiteNote: '如果感觉本站对您有帮助，可以通过下方捐赠链接支持本项目。',
+        latestUpdate: '2017年2月更新',
       },
       roomLabelStyles: {
         Dark: '黑色背景',

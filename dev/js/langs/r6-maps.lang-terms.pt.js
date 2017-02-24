@@ -24,7 +24,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         enableScreenshots: 'Habilitar captura de tela',
         contributions: 'Contribuições',
         supportSiteNote: 'Uma maneira de considerar mostrar o seu apoio é através de uma pequena doação.',
-        donateImg: 'https://www.paypalobjects.com/pt_PT/i/btn/btn_donate_LG.gif'
+        donateImg: 'https://www.paypalobjects.com/pt_PT/i/btn/btn_donate_LG.gif',
+        latestUpdate: 'Atualizações em fevereiro de 2017',
       },
       roomLabelStyles: {
         Dark: 'Escuro',

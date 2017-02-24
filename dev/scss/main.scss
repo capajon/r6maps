@@ -48,46 +48,6 @@
   position: relative;
 }
 
-#mmenu-link {
-  min-width: 30px;
-  min-height: 30px;
-
-  span.menu-wrapper {
-      align-items: center;
-      display: flex;
-  }
-
-  span.menu-icon {
-    @include inline-flex;
-    @include flex-direction(column);
-    @include justify-content(space-between);
-    margin-right: 5px;
-    width: 18px;
-
-    @media screen and (max-width: $break-small) {
-      margin-right: 0;
-    }
-
-    span {
-      border-radius: 1px;
-      height: 4px;
-      width: 100%;
-
-      &:nth-child(odd) {
-        @include box-shadow(2px, 2px, 5px, rgba(0,0,0,.4));
-        background-color: #fff;
-        height: 2px;
-      }
-    }
-  }
-
-  span.menu-text {
-    @media screen and (max-width: $break-small) {
-      display: none
-    }
-  }
-}
-
 .map-wrapper {
   height: 100vh;
   width: 100vw;

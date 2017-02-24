@@ -29,7 +29,9 @@ var R6MapsLangTerms = (function(undefined) {
         enableScreenshots: 'Enable screenshots',
         contributions: 'Contributions',
         supportSiteNote: 'One way to consider showing your support is through a small donation. :)',
-        donateImg: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif'
+        donateImg: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+        latestUpdate: 'Feb 2017 updates',
+        linkLatestUpdate: 'about/updates/2017-Feb/index.html'
       },
       sessions: {
         button: 'Sessions (BETA)'

@@ -24,7 +24,8 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
         enableScreenshots: 'Activer captures d\'écran',
         contributions: 'Contributions',
         supportSiteNote: 'Une façon d\'envisager de montrer votre soutien est grâce à un petit don.',
-        donateImg: 'https://www.paypalobjects.com/fr_FR/i/btn/btn_donate_LG.gif'
+        donateImg: 'https://www.paypalobjects.com/fr_FR/i/btn/btn_donate_LG.gif',
+        latestUpdate: 'Février 2017 mises à jour',
       },
       sessions: {
         button: 'FR-Sessions (BETA)'

@@ -16,7 +16,8 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     $menuPanel = $('#menu-panel'),
     SELECTED_CLASS = 'selected',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
-    ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far';
+    ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far',
+    CSS_TRANSITION_MS = 1800; // currently in highlighted-item mixin for .highlighted-item-in-transition
 
   var disableFullScreen = function disableFullScreen() {
     if (document.exitFullscreen) {
@@ -257,6 +258,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     html += '<h2>r6maps.com</h2>';
     html += '<button id="menu-select-maps">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</button>';
     html += '<button id="menu-about">' + R6MapsLangTerms.terms.general.about + '</button>';
+    html += '<button id="menu-latest-updates" class="highlighted-item">' + R6MapsLangTerms.terms.general.latestUpdate + '</button>';
     if (isFullScreenAvailable()) {
       html += '<button href="" id="full-screen">' + R6MapsLangTerms.terms.general.fullScreen + '</button>';
     }
@@ -359,6 +361,9 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     $sessionsControl = $('#menu-sessions-launcher');
     $('#menu-about').on('click', function() {
       window.location = R6MapsLangTerms.terms.general.linkAbout;
+    });
+    $('#menu-latest-updates').on('click', function() {
+      window.location = R6MapsLangTerms.terms.general.linkLatestUpdate;
     });
   };
 
@@ -574,6 +579,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return trySelectOption($objectiveControl, objective);
   };
 
+  var removeLatestUpdateHighlight = function removeLatestUpdateHighlight(initialDelayMs) {
+    unhighlightControl($('#menu-latest-updates'), initialDelayMs);
+  };
+
   var trySelectOption = function trySelectOption(selectEl, option) {
     var $selectOption = selectEl.find('option[value="' + option + '"]');
 
@@ -591,6 +600,19 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       $lockWrapper.show(600);
     } else {
       $lockWrapper.hide(600);
+    }
+  };
+
+  var unhighlightControl = function unhighlightControl($el, initialDelayMs) {
+    if ($el.hasClass('highlighted-item')) {
+      $el.addClass('highlighted-item-in-transition');
+      setTimeout(function() {
+        $el.removeClass('highlighted-item');
+
+        setTimeout(function() {
+          $el.removeClass('highlighted-item-in-transition');
+        }, CSS_TRANSITION_MS);
+      }, initialDelayMs);
     }
   };
 
@@ -666,7 +688,9 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       isZoomed: zoomIsZoomed,
       reset: zoomReset
     },
+    removeLatestUpdateHighlight: removeLatestUpdateHighlight,
     setupLosOpacity: setupLosOpacity,
-    setupPanZoom: setupPanZoom
+    setupPanZoom: setupPanZoom,
+    unhighlightControl: unhighlightControl
   };
 })(window.jQuery, window, document, R6MapsLangTerms);

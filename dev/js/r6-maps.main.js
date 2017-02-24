@@ -198,6 +198,7 @@ var DEV_MODE = false;
 
     e.preventDefault();
     menuApi.open();
+    R6MapsControls.removeLatestUpdateHighlight(1000);
   };
 
   var handleObjectiveChange = function handleObjectiveChange() {
@@ -429,6 +430,8 @@ var DEV_MODE = false;
   };
 
   var setupMenu = function setupMenu() {
+    var $menuLink = $('#mmenu-link');
+
     R6MapsControls.menu.setup(R6MapsRender.roomLabelStyles);
 
     $('#mmenu-menu').mmenu({
@@ -443,7 +446,8 @@ var DEV_MODE = false;
         }
       });
 
-    $('#mmenu-link').click(handleMenuClick);
+    $menuLink.click(handleMenuClick);
+    R6MapsControls.unhighlightControl($menuLink, 10);
     $('#lang-choices').on('click','button', handleLangChange);
 
     R6MapsControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);

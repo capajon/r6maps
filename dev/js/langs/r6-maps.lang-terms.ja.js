@@ -25,7 +25,8 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         fullScreen: '全画面',
         enableScreenshots: 'スクリーンショット許可',
         contributions: '寄付',
-        supportSiteNote: 'このサイトをサポートしたい方には寄付ボタンをクリックしてください'
+        supportSiteNote: 'このサイトをサポートしたい方には寄付ボタンをクリックしてください',
+        latestUpdate: '2017年2月のアップデート',
       },
       roomLabelStyles: {
         Dark: '暗い',

@@ -23,7 +23,8 @@ var R6MapsLangTermsKorean = (function(R6MapsLangTerms, undefined) {
         fullScreen: '전체화면',
         enableScreenshots: '화면 캡쳐 활성화',
         contributions: '기부금',
-        supportSiteNote: '지원을 보여주는 한 가지 방법은 소액 기부를 통한 것입니다.'
+        supportSiteNote: '지원을 보여주는 한 가지 방법은 소액 기부를 통한 것입니다.',
+        latestUpdate: '2017 년 2 월 업데이트',
       },
       roomLabelStyles: {
         Dark: '어둡게',

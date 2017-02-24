@@ -23,7 +23,8 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
         enableScreenshots: 'Aktivieren Screenshots',
         contributions: 'Beiträge',
         supportSiteNote: 'Eine Möglichkeit zu prüfen, Ihre Unterstützung ist durch eine kleine Spende.',
-        donateImg: 'https://www.paypalobjects.com/de_DE/i/btn/btn_donate_LG.gif'
+        donateImg: 'https://www.paypalobjects.com/de_DE/i/btn/btn_donate_LG.gif',
+        latestUpdate: 'Feb 2017 aktualisiert',
       },
       roomLabelStyles: {
         Dark: 'Dunkel',
