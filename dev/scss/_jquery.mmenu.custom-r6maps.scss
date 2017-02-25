@@ -56,8 +56,9 @@ $custom-mmenu-padding-smaller: 0.5rem;
       @include highlighted-item();
     }
 
-    button {
+    button, .menu-item {
       border: 0;
+      box-sizing: border-box;
       color: #000;
       display: inline-block;
       font-size: 0.95rem;

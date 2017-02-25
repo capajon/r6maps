@@ -251,14 +251,17 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return html;
   };
 
-  var getMenuR6MapsHtml = function getMenuR6MapsHtml() {
-    var html = '';
+  var getMenuR6MapsHtml = function getMenuR6MapsHtml(showUpdateLinkHighlightedFn) {
+    var html = '',
+      latestUpdateCss = 'menu-item';
+
+    latestUpdateCss += showUpdateLinkHighlightedFn() ? ' highlighted-item' : '';
 
     html += '<div class="mmenu-custom-panel">';
     html += '<h2>r6maps.com</h2>';
     html += '<button id="menu-select-maps">' + R6MapsLangTerms.terms.selectMaps.homeLink + '</button>';
-    html += '<button id="menu-about">' + R6MapsLangTerms.terms.general.about + '</button>';
-    html += '<button id="menu-latest-updates" class="highlighted-item">' + R6MapsLangTerms.terms.general.latestUpdate + '</button>';
+    html += '<a class="menu-item" id="menu-about" href="' + R6MapsLangTerms.terms.general.linkAbout + '">' + R6MapsLangTerms.terms.general.about + '</a>';
+    html += '<a id="menu-latest-updates" class="' + latestUpdateCss + '" href="' + R6MapsLangTerms.terms.general.linkLatestUpdate + '">' + R6MapsLangTerms.terms.general.latestUpdate + '</a>';
     if (isFullScreenAvailable()) {
       html += '<button href="" id="full-screen">' + R6MapsLangTerms.terms.general.fullScreen + '</button>';
     }
@@ -269,6 +272,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
 
   var handlePanZoomEnd = function handlePanZoomEnd() {
     $zoomControl.trigger('input');
+  };
+
+  var highlightControl = function highlightControl($el) {
+    $el.addClass('highlighted-item');
   };
 
   var isCurrentlyFullScreen = function isCurrentlyFullScreen() {
@@ -340,10 +347,10 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     return trySelectOption($mapControl, map);
   };
 
-  var menuSetup = function menuSetup(roomLabelStyles) {
+  var menuSetup = function menuSetup(roomLabelStyles, showUpdateLinkHighlightedFn) {
     var html = '';
 
-    html += getMenuR6MapsHtml();
+    html += getMenuR6MapsHtml(showUpdateLinkHighlightedFn);
     html += getMenuLanguageHtml();
     html += getMenuOptionsHtml();
     html += getMenuContributionsHtml();
@@ -359,12 +366,6 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
     $fullScreenControl = $('#full-screen');
     $menuSelectMapsControl = $('#menu-select-maps');
     $sessionsControl = $('#menu-sessions-launcher');
-    $('#menu-about').on('click', function() {
-      window.location = R6MapsLangTerms.terms.general.linkAbout;
-    });
-    $('#menu-latest-updates').on('click', function() {
-      window.location = R6MapsLangTerms.terms.general.linkLatestUpdate;
-    });
   };
 
   var menuSetupFullScreen = function menuSetupFullScreen() {
@@ -688,6 +689,7 @@ var R6MapsControls = (function($, window, document, R6MapsLangTerms, undefined) 
       isZoomed: zoomIsZoomed,
       reset: zoomReset
     },
+    highlightControl: highlightControl,
     removeLatestUpdateHighlight: removeLatestUpdateHighlight,
     setupLosOpacity: setupLosOpacity,
     setupPanZoom: setupPanZoom,

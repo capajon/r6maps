@@ -21,7 +21,7 @@
 
 @mixin highlighted-item() {
 	&.highlighted-item {
-		background-color: $r6-yellow;
+		background-color: $r6-orange;
 	}
 
 	&.highlighted-item-in-transition {

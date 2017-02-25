@@ -18,7 +18,11 @@ var DEV_MODE = false;
     SHOW_MAP = 'show-map',
     SHOW_SELECT_MAP = 'show-select-map',
     HASH_SPLIT_CHAR = '/',
-    DEFAULT_LOS_OPACITY = 0.15;
+    DEFAULT_LOS_OPACITY = 0.15,
+    UPDATE_HIGHLIGHT = {
+      LOCALSTORAGE_READ_STRING: 'feb2017updateread', // set in update html page
+      CUTOFF_TIME_MS: 1489536000000 //March 15 2017
+    };
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     setPageElements();
@@ -198,7 +202,7 @@ var DEV_MODE = false;
 
     e.preventDefault();
     menuApi.open();
-    R6MapsControls.removeLatestUpdateHighlight(1000);
+    R6MapsControls.removeLatestUpdateHighlight(200);
   };
 
   var handleObjectiveChange = function handleObjectiveChange() {
@@ -432,7 +436,7 @@ var DEV_MODE = false;
   var setupMenu = function setupMenu() {
     var $menuLink = $('#mmenu-link');
 
-    R6MapsControls.menu.setup(R6MapsRender.roomLabelStyles);
+    R6MapsControls.menu.setup(R6MapsRender.roomLabelStyles, showUpdateLinkHighlighted);
 
     $('#mmenu-menu').mmenu({
       offCanvas: {
@@ -447,7 +451,11 @@ var DEV_MODE = false;
       });
 
     $menuLink.click(handleMenuClick);
-    R6MapsControls.unhighlightControl($menuLink, 10);
+    if (showUpdateLinkHighlighted()) {
+      R6MapsControls.highlightControl($menuLink);
+      R6MapsControls.unhighlightControl($menuLink, 1000);
+    }
+
     $('#lang-choices').on('click','button', handleLangChange);
 
     R6MapsControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
@@ -461,6 +469,15 @@ var DEV_MODE = false;
       R6MapsData.getMapData(),
       switchToMap,
       tryHideMapSelect
+    );
+  };
+
+  var showUpdateLinkHighlighted = function showUpdateLinkHighlighted() {
+    var date = new Date();
+
+    return (
+      (!localStorage.getItem(UPDATE_HIGHLIGHT.LOCALSTORAGE_READ_STRING)) &&
+      (date.getTime() < UPDATE_HIGHLIGHT.CUTOFF_TIME_MS)
     );
   };
 
