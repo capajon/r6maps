@@ -1649,7 +1649,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 11, hardToRead: true, smaller: true, left: -55, description: houseTerms.kitchenStairs },
           { floor: 1, top: 68, left: 29, description: houseTerms.kitchen },
           { floor: 1, top: -54, left: 107, description: houseTerms.office },
-          { floor: 1, top: 58, left: 99, hardToRead: true, description: houseTerms.diningRoom },
+          { floor: 1, top: 58, left: 99, description: houseTerms.diningRoom },
           { floor: 2, top: -25, left: -158, description: houseTerms.workshop },
           { floor: 2, top: 64, left: -232, description: houseTerms.sideStairs },
           { floor: 2, top: 93, left: -122, description: houseTerms.kidsBedroom },
