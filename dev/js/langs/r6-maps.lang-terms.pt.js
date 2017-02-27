@@ -91,8 +91,9 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
         border: 'Fronteira',
         chalet: 'Chalé',
         club: 'Club House',
+        coastline: 'Litoral',
         consulate: 'Consulado',
-        favela: 'Favelas',
+        favela: 'Favela',
         hereford: 'Hereford',
         house: 'Residência',
         kanal: 'Canal',
@@ -168,7 +169,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           courtyard: 'Pátio',
           centralHallway: 'Corredor<br/>Central',
           diningRoom: 'Sala de<br/>Jantar',
-          eastBalcony: '',
+          eastBalcony: 'Sacada oeste<br/>(não mostrada)',
           eastCorridor: 'Corredor<br/>Leste',
           eastStairs: 'Escadaria<br/>Leste',
           festival: 'Festival',
@@ -194,7 +195,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           trophyRoom: 'Sala de<br/>Troféus',
           upperLibrary: 'Biblioteca<br/>Superior',
           vistaHallway: 'Corredor<br/>Vista',
-          westBalcony: '',
+          westBalcony: 'Sacada Leste<br/>(não mostrada)',
           westCorridor: 'Corredor<br/>Oeste'
         },
         border: {
@@ -353,6 +354,45 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           cashRoom: 'Sala do Dinherio',
           easternStairs: 'Escadaria<br/>Leste'
         },
+        coastline: {
+          aquarium: 'Aquário',
+          backAlley: 'Viela<br/>Traseira',
+          balcony: 'Sacada (não mostrada)',
+          bathroom: 'Banheiro',
+          billiardsRoom: 'Salão de Jogos',
+          blueBar: 'Bar Azul',
+          cantina: 'Cantina',
+          courtyard: 'Jardim',
+          djBooth: 'Tenda do DJ (não mostrada)',
+          garageRoof: 'Telhado da Garagem',
+          hallOfFame: 'Hall da Fama',
+          hallway: 'Corredor',
+          hookahDeck: 'Terraco de<br/>Narguile<br/>(não mostrada)',
+          hookahLounge: 'Salão de Narguile',
+          kitchen: 'Cozinha',
+          mainEntrance: 'Entrada<br/>Principal',
+          mainLobby: 'Saguão<br/>Principal',
+          northStairs: 'Escadaria<br/>Norte',
+          office: 'Escritório',
+          penthouse: 'Cobertura',
+          pool: 'Piscina',
+          poolEntrance: 'Entrada da Piscina',
+          poolSide: 'Área da Piscina',
+          rooftop: 'Telhado',
+          ruins: 'Ruínas',
+          securityRoom: 'Sala de<br/>Controle',
+          serviceEntrance: 'Entrada de<br/>Serviços',
+          southHallway: 'Corredor Sul',
+          southPromenade: 'Caminho Sul',
+          southStairs: 'Escadaria<br/>Sul',
+          sunriseBar: 'Bar do Sol',
+          sunRoom: 'Solário',
+          theater: 'Home Theater',
+          terrace: 'Terraço',
+          toilets: 'Lavatórios',
+          vipLounge: 'Lounge VIP',
+          walkway: 'Trilha'
+        },
         consulate: {
           spawnRiotBarricade: 'Barreira contra<br/>Tumulto',
           spawnPoliceLine: 'Cordão<br/>Policial',
@@ -435,8 +475,8 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           schoolAlley: 'Beco da<br/>Escola',
           footballPitch: 'Campo da<br/>Pelada',
           market: 'Mercado',
-          marketAlley: '',
-          schoolRooftops: '',
+          marketAlley: 'Viela do<br/>Mercado',
+          schoolRooftops: 'Telhado<br/>da Escola',
           street: 'Rua',
           rooftops: 'Telhados',
           courtyard: 'Pátio',
@@ -488,7 +528,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           sideStairs: 'Escadaria<br/>Lateral',
           garageTop: 'Telhado da<br/>Garagem',
           rooftop: 'Telhado',
-          parkingEntrance: ''
+          parkingEntrance: 'Entrada do<br/>Estacionamento'
         },
         house: {
           spawnConstructionSite: 'Canteiro de<br/>Obras',
@@ -588,7 +628,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           dockStairs: 'Escadaria das<br/>Docas',
           parking: 'Estacionamento',
           boatCrane: 'Grua dos<br/>Botes',
-          mapArchives: ''
+          mapArchives: 'Arquivos<br/>dos Mapas'
         },
         kafe: {
           spawnRiverDocks: 'Docas',
@@ -626,7 +666,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           cocktailLoungeEntrance: 'Entrada do<br/>Cocktail',
           westMainStreet: 'Rua<br/>Principal<br/>Oeste',
           mainStreet: 'Rua<br/>Principal',
-          eastMainStreet: '',
+          eastMainStreet: 'Rua<br/>Principal<br/>Leste',
           bakeryParking: 'Estacionamento da<br/>Padaria',
           bakeryRoof: 'Telhado da<br/>Padaria',
           cafeRoofTop: 'Telhado do<br/>Cafe',
@@ -689,7 +729,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           garageRoof: 'Telhado da<br/>Garagem',
           dormsRoof: 'Telhado do<br/>Dormitório',
           meetingHallRoof: 'Telhado da<br/>Sala de<br/>Reuniões',
-          supplyCloset: ''
+          supplyCloset: 'Armário de<br/>Fornecimento'
         },
         plane: {
           spawnOfficialEntrance: 'Entrada<br/>Oficial',
@@ -731,7 +771,7 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           serverRoomA: 'Sala do<br/>Servidor A',
           serverRoomB: 'Sala do<br/>Servidor B',
           technicalSeating: 'Área<br/>Técnica',
-          ladderRoom: ''
+          ladderRoom: 'Sala das<br/>Escadas'
         },
         skyscraper: {
           helipad: 'Heliponto',
@@ -832,10 +872,10 @@ var R6MapsLangTermsPortBrazil = (function(R6MapsLangTerms, undefined) {
           frozenRiver: 'Rio<br/>Congelado',
           zodiac: 'Bote',
           westHullBreach: 'Buraco no Casco<br/>Oeste',
-          kingOfTheWorld: '',
-          roof: '',
-          anchorName: '',
-          aklarkSubEntrance: ''
+          kingOfTheWorld: 'O Rei<br/>do Mundo',
+          roof: 'Telhado',
+          anchorName: 'Âncora',
+          aklarkSubEntrance: 'Entrada do<br/>Aklark'
         }
       }
     };
