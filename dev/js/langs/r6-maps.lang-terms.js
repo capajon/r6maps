@@ -66,6 +66,7 @@ var R6MapsLangTerms = (function(undefined) {
         fr: 'Français',
         ja: '日本語',
         kr: '한국어',
+        mn: 'Монгол',
         pt: 'Português',
         ru: 'Русский',
         zh_cn: '简体中文'

@@ -10,25 +10,20 @@ r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Plea
 - Build scss from dev/scss to site/cs: 'npm run build:scss'
 - Build js from dev/js to site/js (uglified): 'npm run build:js'
 - File watches are also available (see packages.json)
+- Note there are some pre reqs not listed here (to be done) - eg. sass Ruby gem
 
 ## Things to work on
 Contributions are welcome. :)
 
-### Short-term
-- [ ] Translations for more languages (looking for contributions: http://www.r6maps.com/about/translations-help.html))
-- [ ] Open Issues (see Github issue tracking)
-- [ ] Initial team session beta (shared change map, basic ping, etc)
-- [ ] Initial drawing tools
-- [ ] Any new maps as released by Ubisoft
+### Active
+Current development is fairly "steady state" with no new major features planned in the short-term:
+- [ ] Translations (looking for contributions: http://www.r6maps.com/about/translations-help.html)
+- [ ] Open issues
+- [ ] New maps
 
-### Medium-term
-- [ ] Robust tactics planning and saving
-- [ ] More team session features
-- CI, Build & Deploy Improvements:
-   - [ ] scss linting
-   - [ ] Perceptual diff tests & basic UI tests
-
-### Long-term
-- [ ] Experiment with progressive web app - ie offline app access?
-- [ ] Real world globe map locations
-- [ ] Helpful tips / strats (community contributions, maybe posts? save?)
+### Thinking about...
+- [ ] Tactics drawing (& saving/sharing)
+- [ ] Shared sessions (map controls, shared pings, drawing if available)
+- [ ] Automated tests (perceptual diff?)
+- [ ] Offline mode (progressive web app? Cordova?)
+- [ ] Embeded currated hints/strats (from community contributions)
