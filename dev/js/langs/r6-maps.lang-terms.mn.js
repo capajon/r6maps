@@ -166,7 +166,6 @@ var R6MapsLangTermsMongolian = (function(R6MapsLangTerms, undefined) {
         },
         bartlett: {
           archwayHall: 'Нуман хаалгатай өрөө',
-          archwayHallway: 'Нуман хаалгатай коридор',
           backAlley: 'Арын гудам',
           bathroom: 'Бие засах<br/>өрөө',
           campusField: 'Кампусын<br/>талбай',
