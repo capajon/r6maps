@@ -16,8 +16,8 @@ r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Plea
 Contributions are welcome. :)
 
 ### Active
-Current development is fairly "steady state" with no major features planned in the short-term:
-- [ ] Translations (looking for contributions: http://www.r6maps.com/about/translations-help.html))
+Current development is fairly "steady state" with no new major features planned in the short-term:
+- [ ] Translations (looking for contributions: http://www.r6maps.com/about/translations-help.html)
 - [ ] Open issues
 - [ ] New maps
 
