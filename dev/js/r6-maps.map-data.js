@@ -292,7 +292,8 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 168, left: 194 },
           { floor: 1, top: 64, left: 374 },
           { floor: 1, top: -17, left: 482 },
-          { floor: 1, top: 95, left: 558 }
+          { floor: 1, top: 95, left: 558 },
+          { floor: 2, top: -174, left: 433 }
         ],
         skylights: [
           { floor: 1, top: -319, left: 272, otherFloor: 'up' },
