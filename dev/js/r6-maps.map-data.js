@@ -2293,6 +2293,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 22, left: 407 },
           { floor: 1, top: 24, left: 72 },
           { floor: 1, top: -2, left: -218 },
+          { floor: 1, top: 8, left: -78 },
           { floor: 3, top: -10, left: -496 }
         ],
         skylights: [],
@@ -2331,7 +2332,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 2, left: -337, smaller: true, description: planeTerms.pressBathroom },
           { floor: 1, top: 34, left: -202, description: planeTerms.cargoHold, hardToRead: true, smaller: true },
           { floor: 1, top: -13, left: -48, smaller: true, description: planeTerms.serviceCorridor, hardToRead: true },
-          { floor: 1, top: 16, left: -48, description: planeTerms.storage, smaller: true, hardToRead: true },
+          { floor: 1, top: 16, left: -44, description: planeTerms.storage, smaller: true, hardToRead: true },
           { floor: 1, top: -3, left: 38, description: planeTerms.luggageHold, smaller: true, hardToRead: true },
           { floor: 1, top: 25, left: 174, smaller: true, description: planeTerms.firstAidStation, hardToRead: true },
           { floor: 1, top: 20, left: 262, smaller: true, description: planeTerms.cargoFrontEntrance, hardToRead: true },
