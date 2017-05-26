@@ -973,7 +973,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 1, top: 215, left: -214, rotate: 90, size: DRONE_SMALL },
           { floor: 1, top: -81, left: -40, rotate: 90, size: 24 },
           { floor: 1, top: -90, left: -48, rotate: 0, size: 30 },
-          { floor: 2, top: 223, left: -55, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 223, left: -65, rotate: 0, size: DRONE_SMALL },
           { floor: 2, top: -4, left: -40, rotate: 90, size: DRONE_SMALL },
           { floor: 2, top: 94, left: 176, rotate: 90, size: DRONE_SMALL },
           { floor: 1, top: -86, left: -74, rotate: 0, size: DRONE_MED, otherFloor: 'up' },
@@ -981,7 +981,11 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 3, top: -86, left: -74, rotate: 0, size: DRONE_MED, otherFloor: 'down' },
           { floor: 1, top: 334, left: 275, rotate: 0, size: DRONE_MED, otherFloor: 'up' },
           { floor: 2, top: 334, left: 275, rotate: 0, size: DRONE_MED, otherFloor: 'upanddown' },
-          { floor: 3, top: 334, left: 275, rotate: 0, size: DRONE_MED, otherFloor: 'down' }
+          { floor: 3, top: 334, left: 275, rotate: 0, size: DRONE_MED, otherFloor: 'down' },
+          { floor: 2, top: 235, left: -51, rotate: 0, size: DRONE_MED, otherFloor: 'up' },
+          { floor: 3, top: 235, left: -51, rotate: 0, size: DRONE_MED, otherFloor: 'down' },
+          { floor: 2, top: -81, left: 214, rotate: 0, size: DRONE_MED, otherFloor: 'up' },
+          { floor: 3, top: -81, left: 214, rotate: 0, size: DRONE_MED, otherFloor: 'down' }
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: 186, left: 814, description: coastlineTerms.mainEntrance.removeBreakTags() },
@@ -1012,7 +1016,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 295, left: 175, description: coastlineTerms.hallway, hardToRead: true },
           { floor: 2, top: 292, left: 44, description: coastlineTerms.southHallway, hardToRead: true },
           { floor: 2, top: 301, left: -121, description: coastlineTerms.aquarium, hardToRead: true },
-          { floor: 2, top: -52, left: 185, description: coastlineTerms.hallOfFame, hardToRead: true },
+          { floor: 2, top: -57, left: 170, description: coastlineTerms.hallOfFame, hardToRead: true },
           { floor: 2, top: -36, left: 285, description: coastlineTerms.bathroom, hardToRead: true },
           { floor: 2, top: 27, left: 212, description: coastlineTerms.penthouse, hardToRead: true },
           { floor: 2, top: 212, left: 230, description: coastlineTerms.theater, hardToRead: true },
