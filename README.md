@@ -18,7 +18,8 @@ Contributions are welcome. :)
 ### Active
 Current development is fairly "steady state" with no new major features planned in the short-term:
 - [ ] Translations (looking for contributions: http://www.r6maps.com/about/translations-help.html)
-- [ ] Open issues
+- [ ] [Open issues](https://github.com/capajon/r6maps/issues)
+- [ ] Map accuracy (please log any errors/missing items as an [issue](https://github.com/capajon/r6maps/issues))
 - [ ] New maps
 
 ### Thinking about...
