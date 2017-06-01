@@ -49,6 +49,7 @@
     translatedTerms.japanese = R6MapsLangTermsJapanese.terms;
     translatedTerms.simplifiedchinese = R6MapsLangTermsSimplifiedChinese.terms;
     translatedTerms.mongolian = R6MapsLangTermsMongolian.terms;
+    translatedTerms.spanish = R6MapsLangTermsSpanish.terms;
     // add new languages here and to module import above
 
     categoryKeys = getFirstLevelKeys(defaultTerms, ['mapRooms']);
