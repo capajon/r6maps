@@ -1,8 +1,37 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsLangTerms, R6MapsLangTermsGerman, R6MapsData);
-}(function($, window, document, R6MapsLangTerms, R6MapsLangTermsGerman, R6MapsData, undefined) {
+  pagecode(
+    window.jQuery,
+    window,
+    document,
+    R6MapsLangTerms,
+    R6MapsLangTermsGerman,
+    R6MapsLangTermsFrench,
+    R6MapsLangTermsKorean,
+    R6MapsLangTermsPortBrazil,
+    R6MapsLangTermsRussian,
+    R6MapsLangTermsJapanese,
+    R6MapsLangTermsSimplifiedChinese,
+    R6MapsLangTermsMongolian,
+    R6MapsData
+  );
+}(function(
+  $,
+  window,
+  document,
+  R6MapsLangTerms,
+  R6MapsLangTermsGerman,
+  R6MapsLangTermsFrench,
+  R6MapsLangTermsKorean,
+  R6MapsLangTermsPortBrazil,
+  R6MapsLangTermsRussian,
+  R6MapsLangTermsJapanese,
+  R6MapsLangTermsSimplifiedChinese,
+  R6MapsLangTermsMongolian,
+  R6MapsData,
+  undefined
+) {
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     var defaultTerms = {},
       translatedTerms = {},
