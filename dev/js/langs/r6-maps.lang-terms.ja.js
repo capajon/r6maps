@@ -26,6 +26,7 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
         enableScreenshots: 'スクリーンショット許可',
         contributions: '寄付',
         supportSiteNote: 'このサイトをサポートしたい方には寄付ボタンをクリックしてください',
+        donateImg: 'https://www.paypalobjects.com/ja_JP/JP/i/btn/btn_donate_LG.gif',
         latestUpdate: '2017年2月のアップデート',
       },
       roomLabelStyles: {
