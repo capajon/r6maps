@@ -14,6 +14,7 @@
     R6MapsLangTermsJapanese,
     R6MapsLangTermsSimplifiedChinese,
     R6MapsLangTermsMongolian,
+    R6MapsLangTermsSpanish,
     R6MapsData
   );
 }(function(
@@ -29,6 +30,7 @@
   R6MapsLangTermsJapanese,
   R6MapsLangTermsSimplifiedChinese,
   R6MapsLangTermsMongolian,
+  R6MapsLangTermsSpanish,
   R6MapsData,
   undefined
 ) {

@@ -12,6 +12,7 @@ $( document ).ready(function() {
   langMessages['kr'] = '죄송합니다.이 페이지는 영어로만 제공됩니다.';
   langMessages['zh_cn'] = '很抱歉，此网页仅提供英文版。';
   langMessages['mn'] = 'Уучлаарай, энэ хуудсанд англи хэл дээр зөвхөн боломжтой.';
+  langMessages['es'] = 'Lo sentimos, esta página sólo está disponible en Inglés.';
 
   if (langMessages[lastChosenLanguage]) {
     showLangMessage(langMessages[lastChosenLanguage]);
