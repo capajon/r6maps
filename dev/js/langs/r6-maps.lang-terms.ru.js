@@ -12,7 +12,6 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
         languageHeader: 'Язык',
         optionsHeader: 'Настройки',
         labelLosOpacity: 'Прозрачность угла зрения камер',
-        linkAbout: 'about/about.html',
         labelPercent: '{int}%', // according to: (0.12).toLocaleString('en', { style: 'percent' });
         labelLosDefault: '(по умолчанию)',
         labelLos105: '(Эээ?)',

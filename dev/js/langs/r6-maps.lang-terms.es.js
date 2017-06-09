@@ -12,7 +12,6 @@ var R6MapsLangTermsSpanish = (function(R6MapsLangTerms, undefined) {
         languageHeader: 'Lengua',
         optionsHeader: 'Opciones',
         labelLosOpacity: 'Opacidad de la linea de vision de la cámara',
-        linkAbout: 'about.html',
         labelPercent: '{int}%',
         labelLosDefault: '(Default)',
         labelLos105: '(Huh?)',
