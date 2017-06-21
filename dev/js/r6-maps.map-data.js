@@ -722,7 +722,7 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
           { floor: 2, top: 52, left: 243, set: 2, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
-          { floor: 0, top: -128, left: 94 },
+          { floor: 0, top: -278, left: 76 },
           { floor: 1, top: -29, left: -38 },
           { floor: 1, top: 170, left: 277 },
           { floor: 2, top: -109, left: 25 }
