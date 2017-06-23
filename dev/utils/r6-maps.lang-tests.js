@@ -14,6 +14,7 @@
     R6MapsLangTermsJapanese,
     R6MapsLangTermsSimplifiedChinese,
     R6MapsLangTermsMongolian,
+    R6MapsLangTermsPolish,
     R6MapsData
   );
 }(function(
@@ -29,6 +30,7 @@
   R6MapsLangTermsJapanese,
   R6MapsLangTermsSimplifiedChinese,
   R6MapsLangTermsMongolian,
+  R6MapsLangTermsPolish,
   R6MapsData,
   undefined
 ) {
@@ -50,6 +52,7 @@
     translatedTerms.simplifiedchinese = R6MapsLangTermsSimplifiedChinese.terms;
     translatedTerms.mongolian = R6MapsLangTermsMongolian.terms;
     translatedTerms.spanish = R6MapsLangTermsSpanish.terms;
+    translatedTerms.polish = R6MapsLangTermsPolish.terms;
     // add new languages here and to module import above
 
     categoryKeys = getFirstLevelKeys(defaultTerms, ['mapRooms']);

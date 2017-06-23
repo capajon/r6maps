@@ -15,6 +15,7 @@
     R6MapsLangTermsSimplifiedChinese,
     R6MapsLangTermsMongolian,
     R6MapsLangTermsSpanish,
+    R6MapsLangTermsPolish,
     R6MapsData
   );
 }(function(
@@ -31,6 +32,7 @@
   R6MapsLangTermsSimplifiedChinese,
   R6MapsLangTermsMongolian,
   R6MapsLangTermsSpanish,
+  R6MapsLangTermsPolish,
   R6MapsData,
   undefined
 ) {
@@ -49,7 +51,9 @@
         R6MapsLangTermsRussian.terms,
         R6MapsLangTermsJapanese.terms,
         R6MapsLangTermsSimplifiedChinese.terms,
-        R6MapsLangTermsMongolian.terms
+        R6MapsLangTermsMongolian.terms,
+        R6MapsLangTermsSpanish.terms,
+        R6MapsLangTermsPolish.terms
       ];
 
     html += getOutputForTerms(defaultTerms, translatedTerms, ['mapRooms'], null);
