@@ -162,7 +162,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     isIe11OrLess = checkIe11orLess();
     // IE11 had an issue with transform scale that caused thumbnails to not center and look awkward
     // This is a workaround that seems fine given the scale/zoom effect is just nice-to-have and it doesn't look awkward now
-    if (!isIe11OrLess) {      
+    if (!isIe11OrLess) {
       setTransformScale(
         $mapLinks.find('div.image.thumb'),
         thumbImgScale
