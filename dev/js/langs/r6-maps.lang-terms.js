@@ -71,7 +71,7 @@ var R6MapsLangTerms = (function(undefined) {
         ru: 'Русский',
         zh_cn: '简体中文',
         es: 'Español',
-        pl: 'Polskie'
+        pl: 'Polski'
       },
       floorNames: {
         basement: { full: 'Basement', short: 'B' },
