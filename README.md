@@ -16,13 +16,15 @@ r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Plea
 Contributions are welcome. :)
 
 ### Active
-Current development is fairly "steady state" with no new major features planned in the short-term:
-- [ ] Translations (looking for contributions: http://www.r6maps.com/about/translations-help.html)
+Current development is fairly "steady state" with only a few new features planned:
+- [ ] Map stats - based on [data dump from Ubisoft](https://rainbow6.ubisoft.com/siege/en-us/news/152-293696-16/introduction-to-the-data-peek-velvet-shell-statistics).
+- [ ] Mark breakable windows - [see original feature suggestion here](https://github.com/capajon/r6maps/issues/89).
+- [ ] Translations - [info on how you can help](http://www.r6maps.com/about/translations-help.html).
 - [ ] [Open issues](https://github.com/capajon/r6maps/issues)
-- [ ] Map accuracy (please log any errors/missing items as an [issue](https://github.com/capajon/r6maps/issues))
+- [ ] Map accuracy - please log any errors/missing items as an [issue](https://github.com/capajon/r6maps/issues)
 - [ ] New maps
 
-### Thinking about...
+### Thinking about (maybe someday)...
 - [ ] Tactics drawing (& saving/sharing)
 - [ ] Shared sessions (map controls, shared pings, drawing if available)
 - [ ] Automated tests (perceptual diff?)
