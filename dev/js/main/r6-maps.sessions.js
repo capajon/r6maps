@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) {
+var R6MapsMainSessions = (function($, window, document, R6MapsCommonLangTerms, undefined) {
   var setup = function setup($dialog) {
     var html = '';
 
@@ -33,4 +33,4 @@ var R6MapsSessions = (function($, window, document, R6MapsLangTerms, undefined) 
       getOpenFn: getOpenFn
     }
   };
-})(window.jQuery, window, document, R6MapsLangTerms);
+})(window.jQuery, window, document, R6MapsCommonLangTerms);

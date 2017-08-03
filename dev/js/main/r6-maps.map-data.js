@@ -1,13 +1,13 @@
 'use strict';
 
-var R6MapsData = (function(R6MapsLangTerms, undefined){
+var R6MapsMainData = (function(R6MapsCommonLangTerms, undefined){
   var DRONE_MED = 18,
     DRONE_SMALL = 14,
-    mapRoomTerms = R6MapsLangTerms.terms.mapRooms,
-    mapNameTerms = R6MapsLangTerms.terms.mapNames,
-    objectiveTerms = R6MapsLangTerms.terms.objectives,
-    floorTerms = R6MapsLangTerms.terms.floorNames,
-    spawnTerms = R6MapsLangTerms.terms.spawnPoints,
+    mapRoomTerms = R6MapsCommonLangTerms.terms.mapRooms,
+    mapNameTerms = R6MapsCommonLangTerms.terms.mapNames,
+    objectiveTerms = R6MapsCommonLangTerms.terms.objectives,
+    floorTerms = R6MapsCommonLangTerms.terms.floorNames,
+    spawnTerms = R6MapsCommonLangTerms.terms.spawnPoints,
     bankTerms = mapRoomTerms.bank,
     borderTerms = mapRoomTerms.border,
     chaletTerms = mapRoomTerms.chalet,
@@ -2776,4 +2776,4 @@ var R6MapsData = (function(R6MapsLangTerms, undefined){
   return  {
     getMapData: getMapData
   };
-})(R6MapsLangTerms);
+})(R6MapsCommonLangTerms);

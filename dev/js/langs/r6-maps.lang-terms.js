@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsLangTerms = (function(undefined) {
+var R6MapsCommonLangTerms = (function(undefined) {
   var terms = {},
     name = 'en',
     translations = {},

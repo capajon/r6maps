@@ -5,33 +5,33 @@
     window.jQuery,
     window,
     document,
-    R6MapsLangTerms,
-    R6MapsLangTermsGerman,
-    R6MapsLangTermsFrench,
-    R6MapsLangTermsKorean,
-    R6MapsLangTermsPortBrazil,
-    R6MapsLangTermsRussian,
-    R6MapsLangTermsJapanese,
-    R6MapsLangTermsSimplifiedChinese,
-    R6MapsLangTermsMongolian,
-    R6MapsLangTermsPolish,
-    R6MapsData
+    R6MapsCommonLangTerms,
+    R6MapsCommonLangTermsGerman,
+    R6MapsCommonLangTermsFrench,
+    R6MapsCommonLangTermsKorean,
+    R6MapsCommonLangTermsPortBrazil,
+    R6MapsCommonLangTermsRussian,
+    R6MapsCommonLangTermsJapanese,
+    R6MapsCommonLangTermsSimplifiedChinese,
+    R6MapsCommonLangTermsMongolian,
+    R6MapsCommonLangTermsPolish,
+    R6MapsMainData
   );
 }(function(
   $,
   window,
   document,
-  R6MapsLangTerms,
-  R6MapsLangTermsGerman,
-  R6MapsLangTermsFrench,
-  R6MapsLangTermsKorean,
-  R6MapsLangTermsPortBrazil,
-  R6MapsLangTermsRussian,
-  R6MapsLangTermsJapanese,
-  R6MapsLangTermsSimplifiedChinese,
-  R6MapsLangTermsMongolian,
-  R6MapsLangTermsPolish,
-  R6MapsData,
+  R6MapsCommonLangTerms,
+  R6MapsCommonLangTermsGerman,
+  R6MapsCommonLangTermsFrench,
+  R6MapsCommonLangTermsKorean,
+  R6MapsCommonLangTermsPortBrazil,
+  R6MapsCommonLangTermsRussian,
+  R6MapsCommonLangTermsJapanese,
+  R6MapsCommonLangTermsSimplifiedChinese,
+  R6MapsCommonLangTermsMongolian,
+  R6MapsCommonLangTermsPolish,
+  R6MapsMainData,
   undefined
 ) {
   $(function() { // equivanelt to $(document).ready() - but a bit faster
@@ -42,17 +42,17 @@
       html = '',
       outputEl = $('#output');
 
-    defaultTerms = R6MapsLangTerms.terms;
-    translatedTerms.german = R6MapsLangTermsGerman.terms;
-    translatedTerms.french = R6MapsLangTermsFrench.terms;
-    translatedTerms.korean = R6MapsLangTermsKorean.terms;
-    translatedTerms.portbrazil = R6MapsLangTermsPortBrazil.terms;
-    translatedTerms.russian = R6MapsLangTermsRussian.terms;
-    translatedTerms.japanese = R6MapsLangTermsJapanese.terms;
-    translatedTerms.simplifiedchinese = R6MapsLangTermsSimplifiedChinese.terms;
-    translatedTerms.mongolian = R6MapsLangTermsMongolian.terms;
-    translatedTerms.spanish = R6MapsLangTermsSpanish.terms;
-    translatedTerms.polish = R6MapsLangTermsPolish.terms;
+    defaultTerms = R6MapsCommonLangTerms.terms;
+    translatedTerms.german = R6MapsCommonLangTermsGerman.terms;
+    translatedTerms.french = R6MapsCommonLangTermsFrench.terms;
+    translatedTerms.korean = R6MapsCommonLangTermsKorean.terms;
+    translatedTerms.portbrazil = R6MapsCommonLangTermsPortBrazil.terms;
+    translatedTerms.russian = R6MapsCommonLangTermsRussian.terms;
+    translatedTerms.japanese = R6MapsCommonLangTermsJapanese.terms;
+    translatedTerms.simplifiedchinese = R6MapsCommonLangTermsSimplifiedChinese.terms;
+    translatedTerms.mongolian = R6MapsCommonLangTermsMongolian.terms;
+    translatedTerms.spanish = R6MapsCommonLangTermsSpanish.terms;
+    translatedTerms.polish = R6MapsCommonLangTermsPolish.terms;
     // add new languages here and to module import above
 
     categoryKeys = getFirstLevelKeys(defaultTerms, ['mapRooms']);

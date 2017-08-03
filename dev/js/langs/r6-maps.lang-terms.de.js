@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
+var R6MapsCommonLangTermsGerman = (function(R6MapsCommonLangTerms, undefined) {
   var name = 'de',
     terms = {
       general: {
@@ -874,10 +874,10 @@ var R6MapsLangTermsGerman = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  R6MapsCommonLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
     terms: terms
   };
-})(R6MapsLangTerms);
+})(R6MapsCommonLangTerms);

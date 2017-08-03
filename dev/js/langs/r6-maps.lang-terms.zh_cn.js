@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
+var R6MapsCommonLangTermsSimplifiedChinese = (function(R6MapsCommonLangTerms, undefined) {
   var name = 'zh_cn',
     terms = {
       general: {
@@ -880,10 +880,10 @@ var R6MapsLangTermsSimplifiedChinese = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  R6MapsCommonLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
     terms: terms
   };
-})(R6MapsLangTerms);
+})(R6MapsCommonLangTerms);

@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
+var R6MapsCommonLangTermsRussian = (function(R6MapsCommonLangTerms, undefined) {
   var name = 'ru',
     terms = {
       general: {
@@ -885,10 +885,10 @@ var R6MapsLangTermsRussian = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  R6MapsCommonLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
     terms: terms
   };
-})(R6MapsLangTerms);
+})(R6MapsCommonLangTerms);

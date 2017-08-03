@@ -1,3 +1,5 @@
+
+
 $platforms = ['PC', 'XONE', 'PS4'];
 
 $skillRanks = ['Unranked', 'Copper', 'Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond'];

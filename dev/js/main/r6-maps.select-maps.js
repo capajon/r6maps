@@ -11,7 +11,7 @@ var MIN_COLUMN_NUM = 2,
   MIN_MAP_LINK_WIDTH = 100,
   THUMB_SCALE_ZOOMED_IN_FACTOR = 1.25;
 
-var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined) {
+var R6MapsMainSelectMaps = (function($, window, document, R6MapsCommonLangTerms, undefined) {
   var getBackgroundImgScale = function getBackgroundImgScale(thumbDimensions) {
     return Math.max(
       thumbDimensions.height / (NATIVE_THUMB_IMG_HEIGHT - 1),
@@ -199,7 +199,7 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
     switchToMapCallback,
     closeSelectCallback
   ) {
-    $heading.text(R6MapsLangTerms.terms.selectMaps.selectAMap);
+    $heading.text(R6MapsCommonLangTerms.terms.selectMaps.selectAMap);
     $selectMapGrid.html(getMapGridHtml(mapData));
     $selectMapGrid.on('click', 'a', function(event) {
       event.preventDefault();
@@ -231,4 +231,4 @@ var R6MapsSelectMaps = (function($, window, document, R6MapsLangTerms, undefined
   return  {
     setup: setup
   };
-})(window.jQuery, window, document, R6MapsLangTerms);
+})(window.jQuery, window, document, R6MapsCommonLangTerms);

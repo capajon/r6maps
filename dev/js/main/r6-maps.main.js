@@ -2,8 +2,8 @@
 var DEV_MODE = false;
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsDrawing);
-}(function($, window, document, R6MapsData, R6MapsRender, R6MapsControls, R6MapsLangTerms, R6MapsDrawing, undefined) {
+  pagecode(window.jQuery, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsCommonLangTerms, R6MapsMainDrawing);
+}(function($, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsCommonLangTerms, R6MapsMainDrawing, undefined) {
   var $mapWrappers,
     $mapPanelWrappers,
     $mapMains,
@@ -26,21 +26,21 @@ var DEV_MODE = false;
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     setPageElements();
-    R6MapsRender.setupMapPanels($mapPanelWrappers, 4);
+    R6MapsMainRender.setupMapPanels($mapPanelWrappers, 4);
     setMapElements();
     tryLoadStartingLanguage();
     setupMenu();
     setupSelectMap();
-    R6MapsControls.maps.populate(R6MapsData.getMapData());
+    R6MapsMainControls.maps.populate(R6MapsMainData.getMapData());
 
     $sessionsDialog = $('#sessions-dialog');
-    R6MapsSessions.createJoinDialog.setup($sessionsDialog);
+    R6MapsMainSessions.createJoinDialog.setup($sessionsDialog);
 
     setupEvents();
     $navLogo.on('click', toggleShowSelectMap);
     tryLoadMenuOptions();
 
-    R6MapsControls.setupPanZoom($mapMains, $mapElements);
+    R6MapsMainControls.setupPanZoom($mapMains, $mapElements);
 
     if (trySelectBookmarkedMap()) {
       loadMap();
@@ -49,7 +49,7 @@ var DEV_MODE = false;
       showMap();
     } else {
       showSelectMap();
-      document.title = R6MapsLangTerms.terms.general.pageTitleStart;
+      document.title = R6MapsCommonLangTerms.terms.general.pageTitleStart;
     }
 
     setTimeout(function() {
@@ -96,7 +96,7 @@ var DEV_MODE = false;
   };
 
   var getResetDimensions = function getResetDimensions() {
-    var currentMapKey = R6MapsControls.maps.get(),
+    var currentMapKey = R6MapsMainControls.maps.get(),
       zoomPoints = {
         topLeft: { top: -180, left: -312 }, // default
         bottomRight: { top: 180, left: 312 }
@@ -105,7 +105,7 @@ var DEV_MODE = false;
     if (currentMapKey) {
       zoomPoints = $.extend(
         zoomPoints,
-        R6MapsData.getMapData()[currentMapKey].zoomPoints
+        R6MapsMainData.getMapData()[currentMapKey].zoomPoints
       );
     }
     var zoomWidth = zoomPoints.bottomRight.left - zoomPoints.topLeft.left,
@@ -158,7 +158,7 @@ var DEV_MODE = false;
     sendFloorSelectAnalyticsEvent();
     showSelectedFloor();
     updateUrl();
-    R6MapsDrawing.refreshPings(); // hacky drawing module for now
+    R6MapsMainDrawing.refreshPings(); // hacky drawing module for now
   };
 
   var handleLangChange = function handleLangChange(event) {
@@ -166,11 +166,11 @@ var DEV_MODE = false;
 
     event.preventDefault();
 
-    R6MapsLangTerms.tryLoadLanguage(newLang);
+    R6MapsCommonLangTerms.tryLoadLanguage(newLang);
     localStorageSetItem('language', newLang);
 
     setupSelectMap();
-    R6MapsControls.maps.populate(R6MapsData.getMapData());
+    R6MapsMainControls.maps.populate(R6MapsMainData.getMapData());
     setupMenu();
     setupEvents();
     tryLoadMenuOptions();
@@ -183,7 +183,7 @@ var DEV_MODE = false;
 
   var handleEnableScreenshotsChange = function handleEnableScreenshotsChange(value) {
     localStorageSetItem('enablescreenshots', value);
-    R6MapsRender.setEnableScreenshots($mapWrappers, value);
+    R6MapsMainRender.setEnableScreenshots($mapWrappers, value);
   };
 
   var handleMapChange = function handleMapChange() {
@@ -202,7 +202,7 @@ var DEV_MODE = false;
 
     e.preventDefault();
     menuApi.open();
-    R6MapsControls.removeLatestUpdateHighlight(200);
+    R6MapsMainControls.removeLatestUpdateHighlight(200);
   };
 
   var handleObjectiveChange = function handleObjectiveChange() {
@@ -224,15 +224,15 @@ var DEV_MODE = false;
   };
 
   var loadMap = function loadMap() {
-    var currentlySelectedMap = R6MapsControls.maps.get(),
-      mapData = R6MapsData.getMapData();
+    var currentlySelectedMap = R6MapsMainControls.maps.get(),
+      mapData = R6MapsMainData.getMapData();
 
-    R6MapsControls.objectives.populate(mapData[currentlySelectedMap].objectives);
-    R6MapsControls.floors.populate(mapData[currentlySelectedMap].floors);
-    R6MapsRender.renderMap(mapData[currentlySelectedMap], $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels);
+    R6MapsMainControls.objectives.populate(mapData[currentlySelectedMap].objectives);
+    R6MapsMainControls.floors.populate(mapData[currentlySelectedMap].floors);
+    R6MapsMainRender.renderMap(mapData[currentlySelectedMap], $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels);
     if (!DEV_MODE) {
-      R6MapsControls.pan.reset($mapMains, getResetDimensions);
-      R6MapsControls.zoom.reset($mapMains, getResetDimensions);
+      R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
+      R6MapsMainControls.zoom.reset($mapMains, getResetDimensions);
     }
 
     setupCameraScreenshots();
@@ -244,11 +244,11 @@ var DEV_MODE = false;
     $navLogo.addClass('enabled');
     updateTitle();
 
-    R6MapsDrawing.setup(
+    R6MapsMainDrawing.setup(
       $mapMains,
       $drawingMarkerWrappers,
       isCamera,
-      R6MapsRender.SVG_DIM
+      R6MapsMainRender.SVG_DIM
     );
   };
 
@@ -257,7 +257,7 @@ var DEV_MODE = false;
       return;
     }
 
-    var warning = R6MapsControls.zoom.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
+    var warning = R6MapsMainControls.zoom.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
 
     console.log('SINGLE LINE TEXT:');
     console.log(
@@ -300,7 +300,7 @@ var DEV_MODE = false;
   var saveLockPanningOption = function saveLockPanningOption(value) {
     localStorageSetItem('lockpanning', value);
     if (value) {
-      R6MapsControls.pan.reset($mapMains, getResetDimensions);
+      R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
     }
   };
 
@@ -314,7 +314,7 @@ var DEV_MODE = false;
   };
 
   var sendFloorSelectAnalyticsEvent = function sendFloorSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Floor', R6MapsControls.floors.get());
+    sendControlAnalyticsEvent('Floor', R6MapsMainControls.floors.get());
   };
 
   var sendMapPanelCountEvent = function sendMapPanelCountEvent(panelCount) {
@@ -322,11 +322,11 @@ var DEV_MODE = false;
   };
 
   var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Map', R6MapsControls.maps.get());
+    sendControlAnalyticsEvent('Map', R6MapsMainControls.maps.get());
   };
 
   var sendObjectiveSelectAnalyticsEvent = function sendObjectiveSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Objective', R6MapsControls.objectives.get());
+    sendControlAnalyticsEvent('Objective', R6MapsMainControls.objectives.get());
   };
 
   var sendRoomLabelEvent = function sendRoomLabelEvent(style) {
@@ -353,15 +353,15 @@ var DEV_MODE = false;
     $.each($mapMains, function (index, map) {
       if (index < numPanels) {
         $(map).css('display', 'block');
-        R6MapsControls.zoom.enable($(map));
+        R6MapsMainControls.zoom.enable($(map));
       } else {
         $(map).css('display', 'none');
-        R6MapsControls.zoom.disable($(map));
+        R6MapsMainControls.zoom.disable($(map));
       }
     });
 
-    R6MapsControls.pan.reset($mapMains, getResetDimensions);
-    R6MapsControls.zoom.reset($mapMains, getResetDimensions);
+    R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
+    R6MapsMainControls.zoom.reset($mapMains, getResetDimensions);
 
     showSelectedFloor();
   };
@@ -374,7 +374,7 @@ var DEV_MODE = false;
   };
 
   var setRoomLabelStyle = function setRoomLabelStyle(style) {
-    R6MapsRender.setRoomLabelStyle($mapElements, style);
+    R6MapsMainRender.setRoomLabelStyle($mapElements, style);
     localStorageSetItem('roomlabelstyle', style);
     sendRoomLabelEvent(style);
   };
@@ -402,20 +402,20 @@ var DEV_MODE = false;
     var closeMenu = getMenuApi().close;
 
     $mapMains.on('click', outputCoordinates);
-    R6MapsControls.objectives.setup(handleObjectiveChange);
-    R6MapsControls.maps.setup(handleMapChange);
-    R6MapsControls.floors.setup(handleFloorChange, showSelectedFloor);
-    R6MapsControls.roomLabelStyles.setup(setRoomLabelStyle);
-    R6MapsControls.mapPanels.setup(handleMapPanelCountChange);
-    R6MapsControls.pan.setupLockOption(saveLockPanningOption);
-    R6MapsControls.enableScreenshots.setup(handleEnableScreenshotsChange);
-    R6MapsControls.menu.setupSelectMaps(showSelectMap, closeMenu);
-    R6MapsControls.menu.setupFullScreen();
-    R6MapsControls.sessions.setup(R6MapsSessions.createJoinDialog.getOpenFn($sessionsDialog), closeMenu);
+    R6MapsMainControls.objectives.setup(handleObjectiveChange);
+    R6MapsMainControls.maps.setup(handleMapChange);
+    R6MapsMainControls.floors.setup(handleFloorChange, showSelectedFloor);
+    R6MapsMainControls.roomLabelStyles.setup(setRoomLabelStyle);
+    R6MapsMainControls.mapPanels.setup(handleMapPanelCountChange);
+    R6MapsMainControls.pan.setupLockOption(saveLockPanningOption);
+    R6MapsMainControls.enableScreenshots.setup(handleEnableScreenshotsChange);
+    R6MapsMainControls.menu.setupSelectMaps(showSelectMap, closeMenu);
+    R6MapsMainControls.menu.setupFullScreen();
+    R6MapsMainControls.sessions.setup(R6MapsMainSessions.createJoinDialog.getOpenFn($sessionsDialog), closeMenu);
 
     $(window).on('orientationchange', function() {
-      R6MapsControls.pan.reset($mapMains, getResetDimensions);
-      R6MapsControls.zoom.reset($mapMains, getResetDimensions);
+      R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
+      R6MapsMainControls.zoom.reset($mapMains, getResetDimensions);
     });
   };
 
@@ -436,7 +436,7 @@ var DEV_MODE = false;
   var setupMenu = function setupMenu() {
     var $menuLink = $('#mmenu-link');
 
-    R6MapsControls.menu.setup(R6MapsRender.roomLabelStyles, showUpdateLinkHighlighted);
+    R6MapsMainControls.menu.setup(R6MapsMainRender.roomLabelStyles, showUpdateLinkHighlighted);
 
     $('#mmenu-menu').mmenu({
       offCanvas: {
@@ -452,21 +452,21 @@ var DEV_MODE = false;
 
     $menuLink.click(handleMenuClick);
     if (showUpdateLinkHighlighted()) {
-      R6MapsControls.highlightControl($menuLink);
-      R6MapsControls.unhighlightControl($menuLink, 1000);
+      R6MapsMainControls.highlightControl($menuLink);
+      R6MapsMainControls.unhighlightControl($menuLink, 1000);
     }
 
     $('#lang-choices').on('click','button', handleLangChange);
 
-    R6MapsControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
+    R6MapsMainControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
   };
 
   var setupSelectMap = function seteupSelectMap() {
-    R6MapsSelectMaps.setup(
+    R6MapsMainSelectMaps.setup(
       $('#select-map-grid'),
       $('#select-map-heading'),
       $mainNav,
-      R6MapsData.getMapData(),
+      R6MapsMainData.getMapData(),
       switchToMap,
       tryHideMapSelect
     );
@@ -482,10 +482,10 @@ var DEV_MODE = false;
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
-    var minMadFlorIndexes = R6MapsControls.floors.getMinMaxIndex();
+    var minMadFlorIndexes = R6MapsMainControls.floors.getMinMaxIndex();
 
-    R6MapsRender.showFloor(
-      R6MapsControls.floors.get(),
+    R6MapsMainRender.showFloor(
+      R6MapsMainControls.floors.get(),
       $mapPanelWrappers,
       $mapWrappers,
       minMadFlorIndexes.min,
@@ -494,11 +494,11 @@ var DEV_MODE = false;
   };
 
   var showSelectedObjective =  function showSelectedObjective() {
-    R6MapsRender.showObjective(R6MapsControls.objectives.get(), $mapElements);
+    R6MapsMainRender.showObjective(R6MapsMainControls.objectives.get(), $mapElements);
   };
 
   var switchToMap = function switchToMap(mapArg) {
-    if (R6MapsControls.maps.trySelect(mapArg)) {
+    if (R6MapsMainControls.maps.trySelect(mapArg)) {
       hideSelectMap();
       setTimeout(function() {
         loadMap();
@@ -530,7 +530,7 @@ var DEV_MODE = false;
     var enableScreenshotsOption = localStorage.getItem('enablescreenshots');
 
     if (enableScreenshotsOption !== null) {
-      R6MapsControls.enableScreenshots.set(enableScreenshotsOption);
+      R6MapsMainControls.enableScreenshots.set(enableScreenshotsOption);
       handleEnableScreenshotsChange((enableScreenshotsOption === 'true'));
     }
   };
@@ -539,7 +539,7 @@ var DEV_MODE = false;
     var lockPanningOption = localStorage.getItem('lockpanning');
 
     if (lockPanningOption !== null) {
-      R6MapsControls.pan.setLockOption(lockPanningOption);
+      R6MapsMainControls.pan.setLockOption(lockPanningOption);
     }
   };
 
@@ -553,7 +553,7 @@ var DEV_MODE = false;
         ($window.width() > 1000) || ($window.height() > 1000)
       ) ? 2 : 1;
     }
-    R6MapsControls.mapPanels.trySelect(mapPanelCount);
+    R6MapsMainControls.mapPanels.trySelect(mapPanelCount);
     setMapPanelCount(mapPanelCount);
   };
 
@@ -570,9 +570,9 @@ var DEV_MODE = false;
       userLang = (navigator.language || navigator.userLanguage).split('-')[0];
 
     if (lastChosenLanguage) {
-      R6MapsLangTerms.tryLoadLanguage(lastChosenLanguage);
+      R6MapsCommonLangTerms.tryLoadLanguage(lastChosenLanguage);
     } else if (userLang) {
-      R6MapsLangTerms.tryLoadLanguage(userLang);
+      R6MapsCommonLangTerms.tryLoadLanguage(userLang);
     };  // default will be English otherwise
   };
 
@@ -580,8 +580,8 @@ var DEV_MODE = false;
     var style = localStorage.getItem('roomlabelstyle');
 
     if (style) {
-      R6MapsControls.roomLabelStyles.trySelect(style);
-      R6MapsRender.setRoomLabelStyle($mapElements, style);
+      R6MapsMainControls.roomLabelStyles.trySelect(style);
+      R6MapsMainRender.setRoomLabelStyle($mapElements, style);
     }
   };
 
@@ -589,14 +589,14 @@ var DEV_MODE = false;
     var hashArgs = getHashArgs(),
       mapArg = hashArgs[0];
 
-    return R6MapsControls.maps.trySelect(mapArg);
+    return R6MapsMainControls.maps.trySelect(mapArg);
   };
 
   var trySelectBookmarkedObjective = function trySelectBookmarkedObjective() {
     var hashArgs = getHashArgs(),
       objectiveArg = hashArgs[2];
 
-    if (R6MapsControls.objectives.trySelect(objectiveArg)) {
+    if (R6MapsMainControls.objectives.trySelect(objectiveArg)) {
       showSelectedObjective();
     }
   };
@@ -605,14 +605,14 @@ var DEV_MODE = false;
     var hashArgs = getHashArgs(),
       floorArg = hashArgs[1];
 
-    if (R6MapsControls.floors.trySelect(floorArg)) {
+    if (R6MapsMainControls.floors.trySelect(floorArg)) {
       showSelectedFloor();
     }
   };
 
   var tryEnableSessionFeature = function tryEnableSessionFeature() {
     if (queryString('sessions')) {
-      R6MapsControls.sessions.enable();
+      R6MapsMainControls.sessions.enable();
     }
   };
 
@@ -620,9 +620,9 @@ var DEV_MODE = false;
     if (isShowingMap()) {
       var hashText = '';
 
-      hashText += '' + R6MapsControls.maps.get();
-      hashText += HASH_SPLIT_CHAR + R6MapsControls.floors.get();
-      hashText += HASH_SPLIT_CHAR + R6MapsControls.objectives.get();
+      hashText += '' + R6MapsMainControls.maps.get();
+      hashText += HASH_SPLIT_CHAR + R6MapsMainControls.floors.get();
+      hashText += HASH_SPLIT_CHAR + R6MapsMainControls.objectives.get();
       window.location.hash = hashText;
     } else {
       removeHashFromUrl();
@@ -645,10 +645,10 @@ var DEV_MODE = false;
 
   var updateTitle = function updateTitle() {
     document.title = isShowingMap() ?
-      R6MapsLangTerms.terms.general.pageTitle.replace(
+      R6MapsCommonLangTerms.terms.general.pageTitle.replace(
         '{mapName}',
-        R6MapsData.getMapData()[getLoadedMapKey()].name
+        R6MapsMainData.getMapData()[getLoadedMapKey()].name
       ) :
-      R6MapsLangTerms.terms.general.pageTitleSelectMap;
+      R6MapsCommonLangTerms.terms.general.pageTitleSelectMap;
   };
 }));

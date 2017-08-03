@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
+var R6MapsCommonLangTermsJapanese = (function(R6MapsCommonLangTerms, undefined) {
   var name = 'ja',
     terms = {
       general: {
@@ -881,10 +881,10 @@ var R6MapsLangTermsJapanese = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  R6MapsCommonLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
     terms: terms
   };
-})(R6MapsLangTerms);
+})(R6MapsCommonLangTerms);

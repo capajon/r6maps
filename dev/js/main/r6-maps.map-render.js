@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
+var R6MapsMainRender = (function($,window,document,R6MapsCommonLangTerms,undefined) {
   var SVG_WIDTH = 2560,
     SVG_HEIGHT = 1474,
     RETINA_WIDTH_CUTOFF = 1280,
@@ -11,7 +11,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       TOP_OFFSET: (SVG_HEIGHT / 2) + 12,
       LEFT_OFFSET: (SVG_WIDTH / 2) - 5
     },
-    langTerms = R6MapsLangTerms.terms;
+    langTerms = R6MapsCommonLangTerms.terms;
 
   $.fn.removeClassPrefix = function(prefix) {
     this.each(function(i, el) {
@@ -80,7 +80,7 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
       grouping = (camera.otherFloor)
         ? ''
         : 'data-fancybox-group="camera"';
-      title = R6MapsLangTerms.terms.general.cameraViewCaption.replace('{floorName}',camera.location.removeBreakTags());
+      title = R6MapsCommonLangTerms.terms.general.cameraViewCaption.replace('{floorName}',camera.location.removeBreakTags());
       tagStart = (camera.id && !camera.otherFloor)
         ? '<a href="' + IMG_URL + mapimgUrlPrefix + '/' + mapimgUrlPrefix + '-camera-' + camera.id + retinaUrl + '.jpg" title="' + title + '" ' + grouping + ' data-camera-id="' + camera.id + '"'
         : '<div ';
@@ -471,4 +471,4 @@ var R6MapsRender = (function($,window,document,R6MapsLangTerms,undefined) {
     showObjective: showObjective,
     SVG_DIM: SVG_DIM
   };
-})(window.jQuery, window, document, R6MapsLangTerms);
+})(window.jQuery, window, document, R6MapsCommonLangTerms);

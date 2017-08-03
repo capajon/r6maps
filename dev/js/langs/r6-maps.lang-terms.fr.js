@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
+var R6MapsCommonLangTermsFrench = (function(R6MapsCommonLangTerms, undefined) {
   var name = 'fr',
     terms = {
       general: {
@@ -878,7 +878,7 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
       }
     };
 
-  R6MapsLangTerms.registerLanguage(name, terms);
+  R6MapsCommonLangTerms.registerLanguage(name, terms);
 
   // À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
 
@@ -886,4 +886,4 @@ var R6MapsLangTermsFrench = (function(R6MapsLangTerms, undefined) {
     name: name,
     terms: terms
   };
-})(R6MapsLangTerms);
+})(R6MapsCommonLangTerms);
