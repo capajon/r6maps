@@ -3,6 +3,7 @@ Corel Auto-preserve
 /site/js/r6-maps*min*
 /site/css/main*css
 /site/css/about*css
+/site/stats/api/*private.php
 
 ###### SASS ######
 

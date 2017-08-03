@@ -1,0 +1,414 @@
+-----------------------------------------------------------------------------------------
+STEP 1: CSV DUMP -> DB
+
+*** NOTE: Used SQL Server for local work and parsing.
+
+Created new table: datadump_S5
+
+From csv datadump from Ubisoft:
+https://rainbow6.ubisoft.com/siege/en-us/news/152-293696-16/introduction-to-the-data-peek-velvet-shell-statistics
+
+NOTE: Allowed SQL Management Studio to pick column types reviewing all rows first.
+
+-----------------------------------------------------------------------------------------
+STEP 2A (OPERATORS): CREATED TEMP PARSING TABLE
+
+Cteated temp table: r6maps_stats_TEMP_operators_parsing1
+(to make query time manageable)
+
+SELECT
+t_d.mapname as mapName
+,t_d.platform as platform
+,t_d.gamemode as gameMode
+,t_d.objectivelocation as objectiveLocation
+,t_d.role as role
+,t_d.skillrank as skillRank
+,t_d.operator as operator
+,SUM(t_d.nbkills) as totalKills
+,ISNULL(t_deaths.totalPlays, 0) as totalDeaths
+,ISNULL(t_wins.totalPlays, 0) as totalWins
+,COUNT(*) as totalPlays
+INTO r6maps_stats_TEMP_operators_parsing
+FROM datadump_S5 AS t_d
+-- TOTAL DEATHS:
+LEFT JOIN (
+	SELECT
+	mapname
+	,platform
+	,gamemode
+	,objectivelocation
+	,role
+	,skillrank
+	,operator
+	,COUNT(*) AS totalPlays
+	FROM datadump_S5
+	WHERE isdead = 1
+	GROUP BY
+	mapname
+	,platform
+	,gamemode
+	,objectivelocation
+	,role
+	,skillrank
+	,operator
+) AS t_deaths
+	ON t_d.mapname = t_deaths.mapname
+	AND t_d.platform = t_deaths.platform
+	AND t_d.gamemode = t_deaths.gamemode
+	AND t_d.objectivelocation = t_deaths.objectivelocation
+	AND t_d.role = t_deaths.role
+	AND t_d.skillrank = t_deaths.skillrank
+	AND t_d.operator = t_deaths.operator
+-- TOTAL WINS:
+LEFT JOIN (
+	SELECT
+	mapname
+	,platform
+	,gamemode
+	,objectivelocation
+	,role
+	,skillrank
+	,operator
+	,COUNT(*) AS totalPlays
+	FROM datadump_S5
+	WHERE haswon = 1
+	GROUP BY
+	mapname
+	,platform
+	,gamemode
+	,objectivelocation
+	,role
+	,skillrank
+	,operator
+) AS t_wins
+	ON t_d.mapname = t_wins.mapname
+	AND t_d.platform = t_wins.platform
+	AND t_d.gamemode = t_wins.gamemode
+	AND t_d.objectivelocation = t_wins.objectivelocation
+	AND t_d.role = t_wins.role
+	AND t_d.skillrank = t_wins.skillrank
+	AND t_d.operator = t_wins.operator
+GROUP BY
+t_d.mapname
+,t_d.platform
+,t_d.gamemode
+,t_d.objectivelocation
+,t_d.role
+,t_d.skillrank
+,t_d.operator
+,ISNULL(t_deaths.totalplays, 0)
+,ISNULL(t_wins.totalplays, 0)
+
+-----------------------------------------------------------------------------------------
+STEP 2B (OPERATORS): CREATED OPERATORS TABLE FOR EXPORT
+
+Created table: r6maps_stats_S5_operators
+
+SELECT
+t_ops.platform
+,t_ops.mapName
+,REPLACE(t_ops.gameMode,'PvP – ','') AS gameMode
+,t_ops.objectiveLocation
+,t_ops.role
+,t_ops.skillRank
+,t_ops.operator
+,t_ops.totalKills
+,t_ops.totalDeaths
+,t_ops.totalWins
+,t_ops.totalPlays
+,t_allskill.totalPlaysAllSkillRank
+INTO r6maps_stats_operators_S5
+FROM r6maps_stats_TEMP_operators_parsing AS t_ops
+LEFT JOIN (
+	SELECT
+	platform
+	,mapName
+	,gameMode
+	,objectiveLocation
+	,role
+	,operator
+	,SUM(totalPlays) AS totalPlaysAllSkillRank
+	FROM r6maps_stats_TEMP_operators_parsing
+	GROUP BY
+	platform
+	,mapName
+	,gameMode
+	,objectiveLocation
+	,role
+	,operator
+) AS t_allskill
+ON t_ops.platform = t_allskill.platform
+AND t_ops.mapName = t_allskill.mapName
+AND t_ops.gameMode = t_allskill.gameMode
+AND t_ops.objectiveLocation = t_allskill.objectiveLocation
+AND t_ops.role = t_allskill.role
+AND t_ops.operator = t_allskill.operator
+ORDER BY
+t_ops.platform
+,t_ops.mapName
+,REPLACE(t_ops.gameMode,'PvP – ','')
+,t_ops.objectiveLocation
+,t_ops.role
+,t_ops.skillRank
+,t_ops.operator
+
+-----------------------------------------------------------------------------------------
+STEP 3A (MAPS): CREATED TEMP PARSING TABLE
+
+Created new table: 'r6maps_stats_TEMP_maps_parsing'
+
+SELECT
+t_d.platform
+,t_d.mapName
+,t_d.gameMode
+,t_d.objectiveLocation
+,t_d.matchId
+,t_d.roundNumber
+,t_d.winRole
+,t_d.endRoundReason
+,AVG(CAST(t_d.roundduration AS FLOAT)) as averageRoundDuration
+INTO r6maps_stats_TEMP_maps_parsing
+FROM datadump_S5 as t_d
+GROUP BY
+t_d.platform
+,t_d.mapName
+,t_d.gameMode
+,t_d.objectiveLocation
+,t_d.matchId
+,t_d.roundNumber
+,t_d.winRole
+,t_d.endRoundReason
+ORDER BY
+t_d.platform
+,t_d.mapName
+,t_d.gameMode
+,t_d.objectiveLocation
+,t_d.matchId
+,t_d.roundNumber
+,t_d.winRole
+,t_d.endRoundReason
+
+-----------------------------------------------------------------------------------------
+STEP 3B (MAPS): CREATED MAPS TABLE FOR EXPORT
+
+Created new table: 'r6maps_stats_S5_maps'
+
+*** NOTE: Should ensure there are new end round reasons (would need new column and join in query)
+
+AS OF SEASON 5:
+
+AllTeamsDead
+AttackersEliminated
+AttackersKilledHostage
+AttackersSurrendered
+BombDeactivated_OneBomb
+BombExploded
+DefendersEliminated
+DefendersKilledHostage
+DefendersSurrendered
+DefuserDeactivated
+HostageExtracted
+NoEnemies
+None
+ObjectiveCaptured
+ObjectiveProtected
+TimeExpired
+
+*** NOTE: May want to verify winrole does not have something new for draw cases either?
+
+SELECT
+t_m.platform
+,t_m.mapName
+,REPLACE(t_m.gameMode,'PvP – ','') AS gameMode
+,t_m.objectiveLocation
+,t_m.winRole
+,ISNULL(t_m_endroundreason_AllTeamsDead.totalRounds,0) as allTeamsDead
+,ISNULL(t_m_endroundreason_AttackersEliminated.totalRounds,0) as attackersEliminated
+,ISNULL(t_m_endroundreason_AttackersKilledHostage.totalRounds,0) as attackersKilledHostage
+,ISNULL(t_m_endroundreason_AttackersSurrendered.totalRounds,0) as attackersSurrendered
+,ISNULL(t_m_endroundreason_BombDeactivated_OneBomb.totalRounds,0) as bombDeactivated_OneBomb
+,ISNULL(t_m_endroundreason_BombExploded.totalRounds,0) as bombExploded
+,ISNULL(t_m_endroundreason_DefendersEliminated.totalRounds,0) as defendersEliminated
+,ISNULL(t_m_endroundreason_DefendersKilledHostage.totalRounds,0) as defendersKilledHostage
+,ISNULL(t_m_endroundreason_DefendersSurrendered.totalRounds,0) as defendersSurrendered
+,ISNULL(t_m_endroundreason_DefuserDeactivated.totalRounds,0) as defuserDeactivated
+,ISNULL(t_m_endroundreason_HostageExtracted.totalRounds,0) as hostageExtracted
+,ISNULL(t_m_endroundreason_NoEnemies.totalRounds,0) as noEnemies
+,ISNULL(t_m_endroundreason_None.totalRounds,0) as none
+,ISNULL(t_m_endroundreason_ObjectiveCaptured.totalRounds,0) as objectiveCaptured
+,ISNULL(t_m_endroundreason_ObjectiveProtected.totalRounds,0) as objectiveProtected
+,ISNULL(t_m_endroundreason_TimeExpired.totalRounds,0) as timeExpired
+,AVG(t_m.averageRoundDuration) as averageRoundDuration
+,COUNT(*) as totalRounds
+INTO r6maps_stats_maps_S5
+FROM r6maps_stats_TEMP_maps_parsing as t_m
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'AllTeamsDead'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_AllTeamsDead
+		ON t_m.platform = t_m_endroundreason_AllTeamsDead.platform
+		AND t_m.mapName = t_m_endroundreason_AllTeamsDead.mapName
+		AND t_m.gameMode = t_m_endroundreason_AllTeamsDead.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_AllTeamsDead.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_AllTeamsDead.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'AttackersEliminated'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_AttackersEliminated
+		ON t_m.platform = t_m_endroundreason_AttackersEliminated.platform
+		AND t_m.mapName = t_m_endroundreason_AttackersEliminated.mapName
+		AND t_m.gameMode = t_m_endroundreason_AttackersEliminated.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_AttackersEliminated.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_AttackersEliminated.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'AttackersKilledHostage'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_AttackersKilledHostage
+		ON t_m.platform = t_m_endroundreason_AttackersKilledHostage.platform
+		AND t_m.mapName = t_m_endroundreason_AttackersKilledHostage.mapName
+		AND t_m.gameMode = t_m_endroundreason_AttackersKilledHostage.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_AttackersKilledHostage.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_AttackersKilledHostage.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'AttackersSurrendered'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_AttackersSurrendered
+		ON t_m.platform = t_m_endroundreason_AttackersSurrendered.platform
+		AND t_m.mapName = t_m_endroundreason_AttackersSurrendered.mapName
+		AND t_m.gameMode = t_m_endroundreason_AttackersSurrendered.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_AttackersSurrendered.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_AttackersSurrendered.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'BombDeactivated_OneBomb'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_BombDeactivated_OneBomb
+		ON t_m.platform = t_m_endroundreason_BombDeactivated_OneBomb.platform
+		AND t_m.mapName = t_m_endroundreason_BombDeactivated_OneBomb.mapName
+		AND t_m.gameMode = t_m_endroundreason_BombDeactivated_OneBomb.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_BombDeactivated_OneBomb.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_BombDeactivated_OneBomb.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'BombExploded'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_BombExploded
+		ON t_m.platform = t_m_endroundreason_BombExploded.platform
+		AND t_m.mapName = t_m_endroundreason_BombExploded.mapName
+		AND t_m.gameMode = t_m_endroundreason_BombExploded.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_BombExploded.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_BombExploded.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'DefendersEliminated'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_DefendersEliminated
+		ON t_m.platform = t_m_endroundreason_DefendersEliminated.platform
+		AND t_m.mapName = t_m_endroundreason_DefendersEliminated.mapName
+		AND t_m.gameMode = t_m_endroundreason_DefendersEliminated.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_DefendersEliminated.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_DefendersEliminated.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'DefendersKilledHostage'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_DefendersKilledHostage
+		ON t_m.platform = t_m_endroundreason_DefendersKilledHostage.platform
+		AND t_m.mapName = t_m_endroundreason_DefendersKilledHostage.mapName
+		AND t_m.gameMode = t_m_endroundreason_DefendersKilledHostage.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_DefendersKilledHostage.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_DefendersKilledHostage.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'DefendersSurrendered'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_DefendersSurrendered
+		ON t_m.platform = t_m_endroundreason_DefendersSurrendered.platform
+		AND t_m.mapName = t_m_endroundreason_DefendersSurrendered.mapName
+		AND t_m.gameMode = t_m_endroundreason_DefendersSurrendered.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_DefendersSurrendered.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_DefendersSurrendered.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'DefuserDeactivated'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_DefuserDeactivated
+		ON t_m.platform = t_m_endroundreason_DefuserDeactivated.platform
+		AND t_m.mapName = t_m_endroundreason_DefuserDeactivated.mapName
+		AND t_m.gameMode = t_m_endroundreason_DefuserDeactivated.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_DefuserDeactivated.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_DefuserDeactivated.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'HostageExtracted'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_HostageExtracted
+		ON t_m.platform = t_m_endroundreason_HostageExtracted.platform
+		AND t_m.mapName = t_m_endroundreason_HostageExtracted.mapName
+		AND t_m.gameMode = t_m_endroundreason_HostageExtracted.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_HostageExtracted.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_HostageExtracted.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'NoEnemies'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_NoEnemies
+		ON t_m.platform = t_m_endroundreason_NoEnemies.platform
+		AND t_m.mapName = t_m_endroundreason_NoEnemies.mapName
+		AND t_m.gameMode = t_m_endroundreason_NoEnemies.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_NoEnemies.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_NoEnemies.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'None'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_None
+		ON t_m.platform = t_m_endroundreason_None.platform
+		AND t_m.mapName = t_m_endroundreason_None.mapName
+		AND t_m.gameMode = t_m_endroundreason_None.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_None.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_None.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'ObjectiveCaptured'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_ObjectiveCaptured
+		ON t_m.platform = t_m_endroundreason_ObjectiveCaptured.platform
+		AND t_m.mapName = t_m_endroundreason_ObjectiveCaptured.mapName
+		AND t_m.gameMode = t_m_endroundreason_ObjectiveCaptured.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_ObjectiveCaptured.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_ObjectiveCaptured.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'ObjectiveProtected'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_ObjectiveProtected
+		ON t_m.platform = t_m_endroundreason_ObjectiveProtected.platform
+		AND t_m.mapName = t_m_endroundreason_ObjectiveProtected.mapName
+		AND t_m.gameMode = t_m_endroundreason_ObjectiveProtected.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_ObjectiveProtected.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_ObjectiveProtected.winRole
+LEFT JOIN ( SELECT platform, mapName, gameMode, objectiveLocation, winRole, count(*) as totalRounds FROM r6maps_stats_TEMP_maps_parsing
+	WHERE endroundreason = 'TimeExpired'
+	GROUP BY platform, mapName, gameMode, objectiveLocation, winRole ) as t_m_endroundreason_TimeExpired
+		ON t_m.platform = t_m_endroundreason_TimeExpired.platform
+		AND t_m.mapName = t_m_endroundreason_TimeExpired.mapName
+		AND t_m.gameMode = t_m_endroundreason_TimeExpired.gameMode
+		AND t_m.objectiveLocation = t_m_endroundreason_TimeExpired.objectiveLocation
+		AND t_m.winRole = t_m_endroundreason_TimeExpired.winRole
+GROUP BY
+t_m.platform
+,t_m.mapName
+,t_m.gameMode
+,t_m.objectiveLocation
+,t_m.winRole
+,ISNULL(t_m_endroundreason_AllTeamsDead.totalrounds,0)
+,ISNULL(t_m_endroundreason_AttackersEliminated.totalrounds,0)
+,ISNULL(t_m_endroundreason_AttackersKilledHostage.totalrounds,0)
+,ISNULL(t_m_endroundreason_AttackersSurrendered.totalrounds,0)
+,ISNULL(t_m_endroundreason_BombDeactivated_OneBomb.totalrounds,0)
+,ISNULL(t_m_endroundreason_BombExploded.totalrounds,0)
+,ISNULL(t_m_endroundreason_DefendersEliminated.totalrounds,0)
+,ISNULL(t_m_endroundreason_DefendersKilledHostage.totalrounds,0)
+,ISNULL(t_m_endroundreason_DefendersSurrendered.totalrounds,0)
+,ISNULL(t_m_endroundreason_DefuserDeactivated.totalrounds,0)
+,ISNULL(t_m_endroundreason_HostageExtracted.totalrounds,0)
+,ISNULL(t_m_endroundreason_NoEnemies.totalrounds,0)
+,ISNULL(t_m_endroundreason_None.totalrounds,0)
+,ISNULL(t_m_endroundreason_ObjectiveCaptured.totalrounds,0)
+,ISNULL(t_m_endroundreason_ObjectiveProtected.totalrounds,0)
+,ISNULL(t_m_endroundreason_TimeExpired.totalrounds,0)
+ORDER BY
+t_m.platform
+,t_m.mapName
+,REPLACE(t_m.gameMode,'PvP – ','')
+,t_m.objectiveLocation
+,t_m.winRole
+
+-----------------------------------------------------------------------------------------
+TIPS/REMINDERS FOR EXPORTING FROM LOCAL SQL SERVER TO REMOTE MYSQL:
+
+- From the SQL Server CSV export, I imported to a local MySQL using MySQL Workbench.
+I found I needed to split the CSV into 3 parts to prevent hanging, importing to 3 new tables and then joining:
+INSERT INTO r6stats.r6maps_stats_operators_s5 SELECT * FROM r6stats.r6maps_stats_operators_s5b;
+INSERT INTO r6stats.r6maps_stats_operators_s5 SELECT * FROM r6stats.r6maps_stats_operators_s5c;
+
+- I used MySQL Workbench to export from the local database and import remotely:
+https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html
+"Server" -> "Data Export"/"Data Import"
+
+- *** NOTE: I seemed to need to rename the first column ("platform") for each table after remote import - not sure why.
