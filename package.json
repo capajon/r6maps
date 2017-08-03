@@ -16,7 +16,7 @@
     "build:css": "npm run build:css:main && npm run build:css:about",
     "watch:css": "npm run mkdir:css && scss --watch './dev/scss/main.scss':'./site/css/main.2.2.5.css'",
     "mkdir:js": "mkdirp ./site/js",
-    "build:js:lang": "npm run mkdir:js && uglifyjs --compress --mangle -o ./site/js/r6-maps.lang.2.2.5.min.js --source-map  ./site/js/r6-maps.lang.2.2.5.min.js.map --source-map-url r6-maps.lang.2.2.5.min.js.map --source-map-include-sources -- ./dev/js/langs/r6-maps.lang-terms.js ./dev/js/langs/r6-maps.lang-terms.*.js",
+    "build:js:lang": "npm run mkdir:js && uglifyjs --compress --mangle -o ./site/js/r6-maps.langs.2.2.5.min.js --source-map  ./site/js/r6-maps.langs.2.2.5.min.js.map --source-map-url r6-maps.langs.2.2.5.min.js.map --source-map-include-sources -- ./dev/js/langs/r6-maps.lang-terms.js ./dev/js/langs/r6-maps.lang-terms.*.js",
     "build:js:main": "npm run mkdir:js && uglifyjs --compress --mangle -o ./site/js/r6-maps.main.2.2.5.min.js --source-map  ./site/js/r6-maps.main.2.2.5.min.js.map --source-map-url r6-maps.main.2.2.5.min.js.map --source-map-include-sources -- ./dev/js/main/r6-maps.map-data.js ./dev/js/main/r6-maps.map-render.js ./dev/js/main/r6-maps.controls.js ./dev/js/main/r6-maps.select-maps.js ./dev/js/main/r6-maps.drawing.js ./dev/js/main/r6-maps.sessions.js ./dev/js/main/r6-maps.main.js",
     "build:js": "npm run build:js:main && npm run build:js:lang",
     "watch:js": "npm run mkdir:js && npm-watch",
