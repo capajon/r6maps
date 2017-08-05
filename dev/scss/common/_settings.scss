@@ -1,0 +1,89 @@
+/* FOLDERS */
+$img-location: '../../img/';
+$img-icons-location: $img-location + 'icons/';
+
+/* MISC */
+$nav-font-size: 1.2rem;
+$nav-font-size-small: 1.1rem;
+$nav-font-size-very-small: 0.95rem;
+$control-padding-top-bottom: 0.15em;
+$control-padding-left-right: 0.5em;
+$control-padding: $control-padding-top-bottom $control-padding-left-right;
+$room-label-opacity: 0.7;
+$faded-bg: rgba(16,26,36,0.6);
+$less-faded-bg: rgba(16,26,36,0.7);
+$even-less-faded-bg: rgba(16,26,36,0.9);
+$button-transition: 0.2s;
+
+/* RESPONSIVE BREAKPOINTS */
+$break-small: 620px;
+$break-very-small: 400px;
+$break-large: 1400px;
+
+/* MAP ELEMENTS */
+$objective-height: 40px;
+$objective-height-smaller: 32px;
+$objective-width: 30px;
+$objective-width-smaller: 25px;
+$objective-font-size: 30px;
+$objective-font-size-smaller: 23px;
+$camera-width: 36px;
+$camera-height: $camera-width;
+$camera-outdoor-width: 46px;
+$camera-outdoor-height: $camera-outdoor-width;
+$ceiling-hatch-width: 29px;
+$ceiling-hatch-height: $ceiling-hatch-width;
+$skylight-width: 29px;
+$skylight-height: $skylight-width;
+$drone-width: 8px;
+$drone-border-width: 2px;
+$spawn-point-width: 66px;
+$spawn-point-padding: 4px;
+$spawn-point-border: 2px;
+$ladder-width: 18px;
+$ladder-height: 27px;
+$other-floor-drone-width: 12px;
+$other-floor-drone-height: 18px;
+
+/* COLORS */
+$r6-yellow: #ffdb00;
+$r6-purple: #906e79;
+$r6-purple-darker: #5b454c;
+$r6-red: #ab1513;
+$r6-blue: #3a6082;
+$r6-orange: #d65b2b;
+$r6-orange-faded: rgba(214,91,43, 0.5);
+$green-of-sorts: #00B200;
+$zoom-blue: #3071a9;
+$drone-bg-color: #7B0099;
+$drone-bg-alternate-color: #FF1493;
+$spawn-point-bg: #4C4C4C;
+$very-dark-blue: #11171d;
+$grey: #808080;
+$light-grey: #a4a4a4;
+$very-light-grey: #e3e1e1;
+$panel-marker: #FF1493;
+$panel-marker-faded: rgba(255,20,147, 0.2);
+
+/* Z-INDEXES */
+$z-background: 1000;
+$z-floor: 1010;
+$z-svg-map: 1112;
+$z-spawn-point: 1013;
+$z-compass: 1014;
+$z-legend: 1015;
+$z-ceiling-hatch: 1020;
+$z-skylight: 1025;
+$z-ladder: 1030;
+$z-objective: 1150;
+$z-objective-hostage: 1153;
+$z-objective-bomb: 1151;
+$z-objective-secure: 1152;
+$z-drone: 1160;
+$z-room-label: 1165;
+$z-camera: 1170;
+$z-drawing-markers: 1200;
+$z-map-border: 1300;
+$z-map-label: 1301;
+$z-select-map-grid: 1350;
+$z-nav: 1400;

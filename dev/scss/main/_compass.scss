@@ -1,0 +1,65 @@
+@import '../common/_settings.scss';
+
+$compass-width: 88px;
+$compass-height: 95px;
+
+#compass {
+  height: $compass-height;
+  --pointer-events: none;
+  position: absolute;
+  width: $compass-width;
+  z-index: $z-legend;
+
+  .compass-background {
+    background-image: url($img-location + 'compass@2x.png');
+    background-repeat: no-repeat;
+    background-size: #{$compass-width $compass-height};
+    height: 100%;
+    opacity: 0.4;
+    width: 100%;
+  }
+
+  .letter-n,
+  .letter-e,
+  .letter-s,
+  .letter-w {
+    @include text-shadow();
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    width: 30px;
+
+    span {
+      background-color: rgba(0,0,0,0.3);
+      display: inline-block;
+      padding: 0 1px;
+      text-align: center;
+    }
+  }
+
+  .letter-n {
+    left: 29px;
+    text-align: center;
+    top: 19px;
+
+    span {
+      background-color: $r6-red;
+    }
+  }
+  .letter-e {
+    left: 45px;
+    text-align: right;
+    top: 45px;
+  }
+  .letter-s {
+    left: 29px;
+    text-align: center;
+    top: 70px;
+  }
+  .letter-w {
+    left: 12px;
+    text-align: left;
+    top: 45px;
+  }
+}
