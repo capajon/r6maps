@@ -1,9 +1,8 @@
 Corel Auto-preserve
 
-/site/js/r6-maps*min*
-/site/css/main*css
-/site/css/about*css
-/site/stats/api/*private.php
+/site/js/release*/*
+/site/css/release*/*
+/site/api/*private.php
 
 ###### SASS ######
 
