@@ -1,0 +1,20 @@
+@import "../common/_meyer-reset.scss";
+@import "../common/_helpers.scss";
+@import "../common/_settings.scss";
+@import "../common/_common.scss";
+
+#load-control {
+  body.disable-load & {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+div.control {
+  margin: 1.5rem 0;
+
+  label {
+    color: #fff;
+    margin-right: 1.5rem;
+  }
+}

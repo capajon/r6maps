@@ -34,42 +34,36 @@
     statTerms = R6MapsCommonLangTerms.terms.stats;
     setPageElements();
     setupStaticElements();
-    populateControls();
-    //TODO: setupControlEvents();
+    setupControls();
   });
 
-  var queryString = function queryString(key) {
-      key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
-      var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
-      return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+  var handleLoadButtonClick = function handleLoadButtonClick() {
+    disableLoadControl();
   };
 
-  var populateControls = function populateControls() {
-    R6MapsStatsControls.seasons.setup($seasonsSelect, $seasonsLabel, statsData.seasons);
-    R6MapsStatsControls.trySelect($seasonsSelect, queryString('season'));
+  var disableLoadControl = function disableLoadControl() {
+    $('body').addClass('disable-load');
+  };
 
-    R6MapsStatsControls.platforms.setup($platformsSelect, $platformsLabel, statsData.platforms);
-    R6MapsStatsControls.trySelect($platformsSelect, queryString('platform'));
+  var enableLoadControl = function enableLoadControl() {
+    $('body').removeClass('disable-load');
+  };
 
-    R6MapsStatsControls.maps.setup(
-      $mapsSelect, $mapsLabel, statsData.mapsGameModeObjectiveLocations, R6MapsStatsControls.seasons.get($seasonsSelect)
-    );
-    R6MapsStatsControls.trySelect($mapsSelect, queryString('map'));
-
-    R6MapsStatsControls.gameModes.setup(
-      $gameModesSelect, $gameModesLabel, statsData.gameModes
-    );
-    R6MapsStatsControls.trySelect($gameModesSelect, queryString('mode'));
-
-    R6MapsStatsControls.objectiveLocations.setup(
+  var handleMapsOrGameModesChange = function handleMapsOrGameModesChange() {
+    enableLoadControl();
+    R6MapsStatsControls.objectiveLocations.update(
       $objectiveLocationsSelect,
-      $objectiveLocationsLabel,
       statsData.mapsGameModeObjectiveLocations,
       R6MapsStatsControls.seasons.get($seasonsSelect),
       R6MapsStatsControls.maps.get($mapsSelect),
       R6MapsStatsControls.gameModes.get($gameModesSelect)
     );
-    R6MapsStatsControls.trySelect($objectiveLocationsSelect, queryString('location'));
+  };
+
+  var queryString = function queryString(key) {
+      key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+      var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+      return match && decodeURIComponent(match[1].replace(/\+/g, " "));
   };
 
   var setPageElements = function setPageElements() {
@@ -96,11 +90,46 @@
     $skillRankControl = $('#skill-rank-control select');
   };
 
+  var setupControls = function setupControls() {
+    R6MapsStatsControls.seasons.setup($seasonsSelect, $seasonsLabel, statsData.seasons);
+    R6MapsStatsControls.trySelect($seasonsSelect, queryString('season'));
+
+    R6MapsStatsControls.platforms.setup($platformsSelect, $platformsLabel, statsData.platforms);
+    R6MapsStatsControls.trySelect($platformsSelect, queryString('platform'));
+
+    R6MapsStatsControls.maps.setup(
+      $mapsSelect,
+      $mapsLabel,
+      statsData.mapsGameModeObjectiveLocations,
+      R6MapsStatsControls.seasons.get($seasonsSelect),
+      handleMapsOrGameModesChange
+    );
+    R6MapsStatsControls.trySelect($mapsSelect, queryString('map'));
+
+    R6MapsStatsControls.gameModes.setup(
+      $gameModesSelect, $gameModesLabel, statsData.gameModes, handleMapsOrGameModesChange
+    );
+    R6MapsStatsControls.trySelect($gameModesSelect, queryString('mode'));
+
+    R6MapsStatsControls.objectiveLocations.setup(
+      $objectiveLocationsSelect,
+      $objectiveLocationsLabel,
+      statsData.mapsGameModeObjectiveLocations,
+      R6MapsStatsControls.seasons.get($seasonsSelect),
+      R6MapsStatsControls.maps.get($mapsSelect),
+      R6MapsStatsControls.gameModes.get($gameModesSelect),
+      enableLoadControl
+    );
+    R6MapsStatsControls.trySelect($objectiveLocationsSelect, queryString('location'));
+
+    $loadButton.html(statTerms.loadButtonText);
+    $loadButton.on('click', handleLoadButtonClick);
+  };
+
   var setupStaticElements = function setupStaticElements() {
     $mainHeader.html(statTerms.headerMain);
     $mapHeader.html(statTerms.headerMap);
     $operatorsHeader.html(statTerms.headerOperators);
-    $loadButton.html(statTerms.loadButtonText);
   };
 
 }));

@@ -9,17 +9,17 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
 
     return {
       seasons: [5],
-      platforms: {
+      platforms: { // todo add seasonSpan
         'PC': terms.platforms.pc,
         'XONE': terms.platforms.xboxone,
         'PS4': terms.platforms.ps4,
       },
-      gameModes: {
+      gameModes: { // todo add seasonSpan
         'BOMB': terms.objectives.bomb,
         'HOSTAGE': terms.objectives.hostage,
-        'SECURE': terms.objectives.secure
+        'SECURE AREA': terms.objectives.secure
       },
-      skillRanks: {
+      skillRanks: { // todo add seasonSpan
         'Unranked': terms.ranks.unranked,
         'Copper': terms.ranks.copper,
         'Bronze': terms.ranks.bronze,

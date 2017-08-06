@@ -4,7 +4,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
 
   var ALL_KEY = 'ALL';
 
-  var gameModeGet = function seasgameModeGetonsGet($gameModeSelect) {
+  var gameModesGet = function gameModesGet($gameModeSelect) {
     return $gameModeSelect.find(':selected').val();
   };
 
@@ -18,9 +18,12 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     }
   };
 
-  var gameModesSetup = function gameModesSetup($gameModesSelect, $gameModesLabel, gameModesData) {
+  var gameModesSetup = function gameModesSetup($gameModesSelect, $gameModesLabel, gameModesData, gameModeChangeCallback) {
     $gameModesLabel.html(R6MapsCommonLangTerms.terms.stats.labelGameMode);
     gameModesPopulateOptions($gameModesSelect, gameModesData);
+    $gameModesSelect.on('change', function(event) {
+      gameModeChangeCallback();
+    });
   };
 
   var mapsGet = function mapsGet($mapsSelect) {
@@ -52,9 +55,18 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     });
   };
 
-  var mapsSetup = function mapsSetup($mapsSelect, $mapsLabel, mapsGameModeObjectiveLocationsData, selectedSeason) {
+  var mapsSetup = function mapsSetup(
+    $mapsSelect,
+    $mapsLabel,
+    mapsGameModeObjectiveLocationsData,
+    selectedSeason,
+    mapChangeCallback
+  ) {
     $mapsLabel.html(R6MapsCommonLangTerms.terms.stats.labelMap);
     mapsPopulateOptions($mapsSelect, mapsGameModeObjectiveLocationsData, selectedSeason);
+    $mapsSelect.on('change', function(event) {
+      mapChangeCallback();
+    });
   };
 
   var objectiveLocationsGet = function objectiveLocationsGet($objectiveLocationsSelect) {
@@ -91,7 +103,8 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     mapsGameModeObjectiveLocationsData,
     selectedSeason,
     selectedMap,
-    selectedGameMode
+    selectedGameMode,
+    objectiveLocationChangeCallback
   ) {
     $objectiveLocationsLabel.html(R6MapsCommonLangTerms.terms.stats.labelObjectiveLocation);
     objectiveLocationsPopulateOptions(
@@ -101,6 +114,29 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
       selectedMap,
       selectedGameMode
     );
+    $objectiveLocationsLabel.on('change', function(event) {
+      objectiveLocationChangeCallback();
+    });
+  };
+
+  var objectiveLocationsUpdate = function objectiveLocationsUpdate(
+    $objectiveLocationsSelect,
+    mapsGameModeObjectiveLocationsData,
+    selectedSeason,
+    selectedMap,
+    selectedGameMode
+  ) {
+    var startingValue = objectiveLocationsGet($objectiveLocationsSelect);
+
+    $objectiveLocationsSelect.find('option').remove();
+    objectiveLocationsPopulateOptions(
+      $objectiveLocationsSelect,
+      mapsGameModeObjectiveLocationsData,
+      selectedSeason,
+      selectedMap,
+      selectedGameMode
+    );
+    trySelect($objectiveLocationsSelect, startingValue);
   };
 
   var platformsGet = function mapsGet($platformsSelect) {
@@ -135,13 +171,13 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     seasonsPopulateOptions($seasonsSelect, seasonsData);
   };
 
-  var trySelect = function trySelect($selectEl, option) {    
+  var trySelect = function trySelect($selectEl, option) {
     return R6MapsCommonHelpers.trySelectOption($selectEl, option);
   };
 
   return  {
     gameModes: {
-      get: gameModeGet,
+      get: gameModesGet,
       setup: gameModesSetup
     },
     maps: {
@@ -150,7 +186,8 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     },
     objectiveLocations: {
       get: objectiveLocationsGet,
-      setup: objectiveLocationsSetup
+      setup: objectiveLocationsSetup,
+      update: objectiveLocationsUpdate
     },
     platforms: {
       get: platformsGet,
