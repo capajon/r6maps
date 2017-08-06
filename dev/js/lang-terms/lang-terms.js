@@ -125,6 +125,7 @@ var R6MapsCommonLangTerms = (function(undefined) {
         labelPlatform: 'Platform',
         labelObjectiveLocation: 'Location',
         labelSeason: 'Season',
+        labelSkillRanks: 'Rank',
         seasonWithNumber: 'Season {0}',
         allOption: 'All',
         loadButtonText: 'Load Stats'

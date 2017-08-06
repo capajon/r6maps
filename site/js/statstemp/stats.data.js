@@ -1,5 +1,5 @@
 'use strict';
-
+//TODO: reorder objectives to match selection screen order (especially bomb types which are numbered on r6maps.com so more obvious to users)
 var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
 
   var getMapStatsData = function getMapStatsData() {
@@ -8,30 +8,30 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
       getName = getNameFunction(terms);
 
     return {
-      seasons: [5],
-      platforms: { // todo add seasonSpan
-        'PC': terms.platforms.pc,
-        'XONE': terms.platforms.xboxone,
-        'PS4': terms.platforms.ps4,
+      seasons: [5,6],
+      platforms: {
+        'PC': { seasonSpan: [6,99], name: terms.platforms.pc },
+        'XONE': { seasonSpan: [5,99], name: terms.platforms.xboxone },
+        'PS4': { seasonSpan: [5,99], name: terms.platforms.ps4 },
       },
-      gameModes: { // todo add seasonSpan
-        'BOMB': terms.objectives.bomb,
-        'HOSTAGE': terms.objectives.hostage,
-        'SECURE AREA': terms.objectives.secure
+      gameModes: {
+        'BOMB': { seasonSpan: [5,99], name: terms.objectives.bomb },
+        'HOSTAGE': { seasonSpan: [5,99], name: terms.objectives.hostage },
+        'SECURE AREA': { seasonSpan: [5,99], name: terms.objectives.secure }
       },
-      skillRanks: { // todo add seasonSpan
-        'Unranked': terms.ranks.unranked,
-        'Copper': terms.ranks.copper,
-        'Bronze': terms.ranks.bronze,
-        'Silver': terms.ranks.silver,
-        'Gold': terms.ranks.gold,
-        'Platinum': terms.ranks.platinum,
-        'Diamond': terms.ranks.diamond
+      skillRanks: {
+        'Unranked': { seasonSpan: [5,99], name: terms.ranks.unranked },
+        'Copper': { seasonSpan: [5,99], name: terms.ranks.copper },
+        'Bronze': { seasonSpan: [5,99], name: terms.ranks.bronze },
+        'Silver': { seasonSpan: [5,99], name: terms.ranks.silver },
+        'Gold': { seasonSpan: [5,99], name: terms.ranks.gold },
+        'Platinum': { seasonSpan: [5,99], name: terms.ranks.platinum },
+        'Diamond': { seasonSpan: [5,99], name: terms.ranks.diamond }
       },
       mapsGameModeObjectiveLocations: {
         'BANK': {
           name: terms.mapNames.bank,
-          seasonSpan: [5,99],
+          seasonSpan: [6,99],//TODO: change back to 5,99 and any others I was testing with
           objectives: {
             'BOMB': {
               'LOCKERS / CCTV ROOM': { seasonSpan: [5,99], name: getName(mapRooms.bank.lockers, mapRooms.bank.CCTVRoom) },

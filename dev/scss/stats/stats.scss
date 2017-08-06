@@ -3,10 +3,43 @@
 @import "../common/_settings.scss";
 @import "../common/_common.scss";
 
+body {
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem
+  }
+
+  nav, section {
+    margin-bottom: 3rem;
+  }
+}
+
 #load-control {
+  background-color: $green-of-sorts;
+	border: none;
+  color: #fff;
+  cursor: pointer;
+	font-size: 1.4rem;
+	padding: 0.15rem 0.5rem;
+	text-decoration:none;
+  transition: background-color $button-transition;
+
+  &:hover, &:focus {
+    background-color: $r6-blue;
+  }
+
   body.disable-load & {
-    opacity: 0.65;
-    cursor: not-allowed;
+		background-color: $light-grey;
+    pointer-events: none;
   }
 }
 
@@ -14,7 +47,13 @@ div.control {
   margin: 1.5rem 0;
 
   label {
-    color: #fff;
+    display: inline-block;
     margin-right: 1.5rem;
+    min-width: 8rem;
+  }
+
+  select {
+    font-size: 1.2rem;
+    min-width: 13rem;
   }
 }

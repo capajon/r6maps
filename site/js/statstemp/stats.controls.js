@@ -8,19 +8,24 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     return $gameModeSelect.find(':selected').val();
   };
 
-  var gameModesPopulateOptions = function gameModesPopulateOptions($gameModesSelect, gameModesData) {
+  var gameModesPopulateOptions = function gameModesPopulateOptions($gameModesSelect, gameModesData, selectedSeason) {
     $gameModesSelect.append($("<option></option>")
        .attr("value", ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
 
     for (var gameMode in gameModesData) {
-      $gameModesSelect.append($("<option></option>")
-         .attr("value", gameMode).text(gameModesData[gameMode]));
+      if(
+        (gameModesData[gameMode].seasonSpan[0] <= selectedSeason) &&
+        (gameModesData[gameMode].seasonSpan[1] >= selectedSeason)
+      ) {
+        $gameModesSelect.append($("<option></option>")
+           .attr("value", gameMode).text(gameModesData[gameMode].name));
+      }
     }
   };
 
-  var gameModesSetup = function gameModesSetup($gameModesSelect, $gameModesLabel, gameModesData, gameModeChangeCallback) {
+  var gameModesSetup = function gameModesSetup($gameModesSelect, $gameModesLabel, gameModesData, gameModeChangeCallback, selectedSeason) {
     $gameModesLabel.html(R6MapsCommonLangTerms.terms.stats.labelGameMode);
-    gameModesPopulateOptions($gameModesSelect, gameModesData);
+    gameModesPopulateOptions($gameModesSelect, gameModesData, selectedSeason);
     $gameModesSelect.on('change', function(event) {
       gameModeChangeCallback();
     });
@@ -114,7 +119,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
       selectedMap,
       selectedGameMode
     );
-    $objectiveLocationsLabel.on('change', function(event) {
+    $objectiveLocationsSelect.on('change', function(event) {
       objectiveLocationChangeCallback();
     });
   };
@@ -143,17 +148,37 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     return $platformsSelect.find(':selected').val();
   };
 
-  var platformsPopulateOptions = function platformsPopulateOptions($platformsSelect, platformsData) {
+  var platformsPopulateOptions = function platformsPopulateOptions($platformsSelect, platformsData, selectedSeason) {
     for (var platform in platformsData) {
-      $platformsSelect.append($("<option></option>")
-         .attr("value", platform).text(platformsData[platform]));
+      if(
+        (platformsData[platform].seasonSpan[0] <= selectedSeason) &&
+        (platformsData[platform].seasonSpan[1] >= selectedSeason)
+      ) {
+        $platformsSelect.append($("<option></option>")
+           .attr("value", platform).text(platformsData[platform].name));
+      }
     }
   };
 
-  var platformsSetup = function platformsSetup($platformsSelect, $platformsLabel, platformsData) {
+  var platformsSetup = function platformsSetup($platformsSelect, $platformsLabel, platformsData, selectedSeason, platformChangeCallback) {
     $platformsLabel.html(R6MapsCommonLangTerms.terms.stats.labelPlatform);
-    platformsPopulateOptions($platformsSelect, platformsData);
+    platformsPopulateOptions($platformsSelect, platformsData, selectedSeason);
+    $platformsSelect.on('change', function(event) {
+      platformChangeCallback();
+    });
   };
+
+  var platformsUpdate = function platformsUpdate($platformsSelect, platformsData, selectedSeason) {
+    var startingValue = platformsGet($platformsSelect);
+
+    $platformsSelect.find('option').remove();
+    platformsPopulateOptions(
+      $platformsSelect,
+      platformsData,
+      selectedSeason
+    );
+    trySelect($platformsSelect, startingValue);
+  }
 
   var seasonsGet = function seasonsGet($seasonsSelect) {
     return $seasonsSelect.find(':selected').val();
@@ -166,9 +191,39 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     });
   };
 
-  var seasonsSetup = function seasonsSetup($seasonsSelect, $seasonsLabel, seasonsData) {
+  var seasonsSetup = function seasonsSetup($seasonsSelect, $seasonsLabel, seasonsData, seasonChangeCallback) {
     $seasonsLabel.html(R6MapsCommonLangTerms.terms.stats.labelSeason);
     seasonsPopulateOptions($seasonsSelect, seasonsData);
+    $seasonsSelect.on('change', function(event) {
+      seasonChangeCallback();
+    });
+  };
+
+  var skillRanksGet = function skillRanksGet($skillRanksSelect) {
+    return $skillRanksSelect.find(':selected').val();
+  };
+
+  var skillRanksPopulateOptions = function skillRanksPopulateOptions($skillRanksSelect, skillRanksData, selectedSeason) {
+    $skillRanksSelect.append($("<option></option>")
+       .attr("value", ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
+
+    for (var skillRanks in skillRanksData) {
+      if(
+        (skillRanksData[skillRanks].seasonSpan[0] <= selectedSeason) &&
+        (skillRanksData[skillRanks].seasonSpan[1] >= selectedSeason)
+      ) {
+        $skillRanksSelect.append($("<option></option>")
+           .attr("value", skillRanks).text(skillRanksData[skillRanks].name));
+      }
+    }
+  };
+
+  var skillRanksSetup = function skillRanksSetup($skillRanksSelect, $skillRanksLabel, skillRanksData, selectedSeason, skillRankChangeCallback) {
+    $skillRanksLabel.html(R6MapsCommonLangTerms.terms.stats.labelSkillRanks);
+    skillRanksPopulateOptions($skillRanksSelect, skillRanksData, selectedSeason);
+    $skillRanksSelect.on('change', function(event) {
+      skillRankChangeCallback();
+    });
   };
 
   var trySelect = function trySelect($selectEl, option) {
@@ -178,25 +233,35 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   return  {
     gameModes: {
       get: gameModesGet,
-      setup: gameModesSetup
+      setup: gameModesSetup,
+      trySelect: trySelect
     },
     maps: {
       get: mapsGet,
-      setup: mapsSetup
+      setup: mapsSetup,
+      trySelect: trySelect
     },
     objectiveLocations: {
       get: objectiveLocationsGet,
       setup: objectiveLocationsSetup,
+      trySelect: trySelect,
       update: objectiveLocationsUpdate
     },
     platforms: {
       get: platformsGet,
-      setup: platformsSetup
+      setup: platformsSetup,
+      trySelect: trySelect,
+      update: platformsUpdate
     },
     seasons: {
       get: seasonsGet,
-      setup: seasonsSetup
+      setup: seasonsSetup,
+      trySelect: trySelect
     },
-    trySelect: trySelect
+    skillRanks: {
+      get: skillRanksGet,
+      setup: skillRanksSetup,
+      trySelect: trySelect
+    }
   };
 })(R6MapsCommonLangTerms);

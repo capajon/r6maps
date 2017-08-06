@@ -23,8 +23,8 @@
     $objectiveLocationsLabel,
     $objectiveLocationsSelect,
     $loadButton,
-    $skillRankLabel,
-    $skillRankControl,
+    $skillRanksLabel,
+    $skillRanksSelect,
     statsData,
     statTerms;
 
@@ -37,10 +37,6 @@
     setupControls();
   });
 
-  var handleLoadButtonClick = function handleLoadButtonClick() {
-    disableLoadControl();
-  };
-
   var disableLoadControl = function disableLoadControl() {
     $('body').addClass('disable-load');
   };
@@ -49,8 +45,11 @@
     $('body').removeClass('disable-load');
   };
 
+  var handleLoadButtonClick = function handleLoadButtonClick() {
+    disableLoadControl();
+  };
+
   var handleMapsOrGameModesChange = function handleMapsOrGameModesChange() {
-    enableLoadControl();
     R6MapsStatsControls.objectiveLocations.update(
       $objectiveLocationsSelect,
       statsData.mapsGameModeObjectiveLocations,
@@ -58,6 +57,22 @@
       R6MapsStatsControls.maps.get($mapsSelect),
       R6MapsStatsControls.gameModes.get($gameModesSelect)
     );
+    enableLoadControl();
+  };
+
+  var handleSeasonChange = function handleSeasonChange() {
+    var selectedSeason = R6MapsStatsControls.seasons.get($seasonsSelect);
+
+    R6MapsStatsControls.platforms.update(
+      $platformsSelect,
+      statsData.platforms,
+      selectedSeason
+    );
+    enableLoadControl();
+  };
+
+  var handleSkillRankChange = function handleSkillRankChange() {
+    console.log('TODO: implement handleSkillRankChange');
   };
 
   var queryString = function queryString(key) {
@@ -86,16 +101,27 @@
     $objectiveLocationsLabel = $('#objective-locations-control label'),
     $objectiveLocationsSelect = $('#objective-locations-control select'),
     $loadButton = $('#load-control'),
-    $skillRankLabel = $('#skill-rank-control label');
-    $skillRankControl = $('#skill-rank-control select');
+    $skillRanksLabel = $('#skill-rank-control label');
+    $skillRanksSelect = $('#skill-rank-control select');
   };
 
   var setupControls = function setupControls() {
-    R6MapsStatsControls.seasons.setup($seasonsSelect, $seasonsLabel, statsData.seasons);
-    R6MapsStatsControls.trySelect($seasonsSelect, queryString('season'));
+    R6MapsStatsControls.seasons.setup(
+      $seasonsSelect,
+      $seasonsLabel,
+      statsData.seasons,
+      handleSeasonChange
+    );
+    R6MapsStatsControls.seasons.trySelect($seasonsSelect, queryString('season'));
 
-    R6MapsStatsControls.platforms.setup($platformsSelect, $platformsLabel, statsData.platforms);
-    R6MapsStatsControls.trySelect($platformsSelect, queryString('platform'));
+    R6MapsStatsControls.platforms.setup(
+      $platformsSelect,
+      $platformsLabel,
+      statsData.platforms,
+      R6MapsStatsControls.seasons.get($seasonsSelect),
+      enableLoadControl
+    );
+    R6MapsStatsControls.platforms.trySelect($platformsSelect, queryString('platform'));
 
     R6MapsStatsControls.maps.setup(
       $mapsSelect,
@@ -104,12 +130,16 @@
       R6MapsStatsControls.seasons.get($seasonsSelect),
       handleMapsOrGameModesChange
     );
-    R6MapsStatsControls.trySelect($mapsSelect, queryString('map'));
+    R6MapsStatsControls.maps.trySelect($mapsSelect, queryString('map'));
 
     R6MapsStatsControls.gameModes.setup(
-      $gameModesSelect, $gameModesLabel, statsData.gameModes, handleMapsOrGameModesChange
+      $gameModesSelect,
+      $gameModesLabel,
+      statsData.gameModes,
+      handleMapsOrGameModesChange,
+      R6MapsStatsControls.seasons.get($seasonsSelect)
     );
-    R6MapsStatsControls.trySelect($gameModesSelect, queryString('mode'));
+    R6MapsStatsControls.gameModes.trySelect($gameModesSelect, queryString('mode'));
 
     R6MapsStatsControls.objectiveLocations.setup(
       $objectiveLocationsSelect,
@@ -120,7 +150,16 @@
       R6MapsStatsControls.gameModes.get($gameModesSelect),
       enableLoadControl
     );
-    R6MapsStatsControls.trySelect($objectiveLocationsSelect, queryString('location'));
+    R6MapsStatsControls.objectiveLocations.trySelect($objectiveLocationsSelect, queryString('location'));
+
+    R6MapsStatsControls.skillRanks.setup(
+      $skillRanksSelect,
+      $skillRanksLabel,
+      statsData.skillRanks,
+      R6MapsStatsControls.seasons.get($seasonsSelect),
+      handleSkillRankChange
+    );
+    R6MapsStatsControls.skillRanks.trySelect($skillRanksSelect, queryString('rank'));
 
     $loadButton.html(statTerms.loadButtonText);
     $loadButton.on('click', handleLoadButtonClick);
