@@ -1,12 +1,14 @@
 'use strict';
 
-var R6MapsStatsData = (function(undefined){
+var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
 
-  var getMapStatsData = function getMapStatsData(terms) {
-    var mapRooms = terms.mapRooms,
+  var getMapStatsData = function getMapStatsData() {
+    var terms = R6MapsCommonLangTerms.terms,
+      mapRooms = terms.mapRooms,
       getName = getNameFunction(terms);
 
     return {
+      seasons: [5],
       platforms: {
         'PC': terms.platforms.pc,
         'XONE': terms.platforms.xboxone,
@@ -147,7 +149,7 @@ var R6MapsStatsData = (function(undefined){
           }
         },
         'COASTLINE': {
-          name: terms.mapNames.coastLine,
+          name: terms.mapNames.coastline,
           seasonSpan: [5,99],
           objectives: {
             'BOMB': {
@@ -435,4 +437,4 @@ var R6MapsStatsData = (function(undefined){
   return  {
     getData: getMapStatsData
   };
-})();
+})(R6MapsCommonLangTerms);

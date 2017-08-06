@@ -344,7 +344,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var mapsTrySelect = function mapsTrySelect(map) {
-    return trySelectOption($mapControl, map);
+    return R6MapsCommonHelpers.trySelectOption($mapControl, map);
   };
 
   var menuSetup = function menuSetup(roomLabelStyles, showUpdateLinkHighlightedFn) {
@@ -432,7 +432,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var roomLabelStylesTrySelect = function roomLabelStylesTrySelect(style) {
-    return trySelectOption($roomLabelStylesControl, style);
+    return R6MapsCommonHelpers.trySelectOption($roomLabelStylesControl, style);
   };
 
   var sessionsEnable = function sessionsEnable() {
@@ -539,7 +539,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var mapPanelsTrySelect = function mapPanelsTrySelect(number) {
-    var result = trySelectOption($mapPanelCountControl, number);
+    var result = R6MapsCommonHelpers.trySelectOption($mapPanelCountControl, number);
 
     $mapPanelCountControl.trigger('change');
     return result;
@@ -577,21 +577,11 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var objectivesTrySelect = function objectivesTrySelect(objective) {
-    return trySelectOption($objectiveControl, objective);
+    return R6MapsCommonHelpers.trySelectOption($objectiveControl, objective);
   };
 
   var removeLatestUpdateHighlight = function removeLatestUpdateHighlight(initialDelayMs) {
     unhighlightControl($('#menu-latest-updates'), initialDelayMs);
-  };
-
-  var trySelectOption = function trySelectOption(selectEl, option) {
-    var $selectOption = selectEl.find('option[value="' + option + '"]');
-
-    if ($selectOption.length) {
-      $selectOption.prop('selected', true);
-      return true;
-    }
-    return false;
   };
 
   var tryShowLockControls = function tryShowLockControls(numberPanels) {

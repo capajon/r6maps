@@ -114,6 +114,10 @@ var R6MapsCommonLangTerms = (function(undefined) {
         e: 'E'
       },
       stats: {
+        title: 'R6Maps.com - Stats (BETA)',
+        headerMain: 'R6Maps.com Stats (BETA)',
+        headerMap: 'General',
+        headerOperators: 'Operators',
         objectiveRoomDivider: ' / ',
         ellipsis: '...',
         labelGameMode: 'Game Mode',
@@ -121,7 +125,10 @@ var R6MapsCommonLangTerms = (function(undefined) {
         labelPlatform: 'Platform',
         labelObjectiveLocation: 'Location',
         labelSeason: 'Season',
-        seasonWithNumber: 'Season {0}'
+        seasonWithNumber: 'Season {0}',
+        allOption: 'All',
+        loadButtonText: 'Load Stats'
+
       },
       ranks: {
         unranked: 'Unranked',
@@ -136,6 +143,14 @@ var R6MapsCommonLangTerms = (function(undefined) {
         pc: 'PC',
         xboxone: 'Xbox One',
         ps4: 'PS4'
+      },
+      seasons: {
+        1: 'Black Ice',
+        2: 'Dust Line',
+        3: 'Skull Rain',
+        4: 'Red Crow',
+        5: 'Velvet Shell',
+        6: 'Operation Health'
       },
       mapNames: {
         bank: 'Bank',

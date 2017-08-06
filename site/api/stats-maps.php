@@ -1,6 +1,6 @@
 <?php
 include("credentials.private.php"); //should contain $mysqli = mysqli_connect("server","user","password","database");
-include("common.php");
+include("stats-common.php");
 
 $config = array(
     "season" => getSeason($mysqli),

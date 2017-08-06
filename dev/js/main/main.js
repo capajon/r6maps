@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsCommonLangTerms, R6MapsMainDrawing);
-}(function($, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsCommonLangTerms, R6MapsMainDrawing, undefined) {
+  pagecode(window.jQuery, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MapsCommonHelpers, R6MapsCommonLangTerms);
+}(function($, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MapsCommonHelpers, R6MapsCommonLangTerms, undefined) {
   var $mapWrappers,
     $mapPanelWrappers,
     $mapMains,
@@ -27,7 +27,7 @@
     setPageElements();
     R6MapsMainRender.setupMapPanels($mapPanelWrappers, 4);
     setMapElements();
-    tryLoadStartingLanguage();
+    R6MapsCommonHelpers.tryLoadStartingLanguage(R6MapsCommonLangTerms.tryLoadLanguage);
     setupMenu();
     setupSelectMap();
     R6MapsMainControls.maps.populate(R6MapsMainData.getMapData());
@@ -562,17 +562,6 @@
     tryLoadLockPanningOption();
     tryLoadRoomLabelStyle();
     tryLoadEnableScreenshotsOption();
-  };
-
-  var tryLoadStartingLanguage = function tryLoadStartingLanguage() {
-    var lastChosenLanguage = localStorage.getItem('language'),
-      userLang = (navigator.language || navigator.userLanguage).split('-')[0];
-
-    if (lastChosenLanguage) {
-      R6MapsCommonLangTerms.tryLoadLanguage(lastChosenLanguage);
-    } else if (userLang) {
-      R6MapsCommonLangTerms.tryLoadLanguage(userLang);
-    };  // default will be English otherwise
   };
 
   var tryLoadRoomLabelStyle = function tryLoadRoomLabelStyle() {

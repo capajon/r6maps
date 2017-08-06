@@ -25,24 +25,39 @@
     <script async src='//www.google-analytics.com/analytics.js'></script>
   </head>
   <body class="loading">
-    <h1>Stats.R6Maps.com BETA</h1>
-
-    <h2>Map</h2>
-    <nav id="map-nav"></nav>
-    <div id="map-output">
-      <div class="results"></div>
-    </div>
-
-    <h2>Operators</h2>
-    <nav id="operator-nav"></nav>
-    <div id="operator-output">
-      <div class="results"></div>
-    </div>
-
+    <h1 id="header-main"></h1>
+    <nav>
+      <div class="control" id="seasons-control"><label></label><select></select></div>
+      <div class="control" id="platforms-control"><label></label><select></select></div>
+      <div class="control" id="maps-control"><label></label><select></select></div>
+      <div class="control" id="game-modes-control"><label></label><select></select></div>
+      <div class="control" id="objective-locations-control"><label></label><select></select></div>
+      <div class="load"><button id="load-control"></button></div>
+    </nav>
+    <section id="section-map">
+      <h2></h2>
+      <div class="output"></div>
+      <div class="loader"></div>
+    </section>
+    <section id="section-operators">
+      <h2></h2>
+      <div id="skill-rank-control"></div>
+      <div class="loader"></div>
+      <div class="output"></div>
+    </section>
+    <section>
+      <h2>BETA - Still to do:</h2>
+      <ul>
+        <li>Fully translate</li>
+        <li>Integrate into R6Maps.com</li>
+        <li>Look & feel updates</li>
+      </ul>
+    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/release.2.2.6/common.min.js"></script>
     <!--TODO: COMBINE FOLLOWING STATS JS-->
-    <script src="js/stats.data.js"></script>
-    <script src="js/stats.index.js"></script>
+    <script src="js/statstemp/stats.data.js"></script>
+    <script src="js/statstemp/stats.controls.js"></script>
+    <script src="js/statstemp/stats.js"></script>
   </body>
 <html>
