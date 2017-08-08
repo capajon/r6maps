@@ -17,10 +17,6 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#111111',GradientType=1 ); /* IE6-9 */
 }
 
-body {
-  overflow:hidden;
-}
-
 body, button, input, select {
   @extend .r6-like-font;
   font-size: 1rem;

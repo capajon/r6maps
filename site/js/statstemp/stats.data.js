@@ -1,53 +1,52 @@
 'use strict';
 //TODO: reorder objectives to match selection screen order (especially bomb types which are numbered on r6maps.com so more obvious to users)
 var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
-
   var getMapStatsData = function getMapStatsData() {
     var terms = R6MapsCommonLangTerms.terms,
       mapRooms = terms.mapRooms,
       getName = getNameFunction(terms);
 
     return {
-      seasons: [5,6],
+      seasons: [5],
       platforms: {
-        'PC': { seasonSpan: [6,99], name: terms.platforms.pc },
-        'XONE': { seasonSpan: [5,99], name: terms.platforms.xboxone },
-        'PS4': { seasonSpan: [5,99], name: terms.platforms.ps4 },
+        PC: { seasonSpan: [5,99], name: terms.platforms.pc },
+        XONE: { seasonSpan: [5,99], name: terms.platforms.xboxone },
+        PS4: { seasonSpan: [5,99], name: terms.platforms.ps4 }
       },
       gameModes: {
-        'BOMB': { seasonSpan: [5,99], name: terms.objectives.bomb },
-        'HOSTAGE': { seasonSpan: [5,99], name: terms.objectives.hostage },
+        BOMB: { seasonSpan: [5,99], name: terms.objectives.bomb },
+        HOSTAGE: { seasonSpan: [5,99], name: terms.objectives.hostage },
         'SECURE AREA': { seasonSpan: [5,99], name: terms.objectives.secure }
       },
       skillRanks: {
-        'Unranked': { seasonSpan: [5,99], name: terms.ranks.unranked },
-        'Copper': { seasonSpan: [5,99], name: terms.ranks.copper },
-        'Bronze': { seasonSpan: [5,99], name: terms.ranks.bronze },
-        'Silver': { seasonSpan: [5,99], name: terms.ranks.silver },
-        'Gold': { seasonSpan: [5,99], name: terms.ranks.gold },
-        'Platinum': { seasonSpan: [5,99], name: terms.ranks.platinum },
-        'Diamond': { seasonSpan: [5,99], name: terms.ranks.diamond }
+        Unranked: { seasonSpan: [6,99], name: terms.ranks.unranked },
+        Copper: { seasonSpan: [5,99], name: terms.ranks.copper },
+        Bronze: { seasonSpan: [5,99], name: terms.ranks.bronze },
+        Silver: { seasonSpan: [5,99], name: terms.ranks.silver },
+        Gold: { seasonSpan: [5,99], name: terms.ranks.gold },
+        Platinum: { seasonSpan: [5,99], name: terms.ranks.platinum },
+        Diamond: { seasonSpan: [5,99], name: terms.ranks.diamond }
       },
       mapsGameModeObjectiveLocations: {
-        'BANK': {
+        BANK: {
           name: terms.mapNames.bank,
-          seasonSpan: [6,99],//TODO: change back to 5,99 and any others I was testing with
+          seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'LOCKERS / CCTV ROOM': { seasonSpan: [5,99], name: getName(mapRooms.bank.lockers, mapRooms.bank.CCTVRoom) },
               'STAFF ROOM / OPEN AREA': { seasonSpan: [5,99], name: getName(mapRooms.bank.staffRoom, mapRooms.bank.openArea) },
               'TELLERS\' OFFICE / ARCHIVES': { seasonSpan: [5,99], name: getName(mapRooms.bank.tellersOffice, mapRooms.bank.archives) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'CEO OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.bank.CEOOffice) },
               'STAFF ROOM': { seasonSpan: [5,99], name: getName(mapRooms.bank.staffRoom) },
               'TELLER\'S OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.bank.tellersOffice) },
-              'VAULT': { seasonSpan: [5,99], name: getName(mapRooms.bank.vault) }
+              VAULT: { seasonSpan: [5,99], name: getName(mapRooms.bank.vault) }
             },
             'SECURE AREA': {
-              'ARCHIVES': { seasonSpan: [5,99], name: getName(mapRooms.bank.archives) },
+              ARCHIVES: { seasonSpan: [5,99], name: getName(mapRooms.bank.archives) },
               'CEO OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.bank.CEOOffice) },
-              'LOCKERS': { seasonSpan: [5,99], name: getName(mapRooms.bank.lockers) },
+              LOCKERS: { seasonSpan: [5,99], name: getName(mapRooms.bank.lockers) },
               'OPEN AREA': { seasonSpan: [5,99], name: getName(mapRooms.bank.openArea) }
             }
           }
@@ -56,70 +55,70 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
           name: terms.mapNames.bartlett,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'CLASSROOM / LIBRARY': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.classroom, mapRooms.bartlett.upperLibrary) },
               'KITCHEN / PIANO ROOM': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.kitchen, mapRooms.bartlett.pianoRoom) },
               'READING ROOM / LIBRARY': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.readingRoom, mapRooms.bartlett.lowerLibrary) },
               'ROWING MUSEUM / TROPHY ROOM': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.rowingMuseum, mapRooms.bartlett.trophyRoom) }
             },
-            'HOSTAGE': {
-              'KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.kitchen) },
-              'LIBRARY': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.upperLibrary) },
+            HOSTAGE: {
+              KITCHEN: { seasonSpan: [5,99], name: getName(mapRooms.bartlett.kitchen) },
+              LIBRARY: { seasonSpan: [5,99], name: getName(mapRooms.bartlett.upperLibrary) },
               'MAIN OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.mainOffice) },
               'TROPHY ROOM': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.trophyRoom) }
             },
             'SECURE AREA': {
-              'CLASSROOM': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.classroom) },
-              'LIBRARY': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.upperLibrary) },
-              'LOUNGE': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.lounge) },
+              CLASSROOM: { seasonSpan: [5,99], name: getName(mapRooms.bartlett.classroom) },
+              LIBRARY: { seasonSpan: [5,99], name: getName(mapRooms.bartlett.upperLibrary) },
+              LOUNGE: { seasonSpan: [5,99], name: getName(mapRooms.bartlett.lounge) },
               'MODEL HALL': { seasonSpan: [5,99], name: getName(mapRooms.bartlett.modelHall) }
             }
           }
         },
-        'BORDER': {
+        BORDER: {
           name: terms.mapNames.border,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'ARMORY LOCKERS / ARCHIVES': { seasonSpan: [5,99], name: getName(mapRooms.border.armoryLockers, mapRooms.border.archives) },
               'BATHROOM / TELLERS': { seasonSpan: [5,99], name: getName(mapRooms.border.bathroom, mapRooms.border.tellers) },
               'CUSTOMS INSPECTIONS / SUPPLY ROOM': { seasonSpan: [5,99], name: getName(mapRooms.border.customsInspection, mapRooms.border.supplyRoom) },
               'VENTILATION ROOM / WORKSHOP': { seasonSpan: [5,99], name: getName(mapRooms.border.ventilationRoom, mapRooms.border.workshop) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'CUSTOMS INSPECTIONS': { seasonSpan: [5,99], name: getName(mapRooms.border.customsInspection) },
-              'OFFICES': { seasonSpan: [5,99], name: getName(mapRooms.border.offices) },
+              OFFICES: { seasonSpan: [5,99], name: getName(mapRooms.border.offices) },
               'SECURITY ROOM': { seasonSpan: [5,99], name: getName(mapRooms.border.securityRoom) },
-              'WORKSHOP': { seasonSpan: [5,99], name: getName(mapRooms.border.workshop) }
+              WORKSHOP: { seasonSpan: [5,99], name: getName(mapRooms.border.workshop) }
             },
             'SECURE AREA': {
               'ARMORY LOCKERS': { seasonSpan: [5,99], name: getName(mapRooms.border.armoryLockers) },
-              'OFFICES': { seasonSpan: [5,99], name: getName(mapRooms.border.offices) },
-              'TELLERS': { seasonSpan: [5,99], name: getName(mapRooms.border.tellers) },
-              'WORKSHOP': { seasonSpan: [5,99], name: getName(mapRooms.border.workshop) }
+              OFFICES: { seasonSpan: [5,99], name: getName(mapRooms.border.offices) },
+              TELLERS: { seasonSpan: [5,99], name: getName(mapRooms.border.tellers) },
+              WORKSHOP: { seasonSpan: [5,99], name: getName(mapRooms.border.workshop) }
             }
           }
         },
-        'CHALET': {
+        CHALET: {
           name: terms.mapNames.chalet,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'BAR / GAMING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.chalet.bar, mapRooms.chalet.gamingRoom) },
               'KITCHEN / TROPHY ROOM': { seasonSpan: [5,99], name: getName(mapRooms.chalet.kitchen, mapRooms.chalet.trophyRoom) },
               'MASTER BEDROOM / OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.chalet.masterBedroom, mapRooms.chalet.office) },
               'WINE CELLAR / SNOWMOBILE GARAGE': { seasonSpan: [5,99], name: getName(mapRooms.chalet.wineCellar, mapRooms.chalet.snowmobileGarage) }
             },
-            'HOSTAGE': {
-              'KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.chalet.kitchen) },
-              'LIBRARY': { seasonSpan: [5,99], name: getName(mapRooms.chalet.library) },
+            HOSTAGE: {
+              KITCHEN: { seasonSpan: [5,99], name: getName(mapRooms.chalet.kitchen) },
+              LIBRARY: { seasonSpan: [5,99], name: getName(mapRooms.chalet.library) },
               'MASTER BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.chalet.masterBedroom) },
               'WINE CELLAR': { seasonSpan: [5,99], name: getName(mapRooms.chalet.wineCellar) }
             },
             'SECURE AREA': {
-              'BAR': { seasonSpan: [5,99], name: getName(mapRooms.chalet.bar) },
+              BAR: { seasonSpan: [5,99], name: getName(mapRooms.chalet.bar) },
               'DINING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.chalet.diningRoom) },
-              'LIBRARY': { seasonSpan: [5,99], name: getName(mapRooms.chalet.library) },
+              LIBRARY: { seasonSpan: [5,99], name: getName(mapRooms.chalet.library) },
               'SNOWMOBILE GARAGE': { seasonSpan: [5,99], name: getName(mapRooms.chalet.snowmobileGarage) }
             }
           }
@@ -128,37 +127,37 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
           name: terms.mapNames.club,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'BAR / STOCK ROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.bar, mapRooms.club.stockRoom) },
               'CCTV ROOM / CASH ROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.CCTVRoom, mapRooms.club.cashRoom) },
               'CHURCH / ARSENAL ROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.church, mapRooms.club.arsenalRoom) },
               'GYM / BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.gym, mapRooms.club.bedroom) }
             },
-            'HOSTAGE': {
-              'BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.bedroom) },
+            HOSTAGE: {
+              BEDROOM: { seasonSpan: [5,99], name: getName(mapRooms.club.bedroom) },
               'CASH ROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.cashRoom) },
-              'CHURCH': { seasonSpan: [5,99], name: getName(mapRooms.club.church) },
+              CHURCH: { seasonSpan: [5,99], name: getName(mapRooms.club.church) },
               'STRIP CLUB': { seasonSpan: [5,99], name: getName(mapRooms.club.stripClub) }
             },
             'SECURE AREA': {
               'ARSENAL ROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.arsenalRoom) },
               'BAR BACKSTORE': { seasonSpan: [5,99], name: getName(mapRooms.club.bar) },
-              'BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.club.bedroom) },
-              'GARAGE': { seasonSpan: [5,99], name: getName(mapRooms.club.garage) }
+              BEDROOM: { seasonSpan: [5,99], name: getName(mapRooms.club.bedroom) },
+              GARAGE: { seasonSpan: [5,99], name: getName(mapRooms.club.garage) }
             }
           }
         },
-        'COASTLINE': {
+        COASTLINE: {
           name: terms.mapNames.coastline,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               '1F BLUE BAR / 1F SUNRISE BAR': { seasonSpan: [5,99], name: getName(mapRooms.coastline.blueBar, mapRooms.coastline.sunriseBar) },
               '1F KITCHEN / 1F SERVICE ENTRANCE': { seasonSpan: [5,99], name: getName(mapRooms.coastline.kitchen, mapRooms.coastline.serviceEntrance) },
               '2F HOOKAH LOUNGE / 2F BILLIARDS ROOM': { seasonSpan: [5,99], name: getName(mapRooms.coastline.hookahLounge, mapRooms.coastline.billiardsRoom) },
               '2F PENTHOUSE / 2F THEATER': { seasonSpan: [5,99], name: getName(mapRooms.coastline.penthouse, mapRooms.coastline.theater) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               '1F BLUE BAR': { seasonSpan: [5,99], name: getName(mapRooms.coastline.blueBar) },
               '1F KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.coastline.kitchen) },
               '2F THEATER': { seasonSpan: [5,99], name: getName(mapRooms.coastline.theater) },
@@ -172,40 +171,40 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
             }
           }
         },
-        'CONSULATE': {
+        CONSULATE: {
           name: terms.mapNames.consulate,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'CONSUL OFFICE / MEEETING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.consulate.consulateOffice, mapRooms.consulate.meetingRoom) },
               'GARAGE / CAFETERIA': { seasonSpan: [5,99], name: getName(mapRooms.consulate.garage, mapRooms.consulate.cafeteria) },
               'LOBBY / PRESS ROOM': { seasonSpan: [5,99], name: getName(mapRooms.consulate.lobby, mapRooms.consulate.pressRoom) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'ADMINISTRATION OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.consulate.administrationOffice) },
-              'ARCHIVES': { seasonSpan: [5,99], name: getName(mapRooms.consulate.archives) },
+              ARCHIVES: { seasonSpan: [5,99], name: getName(mapRooms.consulate.archives) },
               'CONSUL OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.consulate.consulateOffice) },
-              'TELLERS': { seasonSpan: [5,99], name: getName(mapRooms.consulate.tellers) }
+              TELLERS: { seasonSpan: [5,99], name: getName(mapRooms.consulate.tellers) }
             },
             'SECURE AREA': {
               'ADMINISTRATION OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.consulate.administrationOffice) },
-              'ARCHIVES': { seasonSpan: [5,99], name: getName(mapRooms.consulate.archives) },
-              'GARAGE': { seasonSpan: [5,99], name: getName(mapRooms.consulate.garage) },
+              ARCHIVES: { seasonSpan: [5,99], name: getName(mapRooms.consulate.archives) },
+              GARAGE: { seasonSpan: [5,99], name: getName(mapRooms.consulate.garage) },
               'VISA OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.consulate.visaOffice) }
             }
           }
         },
-        'FAVELAS': {
+        FAVELAS: {
           name: terms.mapNames.favela,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               '1F BIKER\'S APARTMENT / 1F BIKER\'S BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.favela.bikersApartment, mapRooms.favela.bikersBedroom) },
               '2F AUNT\'S BEDROOM / 1F AUNT\'S APARTMENT': { seasonSpan: [5,99], name: getName(mapRooms.favela.auntsBedroom, mapRooms.favela.auntsApartment) },
               '2F FOOTBALL BEDROOM / 2F FOOTBALL OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.favela.footballBedroom, mapRooms.favela.footballOffice) },
               '3F PACKAGING ROOM / 2F METH LAB': { seasonSpan: [5,99], name: getName(mapRooms.favela.packagingRoom, mapRooms.favela.methLab) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               '1F BIKER\'S APARTMENT': { seasonSpan: [5,99], name: getName(mapRooms.favela.bikersApartment) },
               '2F AUNT\'S BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.favela.auntsBedroom) },
               '2F GROW ROOM': { seasonSpan: [5,99], name: getName(mapRooms.favela.growRoom) },
@@ -223,43 +222,43 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
           name: terms.mapNames.hereford,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'BRIEFING ROOM / ARMORY': { seasonSpan: [5,99], name: getName(mapRooms.hereford.briefingRoom, mapRooms.hereford.armory) },
               'DINING ROOM / KIDS BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.hereford.diningRoom, mapRooms.hereford.kidsBedroom) },
               'DUMMY DEPOT / STORAGE': { seasonSpan: [5,99], name: getName(mapRooms.hereford.dummyDepot, mapRooms.hereford.storage) },
               'TV ROOM / KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.hereford.TVRoom, mapRooms.hereford.kitchen) }
             },
-            'HOSTAGE': {
-              'ARMORY': { seasonSpan: [5,99], name: getName(mapRooms.hereford.armory) },
-              'KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.hereford.kitchen) },
+            HOSTAGE: {
+              ARMORY: { seasonSpan: [5,99], name: getName(mapRooms.hereford.armory) },
+              KITCHEN: { seasonSpan: [5,99], name: getName(mapRooms.hereford.kitchen) },
               'MASTER BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.hereford.masterBedroom) },
-              'STORAGE': { seasonSpan: [5,99], name: getName(mapRooms.hereford.storage) }
+              STORAGE: { seasonSpan: [5,99], name: getName(mapRooms.hereford.storage) }
             },
             'SECURE AREA': {
-              'ARMORY': { seasonSpan: [5,99], name: getName(mapRooms.hereford.armory) },
+              ARMORY: { seasonSpan: [5,99], name: getName(mapRooms.hereford.armory) },
               'DINING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.hereford.diningRoom) },
               'MASTER BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.hereford.masterBedroom) },
-              'WORKSHOP': { seasonSpan: [5,99], name: getName(mapRooms.hereford.workshop) }
+              WORKSHOP: { seasonSpan: [5,99], name: getName(mapRooms.hereford.workshop) }
             }
           }
         },
-        'HOUSE': {
+        HOUSE: {
           name: terms.mapNames.house,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'KID\'S BEDROOM / WORKSHOP': { seasonSpan: [5,99], name: getName(mapRooms.house.kidsBedroom, mapRooms.house.workshop) },
               'LIVING ROOM / TRAINING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.house.livingRoom, mapRooms.house.trainingRoom) },
               'TRAINING ROOM / GARAGE': { seasonSpan: [5,99], name: getName(mapRooms.house.trainingRoom, mapRooms.house.garage) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'DINING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.house.diningRoom) },
               'LAUNDRY ROOM': { seasonSpan: [5,99], name: getName(mapRooms.house.laundryRoom) },
               'MASTER BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.house.masterBedroom) },
-              'WORKSHOP': { seasonSpan: [5,99], name: getName(mapRooms.house.workshop) }
+              WORKSHOP: { seasonSpan: [5,99], name: getName(mapRooms.house.workshop) }
             },
             'SECURE AREA': {
-              'GARAGE': { seasonSpan: [5,99], name: getName(mapRooms.house.garage) },
+              GARAGE: { seasonSpan: [5,99], name: getName(mapRooms.house.garage) },
               'KID\'S BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.house.kidsBedroom) },
               'LIVING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.house.livingRoom) },
               'MASTER BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.house.masterBedroom) }
@@ -270,12 +269,12 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
           name: terms.mapNames.kafe,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'BAR / COCKTAIL LOUNGE': { seasonSpan: [5,99], name: getName(mapRooms.kafe.bar, mapRooms.kafe.cocktailLounge) },
               'FIREPLACE HALL / MINING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.kafe.fireplaceHall, mapRooms.kafe.miningRoom) },
               'KITCHEN PREP / BAKERY': { seasonSpan: [5,99], name: getName(mapRooms.kafe.kitchenPrep, mapRooms.kafe.bakery) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'BAR BACKSTORE': { seasonSpan: [5,99], name: getName(mapRooms.kafe.barBackstore) },
               'KITCHEN GRILL': { seasonSpan: [5,99], name: getName(mapRooms.kafe.kitchenGrill) },
               'READING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.kafe.readingRoom) },
@@ -289,16 +288,16 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
             }
           }
         },
-        'KANAL': {
+        KANAL: {
           name: terms.mapNames.kanal,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'COAST GUARD OFFICE / HOLDING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.kanal.coastGuardOffice, mapRooms.kanal.holdingRoom) },
               'KITCHEN / PROJECTOR ROOM': { seasonSpan: [5,99], name: getName(mapRooms.kanal.kitchen, mapRooms.kanal.projectorRoom) },
               'SERVER ROOM / CONTROL ROOM': { seasonSpan: [5,99], name: getName(mapRooms.kanal.serverRoom, mapRooms.kanal.controlRoom) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'BOAT SUPPLIES': { seasonSpan: [5,99], name: getName(mapRooms.kanal.boatSupplies) },
               'COAST GUARD OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.kanal.coastGuardOffice) },
               'CONTROL ROOM': { seasonSpan: [5,99], name: getName(mapRooms.kanal.controlRoom) },
@@ -312,21 +311,21 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
             }
           }
         },
-        'OREGON': {
+        OREGON: {
           name: terms.mapNames.oregon,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'KIDS DORMS / DORMS MAIN HALL': { seasonSpan: [5,99], name: getName(mapRooms.oregon.kidsDorm, mapRooms.oregon.dormMainHall) },
               'KITCHEN / DINING HALL': { seasonSpan: [5,99], name: getName(mapRooms.oregon.kitchen, mapRooms.oregon.diningHall) },
               'LAUDRY ROOM / SUPPLY ROOM': { seasonSpan: [5,99], name: getName(mapRooms.oregon.laundryRoom, mapRooms.oregon.supplyRoom) },
               'REAR STAGE / WATCH TOWER': { seasonSpan: [5,99], name: getName(mapRooms.oregon.rearStage, mapRooms.oregon.watchTower) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'DORMS MAIN HALL': { seasonSpan: [5,99], name: getName(mapRooms.oregon.dormMainHall) },
-              'KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.oregon.kitchen) },
+              KITCHEN: { seasonSpan: [5,99], name: getName(mapRooms.oregon.kitchen) },
               'MEETING HALL': { seasonSpan: [5,99], name: getName(mapRooms.oregon.meetingHall) },
-              'SUPPLY': { seasonSpan: [5,99], name: getName(mapRooms.oregon.supplyRoom) }
+              SUPPLY: { seasonSpan: [5,99], name: getName(mapRooms.oregon.supplyRoom) }
             },
             'SECURE AREA': {
               'DINING HALL': { seasonSpan: [5,99], name: getName(mapRooms.oregon.diningHall) },
@@ -336,16 +335,16 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
             }
           }
         },
-        'PLANE': {
+        PLANE: {
           name: terms.mapNames.plane,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'CARGO HOLD / LUGGAGE HOLD': { seasonSpan: [5,99], name: getName(mapRooms.plane.cargoHold, mapRooms.plane.luggageHold) },
               'MEETING ROOM / EXECUTIVE OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.plane.meetingRoom, mapRooms.plane.executiveOffice) },
               'STAFF SECTION / EXECUTIVE BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.plane.staffSection, mapRooms.plane.executiveBedroom) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               'EXECUTIVE BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.plane.executiveBedroom) },
               'LUGGAGE HOLD': { seasonSpan: [5,99], name: getName(mapRooms.plane.luggageHold) },
               'MEETING ROOM': { seasonSpan: [5,99], name: getName(mapRooms.plane.meetingRoom) },
@@ -359,17 +358,17 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
             }
           }
         },
-        'SKYSCRAPER': {
+        SKYSCRAPER: {
           name: terms.mapNames.skyscraper,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               '1F BBQ / 1F KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.skyscraper.bbq, mapRooms.skyscraper.kitchen) },
               '1F BEDROOM / 1F BATHROOM': { seasonSpan: [5,99], name: getName(mapRooms.skyscraper.bedroom, mapRooms.skyscraper.bathroom) },
               '2F EXHIBITION / 2F WORK OFFICE': { seasonSpan: [5,99], name: getName(mapRooms.skyscraper.exhibition, mapRooms.skyscraper.workOffice) },
               '2F KARAOKE / 2F TEA ROOM': { seasonSpan: [5,99], name: getName(mapRooms.skyscraper.karaoke , mapRooms.skyscraper.teaRoom) }
             },
-            'HOSTAGE': {
+            HOSTAGE: {
               '1F BEDROOM': { seasonSpan: [5,99], name: getName(mapRooms.skyscraper.bedroom) },
               '1F KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.skyscraper.kitchen) },
               '2F GEISHA ROOM': { seasonSpan: [5,99], name: getName(mapRooms.skyscraper.geishaRoom) },
@@ -383,27 +382,27 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
             }
           }
         },
-        'YACHT': {
+        YACHT: {
           name: terms.mapNames.yacht,
           seasonSpan: [5,99],
           objectives: {
-            'BOMB': {
+            BOMB: {
               'CAFETERIA / STAFF DORMITORY': { seasonSpan: [5,99], name: getName(mapRooms.yacht.cafeteria, mapRooms.yacht.staffDormitory) },
               'KITCHEN / ENGINE CONTROL': { seasonSpan: [5,99], name: getName(mapRooms.yacht.kitchen, mapRooms.yacht.engineControl) },
               'MAPS ROOM / COCKPIT': { seasonSpan: [5,99], name: getName(mapRooms.yacht.mapsRoom, mapRooms.yacht.cockpit) },
               'SERVER ROOM / ENGINE STORAGE': { seasonSpan: [5,99], name: getName(mapRooms.yacht.serverRoom, mapRooms.yacht.engineStorage) }
             },
-            'HOSTAGE': {
-              'CAFETERIA': { seasonSpan: [5,99], name: getName(mapRooms.yacht.cafeteria) },
-              'CASINO': { seasonSpan: [5,99], name: getName(mapRooms.yacht.casino) },
-              'ENGINE': { seasonSpan: [5,99], name: getName(mapRooms.yacht.engine) },
+            HOSTAGE: {
+              CAFETERIA: { seasonSpan: [5,99], name: getName(mapRooms.yacht.cafeteria) },
+              CASINO: { seasonSpan: [5,99], name: getName(mapRooms.yacht.casino) },
+              ENGINE: { seasonSpan: [5,99], name: getName(mapRooms.yacht.engine) },
               'MAPS ROOM': { seasonSpan: [5,99], name: getName(mapRooms.yacht.mapsRoom) }
             },
             'SECURE AREA': {
               'AKLARK SUB ROOM': { seasonSpan: [5,99], name: getName(mapRooms.yacht.borealSubRoom) },
-              'CASINO': { seasonSpan: [5,99], name: getName(mapRooms.yacht.casino) },
-              'COCKPIT': { seasonSpan: [5,99], name: getName(mapRooms.yacht.cockpit) },
-              'KITCHEN': { seasonSpan: [5,99], name: getName(mapRooms.yacht.kitchen) }
+              CASINO: { seasonSpan: [5,99], name: getName(mapRooms.yacht.casino) },
+              COCKPIT: { seasonSpan: [5,99], name: getName(mapRooms.yacht.cockpit) },
+              KITCHEN: { seasonSpan: [5,99], name: getName(mapRooms.yacht.kitchen) }
             }
           }
         }
@@ -412,14 +411,14 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
   };
 
   var getNameFunction = function getNameFunction(terms) {
-    var MAX_CHAR_LENGTH = 28,
+    var MAX_CHAR_LENGTH = 22,
       BUFFER = 5,
       ellipsisString = terms.stats.ellipsis;
 
     return function getName(name1, name2) {
       //console.log(name1, name2);
-      if(DEV_MODE && !name1) {
-        console.error('First room name is not defined.', name1, name2)
+      if (DEV_MODE && !name1) {
+        console.error('First room name is not defined.', name1, name2);
       }
 
       var result = name2 ? name1 + terms.stats.objectiveRoomDivider + name2 : name1;
@@ -427,7 +426,7 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
       result = result.removeBreakTags();
 
       if (result && (result.length > MAX_CHAR_LENGTH + BUFFER)) {
-        result = result.substring(0, MAX_CHAR_LENGTH - 1) + ellipsisString
+        result = result.substring(0, MAX_CHAR_LENGTH - 1) + ellipsisString;
       }
 
       return result;

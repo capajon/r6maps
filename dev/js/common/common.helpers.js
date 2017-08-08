@@ -1,6 +1,13 @@
 'use strict';
 
 var R6MapsCommonHelpers = (function($, window, document, undefined) {
+  var queryString = function queryString(key) {
+    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, '\\$&');
+    var match = location.search.match(new RegExp('[?&]' + key + '=([^&]+)(&|$)'));
+
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  };
+
   var tryLoadStartingLanguage = function tryLoadStartingLanguage(loadLanguageCallback) {
     var lastChosenLanguage = localStorage.getItem('language'),
       userLang = (navigator.language || navigator.userLanguage).split('-')[0];
@@ -23,6 +30,7 @@ var R6MapsCommonHelpers = (function($, window, document, undefined) {
   };
 
   return {
+    queryString: queryString,
     tryLoadStartingLanguage: tryLoadStartingLanguage,
     trySelectOption: trySelectOption
   };

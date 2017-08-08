@@ -20,6 +20,10 @@
   text-shadow: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 .feature-flagged {
   display: none !important;
 }

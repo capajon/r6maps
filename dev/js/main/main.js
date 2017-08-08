@@ -272,13 +272,6 @@
     );
   };
 
-  var queryString = function queryString(key) { // for feature flags
-    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, '\\$&'); // escape RegEx meta chars
-    var match = location.search.match(new RegExp('[?&]' + key + '=([^&]+)(&|$)'));
-
-    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-  };
-
   var removeHashFromUrl = function removeHashFromUrl() {
     var scrollV, scrollH, loc = window.location;
 
@@ -599,7 +592,7 @@
   };
 
   var tryEnableSessionFeature = function tryEnableSessionFeature() {
-    if (queryString('sessions')) {
+    if (R6MapsCommonHelpers.queryString('sessions')) {
       R6MapsMainControls.sessions.enable();
     }
   };

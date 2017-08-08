@@ -25,35 +25,39 @@
     </script>
     <script async src='//www.google-analytics.com/analytics.js'></script>
   </head>
-  <body class="initial-load">
+  <body class="stats initial-load">
     <h1 id="header-main"></h1>
     <nav>
+      <h2></h2>
       <div class="control" id="seasons-control"><label></label><select></select></div>
       <div class="control" id="platforms-control"><label></label><select></select></div>
       <div class="control" id="maps-control"><label></label><select></select></div>
-      <div class="control" id="game-modes-control"><label></label><select></select></div>
-      <div class="control" id="objective-locations-control"><label></label><select></select></div>
+      <div class="control multi-view" id="game-modes-control"><label></label><select size="4"></select></div>
+      <div class="control multi-view" id="objective-locations-control"><label></label><select size="5"></select></div>
       <div class="load"><button id="load-control"></button></div>
     </nav>
-    <section id="section-map">
-      <h2></h2>
-      <div class="output"></div>
-      <div class="loader"></div>
-    </section>
-    <section id="section-operators">
-      <h2></h2>
-      <div class="control" id="skill-rank-control"><label></label><select></select></div>
-      <div class="loader"></div>
-      <div class="output"></div>
-    </section>
-    <section>
-      <h2>BETA - Still to do:</h2>
-      <ul>
-        <li>Fully translate</li>
-        <li>Integrate into R6Maps.com</li>
-        <li>Look & feel overhaul</li>
-      </ul>
-    </section>
+    <main>
+      <section id="section-map">
+        <h2></h2>
+        <div class="output"></div>
+        <div class="loader"></div>
+      </section>
+      <section id="section-operators">
+        <h2></h2>
+        <div class="control" id="skill-rank-control"><label></label><select></select></div>
+        <div class="loader"></div>
+        <div class="output"></div>
+      </section>
+      <section>
+        <h2>Beta to do list</h2>
+        <ul>
+          <li>Fully translate</li>
+          <li>Integrate into R6Maps.com</li>
+          <li>Look & feel tweaks</li>
+          <li>User feedback: bug fixes, usability, etc.</li>
+        </ul>
+      </section>
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/release.2.2.6/common.min.js"></script>
     <!--TODO: COMBINE FOLLOWING STATS JS-->

@@ -3,23 +3,100 @@
 @import "../common/_settings.scss";
 @import "../common/_common.scss";
 
-body {
+html {
+  font-size: 22px;
+}
+
+body.stats {
+  background: url($img-location + 'about-bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #fff;
-  font-size: 1.2rem;
+  font-weight: 400;
   padding: 1rem;
 
+  a {
+    color: #fff;
+  }
+
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem
+    margin: 1rem 0.5rem;
+    font-size: 3.9rem;
+    font-weight: 700;
+    line-height: 80px;
+
+    a {
+      background-image: url($img-location + 'r6maps-logo.png');
+      background-repeat: no-repeat;
+      background-size: 80px;
+      padding-left: 90px;
+      text-decoration: none;
+    }
   }
 
   h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem
+    color: $r6-yellow;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  nav {
+    display: inline-block;
+    float: left;
   }
 
   nav, section {
-    margin-bottom: 3rem;
+    background-color: rgba(16, 26, 36, 0.6);
+    margin: 0 2rem 2rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+
+  main {
+    display: inline-block;
+  }
+
+  ul {
+    margin-left: 1rem;
+
+    li {
+      line-height: 130%;
+      list-style-type: circle;
+      padding: 0 0 0.5rem 0;
+    }
+  }
+
+  div.control {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    &.multi-view {
+      option {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+#skill-rank-control {
+  label {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  select {
+    width: auto;
   }
 }
 
@@ -28,32 +105,19 @@ body {
 	border: none;
   color: #fff;
   cursor: pointer;
+  display: block;
 	font-size: 1.4rem;
 	padding: 0.15rem 0.5rem;
 	text-decoration:none;
   transition: background-color $button-transition;
+  width: 100%;
 
   &:hover, &:focus {
     background-color: $r6-blue;
   }
 
   body.disable-load & {
-		background-color: $light-grey;
+		background-color: $grey;
     pointer-events: none;
-  }
-}
-
-div.control {
-  margin: 1.5rem 0;
-
-  label {
-    display: inline-block;
-    margin-right: 1.5rem;
-    min-width: 8rem;
-  }
-
-  select {
-    font-size: 1.2rem;
-    min-width: 13rem;
   }
 }

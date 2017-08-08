@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test:js": "eslint dev/js/**/*.js dev/utils/*.js",
+    "test:temp": "eslint site/js/statstemp/*.js",
     "test": "npm run test:js",
     "build:css:mkdir": "mkdirp ./site/css/release.2.2.6",
     "build:css:main": "npm run build:css:mkdir && scss './dev/scss/main/main.scss':'./site/css/release.2.2.6/main.2.2.6.css'",

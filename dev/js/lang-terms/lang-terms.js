@@ -114,8 +114,10 @@ var R6MapsCommonLangTerms = (function(undefined) {
         e: 'E'
       },
       stats: {
-        title: 'R6Maps.com - Stats (BETA)',
-        headerMain: 'R6Maps.com Stats (BETA)',
+        title: 'R6Maps.com - Stats BETA',
+        headerMain: '{link} Stats BETA',
+        headerLinkText: 'R6Maps.com',
+        headerFilters: 'Filters',
         headerMap: 'General',
         headerOperators: 'Operators',
         objectiveRoomDivider: ' / ',
