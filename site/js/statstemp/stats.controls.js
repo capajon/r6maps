@@ -14,6 +14,8 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     selectedSeason,
     selectedMap
   ) {
+    var optionsCount = 1;
+
     $gameModesSelect.append($('<option></option>')
        .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
 
@@ -25,8 +27,10 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
       ) {
         $gameModesSelect.append($('<option></option>')
            .attr('value', gameMode).text(gameModesData[gameMode].name));
+        optionsCount++;
       }
     }
+    $gameModesSelect.attr('size', optionsCount);
   };
 
   var gameModesSetup = function gameModesSetup(
@@ -131,6 +135,8 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
       selectedMap,
       selectedGameMode
     ) {
+    var optionsCount = 1;
+
     $objectiveLocationsSelect.append($('<option></option>')
        .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
 
@@ -144,8 +150,15 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
         ) {
           $objectiveLocationsSelect.append($('<option></option>')
              .attr('value', objectiveLocation).text(info.name));
+          optionsCount++;
         }
       }
+    }
+    $objectiveLocationsSelect.attr('size', optionsCount);
+    if (optionsCount == 1) {
+      $objectiveLocationsSelect.parent('.control').addClass('only-all');
+    } else {
+      $objectiveLocationsSelect.parent('.control').removeClass('only-all');
     }
   };
 
@@ -288,7 +301,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   };
 
   var trySelect = function trySelect($selectEl, option) {
-    return R6MapsCommonHelpers.trySelectOption($selectEl, option);
+    return R6MapsCommonHelpers.trySelectOption($selectEl, option || ALL_KEY);
   };
 
   return  {

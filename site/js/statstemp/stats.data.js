@@ -19,7 +19,7 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
         'SECURE AREA': { seasonSpan: [5,99], name: terms.objectives.secure }
       },
       skillRanks: {
-        Unranked: { seasonSpan: [6,99], name: terms.ranks.unranked },
+        Unranked: { seasonSpan: [5,99], name: terms.ranks.unranked },
         Copper: { seasonSpan: [5,99], name: terms.ranks.copper },
         Bronze: { seasonSpan: [5,99], name: terms.ranks.bronze },
         Silver: { seasonSpan: [5,99], name: terms.ranks.silver },

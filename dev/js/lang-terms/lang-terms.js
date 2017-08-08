@@ -131,7 +131,6 @@ var R6MapsCommonLangTerms = (function(undefined) {
         seasonWithNumber: 'Season {0}',
         allOption: 'All',
         loadButtonText: 'Load Stats'
-
       },
       ranks: {
         unranked: 'Unranked',

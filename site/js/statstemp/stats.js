@@ -221,6 +221,7 @@
     $filtersHeader.html(statTerms.headerFilters);
     $mapHeader.html(statTerms.headerMap);
     $operatorsHeader.html(statTerms.headerOperators);
+    $('p.all-text').html(statTerms.allOption);
   };
 
 }));

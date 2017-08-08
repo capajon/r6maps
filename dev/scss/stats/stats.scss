@@ -14,7 +14,7 @@ body.stats {
   -o-background-size: cover;
   background-size: cover;
   color: #fff;
-  font-weight: 400;
+  font-weight: 700;
   padding: 1rem;
 
   a {
@@ -24,7 +24,6 @@ body.stats {
   h1 {
     margin: 1rem 0.5rem;
     font-size: 3.9rem;
-    font-weight: 700;
     line-height: 80px;
 
     a {
@@ -39,24 +38,25 @@ body.stats {
   h2 {
     color: $r6-yellow;
     font-size: 1.6rem;
-    font-weight: 700;
     margin-bottom: 0.75rem;
     text-transform: uppercase;
   }
 
   nav {
+    box-sizing: border-box;
     display: inline-block;
     float: left;
+    width: 330px;
   }
 
   nav, section {
     background-color: rgba(16, 26, 36, 0.6);
-    margin: 0 2rem 2rem 0;
-    padding: 0.5rem 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0.75rem 1rem 0.75rem;
   }
 
   main {
-    display: inline-block;
+    margin-left: 350px;
   }
 
   ul {
@@ -74,7 +74,6 @@ body.stats {
 
     label {
       display: block;
-      font-weight: 700;
       margin-bottom: 0.3rem;
     }
 
@@ -85,6 +84,22 @@ body.stats {
     &.multi-view {
       option {
         font-weight: 700;
+      }
+    }
+
+    p.all-text {
+      background-color: $light-grey;
+      color: #000;
+      display: none;
+      padding: 5px;
+    }
+
+    &.only-all {
+      p.all-text {
+        display: block;
+      }
+      select {
+        display: none;
       }
     }
   }
