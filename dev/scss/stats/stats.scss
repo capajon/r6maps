@@ -81,6 +81,10 @@ body.stats {
       width: 100%;
     }
 
+    option: {
+      font-weight: normal;
+    }
+
     &.multi-view {
       option {
         font-weight: 700;
@@ -102,6 +106,14 @@ body.stats {
         display: none;
       }
     }
+  }
+}
+
+p.instructions {
+  display: none;
+
+  body.not-loaded-yet & {
+    display: block;
   }
 }
 

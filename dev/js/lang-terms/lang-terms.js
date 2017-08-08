@@ -130,7 +130,10 @@ var R6MapsCommonLangTerms = (function(undefined) {
         labelSkillRanks: 'Rank',
         seasonWithNumber: 'Season {0}',
         allOption: 'All',
-        loadButtonText: 'Load Stats'
+        loadButtonText: 'Load Stats',
+        instructions: 'Select filters and click \'Load Stats\' to continue.',
+        noResults: 'No results found.',
+        error: 'There was an error trying to load stats.  Please try again later.'
       },
       ranks: {
         unranked: 'Unranked',

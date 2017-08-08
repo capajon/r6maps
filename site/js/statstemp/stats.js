@@ -34,7 +34,7 @@
       MODE: 'mode',
       LOCATION: 'location',
       RANK: 'rank'
-    }
+    };
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     R6MapsCommonHelpers.tryLoadStartingLanguage(R6MapsCommonLangTerms.tryLoadLanguage);
@@ -222,8 +222,8 @@
     $mapHeader.html(statTerms.headerMap);
     $operatorsHeader.html(statTerms.headerOperators);
     $('p.all-text').html(statTerms.allOption);
+    $('p.instructions').html(statTerms.instructions);
   };
-
 }));
     /*var d1 = $.Deferred();
     var d2 = $.Deferred();
