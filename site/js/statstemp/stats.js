@@ -9,6 +9,8 @@
     $mapOutput,
     $mapHeader,
     $mapLoader,
+    $sectionMap,
+    $sectionOperators,
     $operatorsHeader,
     $operatorsOutput,
     $operatorsLoader,
@@ -30,20 +32,53 @@
     QUERY_PARAMS = {
       SEASON: 'season',
       PLATFORM: 'platform',
-      MAP: 'map',
-      MODE: 'mode',
-      LOCATION: 'location',
-      RANK: 'rank'
+      MAP: 'mapName',
+      MODE: 'gameMode',
+      LOCATION: 'objectiveLocation',
+      RANK: 'skillRank'
     };
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     R6MapsCommonHelpers.tryLoadStartingLanguage(R6MapsCommonLangTerms.tryLoadLanguage);
     statsData = R6MapsStatsData.getData();
     statTerms = R6MapsCommonLangTerms.terms.stats;
-    setPageElements();
+    assignPageElements();
     setupStaticElements();
     setupControls();
+    window.onpopstate = handleHistoryPop;
   });
+
+  var assignPageElements = function assignPageElements() {
+    $mainHeader = $('#header-main');
+    $filtersHeader = $('nav h2');
+    $sectionMap = $('#section-map');
+    $mapHeader = $('#section-map h2');
+    $mapOutput = $('#section-map div.output');
+    $mapLoader = $('#section-map div.output');
+    $sectionOperators = $('#section-operators');
+    $operatorsHeader = $('#section-operators h2');
+    $operatorsOutput = $('#section-operators div.output');
+    $operatorsLoader = $('#section-operators div.loader');
+
+    $seasonsLabel = $('#seasons-control label'),
+    $seasonsSelect = $('#seasons-control select'),
+    $platformsLabel = $('#platforms-control label'),
+    $platformsSelect = $('#platforms-control select'),
+    $mapsLabel = $('#maps-control label'),
+    $mapsSelect = $('#maps-control select'),
+    $gameModesLabel = $('#game-modes-control label'),
+    $gameModesSelect = $('#game-modes-control select'),
+    $objectiveLocationsLabel = $('#objective-locations-control label'),
+    $objectiveLocationsSelect = $('#objective-locations-control select'),
+    $loadButton = $('#load-control'),
+    $skillRanksLabel = $('#skill-rank-control label');
+    $skillRanksSelect = $('#skill-rank-control select');
+  };
+
+  var clearOutputSections = function clearOutputSections() {
+    $mapOutput.html('');
+    $operatorsOutput.html('');
+  };
 
   var disableLoadControl = function disableLoadControl() {
     $('body').addClass('disable-load');
@@ -64,20 +99,75 @@
     enableLoadControl();
   };
 
-  var handleLoadButtonClick = function handleLoadButtonClick() {
-    /*var season = {
-        current: R6MapsStatsControls.seasons.get($seasonsSelect),
-        param: QUERY_PARAMS.SEASON
-      currentPlatform = R6MapsStatsControls.platforms.get($platformsSelect),
-      currentMap = R6MapsStatsControls.maps.get($mapsSelect),
-      currentGameMode = R6MapsStatsControls.gameModes.get($gameModesSelect),
-      currentObjectiveLocation = R6MapsStatsControls.objectiveLocations($objectiveLocationsSelect),
-      currentSkillRank = R6MapsStatsControls.skillRanks.get($skillRanksSelect),
-      queryParams = {};
+  var handleApiAllSuccess = function handleApiAllSuccess() {
+    $('body').removeClass('load-in-progress');
+  };
 
-    if()
-    disableLoadControl();*/
+  var handleApiMapSuccess = function handleApiMapSuccess(mapData) {
+    R6MapsStatsMapSection.render(mapData, $mapOutput);
+    $sectionMap.removeClass('load-in-progress');
+  };
+
+  var handleApiMapError = function handleApiMapError(mapData) {
+    $('body').removeClass('load-in-progress');
+    $sectionMap.removeClass('load-in-progress');
+    $mapOutput.html('<p class="error">' + R6MapsCommonLangTerms.terms.stats.error + '</p>');
+  };
+
+  var handleApiOperatorSuccess = function handleApiOperatorSuccess(operatorsData) {
+    R6MapsStatsOperatorsSection.render(operatorsData, $operatorsOutput);
+    $sectionOperators.removeClass('load-in-progress');
+  };
+
+  var handleApiOperatorError = function handleApiOperatorError(operatorsData) {
+    $sectionOperators.removeClass('load-in-progress');
+    $operatorsOutput.html('<p class="error">' + R6MapsCommonLangTerms.terms.stats.error + '</p>');
+  };
+
+  var handleHistoryPop = function handleHistoryPop() {
+    setupControls();
+    enableLoadControl();
+  };
+
+  var handleLoadButtonClick = function handleLoadButtonClick() {
+    var possibleParams = [
+        { string: QUERY_PARAMS.SEASON, currentValue: R6MapsStatsControls.seasons.get($seasonsSelect)},
+        { string: QUERY_PARAMS.PLATFORM, currentValue: R6MapsStatsControls.platforms.get($platformsSelect)},
+        { string: QUERY_PARAMS.MAP, currentValue: R6MapsStatsControls.maps.get($mapsSelect)},
+        { string: QUERY_PARAMS.MODE, currentValue: R6MapsStatsControls.gameModes.get($gameModesSelect)},
+        { string: QUERY_PARAMS.LOCATION, currentValue: R6MapsStatsControls.objectiveLocations.get($objectiveLocationsSelect)},
+        { string: QUERY_PARAMS.RANK, currentValue: R6MapsStatsControls.skillRanks.get($skillRanksSelect)}
+      ],
+      queryString = '',
+      counter = 0;
+
+    possibleParams.forEach(function(param) {
+      if (param.currentValue && (param.currentValue != R6MapsStatsControls.ALL_KEY)) {
+        queryString += (counter == 0) ? '?' : '&';
+        queryString += param.string + '=' + param.currentValue;
+        counter++;
+      }
+    });
+    history.pushState({}, '', [location.protocol, '//', location.host, location.pathname].join('') + queryString);
+
+    $('body').removeClass('not-loaded-yet');
+    $sectionMap.addClass('load-in-progress');
+    $sectionOperators.addClass('load-in-progress');
+    $('body').addClass('load-in-progress');
     disableLoadControl();
+
+    clearOutputSections();
+    savePlatformOption(R6MapsStatsControls.platforms.get($platformsSelect));
+    sendLoadStatsAnalyticsEvent(queryString);
+
+    R6MapsStatsApi.getMapAndOperator(
+      handleApiMapSuccess,
+      handleApiMapError,
+      handleApiOperatorSuccess,
+      handleApiOperatorError,
+      handleApiAllSuccess,
+      queryString
+    );
   };
 
   var handleMapChange = function handleMapChange() {
@@ -127,29 +217,8 @@
     console.log('TODO: implement handleSkillRankChange');
   };
 
-  var setPageElements = function setPageElements() {
-    $mainHeader = $('#header-main');
-    $filtersHeader = $('nav h2');
-    $mapHeader = $('#section-map h2');
-    $mapOutput = $('#section-map div.output');
-    $mapLoader = $('#section-map div.output');
-    $operatorsHeader = $('#section-operators h2');
-    $operatorsOutput = $('#section-operators div.output');
-    $operatorsLoader = $('#section-operators div.loader');
-
-    $seasonsLabel = $('#seasons-control label'),
-    $seasonsSelect = $('#seasons-control select'),
-    $platformsLabel = $('#platforms-control label'),
-    $platformsSelect = $('#platforms-control select'),
-    $mapsLabel = $('#maps-control label'),
-    $mapsSelect = $('#maps-control select'),
-    $gameModesLabel = $('#game-modes-control label'),
-    $gameModesSelect = $('#game-modes-control select'),
-    $objectiveLocationsLabel = $('#objective-locations-control label'),
-    $objectiveLocationsSelect = $('#objective-locations-control select'),
-    $loadButton = $('#load-control'),
-    $skillRanksLabel = $('#skill-rank-control label');
-    $skillRanksSelect = $('#skill-rank-control select');
+  var savePlatformOption = function savePlatformOption(platformOption) {
+    localStorage.setItem('statsplatform', platformOption);
   };
 
   var setupControls = function setupControls() {
@@ -168,6 +237,7 @@
       R6MapsStatsControls.seasons.get($seasonsSelect),
       enableLoadControl
     );
+    tryLoadSavedPlatformOption();
     R6MapsStatsControls.platforms.trySelect($platformsSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.PLATFORM));
 
     R6MapsStatsControls.maps.setup(
@@ -214,30 +284,29 @@
     $loadButton.on('click', handleLoadButtonClick);
   };
 
+  var sendLoadStatsAnalyticsEvent = function sendLoadStatsAnalyticsEvent(queryString) {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Controls',
+      eventAction: 'LoadStats',
+      eventLabel: queryString
+    });
+  };
+
   var setupStaticElements = function setupStaticElements() {
-    $mainHeader.html(
-      statTerms.headerMain.replace('{link}', '<a href="index.html">' + statTerms.headerLinkText + '</a>')
-    );
+    $mainHeader.find('.page-title').html(statTerms.headerMain);
     $filtersHeader.html(statTerms.headerFilters);
     $mapHeader.html(statTerms.headerMap);
     $operatorsHeader.html(statTerms.headerOperators);
     $('p.all-text').html(statTerms.allOption);
     $('p.instructions').html(statTerms.instructions);
   };
+
+  var tryLoadSavedPlatformOption = function tryLoadSavedPlatformOption() {
+    var platformOption = localStorage.getItem('statsplatform');
+
+    if (platformOption !== null) {
+      R6MapsStatsControls.platforms.trySelect($platformsSelect, platformOption);
+    }
+  };
 }));
-    /*var d1 = $.Deferred();
-    var d2 = $.Deferred();
-    var d3 = $.Deferred();
-
-    $.when(d1).done(function (v1) {
-        console.log( "just d1 is done", v1 );
-    });
-
-    $.when(d1, d2).done(function (v1, v2) {
-        console.log( "d1 and d2 are done", v1, v2  );
-    });
-
-    d1.resolve("HI");
-    setTimeout(function() {
-        d2.resolve("NUMBER2");
-    },3000);*/

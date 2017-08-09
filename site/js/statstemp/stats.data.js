@@ -1,5 +1,5 @@
 'use strict';
-//TODO: reorder objectives to match selection screen order (especially bomb types which are numbered on r6maps.com so more obvious to users)
+
 var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
   var getMapStatsData = function getMapStatsData() {
     var terms = R6MapsCommonLangTerms.terms,

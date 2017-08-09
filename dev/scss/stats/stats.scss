@@ -3,8 +3,19 @@
 @import "../common/_settings.scss";
 @import "../common/_common.scss";
 
+$breakpoint-large: 1400px;
+$breakpoint-one-column: 1070px;
+$breakpoint-mobile: 700px;
+
 html {
-  font-size: 22px;
+  font-size: 24px;
+
+  @media all and (max-width: $breakpoint-large ) {
+    font-size: 22px;
+  }
+  @media all and (max-width: $breakpoint-one-column ) {
+    font-size: 20px;
+  }
 }
 
 body.stats {
@@ -17,22 +28,12 @@ body.stats {
   font-weight: 700;
   padding: 1rem;
 
-  a {
-    color: #fff;
+  @media all and (max-width: $breakpoint-mobile ) {
+    padding: 1rem 0.2rem;
   }
 
-  h1 {
-    margin: 1rem 0.5rem;
-    font-size: 3.9rem;
-    line-height: 80px;
-
-    a {
-      background-image: url($img-location + 'r6maps-logo.png');
-      background-repeat: no-repeat;
-      background-size: 80px;
-      padding-left: 90px;
-      text-decoration: none;
-    }
+  a {
+    color: #fff;
   }
 
   h2 {
@@ -42,11 +43,20 @@ body.stats {
     text-transform: uppercase;
   }
 
+  p.error {
+    color: $r6-red;
+  }
+
   nav {
     box-sizing: border-box;
     display: inline-block;
     float: left;
     width: 330px;
+
+    @media all and (max-width: $breakpoint-one-column ) {
+      float: none;
+      width: 100%;
+    }
   }
 
   nav, section {
@@ -55,8 +65,26 @@ body.stats {
     padding: 0.5rem 0.75rem 1rem 0.75rem;
   }
 
+  section {
+    &.load-in-progress {
+      div.loading {
+        background-image: url($img-location + 'spinner.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 230px;
+        height: 230px;
+        margin: 0 auto;
+      }
+    }
+  }
+
   main {
     margin-left: 350px;
+
+    @media all and (max-width: $breakpoint-one-column ) {
+      margin: 0;
+    }
   }
 
   ul {
@@ -78,6 +106,7 @@ body.stats {
     }
 
     select {
+      overflow-y: auto;
       width: 100%;
     }
 
@@ -143,8 +172,13 @@ p.instructions {
     background-color: $r6-blue;
   }
 
-  body.disable-load & {
+  body.disable-load &, body.load-in-progress & {
 		background-color: $grey;
     pointer-events: none;
   }
+}
+
+#header-main {
+  @include logo-header;
+  margin: 0 0 1rem 0.75rem;
 }

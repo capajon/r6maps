@@ -115,8 +115,7 @@ var R6MapsCommonLangTerms = (function(undefined) {
       },
       stats: {
         title: 'R6Maps.com - Stats BETA',
-        headerMain: '{link} Stats BETA',
-        headerLinkText: 'R6Maps.com',
+        headerMain: 'Stats BETA',
         headerFilters: 'Filters',
         headerMap: 'General',
         headerOperators: 'Operators',
@@ -131,7 +130,7 @@ var R6MapsCommonLangTerms = (function(undefined) {
         seasonWithNumber: 'Season {0}',
         allOption: 'All',
         loadButtonText: 'Load Stats',
-        instructions: 'Select filters and click \'Load Stats\' to continue.',
+        instructions: 'Select filter options and click \'Load Stats\' to continue.',
         noResults: 'No results found.',
         error: 'There was an error trying to load stats.  Please try again later.'
       },

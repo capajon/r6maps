@@ -43,7 +43,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     selectedMap
   ) {
     $gameModesLabel.html(R6MapsCommonLangTerms.terms.stats.labelGameMode);
-    gameModesPopulateOptions($gameModesSelect, gameModesData, mapsGameModeObjectiveLocationsData, selectedSeason, selectedMap);
+    gameModesUpdate($gameModesSelect, gameModesData, mapsGameModeObjectiveLocationsData, selectedSeason, selectedMap);
     $gameModesSelect.on('change', function(event) {
       gameModeChangeCallback();
     });
@@ -102,7 +102,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     mapChangeCallback
   ) {
     $mapsLabel.html(R6MapsCommonLangTerms.terms.stats.labelMap);
-    mapsPopulateOptions($mapsSelect, mapsGameModeObjectiveLocationsData, selectedSeason);
+    mapsUpdate($mapsSelect, mapsGameModeObjectiveLocationsData, selectedSeason);
     $mapsSelect.on('change', function(event) {
       mapChangeCallback();
     });
@@ -172,7 +172,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     objectiveLocationChangeCallback
   ) {
     $objectiveLocationsLabel.html(R6MapsCommonLangTerms.terms.stats.labelObjectiveLocation);
-    objectiveLocationsPopulateOptions(
+    objectiveLocationsUpdate(
       $objectiveLocationsSelect,
       mapsGameModeObjectiveLocationsData,
       selectedSeason,
@@ -222,7 +222,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
 
   var platformsSetup = function platformsSetup($platformsSelect, $platformsLabel, platformsData, selectedSeason, platformChangeCallback) {
     $platformsLabel.html(R6MapsCommonLangTerms.terms.stats.labelPlatform);
-    platformsPopulateOptions($platformsSelect, platformsData, selectedSeason);
+    platformsUpdate($platformsSelect, platformsData, selectedSeason);
     $platformsSelect.on('change', function(event) {
       platformChangeCallback();
     });
@@ -253,6 +253,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
 
   var seasonsSetup = function seasonsSetup($seasonsSelect, $seasonsLabel, seasonsData, seasonChangeCallback) {
     $seasonsLabel.html(R6MapsCommonLangTerms.terms.stats.labelSeason);
+    $seasonsSelect.find('option').remove();
     seasonsPopulateOptions($seasonsSelect, seasonsData);
     $seasonsSelect.on('change', function(event) {
       seasonChangeCallback();
@@ -282,7 +283,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     $skillRanksSelect, $skillRanksLabel, skillRanksData, selectedSeason, skillRankChangeCallback
   ) {
     $skillRanksLabel.html(R6MapsCommonLangTerms.terms.stats.labelSkillRanks);
-    skillRanksPopulateOptions($skillRanksSelect, skillRanksData, selectedSeason);
+    skillRanksUpdate($skillRanksSelect, skillRanksData, selectedSeason);
     $skillRanksSelect.on('change', function(event) {
       skillRankChangeCallback();
     });
@@ -305,6 +306,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   };
 
   return  {
+    ALL_KEY: ALL_KEY,
     gameModes: {
       get: gameModesGet,
       setup: gameModesSetup,

@@ -26,7 +26,14 @@
     <script async src='//www.google-analytics.com/analytics.js'></script>
   </head>
   <body class="stats not-loaded-yet">
-    <h1 id="header-main"></h1>
+    <h1 id="header-main">
+      <a href="index.html">
+        <span class="logo">
+          <span class="site-title">R6Maps.com</span>
+        </span>
+      </a>
+      <span class="page-title">STATS BETA</span>
+    </h1>
     <nav>
       <h2></h2>
       <div class="control" id="seasons-control"><label></label><select></select></div>
@@ -39,18 +46,18 @@
     <main>
       <section id="section-map">
         <h2></h2>
-        <div class="loader"></div>
+        <div class="loading"></div>
         <p class="instructions"></p>
         <div class="output"></div>
       </section>
       <section id="section-operators">
         <h2></h2>
         <div class="control" id="skill-rank-control"><label></label><select></select></div>
-        <div class="loader"></div>
+        <div class="loading"></div>
         <div class="output"></div>
       </section>
       <section>
-        <h2>Beta to do list</h2>
+        <h2>Beta 'to do list'</h2>
         <ul>
           <li>Fully translate</li>
           <li>Integrate into R6Maps.com</li>
@@ -64,6 +71,9 @@
     <!--TODO: COMBINE FOLLOWING STATS JS-->
     <script src="js/statstemp/stats.data.js"></script>
     <script src="js/statstemp/stats.controls.js"></script>
+    <script src="js/statstemp/stats.api.js"></script>
+    <script src="js/statstemp/stats.map-section.js"></script>
+    <script src="js/statstemp/stats.operators-section.js"></script>
     <script src="js/statstemp/stats.js"></script>
   </body>
 <html>

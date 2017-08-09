@@ -21,3 +21,56 @@ body, button, input, select {
   @extend .r6-like-font;
   font-size: 1rem;
 }
+
+@mixin logo-header() {
+  height: 90px;
+
+  a {
+    position: absolute;
+
+    span.logo {
+      background-image: url($img-location + 'r6maps-logo.png');
+      background-repeat: no-repeat;
+      background-size: 90px;
+      display: inline-block;
+      height: 90px;
+      transition: background-image $button-transition;
+      width: 90px;
+    }
+
+    span.site-title {
+      color: #fff;
+      display: block;
+      font-size: 26px;
+      margin-left: 100px;
+      text-decoration: none;
+      transition: color $button-transition;
+      white-space: nowrap;
+    }
+
+    &:hover, &:focus {
+      span.logo {
+        background-image: url($img-location + 'r6maps-logo-blue.png');
+      }
+
+      span.site-title {
+        color: $r6-blue;
+      }
+    }
+  }
+
+  span.page-title {
+    border-top: 2px solid $r6-yellow;
+    display: block;
+    font-size: 50px;
+    font-weight: 700;
+    left: 100px;
+    margin-right: 100px;
+    overflow: hidden;
+    padding-top: 4px;
+    position: relative;
+    text-transform: uppercase;
+    top: 36px;
+    white-space: nowrap;
+  }
+}

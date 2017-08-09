@@ -1,6 +1,7 @@
 <?php
+error_reporting(0);
 include("credentials.private.php"); //should contain $mysqli = mysqli_connect("server","user","password","database");
-include("stats-common.php");
+include("common.php");
 
 $config = array(
     "season" => getSeason($mysqli),
@@ -54,6 +55,6 @@ if($result = $mysqli->query($sqlStatement)) {
     }
 }
 
-echo json_encode($maps);
+echo $_GET['callback'] . '('.json_encode($maps).')';
 
 ?>
