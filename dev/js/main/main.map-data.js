@@ -23,6 +23,7 @@ var R6MapsMainData = (function(R6MapsCommonLangTerms, undefined){
     skyscraperTerms = mapRoomTerms.skyscraper,
     bartlettTerms = mapRoomTerms.bartlett,
     coastlineTerms = mapRoomTerms.coastline,
+    themeparkTerms = mapRoomTerms.themepark,
     yachtTerms = mapRoomTerms.yacht;
 
   var getMapData = function getMapData() {
@@ -2523,6 +2524,45 @@ var R6MapsMainData = (function(R6MapsCommonLangTerms, undefined){
           { floor: 2, top: -45, left: 720, description: skyscraperTerms.houseBalcony },
           { floor: 1, top: -420, left: 417, description: skyscraperTerms.coveredWalkway },
           { floor: 2, top: -420, left: 417, description: skyscraperTerms.coveredWalkway }
+        ]
+      },
+      themepark: {
+        name: mapNameTerms.themepark,
+        imgUrlPrefix: 'themepark',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -311, left: -88, name: floorTerms.secondFloor },
+          { index: 3, top: -311, left: -88, name: floorTerms.roof }
+        ],
+        hostageObjectives: [],
+        bombObjectives: [],
+        secureObjectives: [],
+        zoomPoints: {
+          topLeft: { top: -236, left: -37 },
+          bottomRight: { top: 199, left: 575 }
+        },
+        compassPoints: {
+          top: 331, left: 220
+        },
+        ladders: [
+        ],
+        cameras: [],
+        ceilingHatches: [
+          { floor: 1, top: -89, left: 65 },
+          { floor: 1, top: -66, left: 248 },
+          { floor: 1, top: -132, left: 522 },
+          { floor: 1, top: 47, left: 417 }
+        ],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [],
+        roomLabels: [
+          { floor: 1, top: 10, left: 294, description: themeparkTerms.workInProgress, hardToRead: true },
+          { floor: 2, top: -248, left: 551, description: themeparkTerms.workInProgress, hardToRead: true },
+          { floor: 3, top: -21, left: 166, description: themeparkTerms.workInProgress, hardToRead: true }
         ]
       },
       yacht: {

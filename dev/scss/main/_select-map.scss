@@ -228,6 +228,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.themepark div.image.thumb {
+          @include map-thumb-icon(17);
+        }
+        body[loaded-map="themepark"] &.themepark p {
+          @include map-name-selected();
+        }
+
         &.yacht div.image.thumb {
           @include map-thumb-icon(13);
         }

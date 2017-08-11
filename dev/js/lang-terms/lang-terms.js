@@ -132,7 +132,26 @@ var R6MapsCommonLangTerms = (function(undefined) {
         loadButtonText: 'Load Stats',
         instructions: 'Select filter options and click \'Load Stats\' to continue.',
         noResults: 'No results found.',
-        error: 'There was an error trying to load stats.  Please try again later.'
+        error: 'There was an error trying to load stats.  Please try again later.',
+        averageRoundLength: 'Average round length',
+        totalRoundsPlayed: 'Total rounds played'
+      },
+      statsRoundWinReasons: {
+        allTeamsDead: 'All teams dead',
+        attackersEliminated: 'Enemy team killed',
+        attackersKilledHostage: 'Hostage killed',
+        attackersSurrendered: 'Surrender',
+        bombDeactivated_OneBomb: 'Bomb deactivated',
+        bombExploded: 'Bomb exploded',
+        defendersEliminated: 'Enemy team killed',
+        defendersKilledHostage: 'Hostage killed',
+        defendersSurrendered: 'Surrender',
+        defuserDeactivated: 'Defused deactivated',
+        hostageExtracted: 'Hostage extracted',
+        noEnemies: 'No enemies',
+        objectiveCaptured: 'Objective secured',
+        objectiveProtected: 'Objective protected',
+        timeExpired: 'Time expired'
       },
       ranks: {
         unranked: 'Unranked',
@@ -156,6 +175,43 @@ var R6MapsCommonLangTerms = (function(undefined) {
         5: 'Velvet Shell',
         6: 'Operation Health'
       },
+      operators: {
+        ash: 'Ash',
+        bandit: 'Bandit',
+        blackbeard: 'Blackbeard',
+        blitz: 'Blitz',
+        buck: 'Buck',
+        capitao: 'Capitao',
+        castle: 'Castle',
+        caveira: 'Caveira',
+        doc: 'Doc',
+        echo: 'Echo',
+        frost: 'Frost',
+        fuze: 'Fuze',
+        gignRecruit: 'GIGN Recruit',
+        glaz: 'Glaz',
+        gsg9Recruit: 'GSG9 Recruit',
+        hibana: 'Hibana',
+        iq: 'IQ',
+        jackal: 'Jackal',
+        jager: 'Jager',
+        kapkan: 'Kapkan',
+        mira: 'Mira',
+        montagne: 'Montagne',
+        mute: 'Mute',
+        pulse: 'Pulse',
+        rook: 'Rook',
+        sasRecruit: 'SAS Recruit',
+        sledge: 'Sledge',
+        smoke: 'Smoke',
+        spetsnazRecruit: 'Spetsnaz Recruit',
+        swatRecruit: 'SWAT Recruit',
+        tachanka: 'Lord Tachanka',
+        thatcher: 'Tatcher',
+        thermite: 'Thermite',
+        twitch: 'Twitch',
+        valkyrie: 'Valkyrie'
+      },
       mapNames: {
         bank: 'Bank',
         bartlett: 'Bartlett U.',
@@ -172,6 +228,7 @@ var R6MapsCommonLangTerms = (function(undefined) {
         oregon: 'Oregon',
         plane: 'Plane',
         skyscraper: 'Skyscraper',
+        themepark: 'Theme Park',
         yacht: 'Yacht'
       },
       mapRooms: {
@@ -889,6 +946,9 @@ var R6MapsCommonLangTerms = (function(undefined) {
           sideStairs: 'Side<br/>Stairs',
           dragonStatue: 'Dragon<br/>Statue',
           coveredWalkway: 'Covered<br/>Walkway'
+        },
+        themepark: {
+          workInProgress: 'This is a very early preview<br/>of the new Year 2 Season 3 Map<br/>WORK IN PROGRESS'
         },
         yacht: {
           spawnSubmarine: 'Submarine',
