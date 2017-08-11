@@ -1,4 +1,12 @@
 <?php
+function getCacheKey($config) {
+  $key = '';
+  foreach($config['userInputParams'] as $param){
+      $key .= $param . '=' . $_GET[$param] . ',';
+  }
+  return $key;
+}
+
 function getSeason($mysqli) {
     $currentDefaultSeason = "5";
     $allowedSeasons = [

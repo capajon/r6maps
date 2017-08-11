@@ -209,6 +209,9 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   };
 
   var platformsPopulateOptions = function platformsPopulateOptions($platformsSelect, platformsData, selectedSeason) {
+    $platformsSelect.append($('<option></option>')
+       .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
+
     for (var platform in platformsData) {
       if (
         (platformsData[platform].seasonSpan[0] <= selectedSeason) &&

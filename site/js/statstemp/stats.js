@@ -101,10 +101,11 @@
 
   var handleApiAllSuccess = function handleApiAllSuccess() {
     $('body').removeClass('load-in-progress');
+    enableLoadControl();
   };
 
   var handleApiMapSuccess = function handleApiMapSuccess(mapData) {
-    R6MapsStatsMapSection.render(mapData, $mapOutput);
+    R6MapsStatsMapRender.render(mapData, $mapOutput);
     $sectionMap.removeClass('load-in-progress');
   };
 
@@ -115,7 +116,7 @@
   };
 
   var handleApiOperatorSuccess = function handleApiOperatorSuccess(operatorsData) {
-    R6MapsStatsOperatorsSection.render(operatorsData, $operatorsOutput);
+    R6MapsStatsOperatorsRender.render(operatorsData, $operatorsOutput);
     $sectionOperators.removeClass('load-in-progress');
   };
 

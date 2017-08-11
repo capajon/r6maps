@@ -2,7 +2,7 @@ Corel Auto-preserve
 
 /site/js/release*/*
 /site/css/release*/*
-/site/api/*private.php
+**/*private.php
 
 ###### SASS ######
 

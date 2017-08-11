@@ -3,18 +3,23 @@
 @import "../common/_settings.scss";
 @import "../common/_common.scss";
 
-$breakpoint-large: 1400px;
+$breakpoint-large: 1940px;
+$breakpoint-med: 1400px;
 $breakpoint-one-column: 1070px;
 $breakpoint-mobile: 700px;
+$breakpoint-small: 440px;
 
 html {
-  font-size: 24px;
+  font-size: 22px;
 
   @media all and (max-width: $breakpoint-large ) {
-    font-size: 22px;
+    font-size: 20px;
+  }
+  @media all and (max-width: $breakpoint-med ) {
+    font-size: 18px;
   }
   @media all and (max-width: $breakpoint-one-column ) {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -133,6 +138,15 @@ body.stats {
       }
       select {
         display: none;
+      }
+    }
+
+    @media all and (max-width: $breakpoint-one-column ) and (min-width: $breakpoint-small ) {
+      float: left;
+      width: calc(50% - 0.75rem);
+
+      &:nth-child(even) {
+        margin-right: 1.5rem;
       }
     }
   }
