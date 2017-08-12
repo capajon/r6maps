@@ -161,7 +161,7 @@
     savePlatformOption(R6MapsStatsControls.platforms.get($platformsSelect));
     sendLoadStatsAnalyticsEvent(queryString);
 
-    R6MapsStatsApi.getMapAndOperator(
+    R6MapsStatsApi.getMapAndOperators(
       handleApiMapSuccess,
       handleApiMapError,
       handleApiOperatorSuccess,
@@ -215,7 +215,7 @@
   };
 
   var handleSkillRankChange = function handleSkillRankChange() {
-    console.log('TODO: implement handleSkillRankChange');
+    enableLoadControl();
   };
 
   var savePlatformOption = function savePlatformOption(platformOption) {

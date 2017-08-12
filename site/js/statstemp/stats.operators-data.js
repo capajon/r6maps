@@ -167,8 +167,8 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
           killsToDeath: operatorData.totalKills / operatorData.totalDeaths,
           killsPerRound: operatorData.totalKills / operatorData.totalPlays,
           winRate: operatorData.totalWins / operatorData.totalPlays,
-          survivalRate: (operatorData.totalPlays - operatorData.totalDeaths) / operatorData.totalPlays * 100,
-          pickRateAllSkill: operatorData.totalPlaysAllSkillRank / totalRoundsMap * 100,// TODO improve to be skill
+          survivalRate: (operatorData.totalPlays - operatorData.totalDeaths) / operatorData.totalPlays,
+          pickRateAllSkill: operatorData.totalPlaysAllSkillRank / totalRoundsMap,
           totalRoundsPlayed: +operatorData.totalPlays,
           totalPlaysAllSkillRank: +operatorData.totalPlaysAllSkillRank
         }

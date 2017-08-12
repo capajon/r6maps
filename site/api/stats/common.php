@@ -21,19 +21,15 @@ function getSeason($mysqli) {
     return $currentDefaultSeason;
 }
 
-function getSqlWhere($mysqli, $config) {
-    $result = "";
-    $whereCounter = 0;
+function getSqlWhere($mysqli, $config, $exception = '') {
+    $result = "WHERE 1=1 ";
 
     foreach($config['userInputParams'] as $param){
-        $input = $_GET[$param];
-        if($input) {
-            if($whereCounter == 0) {
-                $result .= "WHERE ".$param." = '". $mysqli->real_escape_string($input) ."' ";
-            } else {
-                $result .= "AND ".$param." = '". $mysqli->real_escape_string($input) ."' ";
-            }
-            $whereCounter++;
+        if($param != $exception) {
+          $input = $_GET[$param];
+          if($input) {
+              $result .= "AND ".$param." = '". $mysqli->real_escape_string($input) ."' ";
+          }
         }
     }
     return $result;

@@ -1,7 +1,7 @@
 'use strict';
 
 var R6MapsStatsApi = (function(undefined) {
-  var getMapAndOperator = function getMapAndOperator(
+  var getMapAndOperators = function getMapAndOperators(
     mapSuccessCallback,
     mapErrorCallback,
     operatorSuccessCallback,
@@ -40,6 +40,6 @@ var R6MapsStatsApi = (function(undefined) {
   };
 
   return  {
-    getMapAndOperator: getMapAndOperator
+    getMapAndOperators: getMapAndOperators
   };
 })();

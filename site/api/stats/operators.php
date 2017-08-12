@@ -50,17 +50,28 @@ function getOperatorsData($mysqli, $config) {
         return [];
     }
 
-    $sqlStatement = "SELECT role ,operator ,totalPlaysAllSkillRank";
+    $sql ="SELECT t1.role ,t1.operator ";
     foreach($config["sumFields"] as $f){
-        $sqlStatement .= ",SUM(".$f.") as ".$f." ";
+        $sql .= ",t1.".$f." ";
     }
-    $sqlStatement .= "FROM r6maps_stats_operators_s".$config['season']." ";
-    $sqlStatement .= getSqlWhere($mysqli, $config);
-    $sqlStatement .= "GROUP BY role ,operator ,totalPlaysAllSkillRank";
+    $sql .= ",t2.totalPlaysAllSkillRank AS totalPlaysAllSkillRank ";
 
+    $sql .= "FROM (SELECT role ,operator";
+    foreach($config["sumFields"] as $f){
+        $sql .= ",SUM(".$f.") AS ".$f." ";
+    }
+    $sql .= "FROM r6maps_stats_operators_s".$config['season']." ";
+    $sql .= getSqlWhere($mysqli, $config);
+    $sql .= "GROUP BY role ,operator) AS t1 ";
+
+    $sql .= "LEFT JOIN (SELECT role, operator, SUM(totalPlays) AS totalPlaysAllSkillRank ";
+    $sql .= "FROM r6maps_stats_operators_s".$config['season']." ";
+    $sql .= getSqlWhere($mysqli, $config, 'skillRank');
+    $sql .= "GROUP BY role, operator) AS t2 ";
+    $sql .= "ON t2.operator = t1.operator AND t2.role = t1.role ";
 
     $operators = array();
-    if($result = $mysqli->query($sqlStatement)) {
+    if($result = $mysqli->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             foreach($config["sumFields"] as $sumf){
                 $operators[$row["role"]][$row["operator"]][$sumf] = $row[$sumf];
