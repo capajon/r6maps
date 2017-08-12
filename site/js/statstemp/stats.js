@@ -34,8 +34,7 @@
       PLATFORM: 'platform',
       MAP: 'mapName',
       MODE: 'gameMode',
-      LOCATION: 'objectiveLocation',
-      RANK: 'skillRank'
+      LOCATION: 'objectiveLocation'
     };
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
@@ -136,8 +135,7 @@
         { string: QUERY_PARAMS.PLATFORM, currentValue: R6MapsStatsControls.platforms.get($platformsSelect)},
         { string: QUERY_PARAMS.MAP, currentValue: R6MapsStatsControls.maps.get($mapsSelect)},
         { string: QUERY_PARAMS.MODE, currentValue: R6MapsStatsControls.gameModes.get($gameModesSelect)},
-        { string: QUERY_PARAMS.LOCATION, currentValue: R6MapsStatsControls.objectiveLocations.get($objectiveLocationsSelect)},
-        { string: QUERY_PARAMS.RANK, currentValue: R6MapsStatsControls.skillRanks.get($skillRanksSelect)}
+        { string: QUERY_PARAMS.LOCATION, currentValue: R6MapsStatsControls.objectiveLocations.get($objectiveLocationsSelect)}
       ],
       queryString = '',
       counter = 0;
@@ -167,7 +165,8 @@
       handleApiOperatorSuccess,
       handleApiOperatorError,
       handleApiAllSuccess,
-      queryString
+      queryString,
+      statsData
     );
   };
 
@@ -279,7 +278,6 @@
       R6MapsStatsControls.seasons.get($seasonsSelect),
       handleSkillRankChange
     );
-    R6MapsStatsControls.skillRanks.trySelect($skillRanksSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.RANK));
 
     $loadButton.html(statTerms.loadButtonText);
     $loadButton.on('click', handleLoadButtonClick);

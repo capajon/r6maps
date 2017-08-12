@@ -49,9 +49,9 @@ if (is_null($CachedString->get())) { // NOT CACHED
         $InstanceCache->save($CachedString);
     }
 
-    echo $_GET['callback'] . '('.$encodedResult.')';
+    echo getFinalOutput($encodedResult);
 } else { // OUTPUT CACHED CONTENT
-    echo $_GET['callback'] . '('.$CachedString->get().')';
+    echo getFinalOutput($CachedString->get());
 }
 
 function getMapsData($mysqli, $config) {
@@ -73,11 +73,12 @@ function getMapsData($mysqli, $config) {
     $maps = array();
     if($result = $mysqli->query($sqlStatement)) {
         while ($row = $result->fetch_assoc()) {
+            $role = $row["winRole"];
             foreach($config["sumFields"] as $sumf){
-                $maps["winRole"][$row["winRole"]][$sumf] = $row[$sumf];
+                $maps["winRole"][$role][$sumf] = $row[$sumf];
             }
-            $maps["winRole"][$row["winRole"]]["averageRoundDuration"] = round($row["averageRoundDuration"],5);
-            $maps["winRole"][$row["winRole"]]["totalRounds"] = $row["totalRounds"];
+            $maps["winRole"][$role]["averageRoundDuration"] = round($row["averageRoundDuration"],5);
+            $maps["winRole"][$role]["totalRounds"] = $row["totalRounds"];
         }
     }
     return $maps;

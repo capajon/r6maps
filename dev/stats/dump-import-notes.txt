@@ -13,6 +13,8 @@ NOTE: Allowed SQL Management Studio to pick column types reviewing all rows firs
 -----------------------------------------------------------------------------------------
 STEP 2A (OPERATORS): CREATED TEMP PARSING TABLE
 
+*** THIS CAN PROBABLY BE COMBINED WITH 2B NOW THAT ALLSKILLRANK REMOVED ***
+
 Cteated temp table: r6maps_stats_TEMP_operators_parsing1
 (to make query time manageable)
 
@@ -102,6 +104,9 @@ t_d.mapname
 -----------------------------------------------------------------------------------------
 STEP 2B (OPERATORS): CREATED OPERATORS TABLE FOR EXPORT
 
+*** THIS CAN PROBABLY BE COMBINED WITH 2A NOW THAT ALLSKILLRANK REMOVED ***
+*** THIS STEP JUST DOES REMOVAL OF 'PvP – ' FROM GAMEMODE ***
+
 Created table: r6maps_stats_S5_operators
 
 SELECT
@@ -116,33 +121,8 @@ t_ops.platform
 ,t_ops.totalDeaths
 ,t_ops.totalWins
 ,t_ops.totalPlays
-,t_allskill.totalPlaysAllSkillRank
 INTO r6maps_stats_operators_S5
 FROM r6maps_stats_TEMP_operators_parsing AS t_ops
-LEFT JOIN (
-	SELECT
-	platform
-	,mapName
-	,gameMode
-	,objectiveLocation
-	,role
-	,operator
-	,SUM(totalPlays) AS totalPlaysAllSkillRank
-	FROM r6maps_stats_TEMP_operators_parsing
-	GROUP BY
-	platform
-	,mapName
-	,gameMode
-	,objectiveLocation
-	,role
-	,operator
-) AS t_allskill
-ON t_ops.platform = t_allskill.platform
-AND t_ops.mapName = t_allskill.mapName
-AND t_ops.gameMode = t_allskill.gameMode
-AND t_ops.objectiveLocation = t_allskill.objectiveLocation
-AND t_ops.role = t_allskill.role
-AND t_ops.operator = t_allskill.operator
 ORDER BY
 t_ops.platform
 ,t_ops.mapName

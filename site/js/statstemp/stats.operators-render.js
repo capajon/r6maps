@@ -54,7 +54,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
   }
 
   var render = function render(operatorsData, $outputEl) {
-    $outputEl.html(getOperatorsHtml(operatorsData));
+    //$outputEl.html(getOperatorsHtml(operatorsData));
     console.log('Operators success', operatorsData);
   };
 

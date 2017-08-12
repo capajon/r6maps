@@ -1,24 +1,6 @@
 'use strict';
 
-var R6MapsStatsMapData = (function(R6MapsCommonLangTerms, undefined) {
-  var mapRoundWinReasonKeys = [
-    'allTeamsDead',
-    'attackersEliminated',
-    'attackersKilledHostage',
-    'attackersSurrendered',
-    'bombDeactivated_OneBomb',
-    'bombExploded',
-    'defendersEliminated',
-    'defendersKilledHostage',
-    'defendersSurrendered',
-    'defuserDeactivated',
-    'hostageExtracted',
-    'noEnemies',
-    'objectiveCaptured',
-    'objectiveProtected',
-    'timeExpired'
-  ];
-
+var R6MapsStatsMapData = (function(undefined) {
   var checkEmptyData = function checkEmptyData(rawMapData) {
     if (!rawMapData || !rawMapData.winRole || !rawMapData.winRole.Attacker || !rawMapData.winRole.Defender) {
       console.error('Unexpected error encountered while processing map API data.', rawMapData);
@@ -27,42 +9,44 @@ var R6MapsStatsMapData = (function(R6MapsCommonLangTerms, undefined) {
     return false;
   };
 
-  var getFromApiData = function getFromApiData(rawMapData) {
+  var getFromApiData = function getFromApiData(rawMapData, statsData) {
     var result = {};
 
     if (checkEmptyData(rawMapData)) {
       return null;
     }
 
-    result.attackers = getMapDataForRole(rawMapData.winRole.Attacker);
-    result.defenders = getMapDataForRole(rawMapData.winRole.Defender);
+    result.attackers = getMapDataForRole(rawMapData.winRole.Attacker, statsData.mapRoundWinReasons);
+    result.defenders = getMapDataForRole(rawMapData.winRole.Defender, statsData.mapRoundWinReasons);
 
     result.overall = {};
     result.overall.totalRounds = result.attackers.totalRoundsWon + result.defenders.totalRoundsWon;
-    result.overall.averageRoundLength =
+    result.overall.averageRoundLength = (!result.overall.totalRounds) ? 0 :
       ((result.attackers.totalRoundsWon * result.attackers.averageRoundLength) + (result.defenders.totalRoundsWon * result.defenders.averageRoundLength)) / result.overall.totalRounds;
-    result.attackers.winPercent = result.attackers.totalRoundsWon / result.overall.totalRounds * 100;
-    result.defenders.winPercent = result.defenders.totalRoundsWon / result.overall.totalRounds * 100;
+    result.attackers.winPercent = (!result.overall.totalRounds) ? 0 :
+      result.attackers.totalRoundsWon / result.overall.totalRounds;
+    result.defenders.winPercent = (!result.overall.totalRounds) ? 0 :
+      result.defenders.totalRoundsWon / result.overall.totalRounds, 5;
 
     return result;
   };
 
-  var getMapDataForRole = function getMapDataForRole(rawMapDataSide) {
+  var getMapDataForRole = function getMapDataForRole(rawMapDataForRole, mapRoundWinReasons) {
     var result = {
-      totalRoundsWon: +rawMapDataSide.totalRounds,
-      averageRoundLength: +rawMapDataSide.averageRoundDuration,
-      winReasons: []
-    };
+        totalRoundsWon: +rawMapDataForRole.totalRounds,
+        averageRoundLength: +rawMapDataForRole.averageRoundDuration,
+        winReasons: []
+      };
 
-    mapRoundWinReasonKeys.forEach(function(key) {
-      if (rawMapDataSide[key] && (rawMapDataSide[key] != '0')) {
+    for (var key in mapRoundWinReasons) {
+      if (rawMapDataForRole[key] && (rawMapDataForRole[key] != '0')) {
         result.winReasons.push({
-          description: R6MapsCommonLangTerms.terms.statsRoundWinReasons[key],
-          totalRounds: +rawMapDataSide[key],
-          percent: +rawMapDataSide[key] / +rawMapDataSide.totalRounds * 100
+          description: mapRoundWinReasons[key].name,
+          totalRounds: +rawMapDataForRole[key],
+          percent: (!rawMapDataForRole.totalRounds) ? 0 : +rawMapDataForRole[key] / +rawMapDataForRole.totalRounds
         });
       }
-    });
+    }
 
     result.winReasons.sort(function(x,y) {
       if (x.totalRounds < y.totalRounds) {
@@ -84,4 +68,4 @@ var R6MapsStatsMapData = (function(R6MapsCommonLangTerms, undefined) {
     getFromApiData: getFromApiData,
     getTotalRoundsFromApiData: getTotalRoundsFromApiData
   };
-})(R6MapsCommonLangTerms);
+})();

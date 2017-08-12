@@ -1,193 +1,100 @@
 'use strict';
 
 var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
-  var operatorTerms = R6MapsCommonLangTerms.terms.operators,
-    operators = {
-      'BOPE-CAPITAO': {
-        description: operatorTerms.capitao,
-        cssClass: 'capitao'
-      },
-      'G.E.O.-JACKAL': {
-        description: operatorTerms.jackal,
-        cssClass: 'jackal'
-      },
-      'GIGN-MONTAGNE': {
-        description: operatorTerms.montagne,
-        cssClass: 'montagne'
-      },
-      'GIGN-RESERVE': {
-        description: operatorTerms.gignRecruit,
-        cssClass: 'montagne'
-      },
-      'GIGN-TWITCH': {
-        description: operatorTerms.twitch,
-        cssClass: 'twitch'
-      },
-      'GSG9-BLITZ': {
-        description: operatorTerms.blitz,
-        cssClass: 'twitch'
-      },
-      'GSG9-IQ': {
-        description: operatorTerms.iq,
-        cssClass: 'iq'
-      },
-      'GSG9-RESERVE': {
-        description: operatorTerms.gsg9Recruit,
-        cssClass: 'gsg9-recruit'
-      },
-      'JTF2-BUCK': {
-        description: operatorTerms.buck,
-        cssClass: 'buck'
-      },
-      'NAVYSEAL-BLACKBEARD': {
-        description: operatorTerms.blackbeard,
-        cssClass: 'blackbeard'
-      },
-      'SAS-RESERVE': {
-        description: operatorTerms.sasRecruit,
-        cssClass: 'sas-recruit'
-      },
-      'SAS-SLEDGE': {
-        description: operatorTerms.sledge,
-        cssClass: 'sledge'
-      },
-      'SAS-THATCHER': {
-        description: operatorTerms.thatcher,
-        cssClass: 'thatcher'
-      },
-      'SAT-HIBANA': {
-        description: operatorTerms.hibana,
-        cssClass: 'hibana'
-      },
-      'SPETSNAZ-FUZE': {
-        description: operatorTerms.fuze,
-        cssClass: 'fuze'
-      },
-      'SPETSNAZ-GLAZ': {
-        description: operatorTerms.glaz,
-        cssClass: 'glaz'
-      },
-      'SPETSNAZ-RESERVE': {
-        description: operatorTerms.spetsnazRecruit,
-        cssClass: 'spetsnaz-recruit'
-      },
-      'SWAT-ASH': {
-        description: operatorTerms.ash,
-        cssClass: 'ash'
-      },
-      'SWAT-RESERVE': {
-        description: operatorTerms.swatRecruit,
-        cssClass: 'swat-recruit'
-      },
-      'SWAT-THERMITE': {
-        description: operatorTerms.thermite,
-        cssClass: 'thermite'
-      },
-      'BOPE-CAVEIRA': {
-        description: operatorTerms.caveira,
-        cssClass: 'caveira'
-      },
-      'G.E.O.-MIRA': {
-        description: operatorTerms.mira,
-        cssClass: 'mira'
-      },
-      'GIGN-DOC': {
-        description: operatorTerms.doc,
-        cssClass: 'doc'
-      },
-      'GIGN-ROOK': {
-        description: operatorTerms.rook,
-        cssClass: 'rook'
-      },
-      'GSG9-BANDIT': {
-        description: operatorTerms.bandit,
-        cssClass: 'bandit'
-      },
-      'GSG9-JAGER': {
-        description: operatorTerms.jager,
-        cssClass: 'jager'
-      },
-      'JTF2-FROST': {
-        description: operatorTerms.frost,
-        cssClass: 'frost'
-      },
-      'NAVYSEAL-VALKYRIE': {
-        description: operatorTerms.valkyrie,
-        cssClass: 'valkyrie'
-      },
-      'SAS-MUTE': {
-        description: operatorTerms.mute,
-        cssClass: 'mute'
-      },
-      'SAS-SMOKE': {
-        description: operatorTerms.smoke,
-        cssClass: 'smoke'
-      },
-      'SAT-ECHO': {
-        description: operatorTerms.echo,
-        cssClass: 'echo'
-      },
-      'SPETSNAZ-KAPKAN': {
-        description: operatorTerms.kapkan,
-        cssClass: 'kapkan'
-      },
-      'SPETSNAZ-TACHANKA': {
-        description: operatorTerms.tachanka,
-        cssClass: 'tachanka'
-      },
-      'SWAT-CASTLE': {
-        description: operatorTerms.castle,
-        cssClass: 'castle'
-      },
-      'SWAT-PULSE': {
-        description: operatorTerms.pulse,
-        cssClass: 'pulse'
-      }
-    };
-
-  var getFromApiData = function getFromApiData(rawOperatorsData, totalRoundsMap) {
+  var getEmptyStatsObject = function getEmptyStatsObject() {
     return {
-      attackers: getOperatorsDataForRole(rawOperatorsData.role.Attacker, totalRoundsMap),
-      defenders: getOperatorsDataForRole(rawOperatorsData.role.Defender, totalRoundsMap)
+      totalKills: 0,
+      totalDeaths: 0,
+      totalPlays: 0,
+      totalWins: 0,
+      killsPerRound: 0,
+      killsPerDeath: 0,
+      pickRate: 0,
+      winRate: 0,
+      survivalRate: 0
+    }
+  };
+
+  var getFromApiData = function getFromApiData(rawOperatorsData, totalRoundsMap, statsData) {
+    return {
+      attackers: getOperatorsDataForRole(rawOperatorsData.role.Attacker, totalRoundsMap, statsData.skillRanks, statsData.operators),
+      defenders: getOperatorsDataForRole(rawOperatorsData.role.Defender, totalRoundsMap, statsData.skillRanks, statsData.operators)
     };
   };
 
-  var getOperatorsDataForRole = function getOperatorsDataForRole(rawOperatorsDataSide, totalRoundsMap) {
-    var operatorData,
-      result = [],
-      sumTotalRoundsPlayedAllSkill = 0,
-      sumTotalRoundsPlayedForSkill = 0;
+  var getOperatorsDataForRole = function getOperatorsDataForRole(rawOperatorsDataForRole, totalRoundsMap, ranks, operators) {
+    var result = [],
+      totalPlaysByRank = {},
+      totalPlaysAll = 0;
 
-    for (var key in rawOperatorsDataSide) {
-      operatorData =  rawOperatorsDataSide[key];
-      result.push(
-        {
-          name: operators[key].description,
-          cssClass: operators[key].cssClass,
-          killsToDeath: operatorData.totalKills / operatorData.totalDeaths,
-          killsPerRound: operatorData.totalKills / operatorData.totalPlays,
-          winRate: operatorData.totalWins / operatorData.totalPlays,
-          survivalRate: (operatorData.totalPlays - operatorData.totalDeaths) / operatorData.totalPlays,
-          pickRateAllSkill: operatorData.totalPlaysAllSkillRank / totalRoundsMap,
-          totalRoundsPlayed: +operatorData.totalPlays,
-          totalPlaysAllSkillRank: +operatorData.totalPlaysAllSkillRank
-        }
-      );
-      sumTotalRoundsPlayedForSkill += +operatorData.totalPlays;
-      sumTotalRoundsPlayedAllSkill += +operatorData.totalPlaysAllSkillRank;
+    for (var operatorKey in rawOperatorsDataForRole) {
+      var operatorData = {
+        name: operators[operatorKey].name,
+        cssClass: operators[operatorKey].cssClass,
+        statsByRank: [],
+        statsAllRanks: getEmptyStatsObject()
+      };
+
+      for (var skillRankKey in rawOperatorsDataForRole[operatorKey]) {
+        var tempStatsByRank = getEmptyStatsObject();
+
+        tempStatsByRank.key = skillRankKey;
+        tempStatsByRank.name = ranks[skillRankKey].name;
+        tempStatsByRank.cssClass = ranks[skillRankKey].cssClass;
+        tempStatsByRank.order = ranks[skillRankKey].order;
+
+        tempStatsByRank.totalWins = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalWins;
+        operatorData.statsAllRanks.totalWins += tempStatsByRank.totalWins;
+
+        tempStatsByRank.totalKills = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalKills;
+        operatorData.statsAllRanks.totalKills += tempStatsByRank.totalKills;
+
+        tempStatsByRank.totalDeaths = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalDeaths;
+        operatorData.statsAllRanks.totalDeaths += tempStatsByRank.totalDeaths;
+
+        tempStatsByRank.totalPlays = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalPlays;
+        operatorData.statsAllRanks.totalPlays += tempStatsByRank.totalPlays;
+
+        totalPlaysByRank[skillRankKey] = totalPlaysByRank[skillRankKey] ?
+          totalPlaysByRank[skillRankKey] + tempStatsByRank.totalPlays : tempStatsByRank.totalPlays;
+        totalPlaysAll += tempStatsByRank.totalPlays;
+
+        operatorData.statsByRank.push(tempStatsByRank);
+      }
+
+      operatorData.statsByRank.sort(function(a, b){
+        return (a.order < b.order) ? -1 : 1;
+      });
+      result.push(operatorData);
     }
-
-    result.forEach(function(op) {
-      var percentChosenAllSkill = op.totalPlaysAllSkillRank / sumTotalRoundsPlayedAllSkill, // need to check for 0?
-        percentChosenForSkill = op.totalRoundsPlayed / sumTotalRoundsPlayedForSkill; // need to check for 0?
-
-      op.pickRateAdjustedForSkill = percentChosenForSkill / percentChosenAllSkill * op.pickRateAllSkill;
-    });
 
     result.sort(function(a, b){
       return (a.name < b.name) ? -1 : 1;
     });
+
+    setTallies(result, totalRoundsMap, totalPlaysByRank, totalPlaysAll);
+
     return result;
+  };
+
+  var setTallies = function setTallies(dataToTally, totalRoundsMap, totalPlaysByRank, totalPlaysAll) {
+    dataToTally.forEach(function(operator) {
+      setTalliesForRank(operator.statsAllRanks);
+      operator.statsAllRanks.pickRate = (!totalRoundsMap) ? 0 : operator.statsAllRanks.totalPlays / totalRoundsMap;
+      operator.statsByRank.forEach(function(stats) {
+        setTalliesForRank(stats);
+        stats.pickRate = (!totalPlaysByRank[stats.key] || !operator.statsAllRanks.totalPlays || !totalPlaysAll) ? 0 :
+          (stats.totalPlays / totalPlaysByRank[stats.key]) / (operator.statsAllRanks.totalPlays / totalPlaysAll) * operator.statsAllRanks.pickRate;
+        stats.pickRate = Math.min(0.98, Math.max(0.001, stats.pickRate));
+      });
+    });
+  };
+
+  var setTalliesForRank = function setTalliesForRank(stats) {
+    stats.killsPerDeath = (!stats.totalDeaths) ? 0 : stats.totalKills / stats.totalDeaths;
+    stats.killsPerRound = (!stats.totalPlays) ? 0 : stats.totalKills / stats.totalPlays;
+    stats.survivalRate = (!stats.totalPlays) ? 0 : (stats.totalPlays - stats.totalDeaths) / stats.totalPlays;
+    stats.winRate = (!stats.totalPlays) ? 0 : stats.totalWins / stats.totalPlays;
   };
 
   return  {

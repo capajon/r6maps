@@ -11,8 +11,7 @@ $config = array(
         "platform",
         "gameMode",
         "mapName",
-        "objectiveLocation",
-        "skillRank"
+        "objectiveLocation"
     ],
     "sumFields" => [
         "totalKills",
@@ -39,9 +38,9 @@ if (is_null($CachedString->get())) { // NOT CACHED
         $InstanceCache->save($CachedString);
     }
 
-    echo $_GET['callback'] . '('.$encodedResult.')';
+    echo getFinalOutput($encodedResult);
 } else { // OUTPUT CACHED CONTENT
-    echo $_GET['callback'] . '('.$CachedString->get().')';
+    echo getFinalOutput($CachedString->get());
 }
 
 function getOperatorsData($mysqli, $config) {
@@ -50,33 +49,20 @@ function getOperatorsData($mysqli, $config) {
         return [];
     }
 
-    $sql ="SELECT t1.role ,t1.operator ";
-    foreach($config["sumFields"] as $f){
-        $sql .= ",t1.".$f." ";
-    }
-    $sql .= ",t2.totalPlaysAllSkillRank AS totalPlaysAllSkillRank ";
-
-    $sql .= "FROM (SELECT role ,operator";
+    $sql .= "SELECT role ,operator ,skillRank ";
     foreach($config["sumFields"] as $f){
         $sql .= ",SUM(".$f.") AS ".$f." ";
     }
     $sql .= "FROM r6maps_stats_operators_s".$config['season']." ";
     $sql .= getSqlWhere($mysqli, $config);
-    $sql .= "GROUP BY role ,operator) AS t1 ";
-
-    $sql .= "LEFT JOIN (SELECT role, operator, SUM(totalPlays) AS totalPlaysAllSkillRank ";
-    $sql .= "FROM r6maps_stats_operators_s".$config['season']." ";
-    $sql .= getSqlWhere($mysqli, $config, 'skillRank');
-    $sql .= "GROUP BY role, operator) AS t2 ";
-    $sql .= "ON t2.operator = t1.operator AND t2.role = t1.role ";
+    $sql .= "GROUP BY role ,operator, skillRank ";
 
     $operators = array();
     if($result = $mysqli->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             foreach($config["sumFields"] as $sumf){
-                $operators[$row["role"]][$row["operator"]][$sumf] = $row[$sumf];
+                $operators[$row["role"]][$row["operator"]][$row["skillRank"]][$sumf] = $row[$sumf];
             }
-            $operators[$row["role"]][$row["operator"]]['totalPlaysAllSkillRank'] = $row['totalPlaysAllSkillRank'];
         }
     }
     return $operators;

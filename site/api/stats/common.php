@@ -7,6 +7,15 @@ function getCacheKey($config) {
   return $key;
 }
 
+function getFinalOutput($content) {
+  $callbackRequest = $_GET['callback'];
+  if($callbackRequest) {
+    return $callbackRequest . '('.$content.')';
+  } else {
+    return $content;
+  }
+}
+
 function getSeason($mysqli) {
     $currentDefaultSeason = "5";
     $allowedSeasons = [
@@ -21,15 +30,15 @@ function getSeason($mysqli) {
     return $currentDefaultSeason;
 }
 
-function getSqlWhere($mysqli, $config, $exception = '') {
-    $result = "WHERE 1=1 ";
+function getSqlWhere($mysqli, $config) {
+    $counter = 0;
 
     foreach($config['userInputParams'] as $param){
-        if($param != $exception) {
-          $input = $_GET[$param];
-          if($input) {
-              $result .= "AND ".$param." = '". $mysqli->real_escape_string($input) ."' ";
-          }
+        $input = $_GET[$param];
+        if($input) {
+            $result .= ($counter == 0) ? "& " : "AND ";
+            $result .= $param." = '". $mysqli->real_escape_string($input) ."' ";
+            $counter++;
         }
     }
     return $result;
