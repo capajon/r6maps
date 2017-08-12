@@ -31,14 +31,13 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
       var operatorData = {
         name: operators[operatorKey].name,
         cssClass: operators[operatorKey].cssClass,
-        statsByRank: [],
+        statsByRank: {},
         statsAllRanks: getEmptyStatsObject()
       };
 
       for (var skillRankKey in rawOperatorsDataForRole[operatorKey]) {
         var tempStatsByRank = getEmptyStatsObject();
 
-        tempStatsByRank.key = skillRankKey;
         tempStatsByRank.name = ranks[skillRankKey].name;
         tempStatsByRank.cssClass = ranks[skillRankKey].cssClass;
         tempStatsByRank.order = ranks[skillRankKey].order;
@@ -59,12 +58,9 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
           totalPlaysByRank[skillRankKey] + tempStatsByRank.totalPlays : tempStatsByRank.totalPlays;
         totalPlaysAll += tempStatsByRank.totalPlays;
 
-        operatorData.statsByRank.push(tempStatsByRank);
+        operatorData.statsByRank[skillRankKey] = tempStatsByRank;
       }
 
-      operatorData.statsByRank.sort(function(a, b){
-        return (a.order < b.order) ? -1 : 1;
-      });
       result.push(operatorData);
     }
 
@@ -81,12 +77,14 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
     dataToTally.forEach(function(operator) {
       setTalliesForRank(operator.statsAllRanks);
       operator.statsAllRanks.pickRate = (!totalRoundsMap) ? 0 : operator.statsAllRanks.totalPlays / totalRoundsMap;
-      operator.statsByRank.forEach(function(stats) {
+      for(var rankKey in operator.statsByRank) {
+        var stats = operator.statsByRank[rankKey];
+
         setTalliesForRank(stats);
         stats.pickRate = (!totalPlaysByRank[stats.key] || !operator.statsAllRanks.totalPlays || !totalPlaysAll) ? 0 :
           (stats.totalPlays / totalPlaysByRank[stats.key]) / (operator.statsAllRanks.totalPlays / totalPlaysAll) * operator.statsAllRanks.pickRate;
         stats.pickRate = Math.min(0.98, Math.max(0.001, stats.pickRate));
-      });
+      }
     });
   };
 

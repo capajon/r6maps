@@ -36,7 +36,7 @@ function getSqlWhere($mysqli, $config) {
     foreach($config['userInputParams'] as $param){
         $input = $_GET[$param];
         if($input) {
-            $result .= ($counter == 0) ? "& " : "AND ";
+            $result .= ($counter == 0) ? "WHERE " : "AND ";
             $result .= $param." = '". $mysqli->real_escape_string($input) ."' ";
             $counter++;
         }

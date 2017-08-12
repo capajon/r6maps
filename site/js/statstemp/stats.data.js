@@ -19,13 +19,13 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
         'SECURE AREA': { seasonSpan: [5,99], name: terms.objectives.secure }
       },
       skillRanks: {
-        Unranked: { seasonSpan: [5,99], name: terms.ranks.unranked, order: 1, cssClass: 'unranked' },
-        Copper: { seasonSpan: [5,99], name: terms.ranks.copper, order: 2, cssClass: 'copper' },
-        Bronze: { seasonSpan: [5,99], name: terms.ranks.bronze, order: 3, cssClass: 'bronze' },
-        Silver: { seasonSpan: [5,99], name: terms.ranks.silver, order: 4, cssClass: 'silver' },
-        Gold: { seasonSpan: [5,99], name: terms.ranks.gold, order: 5, cssClass: 'gold' },
-        Platinum: { seasonSpan: [5,99], name: terms.ranks.platinum, order: 6, cssClass: 'platinum' },
-        Diamond: { seasonSpan: [5,99], name: terms.ranks.diamond, order: 7, cssClass: 'diamond' }
+        Unranked: { seasonSpan: [5,99], name: terms.ranks.unranked, cssClass: 'unranked' },
+        Copper: { seasonSpan: [5,99], name: terms.ranks.copper, cssClass: 'copper' },
+        Bronze: { seasonSpan: [5,99], name: terms.ranks.bronze, cssClass: 'bronze' },
+        Silver: { seasonSpan: [5,99], name: terms.ranks.silver, cssClass: 'silver' },
+        Gold: { seasonSpan: [5,99], name: terms.ranks.gold, cssClass: 'gold' },
+        Platinum: { seasonSpan: [5,99], name: terms.ranks.platinum, cssClass: 'platinum' },
+        Diamond: { seasonSpan: [5,99], name: terms.ranks.diamond, cssClass: 'diamond' }
       },
       mapRoundWinReasons: { // no need for season span verification
         'allTeamsDead': { name: terms.statsRoundWinReasons.allTeamsDead },
