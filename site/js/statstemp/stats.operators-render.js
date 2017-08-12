@@ -43,7 +43,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
     operatorsRoleData.forEach(function(operator) {
       html += '<tr class="' + operator.cssClass + '">';
       html += '<td style="padding:5px;text-align:left;">' + operator.name + '</td>';
-      html += '<td style="padding:5px;text-align:center;">' + getNumPercent(operator.pickRateAllSkill) + '</td>';
+      html += '<td style="padding:5px;text-align:center;">' + getNumPercent(operator.pickRateAdjustedForSkill) + '</td>';
       html += '<td style="padding:5px;text-align:center;">' + getNumRatio(operator.killsToDeath) + '</td>';
       html += '<td style="padding:5px;text-align:center;">' + getNumRatio(operator.killsPerRound) + '</td>';
       html += '<td style="padding:5px;text-align:center;">' + getNumPercent(operator.survivalRate) + '</td>';
