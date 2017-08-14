@@ -33,10 +33,10 @@ var R6MapsStatsMapData = (function(undefined) {
 
   var getMapDataForRole = function getMapDataForRole(rawMapDataForRole, mapRoundWinReasons) {
     var result = {
-        totalRoundsWon: +rawMapDataForRole.totalRounds,
-        averageRoundLength: +rawMapDataForRole.averageRoundDuration,
-        winReasons: []
-      };
+      totalRoundsWon: +rawMapDataForRole.totalRounds,
+      averageRoundLength: +rawMapDataForRole.averageRoundDuration,
+      winReasons: []
+    };
 
     for (var key in mapRoundWinReasons) {
       if (rawMapDataForRole[key] && (rawMapDataForRole[key] != '0')) {

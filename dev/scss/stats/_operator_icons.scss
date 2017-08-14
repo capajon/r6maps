@@ -1,0 +1,108 @@
+@import "../common/_settings.scss";
+
+$icon-height: 25px;
+
+@mixin operator-thumb-icon($position) {
+  background-position: 0px ($icon-height * -($position));
+}
+
+.operator-icon {
+  div {
+    background-image: url($img-location + 'operator-icons-sprite@2x.png');
+    background-repeat: no-repeat;
+    background-size: $icon-height;
+    height: $icon-height;
+    width: $icon-height;
+
+    &.ash {
+      @include operator-thumb-icon(1);
+    }
+    &.blackbeard {
+      @include operator-thumb-icon(2);
+    }
+    &.blitz {
+      @include operator-thumb-icon(3);
+    }
+    &.buck {
+      @include operator-thumb-icon(4);
+    }
+    &.capitao {
+      @include operator-thumb-icon(5);
+    }
+    &.fuze {
+      @include operator-thumb-icon(6);
+    }
+    &.glaz {
+      @include operator-thumb-icon(7);
+    }
+    &.hibana {
+      @include operator-thumb-icon(8);
+    }
+    &.iq {
+      @include operator-thumb-icon(9);
+    }
+    &.jackal {
+      @include operator-thumb-icon(10);
+    }
+    &.montagne {
+      @include operator-thumb-icon(11);
+    }
+    &.sledge {
+      @include operator-thumb-icon(12);
+    }
+    &.thatcher {
+      @include operator-thumb-icon(13);
+    }
+    &.thermite {
+      @include operator-thumb-icon(14);
+    }
+    &.twitch {
+      @include operator-thumb-icon(15);
+    }
+    &.bandit {
+      @include operator-thumb-icon(16);
+    }
+    &.castle {
+      @include operator-thumb-icon(17);
+    }
+    &.caveira {
+      @include operator-thumb-icon(18);
+    }
+    &.doc {
+      @include operator-thumb-icon(19);
+    }
+    &.echo {
+      @include operator-thumb-icon(20);
+    }
+    &.frost {
+      @include operator-thumb-icon(21);
+    }
+    &.jager {
+      @include operator-thumb-icon(22);
+    }
+    &.kapkan {
+      @include operator-thumb-icon(23);
+    }
+    &.tachanka {
+      @include operator-thumb-icon(24);
+    }
+    &.mira {
+      @include operator-thumb-icon(25);
+    }
+    &.mute {
+      @include operator-thumb-icon(26);
+    }
+    &.pulse {
+      @include operator-thumb-icon(27);
+    }
+    &.rook {
+      @include operator-thumb-icon(28);
+    }
+    &.smoke {
+      @include operator-thumb-icon(29);
+    }
+    &.valkyrie {
+      @include operator-thumb-icon(30);
+    }
+  }
+}

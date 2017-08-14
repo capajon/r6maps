@@ -2,59 +2,123 @@
 
 var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
   var statTerms = R6MapsCommonLangTerms.terms.stats,
-    locale = R6MapsCommonLangTerms.name.split('_')[0];
+    locale = R6MapsCommonLangTerms.name.split('_')[0],
+    statColumns = [
+      { key: 'pickRate', name: statTerms.tableHeaderPickRate, displayType: 'percent' },
+      { key: 'killsPerDeath', name: statTerms.tableHeaderKillsPerDeath, displayType: 'ratio' },
+      { key: 'killsPerRound', name: statTerms.tableHeaderKillsPerRound, displayType: 'ratio' },
+      { key: 'survivalRate', name: statTerms.tableHeaderSurvivalRate, displayType: 'percent' },
+      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number' }
+    ];
 
-  var getOperatorsHtml = function getOperatorsHtml(operatorsData) {
-    var html = '<table style="width: 100%">';
+  var getFormattedNumber = function getFormattedNumber(num, displayType) {
+    switch(displayType) {
+      case 'percent':
+          num *= 100;
+          num = (num < 10) ? num.toFixed(1) : Math.round(num);
+          return R6MapsCommonLangTerms.terms.stats.percentageFormat.replace('{num}', num);
+          break;
+      case 'ratio':
+          return num.toFixed(2);
+          break;
+      default: // number
+          var locale = R6MapsCommonLangTerms.name.split('_')[0];
+          if (num.toLocaleString(locale)) {
+            return num.toLocaleString(locale)
+          } else {
+            return num;
+          }
+    }
+  };
 
-    html += '<tr>';
-    html += '<th style="padding:5px;text-align:left;">' + statTerms.tableHeaderName + '</th>';
-    html += '<th style="padding:5px">' + statTerms.tableHeaderPickRate + '</th>';
-    html += '<th style="padding:5px">' + statTerms.tableHeaderKillsPerDeath + '</th>';
-    html += '<th style="padding:5px">' + statTerms.tableHeaderKillsPerRound + '</th>';
-    html += '<th style="padding:5px">' + statTerms.tableHeaderSurvivalRate + '</th>';
-    html += '<th style="padding:5px">' + statTerms.tableHeaderTotalRounds + '</th>';
-    html += '</tr>';
+  var getOperatorsHtml = function getOperatorsHtml(operatorsData, skillRanksData, selectedSkillRanks) {
+    var html = '',
+      numSkillColumns = selectedSkillRanks.length + 1; // +1 for ALL
 
-    html += '<tr><td colspan="6" style="background-color:white;color:black; padding:5px">' + R6MapsCommonLangTerms.terms.stats.tableHeaderAttackers + '</td></tr>';
-    html += getOperatorsRoleHtml(operatorsData.attackers);
+    html += '<div class="table-container"><table>';
 
-    html += '<tr><td colspan="6" style="background-color:white;color:black; padding:5px">' + R6MapsCommonLangTerms.terms.stats.tableHeaderDefenders + '</td></tr>';
-    html += getOperatorsRoleHtml(operatorsData.defenders);
+    html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
+    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks, statColumns.length);
+    html += getOperatorsForRoleHtml(operatorsData.attackers, skillRanksData, selectedSkillRanks, 'attackers');
+
+    html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
+    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks, statColumns.length);
+    html += getOperatorsForRoleHtml(operatorsData.defenders, skillRanksData, selectedSkillRanks, 'defenders');
+
+    html += '</table></div>';
 
     return html;
   };
 
-  var getNumPercent = function getNumPercent(num) {
-    return num.toLocaleString(locale, {style: 'percent'});
-  };
-
-  var getNumRatio = function getNumRatio(num) {
-    return num.toLocaleString(R6MapsCommonLangTerms.name, {style: 'decimal'});
-  };
-
-  var getNumLarge = function getNumLarge(num) {
-    return num.toLocaleString(R6MapsCommonLangTerms.name, {style: 'decimal'});
-  };
-
-  var getOperatorsRoleHtml = function getOperatorsRoleHtml(operatorsRoleData) {
+  var getMainHeaderHtml = function getMainHeaderHtml(
+    numSkillColumns,
+    headerText,
+    roleCssClass
+  ) {
     var html = '';
 
-    operatorsRoleData.forEach(function(operator) {
-      html += '<tr class="' + operator.cssClass + '">';
-      html += '<td style="padding:5px;text-align:left;">' + operator.name + '</td>';
-      html += '<td style="padding:5px;text-align:center;">' + getNumPercent(operator.pickRateAdjustedForSkill) + '</td>';
-      html += '<td style="padding:5px;text-align:center;">' + getNumRatio(operator.killsToDeath) + '</td>';
-      html += '<td style="padding:5px;text-align:center;">' + getNumRatio(operator.killsPerRound) + '</td>';
-      html += '<td style="padding:5px;text-align:center;">' + getNumPercent(operator.survivalRate) + '</td>';
-      html += '<td style="padding:5px;text-align:center;">' + getNumLarge(operator.totalRoundsPlayed) + '</td>';
+    html += '<tr class="main-header ' + roleCssClass + '">';
+    html += '<th class="operator-icon"></th>';
+    html += '<th class="name">' + headerText + '</th>';
+    statColumns.forEach(function(statColumn) {
+        html += '<th colspan="' + numSkillColumns + '">' + statColumn.name + '</th>';
+    });
+    html += '</tr>';
+    return html;
+  };
+
+  var getOperatorsForRoleHtml = function getOperatorsForRoleHtml(
+    operatorsDataForRole,
+    skillRanksData,
+    selectedSkillRanks,
+    roleCssClass
+  ) {
+    var html = '';
+
+    operatorsDataForRole.forEach(function(operator) {
+      html += '<tr class="' + roleCssClass + '">';
+      html += '<td class="operator-icon"><div class="' + operator.cssClass + '"></div></<td>';
+      html += '<td class="name">' + operator.name + '</<td>';
+      statColumns.forEach(function(statColumn) {
+        html += '<td class="all">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
+        selectedSkillRanks.forEach(function(skillRankKey) {
+          html += '<td class="can-hide ' + skillRanksData[skillRankKey].cssClass + '"><span>';
+          html += (operator.statsByRank[skillRankKey]) ?
+            getFormattedNumber(operator.statsByRank[skillRankKey][statColumn.key], statColumn.displayType) :
+            '-';
+          html += '</span></td>';
+        });
+      });
       html += '</tr>'
     });
     return html;
-  }
+  };
 
-  var render = function render(operatorsData, $outputEl) {
-    //$outputEl.html(getOperatorsHtml(operatorsData));
+  var getSubHeaderHtml = function getSubHeaderHtml(
+    skillRanksData,
+    selectedSkillRanks,
+    numMainColumns
+  ) {
+    var html = '',
+      srData,
+      x;
+
+    html += '<tr class="sub-header">';
+    html += '<th class="operator-icon"></th>';
+    html += '<th></th>'; // name column
+    for (x = 0; x < numMainColumns; x++) {
+      html += '<th class="all">' + R6MapsCommonLangTerms.terms.stats.tableHeaderAllRanks + '</th>';
+      selectedSkillRanks.forEach(function(skillRankKey) {
+        srData = skillRanksData[skillRankKey];
+        html += '<th class="can-hide ' + srData.cssClass + '"><span><div class="rank-icon ' + srData.cssClass + '"></span></div></th>';
+      });
+    }
+    html += '</tr>';
+    return html;
+  };
+
+  var render = function render(operatorsData, $outputEl, statsData, selectedSkillRanks) {
+    $outputEl.html(getOperatorsHtml(operatorsData, statsData.skillRanks, selectedSkillRanks));
     console.log('Operators success', operatorsData);
   };
 

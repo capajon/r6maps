@@ -12,7 +12,7 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
       pickRate: 0,
       winRate: 0,
       survivalRate: 0
-    }
+    };
   };
 
   var getFromApiData = function getFromApiData(rawOperatorsData, totalRoundsMap, statsData) {
@@ -37,10 +37,6 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
 
       for (var skillRankKey in rawOperatorsDataForRole[operatorKey]) {
         var tempStatsByRank = getEmptyStatsObject();
-
-        tempStatsByRank.name = ranks[skillRankKey].name;
-        tempStatsByRank.cssClass = ranks[skillRankKey].cssClass;
-        tempStatsByRank.order = ranks[skillRankKey].order;
 
         tempStatsByRank.totalWins = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalWins;
         operatorData.statsAllRanks.totalWins += tempStatsByRank.totalWins;
@@ -77,13 +73,13 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
     dataToTally.forEach(function(operator) {
       setTalliesForRank(operator.statsAllRanks);
       operator.statsAllRanks.pickRate = (!totalRoundsMap) ? 0 : operator.statsAllRanks.totalPlays / totalRoundsMap;
-      for(var rankKey in operator.statsByRank) {
+      for (var rankKey in operator.statsByRank) {
         var stats = operator.statsByRank[rankKey];
 
-        setTalliesForRank(stats);
-        stats.pickRate = (!totalPlaysByRank[stats.key] || !operator.statsAllRanks.totalPlays || !totalPlaysAll) ? 0 :
-          (stats.totalPlays / totalPlaysByRank[stats.key]) / (operator.statsAllRanks.totalPlays / totalPlaysAll) * operator.statsAllRanks.pickRate;
-        stats.pickRate = Math.min(0.98, Math.max(0.001, stats.pickRate));
+        setTalliesForRank(stats);        
+        stats.pickRate = (!totalPlaysByRank[rankKey] || !operator.statsAllRanks.totalPlays || !totalPlaysAll) ? 0 :
+          (stats.totalPlays / totalPlaysByRank[rankKey]) / (operator.statsAllRanks.totalPlays / totalPlaysAll) * operator.statsAllRanks.pickRate;
+        stats.pickRate = Math.min(0.99, Math.max(0.001, stats.pickRate));
       }
     });
   };

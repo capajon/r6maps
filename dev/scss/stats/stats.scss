@@ -2,6 +2,10 @@
 @import "../common/_helpers.scss";
 @import "../common/_settings.scss";
 @import "../common/_common.scss";
+@import "map.scss";
+@import "_operators.scss";
+@import "_operator_icons.scss";
+@import "_rank_icons.scss";
 
 $breakpoint-large: 1940px;
 $breakpoint-med: 1400px;
@@ -141,12 +145,22 @@ body.stats {
       }
     }
 
+    .skill-rank-input {
+      padding: 1rem 1rem 1rem 0;
+      white-space: nowrap;
+    }
+
     @media all and (max-width: $breakpoint-one-column ) and (min-width: $breakpoint-small ) {
       float: left;
       width: calc(50% - 0.75rem);
 
       &:nth-child(even) {
         margin-right: 1.5rem;
+      }
+
+      &#objective-locations-control {
+        width: 100%;
+        float: none;
       }
     }
   }
@@ -160,14 +174,10 @@ p.instructions {
   }
 }
 
-#skill-rank-control {
-  label {
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  select {
-    width: auto;
-  }
+#skill-ranks-control {
+  display: block;
+  float: none;
+  width: 100%;
 }
 
 #load-control {

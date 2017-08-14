@@ -1,0 +1,35 @@
+@import "../common/_settings.scss";
+
+$icon-height: 25px;
+
+@mixin rank-thumb-icon($position) {
+  background-position: 0px ($icon-height * -($position));
+}
+
+.rank-icon {
+  background-image: url($img-location + 'rank-icons-sprite@2x.png');
+  background-repeat: no-repeat;
+  background-size: $icon-height;
+  height: $icon-height;
+  margin: 0 auto;
+  width: $icon-height;
+
+  &.copper {
+    @include rank-thumb-icon(1);
+  }
+  &.bronze {
+    @include rank-thumb-icon(2);
+  }
+  &.silver {
+    @include rank-thumb-icon(3);
+  }
+  &.gold {
+    @include rank-thumb-icon(4);
+  }
+  &.platinum {
+    @include rank-thumb-icon(5);
+  }
+  &.diamond {
+    @include rank-thumb-icon(6);
+  }
+}

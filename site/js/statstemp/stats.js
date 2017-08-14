@@ -25,8 +25,8 @@
     $objectiveLocationsLabel,
     $objectiveLocationsSelect,
     $loadButton,
-    $skillRanksLabel,
-    $skillRanksSelect,
+    $skillRanksControl,
+    $skillRanksShower,
     statsData,
     statTerms,
     QUERY_PARAMS = {
@@ -70,8 +70,8 @@
     $objectiveLocationsLabel = $('#objective-locations-control label'),
     $objectiveLocationsSelect = $('#objective-locations-control select'),
     $loadButton = $('#load-control'),
-    $skillRanksLabel = $('#skill-rank-control label');
-    $skillRanksSelect = $('#skill-rank-control select');
+    $skillRanksControl = $('#skill-ranks-control');
+    $skillRanksShower = $('#skill-ranks-shower');
   };
 
   var clearOutputSections = function clearOutputSections() {
@@ -104,7 +104,7 @@
   };
 
   var handleApiMapSuccess = function handleApiMapSuccess(mapData) {
-    R6MapsStatsMapRender.render(mapData, $mapOutput);
+    R6MapsStatsMapRender.render(mapData, $mapOutput, statsData);
     $sectionMap.removeClass('load-in-progress');
   };
 
@@ -115,7 +115,12 @@
   };
 
   var handleApiOperatorSuccess = function handleApiOperatorSuccess(operatorsData) {
-    R6MapsStatsOperatorsRender.render(operatorsData, $operatorsOutput);
+    R6MapsStatsOperatorsRender.render(
+      operatorsData,
+      $operatorsOutput,
+      statsData,
+      ['Unranked', 'Copper', 'Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond']//TODO get selected skillRanks
+    );
     $sectionOperators.removeClass('load-in-progress');
   };
 
@@ -206,7 +211,7 @@
     );
     handleMapChange();
     R6MapsStatsControls.skillRanks.update(
-      $skillRanksSelect,
+      $skillRanksControl,
       statsData.skillRanks,
       selectedSeason
     );
@@ -214,7 +219,12 @@
   };
 
   var handleSkillRankChange = function handleSkillRankChange() {
-    enableLoadControl();
+    var selectedSkillRanks = R6MapsStatsControls.skillRanks.get($skillRanksControl);
+
+    $skillRanksShower.removeClass();
+    selectedSkillRanks.forEach(function(skillRank) {
+      $skillRanksShower.addClass('show-' + statsData.skillRanks[skillRank].cssClass);
+    });
   };
 
   var savePlatformOption = function savePlatformOption(platformOption) {
@@ -272,8 +282,7 @@
     R6MapsStatsControls.objectiveLocations.trySelect($objectiveLocationsSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.LOCATION));
 
     R6MapsStatsControls.skillRanks.setup(
-      $skillRanksSelect,
-      $skillRanksLabel,
+      $skillRanksControl,
       statsData.skillRanks,
       R6MapsStatsControls.seasons.get($seasonsSelect),
       handleSkillRankChange

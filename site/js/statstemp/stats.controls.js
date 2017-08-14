@@ -263,45 +263,35 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     });
   };
 
-  var skillRanksGet = function skillRanksGet($skillRanksSelect) {
-    return $skillRanksSelect.find(':selected').val();
-  };
+  var skillRanksPopulateOptions = function skillRanksPopulateOptions($skillRanksControl, skillRanksData, selectedSeason) {
+    var html = '';
 
-  var skillRanksPopulateOptions = function skillRanksPopulateOptions($skillRanksSelect, skillRanksData, selectedSeason) {
-    $skillRanksSelect.append($('<option></option>')
-       .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
-
-    for (var skillRanks in skillRanksData) {
-      if (
-        (skillRanksData[skillRanks].seasonSpan[0] <= selectedSeason) &&
-        (skillRanksData[skillRanks].seasonSpan[1] >= selectedSeason)
-      ) {
-        $skillRanksSelect.append($('<option></option>')
-           .attr('value', skillRanks).text(skillRanksData[skillRanks].name));
+    for(var key in skillRanksData) {
+      if ((selectedSeason >= skillRanksData[key].seasonSpan[0]) && (selectedSeason <= skillRanksData[key].seasonSpan[1])) {
+        html += '<span class="skill-rank-input"><input type="checkbox" name="skill-rank-group[]" value="' + key + '" />' + skillRanksData[key].name + '</span>';
       }
     }
+    $skillRanksControl.html(html);
+  };
+
+  var skillRanksGet = function skillRanksGet($skillRanksSelect) {
+    var result = [];
+
+    $.each($skillRanksSelect.find(':checked'), function(index, input) {
+      result.push($(input).val());
+    });
+    return result;
   };
 
   var skillRanksSetup = function skillRanksSetup(
-    $skillRanksSelect, $skillRanksLabel, skillRanksData, selectedSeason, skillRankChangeCallback
+    $skillRanksControl, skillRanksData, selectedSeason, skillRankChangeCallback
   ) {
-    $skillRanksLabel.html(R6MapsCommonLangTerms.terms.stats.labelSkillRanks);
-    skillRanksUpdate($skillRanksSelect, skillRanksData, selectedSeason);
-    $skillRanksSelect.on('change', function(event) {
-      skillRankChangeCallback();
-    });
+    skillRanksPopulateOptions($skillRanksControl, skillRanksData, selectedSeason);
+    $skillRanksControl.on('change', skillRankChangeCallback);
   };
 
-  var skillRanksUpdate = function skillRanksUpdate($skillRanksSelect, skillRanksData, selectedSeason) {
-    var startingValue = skillRanksGet($skillRanksSelect);
+  var skillRanksUpdate = function skillRanksUpdate($skillRanksControl, skillRanksData, selectedSeason) {
 
-    $skillRanksSelect.find('option').remove();
-    skillRanksPopulateOptions(
-      $skillRanksSelect,
-      skillRanksData,
-      selectedSeason
-    );
-    trySelect($skillRanksSelect, startingValue);
   };
 
   var trySelect = function trySelect($selectEl, option) {
@@ -342,7 +332,6 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     skillRanks: {
       get: skillRanksGet,
       setup: skillRanksSetup,
-      trySelect: trySelect,
       update: skillRanksUpdate
     }
   };
