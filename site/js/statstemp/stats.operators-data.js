@@ -76,7 +76,7 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
       for (var rankKey in operator.statsByRank) {
         var stats = operator.statsByRank[rankKey];
 
-        setTalliesForRank(stats);        
+        setTalliesForRank(stats);
         stats.pickRate = (!totalPlaysByRank[rankKey] || !operator.statsAllRanks.totalPlays || !totalPlaysAll) ? 0 :
           (stats.totalPlays / totalPlaysByRank[rankKey]) / (operator.statsAllRanks.totalPlays / totalPlaysAll) * operator.statsAllRanks.pickRate;
         stats.pickRate = Math.min(0.99, Math.max(0.001, stats.pickRate));

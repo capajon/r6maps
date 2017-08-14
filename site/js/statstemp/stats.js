@@ -87,6 +87,19 @@
     $('body').removeClass('disable-load');
   };
 
+  var getSkillRanksForSeason = function getSkillRanksForSeason(selectedSeason) {
+    var sd,
+      result = [];
+
+    for (var key in statsData.skillRanks) {
+      sd = statsData.skillRanks[key];
+      if ((selectedSeason >= sd.seasonSpan[0]) && (selectedSeason <= sd.seasonSpan[1])) {
+        result.push(key);
+      }
+    }
+    return result;
+  };
+
   var handleGameModeChange = function handleGameModeChange() {
     R6MapsStatsControls.objectiveLocations.update(
       $objectiveLocationsSelect,
@@ -119,7 +132,7 @@
       operatorsData,
       $operatorsOutput,
       statsData,
-      ['Unranked', 'Copper', 'Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond']//TODO get selected skillRanks
+      getSkillRanksForSeason(R6MapsStatsControls.seasons.get($seasonsSelect))
     );
     $sectionOperators.removeClass('load-in-progress');
   };
@@ -204,17 +217,22 @@
       statsData.platforms,
       selectedSeason
     );
+
     R6MapsStatsControls.maps.update(
       $mapsSelect,
       statsData.mapsGameModeObjectiveLocations,
       selectedSeason
     );
     handleMapChange();
-    R6MapsStatsControls.skillRanks.update(
+
+    R6MapsStatsControls.skillRanks.setup(
       $skillRanksControl,
       statsData.skillRanks,
-      selectedSeason
+      R6MapsStatsControls.seasons.get($seasonsSelect),
+      handleSkillRankChange
     );
+    handleSkillRankChange();
+
     enableLoadControl();
   };
 
@@ -225,10 +243,15 @@
     selectedSkillRanks.forEach(function(skillRank) {
       $skillRanksShower.addClass('show-' + statsData.skillRanks[skillRank].cssClass);
     });
+    saveSkillRankOptions(selectedSkillRanks);
   };
 
   var savePlatformOption = function savePlatformOption(platformOption) {
     localStorage.setItem('statsplatform', platformOption);
+  };
+
+  var saveSkillRankOptions = function saveSkillRankOptions(selectedSkillRanks) {
+    localStorage.setItem('statsskillrankoptions', selectedSkillRanks.join());
   };
 
   var setupControls = function setupControls() {
@@ -287,6 +310,8 @@
       R6MapsStatsControls.seasons.get($seasonsSelect),
       handleSkillRankChange
     );
+    tryLoadSavedSkillRankOptions();
+    handleSkillRankChange();
 
     $loadButton.html(statTerms.loadButtonText);
     $loadButton.on('click', handleLoadButtonClick);
@@ -315,6 +340,17 @@
 
     if (platformOption !== null) {
       R6MapsStatsControls.platforms.trySelect($platformsSelect, platformOption);
+    }
+  };
+
+  var tryLoadSavedSkillRankOptions = function tryLoadSavedSkillRankOptions() {
+    var previouslySelectedSkillRanks = localStorage.getItem('statsskillrankoptions');
+
+    if (previouslySelectedSkillRanks) {
+      R6MapsStatsControls.skillRanks.trySelect(
+        $skillRanksControl,
+        previouslySelectedSkillRanks.split(',')
+      );
     }
   };
 }));

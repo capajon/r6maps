@@ -48,7 +48,7 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
         'BOPE-CAPITAO': { name: terms.operators.capitao, cssClass: 'capitao' },
         'G.E.O.-JACKAL': { name: terms.operators.jackal, cssClass: 'jackal' },
         'GIGN-MONTAGNE': { name: terms.operators.montagne, cssClass: 'montagne' },
-        'GIGN-RESERVE': { name: terms.operators.gignRecruit, cssClass: 'montagne' },
+        'GIGN-RESERVE': { name: terms.operators.gignRecruit, cssClass: 'gign-recruit' },
         'GIGN-TWITCH': { name: terms.operators.twitch, cssClass: 'twitch' },
         'GSG9-BLITZ': { name: terms.operators.blitz, cssClass: 'blitz' },
         'GSG9-IQ': { name: terms.operators.iq, cssClass: 'iq' },

@@ -12,22 +12,23 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
     ];
 
   var getFormattedNumber = function getFormattedNumber(num, displayType) {
-    switch(displayType) {
-      case 'percent':
-          num *= 100;
-          num = (num < 10) ? num.toFixed(1) : Math.round(num);
-          return R6MapsCommonLangTerms.terms.stats.percentageFormat.replace('{num}', num);
-          break;
-      case 'ratio':
-          return num.toFixed(2);
-          break;
-      default: // number
-          var locale = R6MapsCommonLangTerms.name.split('_')[0];
-          if (num.toLocaleString(locale)) {
-            return num.toLocaleString(locale)
-          } else {
-            return num;
-          }
+    switch (displayType) {
+    case 'percent':
+      num *= 100;
+      num = (num < 10) ? num.toFixed(1) : Math.round(num);
+      return R6MapsCommonLangTerms.terms.stats.percentageFormat.replace('{num}', num);
+      break;
+    case 'ratio':
+      return num.toFixed(2);
+      break;
+    default: // number
+      var locale = R6MapsCommonLangTerms.name.split('_')[0];
+
+      if (num.toLocaleString(locale)) {
+        return num.toLocaleString(locale);
+      } else {
+        return num;
+      }
     }
   };
 
@@ -61,7 +62,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
     html += '<th class="operator-icon"></th>';
     html += '<th class="name">' + headerText + '</th>';
     statColumns.forEach(function(statColumn) {
-        html += '<th colspan="' + numSkillColumns + '">' + statColumn.name + '</th>';
+      html += '<th colspan="' + numSkillColumns + '">' + statColumn.name + '</th>';
     });
     html += '</tr>';
     return html;
@@ -89,7 +90,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
           html += '</span></td>';
         });
       });
-      html += '</tr>'
+      html += '</tr>';
     });
     return html;
   };

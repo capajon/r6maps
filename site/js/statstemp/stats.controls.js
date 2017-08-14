@@ -266,7 +266,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   var skillRanksPopulateOptions = function skillRanksPopulateOptions($skillRanksControl, skillRanksData, selectedSeason) {
     var html = '';
 
-    for(var key in skillRanksData) {
+    for (var key in skillRanksData) {
       if ((selectedSeason >= skillRanksData[key].seasonSpan[0]) && (selectedSeason <= skillRanksData[key].seasonSpan[1])) {
         html += '<span class="skill-rank-input"><input type="checkbox" name="skill-rank-group[]" value="' + key + '" />' + skillRanksData[key].name + '</span>';
       }
@@ -274,10 +274,10 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     $skillRanksControl.html(html);
   };
 
-  var skillRanksGet = function skillRanksGet($skillRanksSelect) {
+  var skillRanksGet = function skillRanksGet($skillRanksControl) {
     var result = [];
 
-    $.each($skillRanksSelect.find(':checked'), function(index, input) {
+    $.each($skillRanksControl.find(':checked'), function(index, input) {
       result.push($(input).val());
     });
     return result;
@@ -286,12 +286,17 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   var skillRanksSetup = function skillRanksSetup(
     $skillRanksControl, skillRanksData, selectedSeason, skillRankChangeCallback
   ) {
+    var currentSelectedRanks = skillRanksGet($skillRanksControl);
+
     skillRanksPopulateOptions($skillRanksControl, skillRanksData, selectedSeason);
     $skillRanksControl.on('change', skillRankChangeCallback);
+    skillRanksTrySelect($skillRanksControl, currentSelectedRanks);
   };
 
-  var skillRanksUpdate = function skillRanksUpdate($skillRanksControl, skillRanksData, selectedSeason) {
-
+  var skillRanksTrySelect = function skillRanksTrySelect($skillRanksControl, skillRankOptions) {
+    skillRankOptions.forEach(function(skillRank) {
+      $skillRanksControl.find(':checkbox[value=' + skillRank + ']').prop('checked','true');
+    });
   };
 
   var trySelect = function trySelect($selectEl, option) {
@@ -332,7 +337,7 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
     skillRanks: {
       get: skillRanksGet,
       setup: skillRanksSetup,
-      update: skillRanksUpdate
+      trySelect: skillRanksTrySelect
     }
   };
 })(R6MapsCommonLangTerms);
