@@ -264,11 +264,13 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   };
 
   var skillRanksPopulateOptions = function skillRanksPopulateOptions($skillRanksControl, skillRanksData, selectedSeason) {
-    var html = '';
+    var html = '',
+      srData;
 
     for (var key in skillRanksData) {
-      if ((selectedSeason >= skillRanksData[key].seasonSpan[0]) && (selectedSeason <= skillRanksData[key].seasonSpan[1])) {
-        html += '<span class="skill-rank-input"><input type="checkbox" name="skill-rank-group[]" value="' + key + '" />' + skillRanksData[key].name + '</span>';
+      srData = skillRanksData[key];
+      if ((selectedSeason >= srData.seasonSpan[0]) && (selectedSeason <= srData.seasonSpan[1])) {
+        html += '<div class="skill-rank-input"><input type="checkbox" class="rank-icon ' + srData.cssClass + '" name="skill-rank-group[]" value="' + key + '" /><div>' + srData.name + '</div></div>';
       }
     }
     $skillRanksControl.html(html);
@@ -284,10 +286,11 @@ var R6MapsStatsControls = (function(R6MapsCommonLangTerms, undefined){
   };
 
   var skillRanksSetup = function skillRanksSetup(
-    $skillRanksControl, skillRanksData, selectedSeason, skillRankChangeCallback
+    $skillRanksHeader, $skillRanksControl, skillRanksData, selectedSeason, skillRankChangeCallback
   ) {
     var currentSelectedRanks = skillRanksGet($skillRanksControl);
 
+    $skillRanksHeader.html(R6MapsCommonLangTerms.terms.stats.labelSkillRanks);
     skillRanksPopulateOptions($skillRanksControl, skillRanksData, selectedSeason);
     $skillRanksControl.on('change', skillRankChangeCallback);
     skillRanksTrySelect($skillRanksControl, currentSelectedRanks);

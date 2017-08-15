@@ -24,14 +24,13 @@ $cell-padding: 0.3rem;
       }
       &::-webkit-scrollbar-thumb  {
         border-radius: 8px;
-        border: 3px solid #fff;
+        border: 2px solid #fff;
         background-color: rgba(0, 0, 0, .3);
       }
     }
 
     table {
       background-color: #fff;
-      border: 1px solid #000;
       width: 100%;
 
       tr {
@@ -69,6 +68,9 @@ $cell-padding: 0.3rem;
               border-left: none;
               text-align: left;
             }
+            &:first-child {
+              border-left: none;
+            }
           }
         }
       }
@@ -82,6 +84,7 @@ $cell-padding: 0.3rem;
         &.can-hide {
           padding: 0;
           width: 0px;
+
           span {
             display: none;
           }
@@ -89,6 +92,10 @@ $cell-padding: 0.3rem;
 
         &.all {
           border-left: 1px solid #000;
+        }
+
+        &.name {
+          text-align: left;
         }
       }
 
@@ -104,74 +111,104 @@ $cell-padding: 0.3rem;
         &.can-hide {
           color: $very-dark-grey;
         }
-
-        &.name {
-          text-align: left;
-        }
       }
+    }
+  }
+
+  .sortable {
+    cursor: pointer;
+    transition: background-color $button-transition;
+
+    &:hover, &:focus {
+      background-color: $r6-blue;
+      border-radius: 3px;
+    }
+  }
+
+  input[type='checkbox'] {
+    -webkit-appearance:none;
+    background-color: #fff;
+    background-position-x: 32px;
+    border: 3px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 31px;
+    transition: background-color $button-transition, border-color $button-transition;
+    width: 31px;
+
+    &:hover, &:focus {
+      background-color: $r6-blue;
+      border-color: $r6-blue;
+    }
+  }
+  input[type='checkbox']:checked {
+    background-position-x: 0px;
+
+    &:hover {
+      border-color: $r6-blue;
     }
   }
 
   .show-unranked {
     div.output table td.can-hide.unranked, div.output table th.can-hide.unranked {
-      padding: $cell-padding !important;
-      width: auto !important;
+      padding: $cell-padding;
+      width: auto;
       span {
-        display: inline !important;
+        display: inline;
       }
     }
   }
   .show-copper {
     div.output table td.can-hide.copper, div.output table th.can-hide.copper {
-      padding: $cell-padding !important;
-      width: auto !important;
+      padding: $cell-padding;
+      width: auto;
       span {
-        display: inline !important;
+        display: inline;
       }
     }
   }
   .show-bronze {
     div.output table td.can-hide.bronze, div.output table th.can-hide.bronze {
-      padding: $cell-padding !important;
-      width: auto !important;
+      padding: $cell-padding;
+      width: auto;
       span {
-        display: inline !important;
+        display: inline;
       }
     }
   }
   .show-silver {
     div.output table td.can-hide.silver, div.output table th.can-hide.silver {
-      padding: $cell-padding !important;
-      width: auto !important;
+      padding: $cell-padding;
+      width: auto;
       span {
-        display: inline !important;
+        display: inline;
       }
     }
   }
   .show-gold {
     div.output table td.can-hide.gold, div.output table th.can-hide.gold {
-      padding: $cell-padding !important;
-      width: auto !important;
+      padding: $cell-padding;
+      width: auto;
       span {
-        display: inline !important;
+        display: inline;
       }
     }
   }
   .show-platinum {
     div.output table td.can-hide.platinum, div.output table th.can-hide.platinum {
-      padding: $cell-padding !important;
-      width: auto !important;
+      padding: $cell-padding;
+      width: auto;
       span {
-        display: inline !important;
+        display: inline;
       }
     }
   }
   .show-diamond {
     div.output table td.can-hide.diamond, div.output table th.can-hide.diamond {
-      padding: $cell-padding !important;
-      width: auto !important;
+      padding: $cell-padding;
+      width: auto;
       span {
-        display: inline !important;
+        display: inline;
       }
     }
   }

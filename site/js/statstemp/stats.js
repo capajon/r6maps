@@ -25,8 +25,10 @@
     $objectiveLocationsLabel,
     $objectiveLocationsSelect,
     $loadButton,
+    $skillRanksHeader,
     $skillRanksControl,
     $skillRanksShower,
+    $loadAnchor,
     statsData,
     statTerms,
     QUERY_PARAMS = {
@@ -70,8 +72,10 @@
     $objectiveLocationsLabel = $('#objective-locations-control label'),
     $objectiveLocationsSelect = $('#objective-locations-control select'),
     $loadButton = $('#load-control'),
+    $skillRanksHeader = $('#skill-ranks-header');
     $skillRanksControl = $('#skill-ranks-control');
     $skillRanksShower = $('#skill-ranks-shower');
+    $loadAnchor = $('#load-anchor');
   };
 
   var clearOutputSections = function clearOutputSections() {
@@ -113,6 +117,7 @@
 
   var handleApiAllSuccess = function handleApiAllSuccess() {
     $('body').removeClass('load-in-progress');
+    $loadAnchor.focus();
     enableLoadControl();
   };
 
@@ -128,11 +133,15 @@
   };
 
   var handleApiOperatorSuccess = function handleApiOperatorSuccess(operatorsData) {
+    console.log('Operators success', R6MapsStatsOperatorsData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
+    tryLoadSavedOperatorsSortField();
+
     R6MapsStatsOperatorsRender.render(
-      operatorsData,
+      R6MapsStatsOperatorsData.get(),
       $operatorsOutput,
       statsData,
-      getSkillRanksForSeason(R6MapsStatsControls.seasons.get($seasonsSelect))
+      getSkillRanksForSeason(R6MapsStatsControls.seasons.get($seasonsSelect)),
+      resortOperators
     );
     $sectionOperators.removeClass('load-in-progress');
   };
@@ -226,6 +235,7 @@
     handleMapChange();
 
     R6MapsStatsControls.skillRanks.setup(
+      $skillRanksHeader,
       $skillRanksControl,
       statsData.skillRanks,
       R6MapsStatsControls.seasons.get($seasonsSelect),
@@ -244,6 +254,22 @@
       $skillRanksShower.addClass('show-' + statsData.skillRanks[skillRank].cssClass);
     });
     saveSkillRankOptions(selectedSkillRanks);
+  };
+
+  var resortOperators = function resortOperators(sortField, sortRank) {
+    R6MapsStatsOperatorsData.trySort(sortField, sortRank);
+    R6MapsStatsOperatorsRender.render(
+      R6MapsStatsOperatorsData.get(),
+      $operatorsOutput,
+      statsData,
+      getSkillRanksForSeason(R6MapsStatsControls.seasons.get($seasonsSelect)),
+      resortOperators
+    );
+    saveOperatorsSortField(sortField, sortRank);
+  };
+
+  var saveOperatorsSortField = function saveOperatorsSortField(sortField, optionalRank) {
+    localStorage.setItem('statssortfield', sortField + ',' + optionalRank);
   };
 
   var savePlatformOption = function savePlatformOption(platformOption) {
@@ -305,6 +331,7 @@
     R6MapsStatsControls.objectiveLocations.trySelect($objectiveLocationsSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.LOCATION));
 
     R6MapsStatsControls.skillRanks.setup(
+      $skillRanksHeader,
       $skillRanksControl,
       statsData.skillRanks,
       R6MapsStatsControls.seasons.get($seasonsSelect),
@@ -333,6 +360,21 @@
     $operatorsHeader.html(statTerms.headerOperators);
     $('p.all-text').html(statTerms.allOption);
     $('p.instructions').html(statTerms.instructions);
+  };
+
+  var tryLoadSavedOperatorsSortField = function tryLoadSavedOperatorsSortField() {
+    var sortFieldOptions = localStorage.getItem('statssortfield'),
+      sortField,
+      optionalRank;
+
+    if (sortFieldOptions) {
+      sortField = sortFieldOptions.split(',')[0],
+      optionalRank = sortFieldOptions.split(',')[1];
+    } else {
+      sortField = 'name'; //fallback
+    }
+
+    R6MapsStatsOperatorsData.trySort(sortField, optionalRank);
   };
 
   var tryLoadSavedPlatformOption = function tryLoadSavedPlatformOption() {

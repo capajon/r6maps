@@ -52,6 +52,12 @@ body.stats {
     text-transform: uppercase;
   }
 
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
   p.error {
     color: $r6-red;
   }
@@ -145,11 +151,6 @@ body.stats {
       }
     }
 
-    .skill-rank-input {
-      padding: 1rem 1rem 1rem 0;
-      white-space: nowrap;
-    }
-
     @media all and (max-width: $breakpoint-one-column ) and (min-width: $breakpoint-small ) {
       float: left;
       width: calc(50% - 0.75rem);
@@ -199,6 +200,18 @@ p.instructions {
   body.disable-load &, body.load-in-progress & {
 		background-color: $grey;
     pointer-events: none;
+  }
+}
+
+#skill-ranks-control {
+  @include flexbox;
+  @include flex-wrap(wrap);
+  margin-bottom: 0;
+
+  .skill-rank-input {
+    text-align: center;
+    margin: 0 1rem 1rem 0;
+    min-width: 4rem;
   }
 }
 

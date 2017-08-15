@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset=utf-8 />
-    <meta name="Description" content="R6Maps.com is a quick reference tool for players to learn the ins and outs of Rainbow Six Siege maps.  You can use it on many devices (computer, tablet or phone) and several languages are available.  With tons of details like objectives, room names and camera locations, you'll have the map knowledge needed to successfully siege!">
+    <meta name="Description" content="R6Maps.com is a quick reference tool for players to learn the ins and outs of Rainbow Six Siege maps.  Stats are now also avaialable, so players can better understand which operators and strategies are most effective on each objective!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>R6Maps.com - Stats BETA</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
@@ -46,12 +46,14 @@
     <main>
       <section id="section-map">
         <h2></h2>
+        <div tabindex="0" id="load-anchor"></div>
         <div class="loading"></div>
         <p class="instructions"></p>
         <div class="output"></div>
       </section>
       <section id="section-operators">
         <h2></h2>
+        <h3 id="skill-ranks-header"></h3>
         <div class="control" id="skill-ranks-control"></div>
         <div class="loading"></div>
         <div id="skill-ranks-shower">
@@ -69,9 +71,10 @@
           <li>About page link + home page link</li>
           <li>Info/Site section + * how pick rates are calculated</li>
           <li>Filter section: move focus to maps after load stats, game mode becomes dropdown on responsive mobile view</li>
-          <li>Operators section: lock first column responsive, fade effect if scrollable?, better style for rank selects, reorder columns functionality (and remember last pick)</li>
+          <li>Operators section: make hide/show fade, help description at bottom for clicking on headers to sort them, handle empty results, lock first column responsive, fade effect or scroll indicator/note?, , average row</li>
           <li>Maps section: whole thing, nice sprite icons for some stats</li>
           <li>Order of locations matches in game rank selection (especially for bomb)</li>
+          <li>Better URL? not html? server side...</li>
         </ul>
       </section>
     </main>

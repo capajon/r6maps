@@ -30,13 +30,12 @@ var R6MapsStatsApi = (function(undefined) {
       mapSuccessCallback(R6MapsStatsMapData.getFromApiData(rawMapData, statsData));
     });
     $.when(mapCall, operatorsCall).then(function (rawMapData, rawOperatorsData) {
-      operatorSuccessCallback(
-        R6MapsStatsOperatorsData.getFromApiData(
-          rawOperatorsData[0],
-          R6MapsStatsMapData.getTotalRoundsFromApiData(rawMapData[0]),
-          statsData
-        )
+      R6MapsStatsOperatorsData.saveFromApiData(
+        rawOperatorsData[0],
+        R6MapsStatsMapData.getTotalRoundsFromApiData(rawMapData[0]),
+        statsData
       );
+      operatorSuccessCallback();
       allSuccessCallback();
     });
   };

@@ -4,22 +4,23 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
   var statTerms = R6MapsCommonLangTerms.terms.stats,
     locale = R6MapsCommonLangTerms.name.split('_')[0],
     statColumns = [
-      { key: 'pickRate', name: statTerms.tableHeaderPickRate, displayType: 'percent' },
-      { key: 'killsPerDeath', name: statTerms.tableHeaderKillsPerDeath, displayType: 'ratio' },
-      { key: 'killsPerRound', name: statTerms.tableHeaderKillsPerRound, displayType: 'ratio' },
-      { key: 'survivalRate', name: statTerms.tableHeaderSurvivalRate, displayType: 'percent' },
-      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number' }
+      { key: 'pickRate', name: statTerms.tableHeaderPickRate, displayType: 'percent', canAverage: true },
+      { key: 'winRate', name: statTerms.tableHeaderWinRate, displayType: 'percent', canAverage: true },
+      { key: 'survivalRate', name: statTerms.tableHeaderSurvivalRate, displayType: 'percent', canAverage: true },
+      { key: 'killsPerDeath', name: statTerms.tableHeaderKillsPerDeath, displayType: 'ratio', canAverage: true },
+      { key: 'killsPerRound', name: statTerms.tableHeaderKillsPerRound, displayType: 'ratio', canAverage: true },
+      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number', canAverage: false }
     ];
 
-  var getFormattedNumber = function getFormattedNumber(num, displayType) {
+  var getFormattedNumber = function getFormattedNumber(num, displayType, minimal) {
     switch (displayType) {
     case 'percent':
       num *= 100;
       num = (num < 10) ? num.toFixed(1) : Math.round(num);
-      return R6MapsCommonLangTerms.terms.stats.percentageFormat.replace('{num}', num);
+      return minimal ? num : R6MapsCommonLangTerms.terms.stats.percentageFormat.replace('{num}', num);
       break;
     case 'ratio':
-      return num.toFixed(2);
+      return num.toFixed(1);
       break;
     default: // number
       var locale = R6MapsCommonLangTerms.name.split('_')[0];
@@ -27,7 +28,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
       if (num.toLocaleString(locale)) {
         return num.toLocaleString(locale);
       } else {
-        return num;
+        return numberWithCommas(num);
       }
     }
   };
@@ -39,11 +40,11 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
     html += '<div class="table-container"><table>';
 
     html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
-    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks, statColumns.length);
+    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks);
     html += getOperatorsForRoleHtml(operatorsData.attackers, skillRanksData, selectedSkillRanks, 'attackers');
 
     html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
-    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks, statColumns.length);
+    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks);
     html += getOperatorsForRoleHtml(operatorsData.defenders, skillRanksData, selectedSkillRanks, 'defenders');
 
     html += '</table></div>';
@@ -85,7 +86,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
         selectedSkillRanks.forEach(function(skillRankKey) {
           html += '<td class="can-hide ' + skillRanksData[skillRankKey].cssClass + '"><span>';
           html += (operator.statsByRank[skillRankKey]) ?
-            getFormattedNumber(operator.statsByRank[skillRankKey][statColumn.key], statColumn.displayType) :
+            getFormattedNumber(operator.statsByRank[skillRankKey][statColumn.key], statColumn.displayType, true) :
             '-';
           html += '</span></td>';
         });
@@ -97,30 +98,40 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
 
   var getSubHeaderHtml = function getSubHeaderHtml(
     skillRanksData,
-    selectedSkillRanks,
-    numMainColumns
+    selectedSkillRanks
   ) {
     var html = '',
-      srData,
-      x;
+      srData;
 
     html += '<tr class="sub-header">';
     html += '<th class="operator-icon"></th>';
-    html += '<th></th>'; // name column
-    for (x = 0; x < numMainColumns; x++) {
-      html += '<th class="all">' + R6MapsCommonLangTerms.terms.stats.tableHeaderAllRanks + '</th>';
+    html += '<th class="name"><span tabindex="0" class="sortable" data-sortfield="name">' + R6MapsCommonLangTerms.terms.stats.tableHeaderName + '</span></th>'; // name column
+    statColumns.forEach(function(statColumn) {
+      html += '<th class="all"><span class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">' + R6MapsCommonLangTerms.terms.stats.tableHeaderAllRanks + '</span></th>';
       selectedSkillRanks.forEach(function(skillRankKey) {
         srData = skillRanksData[skillRankKey];
-        html += '<th class="can-hide ' + srData.cssClass + '"><span><div class="rank-icon ' + srData.cssClass + '"></span></div></th>';
+        html += '<th class="can-hide ' + srData.cssClass + '"><span><div tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + skillRankKey + '" title="' + srData.name + '" class="sortable rank-icon ' + srData.cssClass + '"></div></span></th>';
       });
-    }
+    });
     html += '</tr>';
     return html;
   };
 
-  var render = function render(operatorsData, $outputEl, statsData, selectedSkillRanks) {
+  var numberWithCommas = function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  var render = function render(operatorsData, $outputEl, statsData, selectedSkillRanks, sortCallback) {
     $outputEl.html(getOperatorsHtml(operatorsData, statsData.skillRanks, selectedSkillRanks));
-    console.log('Operators success', operatorsData);
+    setupSortColumns($outputEl, sortCallback);
+  };
+
+  var setupSortColumns = function setupSortColumns($outputEl, sortCallback) {
+    $outputEl.find('.sortable').on('click', function(event) {
+      var source = $(event.target);
+
+      sortCallback(source.data('sortfield'), source.data('sortrank'));
+    });
   };
 
   return  {
