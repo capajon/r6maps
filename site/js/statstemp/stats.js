@@ -28,7 +28,6 @@
     $skillRanksHeader,
     $skillRanksControl,
     $skillRanksShower,
-    $loadAnchor,
     statsData,
     statTerms,
     QUERY_PARAMS = {
@@ -75,7 +74,6 @@
     $skillRanksHeader = $('#skill-ranks-header');
     $skillRanksControl = $('#skill-ranks-control');
     $skillRanksShower = $('#skill-ranks-shower');
-    $loadAnchor = $('#load-anchor');
   };
 
   var clearOutputSections = function clearOutputSections() {
@@ -117,7 +115,7 @@
 
   var handleApiAllSuccess = function handleApiAllSuccess() {
     $('body').removeClass('load-in-progress');
-    $loadAnchor.focus();
+    $mapHeader.focus();
     enableLoadControl();
   };
 

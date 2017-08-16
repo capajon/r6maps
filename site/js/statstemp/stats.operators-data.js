@@ -31,7 +31,9 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
         name: operators[operatorKey].name,
         cssClass: operators[operatorKey].cssClass,
         statsByRank: {},
-        statsAllRanks: getEmptyStatsObject()
+        statsAllRanks: getEmptyStatsObject(),
+        averagesByRank: {},
+        averagesAllRanks: getEmptyStatsObject()
       };
 
       for (var skillRankKey in rawOperatorsDataForRole[operatorKey]) {
@@ -59,6 +61,7 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
       result.push(operatorData);
     }
     setTallies(result, totalRoundsMap, totalPlaysByRank, totalPlaysAll);
+    setAverages(result);
     return result;
   };
 
@@ -67,6 +70,10 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
       attackers: getOperatorsDataForRole(rawOperatorsData.role.Attacker, totalRoundsMap, statsData.skillRanks, statsData.operators),
       defenders: getOperatorsDataForRole(rawOperatorsData.role.Defender, totalRoundsMap, statsData.skillRanks, statsData.operators)
     };
+  };
+
+  var setAverages = function setAverages(result) {
+
   };
 
   var setTallies = function setTallies(dataToTally, totalRoundsMap, totalPlaysByRank, totalPlaysAll) {

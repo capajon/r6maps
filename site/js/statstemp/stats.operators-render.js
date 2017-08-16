@@ -25,7 +25,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
     default: // number
       var locale = R6MapsCommonLangTerms.name.split('_')[0];
 
-      if (num.toLocaleString(locale)) {
+      if (num.toLocaleString) {
         return num.toLocaleString(locale);
       } else {
         return numberWithCommas(num);

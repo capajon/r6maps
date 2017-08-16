@@ -46,8 +46,21 @@ $cell-padding: 0.3rem;
           background-color: $dark-grey;
 
           th {
-            text-transform: uppercase;
             font-size: 0.75rem;
+            text-decoration: underline;
+            text-transform: uppercase;
+          }
+
+          .rank-icon {
+            background-position-x: center;
+            border-bottom: 3px solid $dark-grey;
+            border-radius: 3px;
+            border-top: 3px solid $dark-grey;
+            width: 100%;
+
+            &:hover, &:focus {
+              border-color: $r6-blue;
+            }
           }
         }
 
@@ -62,7 +75,9 @@ $cell-padding: 0.3rem;
 
           th {
             border-left: 1px solid #000;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            padding-left: 0.6rem;
+            padding-right: 0.6rem;
 
             &.name {
               border-left: none;
@@ -70,6 +85,9 @@ $cell-padding: 0.3rem;
             }
             &:first-child {
               border-left: none;
+            }
+            &:nth-child(2) {
+              padding-left: 0.3rem;
             }
           }
         }
