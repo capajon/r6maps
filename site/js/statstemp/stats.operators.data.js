@@ -90,35 +90,29 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
     trySortForRole(savedStats.defenders, sortField, optionalRank);
   };
 
-  var trySortForRole = function trySortForRole(operators, sortField, optionalRank) {
-    if (operators[0] && (!operators[0].statsAllRanks[sortField])) {
-      sortField = 'name'; //fallback
-    }
-    if (operators[0] && (!operators[0].statsByRank[optionalRank])) {
-      optionalRank = null;
-    }
-
+  var trySortForRole = function trySortForRole(operators, sortField, optionalRank, descending) {
     operators.sort(function(a, b) {
-      var aValue,
-        bValue;
+      var aValue = a.name,
+        bValue = b.name;
 
-      if (sortField == 'name') {
+      if(!optionalRank) {
+        aValue = a.statsAllRanks[sortField];
+        bValue = b.statsAllRanks[sortField];
+      } else {
+        aValue = (a.statsByRank[optionalRank]) ? a.statsByRank[optionalRank][sortField] : -1;
+        bValue = (b.statsByRank[optionalRank]) ? b.statsByRank[optionalRank][sortField] : -1;
+      }
+
+      if (aValue == bValue) {
         aValue = a.name;
         bValue = b.name;
-      } else {
-        if (optionalRank) {
-          aValue = a.statsByRank[optionalRank] ? a.statsByRank[optionalRank][sortField] : -1;
-          bValue = b.statsByRank[optionalRank] ? b.statsByRank[optionalRank][sortField] : -1;
-        } else {
-          aValue = a.statsAllRanks[sortField];
-          bValue = b.statsAllRanks[sortField];
-        }
-        if (aValue == bValue) {
-          aValue = a.name;
-          bValue = b.name;
-        }
       }
-      return (aValue > bValue) ? -1 : 1;
+
+      if (descending) {
+        return (aValue < bValue) ? -1 : 1;
+      } else {
+        return (aValue > bValue) ? -1 : 1;
+      }
     });
   };
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsMainData = (function(R6MLangTerms, undefined){
+var R6MMainData = (function(R6MLangTerms, undefined){
   var DRONE_MED = 18,
     DRONE_SMALL = 14,
     mapRoomTerms = R6MLangTerms.terms.mapRooms,

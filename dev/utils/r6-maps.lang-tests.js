@@ -15,7 +15,7 @@
     R6MLangTermsSimplifiedChinese,
     R6MLangTermsMongolian,
     R6MLangTermsPolish,
-    R6MapsMainData
+    R6MMainData
   );
 }(function(
   $,
@@ -31,7 +31,7 @@
   R6MLangTermsSimplifiedChinese,
   R6MLangTermsMongolian,
   R6MLangTermsPolish,
-  R6MapsMainData,
+  R6MMainData,
   undefined
 ) {
   $(function() { // equivanelt to $(document).ready() - but a bit faster

@@ -1,71 +1,82 @@
 'use strict';
 
 var R6MStatsMapData = (function(undefined) {
-  var checkEmptyData = function checkEmptyData(rawMapData) {
-    if (!rawMapData || !rawMapData.winRole || !rawMapData.winRole.Attacker || !rawMapData.winRole.Defender) {
-      console.error('Unexpected error encountered while processing map API data.', rawMapData);
+  var mapStats = {};
+
+  var checkEmptyData = function checkEmptyData(mapApiData) {
+    if (!mapApiData || !mapApiData.winRole || !mapApiData.winRole.Attacker || !mapApiData.winRole.Defender) {
+      console.error('Unexpected error encountered while processing map API data.', mapApiData);
       return true;
     }
     return false;
   };
 
-  var getFromApiData = function getFromApiData(rawMapData, statsData) {
-    var result = {};
-
-    if (checkEmptyData(rawMapData)) {
-      return null;
-    }
-
-    result.attackers = getMapDataForRole(rawMapData.winRole.Attacker, statsData.winReasons);
-    result.defenders = getMapDataForRole(rawMapData.winRole.Defender, statsData.winReasons);
-
-    result.overall = {};
-    result.overall.totalRounds = result.attackers.totalRoundsWon + result.defenders.totalRoundsWon;
-    result.overall.averageRoundLength = (!result.overall.totalRounds) ? 0 :
-      ((result.attackers.totalRoundsWon * result.attackers.averageRoundLength) + (result.defenders.totalRoundsWon * result.defenders.averageRoundLength)) / result.overall.totalRounds;
-    result.attackers.winPercent = (!result.overall.totalRounds) ? 0 :
-      result.attackers.totalRoundsWon / result.overall.totalRounds;
-    result.defenders.winPercent = (!result.overall.totalRounds) ? 0 :
-      result.defenders.totalRoundsWon / result.overall.totalRounds, 5;
-
-    return result;
-  };
-
-  var getMapDataForRole = function getMapDataForRole(rawMapDataForRole, winReasons) {
-    var result = {
-      totalRoundsWon: +rawMapDataForRole.totalRounds,
-      averageRoundLength: +rawMapDataForRole.averageRoundDuration,
+  var getMapRoleStats = function getMapRoleStats(mapRoleApiData, winReasonsMetaData) {
+    var mapRoleStats = {
+      totalRoundsWon: +mapRoleApiData.totalRounds,
+      averageRoundLength: +mapRoleApiData.averageRoundDuration,
       winReasons: []
-    };
+    },
+    winReason,
+    winReasonMeta;
 
-    for (var key in winReasons) {
-      if (rawMapDataForRole[key] && (rawMapDataForRole[key] != '0')) {
-        result.winReasons.push({
-          description: winReasons[key].name,
-          totalRounds: +rawMapDataForRole[key],
-          percent: (!rawMapDataForRole.totalRounds) ? 0 : +rawMapDataForRole[key] / +rawMapDataForRole.totalRounds
+    for (var winReasonKey in winReasonsMetaData) {
+      winReasonMeta = winReasonsMetaData[winReasonKey];
+      winReason = mapRoleApiData[winReasonKey];
+
+      if (winReason && (winReason != '0')) {
+        mapRoleStats.winReasons.push({
+          description: winReasonMeta.name,
+          cssClass: winReasonMeta.cssClass,
+          totalRounds: +winReason,
+          percent: (!mapRoleApiData.totalRounds) ? 0 : +winReason / +mapRoleApiData.totalRounds
         });
       }
     }
 
-    result.winReasons.sort(function(x,y) {
+    mapRoleStats.winReasons.sort(function(x,y) {
       if (x.totalRounds < y.totalRounds) {
         return 1;
       }
     });
-
-    return result;
+    return mapRoleStats;
   };
 
-  var getTotalRoundsFromApiData = function getTotalRoundsFromApiData(rawMapData) {
-    if (checkEmptyData(rawMapData)) {
+  var getOverallMapStats = function getOverallMapStats(mapApiData) {
+    var overallStats = {};
+
+    overallStats.totalRounds = mapStats.attackers.totalRoundsWon + mapStats.defenders.totalRoundsWon;
+    overallStats.averageRoundLength = (!overallStats.totalRounds) ? 0 : ((mapStats.attackers.totalRoundsWon * mapStats.attackers.averageRoundLength) + (mapStats.defenders.totalRoundsWon * mapStats.defenders.averageRoundLength)) / overallStats.totalRounds;
+    mapStats.attackers.winPercent = (!overallStats.totalRounds) ? 0 : mapStats.attackers.totalRoundsWon / overallStats.totalRounds;
+    mapStats.defenders.winPercent = (!overallStats.totalRounds) ? 0 : mapStats.defenders.totalRoundsWon / overallStats.totalRounds, 5;
+    return overallStats;
+  };
+
+  var getSavedStats = function getSavedStats() {
+    return mapStats;
+  };
+
+  var getTotalRoundsFromApiData = function getTotalRoundsFromApiData(mapApiData) {
+    if (checkEmptyData(mapApiData)) {
       return null;
     }
-    return +rawMapData.winRole.Attacker.totalRounds + +rawMapData.winRole.Defender.totalRounds;
+    return +mapApiData.winRole.Attacker.totalRounds + +mapApiData.winRole.Defender.totalRounds;
+  };
+
+  var setFromApiData = function getFromApiData(mapApiData, winReasonsMetaData) {
+    if (checkEmptyData(mapApiData)) {
+      mapStats = null;
+      return;
+    }
+
+    mapStats.attackers = getMapRoleStats(mapApiData.winRole.Attacker, winReasonsMetaData);
+    mapStats.defenders = getMapRoleStats(mapApiData.winRole.Defender, winReasonsMetaData);
+    mapStats.overall = getOverallMapStats(mapApiData);
   };
 
   return  {
-    getFromApiData: getFromApiData,
+    set: setFromApiData,
+    get: getSavedStats,
     getTotalRoundsFromApiData: getTotalRoundsFromApiData
   };
 })();

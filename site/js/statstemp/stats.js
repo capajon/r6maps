@@ -28,7 +28,7 @@
     $ranksHeader,
     $ranksControl,
     $ranksShower,
-    statsData,
+    metaData,
     statTerms,
     QUERY_PARAMS = {
       SEASON: 'season',
@@ -40,7 +40,7 @@
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     R6MHelpers.tryLoadStartingLanguage(R6MLangTerms.tryLoadLanguage);
-    statsData = R6MStatsMetaData.getData();
+    metaData = R6MStatsMetaData.getData();
     statTerms = R6MLangTerms.terms.stats;
     assignPageElements();
     setupStaticElements();
@@ -76,11 +76,6 @@
     $ranksShower = $('#skill-ranks-shower');
   };
 
-  var clearOutputSections = function clearOutputSections() {
-    $mapOutput.html('');
-    $operatorsOutput.html('');
-  };
-
   var disableLoadControl = function disableLoadControl() {
     $('body').addClass('disable-load');
   };
@@ -93,8 +88,8 @@
     var sd,
       result = [];
 
-    for (var key in statsData.ranks) {
-      sd = statsData.ranks[key];
+    for (var key in metaData.ranks) {
+      sd = metaData.ranks[key];
       if ((selectedSeason >= sd.seasonSpan[0]) && (selectedSeason <= sd.seasonSpan[1])) {
         result.push(key);
       }
@@ -105,7 +100,7 @@
   var handleGameModeChange = function handleGameModeChange() {
     R6MStatsControls.objectiveLocations.update(
       $objectiveLocationsSelect,
-      statsData.mapModeLocations,
+      metaData.mapModeLocations,
       R6MStatsControls.seasons.get($seasonsSelect),
       R6MStatsControls.maps.get($mapsSelect),
       R6MStatsControls.modes.get($modesSelect)
@@ -119,8 +114,9 @@
     enableLoadControl();
   };
 
-  var handleApiMapSuccess = function handleApiMapSuccess(mapData) {
-    R6MStatsMapRender.render(mapData, $mapOutput, statsData);
+  var handleApiMapSuccess = function handleApiMapSuccess(mapApiData) {
+    R6MStatsMapData.set(mapApiData, metaData.winReasons);
+    R6MStatsMapRender.render(R6MStatsMapData.get(), $mapOutput);
     $sectionMap.removeClass('load-in-progress');
   };
 
@@ -137,7 +133,7 @@
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
       $operatorsOutput,
-      statsData,
+      metaData,
       getSkillRanksForSeason(R6MStatsControls.seasons.get($seasonsSelect)),
       resortOperators
     );
@@ -180,7 +176,6 @@
     $('body').addClass('load-in-progress');
     disableLoadControl();
 
-    clearOutputSections();
     savePlatformOption(R6MStatsControls.platforms.get($platformsSelect));
     sendLoadStatsAnalyticsEvent(queryString);
 
@@ -191,7 +186,7 @@
       handleApiOperatorError,
       handleApiAllSuccess,
       queryString,
-      statsData
+      metaData
     );
   };
 
@@ -201,14 +196,14 @@
 
     R6MStatsControls.modes.update(
       $modesSelect,
-      statsData.modes,
-      statsData.mapModeLocations,
+      metaData.modes,
+      metaData.mapModeLocations,
       selectedSeason,
       selectedMap
     );
     R6MStatsControls.objectiveLocations.update(
       $objectiveLocationsSelect,
-      statsData.mapModeLocations,
+      metaData.mapModeLocations,
       selectedSeason,
       selectedMap,
       R6MStatsControls.modes.get($modesSelect)
@@ -221,13 +216,13 @@
 
     R6MStatsControls.platforms.update(
       $platformsSelect,
-      statsData.platforms,
+      metaData.platforms,
       selectedSeason
     );
 
     R6MStatsControls.maps.update(
       $mapsSelect,
-      statsData.mapModeLocations,
+      metaData.mapModeLocations,
       selectedSeason
     );
     handleMapChange();
@@ -235,7 +230,7 @@
     R6MStatsControls.ranks.setup(
       $ranksHeader,
       $ranksControl,
-      statsData.ranks,
+      metaData.ranks,
       R6MStatsControls.seasons.get($seasonsSelect),
       handleSkillRankChange
     );
@@ -249,7 +244,7 @@
 
     $ranksShower.removeClass();
     selectedSkillRanks.forEach(function(rank) {
-      $ranksShower.addClass('show-' + statsData.ranks[rank].cssClass);
+      $ranksShower.addClass('show-' + metaData.ranks[rank].cssClass);
     });
     saveSkillRankOptions(selectedSkillRanks);
   };
@@ -259,7 +254,7 @@
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
       $operatorsOutput,
-      statsData,
+      metaData,
       getSkillRanksForSeason(R6MStatsControls.seasons.get($seasonsSelect)),
       resortOperators
     );
@@ -282,7 +277,7 @@
     R6MStatsControls.seasons.setup(
       $seasonsSelect,
       $seasonsLabel,
-      statsData.seasons,
+      metaData.seasons,
       handleSeasonChange
     );
     R6MStatsControls.seasons.trySelect($seasonsSelect, R6MHelpers.queryString(QUERY_PARAMS.SEASON));
@@ -290,7 +285,7 @@
     R6MStatsControls.platforms.setup(
       $platformsSelect,
       $platformsLabel,
-      statsData.platforms,
+      metaData.platforms,
       R6MStatsControls.seasons.get($seasonsSelect),
       enableLoadControl
     );
@@ -300,7 +295,7 @@
     R6MStatsControls.maps.setup(
       $mapsSelect,
       $mapsLabel,
-      statsData.mapModeLocations,
+      metaData.mapModeLocations,
       R6MStatsControls.seasons.get($seasonsSelect),
       handleMapChange
     );
@@ -309,8 +304,8 @@
     R6MStatsControls.modes.setup(
       $modesSelect,
       $modesLabel,
-      statsData.modes,
-      statsData.mapModeLocations,
+      metaData.modes,
+      metaData.mapModeLocations,
       handleGameModeChange,
       R6MStatsControls.seasons.get($seasonsSelect),
       R6MStatsControls.maps.get($mapsSelect)
@@ -320,7 +315,7 @@
     R6MStatsControls.objectiveLocations.setup(
       $objectiveLocationsSelect,
       $objectiveLocationsLabel,
-      statsData.mapModeLocations,
+      metaData.mapModeLocations,
       R6MStatsControls.seasons.get($seasonsSelect),
       R6MStatsControls.maps.get($mapsSelect),
       R6MStatsControls.modes.get($modesSelect),
@@ -331,7 +326,7 @@
     R6MStatsControls.ranks.setup(
       $ranksHeader,
       $ranksControl,
-      statsData.ranks,
+      metaData.ranks,
       R6MStatsControls.seasons.get($seasonsSelect),
       handleSkillRankChange
     );

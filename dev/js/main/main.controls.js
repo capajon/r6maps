@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsMainControls = (function($, window, document, R6MLangTerms, undefined) {
+var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
   var $mapControl = $('#map-control'),
     $objectiveControl = $('#objective-control'),
     $floorControl = $('#floor-control'),

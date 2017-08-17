@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsMainSessions = (function($, window, document, R6MLangTerms, undefined) {
+var R6MMainSessions = (function($, window, document, R6MLangTerms, undefined) {
   var setup = function setup($dialog) {
     var html = '';
 

@@ -7,7 +7,7 @@ var PING_MARKER_RADIUS = 10,
   MIN_PING_MARKER_BORDER = 1,
   refreshPings = function() { };
 
-var R6MapsMainDrawing = (function($, window, document, undefined) {
+var R6MMainDrawing = (function($, window, document, undefined) {
   var getHandleTapFn = function getHandleTapFn(
     $pingMarkers,
     $pingMarkerAccents,

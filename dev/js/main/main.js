@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MHelpers, R6MLangTerms);
-}(function($, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MHelpers, R6MLangTerms, undefined) {
+  pagecode(window.jQuery, window, document, R6MMainData, R6MMainRender, R6MMainControls, R6MMainDrawing, R6MMainSelectMaps, R6MMainSessions, R6MHelpers, R6MLangTerms);
+}(function($, window, document, R6MMainData, R6MMainRender, R6MMainControls, R6MMainDrawing, R6MMainSelectMaps, R6MMainSessions, R6MHelpers, R6MLangTerms, undefined) {
   var $mapWrappers,
     $mapPanelWrappers,
     $mapMains,
@@ -25,21 +25,21 @@
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     setPageElements();
-    R6MapsMainRender.setupMapPanels($mapPanelWrappers, 4);
+    R6MMainRender.setupMapPanels($mapPanelWrappers, 4);
     setMapElements();
     R6MHelpers.tryLoadStartingLanguage(R6MLangTerms.tryLoadLanguage);
     setupMenu();
     setupSelectMap();
-    R6MapsMainControls.maps.populate(R6MapsMainData.getMapData());
+    R6MMainControls.maps.populate(R6MMainData.getMapData());
 
     $sessionsDialog = $('#sessions-dialog');
-    R6MapsMainSessions.createJoinDialog.setup($sessionsDialog);
+    R6MMainSessions.createJoinDialog.setup($sessionsDialog);
 
     setupEvents();
     $navLogo.on('click', toggleShowSelectMap);
     tryLoadMenuOptions();
 
-    R6MapsMainControls.setupPanZoom($mapMains, $mapElements);
+    R6MMainControls.setupPanZoom($mapMains, $mapElements);
 
     if (trySelectBookmarkedMap()) {
       loadMap();
@@ -95,7 +95,7 @@
   };
 
   var getResetDimensions = function getResetDimensions() {
-    var currentMapKey = R6MapsMainControls.maps.get(),
+    var currentMapKey = R6MMainControls.maps.get(),
       zoomPoints = {
         topLeft: { top: -180, left: -312 }, // default
         bottomRight: { top: 180, left: 312 }
@@ -104,7 +104,7 @@
     if (currentMapKey) {
       zoomPoints = $.extend(
         zoomPoints,
-        R6MapsMainData.getMapData()[currentMapKey].zoomPoints
+        R6MMainData.getMapData()[currentMapKey].zoomPoints
       );
     }
     var zoomWidth = zoomPoints.bottomRight.left - zoomPoints.topLeft.left,
@@ -157,7 +157,7 @@
     sendFloorSelectAnalyticsEvent();
     showSelectedFloor();
     updateUrl();
-    R6MapsMainDrawing.refreshPings(); // hacky drawing module for now
+    R6MMainDrawing.refreshPings(); // hacky drawing module for now
   };
 
   var handleLangChange = function handleLangChange(event) {
@@ -169,7 +169,7 @@
     localStorageSetItem('language', newLang);
 
     setupSelectMap();
-    R6MapsMainControls.maps.populate(R6MapsMainData.getMapData());
+    R6MMainControls.maps.populate(R6MMainData.getMapData());
     setupMenu();
     setupEvents();
     tryLoadMenuOptions();
@@ -182,7 +182,7 @@
 
   var handleEnableScreenshotsChange = function handleEnableScreenshotsChange(value) {
     localStorageSetItem('enablescreenshots', value);
-    R6MapsMainRender.setEnableScreenshots($mapWrappers, value);
+    R6MMainRender.setEnableScreenshots($mapWrappers, value);
   };
 
   var handleMapChange = function handleMapChange() {
@@ -201,7 +201,7 @@
 
     e.preventDefault();
     menuApi.open();
-    R6MapsMainControls.removeLatestUpdateHighlight(200);
+    R6MMainControls.removeLatestUpdateHighlight(200);
   };
 
   var handleObjectiveChange = function handleObjectiveChange() {
@@ -223,15 +223,15 @@
   };
 
   var loadMap = function loadMap() {
-    var currentlySelectedMap = R6MapsMainControls.maps.get(),
-      mapData = R6MapsMainData.getMapData();
+    var currentlySelectedMap = R6MMainControls.maps.get(),
+      mapData = R6MMainData.getMapData();
 
-    R6MapsMainControls.objectives.populate(mapData[currentlySelectedMap].objectives);
-    R6MapsMainControls.floors.populate(mapData[currentlySelectedMap].floors);
-    R6MapsMainRender.renderMap(mapData[currentlySelectedMap], $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels);
+    R6MMainControls.objectives.populate(mapData[currentlySelectedMap].objectives);
+    R6MMainControls.floors.populate(mapData[currentlySelectedMap].floors);
+    R6MMainRender.renderMap(mapData[currentlySelectedMap], $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels);
     if (!DEV_MODE) {
-      R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
-      R6MapsMainControls.zoom.reset($mapMains, getResetDimensions);
+      R6MMainControls.pan.reset($mapMains, getResetDimensions);
+      R6MMainControls.zoom.reset($mapMains, getResetDimensions);
     }
 
     setupCameraScreenshots();
@@ -243,11 +243,11 @@
     $navLogo.addClass('enabled');
     updateTitle();
 
-    R6MapsMainDrawing.setup(
+    R6MMainDrawing.setup(
       $mapMains,
       $drawingMarkerWrappers,
       isCamera,
-      R6MapsMainRender.SVG_DIM
+      R6MMainRender.SVG_DIM
     );
   };
 
@@ -256,7 +256,7 @@
       return;
     }
 
-    var warning = R6MapsMainControls.zoom.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
+    var warning = R6MMainControls.zoom.isZoomed() ? ' Warning, currently zoomed, coordinates are not accurate for CSS.' : '';
 
     console.log('SINGLE LINE TEXT:');
     console.log(
@@ -292,7 +292,7 @@
   var saveLockPanningOption = function saveLockPanningOption(value) {
     localStorageSetItem('lockpanning', value);
     if (value) {
-      R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
+      R6MMainControls.pan.reset($mapMains, getResetDimensions);
     }
   };
 
@@ -306,7 +306,7 @@
   };
 
   var sendFloorSelectAnalyticsEvent = function sendFloorSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Floor', R6MapsMainControls.floors.get());
+    sendControlAnalyticsEvent('Floor', R6MMainControls.floors.get());
   };
 
   var sendMapPanelCountEvent = function sendMapPanelCountEvent(panelCount) {
@@ -314,11 +314,11 @@
   };
 
   var sendMapSelectAnalyticsEvent = function sendMapSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Map', R6MapsMainControls.maps.get());
+    sendControlAnalyticsEvent('Map', R6MMainControls.maps.get());
   };
 
   var sendObjectiveSelectAnalyticsEvent = function sendObjectiveSelectAnalyticsEvent() {
-    sendControlAnalyticsEvent('Objective', R6MapsMainControls.objectives.get());
+    sendControlAnalyticsEvent('Objective', R6MMainControls.objectives.get());
   };
 
   var sendRoomLabelEvent = function sendRoomLabelEvent(style) {
@@ -345,15 +345,15 @@
     $.each($mapMains, function (index, map) {
       if (index < numPanels) {
         $(map).css('display', 'block');
-        R6MapsMainControls.zoom.enable($(map));
+        R6MMainControls.zoom.enable($(map));
       } else {
         $(map).css('display', 'none');
-        R6MapsMainControls.zoom.disable($(map));
+        R6MMainControls.zoom.disable($(map));
       }
     });
 
-    R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
-    R6MapsMainControls.zoom.reset($mapMains, getResetDimensions);
+    R6MMainControls.pan.reset($mapMains, getResetDimensions);
+    R6MMainControls.zoom.reset($mapMains, getResetDimensions);
 
     showSelectedFloor();
   };
@@ -366,7 +366,7 @@
   };
 
   var setRoomLabelStyle = function setRoomLabelStyle(style) {
-    R6MapsMainRender.setRoomLabelStyle($mapElements, style);
+    R6MMainRender.setRoomLabelStyle($mapElements, style);
     localStorageSetItem('roomlabelstyle', style);
     sendRoomLabelEvent(style);
   };
@@ -394,20 +394,20 @@
     var closeMenu = getMenuApi().close;
 
     $mapMains.on('click', outputCoordinates);
-    R6MapsMainControls.objectives.setup(handleObjectiveChange);
-    R6MapsMainControls.maps.setup(handleMapChange);
-    R6MapsMainControls.floors.setup(handleFloorChange, showSelectedFloor);
-    R6MapsMainControls.roomLabelStyles.setup(setRoomLabelStyle);
-    R6MapsMainControls.mapPanels.setup(handleMapPanelCountChange);
-    R6MapsMainControls.pan.setupLockOption(saveLockPanningOption);
-    R6MapsMainControls.enableScreenshots.setup(handleEnableScreenshotsChange);
-    R6MapsMainControls.menu.setupSelectMaps(showSelectMap, closeMenu);
-    R6MapsMainControls.menu.setupFullScreen();
-    R6MapsMainControls.sessions.setup(R6MapsMainSessions.createJoinDialog.getOpenFn($sessionsDialog), closeMenu);
+    R6MMainControls.objectives.setup(handleObjectiveChange);
+    R6MMainControls.maps.setup(handleMapChange);
+    R6MMainControls.floors.setup(handleFloorChange, showSelectedFloor);
+    R6MMainControls.roomLabelStyles.setup(setRoomLabelStyle);
+    R6MMainControls.mapPanels.setup(handleMapPanelCountChange);
+    R6MMainControls.pan.setupLockOption(saveLockPanningOption);
+    R6MMainControls.enableScreenshots.setup(handleEnableScreenshotsChange);
+    R6MMainControls.menu.setupSelectMaps(showSelectMap, closeMenu);
+    R6MMainControls.menu.setupFullScreen();
+    R6MMainControls.sessions.setup(R6MMainSessions.createJoinDialog.getOpenFn($sessionsDialog), closeMenu);
 
     $(window).on('orientationchange', function() {
-      R6MapsMainControls.pan.reset($mapMains, getResetDimensions);
-      R6MapsMainControls.zoom.reset($mapMains, getResetDimensions);
+      R6MMainControls.pan.reset($mapMains, getResetDimensions);
+      R6MMainControls.zoom.reset($mapMains, getResetDimensions);
     });
   };
 
@@ -428,7 +428,7 @@
   var setupMenu = function setupMenu() {
     var $menuLink = $('#mmenu-link');
 
-    R6MapsMainControls.menu.setup(R6MapsMainRender.roomLabelStyles, showUpdateLinkHighlighted);
+    R6MMainControls.menu.setup(R6MMainRender.roomLabelStyles, showUpdateLinkHighlighted);
 
     $('#mmenu-menu').mmenu({
       offCanvas: {
@@ -444,21 +444,21 @@
 
     $menuLink.click(handleMenuClick);
     if (showUpdateLinkHighlighted()) {
-      R6MapsMainControls.highlightControl($menuLink);
-      R6MapsMainControls.unhighlightControl($menuLink, 1000);
+      R6MMainControls.highlightControl($menuLink);
+      R6MMainControls.unhighlightControl($menuLink, 1000);
     }
 
     $('#lang-choices').on('click','button', handleLangChange);
 
-    R6MapsMainControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
+    R6MMainControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
   };
 
   var setupSelectMap = function seteupSelectMap() {
-    R6MapsMainSelectMaps.setup(
+    R6MMainSelectMaps.setup(
       $('#select-map-grid'),
       $('#select-map-heading'),
       $mainNav,
-      R6MapsMainData.getMapData(),
+      R6MMainData.getMapData(),
       switchToMap,
       tryHideMapSelect
     );
@@ -474,10 +474,10 @@
   };
 
   var showSelectedFloor =  function showSelectedFloor() {
-    var minMadFlorIndexes = R6MapsMainControls.floors.getMinMaxIndex();
+    var minMadFlorIndexes = R6MMainControls.floors.getMinMaxIndex();
 
-    R6MapsMainRender.showFloor(
-      R6MapsMainControls.floors.get(),
+    R6MMainRender.showFloor(
+      R6MMainControls.floors.get(),
       $mapPanelWrappers,
       $mapWrappers,
       minMadFlorIndexes.min,
@@ -486,11 +486,11 @@
   };
 
   var showSelectedObjective =  function showSelectedObjective() {
-    R6MapsMainRender.showObjective(R6MapsMainControls.objectives.get(), $mapElements);
+    R6MMainRender.showObjective(R6MMainControls.objectives.get(), $mapElements);
   };
 
   var switchToMap = function switchToMap(mapArg) {
-    if (R6MapsMainControls.maps.trySelect(mapArg)) {
+    if (R6MMainControls.maps.trySelect(mapArg)) {
       hideSelectMap();
       setTimeout(function() {
         loadMap();
@@ -522,7 +522,7 @@
     var enableScreenshotsOption = localStorage.getItem('enablescreenshots');
 
     if (enableScreenshotsOption !== null) {
-      R6MapsMainControls.enableScreenshots.set(enableScreenshotsOption);
+      R6MMainControls.enableScreenshots.set(enableScreenshotsOption);
       handleEnableScreenshotsChange((enableScreenshotsOption === 'true'));
     }
   };
@@ -531,7 +531,7 @@
     var lockPanningOption = localStorage.getItem('lockpanning');
 
     if (lockPanningOption !== null) {
-      R6MapsMainControls.pan.setLockOption(lockPanningOption);
+      R6MMainControls.pan.setLockOption(lockPanningOption);
     }
   };
 
@@ -545,7 +545,7 @@
         ($window.width() > 1000) || ($window.height() > 1000)
       ) ? 2 : 1;
     }
-    R6MapsMainControls.mapPanels.trySelect(mapPanelCount);
+    R6MMainControls.mapPanels.trySelect(mapPanelCount);
     setMapPanelCount(mapPanelCount);
   };
 
@@ -561,8 +561,8 @@
     var style = localStorage.getItem('roomlabelstyle');
 
     if (style) {
-      R6MapsMainControls.roomLabelStyles.trySelect(style);
-      R6MapsMainRender.setRoomLabelStyle($mapElements, style);
+      R6MMainControls.roomLabelStyles.trySelect(style);
+      R6MMainRender.setRoomLabelStyle($mapElements, style);
     }
   };
 
@@ -570,14 +570,14 @@
     var hashArgs = getHashArgs(),
       mapArg = hashArgs[0];
 
-    return R6MapsMainControls.maps.trySelect(mapArg);
+    return R6MMainControls.maps.trySelect(mapArg);
   };
 
   var trySelectBookmarkedObjective = function trySelectBookmarkedObjective() {
     var hashArgs = getHashArgs(),
       objectiveArg = hashArgs[2];
 
-    if (R6MapsMainControls.objectives.trySelect(objectiveArg)) {
+    if (R6MMainControls.objectives.trySelect(objectiveArg)) {
       showSelectedObjective();
     }
   };
@@ -586,14 +586,14 @@
     var hashArgs = getHashArgs(),
       floorArg = hashArgs[1];
 
-    if (R6MapsMainControls.floors.trySelect(floorArg)) {
+    if (R6MMainControls.floors.trySelect(floorArg)) {
       showSelectedFloor();
     }
   };
 
   var tryEnableSessionFeature = function tryEnableSessionFeature() {
     if (R6MHelpers.queryString('sessions')) {
-      R6MapsMainControls.sessions.enable();
+      R6MMainControls.sessions.enable();
     }
   };
 
@@ -601,9 +601,9 @@
     if (isShowingMap()) {
       var hashText = '';
 
-      hashText += '' + R6MapsMainControls.maps.get();
-      hashText += HASH_SPLIT_CHAR + R6MapsMainControls.floors.get();
-      hashText += HASH_SPLIT_CHAR + R6MapsMainControls.objectives.get();
+      hashText += '' + R6MMainControls.maps.get();
+      hashText += HASH_SPLIT_CHAR + R6MMainControls.floors.get();
+      hashText += HASH_SPLIT_CHAR + R6MMainControls.objectives.get();
       window.location.hash = hashText;
     } else {
       removeHashFromUrl();
@@ -628,7 +628,7 @@
     document.title = isShowingMap() ?
       R6MLangTerms.terms.general.pageTitle.replace(
         '{mapName}',
-        R6MapsMainData.getMapData()[getLoadedMapKey()].name
+        R6MMainData.getMapData()[getLoadedMapKey()].name
       ) :
       R6MLangTerms.terms.general.pageTitleSelectMap;
   };

@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsMainRender = (function($,window,document,R6MLangTerms,undefined) {
+var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
   var SVG_WIDTH = 2560,
     SVG_HEIGHT = 1474,
     RETINA_WIDTH_CUTOFF = 1280,
