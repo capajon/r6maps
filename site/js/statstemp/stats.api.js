@@ -30,12 +30,7 @@ var R6MStatsApi = (function(undefined) {
       mapSuccessCb(mapApiData);
     });
     $.when(mapCall, opCall).then(function (mapApiData, opApiData) {
-      R6MStatsOpData.update(
-        opApiData[0],
-        R6MStatsMapData.getTotalRoundsFromApiData(mapApiData[0]),
-        metaData.operators
-      );
-      opSuccessCb();
+      opSuccessCb(opApiData[0], mapApiData[0]);
       allSuccessCb();
     });
   };

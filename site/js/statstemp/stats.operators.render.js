@@ -33,19 +33,19 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     }
   };
 
-  var getOperatorsHtml = function getOperatorsHtml(operatorsData, ranksData, selectedSkillRanks) {
+  var getOpHtml = function getOpHtml(operatorsData, ranksData, selectedRanks) {
     var html = '',
-      numSkillColumns = selectedSkillRanks.length + 1; // +1 for ALL
+      numSkillColumns = selectedRanks.length + 1; // +1 for ALL
 
     html += '<div class="table-container"><table>';
 
     html += getMainHeaderHtml(numSkillColumns, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
-    html += getSubHeaderHtml(ranksData, selectedSkillRanks);
-    html += getOperatorsForRoleHtml(operatorsData.attackers, ranksData, selectedSkillRanks, 'attackers');
+    html += getSubHeaderHtml(ranksData, selectedRanks);
+    html += getOperatorsForRoleHtml(operatorsData.attackers, ranksData, selectedRanks, 'attackers');
 
     html += getMainHeaderHtml(numSkillColumns, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
-    html += getSubHeaderHtml(ranksData, selectedSkillRanks);
-    html += getOperatorsForRoleHtml(operatorsData.defenders, ranksData, selectedSkillRanks, 'defenders');
+    html += getSubHeaderHtml(ranksData, selectedRanks);
+    html += getOperatorsForRoleHtml(operatorsData.defenders, ranksData, selectedRanks, 'defenders');
 
     html += '</table></div>';
 
@@ -72,7 +72,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   var getOperatorsForRoleHtml = function getOperatorsForRoleHtml(
     operatorsDataForRole,
     ranksData,
-    selectedSkillRanks,
+    selectedRanks,
     roleCssClass
   ) {
     var html = '';
@@ -83,7 +83,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       html += '<td class="name">' + operator.name + '</<td>';
       statColumns.forEach(function(statColumn) {
         html += '<td class="all">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
-        selectedSkillRanks.forEach(function(rankKey) {
+        selectedRanks.forEach(function(rankKey) {
           html += '<td class="can-hide ' + ranksData[rankKey].cssClass + '"><span>';
           html += (operator.statsByRank[rankKey]) ?
             getFormattedNumber(operator.statsByRank[rankKey][statColumn.key], statColumn.displayType, true) :
@@ -98,7 +98,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
   var getSubHeaderHtml = function getSubHeaderHtml(
     ranksData,
-    selectedSkillRanks
+    selectedRanks
   ) {
     var html = '',
       srData;
@@ -108,7 +108,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<th class="name"><span tabindex="0" class="sortable" data-sortfield="name">' + R6MLangTerms.terms.stats.tableHeaderName + '</span></th>'; // name column
     statColumns.forEach(function(statColumn) {
       html += '<th class="all"><span class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">' + R6MLangTerms.terms.stats.tableHeaderAllRanks + '</span></th>';
-      selectedSkillRanks.forEach(function(rankKey) {
+      selectedRanks.forEach(function(rankKey) {
         srData = ranksData[rankKey];
         html += '<th class="can-hide ' + srData.cssClass + '"><span><div tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" title="' + srData.name + '" class="sortable rank-icon ' + srData.cssClass + '"></div></span></th>';
       });
@@ -121,16 +121,16 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
-  var render = function render(operatorsData, $outputEl, statsData, selectedSkillRanks, sortCallback) {
-    $outputEl.html(getOperatorsHtml(operatorsData, statsData.ranks, selectedSkillRanks));
-    setupSortColumns($outputEl, sortCallback);
+  var render = function render(opStats, $outputEl, ranksMetaData, selectedRanks, sortCb) {
+    $outputEl.html(getOpHtml(opStats, ranksMetaData, selectedRanks));
+    setupSortColumns($outputEl, sortCb);
   };
 
-  var setupSortColumns = function setupSortColumns($outputEl, sortCallback) {
+  var setupSortColumns = function setupSortColumns($outputEl, sortCb) {
     $outputEl.find('.sortable').on('click', function(event) {
       var source = $(event.target);
 
-      sortCallback(source.data('sortfield'), source.data('sortrank'));
+      sortCb(source.data('sortfield'), source.data('sortrank'));
     });
   };
 

@@ -118,6 +118,7 @@
     R6MStatsMapData.set(mapApiData, metaData.winReasons);
     R6MStatsMapRender.render(R6MStatsMapData.get(), $mapOutput);
     $sectionMap.removeClass('load-in-progress');
+    console.log('Map success', R6MStatsMapData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
   };
 
   var handleApiMapError = function handleApiMapError(mapData) {
@@ -126,21 +127,26 @@
     $mapOutput.html('<p class="error">' + R6MLangTerms.terms.stats.error + '</p>');
   };
 
-  var handleApiOperatorSuccess = function handleApiOperatorSuccess(operatorsData) {
-    console.log('Operators success', R6MStatsOpData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
+  var handleApiOpSuccess = function handleApiOpSuccess(opApiData, mapApiData) {
+    R6MStatsOpData.set(
+      opApiData,
+      R6MStatsMapData.getTotalRoundsFromApiData(mapApiData),
+      metaData.operators
+    );
     tryLoadSavedOperatorsSortField();
 
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
       $operatorsOutput,
-      metaData,
+      metaData.ranks,
       getSkillRanksForSeason(R6MStatsControls.seasons.get($seasonsSelect)),
       resortOperators
     );
     $sectionOperators.removeClass('load-in-progress');
+    console.log('Operators success', R6MStatsOpData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
   };
 
-  var handleApiOperatorError = function handleApiOperatorError(operatorsData) {
+  var handleApiOpError = function handleApiOpError(operatorsData) {
     $sectionOperators.removeClass('load-in-progress');
     $operatorsOutput.html('<p class="error">' + R6MLangTerms.terms.stats.error + '</p>');
   };
@@ -182,8 +188,8 @@
     R6MStatsApi.getMapAndOperators(
       handleApiMapSuccess,
       handleApiMapError,
-      handleApiOperatorSuccess,
-      handleApiOperatorError,
+      handleApiOpSuccess,
+      handleApiOpError,
       handleApiAllSuccess,
       queryString,
       metaData
@@ -254,7 +260,7 @@
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
       $operatorsOutput,
-      metaData,
+      metaData.ranks,
       getSkillRanksForSeason(R6MStatsControls.seasons.get($seasonsSelect)),
       resortOperators
     );

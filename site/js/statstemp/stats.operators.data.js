@@ -1,7 +1,7 @@
 'use strict';
 
 var R6MStatsOpData = (function(R6MLangTerms, undefined) {
-  var savedStats = { attackers: [], defenders: [] };
+  var opStats = { attackers: [], defenders: [] };
 
   var getEmptyStatsObject = function getEmptyStatsObject() {
     return {
@@ -18,7 +18,7 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
   };
 
   var getCurrentStats = function getCurrentStats() {
-    return savedStats;
+    return opStats;
   };
 
   var getOpRoleStats = function getOpRoleStats(apiOpData, totalRounds, opMetaData) {
@@ -27,7 +27,7 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
       totalPlaysAllRanks = 0;
 
     for (var opKey in apiOpData) {
-      var opStats = {
+      var newOpStats = {
         name: opMetaData[opKey].name,
         cssClass: opMetaData[opKey].cssClass,
         statsByRank: {},
@@ -42,25 +42,32 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
 
         ['totalWins', 'totalKills', 'totalDeaths', 'totalPlays'].forEach(function(statKey) {
           opRankStats[statKey] = +apiOpRankData[statKey];
-          opStats.statsAllRanks[statKey] += opRankStats[statKey];
+          newOpStats.statsAllRanks[statKey] += opRankStats[statKey];
         });
 
         totalPlaysByRank[rankKey] = totalPlaysByRank[rankKey] ?
           totalPlaysByRank[rankKey] + opRankStats.totalPlays : opRankStats.totalPlays;
         totalPlaysAllRanks += opRankStats.totalPlays;
 
-        opStats.statsByRank[rankKey] = opRankStats;
+        newOpStats.statsByRank[rankKey] = opRankStats;
       }
 
-      opRoleStats.push(opStats);
+      opRoleStats.push(newOpStats);
     }
     setTallies(opRoleStats, totalRounds, totalPlaysByRank, totalPlaysAllRanks);
     setAverages(opRoleStats);
     return opRoleStats;
   };
 
-  var setAverages = function setAverages(opRoleStats) {
+  var set = function set(apiData, totalRounds, opMetaData) {
+    opStats = {
+      attackers: getOpRoleStats(apiData.role.Attacker, totalRounds, opMetaData),
+      defenders: getOpRoleStats(apiData.role.Defender, totalRounds, opMetaData)
+    };
+  };
 
+  var setAverages = function setAverages(opRoleStats) {
+    // TODO
   };
 
   var setTallies = function setTallies(opRoleStats, totalRounds, totalPlaysByRank, totalPlaysAllRanks) {
@@ -85,13 +92,13 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
     stats.winRate = (!stats.totalPlays) ? 0 : stats.totalWins / stats.totalPlays;
   };
 
-  var trySort = function trySort(sortField, optionalRank) {
-    trySortForRole(savedStats.attackers, sortField, optionalRank);
-    trySortForRole(savedStats.defenders, sortField, optionalRank);
+  var trySort = function trySort(sortField, optionalRank, descending) {
+    trySortRole(opStats.attackers, sortField, optionalRank, descending);
+    trySortRole(opStats.defenders, sortField, optionalRank, descending);
   };
 
-  var trySortForRole = function trySortForRole(operators, sortField, optionalRank, descending) {
-    operators.sort(function(a, b) {
+  var trySortRole = function trySortRole(newOpStats, sortField, optionalRank, descending) {
+    newOpStats.sort(function(a, b) {
       var aValue = a.name,
         bValue = b.name;
 
@@ -116,16 +123,9 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
     });
   };
 
-  var update = function update(apiData, totalRounds, opMetaData) {
-    savedStats = {
-      attackers: getOpRoleStats(apiData.role.Attacker, totalRounds, opMetaData),
-      defenders: getOpRoleStats(apiData.role.Defender, totalRounds, opMetaData)
-    };
-  };
-
   return  {
     get: getCurrentStats,
-    trySort: trySort,
-    update: update
+    set: set,
+    trySort: trySort
   };
 })(R6MLangTerms);
