@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
+var R6MStatsOpData = (function(R6MapsCommonLangTerms, undefined) {
   var operatorsData = { attackers: [], defenders: [] };
 
   var getEmptyStatsObject = function getEmptyStatsObject() {
@@ -36,26 +36,26 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
         averagesAllRanks: getEmptyStatsObject()
       };
 
-      for (var skillRankKey in rawOperatorsDataForRole[operatorKey]) {
+      for (var rankKey in rawOperatorsDataForRole[operatorKey]) {
         var tempStatsByRank = getEmptyStatsObject();
 
-        tempStatsByRank.totalWins = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalWins;
+        tempStatsByRank.totalWins = +rawOperatorsDataForRole[operatorKey][rankKey].totalWins;
         operatorData.statsAllRanks.totalWins += tempStatsByRank.totalWins;
 
-        tempStatsByRank.totalKills = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalKills;
+        tempStatsByRank.totalKills = +rawOperatorsDataForRole[operatorKey][rankKey].totalKills;
         operatorData.statsAllRanks.totalKills += tempStatsByRank.totalKills;
 
-        tempStatsByRank.totalDeaths = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalDeaths;
+        tempStatsByRank.totalDeaths = +rawOperatorsDataForRole[operatorKey][rankKey].totalDeaths;
         operatorData.statsAllRanks.totalDeaths += tempStatsByRank.totalDeaths;
 
-        tempStatsByRank.totalPlays = +rawOperatorsDataForRole[operatorKey][skillRankKey].totalPlays;
+        tempStatsByRank.totalPlays = +rawOperatorsDataForRole[operatorKey][rankKey].totalPlays;
         operatorData.statsAllRanks.totalPlays += tempStatsByRank.totalPlays;
 
-        totalPlaysByRank[skillRankKey] = totalPlaysByRank[skillRankKey] ?
-          totalPlaysByRank[skillRankKey] + tempStatsByRank.totalPlays : tempStatsByRank.totalPlays;
+        totalPlaysByRank[rankKey] = totalPlaysByRank[rankKey] ?
+          totalPlaysByRank[rankKey] + tempStatsByRank.totalPlays : tempStatsByRank.totalPlays;
         totalPlaysAll += tempStatsByRank.totalPlays;
 
-        operatorData.statsByRank[skillRankKey] = tempStatsByRank;
+        operatorData.statsByRank[rankKey] = tempStatsByRank;
       }
 
       result.push(operatorData);
@@ -67,8 +67,8 @@ var R6MapsStatsOperatorsData = (function(R6MapsCommonLangTerms, undefined) {
 
   var saveFromApiData = function saveFromApiData(rawOperatorsData, totalRoundsMap, statsData) {
     operatorsData = {
-      attackers: getOperatorsDataForRole(rawOperatorsData.role.Attacker, totalRoundsMap, statsData.skillRanks, statsData.operators),
-      defenders: getOperatorsDataForRole(rawOperatorsData.role.Defender, totalRoundsMap, statsData.skillRanks, statsData.operators)
+      attackers: getOperatorsDataForRole(rawOperatorsData.role.Attacker, totalRoundsMap, statsData.ranks, statsData.operators),
+      defenders: getOperatorsDataForRole(rawOperatorsData.role.Defender, totalRoundsMap, statsData.ranks, statsData.operators)
     };
   };
 

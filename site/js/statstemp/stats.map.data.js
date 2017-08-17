@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsStatsMapData = (function(undefined) {
+var R6MStatsMapData = (function(undefined) {
   var checkEmptyData = function checkEmptyData(rawMapData) {
     if (!rawMapData || !rawMapData.winRole || !rawMapData.winRole.Attacker || !rawMapData.winRole.Defender) {
       console.error('Unexpected error encountered while processing map API data.', rawMapData);
@@ -16,8 +16,8 @@ var R6MapsStatsMapData = (function(undefined) {
       return null;
     }
 
-    result.attackers = getMapDataForRole(rawMapData.winRole.Attacker, statsData.mapRoundWinReasons);
-    result.defenders = getMapDataForRole(rawMapData.winRole.Defender, statsData.mapRoundWinReasons);
+    result.attackers = getMapDataForRole(rawMapData.winRole.Attacker, statsData.winReasons);
+    result.defenders = getMapDataForRole(rawMapData.winRole.Defender, statsData.winReasons);
 
     result.overall = {};
     result.overall.totalRounds = result.attackers.totalRoundsWon + result.defenders.totalRoundsWon;
@@ -31,17 +31,17 @@ var R6MapsStatsMapData = (function(undefined) {
     return result;
   };
 
-  var getMapDataForRole = function getMapDataForRole(rawMapDataForRole, mapRoundWinReasons) {
+  var getMapDataForRole = function getMapDataForRole(rawMapDataForRole, winReasons) {
     var result = {
       totalRoundsWon: +rawMapDataForRole.totalRounds,
       averageRoundLength: +rawMapDataForRole.averageRoundDuration,
       winReasons: []
     };
 
-    for (var key in mapRoundWinReasons) {
+    for (var key in winReasons) {
       if (rawMapDataForRole[key] && (rawMapDataForRole[key] != '0')) {
         result.winReasons.push({
-          description: mapRoundWinReasons[key].name,
+          description: winReasons[key].name,
           totalRounds: +rawMapDataForRole[key],
           percent: (!rawMapDataForRole.totalRounds) ? 0 : +rawMapDataForRole[key] / +rawMapDataForRole.totalRounds
         });

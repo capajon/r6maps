@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsStatsApi = (function(undefined) {
+var R6MStatsApi = (function(undefined) {
   var getMapAndOperators = function getMapAndOperators(
     mapSuccessCallback,
     mapErrorCallback,
@@ -27,12 +27,12 @@ var R6MapsStatsApi = (function(undefined) {
     }).fail(operatorErrorCallback);
 
     $.when(mapCall).then(function (rawMapData) {
-      mapSuccessCallback(R6MapsStatsMapData.getFromApiData(rawMapData, statsData));
+      mapSuccessCallback(R6MStatsMapData.getFromApiData(rawMapData, statsData));
     });
     $.when(mapCall, operatorsCall).then(function (rawMapData, rawOperatorsData) {
-      R6MapsStatsOperatorsData.saveFromApiData(
+      R6MStatsOpData.saveFromApiData(
         rawOperatorsData[0],
-        R6MapsStatsMapData.getTotalRoundsFromApiData(rawMapData[0]),
+        R6MStatsMapData.getTotalRoundsFromApiData(rawMapData[0]),
         statsData
       );
       operatorSuccessCallback();

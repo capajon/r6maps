@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
+var R6MStatsMetaData = (function(R6MapsCommonLangTerms, undefined){
   var getMapStatsData = function getMapStatsData() {
     var terms = R6MapsCommonLangTerms.terms,
       mapRooms = terms.mapRooms,
@@ -13,12 +13,12 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
         XONE: { seasonSpan: [5,99], name: terms.platforms.xboxone },
         PS4: { seasonSpan: [5,99], name: terms.platforms.ps4 }
       },
-      gameModes: {
+      modes: {
         BOMB: { seasonSpan: [5,99], name: terms.objectives.bomb },
         HOSTAGE: { seasonSpan: [5,99], name: terms.objectives.hostage },
         'SECURE AREA': { seasonSpan: [5,99], name: terms.objectives.secure }
       },
-      skillRanks: {
+      ranks: {
         Unranked: { seasonSpan: [5,99], name: terms.ranks.unranked, cssClass: 'unranked' },
         Copper: { seasonSpan: [5,99], name: terms.ranks.copper, cssClass: 'copper' },
         Bronze: { seasonSpan: [5,99], name: terms.ranks.bronze, cssClass: 'bronze' },
@@ -27,7 +27,7 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
         Platinum: { seasonSpan: [5,99], name: terms.ranks.platinum, cssClass: 'platinum' },
         Diamond: { seasonSpan: [5,99], name: terms.ranks.diamond, cssClass: 'diamond' }
       },
-      mapRoundWinReasons: { // no need for season span verification
+      winReasons: { // no need for season span verification
         allTeamsDead: { name: terms.statsRoundWinReasons.allTeamsDead, iconCssClass: 'all-dead' },
         attackersEliminated: { name: terms.statsRoundWinReasons.attackersEliminated, iconCssClass: 'eliminated' },
         attackersKilledHostage: { name: terms.statsRoundWinReasons.attackersKilledHostage, iconCssClass: 'hostage-killed' },
@@ -81,7 +81,7 @@ var R6MapsStatsData = (function(R6MapsCommonLangTerms, undefined){
         'SWAT-CASTLE': { name: terms.operators.castle, cssClass: 'castle' },
         'SWAT-PULSE': { name: terms.operators.pulse, cssClass: 'pulse' }
       },
-      mapsGameModeObjectiveLocations: {
+      mapModeLocations: {
         BANK: {
           name: terms.mapNames.bank,
           seasonSpan: [5,99],

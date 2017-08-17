@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
+var R6MStatsOpRender = (function(R6MapsCommonLangTerms, undefined) {
   var statTerms = R6MapsCommonLangTerms.terms.stats,
     locale = R6MapsCommonLangTerms.name.split('_')[0],
     statColumns = [
@@ -33,19 +33,19 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
     }
   };
 
-  var getOperatorsHtml = function getOperatorsHtml(operatorsData, skillRanksData, selectedSkillRanks) {
+  var getOperatorsHtml = function getOperatorsHtml(operatorsData, ranksData, selectedSkillRanks) {
     var html = '',
       numSkillColumns = selectedSkillRanks.length + 1; // +1 for ALL
 
     html += '<div class="table-container"><table>';
 
     html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
-    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks);
-    html += getOperatorsForRoleHtml(operatorsData.attackers, skillRanksData, selectedSkillRanks, 'attackers');
+    html += getSubHeaderHtml(ranksData, selectedSkillRanks);
+    html += getOperatorsForRoleHtml(operatorsData.attackers, ranksData, selectedSkillRanks, 'attackers');
 
     html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
-    html += getSubHeaderHtml(skillRanksData, selectedSkillRanks);
-    html += getOperatorsForRoleHtml(operatorsData.defenders, skillRanksData, selectedSkillRanks, 'defenders');
+    html += getSubHeaderHtml(ranksData, selectedSkillRanks);
+    html += getOperatorsForRoleHtml(operatorsData.defenders, ranksData, selectedSkillRanks, 'defenders');
 
     html += '</table></div>';
 
@@ -71,7 +71,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
 
   var getOperatorsForRoleHtml = function getOperatorsForRoleHtml(
     operatorsDataForRole,
-    skillRanksData,
+    ranksData,
     selectedSkillRanks,
     roleCssClass
   ) {
@@ -83,10 +83,10 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
       html += '<td class="name">' + operator.name + '</<td>';
       statColumns.forEach(function(statColumn) {
         html += '<td class="all">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
-        selectedSkillRanks.forEach(function(skillRankKey) {
-          html += '<td class="can-hide ' + skillRanksData[skillRankKey].cssClass + '"><span>';
-          html += (operator.statsByRank[skillRankKey]) ?
-            getFormattedNumber(operator.statsByRank[skillRankKey][statColumn.key], statColumn.displayType, true) :
+        selectedSkillRanks.forEach(function(rankKey) {
+          html += '<td class="can-hide ' + ranksData[rankKey].cssClass + '"><span>';
+          html += (operator.statsByRank[rankKey]) ?
+            getFormattedNumber(operator.statsByRank[rankKey][statColumn.key], statColumn.displayType, true) :
             '-';
           html += '</span></td>';
         });
@@ -97,7 +97,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
   };
 
   var getSubHeaderHtml = function getSubHeaderHtml(
-    skillRanksData,
+    ranksData,
     selectedSkillRanks
   ) {
     var html = '',
@@ -108,9 +108,9 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
     html += '<th class="name"><span tabindex="0" class="sortable" data-sortfield="name">' + R6MapsCommonLangTerms.terms.stats.tableHeaderName + '</span></th>'; // name column
     statColumns.forEach(function(statColumn) {
       html += '<th class="all"><span class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">' + R6MapsCommonLangTerms.terms.stats.tableHeaderAllRanks + '</span></th>';
-      selectedSkillRanks.forEach(function(skillRankKey) {
-        srData = skillRanksData[skillRankKey];
-        html += '<th class="can-hide ' + srData.cssClass + '"><span><div tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + skillRankKey + '" title="' + srData.name + '" class="sortable rank-icon ' + srData.cssClass + '"></div></span></th>';
+      selectedSkillRanks.forEach(function(rankKey) {
+        srData = ranksData[rankKey];
+        html += '<th class="can-hide ' + srData.cssClass + '"><span><div tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" title="' + srData.name + '" class="sortable rank-icon ' + srData.cssClass + '"></div></span></th>';
       });
     });
     html += '</tr>';
@@ -122,7 +122,7 @@ var R6MapsStatsOperatorsRender = (function(R6MapsCommonLangTerms, undefined) {
   };
 
   var render = function render(operatorsData, $outputEl, statsData, selectedSkillRanks, sortCallback) {
-    $outputEl.html(getOperatorsHtml(operatorsData, statsData.skillRanks, selectedSkillRanks));
+    $outputEl.html(getOperatorsHtml(operatorsData, statsData.ranks, selectedSkillRanks));
     setupSortColumns($outputEl, sortCallback);
   };
 

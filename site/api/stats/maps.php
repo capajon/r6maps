@@ -9,9 +9,9 @@ $config = array(
     "season" => getSeason($mysqli),
     "userInputParams" => [
         "platform",
-        "gameMode",
-        "mapName",
-        "objectiveLocation"
+        "mode",
+        "map",
+        "location"
     ],
     "sumFields" => [
         "allTeamsDead",

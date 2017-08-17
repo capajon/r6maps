@@ -9,9 +9,9 @@ $config = array(
     "season" => getSeason($mysqli),
     "userInputParams" => [
         "platform",
-        "gameMode",
-        "mapName",
-        "objectiveLocation"
+        "mode",
+        "map",
+        "location"
     ],
     "sumFields" => [
         "totalKills",
@@ -49,19 +49,19 @@ function getOperatorsData($mysqli, $config) {
         return [];
     }
 
-    $sql .= "SELECT role ,operator ,skillRank ";
+    $sql .= "SELECT role ,operator ,rank ";
     foreach($config["sumFields"] as $f){
         $sql .= ",SUM(".$f.") AS ".$f." ";
     }
     $sql .= "FROM r6maps_stats_operators_s".$config['season']." ";
     $sql .= getSqlWhere($mysqli, $config);
-    $sql .= "GROUP BY role ,operator, skillRank ";
+    $sql .= "GROUP BY role ,operator, rank ";
 
     $operators = array();
     if($result = $mysqli->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             foreach($config["sumFields"] as $sumf){
-                $operators[$row["role"]][$row["operator"]][$row["skillRank"]][$sumf] = $row[$sumf];
+                $operators[$row["role"]][$row["operator"]][$row["rank"]][$sumf] = $row[$sumf];
             }
         }
     }

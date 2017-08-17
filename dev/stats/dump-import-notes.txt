@@ -13,24 +13,21 @@ NOTE: Allowed SQL Management Studio to pick column types reviewing all rows firs
 -----------------------------------------------------------------------------------------
 STEP 2A (OPERATORS): CREATED TEMP PARSING TABLE
 
-*** THIS CAN PROBABLY BE COMBINED WITH 2B NOW THAT ALLSKILLRANK REMOVED ***
-
-Cteated temp table: r6maps_stats_TEMP_operators_parsing1
-(to make query time manageable)
+Cteated temp table: r6maps_stats_S5_operators
 
 SELECT
-t_d.mapname as mapName
+t_d.mapname as map
 ,t_d.platform as platform
-,t_d.gamemode as gameMode
-,t_d.objectivelocation as objectiveLocation
+,REPLACE(t_d.gameMode,'PvP – ','') as mode
+,t_d.objectivelocation as location
 ,t_d.role as role
-,t_d.skillrank as skillRank
+,t_d.skillrank as rank
 ,t_d.operator as operator
 ,SUM(t_d.nbkills) as totalKills
 ,ISNULL(t_deaths.totalPlays, 0) as totalDeaths
 ,ISNULL(t_wins.totalPlays, 0) as totalWins
 ,COUNT(*) as totalPlays
-INTO r6maps_stats_TEMP_operators_parsing
+INTO r6maps_stats_S5_operators
 FROM datadump_S5 AS t_d
 -- TOTAL DEATHS:
 LEFT JOIN (
@@ -100,37 +97,14 @@ t_d.mapname
 ,t_d.operator
 ,ISNULL(t_deaths.totalplays, 0)
 ,ISNULL(t_wins.totalplays, 0)
-
------------------------------------------------------------------------------------------
-STEP 2B (OPERATORS): CREATED OPERATORS TABLE FOR EXPORT
-
-*** THIS CAN PROBABLY BE COMBINED WITH 2A NOW THAT ALLSKILLRANK REMOVED ***
-*** THIS STEP JUST DOES REMOVAL OF 'PvP – ' FROM GAMEMODE ***
-
-Created table: r6maps_stats_S5_operators
-
-SELECT
-t_ops.platform
-,t_ops.mapName
-,REPLACE(t_ops.gameMode,'PvP – ','') AS gameMode
-,t_ops.objectiveLocation
-,t_ops.role
-,t_ops.skillRank
-,t_ops.operator
-,t_ops.totalKills
-,t_ops.totalDeaths
-,t_ops.totalWins
-,t_ops.totalPlays
-INTO r6maps_stats_operators_S5
-FROM r6maps_stats_TEMP_operators_parsing AS t_ops
 ORDER BY
-t_ops.platform
-,t_ops.mapName
-,REPLACE(t_ops.gameMode,'PvP – ','')
-,t_ops.objectiveLocation
-,t_ops.role
-,t_ops.skillRank
-,t_ops.operator
+t_d.mapname
+,t_d.platform
+,t_d.gamemode
+,t_d.objectivelocation
+,t_d.role
+,t_d.skillrank
+,t_d.operator
 
 -----------------------------------------------------------------------------------------
 STEP 3A (MAPS): CREATED TEMP PARSING TABLE
@@ -198,9 +172,9 @@ TimeExpired
 
 SELECT
 t_m.platform
-,t_m.mapName
-,REPLACE(t_m.gameMode,'PvP – ','') AS gameMode
-,t_m.objectiveLocation
+,t_m.mapName AS map
+,REPLACE(t_m.gameMode,'PvP – ','') AS mode
+,t_m.objectiveLocation AS location
 ,t_m.winRole
 ,ISNULL(t_m_endroundreason_AllTeamsDead.totalRounds,0) as allTeamsDead
 ,ISNULL(t_m_endroundreason_AttackersEliminated.totalRounds,0) as attackersEliminated
