@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MapsCommonHelpers, R6MapsCommonLangTerms);
-}(function($, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MapsCommonHelpers, R6MapsCommonLangTerms, undefined) {
+  pagecode(window.jQuery, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MHelpers, R6MLangTerms);
+}(function($, window, document, R6MapsMainData, R6MapsMainRender, R6MapsMainControls, R6MapsMainDrawing, R6MapsMainSelectMaps, R6MapsMainSessions, R6MHelpers, R6MLangTerms, undefined) {
   var $mapWrappers,
     $mapPanelWrappers,
     $mapMains,
@@ -27,7 +27,7 @@
     setPageElements();
     R6MapsMainRender.setupMapPanels($mapPanelWrappers, 4);
     setMapElements();
-    R6MapsCommonHelpers.tryLoadStartingLanguage(R6MapsCommonLangTerms.tryLoadLanguage);
+    R6MHelpers.tryLoadStartingLanguage(R6MLangTerms.tryLoadLanguage);
     setupMenu();
     setupSelectMap();
     R6MapsMainControls.maps.populate(R6MapsMainData.getMapData());
@@ -48,7 +48,7 @@
       showMap();
     } else {
       showSelectMap();
-      document.title = R6MapsCommonLangTerms.terms.general.pageTitleStart;
+      document.title = R6MLangTerms.terms.general.pageTitleStart;
     }
 
     setTimeout(function() {
@@ -165,7 +165,7 @@
 
     event.preventDefault();
 
-    R6MapsCommonLangTerms.tryLoadLanguage(newLang);
+    R6MLangTerms.tryLoadLanguage(newLang);
     localStorageSetItem('language', newLang);
 
     setupSelectMap();
@@ -592,7 +592,7 @@
   };
 
   var tryEnableSessionFeature = function tryEnableSessionFeature() {
-    if (R6MapsCommonHelpers.queryString('sessions')) {
+    if (R6MHelpers.queryString('sessions')) {
       R6MapsMainControls.sessions.enable();
     }
   };
@@ -626,10 +626,10 @@
 
   var updateTitle = function updateTitle() {
     document.title = isShowingMap() ?
-      R6MapsCommonLangTerms.terms.general.pageTitle.replace(
+      R6MLangTerms.terms.general.pageTitle.replace(
         '{mapName}',
         R6MapsMainData.getMapData()[getLoadedMapKey()].name
       ) :
-      R6MapsCommonLangTerms.terms.general.pageTitleSelectMap;
+      R6MLangTerms.terms.general.pageTitleSelectMap;
   };
 }));

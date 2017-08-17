@@ -1,8 +1,8 @@
 'use strict';
 
-var R6MStatsMetaData = (function(R6MapsCommonLangTerms, undefined){
+var R6MStatsMetaData = (function(R6MLangTerms, undefined){
   var getMapStatsData = function getMapStatsData() {
-    var terms = R6MapsCommonLangTerms.terms,
+    var terms = R6MLangTerms.terms,
       mapRooms = terms.mapRooms,
       getName = getNameFunction(terms);
 
@@ -490,4 +490,4 @@ var R6MStatsMetaData = (function(R6MapsCommonLangTerms, undefined){
   return  {
     getData: getMapStatsData
   };
-})(R6MapsCommonLangTerms);
+})(R6MLangTerms);

@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
+var R6MStatsControls = (function(R6MLangTerms, undefined){
   var ALL_KEY = 'ALL';
 
   var modesGet = function modesGet($modeSelect) {
@@ -17,7 +17,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
     var optionsCount = 1;
 
     $modesSelect.append($('<option></option>')
-       .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
+       .attr('value', ALL_KEY).text(R6MLangTerms.terms.stats.allOption));
 
     for (var mode in modesData) {
       if (
@@ -42,7 +42,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
     selectedSeason,
     selectedMap
   ) {
-    $modesLabel.html(R6MapsCommonLangTerms.terms.stats.labelGameMode);
+    $modesLabel.html(R6MLangTerms.terms.stats.labelGameMode);
     modesUpdate($modesSelect, modesData, mapModeLocationsData, selectedSeason, selectedMap);
     $modesSelect.on('change', function(event) {
       modeChangeCallback();
@@ -80,7 +80,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
     }
 
     $mapsSelect.append($('<option></option>')
-       .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
+       .attr('value', ALL_KEY).text(R6MLangTerms.terms.stats.allOption));
 
     mapOptions.sort(function(x,y) {
       if (x.text > y.text) {
@@ -101,7 +101,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
     selectedSeason,
     mapChangeCallback
   ) {
-    $mapsLabel.html(R6MapsCommonLangTerms.terms.stats.labelMap);
+    $mapsLabel.html(R6MLangTerms.terms.stats.labelMap);
     mapsUpdate($mapsSelect, mapModeLocationsData, selectedSeason);
     $mapsSelect.on('change', function(event) {
       mapChangeCallback();
@@ -138,7 +138,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
     var optionsCount = 1;
 
     $objectiveLocationsSelect.append($('<option></option>')
-       .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
+       .attr('value', ALL_KEY).text(R6MLangTerms.terms.stats.allOption));
 
     if (selectedMap != 'ALL' && selectedGameMode != 'ALL') {
       for (var objectiveLocation in mapModeLocationsData[selectedMap].objectives[selectedGameMode]) {
@@ -171,7 +171,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
     selectedGameMode,
     objectiveLocationChangeCallback
   ) {
-    $objectiveLocationsLabel.html(R6MapsCommonLangTerms.terms.stats.labelObjectiveLocation);
+    $objectiveLocationsLabel.html(R6MLangTerms.terms.stats.labelObjectiveLocation);
     objectiveLocationsUpdate(
       $objectiveLocationsSelect,
       mapModeLocationsData,
@@ -210,7 +210,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
 
   var platformsPopulateOptions = function platformsPopulateOptions($platformsSelect, platformsData, selectedSeason) {
     $platformsSelect.append($('<option></option>')
-       .attr('value', ALL_KEY).text(R6MapsCommonLangTerms.terms.stats.allOption));
+       .attr('value', ALL_KEY).text(R6MLangTerms.terms.stats.allOption));
 
     for (var platform in platformsData) {
       if (
@@ -224,7 +224,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
   };
 
   var platformsSetup = function platformsSetup($platformsSelect, $platformsLabel, platformsData, selectedSeason, platformChangeCallback) {
-    $platformsLabel.html(R6MapsCommonLangTerms.terms.stats.labelPlatform);
+    $platformsLabel.html(R6MLangTerms.terms.stats.labelPlatform);
     platformsUpdate($platformsSelect, platformsData, selectedSeason);
     $platformsSelect.on('change', function(event) {
       platformChangeCallback();
@@ -250,12 +250,12 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
   var seasonsPopulateOptions = function seasonsPopulateOptions($seasonsSelect, seasonsData) {
     seasonsData.forEach(function(season) {
       $seasonsSelect.append($('<option></option>')
-         .attr('value', season).text(R6MapsCommonLangTerms.terms.seasons[season]));
+         .attr('value', season).text(R6MLangTerms.terms.seasons[season]));
     });
   };
 
   var seasonsSetup = function seasonsSetup($seasonsSelect, $seasonsLabel, seasonsData, seasonChangeCallback) {
-    $seasonsLabel.html(R6MapsCommonLangTerms.terms.stats.labelSeason);
+    $seasonsLabel.html(R6MLangTerms.terms.stats.labelSeason);
     $seasonsSelect.find('option').remove();
     seasonsPopulateOptions($seasonsSelect, seasonsData);
     $seasonsSelect.on('change', function(event) {
@@ -290,7 +290,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
   ) {
     var currentSelectedRanks = ranksGet($ranksControl);
 
-    $ranksHeader.html(R6MapsCommonLangTerms.terms.stats.labelSkillRanks);
+    $ranksHeader.html(R6MLangTerms.terms.stats.labelSkillRanks);
     ranksPopulateOptions($ranksControl, ranksData, selectedSeason);
     $ranksControl.on('change', rankChangeCallback);
     ranksTrySelect($ranksControl, currentSelectedRanks);
@@ -303,7 +303,7 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
   };
 
   var trySelect = function trySelect($selectEl, option) {
-    return R6MapsCommonHelpers.trySelectOption($selectEl, option || ALL_KEY);
+    return R6MHelpers.trySelectOption($selectEl, option || ALL_KEY);
   };
 
   return  {
@@ -343,4 +343,4 @@ var R6MStatsControls = (function(R6MapsCommonLangTerms, undefined){
       trySelect: ranksTrySelect
     }
   };
-})(R6MapsCommonLangTerms);
+})(R6MLangTerms);

@@ -8,7 +8,7 @@ var R6MStatsApi = (function(undefined) {
     operatorErrorCallback,
     allSuccessCallback,
     queryString, // a little hacky, relies on UI param names matching API
-    statsData
+    metaData
   ) {
     var mapCall = $.ajax({
       url: 'http://www.r6maps.com/api/stats/maps.php' + queryString,
@@ -27,13 +27,13 @@ var R6MStatsApi = (function(undefined) {
     }).fail(operatorErrorCallback);
 
     $.when(mapCall).then(function (rawMapData) {
-      mapSuccessCallback(R6MStatsMapData.getFromApiData(rawMapData, statsData));
+      mapSuccessCallback(R6MStatsMapData.getFromApiData(rawMapData, metaData));
     });
-    $.when(mapCall, operatorsCall).then(function (rawMapData, rawOperatorsData) {
-      R6MStatsOpData.saveFromApiData(
-        rawOperatorsData[0],
+    $.when(mapCall, operatorsCall).then(function (rawMapData, opApiData) {
+      R6MStatsOpData.update(
+        opApiData[0],
         R6MStatsMapData.getTotalRoundsFromApiData(rawMapData[0]),
-        statsData
+        metaData.operators
       );
       operatorSuccessCallback();
       allSuccessCallback();

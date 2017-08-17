@@ -1,8 +1,8 @@
 'use strict';
 
-var R6MStatsOpRender = (function(R6MapsCommonLangTerms, undefined) {
-  var statTerms = R6MapsCommonLangTerms.terms.stats,
-    locale = R6MapsCommonLangTerms.name.split('_')[0],
+var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
+  var statTerms = R6MLangTerms.terms.stats,
+    locale = R6MLangTerms.name.split('_')[0],
     statColumns = [
       { key: 'pickRate', name: statTerms.tableHeaderPickRate, displayType: 'percent', canAverage: true },
       { key: 'winRate', name: statTerms.tableHeaderWinRate, displayType: 'percent', canAverage: true },
@@ -17,13 +17,13 @@ var R6MStatsOpRender = (function(R6MapsCommonLangTerms, undefined) {
     case 'percent':
       num *= 100;
       num = (num < 10) ? num.toFixed(1) : Math.round(num);
-      return minimal ? num : R6MapsCommonLangTerms.terms.stats.percentageFormat.replace('{num}', num);
+      return minimal ? num : R6MLangTerms.terms.stats.percentageFormat.replace('{num}', num);
       break;
     case 'ratio':
       return num.toFixed(1);
       break;
     default: // number
-      var locale = R6MapsCommonLangTerms.name.split('_')[0];
+      var locale = R6MLangTerms.name.split('_')[0];
 
       if (num.toLocaleString) {
         return num.toLocaleString(locale);
@@ -39,11 +39,11 @@ var R6MStatsOpRender = (function(R6MapsCommonLangTerms, undefined) {
 
     html += '<div class="table-container"><table>';
 
-    html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
+    html += getMainHeaderHtml(numSkillColumns, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
     html += getSubHeaderHtml(ranksData, selectedSkillRanks);
     html += getOperatorsForRoleHtml(operatorsData.attackers, ranksData, selectedSkillRanks, 'attackers');
 
-    html += getMainHeaderHtml(numSkillColumns, R6MapsCommonLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
+    html += getMainHeaderHtml(numSkillColumns, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
     html += getSubHeaderHtml(ranksData, selectedSkillRanks);
     html += getOperatorsForRoleHtml(operatorsData.defenders, ranksData, selectedSkillRanks, 'defenders');
 
@@ -105,9 +105,9 @@ var R6MStatsOpRender = (function(R6MapsCommonLangTerms, undefined) {
 
     html += '<tr class="sub-header">';
     html += '<th class="operator-icon"></th>';
-    html += '<th class="name"><span tabindex="0" class="sortable" data-sortfield="name">' + R6MapsCommonLangTerms.terms.stats.tableHeaderName + '</span></th>'; // name column
+    html += '<th class="name"><span tabindex="0" class="sortable" data-sortfield="name">' + R6MLangTerms.terms.stats.tableHeaderName + '</span></th>'; // name column
     statColumns.forEach(function(statColumn) {
-      html += '<th class="all"><span class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">' + R6MapsCommonLangTerms.terms.stats.tableHeaderAllRanks + '</span></th>';
+      html += '<th class="all"><span class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">' + R6MLangTerms.terms.stats.tableHeaderAllRanks + '</span></th>';
       selectedSkillRanks.forEach(function(rankKey) {
         srData = ranksData[rankKey];
         html += '<th class="can-hide ' + srData.cssClass + '"><span><div tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" title="' + srData.name + '" class="sortable rank-icon ' + srData.cssClass + '"></div></span></th>';
@@ -137,4 +137,4 @@ var R6MStatsOpRender = (function(R6MapsCommonLangTerms, undefined) {
   return  {
     render: render
   };
-})(R6MapsCommonLangTerms);
+})(R6MLangTerms);

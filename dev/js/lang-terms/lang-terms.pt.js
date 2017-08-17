@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsCommonLangTermsPortBrazil = (function(R6MapsCommonLangTerms, undefined) {
+var R6MLangTermsPortBrazil = (function(R6MLangTerms, undefined) {
   var name = 'pt',
     terms = {
       general: {
@@ -880,10 +880,10 @@ var R6MapsCommonLangTermsPortBrazil = (function(R6MapsCommonLangTerms, undefined
       }
     };
 
-  R6MapsCommonLangTerms.registerLanguage(name, terms);
+  R6MLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
     terms: terms
   };
-})(R6MapsCommonLangTerms);
+})(R6MLangTerms);

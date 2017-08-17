@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, undefined) {
+var R6MapsMainControls = (function($, window, document, R6MLangTerms, undefined) {
   var $mapControl = $('#map-control'),
     $objectiveControl = $('#objective-control'),
     $floorControl = $('#floor-control'),
@@ -115,7 +115,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var getFloorTooltip = function getFloorTooltip(floorIndex) {
-    var shortcutTip = R6MapsCommonLangTerms.terms.general.shortcutTip;
+    var shortcutTip = R6MLangTerms.terms.general.shortcutTip;
 
     if (floorIndex == 0) {
       return shortcutTip.replace('{shortcut}',"'0' or '~'");
@@ -184,12 +184,12 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
     var html = '';
 
     html += '<div id="contributions" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsCommonLangTerms.terms.general.contributions + '</h2>';
-    html += '<p>' + R6MapsCommonLangTerms.terms.general.supportSiteNote + '</p>';
+    html += '<h2>' + R6MLangTerms.terms.general.contributions + '</h2>';
+    html += '<p>' + R6MLangTerms.terms.general.supportSiteNote + '</p>';
     html += '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">';
     html += '<input type="hidden" name="cmd" value="_s-xclick">';
     html += '<input type="hidden" name="hosted_button_id" value="4Z2F2PS6VMDLC">';
-    html += '<input type="image" src="' + R6MapsCommonLangTerms.terms.general.donateImg + '" border="0" name="submit" alt="PayPal">';
+    html += '<input type="image" src="' + R6MLangTerms.terms.general.donateImg + '" border="0" name="submit" alt="PayPal">';
     html += '<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">';
     html += '</form>';
     html += '</div>';
@@ -200,9 +200,9 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
     var html = '';
 
     html += '<div id="lang-choices" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsCommonLangTerms.terms.general.languageHeader + '</h2>';
-    for (var langKey in R6MapsCommonLangTerms.loadedLanguages) {
-      html += '<button data-lang="' + langKey + '">' + R6MapsCommonLangTerms.terms.languages[langKey] + '</button>';
+    html += '<h2>' + R6MLangTerms.terms.general.languageHeader + '</h2>';
+    for (var langKey in R6MLangTerms.loadedLanguages) {
+      html += '<button data-lang="' + langKey + '">' + R6MLangTerms.terms.languages[langKey] + '</button>';
     }
     html += '</div>';
     return html;
@@ -212,38 +212,38 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
     var html = '';
 
     html += '<div id="options-wrapper" class="mmenu-custom-panel">';
-    html += '<h2>' + R6MapsCommonLangTerms.terms.general.optionsHeader + '</h2>';
+    html += '<h2>' + R6MLangTerms.terms.general.optionsHeader + '</h2>';
 
     html += '<div class="map-panel-count-control">';
-    html += '<label>' + R6MapsCommonLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
+    html += '<label>' + R6MLangTerms.terms.general.labelNumberFloorsToDisplay + '</label>';
     html += '<select id="map-pane-count">';
-    html += '<option value="1">' + R6MapsCommonLangTerms.terms.floorDisplayOptions.one + '</option>';
-    html += '<option value="2">' + R6MapsCommonLangTerms.terms.floorDisplayOptions.two + '</option>';
-    html += '<option value="4">' + R6MapsCommonLangTerms.terms.floorDisplayOptions.four + '</option>';
+    html += '<option value="1">' + R6MLangTerms.terms.floorDisplayOptions.one + '</option>';
+    html += '<option value="2">' + R6MLangTerms.terms.floorDisplayOptions.two + '</option>';
+    html += '<option value="4">' + R6MLangTerms.terms.floorDisplayOptions.four + '</option>';
     html += '</select>';
 
     html += '<div id="lock-wrapper">';
     html += '<div class="checkbox-wrapper">';
-    html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MapsCommonLangTerms.terms.general.lockPanning + '</input>';
+    html += '<input type="checkbox" checked="checked" id="lock-panning">' + R6MLangTerms.terms.general.lockPanning + '</input>';
     html += '</div>';
     html += '</div>';
 
     html += '</div>';
 
-    html += '<label>' + R6MapsCommonLangTerms.terms.general.labelRoomLabelStyle + '</label>';
+    html += '<label>' + R6MLangTerms.terms.general.labelRoomLabelStyle + '</label>';
     html += '<select id="room-label-style"></select>';
 
     html += '<hr>';
 
     html += '<div id="los-wrapper">';
-    html += '<label id="los-label">' + R6MapsCommonLangTerms.terms.general.labelLosOpacity + '</label>';
+    html += '<label id="los-label">' + R6MLangTerms.terms.general.labelLosOpacity + '</label>';
     html += '<div class="zoom controls">';
     html += '<input id="los-opacity-range" type="range" max="1.1" min="0" step="0.05"></input>';
     html += '<p id="camera-los-percent"></p><p id="camera-los-note"></p>';
     html += '</div>';
     html += '</div>';
     html += '<div class="checkbox-wrapper">';
-    html += '<input type="checkbox" id="enable-screenshtos" checked>' + R6MapsCommonLangTerms.terms.general.enableScreenshots + '</input>';
+    html += '<input type="checkbox" id="enable-screenshtos" checked>' + R6MLangTerms.terms.general.enableScreenshots + '</input>';
     html += '</div>';
 
     html += '</div>';
@@ -259,13 +259,13 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
 
     html += '<div class="mmenu-custom-panel">';
     html += '<h2>r6maps.com</h2>';
-    html += '<button id="menu-select-maps">' + R6MapsCommonLangTerms.terms.selectMaps.homeLink + '</button>';
-    html += '<a class="menu-item" id="menu-about" href="' + R6MapsCommonLangTerms.terms.general.linkAbout + '">' + R6MapsCommonLangTerms.terms.general.about + '</a>';
-    html += '<a id="menu-latest-updates" class="' + latestUpdateCss + '" href="' + R6MapsCommonLangTerms.terms.general.linkLatestUpdate + '">' + R6MapsCommonLangTerms.terms.general.latestUpdate + '</a>';
+    html += '<button id="menu-select-maps">' + R6MLangTerms.terms.selectMaps.homeLink + '</button>';
+    html += '<a class="menu-item" id="menu-about" href="' + R6MLangTerms.terms.general.linkAbout + '">' + R6MLangTerms.terms.general.about + '</a>';
+    html += '<a id="menu-latest-updates" class="' + latestUpdateCss + '" href="' + R6MLangTerms.terms.general.linkLatestUpdate + '">' + R6MLangTerms.terms.general.latestUpdate + '</a>';
     if (isFullScreenAvailable()) {
-      html += '<button href="" id="full-screen">' + R6MapsCommonLangTerms.terms.general.fullScreen + '</button>';
+      html += '<button href="" id="full-screen">' + R6MLangTerms.terms.general.fullScreen + '</button>';
     }
-    html += '<button class="feature-flagged" id="menu-sessions-launcher">' + R6MapsCommonLangTerms.terms.sessions.button + '</button>';
+    html += '<button class="feature-flagged" id="menu-sessions-launcher">' + R6MLangTerms.terms.sessions.button + '</button>';
     html += '</div>';
     return html;
   };
@@ -344,7 +344,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var mapsTrySelect = function mapsTrySelect(map) {
-    return R6MapsCommonHelpers.trySelectOption($mapControl, map);
+    return R6MHelpers.trySelectOption($mapControl, map);
   };
 
   var menuSetup = function menuSetup(roomLabelStyles, showUpdateLinkHighlightedFn) {
@@ -357,7 +357,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
     html += '<div class="faded-logo"></div>';
     $menuPanel.html(html);
 
-    $menuControl.find('.menu-text').html(R6MapsCommonLangTerms.terms.general.menu);
+    $menuControl.find('.menu-text').html(R6MLangTerms.terms.general.menu);
     $roomLabelStylesControl = $('#room-label-style');
     populateRoomLabelStyleOptions($roomLabelStylesControl, roomLabelStyles);
     $mapPanelCountControl = $('#map-pane-count');
@@ -415,7 +415,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
 
     roomLabelStyles.forEach(function(roomLabelStyle) {
       html += '<option value="' + roomLabelStyle + '">' +
-        R6MapsCommonLangTerms.terms.roomLabelStyles[roomLabelStyle] +
+        R6MLangTerms.terms.roomLabelStyles[roomLabelStyle] +
         '</option>';
     });
     $roomLabelStylesControl.html(html);
@@ -432,7 +432,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var roomLabelStylesTrySelect = function roomLabelStylesTrySelect(style) {
-    return R6MapsCommonHelpers.trySelectOption($roomLabelStylesControl, style);
+    return R6MHelpers.trySelectOption($roomLabelStylesControl, style);
   };
 
   var sessionsEnable = function sessionsEnable() {
@@ -470,18 +470,18 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
     var $losNote = $('#camera-los-note');
 
     $('#camera-los-percent').text(
-      R6MapsCommonLangTerms.terms.general.labelPercent.replace(
+      R6MLangTerms.terms.general.labelPercent.replace(
         '{int}',
         Math.round(opacity * 100)
       )
     );
 
     if (opacity == defaultOpacity) {
-      $losNote.text(R6MapsCommonLangTerms.terms.general.labelLosDefault);
+      $losNote.text(R6MLangTerms.terms.general.labelLosDefault);
     } else if (opacity == 1.05) {
-      $losNote.text(R6MapsCommonLangTerms.terms.general.labelLos105);
+      $losNote.text(R6MLangTerms.terms.general.labelLos105);
     } else if (opacity == 1.10) {
-      $losNote.text(R6MapsCommonLangTerms.terms.general.labelLos110);
+      $losNote.text(R6MLangTerms.terms.general.labelLos110);
     } else {
       $losNote.text('');
     }
@@ -539,7 +539,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var mapPanelsTrySelect = function mapPanelsTrySelect(number) {
-    var result = R6MapsCommonHelpers.trySelectOption($mapPanelCountControl, number);
+    var result = R6MHelpers.trySelectOption($mapPanelCountControl, number);
 
     $mapPanelCountControl.trigger('change');
     return result;
@@ -551,7 +551,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
 
   var objectivesPopulateOptions = function objectivesPopulateOptions(objectives) {
     var options = '',
-      objectiveTerms = R6MapsCommonLangTerms.terms.objectives,
+      objectiveTerms = R6MLangTerms.terms.objectives,
       initialObjective = objectivesGetCurrentlySelected();
 
     objectives.sort(function(a,b) {
@@ -577,7 +577,7 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
   };
 
   var objectivesTrySelect = function objectivesTrySelect(objective) {
-    return R6MapsCommonHelpers.trySelectOption($objectiveControl, objective);
+    return R6MHelpers.trySelectOption($objectiveControl, objective);
   };
 
   var removeLatestUpdateHighlight = function removeLatestUpdateHighlight(initialDelayMs) {
@@ -685,4 +685,4 @@ var R6MapsMainControls = (function($, window, document, R6MapsCommonLangTerms, u
     setupPanZoom: setupPanZoom,
     unhighlightControl: unhighlightControl
   };
-})(window.jQuery, window, document, R6MapsCommonLangTerms);
+})(window.jQuery, window, document, R6MLangTerms);

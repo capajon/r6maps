@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MapsCommonLangTerms, R6MStatsMetaData, R6MStatsControls);
-}(function($, window, document, R6MapsCommonLangTerms, R6MStatsMetaData, R6MStatsControls, undefined) {
+  pagecode(window.jQuery, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls);
+}(function($, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, undefined) {
   var $mainHeader,
     $filtersHeader,
     $mapHeader,
@@ -39,9 +39,9 @@
     };
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
-    R6MapsCommonHelpers.tryLoadStartingLanguage(R6MapsCommonLangTerms.tryLoadLanguage);
+    R6MHelpers.tryLoadStartingLanguage(R6MLangTerms.tryLoadLanguage);
     statsData = R6MStatsMetaData.getData();
-    statTerms = R6MapsCommonLangTerms.terms.stats;
+    statTerms = R6MLangTerms.terms.stats;
     assignPageElements();
     setupStaticElements();
     setupControls();
@@ -127,7 +127,7 @@
   var handleApiMapError = function handleApiMapError(mapData) {
     $('body').removeClass('load-in-progress');
     $sectionMap.removeClass('load-in-progress');
-    $mapOutput.html('<p class="error">' + R6MapsCommonLangTerms.terms.stats.error + '</p>');
+    $mapOutput.html('<p class="error">' + R6MLangTerms.terms.stats.error + '</p>');
   };
 
   var handleApiOperatorSuccess = function handleApiOperatorSuccess(operatorsData) {
@@ -146,7 +146,7 @@
 
   var handleApiOperatorError = function handleApiOperatorError(operatorsData) {
     $sectionOperators.removeClass('load-in-progress');
-    $operatorsOutput.html('<p class="error">' + R6MapsCommonLangTerms.terms.stats.error + '</p>');
+    $operatorsOutput.html('<p class="error">' + R6MLangTerms.terms.stats.error + '</p>');
   };
 
   var handleHistoryPop = function handleHistoryPop() {
@@ -285,7 +285,7 @@
       statsData.seasons,
       handleSeasonChange
     );
-    R6MStatsControls.seasons.trySelect($seasonsSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.SEASON));
+    R6MStatsControls.seasons.trySelect($seasonsSelect, R6MHelpers.queryString(QUERY_PARAMS.SEASON));
 
     R6MStatsControls.platforms.setup(
       $platformsSelect,
@@ -295,7 +295,7 @@
       enableLoadControl
     );
     tryLoadSavedPlatformOption();
-    R6MStatsControls.platforms.trySelect($platformsSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.PLATFORM));
+    R6MStatsControls.platforms.trySelect($platformsSelect, R6MHelpers.queryString(QUERY_PARAMS.PLATFORM));
 
     R6MStatsControls.maps.setup(
       $mapsSelect,
@@ -304,7 +304,7 @@
       R6MStatsControls.seasons.get($seasonsSelect),
       handleMapChange
     );
-    R6MStatsControls.maps.trySelect($mapsSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.MAP));
+    R6MStatsControls.maps.trySelect($mapsSelect, R6MHelpers.queryString(QUERY_PARAMS.MAP));
 
     R6MStatsControls.modes.setup(
       $modesSelect,
@@ -315,7 +315,7 @@
       R6MStatsControls.seasons.get($seasonsSelect),
       R6MStatsControls.maps.get($mapsSelect)
     );
-    R6MStatsControls.modes.trySelect($modesSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.MODE));
+    R6MStatsControls.modes.trySelect($modesSelect, R6MHelpers.queryString(QUERY_PARAMS.MODE));
 
     R6MStatsControls.objectiveLocations.setup(
       $objectiveLocationsSelect,
@@ -326,7 +326,7 @@
       R6MStatsControls.modes.get($modesSelect),
       enableLoadControl
     );
-    R6MStatsControls.objectiveLocations.trySelect($objectiveLocationsSelect, R6MapsCommonHelpers.queryString(QUERY_PARAMS.LOCATION));
+    R6MStatsControls.objectiveLocations.trySelect($objectiveLocationsSelect, R6MHelpers.queryString(QUERY_PARAMS.LOCATION));
 
     R6MStatsControls.ranks.setup(
       $ranksHeader,

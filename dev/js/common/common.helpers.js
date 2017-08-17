@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsCommonHelpers = (function($, window, document, undefined) {
+var R6MHelpers = (function($, window, document, undefined) {
   var queryString = function queryString(key) {
     key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, '\\$&');
     var match = location.search.match(new RegExp('[?&]' + key + '=([^&]+)(&|$)'));

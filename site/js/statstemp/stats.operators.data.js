@@ -1,7 +1,7 @@
 'use strict';
 
-var R6MStatsOpData = (function(R6MapsCommonLangTerms, undefined) {
-  var operatorsData = { attackers: [], defenders: [] };
+var R6MStatsOpData = (function(R6MLangTerms, undefined) {
+  var savedStats = { attackers: [], defenders: [] };
 
   var getEmptyStatsObject = function getEmptyStatsObject() {
     return {
@@ -17,75 +17,62 @@ var R6MStatsOpData = (function(R6MapsCommonLangTerms, undefined) {
     };
   };
 
-  var getCurrentData = function getCurrentData() {
-    return operatorsData;
+  var getCurrentStats = function getCurrentStats() {
+    return savedStats;
   };
 
-  var getOperatorsDataForRole = function getOperatorsDataForRole(rawOperatorsDataForRole, totalRoundsMap, ranks, operators) {
-    var result = [],
+  var getOpRoleStats = function getOpRoleStats(apiOpData, totalRounds, opMetaData) {
+    var opRoleStats = [],
       totalPlaysByRank = {},
-      totalPlaysAll = 0;
+      totalPlaysAllRanks = 0;
 
-    for (var operatorKey in rawOperatorsDataForRole) {
-      var operatorData = {
-        name: operators[operatorKey].name,
-        cssClass: operators[operatorKey].cssClass,
+    for (var opKey in apiOpData) {
+      var opStats = {
+        name: opMetaData[opKey].name,
+        cssClass: opMetaData[opKey].cssClass,
         statsByRank: {},
         statsAllRanks: getEmptyStatsObject(),
         averagesByRank: {},
         averagesAllRanks: getEmptyStatsObject()
       };
 
-      for (var rankKey in rawOperatorsDataForRole[operatorKey]) {
-        var tempStatsByRank = getEmptyStatsObject();
+      for (var rankKey in apiOpData[opKey]) {
+        var opRankStats = getEmptyStatsObject(),
+          apiOpRankData = apiOpData[opKey][rankKey];
 
-        tempStatsByRank.totalWins = +rawOperatorsDataForRole[operatorKey][rankKey].totalWins;
-        operatorData.statsAllRanks.totalWins += tempStatsByRank.totalWins;
-
-        tempStatsByRank.totalKills = +rawOperatorsDataForRole[operatorKey][rankKey].totalKills;
-        operatorData.statsAllRanks.totalKills += tempStatsByRank.totalKills;
-
-        tempStatsByRank.totalDeaths = +rawOperatorsDataForRole[operatorKey][rankKey].totalDeaths;
-        operatorData.statsAllRanks.totalDeaths += tempStatsByRank.totalDeaths;
-
-        tempStatsByRank.totalPlays = +rawOperatorsDataForRole[operatorKey][rankKey].totalPlays;
-        operatorData.statsAllRanks.totalPlays += tempStatsByRank.totalPlays;
+        ['totalWins', 'totalKills', 'totalDeaths', 'totalPlays'].forEach(function(statKey) {
+          opRankStats[statKey] = +apiOpRankData[statKey];
+          opStats.statsAllRanks[statKey] += opRankStats[statKey];
+        });
 
         totalPlaysByRank[rankKey] = totalPlaysByRank[rankKey] ?
-          totalPlaysByRank[rankKey] + tempStatsByRank.totalPlays : tempStatsByRank.totalPlays;
-        totalPlaysAll += tempStatsByRank.totalPlays;
+          totalPlaysByRank[rankKey] + opRankStats.totalPlays : opRankStats.totalPlays;
+        totalPlaysAllRanks += opRankStats.totalPlays;
 
-        operatorData.statsByRank[rankKey] = tempStatsByRank;
+        opStats.statsByRank[rankKey] = opRankStats;
       }
 
-      result.push(operatorData);
+      opRoleStats.push(opStats);
     }
-    setTallies(result, totalRoundsMap, totalPlaysByRank, totalPlaysAll);
-    setAverages(result);
-    return result;
+    setTallies(opRoleStats, totalRounds, totalPlaysByRank, totalPlaysAllRanks);
+    setAverages(opRoleStats);
+    return opRoleStats;
   };
 
-  var saveFromApiData = function saveFromApiData(rawOperatorsData, totalRoundsMap, statsData) {
-    operatorsData = {
-      attackers: getOperatorsDataForRole(rawOperatorsData.role.Attacker, totalRoundsMap, statsData.ranks, statsData.operators),
-      defenders: getOperatorsDataForRole(rawOperatorsData.role.Defender, totalRoundsMap, statsData.ranks, statsData.operators)
-    };
-  };
-
-  var setAverages = function setAverages(result) {
+  var setAverages = function setAverages(opRoleStats) {
 
   };
 
-  var setTallies = function setTallies(dataToTally, totalRoundsMap, totalPlaysByRank, totalPlaysAll) {
-    dataToTally.forEach(function(operator) {
+  var setTallies = function setTallies(opRoleStats, totalRounds, totalPlaysByRank, totalPlaysAllRanks) {
+    opRoleStats.forEach(function(operator) {
       setTalliesForRank(operator.statsAllRanks);
-      operator.statsAllRanks.pickRate = (!totalRoundsMap) ? 0 : operator.statsAllRanks.totalPlays / totalRoundsMap;
+      operator.statsAllRanks.pickRate = (!totalRounds) ? 0 : operator.statsAllRanks.totalPlays / totalRounds;
       for (var rankKey in operator.statsByRank) {
         var stats = operator.statsByRank[rankKey];
 
         setTalliesForRank(stats);
-        stats.pickRate = (!totalPlaysByRank[rankKey] || !operator.statsAllRanks.totalPlays || !totalPlaysAll) ? 0 :
-          (stats.totalPlays / totalPlaysByRank[rankKey]) / (operator.statsAllRanks.totalPlays / totalPlaysAll) * operator.statsAllRanks.pickRate;
+        stats.pickRate = (!totalPlaysByRank[rankKey] || !operator.statsAllRanks.totalPlays || !totalPlaysAllRanks) ? 0 :
+          (stats.totalPlays / totalPlaysByRank[rankKey]) / (operator.statsAllRanks.totalPlays / totalPlaysAllRanks) * operator.statsAllRanks.pickRate;
         stats.pickRate = Math.min(0.99, Math.max(0.001, stats.pickRate));
       }
     });
@@ -99,8 +86,8 @@ var R6MStatsOpData = (function(R6MapsCommonLangTerms, undefined) {
   };
 
   var trySort = function trySort(sortField, optionalRank) {
-    trySortForRole(operatorsData.attackers, sortField, optionalRank);
-    trySortForRole(operatorsData.defenders, sortField, optionalRank);
+    trySortForRole(savedStats.attackers, sortField, optionalRank);
+    trySortForRole(savedStats.defenders, sortField, optionalRank);
   };
 
   var trySortForRole = function trySortForRole(operators, sortField, optionalRank) {
@@ -112,19 +99,39 @@ var R6MStatsOpData = (function(R6MapsCommonLangTerms, undefined) {
     }
 
     operators.sort(function(a, b) {
+      var aValue,
+        bValue;
+
       if (sortField == 'name') {
-        return (a.name < b.name) ? -1 : 1;
-      } else if (optionalRank) {
-        return (a.statsByRank[optionalRank][sortField] > b.statsByRank[optionalRank][sortField]) ? -1 : 1;
+        aValue = a.name;
+        bValue = b.name;
       } else {
-        return (a.statsAllRanks[sortField] > b.statsAllRanks[sortField]) ? -1 : 1;
+        if (optionalRank) {
+          aValue = a.statsByRank[optionalRank] ? a.statsByRank[optionalRank][sortField] : -1;
+          bValue = b.statsByRank[optionalRank] ? b.statsByRank[optionalRank][sortField] : -1;
+        } else {
+          aValue = a.statsAllRanks[sortField];
+          bValue = b.statsAllRanks[sortField];
+        }
+        if (aValue == bValue) {
+          aValue = a.name;
+          bValue = b.name;
+        }
       }
+      return (aValue > bValue) ? -1 : 1;
     });
   };
 
-  return  {
-    saveFromApiData: saveFromApiData,
-    get: getCurrentData,
-    trySort: trySort
+  var update = function update(apiData, totalRounds, opMetaData) {
+    savedStats = {
+      attackers: getOpRoleStats(apiData.role.Attacker, totalRounds, opMetaData),
+      defenders: getOpRoleStats(apiData.role.Defender, totalRounds, opMetaData)
+    };
   };
-})(R6MapsCommonLangTerms);
+
+  return  {
+    get: getCurrentStats,
+    trySort: trySort,
+    update: update
+  };
+})(R6MLangTerms);

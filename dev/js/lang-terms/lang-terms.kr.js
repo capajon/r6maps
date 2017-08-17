@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsCommonLangTermsKorean = (function(R6MapsCommonLangTerms, undefined) {
+var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
   var name = 'kr',
     terms = {
       general: {
@@ -871,10 +871,10 @@ var R6MapsCommonLangTermsKorean = (function(R6MapsCommonLangTerms, undefined) {
       }
     };
 
-  R6MapsCommonLangTerms.registerLanguage(name, terms);
+  R6MLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
     terms: terms
   };
-})(R6MapsCommonLangTerms);
+})(R6MLangTerms);

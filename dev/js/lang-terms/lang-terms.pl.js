@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MapsCommonLangTermsPolish = (function(R6MapsCommonLangTerms, undefined) {
+var R6MLangTermsPolish = (function(R6MLangTerms, undefined) {
   var name = 'pl',
     terms = {
       general: {
@@ -885,10 +885,10 @@ var R6MapsCommonLangTermsPolish = (function(R6MapsCommonLangTerms, undefined) {
       }
     };
 
-  R6MapsCommonLangTerms.registerLanguage(name, terms);
+  R6MLangTerms.registerLanguage(name, terms);
 
   return  {
     name: name,
     terms: terms
   };
-})(R6MapsCommonLangTerms);
+})(R6MLangTerms);
