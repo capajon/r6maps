@@ -41,11 +41,11 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<table>';
 
     html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
-    html += getSubHeaderHtml(ranksMetaData, enabledRanks);
+    html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
     html += getOpRoleHtml(opStats.attackers, ranksMetaData, enabledRanks, 'attackers');
 
     html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
-    html += getSubHeaderHtml(ranksMetaData, enabledRanks);
+    html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
     html += getOpRoleHtml(opStats.defenders, ranksMetaData, enabledRanks, 'defenders');
 
     html += '</table>';
@@ -100,32 +100,48 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
   var getSubHeaderHtml = function getSubHeaderHtml(
     ranksMetaData,
-    enabledRanks
+    enabledRanks,
+    sortInfo
   ) {
     var html = '',
-      srData;
+      srData,
+      sortOrder,
+      curSortClass,
+      isCurSortCol;
 
+
+    isCurSortCol = (sortInfo.field == 'name');
+    sortOrder = (isCurSortCol && !sortInfo.isDescending) ? 'descending' : 'ascending';
+    curSortClass = isCurSortCol ? ' current-sort ' + sortOrder : '';
     html += '<tr class="sub">';
     html += '<th></th>';
     html += '<th class="op-name">';
-    html += '<div tabindex="0" class="sortable" data-sortfield="name">';
+    html += '<div tabindex="0" class="sortable ' + curSortClass + '" data-sortfield="name" data-sortorder="' + sortOrder + '">';
     html += '<p>' + R6MLangTerms.terms.stats.tableHeaderName + '</p>';
+    html += '<div class="sort-order-icon"></div>';
     html += '</div>';
     html += '</th>';
 
     statColumns.forEach(function(statColumn) {
-
+      isCurSortCol = ((sortInfo.field == statColumn.key) && !sortInfo.rank);
+      sortOrder = (isCurSortCol && !sortInfo.isDescending) ? 'descending' : 'ascending';
+      curSortClass = isCurSortCol ? ' current-sort ' + sortOrder : '';
       html += '<th class="all-ranks">';
-      html += '<div class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">';
+      html += '<div class="sortable' + curSortClass + '" data-sortfield="' + statColumn.key + '" data-sortorder="' + sortOrder + '" tabindex="0">';
       html += '<p>' + R6MLangTerms.terms.stats.tableHeaderAllRanks + '</p>';
+      html += '<div class="sort-order-icon"></div>';
       html += '</div>';
       html += '</th>';
 
       enabledRanks.forEach(function(rankKey) {
         srData = ranksMetaData[rankKey];
+        isCurSortCol = ((sortInfo.field == statColumn.key) && (sortInfo.rank == rankKey));
+        sortOrder = (isCurSortCol && !sortInfo.isDescending) ? 'descending' : 'ascending';
+        curSortClass = isCurSortCol ? ' current-sort ' + sortOrder : '';
         html += '<th class="can-hide ' + srData.cssClass + '">';
-        html += '<div class="sortable" tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" title="' + srData.name + '">';
+        html += '<div class="sortable' + curSortClass + '" tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" data-sortorder="' + sortOrder + '" title="' + srData.name + '">';
         html += '<div class="rank-icon ' + srData.cssClass + '"></div>';
+        html += '<div class="sort-order-icon"></div>';
         html += '</div>';
         html += '</th>';
       });
@@ -145,12 +161,14 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
   var setupSortColumns = function setupSortColumns($outputEl, sortCb) {
     $outputEl.find('.sortable').on('click', function(event) {
-      var source = $(event.target);
+      var source = $(event.target),
+        isDescending;
 
-      if(!source.data('sortfield')){
+      if (!source.data('sortfield')){
         source = source.parent(); // maybe too fragile to html structure?
       }
-      sortCb(source.data('sortfield'), source.data('sortrank'));
+      isDescending = (source.data('sortorder') == 'descending');
+      sortCb(source.data('sortfield'), isDescending, source.data('sortrank'));
     });
   };
 

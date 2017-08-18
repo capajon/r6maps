@@ -133,7 +133,7 @@
       R6MStatsMapData.getTotalRoundsFromApiData(mapApiData),
       metaData.operators
     );
-    tryLoadSavedOperatorsSortField();
+    tryLoadOpSortField();
 
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
@@ -255,8 +255,8 @@
     saveSkillRankOptions(selectedSkillRanks);
   };
 
-  var resortOperators = function resortOperators(sortField, sortRank) {
-    R6MStatsOpData.trySort(sortField, sortRank);
+  var resortOperators = function resortOperators(sortField, isDescending, sortRank) {
+    R6MStatsOpData.trySort(sortField, isDescending, sortRank);
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
       $operatorsOutput,
@@ -264,11 +264,11 @@
       getSkillRanksForSeason(R6MStatsControls.seasons.get($seasonsSelect)),
       resortOperators
     );
-    saveOperatorsSortField(sortField, sortRank);
+    saveOperatorsSortField(sortField, isDescending, sortRank);
   };
 
-  var saveOperatorsSortField = function saveOperatorsSortField(sortField, optionalRank) {
-    localStorage.setItem('statssortfield', sortField + ',' + optionalRank);
+  var saveOperatorsSortField = function saveOperatorsSortField(sortField, isDescending, optionalRank) {
+    localStorage.setItem('statssortfield', sortField + ',' + isDescending + ',' + optionalRank);
   };
 
   var savePlatformOption = function savePlatformOption(platformOption) {
@@ -361,19 +361,22 @@
     $('p.instructions').html(statTerms.instructions);
   };
 
-  var tryLoadSavedOperatorsSortField = function tryLoadSavedOperatorsSortField() {
+  var tryLoadOpSortField = function tryLoadOpSortField() {
     var sortFieldOptions = localStorage.getItem('statssortfield'),
       sortField,
-      optionalRank;
+      optionalRank,
+      isDescending,
+      tempSplit;
 
     if (sortFieldOptions) {
-      sortField = sortFieldOptions.split(',')[0],
-      optionalRank = sortFieldOptions.split(',')[1];
+      tempSplit = sortFieldOptions.split(',');
+      sortField = tempSplit[0];
+      isDescending = (tempSplit[1] == 'true');
+      optionalRank = tempSplit[2];
     } else {
       sortField = 'name'; //fallback
     }
-
-    R6MStatsOpData.trySort(sortField, optionalRank);
+    R6MStatsOpData.trySort(sortField, isDescending, optionalRank);
   };
 
   var tryLoadSavedPlatformOption = function tryLoadSavedPlatformOption() {

@@ -81,9 +81,7 @@ $cell-padding: 0 0.3rem;
 
         &.op-name {
           border-left: none;
-          font-size: 1.3rem;
           padding: $cell-padding;
-          text-transform: uppercase;
         }
         &:first-child {
           border-left: none;
@@ -179,6 +177,29 @@ $cell-padding: 0 0.3rem;
 
     &:hover, &:focus {
       background-color: $r6-blue;
+    }
+    .sort-order-icon {
+      display: none;
+    }
+
+    &.current-sort {
+      .sort-order-icon {
+        background-image: url($img-location + '/icons/sort-order-down@2x.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 15px;
+        display: block;
+        height: 20px;
+        margin: 3px;
+        width: 30px;
+      }
+      &.ascending {
+        .sort-order-icon {
+          -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+      }
     }
   }
 

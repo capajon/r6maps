@@ -1,7 +1,15 @@
 'use strict';
 
 var R6MStatsOpData = (function(R6MLangTerms, undefined) {
-  var opStats = { attackers: [], defenders: [] };
+  var opStats = {
+    attackers: [],
+    defenders: [],
+    sortInfo: {
+      field: null,
+      rank: null,
+      isDescending: null
+    }
+  };
 
   var getEmptyStatsObject = function getEmptyStatsObject() {
     return {
@@ -60,10 +68,8 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
   };
 
   var set = function set(apiData, totalRounds, opMetaData) {
-    opStats = {
-      attackers: getOpRoleStats(apiData.role.Attacker, totalRounds, opMetaData),
-      defenders: getOpRoleStats(apiData.role.Defender, totalRounds, opMetaData)
-    };
+    opStats.attackers = getOpRoleStats(apiData.role.Attacker, totalRounds, opMetaData);
+    opStats.defenders = getOpRoleStats(apiData.role.Defender, totalRounds, opMetaData);
   };
 
   var setAverages = function setAverages(opRoleStats) {
@@ -92,35 +98,55 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
     stats.winRate = (!stats.totalPlays) ? 0 : stats.totalWins / stats.totalPlays;
   };
 
-  var trySort = function trySort(sortField, optionalRank, descending) {
-    trySortRole(opStats.attackers, sortField, optionalRank, descending);
-    trySortRole(opStats.defenders, sortField, optionalRank, descending);
+  var trySort = function trySort(sortField, isDescending, optionalRank) {
+    opStats.sortInfo.field = sortField || 'name';
+    opStats.sortInfo.rank = optionalRank;
+    opStats.sortInfo.isDescending = isDescending;
+    trySortRole(opStats.attackers, sortField, isDescending, optionalRank);
+    trySortRole(opStats.defenders, sortField, isDescending, optionalRank);
   };
 
-  var trySortRole = function trySortRole(newOpStats, sortField, optionalRank, descending) {
+  var trySortRole = function trySortRole(newOpStats, sortField, isDescending, optionalRank) {
     newOpStats.sort(function(a, b) {
       var aValue = a.name,
-        bValue = b.name;
+        bValue = b.name,
+        nameCompare = true;
 
-      if(!optionalRank) {
-        aValue = a.statsAllRanks[sortField];
-        bValue = b.statsAllRanks[sortField];
+      if (sortField != 'name') {
+        nameCompare = false;
+        if (!optionalRank) {
+          aValue = a.statsAllRanks[sortField];
+          bValue = b.statsAllRanks[sortField];
+        } else {
+          aValue = (a.statsByRank[optionalRank]) ? a.statsByRank[optionalRank][sortField] : -1;
+          bValue = (b.statsByRank[optionalRank]) ? b.statsByRank[optionalRank][sortField] : -1;
+        }
+        if (aValue == bValue) {
+          aValue = a.name;
+          bValue = b.name;
+          nameCompare = true;
+        }
+      }
+      if (nameCompare) {
+        if (aValue > bValue) {
+          return 1;
+        }
+        if (aValue < bValue) {
+          return -1;
+        }
       } else {
-        aValue = (a.statsByRank[optionalRank]) ? a.statsByRank[optionalRank][sortField] : -1;
-        bValue = (b.statsByRank[optionalRank]) ? b.statsByRank[optionalRank][sortField] : -1;
+        if (aValue < bValue) {
+          return 1;
+        }
+        if (aValue > bValue) {
+          return -1;
+        }
       }
-
-      if (aValue == bValue) {
-        aValue = a.name;
-        bValue = b.name;
-      }
-
-      if (descending) {
-        return (aValue < bValue) ? -1 : 1;
-      } else {
-        return (aValue > bValue) ? -1 : 1;
-      }
+      return 0;
     });
+    if (isDescending) {
+      newOpStats.reverse();
+    }
   };
 
   return  {

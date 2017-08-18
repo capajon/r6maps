@@ -13,12 +13,12 @@ var R6MStatsMapData = (function(undefined) {
 
   var getMapRoleStats = function getMapRoleStats(mapRoleApiData, winReasonsMetaData) {
     var mapRoleStats = {
-      totalRoundsWon: +mapRoleApiData.totalRounds,
-      averageRoundLength: +mapRoleApiData.averageRoundDuration,
-      winReasons: []
-    },
-    winReason,
-    winReasonMeta;
+        totalRoundsWon: +mapRoleApiData.totalRounds,
+        averageRoundLength: +mapRoleApiData.averageRoundDuration,
+        winReasons: []
+      },
+      winReason,
+      winReasonMeta;
 
     for (var winReasonKey in winReasonsMetaData) {
       winReasonMeta = winReasonsMetaData[winReasonKey];
