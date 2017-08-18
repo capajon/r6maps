@@ -33,58 +33,60 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     }
   };
 
-  var getOpHtml = function getOpHtml(operatorsData, ranksData, selectedRanks) {
+  var getOpHtml = function getOpHtml(opStats, ranksMetaData, enabledRanks) {
     var html = '',
-      numSkillColumns = selectedRanks.length + 1; // +1 for ALL
+      skillColumnCount = enabledRanks.length + 1; // +1 for 'ALL'
 
-    html += '<div class="table-container"><table>';
+    html += '<div class="wrapper">';
+    html += '<table>';
 
-    html += getMainHeaderHtml(numSkillColumns, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
-    html += getSubHeaderHtml(ranksData, selectedRanks);
-    html += getOperatorsForRoleHtml(operatorsData.attackers, ranksData, selectedRanks, 'attackers');
+    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
+    html += getSubHeaderHtml(ranksMetaData, enabledRanks);
+    html += getOpRoleHtml(opStats.attackers, ranksMetaData, enabledRanks, 'attackers');
 
-    html += getMainHeaderHtml(numSkillColumns, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
-    html += getSubHeaderHtml(ranksData, selectedRanks);
-    html += getOperatorsForRoleHtml(operatorsData.defenders, ranksData, selectedRanks, 'defenders');
+    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
+    html += getSubHeaderHtml(ranksMetaData, enabledRanks);
+    html += getOpRoleHtml(opStats.defenders, ranksMetaData, enabledRanks, 'defenders');
 
-    html += '</table></div>';
+    html += '</table>';
+    html += '</div>';
 
     return html;
   };
 
   var getMainHeaderHtml = function getMainHeaderHtml(
-    numSkillColumns,
+    skillColumnCount,
     headerText,
     roleCssClass
   ) {
     var html = '';
 
-    html += '<tr class="main-header ' + roleCssClass + '">';
-    html += '<th class="operator-icon"></th>';
-    html += '<th class="name">' + headerText + '</th>';
+    html += '<tr class="main ' + roleCssClass + '">';
+    html += '<th></th>';
+    html += '<th class="op-name">' + headerText + '</th>';
     statColumns.forEach(function(statColumn) {
-      html += '<th colspan="' + numSkillColumns + '">' + statColumn.name + '</th>';
+      html += '<th class="stat-name" colspan="' + skillColumnCount + '">' + statColumn.name + '</th>';
     });
     html += '</tr>';
     return html;
   };
 
-  var getOperatorsForRoleHtml = function getOperatorsForRoleHtml(
-    operatorsDataForRole,
-    ranksData,
-    selectedRanks,
+  var getOpRoleHtml = function getOpRoleHtml(
+    opStatsForRole,
+    ranksMetaData,
+    enabledRanks,
     roleCssClass
   ) {
     var html = '';
 
-    operatorsDataForRole.forEach(function(operator) {
+    opStatsForRole.forEach(function(operator) {
       html += '<tr class="' + roleCssClass + '">';
-      html += '<td class="operator-icon"><div class="' + operator.cssClass + '"></div></<td>';
-      html += '<td class="name">' + operator.name + '</<td>';
+      html += '<td><div class="op-icon ' + operator.cssClass + '"></div></<td>';
+      html += '<td class="op-name">' + operator.name + '</<td>';
       statColumns.forEach(function(statColumn) {
-        html += '<td class="all">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
-        selectedRanks.forEach(function(rankKey) {
-          html += '<td class="can-hide ' + ranksData[rankKey].cssClass + '"><span>';
+        html += '<td class="all-ranks">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
+        enabledRanks.forEach(function(rankKey) {
+          html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '"><span>';
           html += (operator.statsByRank[rankKey]) ?
             getFormattedNumber(operator.statsByRank[rankKey][statColumn.key], statColumn.displayType, true) :
             '-';
@@ -97,20 +99,35 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getSubHeaderHtml = function getSubHeaderHtml(
-    ranksData,
-    selectedRanks
+    ranksMetaData,
+    enabledRanks
   ) {
     var html = '',
       srData;
 
-    html += '<tr class="sub-header">';
-    html += '<th class="operator-icon"></th>';
-    html += '<th class="name"><span tabindex="0" class="sortable" data-sortfield="name">' + R6MLangTerms.terms.stats.tableHeaderName + '</span></th>'; // name column
+    html += '<tr class="sub">';
+    html += '<th></th>';
+    html += '<th class="op-name">';
+    html += '<div tabindex="0" class="sortable" data-sortfield="name">';
+    html += '<p>' + R6MLangTerms.terms.stats.tableHeaderName + '</p>';
+    html += '</div>';
+    html += '</th>';
+
     statColumns.forEach(function(statColumn) {
-      html += '<th class="all"><span class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">' + R6MLangTerms.terms.stats.tableHeaderAllRanks + '</span></th>';
-      selectedRanks.forEach(function(rankKey) {
-        srData = ranksData[rankKey];
-        html += '<th class="can-hide ' + srData.cssClass + '"><span><div tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" title="' + srData.name + '" class="sortable rank-icon ' + srData.cssClass + '"></div></span></th>';
+
+      html += '<th class="all-ranks">';
+      html += '<div class="sortable" data-sortfield="' + statColumn.key + '" tabindex="0">';
+      html += '<p>' + R6MLangTerms.terms.stats.tableHeaderAllRanks + '</p>';
+      html += '</div>';
+      html += '</th>';
+
+      enabledRanks.forEach(function(rankKey) {
+        srData = ranksMetaData[rankKey];
+        html += '<th class="can-hide ' + srData.cssClass + '">';
+        html += '<div class="sortable" tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" title="' + srData.name + '">';
+        html += '<div class="rank-icon ' + srData.cssClass + '"></div>';
+        html += '</div>';
+        html += '</th>';
       });
     });
     html += '</tr>';
@@ -121,8 +138,8 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
-  var render = function render(opStats, $outputEl, ranksMetaData, selectedRanks, sortCb) {
-    $outputEl.html(getOpHtml(opStats, ranksMetaData, selectedRanks));
+  var render = function render(opStats, $outputEl, ranksMetaData, enabledRanks, sortCb) {
+    $outputEl.html(getOpHtml(opStats, ranksMetaData, enabledRanks));
     setupSortColumns($outputEl, sortCb);
   };
 
@@ -130,6 +147,9 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     $outputEl.find('.sortable').on('click', function(event) {
       var source = $(event.target);
 
+      if(!source.data('sortfield')){
+        source = source.parent(); // maybe too fragile to html structure?
+      }
       sortCb(source.data('sortfield'), source.data('sortrank'));
     });
   };

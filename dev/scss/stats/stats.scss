@@ -2,16 +2,12 @@
 @import "../common/_helpers.scss";
 @import "../common/_settings.scss";
 @import "../common/_common.scss";
-@import "map.scss";
+@import "_stats-common.scss";
+@import "_map.scss";
 @import "_operators.scss";
 @import "_operator_icons.scss";
+@import "_controls.scss";
 @import "_rank_icons.scss";
-
-$breakpoint-large: 1940px;
-$breakpoint-med: 1400px;
-$breakpoint-one-column: 1070px;
-$breakpoint-mobile: 700px;
-$breakpoint-small: 440px;
 
 html {
   font-size: 22px;
@@ -109,60 +105,6 @@ body.stats {
       line-height: 130%;
       list-style-type: circle;
       padding: 0 0 0.5rem 0;
-    }
-  }
-
-  div.control {
-    margin-bottom: 1rem;
-
-    label {
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    select {
-      overflow-y: auto;
-      width: 100%;
-    }
-
-    option: {
-      font-weight: normal;
-    }
-
-    &.multi-view {
-      option {
-        font-weight: 700;
-      }
-    }
-
-    p.all-text {
-      background-color: $light-grey;
-      color: #000;
-      display: none;
-      padding: 5px;
-    }
-
-    &.only-all {
-      p.all-text {
-        display: block;
-      }
-      select {
-        display: none;
-      }
-    }
-
-    @media all and (max-width: $breakpoint-one-column ) and (min-width: $breakpoint-small ) {
-      float: left;
-      width: calc(50% - 0.75rem);
-
-      &:nth-child(even) {
-        margin-right: 1.5rem;
-      }
-
-      &#objective-locations-control {
-        width: 100%;
-        float: none;
-      }
     }
   }
 }

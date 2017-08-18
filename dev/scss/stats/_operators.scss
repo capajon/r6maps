@@ -7,139 +7,141 @@ $bg-rank-silver: #D3D3D3;
 $bg-rank-gold: #FFD700;
 $bg-rank-platinum: #e5e4e2;
 $bg-rank-diamond: #000;
+$cell-padding: 0 0.3rem;
 
-$cell-padding: 0.3rem;
-
-#section-operators {
-  div.output {
-    .table-container {
-      width: 100%;
-      overflow: auto;
-      margin: 0 0 1em;
-
-      &::-webkit-scrollbar  {
-        -webkit-appearance: none;
-        width: 14px;
-        height: 14px;
-      }
-      &::-webkit-scrollbar-thumb  {
-        border-radius: 8px;
-        border: 2px solid #fff;
-        background-color: rgba(0, 0, 0, .3);
-      }
-    }
-
+@mixin show-rank($rank) {
+  .show-#{$rank} {
     table {
-      background-color: #fff;
-      width: 100%;
-
-      tr {
-        &.attackers:nth-child(even) {
-          background-color: #f6ded4;
-        }
-
-        &.defenders:nth-child(even) {
-          background-color: #d3e0eb;
-        }
-
-        &.sub-header {
-          background-color: $dark-grey;
-
-          th {
-            font-size: 0.75rem;
-            text-decoration: underline;
-            text-transform: uppercase;
-          }
-
-          .rank-icon {
-            background-position-x: center;
-            border-bottom: 3px solid $dark-grey;
-            border-radius: 3px;
-            border-top: 3px solid $dark-grey;
-            width: 100%;
-
-            &:hover, &:focus {
-              border-color: $r6-blue;
-            }
-          }
-        }
-
-        &.main-header {
-          &.attackers {
-            background-color: $r6-orange;
-          }
-
-          &.defenders {
-            background-color: $r6-blue;
-          }
-
-          th {
-            border-left: 1px solid #000;
-            font-size: 1.1rem;
-            padding-left: 0.6rem;
-            padding-right: 0.6rem;
-
-            &.name {
-              border-left: none;
-              text-align: left;
-            }
-            &:first-child {
-              border-left: none;
-            }
-            &:nth-child(2) {
-              padding-left: 0.3rem;
-            }
-          }
-        }
-      }
-
-      th, td {
+      .can-hide.#{$rank} {
+        width: auto;
         padding: $cell-padding;
-        text-align: center;
-        vertical-align: middle;
-        white-space: nowrap;
-
-        &.can-hide {
-          padding: 0;
-          width: 0px;
-
-          span {
-            display: none;
-          }
+        div, span {
+          display: initial;
         }
-
-        &.all {
-          border-left: 1px solid #000;
-        }
-
-        &.name {
-          text-align: left;
+        .sortable {
+          @include flexbox;
         }
       }
-
-      th {
-        &.all {
-          white-space: normal;
-        }
-      }
-
-      td {
-        color: #000;
-
-        &.can-hide {
-          color: $very-dark-grey;
-        }
+      tr.sub .can-hide.#{$rank} {
+        padding: 0;
       }
     }
   }
+}
 
-  .sortable {
-    cursor: pointer;
-    transition: background-color $button-transition;
+#section-operators {
 
-    &:hover, &:focus {
-      background-color: $r6-blue;
-      border-radius: 3px;
+  .wrapper {
+    width: 100%;
+    overflow: auto;
+    margin: 0 0 1em;
+
+    &::-webkit-scrollbar  {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+    }
+    &::-webkit-scrollbar-thumb  {
+      border-radius: 8px;
+      border: 2px solid #fff;
+      background-color: rgba(0, 0, 0, .3);
+    }
+  }
+
+  table {
+    background-color: #fff;
+    width: 100%;
+
+    td, th {
+      box-sizing: border-box;
+      color: #000;
+      height: 1.75rem;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: $cell-padding;
+    }
+
+    tr.main {
+      &.attackers {
+        background-color: $r6-orange;
+      }
+      &.defenders {
+        background-color: $r6-blue;
+      }
+      th {
+        border-left: 1px solid #000;
+        color: #fff;
+        font-size: 1.1rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+
+        &.op-name {
+          border-left: none;
+          font-size: 1.3rem;
+          padding: $cell-padding;
+          text-transform: uppercase;
+        }
+        &:first-child {
+          border-left: none;
+        }
+        &:nth-child(2) {
+          padding-left: $cell-padding;
+        }
+      }
+    }
+
+    tr.sub {
+      background-color: $dark-grey;
+
+      th {
+        color: #fff;
+        font-size: 0.75rem;
+        padding: 0;
+        text-decoration: underline;
+        text-transform: uppercase;
+      }
+      p {
+        padding: 0 1px;
+        white-space: initial;
+      }
+      .rank-icon {
+        background-position-x: center;
+        width: 100%;
+      }
+      .op-name .sortable {
+        @include justify-content(left);
+        padding: $cell-padding;
+      }
+    }
+
+    tr.attackers:nth-child(even) {
+      background-color: #f6ded4;
+    }
+
+    tr.defenders:nth-child(even) {
+      background-color: #d3e0eb;
+    }
+
+    .can-hide {
+      color: $very-dark-grey;
+      width: 0px;
+      padding: 0;
+
+      div, span {
+        display: none;
+      }
+    }
+
+    .op-name {
+      text-align: left;
+    }
+
+    .all-ranks {
+      border-left: 1px solid #000;
     }
   }
 
@@ -167,67 +169,24 @@ $cell-padding: 0.3rem;
     }
   }
 
-  .show-unranked {
-    div.output table td.can-hide.unranked, div.output table th.can-hide.unranked {
-      padding: $cell-padding;
-      width: auto;
-      span {
-        display: inline;
-      }
+  .sortable {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    cursor: pointer;
+    height: 100%;
+    transition: background-color $button-transition;
+
+    &:hover, &:focus {
+      background-color: $r6-blue;
     }
   }
-  .show-copper {
-    div.output table td.can-hide.copper, div.output table th.can-hide.copper {
-      padding: $cell-padding;
-      width: auto;
-      span {
-        display: inline;
-      }
-    }
-  }
-  .show-bronze {
-    div.output table td.can-hide.bronze, div.output table th.can-hide.bronze {
-      padding: $cell-padding;
-      width: auto;
-      span {
-        display: inline;
-      }
-    }
-  }
-  .show-silver {
-    div.output table td.can-hide.silver, div.output table th.can-hide.silver {
-      padding: $cell-padding;
-      width: auto;
-      span {
-        display: inline;
-      }
-    }
-  }
-  .show-gold {
-    div.output table td.can-hide.gold, div.output table th.can-hide.gold {
-      padding: $cell-padding;
-      width: auto;
-      span {
-        display: inline;
-      }
-    }
-  }
-  .show-platinum {
-    div.output table td.can-hide.platinum, div.output table th.can-hide.platinum {
-      padding: $cell-padding;
-      width: auto;
-      span {
-        display: inline;
-      }
-    }
-  }
-  .show-diamond {
-    div.output table td.can-hide.diamond, div.output table th.can-hide.diamond {
-      padding: $cell-padding;
-      width: auto;
-      span {
-        display: inline;
-      }
-    }
-  }
+
+  @include show-rank('unranked');
+  @include show-rank('copper');
+  @include show-rank('bronze');
+  @include show-rank('silver');
+  @include show-rank('gold');
+  @include show-rank('platinum');
+  @include show-rank('diamond');
 }

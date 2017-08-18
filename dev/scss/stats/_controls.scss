@@ -1,0 +1,53 @@
+.control {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  select {
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  option: {
+    font-weight: normal;
+  }
+
+  &.multi-view {
+    option {
+      font-weight: 700;
+    }
+  }
+
+  p.all-text {
+    background-color: $light-grey;
+    color: #000;
+    display: none;
+    padding: 5px;
+  }
+
+  &.only-all {
+    p.all-text {
+      display: block;
+    }
+    select {
+      display: none;
+    }
+  }
+
+  @media all and (max-width: $breakpoint-one-column ) and (min-width: $breakpoint-small ) {
+    float: left;
+    width: calc(50% - 0.75rem);
+
+    &:nth-child(even) {
+      margin-right: 1.5rem;
+    }
+
+    &#objective-locations-control {
+      width: 100%;
+      float: none;
+    }
+  }
+}
