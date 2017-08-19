@@ -114,8 +114,10 @@ var R6MLangTerms = (function(undefined) {
         e: 'E'
       },
       stats: {
-        title: 'R6Maps.com - Stats BETA',
-        headerMain: 'Stats BETA',
+        title: 'R6Maps.com - Stats',
+        titleBeta: 'R6Maps.com - Stats BETA',
+        headerMain: 'Stats',
+        headerMainBeta: 'Stats BETA',
         headerFilters: 'Filters',
         headerMap: 'Map Stats',
         headerOperators: 'Operators',

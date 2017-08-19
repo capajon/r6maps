@@ -23,6 +23,7 @@
     R6MHelpers.tryLoadStartingLanguage(R6MLangTerms.tryLoadLanguage);
     metaData = R6MStatsMetaData.getData();
     statTerms = R6MLangTerms.terms.stats;
+    R6MStatsRender.setPageTitle();
     assignPageElements();
     R6MStatsRender.renderHeaders($headers);
     R6MStatsRender.renderStaticEl($('p.all-text'), $('p.instructions'));

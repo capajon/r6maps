@@ -4,12 +4,12 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   var statTerms = R6MLangTerms.terms.stats,
     locale = R6MLangTerms.name.split('_')[0],
     statColumns = [
-      { key: 'pickRate', name: statTerms.tableHeaderPickRate, displayType: 'percent', canAverage: true },
-      { key: 'winRate', name: statTerms.tableHeaderWinRate, displayType: 'percent', canAverage: true },
-      { key: 'survivalRate', name: statTerms.tableHeaderSurvivalRate, displayType: 'percent', canAverage: true },
-      { key: 'killsPerDeath', name: statTerms.tableHeaderKillsPerDeath, displayType: 'ratio', canAverage: true },
-      { key: 'killsPerRound', name: statTerms.tableHeaderKillsPerRound, displayType: 'ratio', canAverage: true },
-      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number', canAverage: false }
+      { key: 'pickRate', name: statTerms.tableHeaderPickRate, displayType: 'percent' },
+      { key: 'winRate', name: statTerms.tableHeaderWinRate, displayType: 'percent' },
+      { key: 'survivalRate', name: statTerms.tableHeaderSurvivalRate, displayType: 'percent' },
+      { key: 'killsPerDeath', name: statTerms.tableHeaderKillsPerDeath, displayType: 'ratio' },
+      { key: 'killsPerRound', name: statTerms.tableHeaderKillsPerRound, displayType: 'ratio' },
+      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number' }
     ];
 
   var getFormattedNumber = function getFormattedNumber(num, displayType, minimal) {
