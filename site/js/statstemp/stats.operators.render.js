@@ -96,6 +96,19 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     return html;
   };
 
+  var getNotesHtml = function getNotesHtml() {
+    var html = '';
+
+    html += '<h3>' + statTerms.tableNoteHeader + '</h3>';
+    html += '<ul>';
+    html += '<li>' + statTerms.tableNoteHeaders + '</li>';
+    html += '<li>' + statTerms.tableNoteWarningText  + '</li>';
+    html += '<li>' + statTerms.tableNotePickRate  + '</li>';
+    html += '<li><a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-293696-16/introduction-to-the-data-peek-velvet-shell-statistics">' + statTerms.tableNoteDataDumpRef + '</a></li>';
+    html += '</ul>'
+    return html;
+  };
+
   var getOpRoleHtml = function getOpRoleHtml(
     opStatsForRole, ranksMetaData,  enabledRanks, roleCssClass
   ) {
@@ -133,7 +146,6 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       sortOrder,
       curSortClass,
       isCurSortCol;
-
 
     isCurSortCol = (sortInfo.field == 'name');
     sortOrder = (isCurSortCol && !sortInfo.isDescending) ? 'descending' : 'ascending';
@@ -180,7 +192,11 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var render = function render(opStats, $outputEl, ranksMetaData, enabledRanks, sortCb) {
-    $outputEl.html(getOpHtml(opStats, ranksMetaData, enabledRanks));
+    var html = '';
+
+    html += getOpHtml(opStats, ranksMetaData, enabledRanks);
+    html += getNotesHtml();
+    $outputEl.html(html);
     setupSortColumns($outputEl, sortCb);
   };
 
