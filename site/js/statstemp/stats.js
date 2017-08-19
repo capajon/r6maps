@@ -84,7 +84,7 @@
 
   var handleApiAllSuccess = function handleApiAllSuccess() {
     $('body').removeClass('load-in-progress');
-    $headers.mapSection.focus();
+    document.activeElement.blur();
     enableLoadControl();
   };
 
