@@ -145,6 +145,7 @@ var R6MLangTerms = (function(undefined) {
         tableHeaderKillsPerRound: 'Kills:Round',
         tableHeaderTotalRounds: 'Total Rounds',
         tableHeaderAllRanks: 'All Ranks',
+        averagesAndTotals: 'Averages/Totals',
         percentageFormat: '{num}%',
         instructions: 'Select filter options and click \'Load Stats\' to continue.',
         noResults: 'No results found.',

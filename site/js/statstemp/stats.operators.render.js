@@ -9,8 +9,33 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       { key: 'survivalRate', name: statTerms.tableHeaderSurvivalRate, displayType: 'percent' },
       { key: 'killsPerDeath', name: statTerms.tableHeaderKillsPerDeath, displayType: 'ratio' },
       { key: 'killsPerRound', name: statTerms.tableHeaderKillsPerRound, displayType: 'ratio' },
-      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number' }
+      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number', showTotal: true }
     ];
+
+  var getAveragesTotalsHtml = function getAveragesTotalsHtml(
+      averagesTotals, ranksMetaData, enabledRanks, roleCssClass
+    ) {
+      var html = '',
+        avgTotalKey;
+
+      html += '<tr class="' + roleCssClass + ' average-totals">';
+      html += '<td></td>';
+      html += '<td class="field-name">' + statTerms.averagesAndTotals + '</td>'
+
+      statColumns.forEach(function(statColumn) {
+        avgTotalKey = statColumn.showTotal ? 'total' : 'avg';
+
+        html += '<td class="all-ranks">' + getFormattedNumber(averagesTotals[statColumn.key].all[avgTotalKey], statColumn.displayType) + '</td>';
+        enabledRanks.forEach(function(rankKey) {
+          html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
+          html += '<span>' + getFormattedNumber(averagesTotals[statColumn.key][rankKey][avgTotalKey], statColumn.displayType, true) + '</span>';
+          html += '</td>';
+        });
+      });
+
+      html += '</tr>';
+      return html;
+    };
 
   var getFormattedNumber = function getFormattedNumber(num, displayType, minimal) {
     switch (displayType) {
@@ -42,11 +67,13 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
     html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
     html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
-    html += getOpRoleHtml(opStats.attackers, ranksMetaData, enabledRanks, 'attackers');
+    html += getOpRoleHtml(opStats.attackers.operators, ranksMetaData, enabledRanks, 'attackers');
+    html += getAveragesTotalsHtml(opStats.attackers.averagesTotals, ranksMetaData, enabledRanks, 'attackers');
 
     html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
     html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
-    html += getOpRoleHtml(opStats.defenders, ranksMetaData, enabledRanks, 'defenders');
+    html += getOpRoleHtml(opStats.defenders.operators, ranksMetaData, enabledRanks, 'defenders');
+    html += getAveragesTotalsHtml(opStats.defenders.averagesTotals, ranksMetaData, enabledRanks, 'defenders');
 
     html += '</table>';
     html += '</div>';
@@ -55,9 +82,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getMainHeaderHtml = function getMainHeaderHtml(
-    skillColumnCount,
-    headerText,
-    roleCssClass
+    skillColumnCount, headerText, roleCssClass
   ) {
     var html = '';
 
@@ -72,16 +97,13 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getOpRoleHtml = function getOpRoleHtml(
-    opStatsForRole,
-    ranksMetaData,
-    enabledRanks,
-    roleCssClass
+    opStatsForRole, ranksMetaData,  enabledRanks, roleCssClass
   ) {
     var html = '';
 
     opStatsForRole.forEach(function(operator) {
       html += '<tr class="' + roleCssClass + '">';
-      html += '<td><div class="op-icon ' + operator.cssClass + '"></div></<td>';
+      html += '<td><div class="op-icon ' + operator.cssClass + '"></div></td>';
       html += '<td class="op-name">' + operator.name + '</<td>';
       statColumns.forEach(function(statColumn) {
         html += '<td class="all-ranks">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
@@ -99,9 +121,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getSubHeaderHtml = function getSubHeaderHtml(
-    ranksMetaData,
-    enabledRanks,
-    sortInfo
+    ranksMetaData, enabledRanks, sortInfo
   ) {
     var html = '',
       srData,

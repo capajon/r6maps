@@ -1,7 +1,6 @@
 'use strict';
 
 var R6MStatsRender = (function(R6MLangTerms, undefined) {
-
   var renderHeaders = function renderHeaders($headers) {
     var statTerms = R6MLangTerms.terms.stats;
 

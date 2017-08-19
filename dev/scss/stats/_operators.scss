@@ -67,10 +67,10 @@ $cell-padding: 0 0.3rem;
 
     tr.main {
       &.attackers {
-        background-color: $r6-orange;
+        background-color: $r6-orange !important;
       }
       &.defenders {
-        background-color: $r6-blue;
+        background-color: $r6-blue !important;
       }
       th {
         border-left: 1px solid #000;
@@ -116,6 +116,13 @@ $cell-padding: 0 0.3rem;
       }
     }
 
+    tr.average-totals {
+      td {
+        font-weight: 700;
+        color: #000;
+      }
+    }
+
     tr.attackers:nth-child(even) {
       background-color: #f6ded4;
     }
@@ -134,7 +141,7 @@ $cell-padding: 0 0.3rem;
       }
     }
 
-    .op-name {
+    .op-name, .field-name {
       text-align: left;
     }
 

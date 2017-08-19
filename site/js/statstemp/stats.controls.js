@@ -103,7 +103,9 @@ var R6MStatsControls = (function(R6MLangTerms, undefined){
 
     $mapsLabel.html(R6MLangTerms.terms.stats.labelMap);
     mapsUpdate($mapsControl, mapModeLocationsData, selectedSeason);
-    $mapsSelect.on('change', function() { mapChangeCb(); });
+    $mapsSelect.on('change', function() {
+      mapChangeCb();
+    });
   };
 
   var mapsUpdate = function mapsUpdate(
@@ -199,7 +201,9 @@ var R6MStatsControls = (function(R6MLangTerms, undefined){
 
     $platformsLabel.html(R6MLangTerms.terms.stats.labelPlatform);
     platformsUpdate($platformsControl, platformsData, selectedSeason);
-    $platformsSelect.on('change', function() {  platformChangeCb(); });
+    $platformsSelect.on('change', function() {
+      platformChangeCb();
+    });
   };
 
   var platformsUpdate = function platformsUpdate(
