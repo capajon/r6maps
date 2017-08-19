@@ -1,15 +1,16 @@
 'use strict';
 
 var R6MStatsOpData = (function(R6MLangTerms, undefined) {
-  var opStats = {
-    attackers: [],
-    defenders: [],
-    sortInfo: {
-      field: null,
-      rank: null,
-      isDescending: null
-    }
-  };
+  var WARNING_THRESHOLD = 20,
+    opStats = {
+      attackers: [],
+      defenders: [],
+      sortInfo: {
+        field: null,
+        rank: null,
+        isDescending: null
+      }
+    };
 
   var getAveragesTotals = function getAveragesTotals(opRoleStats) {
     var count = 0,
@@ -28,7 +29,7 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
           averagesTotals[key][sbrKey].total += opRoleStats[opKey].statsByRank[sbrKey][key];
         }
       }
-      count ++;
+      count++;
     }
 
     for (var statKey in averagesTotals) {
@@ -50,7 +51,8 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
       killsPerDeath: 0,
       pickRate: 0,
       winRate: 0,
-      survivalRate: 0
+      survivalRate: 0,
+      warning: false
     };
   };
 
@@ -90,6 +92,7 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
       opRoleStats.push(newOpStats);
     }
     setTallies(opRoleStats, totalRounds, totalPlaysByRank, totalPlaysAllRanks);
+    setWarnings(opRoleStats);
     return {
       operators: opRoleStats,
       averagesTotals: getAveragesTotals(opRoleStats)
@@ -121,6 +124,19 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
     stats.killsPerRound = (!stats.totalPlays) ? 0 : stats.totalKills / stats.totalPlays;
     stats.survivalRate = (!stats.totalPlays) ? 0 : (stats.totalPlays - stats.totalDeaths) / stats.totalPlays;
     stats.winRate = (!stats.totalPlays) ? 0 : stats.totalWins / stats.totalPlays;
+  };
+
+  var setWarnings = function setWarnings(opRoleStats) {
+    for (var opKey in opRoleStats) {
+      if (opRoleStats[opKey].statsAllRanks.totalPlays < WARNING_THRESHOLD) {
+        opRoleStats[opKey].statsAllRanks.warning = true;
+      }
+      for (var rankKey in opRoleStats[opKey].statsByRank) {
+        if (opRoleStats[opKey].statsByRank[rankKey].totalPlays < WARNING_THRESHOLD) {
+          opRoleStats[opKey].statsByRank[rankKey].warning = true;
+        }
+      }
+    }
   };
 
   var trySort = function trySort(sortField, isDescending, optionalRank) {

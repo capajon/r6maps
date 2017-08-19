@@ -13,29 +13,29 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     ];
 
   var getAveragesTotalsHtml = function getAveragesTotalsHtml(
-      averagesTotals, ranksMetaData, enabledRanks, roleCssClass
-    ) {
-      var html = '',
-        avgTotalKey;
+    averagesTotals, ranksMetaData, enabledRanks, roleCssClass
+  ) {
+    var html = '',
+      avgTotalKey;
 
-      html += '<tr class="' + roleCssClass + ' average-totals">';
-      html += '<td></td>';
-      html += '<td class="field-name">' + statTerms.averagesAndTotals + '</td>'
+    html += '<tr class="' + roleCssClass + ' average-totals">';
+    html += '<td></td>';
+    html += '<td class="field-name">' + statTerms.averagesAndTotals + '</td>';
 
-      statColumns.forEach(function(statColumn) {
-        avgTotalKey = statColumn.showTotal ? 'total' : 'avg';
+    statColumns.forEach(function(statColumn) {
+      avgTotalKey = statColumn.showTotal ? 'total' : 'avg';
 
-        html += '<td class="all-ranks">' + getFormattedNumber(averagesTotals[statColumn.key].all[avgTotalKey], statColumn.displayType) + '</td>';
-        enabledRanks.forEach(function(rankKey) {
-          html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
-          html += '<span>' + getFormattedNumber(averagesTotals[statColumn.key][rankKey][avgTotalKey], statColumn.displayType, true) + '</span>';
-          html += '</td>';
-        });
+      html += '<td class="all-ranks">' + getFormattedNumber(averagesTotals[statColumn.key].all[avgTotalKey], statColumn.displayType) + '</td>';
+      enabledRanks.forEach(function(rankKey) {
+        html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
+        html += '<span>' + getFormattedNumber(averagesTotals[statColumn.key][rankKey][avgTotalKey], statColumn.displayType, true) + '</span>';
+        html += '</td>';
       });
+    });
 
-      html += '</tr>';
-      return html;
-    };
+    html += '</tr>';
+    return html;
+  };
 
   var getFormattedNumber = function getFormattedNumber(num, displayType, minimal) {
     switch (displayType) {
@@ -99,16 +99,21 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   var getOpRoleHtml = function getOpRoleHtml(
     opStatsForRole, ranksMetaData,  enabledRanks, roleCssClass
   ) {
-    var html = '';
+    var html = '',
+      warningCssClass = false;
 
     opStatsForRole.forEach(function(operator) {
       html += '<tr class="' + roleCssClass + '">';
       html += '<td><div class="op-icon ' + operator.cssClass + '"></div></td>';
       html += '<td class="op-name">' + operator.name + '</<td>';
+
       statColumns.forEach(function(statColumn) {
         html += '<td class="all-ranks">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
+
         enabledRanks.forEach(function(rankKey) {
-          html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '"><span>';
+          warningCssClass = (!operator.statsByRank[rankKey] || operator.statsByRank[rankKey].warning) ? 'warning ' : '';
+
+          html += '<td class="can-hide ' + warningCssClass + ranksMetaData[rankKey].cssClass + '"><span>';
           html += (operator.statsByRank[rankKey]) ?
             getFormattedNumber(operator.statsByRank[rankKey][statColumn.key], statColumn.displayType, true) :
             '-';
