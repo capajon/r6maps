@@ -1,33 +1,14 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls);
-}(function($, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, undefined) {
-  var $mainHeader,
-    $filtersHeader,
-    $mapHeader,
-    $mapOutput,
-    $mapHeader,
-    $mapLoader,
-    $sectionMap,
-    $sectionOperators,
-    $operatorsHeader,
-    $operatorsOutput,
-    $operatorsLoader,
-    $seasonsLabel,
-    $seasonsSelect,
-    $platformsLabel,
-    $platformsSelect,
-    $mapsLabel,
-    $mapsSelect,
-    $modesLabel,
-    $modesSelect,
-    $objectiveLocationsLabel,
-    $objectiveLocationsSelect,
+  pagecode(window.jQuery, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender);
+}(function($, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, undefined) {
+  var $headers = {},
+    $sections = {},
+    $outputs = {},
+    $controls = {},
     $loadButton,
-    $ranksHeader,
-    $ranksControl,
-    $ranksShower,
+    $ranksShowHider,
     metaData,
     statTerms,
     QUERY_PARAMS = {
@@ -43,37 +24,31 @@
     metaData = R6MStatsMetaData.getData();
     statTerms = R6MLangTerms.terms.stats;
     assignPageElements();
-    setupStaticElements();
+    R6MStatsRender.renderHeaders($headers);
+    R6MStatsRender.renderStaticEl($('p.all-text'), $('p.instructions'));
     setupControls();
     window.onpopstate = handleHistoryPop;
   });
 
   var assignPageElements = function assignPageElements() {
-    $mainHeader = $('#header-main');
-    $filtersHeader = $('nav h2');
-    $sectionMap = $('#section-map');
-    $mapHeader = $('#section-map h2');
-    $mapOutput = $('#section-map div.output');
-    $mapLoader = $('#section-map div.output');
-    $sectionOperators = $('#section-operators');
-    $operatorsHeader = $('#section-operators h2');
-    $operatorsOutput = $('#section-operators div.output');
-    $operatorsLoader = $('#section-operators div.loader');
+    $headers.main = $('#header-main');
+    $headers.mapSection = $('#section-map h2');
+    $headers.opSection = $('#section-operators h2');
+    $headers.ranks = $('#skill-ranks-header');
+    $headers.filters = $('nav h2');
 
-    $seasonsLabel = $('#seasons-control label'),
-    $seasonsSelect = $('#seasons-control select'),
-    $platformsLabel = $('#platforms-control label'),
-    $platformsSelect = $('#platforms-control select'),
-    $mapsLabel = $('#maps-control label'),
-    $mapsSelect = $('#maps-control select'),
-    $modesLabel = $('#game-modes-control label'),
-    $modesSelect = $('#game-modes-control select'),
-    $objectiveLocationsLabel = $('#objective-locations-control label'),
-    $objectiveLocationsSelect = $('#objective-locations-control select'),
+    $sections.maps = $('#section-map');
+    $outputs.mapSection = $('#section-map div.output');
+    $sections.ops = $('#section-operators');
+    $outputs.opSection = $('#section-operators div.output');
+    $controls.seasons = $('#seasons-control'),
+    $controls.platforms = $('#platforms-control'),
+    $controls.maps = $('#maps-control'),
+    $controls.modes = $('#game-modes-control'),
+    $controls.locations = $('#objective-locations-control'),
     $loadButton = $('#load-control'),
-    $ranksHeader = $('#skill-ranks-header');
-    $ranksControl = $('#skill-ranks-control');
-    $ranksShower = $('#skill-ranks-shower');
+    $controls.ranks = $('#skill-ranks-control');
+    $ranksShowHider = $('#skill-ranks-show-hider');
   };
 
   var disableLoadControl = function disableLoadControl() {
@@ -98,33 +73,32 @@
   };
 
   var handleGameModeChange = function handleGameModeChange() {
-    R6MStatsControls.objectiveLocations.update(
-      $objectiveLocationsSelect,
+    R6MStatsControls.locations.update($controls.locations,
       metaData.mapModeLocations,
-      R6MStatsControls.seasons.get($seasonsSelect),
-      R6MStatsControls.maps.get($mapsSelect),
-      R6MStatsControls.modes.get($modesSelect)
+      R6MStatsControls.seasons.get($controls.seasons),
+      R6MStatsControls.maps.get($controls.maps),
+      R6MStatsControls.modes.get($controls.modes)
     );
     enableLoadControl();
   };
 
   var handleApiAllSuccess = function handleApiAllSuccess() {
     $('body').removeClass('load-in-progress');
-    $mapHeader.focus();
+    $headers.mapSection.focus();
     enableLoadControl();
   };
 
   var handleApiMapSuccess = function handleApiMapSuccess(mapApiData) {
     R6MStatsMapData.set(mapApiData, metaData.winReasons);
-    R6MStatsMapRender.render(R6MStatsMapData.get(), $mapOutput);
-    $sectionMap.removeClass('load-in-progress');
+    R6MStatsMapRender.render(R6MStatsMapData.get(), $outputs.mapSection);
+    $sections.maps.removeClass('load-in-progress');
     console.log('Map success', R6MStatsMapData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
   };
 
   var handleApiMapError = function handleApiMapError(mapData) {
     $('body').removeClass('load-in-progress');
-    $sectionMap.removeClass('load-in-progress');
-    $mapOutput.html('<p class="error">' + R6MLangTerms.terms.stats.error + '</p>');
+    $sections.maps.removeClass('load-in-progress');
+    R6MStatsRender.renderLoadError($outputs.mapSection);
   };
 
   var handleApiOpSuccess = function handleApiOpSuccess(opApiData, mapApiData) {
@@ -137,18 +111,18 @@
 
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
-      $operatorsOutput,
+      $outputs.opSection,
       metaData.ranks,
-      getSkillRanksForSeason(R6MStatsControls.seasons.get($seasonsSelect)),
+      getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons)),
       resortOperators
     );
-    $sectionOperators.removeClass('load-in-progress');
+    $sections.ops.removeClass('load-in-progress');
     console.log('Operators success', R6MStatsOpData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
   };
 
   var handleApiOpError = function handleApiOpError(operatorsData) {
-    $sectionOperators.removeClass('load-in-progress');
-    $operatorsOutput.html('<p class="error">' + R6MLangTerms.terms.stats.error + '</p>');
+    $sections.ops.removeClass('load-in-progress');
+    $outputs.opSection.html('<p class="error">' + R6MLangTerms.terms.stats.error + '</p>');
   };
 
   var handleHistoryPop = function handleHistoryPop() {
@@ -158,11 +132,11 @@
 
   var handleLoadButtonClick = function handleLoadButtonClick() {
     var possibleParams = [
-        { string: QUERY_PARAMS.SEASON, currentValue: R6MStatsControls.seasons.get($seasonsSelect)},
-        { string: QUERY_PARAMS.PLATFORM, currentValue: R6MStatsControls.platforms.get($platformsSelect)},
-        { string: QUERY_PARAMS.MAP, currentValue: R6MStatsControls.maps.get($mapsSelect)},
-        { string: QUERY_PARAMS.MODE, currentValue: R6MStatsControls.modes.get($modesSelect)},
-        { string: QUERY_PARAMS.LOCATION, currentValue: R6MStatsControls.objectiveLocations.get($objectiveLocationsSelect)}
+        { string: QUERY_PARAMS.SEASON, currentValue: R6MStatsControls.seasons.get($controls.seasons)},
+        { string: QUERY_PARAMS.PLATFORM, currentValue: R6MStatsControls.platforms.get($controls.platforms)},
+        { string: QUERY_PARAMS.MAP, currentValue: R6MStatsControls.maps.get($controls.maps)},
+        { string: QUERY_PARAMS.MODE, currentValue: R6MStatsControls.modes.get($controls.modes)},
+        { string: QUERY_PARAMS.LOCATION, currentValue: R6MStatsControls.locations.get($controls.locations)}
       ],
       queryString = '',
       counter = 0;
@@ -177,12 +151,12 @@
     history.pushState({}, '', [location.protocol, '//', location.host, location.pathname].join('') + queryString);
 
     $('body').removeClass('not-loaded-yet');
-    $sectionMap.addClass('load-in-progress');
-    $sectionOperators.addClass('load-in-progress');
+    $sections.maps.addClass('load-in-progress');
+    $sections.ops.addClass('load-in-progress');
     $('body').addClass('load-in-progress');
     disableLoadControl();
 
-    savePlatformOption(R6MStatsControls.platforms.get($platformsSelect));
+    savePlatformOption(R6MStatsControls.platforms.get($controls.platforms));
     sendLoadStatsAnalyticsEvent(queryString);
 
     R6MStatsApi.getMapAndOperators(
@@ -197,47 +171,47 @@
   };
 
   var handleMapChange = function handleMapChange() {
-    var selectedSeason = R6MStatsControls.seasons.get($seasonsSelect),
-      selectedMap = R6MStatsControls.maps.get($mapsSelect);
+    var selectedSeason = R6MStatsControls.seasons.get($controls.seasons),
+      selectedMap = R6MStatsControls.maps.get($controls.maps);
 
     R6MStatsControls.modes.update(
-      $modesSelect,
+      $controls.modes,
       metaData.modes,
       metaData.mapModeLocations,
       selectedSeason,
       selectedMap
     );
-    R6MStatsControls.objectiveLocations.update(
-      $objectiveLocationsSelect,
+    R6MStatsControls.locations.update(
+      $controls.locations,
       metaData.mapModeLocations,
       selectedSeason,
       selectedMap,
-      R6MStatsControls.modes.get($modesSelect)
+      R6MStatsControls.modes.get($controls.modes)
     );
     enableLoadControl();
   };
 
   var handleSeasonChange = function handleSeasonChange() {
-    var selectedSeason = R6MStatsControls.seasons.get($seasonsSelect);
+    var selectedSeason = R6MStatsControls.seasons.get($controls.seasons);
 
     R6MStatsControls.platforms.update(
-      $platformsSelect,
+      $controls.platforms,
       metaData.platforms,
       selectedSeason
     );
 
     R6MStatsControls.maps.update(
-      $mapsSelect,
+      $controls.maps,
       metaData.mapModeLocations,
       selectedSeason
     );
     handleMapChange();
 
     R6MStatsControls.ranks.setup(
-      $ranksHeader,
-      $ranksControl,
+      $headers.ranks,
+      $controls.ranks,
       metaData.ranks,
-      R6MStatsControls.seasons.get($seasonsSelect),
+      R6MStatsControls.seasons.get($controls.seasons),
       handleSkillRankChange
     );
     handleSkillRankChange();
@@ -246,11 +220,11 @@
   };
 
   var handleSkillRankChange = function handleSkillRankChange() {
-    var selectedSkillRanks = R6MStatsControls.ranks.get($ranksControl);
+    var selectedSkillRanks = R6MStatsControls.ranks.get($controls.ranks);
 
-    $ranksShower.removeClass();
+    $ranksShowHider.removeClass();
     selectedSkillRanks.forEach(function(rank) {
-      $ranksShower.addClass('show-' + metaData.ranks[rank].cssClass);
+      $ranksShowHider.addClass('show-' + metaData.ranks[rank].cssClass);
     });
     saveSkillRankOptions(selectedSkillRanks);
   };
@@ -259,9 +233,9 @@
     R6MStatsOpData.trySort(sortField, isDescending, sortRank);
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
-      $operatorsOutput,
+      $outputs.opSection,
       metaData.ranks,
-      getSkillRanksForSeason(R6MStatsControls.seasons.get($seasonsSelect)),
+      getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons)),
       resortOperators
     );
     saveOperatorsSortField(sortField, isDescending, sortRank);
@@ -281,59 +255,54 @@
 
   var setupControls = function setupControls() {
     R6MStatsControls.seasons.setup(
-      $seasonsSelect,
-      $seasonsLabel,
+      $controls.seasons,
       metaData.seasons,
       handleSeasonChange
     );
-    R6MStatsControls.seasons.trySelect($seasonsSelect, R6MHelpers.queryString(QUERY_PARAMS.SEASON));
+    R6MStatsControls.seasons.trySelect($controls.seasons, R6MHelpers.queryString(QUERY_PARAMS.SEASON));
 
     R6MStatsControls.platforms.setup(
-      $platformsSelect,
-      $platformsLabel,
+      $controls.platforms,
       metaData.platforms,
-      R6MStatsControls.seasons.get($seasonsSelect),
+      R6MStatsControls.seasons.get($controls.seasons),
       enableLoadControl
     );
     tryLoadSavedPlatformOption();
-    R6MStatsControls.platforms.trySelect($platformsSelect, R6MHelpers.queryString(QUERY_PARAMS.PLATFORM));
+    R6MStatsControls.platforms.trySelect($controls.platforms, R6MHelpers.queryString(QUERY_PARAMS.PLATFORM));
 
     R6MStatsControls.maps.setup(
-      $mapsSelect,
-      $mapsLabel,
+      $controls.maps,
       metaData.mapModeLocations,
-      R6MStatsControls.seasons.get($seasonsSelect),
+      R6MStatsControls.seasons.get($controls.seasons),
       handleMapChange
     );
-    R6MStatsControls.maps.trySelect($mapsSelect, R6MHelpers.queryString(QUERY_PARAMS.MAP));
+    R6MStatsControls.maps.trySelect($controls.maps, R6MHelpers.queryString(QUERY_PARAMS.MAP));
 
     R6MStatsControls.modes.setup(
-      $modesSelect,
-      $modesLabel,
+      $controls.modes,
       metaData.modes,
       metaData.mapModeLocations,
       handleGameModeChange,
-      R6MStatsControls.seasons.get($seasonsSelect),
-      R6MStatsControls.maps.get($mapsSelect)
+      R6MStatsControls.seasons.get($controls.seasons),
+      R6MStatsControls.maps.get($controls.maps)
     );
-    R6MStatsControls.modes.trySelect($modesSelect, R6MHelpers.queryString(QUERY_PARAMS.MODE));
+    R6MStatsControls.modes.trySelect($controls.modes, R6MHelpers.queryString(QUERY_PARAMS.MODE));
 
-    R6MStatsControls.objectiveLocations.setup(
-      $objectiveLocationsSelect,
-      $objectiveLocationsLabel,
+    R6MStatsControls.locations.setup(
+      $controls.locations,
       metaData.mapModeLocations,
-      R6MStatsControls.seasons.get($seasonsSelect),
-      R6MStatsControls.maps.get($mapsSelect),
-      R6MStatsControls.modes.get($modesSelect),
+      R6MStatsControls.seasons.get($controls.seasons),
+      R6MStatsControls.maps.get($controls.maps),
+      R6MStatsControls.modes.get($controls.modes),
       enableLoadControl
     );
-    R6MStatsControls.objectiveLocations.trySelect($objectiveLocationsSelect, R6MHelpers.queryString(QUERY_PARAMS.LOCATION));
+    R6MStatsControls.locations.trySelect($controls.locations, R6MHelpers.queryString(QUERY_PARAMS.LOCATION));
 
     R6MStatsControls.ranks.setup(
-      $ranksHeader,
-      $ranksControl,
+      $headers.ranks,
+      $controls.ranks,
       metaData.ranks,
-      R6MStatsControls.seasons.get($seasonsSelect),
+      R6MStatsControls.seasons.get($controls.seasons),
       handleSkillRankChange
     );
     tryLoadSavedSkillRankOptions();
@@ -350,15 +319,6 @@
       eventAction: 'LoadStats',
       eventLabel: queryString
     });
-  };
-
-  var setupStaticElements = function setupStaticElements() {
-    $mainHeader.find('.page-title').html(statTerms.headerMain);
-    $filtersHeader.html(statTerms.headerFilters);
-    $mapHeader.html(statTerms.headerMap);
-    $operatorsHeader.html(statTerms.headerOperators);
-    $('p.all-text').html(statTerms.allOption);
-    $('p.instructions').html(statTerms.instructions);
   };
 
   var tryLoadOpSortField = function tryLoadOpSortField() {
@@ -383,7 +343,7 @@
     var platformOption = localStorage.getItem('statsplatform');
 
     if (platformOption !== null) {
-      R6MStatsControls.platforms.trySelect($platformsSelect, platformOption);
+      R6MStatsControls.platforms.trySelect($controls.platforms, platformOption);
     }
   };
 
@@ -392,7 +352,7 @@
 
     if (previouslySelectedSkillRanks) {
       R6MStatsControls.ranks.trySelect(
-        $ranksControl,
+        $controls.ranks,
         previouslySelectedSkillRanks.split(',')
       );
     }
