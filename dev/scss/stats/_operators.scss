@@ -8,6 +8,9 @@ $bg-rank-gold: #FFD700;
 $bg-rank-platinum: #e5e4e2;
 $bg-rank-diamond: #000;
 $cell-padding: 0 0.3rem;
+$graph-icon-height: 25px;
+$attachers-light-bg: #f6ded4;
+$defenders-light-bg: #d3e0eb;
 
 @mixin show-rank($rank) {
   .show-#{$rank} {
@@ -68,9 +71,15 @@ $cell-padding: 0 0.3rem;
     tr.main {
       &.attackers {
         background-color: $r6-orange !important;
+        th.stat-name:hover, th.stat-name:focus {
+          background-color: $attachers-light-bg;
+        }
       }
       &.defenders {
         background-color: $r6-blue !important;
+        th.stat-name:hover, th.stat-name:focus {
+          background-color: $defenders-light-bg;
+        }
       }
       th {
         border-left: 1px solid #000;
@@ -82,6 +91,29 @@ $cell-padding: 0 0.3rem;
         &.op-name {
           border-left: none;
           padding: $cell-padding;
+        }
+        &.stat-name {
+          cursor: pointer;
+          text-decoration: underline;
+          transition: background-color $button-transition, color $button-transition;
+          &:hover, &:focus {
+            color: #000;
+            .graph-icon {
+              background-position-y: -$graph-icon-height;
+            }
+          }
+          .stat-name-wrapper {
+            pointer-events: none;
+          }
+          .graph-icon {
+            display: inline-block;
+            background-image: url($img-location + 'icons/stat-icons-sprite@2x.png');
+            background-repeat: no-repeat;
+            background-size: $graph-icon-height;
+            height: $graph-icon-height;
+            margin-left: 10px;
+            width: $graph-icon-height;
+          }
         }
         &:first-child {
           border-left: none;
@@ -124,11 +156,11 @@ $cell-padding: 0 0.3rem;
     }
 
     tr.attackers:nth-child(even) {
-      background-color: #f6ded4;
+      background-color: $attachers-light-bg;
     }
 
     tr.defenders:nth-child(even) {
-      background-color: #d3e0eb;
+      background-color: $defenders-light-bg;
     }
 
     .can-hide {

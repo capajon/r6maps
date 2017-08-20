@@ -65,12 +65,12 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<div class="wrapper">';
     html += '<table>';
 
-    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers');
+    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers', 'attackers');
     html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
     html += getOpRoleHtml(opStats.attackers.operators, ranksMetaData, enabledRanks, 'attackers');
     html += getAveragesTotalsHtml(opStats.attackers.averagesTotals, ranksMetaData, enabledRanks, 'attackers');
 
-    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders');
+    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders', 'defenders');
     html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
     html += getOpRoleHtml(opStats.defenders.operators, ranksMetaData, enabledRanks, 'defenders');
     html += getAveragesTotalsHtml(opStats.defenders.averagesTotals, ranksMetaData, enabledRanks, 'defenders');
@@ -82,7 +82,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getMainHeaderHtml = function getMainHeaderHtml(
-    skillColumnCount, headerText, roleCssClass
+    skillColumnCount, headerText, roleCssClass, roleKey
   ) {
     var html = '';
 
@@ -90,7 +90,9 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<th></th>';
     html += '<th class="op-name">' + headerText + '</th>';
     statColumns.forEach(function(statColumn) {
-      html += '<th class="stat-name" colspan="' + skillColumnCount + '">' + statColumn.name + '</th>';
+      html += '<th class="stat-name" colspan="' + skillColumnCount + '" data-rolekey="' + roleKey + '" data-statkey = "' + statColumn.key + '">';
+      html += '<span class="stat-name-wrapper">' + statColumn.name + '<span class="graph-icon"></span></span>';
+      html += '</th>';
     });
     html += '</tr>';
     return html;
@@ -191,25 +193,35 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
-  var render = function render(opStats, $outputEl, ranksMetaData, enabledRanks, sortCb) {
+  var render = function render(opStats, $outputEl, ranksMetaData, enabledRanks, sortCb, statGraphCb) {
     var html = '';
 
     html += getOpHtml(opStats, ranksMetaData, enabledRanks);
     html += getNotesHtml();
     $outputEl.html(html);
     setupSortColumns($outputEl, sortCb);
+    setupStatHeaders($outputEl, statGraphCb);
   };
 
   var setupSortColumns = function setupSortColumns($outputEl, sortCb) {
     $outputEl.find('.sortable').on('click', function(event) {
-      var source = $(event.target),
+      var $source = $(event.target),
         isDescending;
 
-      if (!source.data('sortfield')){
-        source = source.parent(); // maybe too fragile to html structure?
+      if (!$source.data('sortfield')){
+        $source = $source.parent(); // maybe too fragile to html structure?
       }
-      isDescending = (source.data('sortorder') == 'descending');
-      sortCb(source.data('sortfield'), isDescending, source.data('sortrank'));
+      isDescending = ($source.data('sortorder') == 'descending');
+      sortCb($source.data('sortfield'), isDescending, $source.data('sortrank'));
+    });
+  };
+
+  var setupStatHeaders = function setupStatHeaders($outputEl, statGraphCb) {
+    $outputEl.find('.stat-name').on('click', function(event) {
+      var $source = $(event.target),
+        isDescending;
+
+      statGraphCb($source.data('statkey'), $source.data('rolekey'));
     });
   };
 

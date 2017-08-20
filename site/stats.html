@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>R6Maps.com - Stats BETA</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="lib/fancybox.2.1.5/jquery.fancybox.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/release.2.2.6/stats.2.2.6.css" media="all" />
     <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
     <link rel="icon" href="/favicon.ico?v=1">
@@ -32,26 +33,26 @@
           <span class="site-title">R6Maps.com</span>
         </span>
       </a>
-      <span class="page-title">STATS BETA</span>
+      <span class="page-title">Stats</span>
     </h1>
     <nav>
-      <h2></h2>
-      <div class="control" id="seasons-control"><label></label><select></select></div>
-      <div class="control" id="platforms-control"><label></label><select></select></div>
-      <div class="control" id="maps-control"><label></label><select></select></div>
-      <div class="control multi-view" id="game-modes-control"><label></label><select size="4"></select></div>
-      <div class="control multi-view" id="objective-locations-control"><label></label><p class="all-text"></p><select size="5"></select></div>
-      <div class="load"><button id="load-control"></button></div>
+      <h2>Filters</h2>
+      <div class="control" id="seasons-control"><label>Season</label><select></select></div>
+      <div class="control" id="platforms-control"><label>Platform</label><select></select></div>
+      <div class="control" id="maps-control"><label>Map</label><select></select></div>
+      <div class="control multi-view" id="game-modes-control"><label>Game Mode</label><select size="4"></select></div>
+      <div class="control multi-view" id="objective-locations-control"><label>Location</label><p class="all-text"></p><select size="5"></select></div>
+      <div class="load"><button id="load-control">Load Stats</button></div>
     </nav>
     <main>
       <section id="section-map">
-        <h2 style="display: inline-block"></h2>
+        <h2 style="display: inline-block">Map Stats</h2>
         <div class="loading"></div>
         <p class="instructions"></p>
         <div class="output"></div>
       </section>
       <section id="section-operators">
-        <h2></h2>
+        <h2>Operators</h2>
         <h3 id="skill-ranks-header"></h3>
         <div class="control" id="skill-ranks-control"></div>
         <div class="loading"></div>
@@ -74,11 +75,23 @@
         </ul>
       </section>
     </main>
+    <div id="op-chart">
+      <div class="dialog">
+        <h2 class="defenders">Skill Chart</h2>
+        <a class="close"><div class="icon"></div></a>
+        <div class="output">
+          <canvas width="100%" height="100%"></canvas>
+        </div>
+        <p class="info"></p>
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script src="js/release.2.2.6/common.min.js"></script>
     <script src="js/statstemp/stats.meta-data.js"></script>
     <script src="js/statstemp/stats.render.js"></script>
     <script src="js/statstemp/stats.controls.js"></script>
+    <script src="js/statstemp/stats.chart.js"></script>
     <script src="js/statstemp/stats.operators.data.js"></script>
     <script src="js/statstemp/stats.map.data.js"></script>
     <script src="js/statstemp/stats.api.js"></script>

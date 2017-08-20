@@ -1,12 +1,13 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender);
-}(function($, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, undefined) {
+  pagecode(window.jQuery, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, R6MStatsChart);
+}(function($, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, R6MStatsChart, undefined) {
   var $headers = {},
     $sections = {},
     $outputs = {},
     $controls = {},
+    $opChart = {},
     $loadButton,
     $ranksShowHider,
     metaData,
@@ -28,6 +29,7 @@
     R6MStatsRender.renderHeaders($headers);
     R6MStatsRender.renderStaticEl($('p.all-text'), $('p.instructions'));
     setupControls();
+    setupOpChart();
     window.onpopstate = handleHistoryPop;
   });
 
@@ -50,6 +52,17 @@
     $loadButton = $('#load-control'),
     $controls.ranks = $('#skill-ranks-control');
     $ranksShowHider = $('#skill-ranks-show-hider');
+
+    $opChart.root = $('#op-chart');
+    $opChart.dialog = $opChart.root.find('.dialog');
+    $opChart.close = $opChart.root.find('.close');
+    $opChart.canvas = $opChart.root.find('canvas');
+    $opChart.header = $opChart.root.find('h2');
+    $opChart.info = $opChart.root.find('.info');
+  };
+
+  var closeOpChart = function closeOpChart() {
+    $('body').removeClass('op-chart-open');
   };
 
   var disableLoadControl = function disableLoadControl() {
@@ -115,7 +128,8 @@
       $outputs.opSection,
       metaData.ranks,
       getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons)),
-      resortOperators
+      resortOperators,
+      updateOpRoleChart
     );
     $sections.ops.removeClass('load-in-progress');
     console.log('Operators success', R6MStatsOpData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
@@ -313,6 +327,16 @@
     $loadButton.on('click', handleLoadButtonClick);
   };
 
+  var setupOpChart = function setupOpChart() {
+    $opChart.close.on('click', closeOpChart);
+    $opChart.root.on('click', function(e) {
+      console.log('111',$(e.target));
+      if ($(e.target).attr('id') == 'op-chart') {
+        closeOpChart();
+      }
+    });
+  };
+
   var sendLoadStatsAnalyticsEvent = function sendLoadStatsAnalyticsEvent(queryString) {
     ga('send', {
       hitType: 'event',
@@ -320,6 +344,11 @@
       eventAction: 'LoadStats',
       eventLabel: queryString
     });
+  };
+
+  var updateOpRoleChart = function updateOpRoleChart(skillKey, roleKey) {
+    $('body').addClass('op-chart-open');
+    R6MStatsChart.updateOpRoleChart($opChart, R6MStatsOpData.get(), metaData, skillKey, roleKey);
   };
 
   var tryLoadOpSortField = function tryLoadOpSortField() {
