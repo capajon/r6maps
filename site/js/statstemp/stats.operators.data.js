@@ -67,6 +67,7 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
 
     for (var opKey in apiOpData) {
       var newOpStats = {
+        key: opKey,
         name: opMetaData[opKey].name,
         cssClass: opMetaData[opKey].cssClass,
         statsByRank: {},

@@ -218,6 +218,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   return  {
-    render: render
+    render: render,
+    getFormattedNumber: getFormattedNumber
   };
 })(R6MLangTerms);

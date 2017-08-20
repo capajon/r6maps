@@ -13,7 +13,7 @@
     metaData,
     statTerms,
     lastLoadSnapshot = {
-      filter: {}
+      filters: {}
     },
     QUERY_PARAMS = {
       SEASON: 'season',
@@ -158,10 +158,11 @@
         queryString += param.string + '=' + param.currentValue;
         counter++;
       }
-      lastLoadSnapshot.filter[param.string] = param.currentValue;
+      lastLoadSnapshot.filters[param.string] = param.currentValue;
     });
     history.pushState({}, '', [location.protocol, '//', location.host, location.pathname].join('') + queryString);
 
+    lastLoadSnapshot.ranks = getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons));
     $('body').removeClass('not-loaded-yet');
     $sections.maps.addClass('load-in-progress');
     $sections.ops.addClass('load-in-progress');
@@ -248,7 +249,7 @@
       metaData.ranks,
       metaData.roles,
       metaData.statTypes,
-      getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons)),
+      lastLoadSnapshot.ranks,
       resortOperators,
       updateOpRoleChart
     );
@@ -352,7 +353,16 @@
 
   var updateOpRoleChart = function updateOpRoleChart(skillKey, roleKey) {
     $('body').addClass('op-chart-open');
-    R6MStatsChart.updateOpRoleChart($opChart, R6MStatsOpData.get(), skillKey, roleKey, lastLoadSnapshot.filter, metaData);
+    R6MStatsChart.updateOpRoleChart(
+      $opChart,
+      R6MStatsOpData.get(),
+      skillKey,
+      roleKey,
+      lastLoadSnapshot.filters,
+      lastLoadSnapshot.ranks,
+      metaData,
+      R6MStatsOpRender.getFormattedNumber
+    );
   };
 
   var tryLoadOpSortField = function tryLoadOpSortField() {

@@ -31,36 +31,52 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
     $info.html(info);
   };
 
-  var updateOpRoleChart = function updateOpRoleChart($opChartEls, opStats, statKey, roleKey, filterInfo, metaData) {
+  var updateOpRoleChart = function updateOpRoleChart(
+    $opChartEls,
+    opStats,
+    statKey,
+    roleKey,
+    filterInfo,
+    ranks,
+    metaData,
+    getFormattedNumberFn
+  ) {
     updateHeader($opChartEls.header, statKey, roleKey, metaData.roles, metaData.statTypes);
     updateInfo($opChartEls.info, filterInfo, metaData);
 
-    var ctx = $opChartEls.canvas;
+    var ctx = $opChartEls.canvas,
+      labels = [],
+      datasets = [],
+      opDataSet,
+      data;
+
+    ranks.forEach(function(rank) {
+      labels.push(metaData.ranks[rank].name);
+    });
+
+    opStats[roleKey].operators.forEach(function(operator) {
+      data = [];
+      ranks.forEach(function(rank) {
+        data.push(
+          getFormattedNumberFn(operator.statsByRank[rank][statKey], metaData.statTypes[statKey].displayType, true)
+        );
+      });
+      opDataSet = {
+        label: operator.name,
+        data: data,
+        borderWidth: 3,
+        borderColor: metaData.operators[operator.key].color,
+        fill: false,
+        backgroundColor: metaData.operators[operator.key].color
+      }
+      datasets.push(opDataSet);
+    });
+
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
+        labels: labels,
+        datasets: datasets
       },
       options: {
         maintainAspectRatio: false,
@@ -68,7 +84,7 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: metaData.statTypes[statKey].chartBeginAtZero
             }
           }]
         }
