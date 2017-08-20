@@ -12,6 +12,9 @@
     $ranksShowHider,
     metaData,
     statTerms,
+    lastLoadSnapshot = {
+      filter: {}
+    },
     QUERY_PARAMS = {
       SEASON: 'season',
       PLATFORM: 'platform',
@@ -123,14 +126,7 @@
     );
     tryLoadOpSortField();
 
-    R6MStatsOpRender.render(
-      R6MStatsOpData.get(),
-      $outputs.opSection,
-      metaData.ranks,
-      getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons)),
-      resortOperators,
-      updateOpRoleChart
-    );
+    renderOpStats();
     $sections.ops.removeClass('load-in-progress');
     console.log('Operators success', R6MStatsOpData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
   };
@@ -162,6 +158,7 @@
         queryString += param.string + '=' + param.currentValue;
         counter++;
       }
+      lastLoadSnapshot.filter[param.string] = param.currentValue;
     });
     history.pushState({}, '', [location.protocol, '//', location.host, location.pathname].join('') + queryString);
 
@@ -244,15 +241,22 @@
     saveSkillRankOptions(selectedSkillRanks);
   };
 
-  var resortOperators = function resortOperators(sortField, isDescending, sortRank) {
-    R6MStatsOpData.trySort(sortField, isDescending, sortRank);
+  var renderOpStats = function renderOpStats() {
     R6MStatsOpRender.render(
       R6MStatsOpData.get(),
       $outputs.opSection,
       metaData.ranks,
+      metaData.roles,
+      metaData.statTypes,
       getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons)),
-      resortOperators
+      resortOperators,
+      updateOpRoleChart
     );
+  };
+
+  var resortOperators = function resortOperators(sortField, isDescending, sortRank) {
+    R6MStatsOpData.trySort(sortField, isDescending, sortRank);
+    renderOpStats();
     saveOperatorsSortField(sortField, isDescending, sortRank);
   };
 
@@ -348,7 +352,7 @@
 
   var updateOpRoleChart = function updateOpRoleChart(skillKey, roleKey) {
     $('body').addClass('op-chart-open');
-    R6MStatsChart.updateOpRoleChart($opChart, R6MStatsOpData.get(), metaData, skillKey, roleKey);
+    R6MStatsChart.updateOpRoleChart($opChart, R6MStatsOpData.get(), skillKey, roleKey, lastLoadSnapshot.filter, metaData);
   };
 
   var tryLoadOpSortField = function tryLoadOpSortField() {

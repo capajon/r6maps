@@ -95,7 +95,7 @@ $defenders-light-bg: #d3e0eb;
         &.stat-name {
           cursor: pointer;
           text-decoration: underline;
-          transition: background-color $button-transition, color $button-transition;
+          transition: background-color $button-transition;
           &:hover, &:focus {
             color: #000;
             .graph-icon {

@@ -217,10 +217,6 @@ var R6MStatsControls = (function(R6MLangTerms, undefined){
     trySelect($platformsControl, startingValue);
   };
 
-  var seasonsGet = function seasonsGet($seasonsControl) {
-    return $seasonsControl.find(':selected').val();
-  };
-
   var ranksPopulateOptions = function ranksPopulateOptions(
     $ranksControl, ranksData, selectedSeason
   ) {
@@ -262,15 +258,19 @@ var R6MStatsControls = (function(R6MLangTerms, undefined){
     });
   };
 
+  var seasonsGet = function seasonsGet($seasonsControl) {
+    return $seasonsControl.find(':selected').val();
+  };
+
   var seasonsPopulateOptions = function seasonsPopulateOptions(
     $seasonsControl, seasonsData
   ) {
     var $seasonsSelect = $seasonsControl.find('select');
 
-    seasonsData.forEach(function(season) {
+    for (var seasonKey in seasonsData) {
       $seasonsSelect.append($('<option></option>')
-         .attr('value', season).text(R6MLangTerms.terms.seasons[season]));
-    });
+         .attr('value', seasonKey).text(seasonsData[seasonKey].name));
+    }
   };
 
   var seasonsSetup = function seasonsSetup(

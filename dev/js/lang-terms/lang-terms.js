@@ -125,7 +125,7 @@ var R6MLangTerms = (function(undefined) {
         labelSeason: 'Season',
         labelPlatform: 'Platform',
         labelMap: 'Map',
-        labelGameMode: 'Game Mode',
+        labelGameMode: 'Mode',
         labelObjectiveLocation: 'Location',
         labelSkillRanks: 'Rank filters',
         allOption: 'All',
@@ -138,7 +138,7 @@ var R6MLangTerms = (function(undefined) {
         tableHeaderAttackers: 'Attackers',
         tableHeaderDefenders: 'Defenders',
         tableHeaderName: 'Name',
-        tableHeaderPickRate: 'Pick Rate *',
+        tableHeaderPickRate: 'Pick Rate',
         tableHeaderWinRate: 'Win Rate',
         tableHeaderSurvivalRate: 'Survival Rate',
         tableHeaderKillsPerDeath: 'Kills:Death',
@@ -154,7 +154,9 @@ var R6MLangTerms = (function(undefined) {
         percentageFormat: '{num}%',
         instructions: 'Select filter options and click \'Load Stats\' to continue.',
         noResults: 'No results found.',
-        error: 'There was an error trying to load stats.  Please try again later.'
+        error: 'There was an error trying to load stats.  Please try again later.',
+        chartHeader: '{stat} for {role}',
+        chartInfo: 'SEASON: {season} | PLATFORM: {platform} | MAP: {map} | MODE: {mode} | LOCATION: {location}'
       },
       statsRoundWinReasons: {
         allTeamsDead: 'All teams dead',
@@ -193,7 +195,8 @@ var R6MLangTerms = (function(undefined) {
         3: 'Skull Rain',
         4: 'Red Crow',
         5: 'Velvet Shell',
-        6: 'Operation Health'
+        6: 'Operation Health',
+        7: 'Blood Orchid'
       },
       operators: {
         ash: 'Ash',

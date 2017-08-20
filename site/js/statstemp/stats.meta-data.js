@@ -7,7 +7,21 @@ var R6MStatsMetaData = (function(R6MLangTerms, undefined){
       getDesc = getDescriptionFn(terms);
 
     return {
-      seasons: [5],
+      seasons: {
+        5: { name: terms.seasons['5'] }
+      },
+      roles: {
+        attackers: { name: terms.stats.tableHeaderAttackers, cssClass: 'attackers' },
+        defenders: { name: terms.stats.tableHeaderDefenders, cssClass: 'defenders' }
+      },
+      statTypes: {
+        pickRate: { name: terms.stats.tableHeaderPickRate, displayType: 'percent' },
+        winRate: { name: terms.stats.tableHeaderWinRate, displayType: 'percent' },
+        survivalRate: { name: terms.stats.tableHeaderSurvivalRate, displayType: 'percent' },
+        killsPerDeath: { name: terms.stats.tableHeaderKillsPerDeath, displayType: 'ratio' },
+        killsPerRound: { name: terms.stats.tableHeaderKillsPerRound, displayType: 'ratio' },
+        totalPlays: { name: terms.stats.tableHeaderTotalRounds, displayType: 'number', showTotal: true }
+      },
       platforms: {
         PC: { seasonSpan: [5,99], name: terms.platforms.pc },
         XONE: { seasonSpan: [5,99], name: terms.platforms.xboxone },

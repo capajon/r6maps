@@ -2,18 +2,10 @@
 
 var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   var statTerms = R6MLangTerms.terms.stats,
-    locale = R6MLangTerms.name.split('_')[0],
-    statColumns = [
-      { key: 'pickRate', name: statTerms.tableHeaderPickRate, displayType: 'percent' },
-      { key: 'winRate', name: statTerms.tableHeaderWinRate, displayType: 'percent' },
-      { key: 'survivalRate', name: statTerms.tableHeaderSurvivalRate, displayType: 'percent' },
-      { key: 'killsPerDeath', name: statTerms.tableHeaderKillsPerDeath, displayType: 'ratio' },
-      { key: 'killsPerRound', name: statTerms.tableHeaderKillsPerRound, displayType: 'ratio' },
-      { key: 'totalPlays', name: statTerms.tableHeaderTotalRounds, displayType: 'number', showTotal: true }
-    ];
+    locale = R6MLangTerms.name.split('_')[0];
 
   var getAveragesTotalsHtml = function getAveragesTotalsHtml(
-    averagesTotals, ranksMetaData, enabledRanks, roleCssClass
+    averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, roleCssClass
   ) {
     var html = '',
       avgTotalKey;
@@ -22,16 +14,16 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<td></td>';
     html += '<td class="field-name">' + statTerms.averagesAndTotals + '</td>';
 
-    statColumns.forEach(function(statColumn) {
-      avgTotalKey = statColumn.showTotal ? 'total' : 'avg';
+    for (var statKey in statTypesMetaData) {
+      avgTotalKey = statTypesMetaData[statKey].showTotal ? 'total' : 'avg';
 
-      html += '<td class="all-ranks">' + getFormattedNumber(averagesTotals[statColumn.key].all[avgTotalKey], statColumn.displayType) + '</td>';
-      enabledRanks.forEach(function(rankKey) {
+      html += '<td class="all-ranks">' + getFormattedNumber(averagesTotals[statKey].all[avgTotalKey], statTypesMetaData[statKey].displayType) + '</td>';
+      ranksForSeason.forEach(function(rankKey) {
         html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
-        html += '<span>' + getFormattedNumber(averagesTotals[statColumn.key][rankKey][avgTotalKey], statColumn.displayType, true) + '</span>';
+        html += '<span>' + getFormattedNumber(averagesTotals[statKey][rankKey][avgTotalKey], statTypesMetaData[statKey].displayType, true) + '</span>';
         html += '</td>';
       });
-    });
+    }
 
     html += '</tr>';
     return html;
@@ -58,22 +50,22 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     }
   };
 
-  var getOpHtml = function getOpHtml(opStats, ranksMetaData, enabledRanks) {
+  var getOpHtml = function getOpHtml(opStats, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason) {
     var html = '',
-      skillColumnCount = enabledRanks.length + 1; // +1 for 'ALL'
+      ranksShownCount = ranksForSeason.length + 1; // +1 for 'ALL'
 
     html += '<div class="wrapper">';
     html += '<table>';
 
-    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderAttackers, 'attackers', 'attackers');
-    html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
-    html += getOpRoleHtml(opStats.attackers.operators, ranksMetaData, enabledRanks, 'attackers');
-    html += getAveragesTotalsHtml(opStats.attackers.averagesTotals, ranksMetaData, enabledRanks, 'attackers');
+    html += getMainHeaderHtml(ranksShownCount, R6MLangTerms.terms.stats.tableHeaderAttackers, rolesMetaData.attackers.cssClass, 'attackers', statTypesMetaData);
+    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo);
+    html += getOpRoleHtml(opStats.attackers.operators, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.attackers.cssClass);
+    html += getAveragesTotalsHtml(opStats.attackers.averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.attackers.cssClass);
 
-    html += getMainHeaderHtml(skillColumnCount, R6MLangTerms.terms.stats.tableHeaderDefenders, 'defenders', 'defenders');
-    html += getSubHeaderHtml(ranksMetaData, enabledRanks, opStats.sortInfo);
-    html += getOpRoleHtml(opStats.defenders.operators, ranksMetaData, enabledRanks, 'defenders');
-    html += getAveragesTotalsHtml(opStats.defenders.averagesTotals, ranksMetaData, enabledRanks, 'defenders');
+    html += getMainHeaderHtml(ranksShownCount, R6MLangTerms.terms.stats.tableHeaderDefenders, rolesMetaData.defenders.cssClass, 'defenders', statTypesMetaData);
+    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo);
+    html += getOpRoleHtml(opStats.defenders.operators, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.defenders.cssClass);
+    html += getAveragesTotalsHtml(opStats.defenders.averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.defenders.cssClass);
 
     html += '</table>';
     html += '</div>';
@@ -82,18 +74,18 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getMainHeaderHtml = function getMainHeaderHtml(
-    skillColumnCount, headerText, roleCssClass, roleKey
+    ranksShownCount, headerText, roleCssClass, roleKey, statTypesMetaData
   ) {
     var html = '';
 
     html += '<tr class="main ' + roleCssClass + '">';
     html += '<th></th>';
     html += '<th class="op-name">' + headerText + '</th>';
-    statColumns.forEach(function(statColumn) {
-      html += '<th class="stat-name" colspan="' + skillColumnCount + '" data-rolekey="' + roleKey + '" data-statkey = "' + statColumn.key + '">';
-      html += '<span class="stat-name-wrapper">' + statColumn.name + '<span class="graph-icon"></span></span>';
+    for (var statKey in statTypesMetaData) {
+      html += '<th class="stat-name" colspan="' + ranksShownCount + '" data-rolekey="' + roleKey + '" data-statkey = "' + statKey + '">';
+      html += '<span class="stat-name-wrapper">' + statTypesMetaData[statKey].name + '<span class="graph-icon"></span></span>';
       html += '</th>';
-    });
+    }
     html += '</tr>';
     return html;
   };
@@ -107,12 +99,12 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<li>' + statTerms.tableNoteWarningText  + '</li>';
     html += '<li>' + statTerms.tableNotePickRate  + '</li>';
     html += '<li><a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-293696-16/introduction-to-the-data-peek-velvet-shell-statistics">' + statTerms.tableNoteDataDumpRef + '</a></li>';
-    html += '</ul>'
+    html += '</ul>';
     return html;
   };
 
   var getOpRoleHtml = function getOpRoleHtml(
-    opStatsForRole, ranksMetaData,  enabledRanks, roleCssClass
+    opStatsForRole, ranksMetaData,  statTypesMetaData, ranksForSeason, roleCssClass
   ) {
     var html = '',
       warningCssClass = false;
@@ -122,26 +114,26 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       html += '<td><div class="op-icon ' + operator.cssClass + '"></div></td>';
       html += '<td class="op-name">' + operator.name + '</<td>';
 
-      statColumns.forEach(function(statColumn) {
-        html += '<td class="all-ranks">' + getFormattedNumber(operator.statsAllRanks[statColumn.key], statColumn.displayType) + '</td>'; // ALL
+      for (var statKey in statTypesMetaData) {
+        html += '<td class="all-ranks">' + getFormattedNumber(operator.statsAllRanks[statKey], statTypesMetaData[statKey].displayType) + '</td>'; // ALL
 
-        enabledRanks.forEach(function(rankKey) {
+        ranksForSeason.forEach(function(rankKey) {
           warningCssClass = (!operator.statsByRank[rankKey] || operator.statsByRank[rankKey].warning) ? 'warning ' : '';
 
           html += '<td class="can-hide ' + warningCssClass + ranksMetaData[rankKey].cssClass + '"><span>';
           html += (operator.statsByRank[rankKey]) ?
-            getFormattedNumber(operator.statsByRank[rankKey][statColumn.key], statColumn.displayType, true) :
+            getFormattedNumber(operator.statsByRank[rankKey][statKey], statTypesMetaData[statKey].displayType, true) :
             '-';
           html += '</span></td>';
         });
-      });
+      }
       html += '</tr>';
     });
     return html;
   };
 
   var getSubHeaderHtml = function getSubHeaderHtml(
-    ranksMetaData, enabledRanks, sortInfo
+    ranksMetaData, statTypesMetaData, ranksForSeason, sortInfo
   ) {
     var html = '',
       srData,
@@ -161,30 +153,30 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '</div>';
     html += '</th>';
 
-    statColumns.forEach(function(statColumn) {
-      isCurSortCol = ((sortInfo.field == statColumn.key) && !sortInfo.rank);
+    for (var statKey in statTypesMetaData) {
+      isCurSortCol = ((sortInfo.field == statKey) && !sortInfo.rank);
       sortOrder = (isCurSortCol && !sortInfo.isDescending) ? 'descending' : 'ascending';
       curSortClass = isCurSortCol ? ' current-sort ' + sortOrder : '';
       html += '<th class="all-ranks">';
-      html += '<div class="sortable' + curSortClass + '" data-sortfield="' + statColumn.key + '" data-sortorder="' + sortOrder + '" tabindex="0">';
+      html += '<div class="sortable' + curSortClass + '" data-sortfield="' + statKey + '" data-sortorder="' + sortOrder + '" tabindex="0">';
       html += '<p>' + R6MLangTerms.terms.stats.tableHeaderAllRanks + '</p>';
       html += '<div class="sort-order-icon"></div>';
       html += '</div>';
       html += '</th>';
 
-      enabledRanks.forEach(function(rankKey) {
+      ranksForSeason.forEach(function(rankKey) {
         srData = ranksMetaData[rankKey];
-        isCurSortCol = ((sortInfo.field == statColumn.key) && (sortInfo.rank == rankKey));
+        isCurSortCol = ((sortInfo.field == statKey) && (sortInfo.rank == rankKey));
         sortOrder = (isCurSortCol && !sortInfo.isDescending) ? 'descending' : 'ascending';
         curSortClass = isCurSortCol ? ' current-sort ' + sortOrder : '';
         html += '<th class="can-hide ' + srData.cssClass + '">';
-        html += '<div class="sortable' + curSortClass + '" tabindex="0" data-sortfield="' + statColumn.key + '" data-sortrank="' + rankKey + '" data-sortorder="' + sortOrder + '" title="' + srData.name + '">';
+        html += '<div class="sortable' + curSortClass + '" tabindex="0" data-sortfield="' + statKey + '" data-sortrank="' + rankKey + '" data-sortorder="' + sortOrder + '" title="' + srData.name + '">';
         html += '<div class="rank-icon ' + srData.cssClass + '"></div>';
         html += '<div class="sort-order-icon"></div>';
         html += '</div>';
         html += '</th>';
       });
-    });
+    }
     html += '</tr>';
     return html;
   };
@@ -193,10 +185,10 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
-  var render = function render(opStats, $outputEl, ranksMetaData, enabledRanks, sortCb, statGraphCb) {
+  var render = function render(opStats, $outputEl, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason, sortCb, statGraphCb) {
     var html = '';
 
-    html += getOpHtml(opStats, ranksMetaData, enabledRanks);
+    html += getOpHtml(opStats, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason);
     html += getNotesHtml();
     $outputEl.html(html);
     setupSortColumns($outputEl, sortCb);
