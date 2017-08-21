@@ -153,7 +153,7 @@ var R6MLangTerms = (function(undefined) {
         averagesAndTotals: 'Averages/Totals',
         percentageFormat: '{num}%',
         instructions: 'Select filter options and click \'Load Stats\' to continue.',
-        noResults: 'No results found.',
+        noResults: 'No results found.  Please adjust the filters or try again later.',
         error: 'There was an error trying to load stats.  Please try again later.',
         chartHeader: '{stat} for {role}',
         loadedInfo: 'Stats for: SEASON: {season} | PLATFORM: {platform} | MAP: {map} | MODE: {mode} | LOCATION: {location}'

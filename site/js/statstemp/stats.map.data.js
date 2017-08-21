@@ -5,7 +5,6 @@ var R6MStatsMapData = (function(undefined) {
 
   var checkEmptyData = function checkEmptyData(mapApiData) {
     if (!mapApiData || !mapApiData.winRole || !mapApiData.winRole.Attacker || !mapApiData.winRole.Defender) {
-      console.error('Unexpected error encountered while processing map API data.', mapApiData);
       return true;
     }
     return false;

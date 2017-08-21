@@ -188,6 +188,12 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   var render = function render(opStats, $outputEl, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason, sortCb, statGraphCb) {
     var html = '';
 
+    if (opStats.attackers.operators.length == 0 || opStats.defenders.operators.length == 0) {
+      html = '<p>' + statTerms.noResults + '</p>';
+      $outputEl.html(html);
+      return;
+    }
+
     html += getOpHtml(opStats, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason);
     html += getNotesHtml();
     $outputEl.html(html);

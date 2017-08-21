@@ -36,7 +36,7 @@ var R6MStatsOpData = (function(R6MLangTerms, undefined) {
       for (var operator in averagesTotals[statKey]) {
         averagesTotals[statKey][operator].avg = averagesTotals[statKey][operator].total / count;
       }
-    }    
+    }
     return averagesTotals;
   };
 
