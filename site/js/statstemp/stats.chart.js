@@ -81,10 +81,20 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
       options: {
         maintainAspectRatio: false,
         responsive: true,
+        tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: metaData.statTypes[statKey].chartBeginAtZero
+              beginAtZero: metaData.statTypes[statKey].chartBeginAtZero,
+              fontSize: 16
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              fontSize: 16
             }
           }]
         }
