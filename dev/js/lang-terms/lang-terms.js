@@ -156,7 +156,7 @@ var R6MLangTerms = (function(undefined) {
         noResults: 'No results found.',
         error: 'There was an error trying to load stats.  Please try again later.',
         chartHeader: '{stat} for {role}',
-        chartInfo: 'SEASON: {season} | PLATFORM: {platform} | MAP: {map} | MODE: {mode} | LOCATION: {location}'
+        loadedInfo: 'Stats for: SEASON: {season} | PLATFORM: {platform} | MAP: {map} | MODE: {mode} | LOCATION: {location}'
       },
       statsRoundWinReasons: {
         allTeamsDead: 'All teams dead',

@@ -59,7 +59,7 @@
     $opChart.root = $('#op-chart');
     $opChart.dialog = $opChart.root.find('.dialog');
     $opChart.close = $opChart.root.find('.close');
-    $opChart.canvas = $opChart.root.find('canvas');
+    $opChart.output = $opChart.root.find('.output');
     $opChart.header = $opChart.root.find('h2');
     $opChart.info = $opChart.root.find('.info');
   };
@@ -160,9 +160,11 @@
       }
       lastLoadSnapshot.filters[param.string] = param.currentValue;
     });
-    history.pushState({}, '', [location.protocol, '//', location.host, location.pathname].join('') + queryString);
 
+    history.pushState({}, '', [location.protocol, '//', location.host, location.pathname].join('') + queryString);
     lastLoadSnapshot.ranks = getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons));
+    $outputs.opSection.empty();
+
     $('body').removeClass('not-loaded-yet');
     $sections.maps.addClass('load-in-progress');
     $sections.ops.addClass('load-in-progress');
@@ -361,7 +363,8 @@
       lastLoadSnapshot.filters,
       lastLoadSnapshot.ranks,
       metaData,
-      R6MStatsOpRender.getFormattedNumber
+      R6MStatsOpRender.getFormattedNumber,
+      R6MStatsRender.renderLoadInfo
     );
   };
 

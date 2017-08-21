@@ -1,8 +1,6 @@
 'use strict';
 
 var R6MStatsChart = (function(R6MLangTerms, undefined) {
-  var ALL_KEY = 'ALL';
-
   var updateHeader = function updateHeader($header, statKey, roleKey, rolesMetaData, statTypeMetaData) {
     var header = R6MLangTerms.terms.stats.chartHeader;
 
@@ -13,24 +11,6 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
     $header.addClass(rolesMetaData[roleKey].cssClass);
   };
 
-  var updateInfo = function updateInfo($info, filterInfo, metaData) {
-    var statTerms = R6MLangTerms.terms.stats,
-      info = statTerms.chartInfo,
-      allText = statTerms.allOption,
-      seasonText = (filterInfo.season == ALL_KEY) ? allText : metaData.seasons[filterInfo.season].name,
-      platformText = (filterInfo.platform == ALL_KEY) ? allText : metaData.platforms[filterInfo.platform].name,
-      mapText = (filterInfo.map == ALL_KEY) ? allText : metaData.mapModeLocations[filterInfo.map].name,
-      modeText = (filterInfo.mode == ALL_KEY) ? allText : metaData.modes[filterInfo.mode].name,
-      locationText = (filterInfo.location == ALL_KEY) ? allText : metaData.mapModeLocations[filterInfo.map].objectives[filterInfo.mode][filterInfo.location].name;
-
-    info = info.replace('{season}', seasonText);
-    info = info.replace('{platform}', platformText);
-    info = info.replace('{map}', mapText);
-    info = info.replace('{mode}', modeText);
-    info = info.replace('{location}', locationText);
-    $info.html(info);
-  };
-
   var updateOpRoleChart = function updateOpRoleChart(
     $opChartEls,
     opStats,
@@ -39,16 +19,22 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
     filterInfo,
     ranks,
     metaData,
-    getFormattedNumberFn
+    getFormattedNumberFn,
+    renderLoadInfoFn
   ) {
     updateHeader($opChartEls.header, statKey, roleKey, metaData.roles, metaData.statTypes);
-    updateInfo($opChartEls.info, filterInfo, metaData);
+    renderLoadInfoFn($opChartEls.info, filterInfo, metaData);
+    $opChartEls.output.find('canvas').remove();
 
-    var ctx = $opChartEls.canvas,
+    var newCanvas = $('<canvas/>').prop({ width: '100%', height: '100%' }),
+      ctx = newCanvas,
       labels = [],
       datasets = [],
       opDataSet,
-      data;
+      data,
+      num;
+
+    $opChartEls.output.append(newCanvas);
 
     ranks.forEach(function(rank) {
       labels.push(metaData.ranks[rank].name);
@@ -57,17 +43,19 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
     opStats[roleKey].operators.forEach(function(operator) {
       data = [];
       ranks.forEach(function(rank) {
+        num = (operator.statsByRank[rank]) ? operator.statsByRank[rank][statKey] : 0;
         data.push(
-          getFormattedNumberFn(operator.statsByRank[rank][statKey], metaData.statTypes[statKey].displayType, true)
+          getFormattedNumberFn(num, metaData.statTypes[statKey].displayType, true)
         );
       });
       opDataSet = {
         label: operator.name,
         data: data,
-        borderWidth: 3,
+        borderWidth: 2,
         borderColor: metaData.operators[operator.key].color,
         fill: false,
-        backgroundColor: metaData.operators[operator.key].color
+        backgroundColor: metaData.operators[operator.key].color,
+        pointRadius: 5
       }
       datasets.push(opDataSet);
     });
@@ -79,22 +67,28 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
         datasets: datasets
       },
       options: {
+        legend: {
+          labels: {
+            fontSize: 15
+          }
+        },
+        tooltips: {
+          titleFontSize: 20,
+          titleMarginBottom: 10,
+          bodyFontSize: 20
+        },
         maintainAspectRatio: false,
         responsive: true,
-        tooltips: {
-					mode: 'index',
-					intersect: false,
-				},
         scales: {
           yAxes: [{
             ticks: {
               beginAtZero: metaData.statTypes[statKey].chartBeginAtZero,
-              fontSize: 16
+              fontSize: 15
             }
           }],
           xAxes: [{
             ticks: {
-              fontSize: 16
+              fontSize: 15
             }
           }]
         }

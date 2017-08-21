@@ -41,7 +41,7 @@
       <div class="control" id="platforms-control"><label>Platform</label><select></select></div>
       <div class="control" id="maps-control"><label>Map</label><select></select></div>
       <div class="control multi-view" id="game-modes-control"><label>Game Mode</label><select size="4"></select></div>
-      <div class="control multi-view" id="objective-locations-control"><label>Location</label><p class="all-text"></p><select size="5"></select></div>
+      <div class="control multi-view" id="objective-locations-control"><label>Location</label><p class="all-text"></p><select size="1"></select></div>
       <div class="load"><button id="load-control">Load Stats</button></div>
     </nav>
     <main>
@@ -68,8 +68,8 @@
           <li>User feedback: bug fixes, usability, etc.</li>
           <br/>
           <li>About section: main and about links, link to data dump from ubisoft</li>
-          <li>Operators section: handle error and empty results well, lock first column responsively, average row, charts!</li>
-          <li>More operators section: warnings for too few rounds, make hide/show fade, notes: pick rates are approximations, click on headers for charts, click on sub headers for sorting, orange warning text</li>
+          <li>Operators section: handle error and empty results well, lock first column responsively, hide/show fade, total rounds with large numbers doesn't work (chart)</li>
+          <li>Last loaded info somewhere</li>
           <li>Maps section: whole thing!</li>
           <li>Filters: Order of locations matches in game rank selection (especially for bomb)</li>
         </ul>
@@ -79,14 +79,12 @@
       <div class="dialog">
         <h2 class="defenders">Skill Chart</h2>
         <a class="close"><div class="icon"></div></a>
-        <div class="output">
-          <canvas width="100%" height="100%"></canvas>
-        </div>
+        <div class="output"></div>
         <p class="info"></p>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" defer></script>
     <script src="js/release.2.2.6/common.min.js"></script>
     <script src="js/statstemp/stats.meta-data.js"></script>
     <script src="js/statstemp/stats.render.js"></script>
