@@ -107,7 +107,7 @@
 
   var handleApiMapSuccess = function handleApiMapSuccess(mapApiData) {
     R6MStatsMapData.set(mapApiData, metaData.winReasons);
-    R6MStatsMapRender.render(R6MStatsMapData.get(), $outputs.mapSection);
+    R6MStatsMapRender.render($outputs.mapSection, R6MStatsMapData.get(), metaData, R6MStatsOpRender.getFormattedNumber);
     $sections.maps.removeClass('load-in-progress');
     console.log('Map success', R6MStatsMapData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
   };
