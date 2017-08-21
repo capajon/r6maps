@@ -92,7 +92,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
   var getNotesHtml = function getNotesHtml() {
     var html = '';
-    
+
     html += '<h3>' + statTerms.tableNoteHeader + '</h3>';
     html += '<ul>';
     html += '<li>' + statTerms.tableNoteHeaders + '</li>';

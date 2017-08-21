@@ -56,7 +56,7 @@ var R6MStatsChart = (function(R6MLangTerms, undefined) {
         fill: false,
         backgroundColor: metaData.operators[operator.key].color,
         pointRadius: 5
-      }
+      };
       datasets.push(opDataSet);
     });
 

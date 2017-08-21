@@ -337,7 +337,6 @@
   var setupOpChart = function setupOpChart() {
     $opChart.close.on('click', closeOpChart);
     $opChart.root.on('click', function(e) {
-      console.log('111',$(e.target));
       if ($(e.target).attr('id') == 'op-chart') {
         closeOpChart();
       }
