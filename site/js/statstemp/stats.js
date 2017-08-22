@@ -162,7 +162,9 @@
 
     history.pushState({}, '', [location.protocol, '//', location.host, location.pathname].join('') + queryString);
     lastLoadSnapshot.ranks = getSkillRanksForSeason(R6MStatsControls.seasons.get($controls.seasons));
+
     $outputs.opSection.empty();
+    $outputs.mapSection.empty();
 
     $('body').removeClass('not-loaded-yet');
     $sections.maps.addClass('load-in-progress');

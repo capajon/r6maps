@@ -14,13 +14,13 @@ var R6MStatsMetaData = (function(R6MLangTerms, undefined){
         attackers: { name: terms.stats.tableHeaderAttackers, nameSingular: terms.stats.tableHeaderAttackersSingular, cssClass: 'attackers' },
         defenders: { name: terms.stats.tableHeaderDefenders, nameSingular: terms.stats.tableHeaderDefendersSingular, cssClass: 'defenders' }
       },
-      statTypes: {
+      statTypes: { //  for operators output
         pickRate: { name: terms.stats.tableHeaderPickRate, displayType: 'percent', chartBeginAtZero: true },
         winRate: { name: terms.stats.tableHeaderWinRate, displayType: 'percent', chartBeginAtZero: false },
         survivalRate: { name: terms.stats.tableHeaderSurvivalRate, displayType: 'percent', chartBeginAtZero: false },
         killsPerDeath: { name: terms.stats.tableHeaderKillsPerDeath, displayType: 'ratio', chartBeginAtZero: false },
         killsPerRound: { name: terms.stats.tableHeaderKillsPerRound, displayType: 'ratio', chartBeginAtZero: false },
-        totalPlays: { name: terms.stats.tableHeaderTotalRounds, displayType: 'number', showTotal: true, chartBeginAtZero: false }
+        totalPlays: { name: terms.stats.tableHeaderTotalRounds, displayType: 'number', showTotal: true, disableChart: true }
       },
       platforms: {
         PC: { seasonSpan: [5,99], name: terms.platforms.pc },

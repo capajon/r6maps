@@ -124,6 +124,15 @@ body.stats {
           p {
             font-size: 0.9rem;
             margin-left: 50px;
+
+            .description {
+              display: block;
+              font-weight: 400;
+              margin-bottom: 0.1rem;
+            }
+            .num {
+              font-size: 1rem;
+            }
           }
         }
 
@@ -181,11 +190,9 @@ body.stats {
 
       &.attackers h3 {
         color: $r6-orange;
-        font-size: 1.2rem;
       }
       &.defenders h3 {
         color: $r6-blue;
-        font-size: 1.2rem;
       }
     }
   }
@@ -201,7 +208,6 @@ body.stats {
 
     h3 {
       color: 'silver';
-      font-size: 1.2rem;
       margin-bottom: 0.5rem;
       text-align: center;
     }

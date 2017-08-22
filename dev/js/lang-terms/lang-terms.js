@@ -154,13 +154,15 @@ var R6MLangTerms = (function(undefined) {
         tableNoteDataDumpRef: 'Based on data from Ubisoft\'s data peek series.',
         tableNoteHeaders: 'Click on headers for graphs and subheaders to change sort order.',
         tableNoteWarningText: 'Orange text indicates a stat that is based on very few rounds played and is less reliable.',
+        tableFewRoundsNote: 'Less reliable (very few rounds played)',
         averagesAndTotals: 'Averages/Totals',
         percentageFormat: '{num}%',
         instructions: 'Select filter options and click \'Load Stats\' to continue.',
         noResults: 'No results found.  Please adjust the filters or try again later.',
         error: 'There was an error trying to load stats.  Please try again later.',
         chartHeader: '{stat} for {role}',
-        loadedInfo: 'Stats for: SEASON: {season} | PLATFORM: {platform} | MAP: {map} | MODE: {mode} | LOCATION: {location}'
+        loadedInfo: 'Stats for SEASON: {season} | PLATFORM: {platform} | MAP: {map} | MODE: {mode} | LOCATION: {location}'
+
       },
       statsRoundWinReasons: {
         allTeamsDead: 'All teams dead',

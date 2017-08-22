@@ -71,7 +71,7 @@ var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
       mapStats[roleKey].winReasons.forEach(function(winReason) {
         html += '<div class="legend-item">';
         html += '<div class="map-win-reason-icon-wrapper" style="background-color: ' + metaData.winReasons[winReason.key].color + '"><div class="map-win-reason-icon ' + winReason.cssClass + '"></div></div>';
-        html += '<p class="name">' + winReason.name + '<br/>' + getFormattedNumberFn(winReason.percent, 'percent') + '</p>';
+        html += '<p class="name"><span class="description">' + winReason.name + '</span><span class="num">' + getFormattedNumberFn(winReason.percent, 'percent') + '</span></p>';
         html += '</div>';
       });
       html += '</div>';

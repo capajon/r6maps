@@ -70,7 +70,7 @@ $defenders-light-bg: #d3e0eb;
     tr.main {
       &.attackers {
         background-color: $r6-orange !important;
-        th.stat-name:hover, th.stat-name:focus {
+        th.stat-name.chart-enabled:hover, th.stat-name.chart-enabled:focus {
           background-color: $attachers-light-bg;
         }
       }
@@ -91,7 +91,7 @@ $defenders-light-bg: #d3e0eb;
           border-left: none;
           padding: $cell-padding;
         }
-        &.stat-name {
+        &.stat-name.chart-enabled {
           cursor: pointer;
           text-decoration: underline;
           transition: background-color $button-transition;

@@ -76,14 +76,18 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   var getMainHeaderHtml = function getMainHeaderHtml(
     ranksShownCount, headerText, roleCssClass, roleKey, statTypesMetaData
   ) {
-    var html = '';
+    var html = '',
+      chartClass,
+      chartIcon;
 
     html += '<tr class="main ' + roleCssClass + '">';
     html += '<th></th>';
     html += '<th class="op-name">' + headerText + '</th>';
     for (var statKey in statTypesMetaData) {
-      html += '<th class="stat-name" colspan="' + ranksShownCount + '" data-rolekey="' + roleKey + '" data-statkey = "' + statKey + '">';
-      html += '<span class="stat-name-wrapper">' + statTypesMetaData[statKey].name + '<span class="graph-icon"></span></span>';
+      chartClass = (statTypesMetaData[statKey].disableChart) ? '' : ' chart-enabled';
+      chartIcon = (statTypesMetaData[statKey].disableChart) ? '' : '<span class="graph-icon"></span>';
+      html += '<th class="stat-name ' + chartClass + '" colspan="' + ranksShownCount + '" data-rolekey="' + roleKey + '" data-statkey = "' + statKey + '">';
+      html += '<span class="stat-name-wrapper">' + statTypesMetaData[statKey].name + chartIcon + '</span>';
       html += '</th>';
     }
     html += '</tr>';
@@ -107,7 +111,8 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     opStatsForRole, ranksMetaData,  statTypesMetaData, ranksForSeason, roleCssClass
   ) {
     var html = '',
-      warningCssClass = false;
+      warningCssClass = false,
+      warningTitleTag;
 
     opStatsForRole.forEach(function(operator) {
       html += '<tr class="' + roleCssClass + '">';
@@ -119,8 +124,9 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
         ranksForSeason.forEach(function(rankKey) {
           warningCssClass = (!operator.statsByRank[rankKey] || operator.statsByRank[rankKey].warning) ? 'warning ' : '';
+          warningTitleTag = (!operator.statsByRank[rankKey] || operator.statsByRank[rankKey].warning) ? 'title="' + statTerms.tableFewRoundsNote + '" ' : '';
 
-          html += '<td class="can-hide ' + warningCssClass + ranksMetaData[rankKey].cssClass + '"><span>';
+          html += '<td class="can-hide ' + warningCssClass + ranksMetaData[rankKey].cssClass + '"><span ' + warningTitleTag + '>';
           html += (operator.statsByRank[rankKey]) ?
             getFormattedNumber(operator.statsByRank[rankKey][statKey], statTypesMetaData[statKey].displayType, true) :
             '-';
@@ -215,7 +221,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var setupStatHeaders = function setupStatHeaders($outputEl, statGraphCb) {
-    $outputEl.find('.stat-name').on('click', function(event) {
+    $outputEl.find('.stat-name.chart-enabled').on('click', function(event) {
       var $source = $(event.target),
         isDescending;
 
