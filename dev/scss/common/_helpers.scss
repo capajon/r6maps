@@ -161,3 +161,12 @@
 	-moz-justify-content: $value;
 	justify-content: $value;
 }
+
+@mixin clearfix() {
+	&:after
+	{
+		content: '';
+		display: block;
+		clear: both;
+	}
+}

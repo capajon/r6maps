@@ -42,7 +42,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     default: // number
       var locale = R6MLangTerms.name.split('_')[0];
 
-      if (num.toLocaleString) {
+      if (num.toLocaleString && false) {
         return num.toLocaleString(locale);
       } else {
         return numberWithCommas(num);

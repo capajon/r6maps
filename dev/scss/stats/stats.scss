@@ -109,6 +109,10 @@ body.stats {
       padding: 0 0 0.5rem 0;
     }
   }
+
+  .skill-ranks-control-wrapper {
+    min-height: 65px;
+  }
 }
 
 p.instructions {
@@ -160,23 +164,25 @@ p.instructions {
   margin: 0 0 1rem 0.75rem;
 }
 
-#not-ready-overlay {
-  @include flexbox;
-  @include justify-content(center);
-  @include align-items(center);
-  background-color: rgba(0,0,0,0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+body.doc-not-ready {
+  #not-ready-overlay {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-  .loader {
-    width: 50%;
-    height: 50%;
-    background-image: url($img-location + 'spinner.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    .loader {
+      width: 50%;
+      height: 50%;
+      background-image: url($img-location + 'spinner.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
   }
 }

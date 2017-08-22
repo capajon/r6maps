@@ -19,7 +19,7 @@ $defenders-light-bg: #d3e0eb;
         width: auto;
         padding: $cell-padding;
         div, span {
-          display: initial;
+          display: block;
         }
         .sortable {
           @include flexbox;

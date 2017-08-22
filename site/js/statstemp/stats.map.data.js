@@ -37,7 +37,10 @@ var R6MStatsMapData = (function(undefined) {
     mapRoleStats.winReasons.sort(function(x,y) {
       if (x.totalRounds < y.totalRounds) {
         return 1;
+      } else if (x.totalRounds > y.totalRounds) {
+        return -1;
       }
+      return 0;
     });
     return mapRoleStats;
   };
