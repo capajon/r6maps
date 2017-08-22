@@ -1,8 +1,8 @@
 'use strict';
 
 (function(pagecode) { //eslint-disable-line wrap-iife
-  pagecode(window.jQuery, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, R6MStatsChart);
-}(function($, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, R6MStatsChart, undefined) {
+  pagecode(window.jQuery, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, R6MStatsOpChart);
+}(function($, window, document, R6MLangTerms, R6MStatsMetaData, R6MStatsControls, R6MStatsRender, R6MStatsOpChart, undefined) {
   var $headers = {},
     $sections = {},
     $outputs = {},
@@ -40,7 +40,6 @@
     $headers.main = $('#header-main');
     $headers.mapSection = $('#section-map h2');
     $headers.opSection = $('#section-operators h2');
-    $headers.ranks = $('#skill-ranks-header');
     $headers.filters = $('nav h2');
 
     $sections.maps = $('#section-map');
@@ -223,7 +222,6 @@
     handleMapChange();
 
     R6MStatsControls.ranks.setup(
-      $headers.ranks,
       $controls.ranks,
       metaData.ranks,
       R6MStatsControls.seasons.get($controls.seasons),
@@ -321,7 +319,6 @@
     R6MStatsControls.locations.trySelect($controls.locations, R6MHelpers.queryString(QUERY_PARAMS.LOCATION));
 
     R6MStatsControls.ranks.setup(
-      $headers.ranks,
       $controls.ranks,
       metaData.ranks,
       R6MStatsControls.seasons.get($controls.seasons),
@@ -354,7 +351,7 @@
 
   var updateOpRoleChart = function updateOpRoleChart(skillKey, roleKey) {
     $('body').addClass('op-chart-open');
-    R6MStatsChart.updateOpRoleChart(
+    R6MStatsOpChart.updateOpRoleChart(
       $opChart,
       R6MStatsOpData.get(),
       skillKey,

@@ -1,3 +1,10 @@
+$map-reason-icon-width: 25px;
+$map-info-icon-width: 75px;
+
+@mixin map-reason-icon($position) {
+  background-position: 0px ($map-reason-icon-width * -($position));
+}
+
 body.stats {
   .map-win-rate-container {
     display: table;
@@ -15,7 +22,7 @@ body.stats {
 
     .visual-bar {
       .map-win-rate-cell {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         padding: 0.5rem;
 
         .label {
@@ -52,12 +59,181 @@ body.stats {
   }
 
   .map-win-reasons-container {
-    @include flexbox;
+    display: table;
+    margin-bottom: 2rem;
+    width: 100%;
 
-    .map-win-reasons-canvas-wrapper {
-      width: 100%;
-      height: 500px;
+    @media all and (max-width: 1350px ) {
+      display: block;
+    }
+
+    .map-win-reasons-row {
+      display: table-row;
+      @media all and (max-width: 1350px ) {
+        display: block;
+      }
+    }
+
+    .map-win-reasons-cell {
+      display: table-cell;
+      padding: 1rem 1.5rem;
       text-align: center;
+      width: 50%;
+      vertical-align: top;
+      @media all and (max-width: 1350px ) {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+      }
+
+      canvas {
+        margin: 0 auto 2rem auto;
+        max-width: 600px;
+
+        @media all and (max-width: 1880px ) {
+          max-width: 500px;
+        }
+        @media all and (max-width: 1650px ) {
+          max-width: 450px;
+        }
+        @media all and (max-width: 1350px ) {
+          max-width: 400px;
+        }
+        @media all and (max-width: 500px ) {
+          max-width: 330px;
+        }
+        @media all and (max-width: 350px ) {
+          max-width: 270px;
+        }
+      }
+
+      .legend {
+        @include flexbox;
+        @include justify-content(center);
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+
+        .legend-item {
+          box-sizing: border-box;
+          padding: 0 1rem 1rem 0;
+          width: 180px;
+
+          p {
+            font-size: 0.9rem;
+            margin-left: 50px;
+          }
+        }
+
+        .map-win-reason-icon-wrapper {
+          @include flexbox;
+          @include justify-content(center);
+          @include align-items(center);
+          float: left;
+          padding: 5px;
+        }
+
+        .map-win-reason-icon {
+          background-image: url($img-location + 'icons/win-reason-icons-sprite@2x.png');
+          background-repeat: no-repeat;
+          background-size: $map-reason-icon-width;
+          height: $map-reason-icon-width;
+          margin: 0 auto;
+          width: $map-reason-icon-width;
+
+          &.bomb-exploded {
+            @include map-reason-icon(1);
+          }
+          &.surrendered {
+            @include map-reason-icon(2);
+          }
+          &.hostage-killed {
+            @include map-reason-icon(3);
+          }
+          &.time {
+            @include map-reason-icon(4);
+          }
+          &.secured {
+            @include map-reason-icon(5);
+          }
+          &.all-dead {
+            @include map-reason-icon(6);
+          }
+          &.hostage-rescued {
+            @include map-reason-icon(7);
+          }
+          &.bomb-deactivated {
+            @include map-reason-icon(8);
+          }
+          &.eliminated {
+            @include map-reason-icon(9);
+          }
+          &.defuser-deactivated {
+            @include map-reason-icon(10);
+          }
+          &.defended {
+            @include map-reason-icon(11);
+          }
+        }
+      }
+
+      &.attackers h3 {
+        color: $r6-orange;
+        font-size: 1.2rem;
+      }
+      &.defenders h3 {
+        color: $r6-blue;
+        font-size: 1.2rem;
+      }
     }
   }
+
+  .map-info-wrapper {
+    display: inline-block;
+    margin-bottom: 2rem;
+    width: 50%;
+
+    @media all and (max-width: 500px ) {
+      width: 100%;
+    }
+
+    h3 {
+      color: 'silver';
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.2rem;
+
+      span {
+        display: block;
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  .map-info-wrapper-two {
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(center);
+    @include align-items(center);
+  }
+
+  .map-info-icon {
+    background-image: url($img-location + 'icons/map-info-icons-sprite@2x.png');
+    background-repeat: no-repeat;
+    background-size: $map-info-icon-width;
+    height: $map-info-icon-width;
+    margin-right: 0.5rem;
+    width: $map-info-icon-width;
+
+    &.total-rounds {
+      background-position-y: -($map-info-icon-width);
+    }
+  }
+
 }

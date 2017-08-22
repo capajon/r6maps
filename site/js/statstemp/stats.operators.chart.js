@@ -1,6 +1,6 @@
 'use strict';
 
-var R6MStatsChart = (function(R6MLangTerms, undefined) {
+var R6MStatsOpChart = (function(R6MLangTerms, undefined) {
   var updateHeader = function updateHeader($header, statKey, roleKey, rolesMetaData, statTypeMetaData) {
     var header = R6MLangTerms.terms.stats.chartHeader;
 

@@ -242,11 +242,10 @@ var R6MStatsControls = (function(R6MLangTerms, undefined){
   };
 
   var ranksSetup = function ranksSetup(
-    $ranksHeader, $ranksControl, ranksData, selectedSeason, rankChangeCb
+    $ranksControl, ranksData, selectedSeason, rankChangeCb
   ) {
     var currentSelectedRanks = ranksGet($ranksControl);
 
-    $ranksHeader.html(R6MLangTerms.terms.stats.labelSkillRanks);
     ranksPopulateOptions($ranksControl, ranksData, selectedSeason);
     $ranksControl.on('change', rankChangeCb);
     ranksTrySelect($ranksControl, currentSelectedRanks);

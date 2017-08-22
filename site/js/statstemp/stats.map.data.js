@@ -25,7 +25,8 @@ var R6MStatsMapData = (function(undefined) {
 
       if (winReason && (winReason != '0')) {
         mapRoleStats.winReasons.push({
-          description: winReasonMeta.name,
+          name: winReasonMeta.name,
+          key: winReasonKey,
           cssClass: winReasonMeta.cssClass,
           totalRounds: +winReason,
           percent: (!mapRoleApiData.totalRounds) ? 0 : +winReason / +mapRoleApiData.totalRounds

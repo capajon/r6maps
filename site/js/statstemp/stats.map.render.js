@@ -3,10 +3,38 @@
 var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
   var statTerms = R6MLangTerms.terms.stats;
 
-  var getWinRatesHtml = function getWinRatesHtml(mapStats, metaData, getFormattedNumberFn) {
-    var html = '',
-      roles = ['attackers', 'defenders'],
-      winReasonsHeader;
+  var getAdditionalInfoHtml = function getAdditionalInfoHtml(mapStats, metaData, getFormattedNumberFn) {
+    var html = '';
+
+    [{
+      name: statTerms.averageRoundLength,
+      cssClass: 'average-round-length',
+      statKey: 'averageRoundLength',
+      numFormatFn: function(num) {
+        return statTerms.numberSeconds.replace('{num}', '<span class="num">' + Math.round(num) + '</span>');
+      }
+    },
+      {
+        name: statTerms.totalRoundsPlayed,
+        cssClass: 'total-rounds',
+        statKey: 'totalRounds',
+        numFormatFn: function(num) {
+          return statTerms.numberRounds.replace('{num}', '<span class="num">' + getFormattedNumberFn(num, 'number') + '</span>');
+        }
+      }].forEach(function(info) {
+        html += '<div class="map-info-wrapper">';
+        html += '<h3>' + info.name + '</h3>';
+        html += '<div class="map-info-wrapper-two">';
+        html += '<div class="map-info-icon ' + info.cssClass + '"></div>';
+        html += '<p>' + info.numFormatFn(mapStats.overall[info.statKey]) + '</p>';
+        html += '</div>';
+        html += '</div>';
+      });
+    return html;
+  };
+
+  var getWinRatesHtml = function getWinRatesHtml(mapStats, metaData, getFormattedNumberFn, roles) {
+    var html = '';
 
     html += '<div class="map-win-rate-container">';
 
@@ -14,7 +42,7 @@ var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
     roles.forEach(function(roleKey) {
       html += '<div class="map-win-rate-cell header ' + metaData.roles[roleKey].cssClass + '">' + metaData.roles[roleKey].name + '</div>';
     });
-    html += '</div>'
+    html += '</div>';
 
     html += '<div class="map-win-rate-row visual-bar">';
     roles.forEach(function(roleKey) {
@@ -24,23 +52,41 @@ var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
       html += '</div>';
     });
     html += '</div>';
-    html += '</div>'; // map-win-rate-container
+    html += '</div>'; //map-win-rate-container
+    return html;
+  };
+
+  var getWinReasonsContainerHtml = function getWinReasonsContainerHtml(mapStats, metaData, roles, getFormattedNumberFn) {
+    var html = '',
+      winReasonsHeader;
 
     html += '<div class="map-win-reasons-container">';
+    html += '<div class="map-win-reasons-row">';
     roles.forEach(function(roleKey) {
-      html += '<div class="map-win-reasons-canvas-wrapper">';
-      winReasonsHeader = statTerms.headerWinReasons.replace('{role}', metaData.roles[roleKey].name);
-      html += '<h3>' + winReasonsHeader + '</h3>'
-      html += '<canvas width="100%" height="100%" class="' + metaData.roles[roleKey].cssClass + '">'
+      html += '<div class="map-win-reasons-cell ' + metaData.roles[roleKey].cssClass + '">';
+      html += '<h3>' + statTerms.headerWinReasons.replace('{role}', metaData.roles[roleKey].nameSingular ) + '</h3>';
+      html += '<canvas class="' + metaData.roles[roleKey].cssClass + '"></canvas>';
+
+      html += '<div class="legend">';
+      mapStats[roleKey].winReasons.forEach(function(winReason) {
+        html += '<div class="legend-item">';
+        html += '<div class="map-win-reason-icon-wrapper" style="background-color: ' + metaData.winReasons[winReason.key].color + '"><div class="map-win-reason-icon ' + winReason.cssClass + '"></div></div>';
+        html += '<p class="name">' + winReason.name + '<br/>' + getFormattedNumberFn(winReason.percent, 'percent') + '</p>';
+        html += '</div>';
+      });
+      html += '</div>';
+
       html += '</div>';
     });
-    html += '</div>'; // map-win-reasons-container
+    html += '</div>';
 
+    html += '</div>';
     return html;
   };
 
   var render = function render($outputEl, mapStats, metaData, getFormattedNumberFn) {
-    var html = '';
+    var html = '',
+      roles = ['attackers','defenders'];
 
     if (!mapStats) {
       html = '<p>' + statTerms.noResults + '</p>';
@@ -48,32 +94,56 @@ var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
       return;
     }
 
-    html += getWinRatesHtml(mapStats, metaData, getFormattedNumberFn);
+    html += getWinRatesHtml(mapStats, metaData, getFormattedNumberFn, roles);
+    html += getWinReasonsContainerHtml(mapStats, metaData, roles, getFormattedNumberFn);
+    html += getAdditionalInfoHtml(mapStats, metaData, getFormattedNumberFn);
     $outputEl.html(html);
 
-    var $canvasTest = $outputEl.find('canvas.attackers');
-    console.log('44', $canvasTest);
+    updateWinReasonCharts(mapStats, $outputEl, metaData, roles, getFormattedNumberFn);
+  };
 
-    var data = {
-    datasets: [{
-    data: [10, 20, 30]
-    }],
+  var updateWinReasonCharts = function updateWinReasonCharts(mapStats, $outputEl, metaData, roles, getFormattedNumberFn) {
+    var $canvas,
+      data,
+      labels,
+      backgroundColor;
 
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-    'Red',
-    'Yellow',
-    'Blue'
-    ]
-    };
+    roles.forEach(function(roleKey) {
+      $canvas = $outputEl.find('canvas.' + metaData.roles[roleKey].cssClass);
+      data = [];
+      labels = [];
+      backgroundColor = [];
 
-    var myChart = new Chart($canvasTest, {
-      type: 'doughnut',
-      data: data,
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-      }
+      mapStats[roleKey].winReasons.forEach(function(winReason) {
+        data.push(winReason.totalRounds);
+        labels.push(winReason.name + ' (' + getFormattedNumberFn(winReason.percent, 'percent') + ')');
+        backgroundColor.push(metaData.winReasons[winReason.key].color);
+      });
+
+      var data = {
+        datasets: [{
+          data: data,
+          backgroundColor: backgroundColor
+        }],
+        labels: labels
+      };
+
+      var newChart = new Chart($canvas, {
+        type: 'pie',
+        data: data,
+        options: {
+          maintainAspectRatio: true,
+          responsive: true,
+          legend: {
+            display: false
+          },
+          tooltips: {
+            titleFontSize: 20,
+            titleMarginBottom: 10,
+            bodyFontSize: 20
+          }
+        }
+      });
     });
   };
 

@@ -92,6 +92,7 @@ body.stats {
   }
 
   main {
+    display: block;
     margin-left: 350px;
 
     @media all and (max-width: $breakpoint-one-column ) {
@@ -116,12 +117,6 @@ p.instructions {
   body.not-loaded-yet & {
     display: block;
   }
-}
-
-#skill-ranks-control {
-  display: block;
-  float: none;
-  width: 100%;
 }
 
 #load-control {
@@ -149,7 +144,9 @@ p.instructions {
 #skill-ranks-control {
   @include flexbox;
   @include flex-wrap(wrap);
+  @include justify-content(center);
   margin-bottom: 0;
+  width: 100%;
 
   .skill-rank-input {
     text-align: center;
