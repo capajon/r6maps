@@ -34,9 +34,14 @@ $defenders-light-bg: #d3e0eb;
 
 #section-operators {
   .wrapper {
-    width: 100%;
-    overflow: auto;
     margin: 0 0 1em;
+    position: relative;
+  }
+
+  .scroller {
+    margin-left: 38px;
+    overflow-x: scroll;
+    overflow-y: visible;
 
     &::-webkit-scrollbar  {
       -webkit-appearance: none;
@@ -51,45 +56,53 @@ $defenders-light-bg: #d3e0eb;
   }
 
   table {
-    background-color: #fff;
     width: 100%;
+    font-size: 22px;
+
+    .sticky {
+      left: 0;
+      padding: 7px 5px;
+      position: absolute;
+      top: auto;
+      width: 38px;
+    }
 
     td, th {
+      background-color: #fff;
       box-sizing: border-box;
       color: #000;
-      height: 1.75rem;
+      height: 39px;
+      padding: 0 3px;
       text-align: center;
       vertical-align: middle;
       white-space: nowrap;
     }
 
-    td {
-      padding: $cell-padding;
-    }
-
     tr.main {
       &.attackers {
-        background-color: $r6-orange !important;
+        td, th {
+          background-color: $r6-orange !important;
+        }
         th.stat-name.chart-enabled:hover, th.stat-name.chart-enabled:focus {
-          background-color: $attachers-light-bg;
+          background-color: $attachers-light-bg !important;
         }
       }
       &.defenders {
-        background-color: $r6-blue !important;
-        th.stat-name:hover, th.stat-name:focus {
-          background-color: $defenders-light-bg;
+        td, th {
+          background-color: $r6-blue !important;
+        }
+        th.stat-name.chart-enabled:hover, th.stat-name.chart-enabled:focus {
+          background-color: $defenders-light-bg !important;
         }
       }
       th {
         border-left: 1px solid #000;
         color: #fff;
-        font-size: 1.1rem;
-        padding-left: 0.6rem;
-        padding-right: 0.6rem;
+        font-size: 24px;
+        height: 40px;
 
         &.op-name {
           border-left: none;
-          padding: $cell-padding;
         }
         &.stat-name.chart-enabled {
           cursor: pointer;
@@ -105,7 +118,6 @@ $defenders-light-bg: #d3e0eb;
             @include flexbox;
             @include align-items(center);
             @include justify-content(center);
-            margin: 5px;
             pointer-events: none;
           }
           .graph-icon {
@@ -121,18 +133,18 @@ $defenders-light-bg: #d3e0eb;
         &:first-child {
           border-left: none;
         }
-        &:nth-child(2) {
-          padding-left: $cell-padding;
-        }
       }
     }
 
     tr.sub {
-      background-color: $dark-grey;
+      th, td{
+        background-color: $dark-grey;
+      }
 
       th {
         color: #fff;
         font-size: 0.75rem;
+        height: 2.3rem;
         padding: 0;
         text-decoration: underline;
         text-transform: uppercase;
@@ -147,7 +159,6 @@ $defenders-light-bg: #d3e0eb;
       }
       .op-name .sortable {
         @include justify-content(left);
-        padding: $cell-padding;
       }
     }
 
@@ -159,11 +170,15 @@ $defenders-light-bg: #d3e0eb;
     }
 
     tr.attackers:nth-child(even) {
-      background-color: $attachers-light-bg;
+      th, td{
+        background-color: $attachers-light-bg;
+      }
     }
 
     tr.defenders:nth-child(even) {
-      background-color: $defenders-light-bg;
+      th, td {
+        background-color: $defenders-light-bg;
+      }
     }
 
     .can-hide {
@@ -220,7 +235,6 @@ $defenders-light-bg: #d3e0eb;
     cursor: pointer;
     height: 100%;
     transition: background-color $button-transition;
-    margin: 5px;
 
     &:hover, &:focus {
       background-color: $r6-blue;

@@ -11,7 +11,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       avgTotalKey;
 
     html += '<tr class="' + roleCssClass + ' average-totals">';
-    html += '<td></td>';
+    html += '<td class="sticky ' + roleCssClass + '"></td>';
     html += '<td class="field-name">' + statTerms.averagesAndTotals + '</td>';
 
     for (var statKey in statTypesMetaData) {
@@ -55,19 +55,21 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       ranksShownCount = ranksForSeason.length + 1; // +1 for 'ALL'
 
     html += '<div class="wrapper">';
+    html += '<div class="scroller">';
     html += '<table>';
 
     html += getMainHeaderHtml(ranksShownCount, R6MLangTerms.terms.stats.tableHeaderAttackers, rolesMetaData.attackers.cssClass, 'attackers', statTypesMetaData);
-    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo);
+    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo, rolesMetaData.attackers.cssClass);
     html += getOpRoleHtml(opStats.attackers.operators, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.attackers.cssClass);
     html += getAveragesTotalsHtml(opStats.attackers.averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.attackers.cssClass);
 
     html += getMainHeaderHtml(ranksShownCount, R6MLangTerms.terms.stats.tableHeaderDefenders, rolesMetaData.defenders.cssClass, 'defenders', statTypesMetaData);
-    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo);
+    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo, rolesMetaData.defenders.cssClass);
     html += getOpRoleHtml(opStats.defenders.operators, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.defenders.cssClass);
     html += getAveragesTotalsHtml(opStats.defenders.averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.defenders.cssClass);
 
     html += '</table>';
+    html += '</div>';
     html += '</div>';
 
     return html;
@@ -81,7 +83,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       chartIcon;
 
     html += '<tr class="main ' + roleCssClass + '">';
-    html += '<th></th>';
+    html += '<th class="sticky ' + roleCssClass + '"></th>';
     html += '<th class="op-name">' + headerText + '</th>';
     for (var statKey in statTypesMetaData) {
       chartClass = (statTypesMetaData[statKey].disableChart) ? '' : ' chart-enabled';
@@ -116,7 +118,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
     opStatsForRole.forEach(function(operator) {
       html += '<tr class="' + roleCssClass + '">';
-      html += '<td><div class="op-icon ' + operator.cssClass + '"></div></td>';
+      html += '<td class="sticky ' + roleCssClass + '"><div class="op-icon ' + operator.cssClass + '"></div></td>';
       html += '<td class="op-name">' + operator.name + '</<td>';
 
       for (var statKey in statTypesMetaData) {
@@ -139,7 +141,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getSubHeaderHtml = function getSubHeaderHtml(
-    ranksMetaData, statTypesMetaData, ranksForSeason, sortInfo
+    ranksMetaData, statTypesMetaData, ranksForSeason, sortInfo, roleCssClass
   ) {
     var html = '',
       srData,
@@ -151,7 +153,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     sortOrder = (isCurSortCol && !sortInfo.isDescending) ? 'descending' : 'ascending';
     curSortClass = isCurSortCol ? ' current-sort ' + sortOrder : '';
     html += '<tr class="sub">';
-    html += '<th></th>';
+    html += '<th class="sticky ' + roleCssClass + '"></th>';
     html += '<th class="op-name">';
     html += '<div tabindex="0" class="sortable ' + curSortClass + '" data-sortfield="name" data-sortorder="' + sortOrder + '">';
     html += '<p>' + R6MLangTerms.terms.stats.tableHeaderName + '</p>';
