@@ -113,6 +113,12 @@ body.stats {
   .skill-ranks-control-wrapper {
     min-height: 65px;
   }
+
+  &.old-results {
+    .stats-result {
+      opacity: 0.5;
+    }
+  }
 }
 
 p.instructions {

@@ -35,6 +35,10 @@
     setupOpChart();
     window.onpopstate = handleHistoryPop;
     $('body').removeClass('doc-not-ready');
+
+    if (checkAnyParamsSet()) {
+      handleLoadButtonClick();
+    }
   });
 
   var assignPageElements = function assignPageElements() {
@@ -64,16 +68,27 @@
     $opChart.info = $opChart.root.find('.info');
   };
 
+  var checkAnyParamsSet = function checkAnyParamsSet() {
+    for (var param in QUERY_PARAMS) {
+      if (R6MHelpers.queryString(QUERY_PARAMS[param])) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   var closeOpChart = function closeOpChart() {
     $('body').removeClass('op-chart-open');
   };
 
   var disableLoadControl = function disableLoadControl() {
     $('body').addClass('disable-load');
+    $('body').removeClass('old-results');
   };
 
   var enableLoadControl = function enableLoadControl() {
     $('body').removeClass('disable-load');
+    $('body').addClass('old-results');
   };
 
   var getSkillRanksForSeason = function getSkillRanksForSeason(selectedSeason) {
@@ -102,7 +117,6 @@
   var handleApiAllSuccess = function handleApiAllSuccess() {
     $('body').removeClass('load-in-progress');
     document.activeElement.blur();
-    enableLoadControl();
   };
 
   var handleApiMapSuccess = function handleApiMapSuccess(mapApiData) {
