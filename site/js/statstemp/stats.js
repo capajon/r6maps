@@ -34,6 +34,7 @@
     setupControls();
     setupOpChart();
     window.onpopstate = handleHistoryPop;
+    $('#not-ready-overlay').remove();
   });
 
   var assignPageElements = function assignPageElements() {
