@@ -83,12 +83,10 @@
 
   var disableLoadControl = function disableLoadControl() {
     $('body').addClass('disable-load');
-    $('body').removeClass('old-results');
   };
 
   var enableLoadControl = function enableLoadControl() {
     $('body').removeClass('disable-load');
-    $('body').addClass('old-results');
   };
 
   var getSkillRanksForSeason = function getSkillRanksForSeason(selectedSeason) {
@@ -117,6 +115,7 @@
   var handleApiAllSuccess = function handleApiAllSuccess() {
     $('body').removeClass('load-in-progress');
     document.activeElement.blur();
+    enableLoadControl();
   };
 
   var handleApiMapSuccess = function handleApiMapSuccess(mapApiData) {
