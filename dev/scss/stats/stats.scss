@@ -117,9 +117,24 @@ body.stats {
 
 p.instructions {
   display: none;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  text-align: center;
 
   body.not-loaded-yet & {
     display: block;
+  }
+}
+
+p.loaded-summary {
+  body.not-loaded-yet & {
+    display: none;
+  }
+}
+
+body.not-loaded-yet {
+  #section-map, #section-operators {
+    display: none;
   }
 }
 

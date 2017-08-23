@@ -158,7 +158,7 @@ var R6MLangTerms = (function(undefined) {
         tableFewRoundsNote: 'Less reliable (very few rounds played)',
         averagesAndTotals: 'Averages/Totals',
         percentageFormat: '{num}%',
-        instructions: 'Select filter options and click \'Load Stats\' to continue.',
+        instructions: 'Select filter options and hit \'Load Stats\' to continue.',
         noResults: 'No results found.  Please adjust the filters or try again later.',
         error: 'There was an error trying to load stats.  Please try again later.',
         chartHeader: '{stat} for {role}',
