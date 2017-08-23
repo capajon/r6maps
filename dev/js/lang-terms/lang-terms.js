@@ -3,6 +3,7 @@
 var R6MLangTerms = (function(undefined) {
   var terms = {},
     name = 'en',
+    loadedLang = 'en',
     translations = {},
     englishTerms = {
       general: {
@@ -1040,6 +1041,10 @@ var R6MLangTerms = (function(undefined) {
       }
     };
 
+  var getLoadedLang = function getLoadedLang() {
+    return loadedLang;
+  };
+
   var registerLanguage = function registerLanguage(language, terms) {
     translations[language] = terms;
   };
@@ -1047,6 +1052,7 @@ var R6MLangTerms = (function(undefined) {
   var tryLoadLanguage = function tryLoadLanguage(language) {
     if (translations[language]) {
       loadTerms(translations[language]);
+      loadedLang = language;
     }
   };
 
@@ -1064,6 +1070,7 @@ var R6MLangTerms = (function(undefined) {
 
   return  {
     name: name,
+    getLoadedLang: getLoadedLang,
     terms: terms,
     registerLanguage: registerLanguage,
     tryLoadLanguage: tryLoadLanguage,

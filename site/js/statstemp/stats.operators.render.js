@@ -5,7 +5,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     locale = R6MLangTerms.name.split('_')[0];
 
   var getAveragesTotalsHtml = function getAveragesTotalsHtml(
-    averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, roleCssClass
+    averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, roleCssClass, getFormattedNumberFn
   ) {
     var html = '',
       avgTotalKey;
@@ -17,10 +17,10 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     for (var statKey in statTypesMetaData) {
       avgTotalKey = statTypesMetaData[statKey].showTotal ? 'total' : 'avg';
 
-      html += '<td class="all-ranks">' + getFormattedNumber(averagesTotals[statKey].all[avgTotalKey], statTypesMetaData[statKey].displayType) + '</td>';
+      html += '<td class="all-ranks">' + getFormattedNumberFn(averagesTotals[statKey].all[avgTotalKey], statTypesMetaData[statKey].displayType) + '</td>';
       ranksForSeason.forEach(function(rankKey) {
         html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
-        html += '<span>' + getFormattedNumber(averagesTotals[statKey][rankKey][avgTotalKey], statTypesMetaData[statKey].displayType, true) + '</span>';
+        html += '<span>' + getFormattedNumberFn(averagesTotals[statKey][rankKey][avgTotalKey], statTypesMetaData[statKey].displayType, true) + '</span>';
         html += '</td>';
       });
     }
@@ -29,28 +29,14 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     return html;
   };
 
-  var getFormattedNumber = function getFormattedNumber(num, displayType, minimal) {
-    switch (displayType) {
-    case 'percent':
-      num *= 100;
-      num = (num < 10) ? num.toFixed(1) : Math.round(num);
-      return minimal ? num : R6MLangTerms.terms.stats.percentageFormat.replace('{num}', num);
-      break;
-    case 'ratio':
-      return num.toFixed(1);
-      break;
-    default: // number
-      var locale = R6MLangTerms.name.split('_')[0];
-
-      if (num.toLocaleString && false) {
-        return num.toLocaleString(locale);
-      } else {
-        return numberWithCommas(num);
-      }
-    }
-  };
-
-  var getOpHtml = function getOpHtml(opStats, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason) {
+  var getOpHtml = function getOpHtml(
+    opStats,
+    ranksMetaData,
+    rolesMetaData,
+    statTypesMetaData,
+    ranksForSeason,
+    getFormattedNumberFn
+  ) {
     var html = '',
       ranksShownCount = ranksForSeason.length + 1; // +1 for 'ALL'
 
@@ -58,15 +44,38 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<div class="scroller">';
     html += '<table>';
 
-    html += getMainHeaderHtml(ranksShownCount, R6MLangTerms.terms.stats.tableHeaderAttackers, rolesMetaData.attackers.cssClass, 'attackers', statTypesMetaData);
-    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo, rolesMetaData.attackers.cssClass);
-    html += getOpRoleHtml(opStats.attackers.operators, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.attackers.cssClass);
-    html += getAveragesTotalsHtml(opStats.attackers.averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.attackers.cssClass);
-
-    html += getMainHeaderHtml(ranksShownCount, R6MLangTerms.terms.stats.tableHeaderDefenders, rolesMetaData.defenders.cssClass, 'defenders', statTypesMetaData);
-    html += getSubHeaderHtml(ranksMetaData, statTypesMetaData, ranksForSeason, opStats.sortInfo, rolesMetaData.defenders.cssClass);
-    html += getOpRoleHtml(opStats.defenders.operators, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.defenders.cssClass);
-    html += getAveragesTotalsHtml(opStats.defenders.averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, rolesMetaData.defenders.cssClass);
+    for (var roleKey in rolesMetaData) {
+      html += getMainHeaderHtml(
+        ranksShownCount,
+        (roleKey == 'defenders') ? R6MLangTerms.terms.stats.tableHeaderDefenders : R6MLangTerms.terms.stats.tableHeaderAttackers,
+        rolesMetaData[roleKey].cssClass,
+        roleKey,
+        statTypesMetaData
+      );
+      html += getSubHeaderHtml(
+        ranksMetaData,
+        statTypesMetaData,
+        ranksForSeason,
+        opStats.sortInfo,
+        rolesMetaData[roleKey].cssClass
+      );
+      html += getOpRoleHtml(
+        opStats[roleKey].operators,
+        ranksMetaData,
+        statTypesMetaData,
+        ranksForSeason,
+        rolesMetaData[roleKey].cssClass,
+        getFormattedNumberFn
+      );
+      html += getAveragesTotalsHtml(
+        opStats[roleKey].averagesTotals,
+        ranksMetaData,
+        statTypesMetaData,
+        ranksForSeason,
+        rolesMetaData[roleKey].cssClass,
+        getFormattedNumberFn
+      );
+    }
 
     html += '</table>';
     html += '</div>';
@@ -110,7 +119,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   var getOpRoleHtml = function getOpRoleHtml(
-    opStatsForRole, ranksMetaData,  statTypesMetaData, ranksForSeason, roleCssClass
+    opStatsForRole, ranksMetaData,  statTypesMetaData, ranksForSeason, roleCssClass, getFormattedNumberFn
   ) {
     var html = '',
       warningCssClass = false,
@@ -122,7 +131,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       html += '<td class="op-name">' + operator.name + '</<td>';
 
       for (var statKey in statTypesMetaData) {
-        html += '<td class="all-ranks">' + getFormattedNumber(operator.statsAllRanks[statKey], statTypesMetaData[statKey].displayType) + '</td>'; // ALL
+        html += '<td class="all-ranks">' + getFormattedNumberFn(operator.statsAllRanks[statKey], statTypesMetaData[statKey].displayType) + '</td>'; // ALL
 
         ranksForSeason.forEach(function(rankKey) {
           warningCssClass = (!operator.statsByRank[rankKey] || operator.statsByRank[rankKey].warning) ? 'warning ' : '';
@@ -130,7 +139,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
           html += '<td class="can-hide ' + warningCssClass + ranksMetaData[rankKey].cssClass + '"><span ' + warningTitleTag + '>';
           html += (operator.statsByRank[rankKey]) ?
-            getFormattedNumber(operator.statsByRank[rankKey][statKey], statTypesMetaData[statKey].displayType, true) :
+            getFormattedNumberFn(operator.statsByRank[rankKey][statKey], statTypesMetaData[statKey].displayType, true) :
             '-';
           html += '</span></td>';
         });
@@ -189,11 +198,17 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     return html;
   };
 
-  var numberWithCommas = function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
-  var render = function render(opStats, $outputEl, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason, sortCb, statGraphCb) {
+  var render = function render(
+    opStats,
+    $outputEl,
+    ranksMetaData,
+    rolesMetaData,
+    statTypesMetaData,
+    ranksForSeason,
+    sortCb,
+    statGraphCb,
+    getFormattedNumberFn
+  ) {
     var html = '';
 
     if (opStats.attackers.operators.length == 0 || opStats.defenders.operators.length == 0) {
@@ -202,7 +217,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       return;
     }
 
-    html += getOpHtml(opStats, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason);
+    html += getOpHtml(opStats, ranksMetaData, rolesMetaData, statTypesMetaData, ranksForSeason, getFormattedNumberFn);
     html += getNotesHtml();
     $outputEl.html(html);
     setupSortColumns($outputEl, sortCb);
@@ -232,7 +247,6 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
   };
 
   return  {
-    render: render,
-    getFormattedNumber: getFormattedNumber
+    render: render
   };
 })(R6MLangTerms);

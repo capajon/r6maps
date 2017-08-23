@@ -121,7 +121,7 @@
 
   var handleApiMapSuccess = function handleApiMapSuccess(mapApiData) {
     R6MStatsMapData.set(mapApiData, metaData.winReasons);
-    R6MStatsMapRender.render($outputs.mapSection, R6MStatsMapData.get(), metaData, R6MStatsOpRender.getFormattedNumber);
+    R6MStatsMapRender.render($outputs.mapSection, R6MStatsMapData.get(), metaData, R6MStatsRender.getFormattedNumber);
     $sections.maps.removeClass('load-in-progress');
     console.log('Map success', R6MStatsMapData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
   };
@@ -268,7 +268,8 @@
       metaData.statTypes,
       lastLoadSnapshot.ranks,
       resortOperators,
-      updateOpRoleChart
+      updateOpRoleChart,
+      R6MStatsRender.getFormattedNumber
     );
   };
 
@@ -376,7 +377,7 @@
       lastLoadSnapshot.filters,
       lastLoadSnapshot.ranks,
       metaData,
-      R6MStatsOpRender.getFormattedNumber,
+      R6MStatsRender.getFormattedNumber,
       R6MStatsRender.renderLoadInfo
     );
   };
