@@ -190,9 +190,11 @@ body.stats {
 
       &.attackers h3 {
         color: $r6-orange;
+        font-size: 1.4rem;
       }
       &.defenders h3 {
         color: $r6-blue;
+        font-size: 1.4rem;
       }
     }
   }
