@@ -60,7 +60,7 @@ var R6MStatsOpChart = (function(R6MLangTerms, undefined) {
       datasets.push(opDataSet);
     });
 
-    var myChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: 'line',
       data: {
         labels: labels,

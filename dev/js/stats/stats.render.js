@@ -35,13 +35,11 @@ var R6MStatsRender = (function(R6MLangTerms, undefined) {
       separator = (locales[locale] && !options.disableLocale) ? locales[locale].decimal : localeDefault.decimal;
       num = ('' + num).replace('.', separator);
       return options.minimal ? num : R6MLangTerms.terms.stats.percentageFormat.replace('{num}', num);
-      break;
     case 'ratio':
       num = num.toFixed(1);
       separator = (locales[locale] && !options.disableLocale) ? locales[locale].decimal : localeDefault.decimal;
       num = ('' + num).replace('.', separator);
       return num;
-      break;
     default: // number
       separator = (locales[locale] && !options.disableLocale) ? locales[locale].thousands : localeDefault.thousands;
       return numberWithCommas(num, separator);

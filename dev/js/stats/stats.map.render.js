@@ -57,8 +57,7 @@ var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
   };
 
   var getWinReasonsContainerHtml = function getWinReasonsContainerHtml(mapStats, metaData, roles, getFormattedNumberFn) {
-    var html = '',
-      winReasonsHeader;
+    var html = '';
 
     html += '<div class="map-win-reasons-container">';
     html += '<div class="map-win-reasons-row">';
@@ -104,7 +103,6 @@ var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
 
   var updateWinReasonCharts = function updateWinReasonCharts(mapStats, $outputEl, metaData, roles, getFormattedNumberFn) {
     var $canvas,
-      data,
       labels,
       backgroundColor;
 
@@ -128,7 +126,7 @@ var R6MStatsMapRender = (function(R6MLangTerms, undefined) {
         labels: labels
       };
 
-      var newChart = new Chart($canvas, {
+      new Chart($canvas, {
         type: 'pie',
         data: data,
         options: {

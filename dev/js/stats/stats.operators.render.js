@@ -1,8 +1,7 @@
 'use strict';
 
 var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
-  var statTerms = R6MLangTerms.terms.stats,
-    locale = R6MLangTerms.name.split('_')[0];
+  var statTerms = R6MLangTerms.terms.stats;
 
   var getAveragesTotalsHtml = function getAveragesTotalsHtml(
     averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, roleCssClass, getFormattedNumberFn
@@ -238,8 +237,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
   var setupStatHeaders = function setupStatHeaders($outputEl, statGraphCb) {
     $outputEl.find('.stat-name.chart-enabled').on('click', function(event) {
-      var $source = $(event.target),
-        isDescending;
+      var $source = $(event.target);
 
       statGraphCb($source.data('statkey'), $source.data('rolekey'));
     });

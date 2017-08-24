@@ -117,9 +117,13 @@ body.stats {
   .about-container {
     margin-bottom: 1.5rem;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     .link-wrapper {
       @include flexbox;
-      
+
       a {
         border: 1px solid #fff;
         margin: 0 1rem 1rem 0;
