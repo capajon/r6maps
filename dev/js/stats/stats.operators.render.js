@@ -7,7 +7,8 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     averagesTotals, ranksMetaData, statTypesMetaData, ranksForSeason, roleCssClass, getFormattedNumberFn
   ) {
     var html = '',
-      avgTotalKey;
+      avgTotalKey,
+      num;
 
     html += '<tr class="' + roleCssClass + ' average-totals">';
     html += '<td class="sticky ' + roleCssClass + '"></td>';
@@ -19,7 +20,8 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       html += '<td class="all-ranks">' + getFormattedNumberFn(averagesTotals[statKey].all[avgTotalKey], statTypesMetaData[statKey].displayType) + '</td>';
       ranksForSeason.forEach(function(rankKey) {
         html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
-        html += '<span>' + getFormattedNumberFn(averagesTotals[statKey][rankKey][avgTotalKey], statTypesMetaData[statKey].displayType, { minimal: true }) + '</span>';
+        num = (!averagesTotals[statKey] || !averagesTotals[statKey][rankKey]) ? 0 : averagesTotals[statKey][rankKey][avgTotalKey]
+        html += '<span>' + getFormattedNumberFn(num, statTypesMetaData[statKey].displayType, { minimal: true }) + '</span>';
         html += '</td>';
       });
     }
