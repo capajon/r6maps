@@ -34,7 +34,7 @@ if (is_null($CachedString->get())) { // NOT CACHED
     $encodedResult = json_encode(array("role"=>$operators));
 
     if(!empty(results)) {
-        $CachedString->set($encodedResult)->expiresAfter(12000); // 2419200 = s in month
+        $CachedString->set($encodedResult)->expiresAfter(86400); // 2419200 = s in month
         $InstanceCache->save($CachedString);
     }
 
