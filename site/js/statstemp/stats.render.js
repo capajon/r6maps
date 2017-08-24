@@ -21,26 +21,28 @@ var R6MStatsRender = (function(R6MLangTerms, undefined) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
   };
 
-  var getFormattedNumber = function getFormattedNumber(num, displayType, minimal) {
+  var getFormattedNumber = function getFormattedNumber(num, displayType, options) {
     var locale = R6MLangTerms.getLoadedLang().split('_')[0],
       separator;
+
+    options = options || {};
 
     switch (displayType) {
     case 'percent':
       num *= 100;
       num = (num < 10) ? num.toFixed(1) : Math.round(num);
-      separator = (locales[locale]) ? locales[locale].decimal : localeDefault.decimal;
+      separator = (locales[locale] && !options.disableLocale) ? locales[locale].decimal : localeDefault.decimal;
       num = ('' + num).replace('.', separator);
-      return minimal ? num : R6MLangTerms.terms.stats.percentageFormat.replace('{num}', num);
+      return options.minimal ? num : R6MLangTerms.terms.stats.percentageFormat.replace('{num}', num);
       break;
     case 'ratio':
       num = num.toFixed(1);
-      separator = (locales[locale]) ? locales[locale].decimal : localeDefault.decimal;
+      separator = (locales[locale] && !options.disableLocale) ? locales[locale].decimal : localeDefault.decimal;
       num = ('' + num).replace('.', separator);
       return num;
       break;
     default: // number
-      separator = (locales[locale]) ? locales[locale].thousands : localeDefault.thousands;
+      separator = (locales[locale] && !options.disableLocale) ? locales[locale].thousands : localeDefault.thousands;
       return numberWithCommas(num, separator);
     }
   };
@@ -66,7 +68,7 @@ var R6MStatsRender = (function(R6MLangTerms, undefined) {
       platformText = (filterInfo.platform == ALL_KEY) ? null : metaData.platforms[filterInfo.platform].name,
       mapText = (filterInfo.map == ALL_KEY) ? null : metaData.mapModeLocations[filterInfo.map].name,
       modeText = (filterInfo.mode == ALL_KEY) ? null : metaData.modes[filterInfo.mode].name,
-      locationText = (filterInfo.location == ALL_KEY) ? null : metaData.mapModeLocations[filterInfo.map].objectives[filterInfo.mode][filterInfo.location].name;
+      locationText = (filterInfo.location == ALL_KEY || filterInfo.map == ALL_KEY || filterInfo.mode == ALL_KEY) ? null : metaData.mapModeLocations[filterInfo.map].objectives[filterInfo.mode][filterInfo.location].name;
 
     if (platformText) {
       infoLine1 = statTerms.loadedInfoLine1SinglePlatform.replace('{season}', seasonText).replace('{platform}', platformText);

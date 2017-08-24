@@ -20,7 +20,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       html += '<td class="all-ranks">' + getFormattedNumberFn(averagesTotals[statKey].all[avgTotalKey], statTypesMetaData[statKey].displayType) + '</td>';
       ranksForSeason.forEach(function(rankKey) {
         html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
-        html += '<span>' + getFormattedNumberFn(averagesTotals[statKey][rankKey][avgTotalKey], statTypesMetaData[statKey].displayType, true) + '</span>';
+        html += '<span>' + getFormattedNumberFn(averagesTotals[statKey][rankKey][avgTotalKey], statTypesMetaData[statKey].displayType, { minimal: true }) + '</span>';
         html += '</td>';
       });
     }
@@ -139,7 +139,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
 
           html += '<td class="can-hide ' + warningCssClass + ranksMetaData[rankKey].cssClass + '"><span ' + warningTitleTag + '>';
           html += (operator.statsByRank[rankKey]) ?
-            getFormattedNumberFn(operator.statsByRank[rankKey][statKey], statTypesMetaData[statKey].displayType, true) :
+            getFormattedNumberFn(operator.statsByRank[rankKey][statKey], statTypesMetaData[statKey].displayType, { minimal: true }) :
             '-';
           html += '</span></td>';
         });

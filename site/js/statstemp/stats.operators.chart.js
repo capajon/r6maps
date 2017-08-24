@@ -45,7 +45,7 @@ var R6MStatsOpChart = (function(R6MLangTerms, undefined) {
       ranks.forEach(function(rank) {
         num = (operator.statsByRank[rank]) ? operator.statsByRank[rank][statKey] : 0;
         data.push(
-          getFormattedNumberFn(num, metaData.statTypes[statKey].displayType, true)
+          getFormattedNumberFn(num, metaData.statTypes[statKey].displayType, { minimal: true, disableLocale: true })
         );
       });
       opDataSet = {
