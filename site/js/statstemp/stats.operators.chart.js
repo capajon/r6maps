@@ -23,7 +23,7 @@ var R6MStatsOpChart = (function(R6MLangTerms, undefined) {
     renderLoadInfoFn
   ) {
     updateHeader($opChartEls.header, statKey, roleKey, metaData.roles, metaData.statTypes);
-    renderLoadInfoFn($opChartEls.info, filterInfo, metaData);
+    renderLoadInfoFn($opChartEls.info);
     $opChartEls.output.find('canvas').remove();
 
     var newCanvas = $('<canvas/>').prop({ width: '100%', height: '100%' }),

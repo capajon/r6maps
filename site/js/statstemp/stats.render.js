@@ -60,20 +60,33 @@ var R6MStatsRender = (function(R6MLangTerms, undefined) {
 
   var renderLoadInfo = function renderLoadInfo($infoEl, filterInfo, metaData) {
     var statTerms = R6MLangTerms.terms.stats,
-      info = statTerms.loadedInfo,
-      allText = statTerms.allOption,
-      seasonText = (filterInfo.season == ALL_KEY) ? allText : metaData.seasons[filterInfo.season].name,
-      platformText = (filterInfo.platform == ALL_KEY) ? allText : metaData.platforms[filterInfo.platform].name,
-      mapText = (filterInfo.map == ALL_KEY) ? allText : metaData.mapModeLocations[filterInfo.map].name,
-      modeText = (filterInfo.mode == ALL_KEY) ? allText : metaData.modes[filterInfo.mode].name,
-      locationText = (filterInfo.location == ALL_KEY) ? allText : metaData.mapModeLocations[filterInfo.map].objectives[filterInfo.mode][filterInfo.location].name;
+      infoLine1,
+      infoLine2,
+      seasonText = (filterInfo.season == ALL_KEY) ? null : metaData.seasons[filterInfo.season].name,
+      platformText = (filterInfo.platform == ALL_KEY) ? null : metaData.platforms[filterInfo.platform].name,
+      mapText = (filterInfo.map == ALL_KEY) ? null : metaData.mapModeLocations[filterInfo.map].name,
+      modeText = (filterInfo.mode == ALL_KEY) ? null : metaData.modes[filterInfo.mode].name,
+      locationText = (filterInfo.location == ALL_KEY) ? null : metaData.mapModeLocations[filterInfo.map].objectives[filterInfo.mode][filterInfo.location].name;
 
-    info = info.replace('{season}', seasonText);
-    info = info.replace('{platform}', platformText);
-    info = info.replace('{map}', mapText);
-    info = info.replace('{mode}', modeText);
-    info = info.replace('{location}', locationText);
-    $infoEl.html(info);
+    if (platformText) {
+      infoLine1 = statTerms.loadedInfoLine1SinglePlatform.replace('{season}', seasonText).replace('{platform}', platformText);
+    } else {
+      infoLine1 = statTerms.loadedInfoLine1AllPlatforms.replace('{season}', seasonText);
+    }
+
+    if (!mapText && !modeText) {
+      infoLine2 = statTerms.loadedInfoLine2AllMapsAllModes;
+    } else if (mapText && !modeText) {
+      infoLine2 = statTerms.loadedInfoLine2SingleMapAllModes.replace('{map}', mapText);
+    } else if (!mapText && modeText) {
+      infoLine2 = statTerms.loadedInfoLine2AllMapsSingleMode.replace('{mode}', modeText);
+    } else if (mapText && modeText && !locationText) {
+      infoLine2 = statTerms.loadedInfoLine2SingleMapSingleModeAllLocations.replace('{map}', mapText).replace('{mode}', modeText);
+    } else {
+      infoLine2 = statTerms.loadedInfoLine2SingleMapSingleModeSingleLocation.replace('{map}', mapText).replace('{mode}', modeText).replace('{location}', locationText);
+    }
+
+    $infoEl.html('<span class="main-info">' + infoLine1 + '</span><span class="secondary-info">' + infoLine2 + '</span>');
   };
 
   var renderStaticEl = function renderStaticEl($allParagraphs, $instructionParagraphs) {

@@ -115,25 +115,33 @@ body.stats {
   }
 }
 
-p.instructions {
-  display: none;
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
+#instructions, #loaded-summary {
+  background-color: rgba(16, 26, 36, 0.6);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.75rem;
   text-align: center;
-
-  body.not-loaded-yet & {
-    display: block;
-  }
 }
 
-p.loaded-summary {
-  body.not-loaded-yet & {
-    display: none;
+#instructions {
+  display: none;
+}
+
+#loaded-summary {
+  .main-info {
+    color: $r6-yellow;
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
   }
 }
 
 body.not-loaded-yet {
-  #section-map, #section-operators {
+  #instructions {
+    display: block;
+  }
+  #loaded-summary, #section-map, #section-operators {
     display: none;
   }
 }

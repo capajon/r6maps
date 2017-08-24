@@ -162,8 +162,13 @@ var R6MLangTerms = (function(undefined) {
         noResults: 'No results found.  Please adjust the filters or try again later.',
         error: 'There was an error trying to load stats.  Please try again later.',
         chartHeader: '{stat} for {role}',
-        loadedInfo: 'Stats for SEASON: {season} | PLATFORM: {platform} | MAP: {map} | MODE: {mode} | LOCATION: {location}'
-
+        loadedInfoLine1AllPlatforms: 'Showing Stats for the {season} Season on All Platforms',
+        loadedInfoLine1SinglePlatform: 'Showing Stats for the {season} Season on {platform}',
+        loadedInfoLine2AllMapsAllModes: 'All Maps | All Modes',
+        loadedInfoLine2SingleMapAllModes: '{map} | All Modes',
+        loadedInfoLine2AllMapsSingleMode: 'All Maps | {mode}',
+        loadedInfoLine2SingleMapSingleModeAllLocations: '{map} | {mode} | All Locations',
+        loadedInfoLine2SingleMapSingleModeSingleLocation: '{map} | {mode} | {location}'
       },
       statsRoundWinReasons: {
         allTeamsDead: 'All teams dead',

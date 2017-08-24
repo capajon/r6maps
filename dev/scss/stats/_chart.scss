@@ -38,6 +38,13 @@ body.stats {
       font-weight: normal;
       padding-top: 1rem;
       text-align: center;
+
+      .main-info {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        text-transform: uppercase;
+      }
     }
 
     h2 {

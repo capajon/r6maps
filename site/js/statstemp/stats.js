@@ -30,7 +30,7 @@
     R6MStatsRender.setPageTitle();
     assignPageElements();
     R6MStatsRender.renderHeaders($headers);
-    R6MStatsRender.renderStaticEl($('p.all-text'), $('p.instructions'));
+    R6MStatsRender.renderStaticEl($('p.all-text'), $('#instructions'));
     setupControls();
     setupOpChart();
     window.onpopstate = handleHistoryPop;
@@ -122,7 +122,9 @@
     R6MStatsMapData.set(mapApiData, metaData.winReasons);
     R6MStatsMapRender.render($outputs.mapSection, R6MStatsMapData.get(), metaData, R6MStatsRender.getFormattedNumber);
     $sections.maps.removeClass('load-in-progress');
-    console.log('Map success', R6MStatsMapData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
+    if (DEV_MODE) {
+      console.log('Map success', R6MStatsMapData.get());
+    }
   };
 
   var handleApiMapError = function handleApiMapError(mapData) {
@@ -141,7 +143,9 @@
 
     renderOpStats();
     $sections.ops.removeClass('load-in-progress');
-    console.log('Operators success', R6MStatsOpData.get()); // TODO TEMP OR WRAP IN DEV MODE CONFIG SETTING
+    if (DEV_MODE) {
+      console.log('Operators success', R6MStatsOpData.get());
+    }
   };
 
   var handleApiOpError = function handleApiOpError(operatorsData) {
@@ -188,6 +192,8 @@
 
     savePlatformOption(R6MStatsControls.platforms.get($controls.platforms));
     sendLoadStatsAnalyticsEvent(queryString);
+
+    renderLoadInfo($('#loaded-summary'));
 
     R6MStatsApi.getMapAndOperators(
       handleApiMapSuccess,
@@ -256,6 +262,10 @@
       $ranksShowHider.addClass('show-' + metaData.ranks[rank].cssClass);
     });
     saveSkillRankOptions(selectedSkillRanks);
+  };
+
+  var renderLoadInfo = function renderLoadInfo($infoEl) {
+    R6MStatsRender.renderLoadInfo($infoEl, lastLoadSnapshot.filters, metaData);
   };
 
   var renderOpStats = function renderOpStats() {
@@ -377,7 +387,7 @@
       lastLoadSnapshot.ranks,
       metaData,
       R6MStatsRender.getFormattedNumber,
-      R6MStatsRender.renderLoadInfo
+      renderLoadInfo
     );
   };
 
