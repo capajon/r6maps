@@ -113,7 +113,6 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
     html += '<li>' + statTerms.tableNoteHeaders + '</li>';
     html += '<li>' + statTerms.tableNoteWarningText  + '</li>';
     html += '<li>' + statTerms.tableNotePickRate  + '</li>';
-    html += '<li><a href="https://rainbow6.ubisoft.com/siege/en-us/news/152-293696-16/introduction-to-the-data-peek-velvet-shell-statistics">' + statTerms.tableNoteDataDumpRef + '</a></li>';
     html += '</ul>';
     return html;
   };

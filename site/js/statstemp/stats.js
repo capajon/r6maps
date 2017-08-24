@@ -31,6 +31,7 @@
     assignPageElements();
     R6MStatsRender.renderHeaders($headers);
     R6MStatsRender.renderStaticEl($('p.all-text'), $('#instructions'));
+    R6MStatsRender.renderAbout($('#about-output'));
     setupControls();
     setupOpChart();
     window.onpopstate = handleHistoryPop;

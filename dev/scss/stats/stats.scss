@@ -113,6 +113,27 @@ body.stats {
   .skill-ranks-control-wrapper {
     min-height: 65px;
   }
+
+  .about-container {
+    margin-bottom: 1.5rem;
+
+    .link-wrapper {
+      @include flexbox;
+      
+      a {
+        border: 1px solid #fff;
+        margin: 0 1rem 1rem 0;
+        padding: 1rem;
+        text-decoration: none;
+        transition: background-color $button-transition;
+
+        &:hover, &:focus {
+          background-color: $r6-blue;
+        }
+      }
+    }
+  }
+
 }
 
 #instructions, #loaded-summary {

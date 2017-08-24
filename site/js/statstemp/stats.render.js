@@ -2,6 +2,7 @@
 
 var R6MStatsRender = (function(R6MLangTerms, undefined) {
   var ALL_KEY = 'ALL',
+    statTerms = R6MLangTerms.terms.stats,
     locales = {
       ch: { thousands: ',', decimal: '.' },
       cs: { thousands: ' ', decimal: ',' },
@@ -45,6 +46,21 @@ var R6MStatsRender = (function(R6MLangTerms, undefined) {
       separator = (locales[locale] && !options.disableLocale) ? locales[locale].thousands : localeDefault.thousands;
       return numberWithCommas(num, separator);
     }
+  };
+
+  var renderAbout = function renderAbout($aboutEl) {
+    var html = '';
+
+    html += '<div class="about-container">';
+    html += '<h2>' + statTerms.aboutLinksHeader + '</h2>';
+    html += '<div class="link-wrapper">';
+    html += '<a href="index.html">' + statTerms.aboutR6MapsHome + '</a>';
+    html += '<a href="about/about.html">' + statTerms.aboutR6MapsAbout + '</a>';
+    html += '<a class="about-footer" href="https://rainbow6.ubisoft.com/siege/en-us/news/152-293696-16/introduction-to-the-data-peek-velvet-shell-statistics">' + statTerms.aboutBasedOnUbisoft + '</a>';
+    html += '</div>';
+    html += '</div>';
+
+    $aboutEl.html(html);
   };
 
   var renderHeaders = function renderHeaders($headers) {
@@ -102,6 +118,7 @@ var R6MStatsRender = (function(R6MLangTerms, undefined) {
 
   return  {
     getFormattedNumber: getFormattedNumber,
+    renderAbout: renderAbout,
     renderHeaders: renderHeaders,
     renderStaticEl: renderStaticEl,
     renderLoadError: renderLoadError,

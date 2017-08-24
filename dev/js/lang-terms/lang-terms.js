@@ -151,10 +151,9 @@ var R6MLangTerms = (function(undefined) {
         tableHeaderTotalRounds: 'Total Rounds',
         tableHeaderAllRanks: 'All Ranks',
         tableNoteHeader: 'Notes:',
-        tableNotePickRate: 'Pick rates by rank are approximately based on the relative number of rounds played.',
-        tableNoteDataDumpRef: 'Based on data from Ubisoft\'s data peek series.',
-        tableNoteHeaders: 'Click on headers to see charts, and subheaders to change sort order.',
-        tableNoteWarningText: 'Orange text indicates a less reliable stat based on few rounds played.',
+        tableNotePickRate: 'Pick rates by rank are approximate and based on the relative number of rounds played.',
+        tableNoteHeaders: 'Click on headers for charts and subheaders for sort order.',
+        tableNoteWarningText: 'Orange text indicates a less reliable stat based on very few rounds played.',
         tableFewRoundsNote: 'Less reliable (very few rounds played)',
         averagesAndTotals: 'Averages/Totals',
         percentageFormat: '{num}%',
@@ -168,7 +167,11 @@ var R6MLangTerms = (function(undefined) {
         loadedInfoLine2SingleMapAllModes: '{map} | All Modes',
         loadedInfoLine2AllMapsSingleMode: 'All Maps | {mode}',
         loadedInfoLine2SingleMapSingleModeAllLocations: '{map} | {mode} | All Locations',
-        loadedInfoLine2SingleMapSingleModeSingleLocation: '{map} | {mode} | {location}'
+        loadedInfoLine2SingleMapSingleModeSingleLocation: '{map} | {mode} | {location}',
+        aboutLinksHeader: 'Links',
+        aboutR6MapsHome: 'R6Maps.com Home',
+        aboutR6MapsAbout: 'R6Maps.com About',
+        aboutBasedOnUbisoft: 'Ubisoft Data Peek Series'
       },
       statsRoundWinReasons: {
         allTeamsDead: 'All teams dead',
