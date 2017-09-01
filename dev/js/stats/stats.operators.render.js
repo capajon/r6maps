@@ -20,7 +20,7 @@ var R6MStatsOpRender = (function(R6MLangTerms, undefined) {
       html += '<td class="all-ranks">' + getFormattedNumberFn(averagesTotals[statKey].all[avgTotalKey], statTypesMetaData[statKey].displayType) + '</td>';
       ranksForSeason.forEach(function(rankKey) {
         html += '<td class="can-hide ' + ranksMetaData[rankKey].cssClass + '">';
-        num = (!averagesTotals[statKey] || !averagesTotals[statKey][rankKey]) ? 0 : averagesTotals[statKey][rankKey][avgTotalKey]
+        num = (!averagesTotals[statKey] || !averagesTotals[statKey][rankKey]) ? 0 : averagesTotals[statKey][rankKey][avgTotalKey];
         html += '<span>' + getFormattedNumberFn(num, statTypesMetaData[statKey].displayType, { minimal: true }) + '</span>';
         html += '</td>';
       });
