@@ -35,7 +35,7 @@ $config = array(
 $cacheKey = str_replace("/","",'MAPS,' . getCacheKey($config));
 
 CacheManager::setDefaultConfig(array(
-    "path" => '/home/capajon/phpfastcachetemp/.'
+    "path" => '/home/capajon/r6sites/phpfastcachetemp/.'
 ));
 $InstanceCache = CacheManager::getInstance('files');
 $CachedString = $InstanceCache->getItem($cacheKey);
