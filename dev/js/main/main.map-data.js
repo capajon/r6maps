@@ -2634,6 +2634,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 211, left: 406, description: themeparkTerms.hauntedEntrance.removeBreakTags(), hardToRead: true },
           { floor: 1, top: 73, left: 420, description: themeparkTerms.hauntedStairs, hardToRead: true },
           { floor: 1, top: 24, left: -254, description: themeparkTerms.arcadeStairs, hardToRead: true },
+          { floor: 1, top: 63, left: 17, description: themeparkTerms.serviceCorridor, hardToRead: true, smaller: true },
           { floor: 2, top: 24, left: -254, description: themeparkTerms.arcadeStairs, hardToRead: true },
           { floor: 2, top: -52, left: -162, description: themeparkTerms.upperArcade, hardToRead: true },
           { floor: 2, top: -100, left: 0, description: themeparkTerms.cafeCorridor, hardToRead: true },
