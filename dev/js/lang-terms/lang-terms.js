@@ -171,7 +171,9 @@ var R6MLangTerms = (function(undefined) {
         aboutLinksHeader: 'Links',
         aboutR6MapsHome: 'R6Maps.com Home',
         aboutR6MapsAbout: 'R6Maps.com About',
-        aboutBasedOnUbisoft: 'Ubisoft Data Peek Series'
+        aboutBasedOnUbisoft: 'Ubisoft Data Peek Series',
+        winRatesForMap: 'Win rates for {map}',
+        detailedStatsLink: 'See detailed stats'
       },
       statsRoundWinReasons: {
         allTeamsDead: 'All teams dead',
@@ -224,6 +226,7 @@ var R6MLangTerms = (function(undefined) {
         caveira: 'Caveira',
         doc: 'Doc',
         echo: 'Echo',
+        ela: 'Ela',
         frost: 'Frost',
         fuze: 'Fuze',
         gignRecruit: 'GIGN Recruit',
@@ -234,6 +237,7 @@ var R6MLangTerms = (function(undefined) {
         jackal: 'Jackal',
         jager: 'Jager',
         kapkan: 'Kapkan',
+        lesion: 'Lesion',
         mira: 'Mira',
         montagne: 'Montagne',
         mute: 'Mute',
@@ -248,7 +252,8 @@ var R6MLangTerms = (function(undefined) {
         thatcher: 'Thatcher',
         thermite: 'Thermite',
         twitch: 'Twitch',
-        valkyrie: 'Valkyrie'
+        valkyrie: 'Valkyrie',
+        ying: 'Ying'
       },
       mapNames: {
         bank: 'Bank',
@@ -1033,7 +1038,7 @@ var R6MLangTerms = (function(undefined) {
           railPlatform: 'Rail<br/>Platform',
           railRamp: 'Rail Ramp',
           roboCircuit: 'Robot Circuit',
-          serviceCorridor: 'Service Corridor',
+          serviceCorridor: 'Service<br/>Corridor',
           serviceEntry: 'Service<br/>Entry',
           southExit: 'South<br/>Exit',
           sweetShop: 'Sweet Shop',
