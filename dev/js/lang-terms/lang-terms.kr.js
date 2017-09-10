@@ -22,8 +22,8 @@ var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
         lockZooming: '확대/축소 고정',
         fullScreen: '전체화면',
         enableScreenshots: '화면 캡쳐 활성화',
-        contributions: '기부금',
-        supportSiteNote: '지원을 보여주는 한 가지 방법은 소액 기부를 통한 것입니다.',
+        contributions: '기부',
+        supportSiteNote: '소액 기부를 통해 여러분의 성원을 보여주세요',
         latestUpdate: '2017 년 2 월 업데이트'
       },
       roomLabelStyles: {
@@ -63,17 +63,17 @@ var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
         showAll: '모두 보기'
       },
       legend: {
-        breakableWalls: '파괴가능한 벽',
+        breakableWalls: '파괴가능한 벽(강화가능)',
         breakableFloorTraps: '트랩 도어 (바닥)',
         ceilingHatches: '트랩 도어 (천장)',
-        lineOfSightWalls: '시야확보 가능한 벽',
-        lineOfSightFloors: '시야확보 가능한 바닥',
+        lineOfSightWalls: '파괴가능한 벽(강화불가)',
+        lineOfSightFloors: '파괴가능한 바닥(강화불가)',
         droneTunnels: '드론 터널',
-        objectives: '목표',
+        objectives: '목표 지점',
         insertionPoints: '시작지점',
         securityCameras: '감시카메라',
-        skylights: '지붕창',
-        onFloorAboveOrBelow: '같은 층에 없을 수 있음',
+        skylights: '채광창',
+        onFloorAboveOrBelow: '다른 층에 있을 수 있음',
         cameraLineOfSight: '카메라 시야',
         ladders: '사다리'
       },
