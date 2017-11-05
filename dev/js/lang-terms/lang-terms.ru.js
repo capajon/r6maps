@@ -220,7 +220,7 @@ var R6MLangTermsRussian = (function(R6MLangTerms, undefined) {
         mute: 'Mute',
         pulse: 'Pulse',
         rook: 'Rook',
-        sasRecruit: 'SAS Recruit',
+        sasRecruit: 'Рекрут SAS',
         sledge: 'Sledge',
         smoke: 'Smoke',
         spetsnazRecruit: 'Рекрут Спецназа',
