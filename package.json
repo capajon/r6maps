@@ -14,14 +14,14 @@
     "build:css:mkdir": "mkdirp ./site/css/release.2.2.7",
     "build:css:main": "npm run build:css:mkdir && scss './dev/scss/main/main.scss':'./site/css/release.2.2.7/main.2.2.7.css'",
     "build:css:about": "npm run build:css:mkdir && scss './dev/scss/about/about.scss':'./site/css/release.2.2.7/about.2.2.7.css'",
-    "build:css:stats": "npm run build:css:mkdir && scss './dev/scss/stats/stats.scss':'./site/css/release.2.2.7/stats.2.2.7.css",
+    "build:css:stats": "npm run build:css:mkdir && scss './dev/scss/stats/stats.scss':'./site/css/release.2.2.7/stats.2.2.7.css'",
     "build:css": "npm run build:css:main && npm run build:css:about && npm run build:css:stats",
     "watch:css": "npm run build:css:mkdir && scss --watch './dev/scss/main/main.scss':'./site/css/release.2.2.7/main.2.2.7.css'",
     "build:js:mkdir": "mkdirp ./site/js/release.2.2.7",
-    "build:js:common": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/common.min.js --source-map  ./site/js/release.2.2.7/common.min.js.map --source-map-url common.min.js.map --source-map-include-sources -- ./dev/js/common/common.global.js ./dev/js/common/common.helpers.js ./dev/js/lang-terms/lang-terms.js ./dev/js/lang-terms/lang-terms.*.js",
-    "build:js:main": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/main.min.js --source-map  ./site/js/release.2.2.7/main.min.js.map --source-map-url main.min.js.map --source-map-include-sources -- ./dev/js/main/main.map-data.js ./dev/js/main/main.map-render.js ./dev/js/main/main.controls.js ./dev/js/main/main.select-maps.js ./dev/js/main/main.drawing.js ./dev/js/main/main.sessions.js ./dev/js/main/main.js",
-    "build:js:about": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/about.min.js --source-map  ./site/js/release.2.2.7/about.min.js.map --source-map-url about.min.js.map --source-map-include-sources -- ./dev/js/about/about.js",
-    "build:js:stats": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/stats.min.js --source-map  ./site/js/release.2.2.7/stats.min.js.map --source-map-url stats.min.js.map --source-map-include-sources -- ./dev/js/stats/stats.meta-data.js ./dev/js/stats/stats.render.js ./dev/js/stats/stats.controls.js ./dev/js/stats/stats.operators.data.js ./dev/js/stats/stats.map.data.js ./dev/js/stats/stats.api.js ./dev/js/stats/stats.map.render.js ./dev/js/stats/stats.operators.render.js ./dev/js/stats/stats.operators.chart.js ./dev/js/stats/stats.js",
+    "build:js:common": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/common.min.js --source-map  \"filename='./site/js/release.2.2.7/common.min.js.map', url='common.min.js.map', includeSources=true\" ./dev/js/common/common.global.js ./dev/js/common/common.helpers.js ./dev/js/lang-terms/lang-terms.js ./dev/js/lang-terms/lang-terms.*.js",
+    "build:js:main": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/main.min.js --source-map  \"filename='./site/js/release.2.2.7/main.min.js.map', url='main.min.js.map', includeSources=true\" ./dev/js/main/main.map-data.js ./dev/js/main/main.map-render.js ./dev/js/main/main.controls.js ./dev/js/main/main.select-maps.js ./dev/js/main/main.drawing.js ./dev/js/main/main.sessions.js ./dev/js/main/main.js",
+    "build:js:about": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/about.min.js --source-map \"filename='./site/js/release.2.2.7/about.min.js.map', url='about.min.js.map', includeSources=true\" ./dev/js/about/about.js",
+    "build:js:stats": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.2.7/stats.min.js --source-map \"filename='./site/js/release.2.2.7/stats.min.js.map', url='stats.min.js.map', includeSources=true\" ./dev/js/stats/stats.meta-data.js ./dev/js/stats/stats.render.js ./dev/js/stats/stats.controls.js ./dev/js/stats/stats.operators.data.js ./dev/js/stats/stats.map.data.js ./dev/js/stats/stats.api.js ./dev/js/stats/stats.map.render.js ./dev/js/stats/stats.operators.render.js ./dev/js/stats/stats.operators.chart.js ./dev/js/stats/stats.js",
     "build:js": "npm run test:js && npm run build:js:common && npm run build:js:main && npm run build:js:stats && npm run build:js:about",
     "watch:js": "npm run build:js:mkdir && npm-watch",
     "build": "npm run build:css && npm run build:js"
@@ -47,5 +47,9 @@
     "mkdirp": "^0.5.1",
     "npm-watch": "^0.1.7",
     "rimraf": "^2.5.4"
+  },
+  "dependencies": {
+    "gem": "^2.4.3",
+    "optimist": "^0.6.1"
   }
 }
