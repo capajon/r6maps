@@ -272,7 +272,6 @@ var R6MLangTerms = (function(undefined) {
         plane: 'Plane',
         skyscraper: 'Skyscraper',
         themepark: 'Theme Park',
-        tower: 'Tower',
         yacht: 'Yacht'
       },
       mapRooms: {
@@ -1046,60 +1045,6 @@ var R6MLangTerms = (function(undefined) {
           teacups: 'Teacups',
           upperArcade: 'Upper<br/>Arcade',
           village: 'Village'
-        },
-        tower: {
-          // EXT/Spawn
-          northRoof: 'North<br/>Roof',
-          southRoof: 'South<br/>Roof',
-          roofAccess: 'Roof<br/>Access',
-          // 3F
-          mezzanine: 'Mezzanine',
-          ventilation: 'Ventilation',
-          // 2F
-          centerAtrium: 'Center<br/>Atrium',
-          infoBooth: 'Info<br/>Booth',
-          eastAtrium: 'East<br/>Atrium',
-          westAtrium: 'West<br/>Atrium',
-          eastBalcony: 'East<br/>Balcony',
-          westBalcony: 'West<br/>Balcony',
-          galleryMain: 'Gallery<br/>Main',
-          mediaCenter: 'Media<br/>Center',
-          galleryAnnex: 'Gallery<br/>Annex',
-          giftShop: 'Gift<br/>Shop',
-          exhibitRoom: 'Exhibit<br/>Room',
-          lanternRoom: 'Lantern<br/>Room',
-          elevator: 'Elevator',
-          officesHallway: 'Offices<br/>Hallway',
-          exhibitHallway: 'Exhibit<br/>Hallway',
-          offices: 'Offices',
-          companyReception: 'Company<br/>Reception',
-          supplyRoom: 'Supply<br/>Room',
-          meetingRoom: 'Meeting<br/>Room',
-          ceoOffice: 'CEO\'s<br/>Office',
-          bathroom: 'Bathroom',
-          serverRoom: 'Server<br/>Room',
-          // 2F to 1F Stairs
-          northStairs: 'North<br/>Stairs',
-          westStairs: 'West<br/>Stairs',
-          eastStairs: 'East<br/>Stairs',
-          // 1F
-          mainReception: 'Main<br/>Reception',
-          centerHallway: 'Center<br/>Hallway',
-          teaRoom: 'Tea<br/>Room',
-          lounge: 'Lounge',
-          bar: 'Bar',
-          kitchen: 'Kitchen',
-          restaurant: 'Restaurant',
-          birdRoom: 'Bird<br/>Room',
-          restaurantReception: 'Restaurant<br/>Reception',
-          restaurantHallway: 'Restaurant<br/>Hallway',
-          barHallway: 'Bar<br/>Hallway',
-          westObservatory: 'West<br/>Observatory',
-          bonsaiRoom: 'Bonsai<br/>Room',
-          traditionalHall: 'Traditional<br/>Hall',
-          gameRoom: 'Game<br/>Room',
-          eastObservatory: 'East<br/>Observatory',
-          fountain: 'Fountain'
         },
         yacht: {
           spawnSubmarine: 'Submarine',
