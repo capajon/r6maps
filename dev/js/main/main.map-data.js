@@ -222,9 +222,9 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { index: 3, top: -465, left: -451, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 1, top: 248, left: -255 },
           { floor: 1, top: -96, left: -296 },
           { floor: 1, top: -199, left: 643 },
+          { floor: 2, top: 265, left: 336 },
           { floor: 2, top: -171, left: 577 }
         ],
         bombObjectives: [
