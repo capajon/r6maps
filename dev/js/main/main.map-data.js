@@ -604,6 +604,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 0, top: 302, left: 298 },
           { floor: 0, top: 15, left: 378 },
           { floor: 0, top: -431, left: 384 },
+          { floor: 0, top: -287, left: 210 },
           { floor: 1, top: 250, left: -107 },
           { floor: 1, top: 146, left: 59 },
           { floor: 1, top: 64, left: 63 },
