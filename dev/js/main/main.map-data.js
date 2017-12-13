@@ -707,8 +707,8 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: -94, left: 211 }
         ],
         bombObjectives: [
-          { floor: 0, top: -244, left: 20, set: 4, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: -218, left: 110, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 0, top: -218, left: 110, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: -127, left: 96, set: 4, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -29, left: 18, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -89, left: 198, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 2, top: -58, left: 25, set: 1, letter: objectiveTerms.bombShortA },
