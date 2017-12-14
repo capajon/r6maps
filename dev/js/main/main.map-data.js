@@ -2746,7 +2746,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
             los: []
           },
           {
-            floor: 1, top: 457, left: 434, id: 7, location: towerTerms.fountain,
+            floor: 1, top: 657, left: 434, id: 7, location: towerTerms.fountain,
             los: []
           }
         ],
