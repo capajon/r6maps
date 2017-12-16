@@ -2573,7 +2573,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         cameras: [
           { floor: 1, top: 25, left: 291, id: 1, location: themeparkTerms.gallery },
           { floor: 2, top: -36, left: 492, id: 2, location: themeparkTerms.hauntedStairs },
-          { floor: 1, top: 21, left: -28, id: 3, location: themeparkTerms.jointCorridor },
+          { floor: 1, top: -166, left: -25, id: 3, location: themeparkTerms.jointCorridor },
           { floor: 2, top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
           { floor: 1, otherFloor: 'up', top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
           { floor: 2, top: 140, left: 208, id: 5, location: themeparkTerms.railPlatform },
@@ -2618,7 +2618,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 109, left: -200, description: themeparkTerms.arcadeEntrance, hardToRead: true },
           { floor: 1, top: 108, left: -71, description: themeparkTerms.barrelRoom, hardToRead: true },
           { floor: 1, top: 18, left: -106, description: themeparkTerms.jointCorridor, hardToRead: true },
-          { floor: 1, top: -159, left: -8, description: themeparkTerms.jointCorridor, hardToRead: true },
+          { floor: 1, top: -159, left: 31, description: themeparkTerms.jointCorridor, hardToRead: true },
           { floor: 1, top: -224, left: -60, description: themeparkTerms.arcadeToilet, hardToRead: true },
           { floor: 1, top: -224, left: 112, description: themeparkTerms.lockerRoom, hardToRead: true },
           { floor: 1, top: -224, left: 28, description: themeparkTerms.cafeStairs, hardToRead: true },
@@ -2677,7 +2677,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { outdoor: true, top: 364, left: 222, description: themeparkTerms.hauntedShop, hardToRead: true }
         ]
       },
-      emptytemplate: {
+      tower: {
         name: mapNameTerms.tower,
         imgUrlPrefix: 'tower',
         objectives: [
