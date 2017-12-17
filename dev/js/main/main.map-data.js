@@ -24,6 +24,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
     bartlettTerms = mapRoomTerms.bartlett,
     coastlineTerms = mapRoomTerms.coastline,
     themeparkTerms = mapRoomTerms.themepark,
+    towerTerms = mapRoomTerms.tower,
     yachtTerms = mapRoomTerms.yacht;
 
   var getMapData = function getMapData() {
@@ -222,9 +223,9 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { index: 3, top: -465, left: -451, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 1, top: 248, left: -255 },
           { floor: 1, top: -96, left: -296 },
           { floor: 1, top: -199, left: 643 },
+          { floor: 2, top: 265, left: 336 },
           { floor: 2, top: -171, left: 577 }
         ],
         bombObjectives: [
@@ -604,6 +605,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 0, top: 302, left: 298 },
           { floor: 0, top: 15, left: 378 },
           { floor: 0, top: -431, left: 384 },
+          { floor: 0, top: -287, left: 210 },
           { floor: 1, top: 250, left: -107 },
           { floor: 1, top: 146, left: 59 },
           { floor: 1, top: 64, left: 63 },
@@ -707,8 +709,8 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: -94, left: 211 }
         ],
         bombObjectives: [
-          { floor: 0, top: -244, left: 20, set: 4, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: -218, left: 110, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 0, top: -218, left: 110, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: -127, left: 96, set: 4, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -29, left: 18, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -89, left: 198, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 2, top: -58, left: 25, set: 1, letter: objectiveTerms.bombShortA },
@@ -2571,7 +2573,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         cameras: [
           { floor: 1, top: 25, left: 291, id: 1, location: themeparkTerms.gallery },
           { floor: 2, top: -36, left: 492, id: 2, location: themeparkTerms.hauntedStairs },
-          { floor: 1, top: 21, left: -28, id: 3, location: themeparkTerms.jointCorridor },
+          { floor: 1, top: -166, left: -25, id: 3, location: themeparkTerms.jointCorridor },
           { floor: 2, top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
           { floor: 1, otherFloor: 'up', top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
           { floor: 2, top: 140, left: 208, id: 5, location: themeparkTerms.railPlatform },
@@ -2616,7 +2618,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 109, left: -200, description: themeparkTerms.arcadeEntrance, hardToRead: true },
           { floor: 1, top: 108, left: -71, description: themeparkTerms.barrelRoom, hardToRead: true },
           { floor: 1, top: 18, left: -106, description: themeparkTerms.jointCorridor, hardToRead: true },
-          { floor: 1, top: -159, left: -8, description: themeparkTerms.jointCorridor, hardToRead: true },
+          { floor: 1, top: -159, left: 31, description: themeparkTerms.jointCorridor, hardToRead: true },
           { floor: 1, top: -224, left: -60, description: themeparkTerms.arcadeToilet, hardToRead: true },
           { floor: 1, top: -224, left: 112, description: themeparkTerms.lockerRoom, hardToRead: true },
           { floor: 1, top: -224, left: 28, description: themeparkTerms.cafeStairs, hardToRead: true },
@@ -2674,6 +2676,95 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { outdoor: true, top: 514, left: 430, description: themeparkTerms.roboCircuit, hardToRead: true },
           { outdoor: true, top: 364, left: 222, description: themeparkTerms.hauntedShop, hardToRead: true }
         ]
+      },
+      tower: {
+        name: mapNameTerms.tower,
+        imgUrlPrefix: 'tower',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 1, top: 6, left: -200, name: floorTerms.firstFloor },
+          { index: 2, top: 6, left: -200, name: floorTerms.secondFloor, default: true }/*,
+          { index: 3, top: 0, left: 0, name: floorTerms.thirdFloor },
+          { index: 4, top: 0, left: 0, name: floorTerms.roof }*/
+        ],
+        hostageObjectives: [
+          { floor: 2, top: 531, left: 317 },
+          { floor: 2, top: 260, left: 568 },
+          { floor: 1, top: 283, left: 623 },
+          { floor: 1, top: 334, left: 358 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: 373, left: 280, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 255, left: 270, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 260, left: 598, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 370, left: 520, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 262, left: 543, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 375, left: 544, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 294, left: 363, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 350, left: 276, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+            { floor: 2, top: 300, left: 558 },
+            { floor: 2, top: 613, left: 465 },
+            { floor: 1, top: 302, left: 557 },
+            { floor: 1, top: 294, left: 393 }
+        ],
+        zoomPoints: {
+          topLeft: { top: 36, left: 15 },
+          bottomRight: { top: 696, left: 765 }
+        },
+        compassPoints: {
+          top: 16, left: 80
+        },
+        ladders: [
+        ],
+        cameras: [
+          {
+            floor: 2, top: 202, left: 461, id: 1, location: towerTerms.galleryMain,
+            los: []
+          },
+          {
+            floor: 2, top: 388, left: 668, id: 2, location: towerTerms.exhibitHallway,
+            los: []
+          },
+          {
+            floor: 2, top: 482, left: 417, id: 3, location: towerTerms.companyReception,
+            los: []
+          },
+          {
+            floor: 1, top: 530, left: 383, id: 4, location: towerTerms.traditionalHall,
+            los: []
+          },
+          {
+            floor: 1, top: 442, left: 219, id: 5, location: towerTerms.westBalcony,
+            los: []
+          },
+          {
+            floor: 2, top: 61, left: 439, id: 6, location: towerTerms.centerAtrium,
+            los: []
+          },
+          {
+            floor: 1, top: 657, left: 434, id: 7, location: towerTerms.fountain,
+            los: []
+          }
+        ],
+        ceilingHatches: [
+          { floor: 2, top: 362, left: 460 },
+          { floor: 2, top: 255, left: 419 },
+          { floor: 1, top: 220, left: 289 },
+          { floor: 1, top: 311, left: 359 },
+          { floor: 1, top: 514, left: 288 },
+          { floor: 1, top: 600, left: 370 },
+          { floor: 1, top: 580, left: 591 },
+          { floor: 1, top: 438, left: 417 },
+          { floor: 1, top: 340, left: 485 }
+        ],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [],
+        roomLabels: []
       },
       yacht: {
         name: mapNameTerms.yacht,
