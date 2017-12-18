@@ -1048,6 +1048,7 @@ var R6MLangTerms = (function(undefined) {
           village: 'Village'
         },
         tower: {
+          workInProgress: 'This is an initial version of Tower<br/>... it is a WORK IN PROGRESS. :)',
           // EXT/Spawn
           northRoof: 'North<br/>Roof',
           southRoof: 'South<br/>Roof',

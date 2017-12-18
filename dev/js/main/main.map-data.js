@@ -2679,7 +2679,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
       },
       tower: {
         name: mapNameTerms.tower,
-        imgUrlPrefix: 'tower',
+        imgUrlPrefix: 'tower-temp',
         objectives: [
           'bomb', 'hostage', 'secure'
         ],
@@ -2764,7 +2764,12 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         skylights: [],
         droneTunnels: [],
         spawnPoints: [],
-        roomLabels: []
+        roomLabels: [
+          { floor: 2, top: 135, left: 439, description: towerTerms.workInProgress, hardToRead: true },
+          { floor: 2, top: 535, left: 668, description: towerTerms.workInProgress, hardToRead: true },
+          { floor: 1, top: 164, left: 432, description: towerTerms.workInProgress, hardToRead: true },
+          { floor: 1, top: 591, left: 290, description: towerTerms.workInProgress, hardToRead: true }
+        ]
       },
       yacht: {
         name: mapNameTerms.yacht,
