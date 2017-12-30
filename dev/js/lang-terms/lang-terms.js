@@ -96,7 +96,7 @@ var R6MLangTerms = (function(undefined) {
         breakableWalls: 'Breakable walls',
         breakableFloorTraps: 'Breakable floor traps',
         ceilingHatches: 'Ceiling hatches',
-        lineOfSightWalls: 'Line of sight walls',
+        lineOfSightWalls: 'Line of sight or half walls',
         lineOfSightFloors: 'Line of sight floors',
         droneTunnels: 'Drone tunnels',
         objectives: 'Objectives',

@@ -2706,10 +2706,10 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: -72, left: -352, set: 4, letter: objectiveTerms.bombShortB }
         ],
         secureObjectives: [
-            { floor: 2, top: -152, left: 208 },
-            { floor: 2, top: 502, left: 64 },
-            { floor: 1, top: -143, left: 223 },
-            { floor: 1, top: -143, left: -171 }
+          { floor: 2, top: -152, left: 208 },
+          { floor: 2, top: 502, left: 64 },
+          { floor: 1, top: -143, left: 223 },
+          { floor: 1, top: -143, left: -210 }
         ],
         zoomPoints: {
           topLeft: { top: -665, left: -694 },
@@ -2719,55 +2719,70 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           top: 380, left: 932
         },
         ladders: [
+          { floor: 3, top: 245, left: -139, otherFloor: 'up' },
+          { floor: 4, top: 245, left: -139, otherFloor: 'down' },
+          { floor: 3, top: 65, left: 116, otherFloor: 'up' },
+          { floor: 4, top: 65, left: 116, otherFloor: 'down' }
         ],
         cameras: [
-          /*
           {
-            floor: 2, top: 202, left: 461, id: 1, location: towerTerms.galleryMain,
-            los: []
+            floor: 2, top: -349, left: 43, id: 1, location: towerTerms.galleryMain,
+            los: [
+              [{top: -363, left: -85}, {top: -363, left: 60}, {top: -190, left: 60}, {top: -190, left: 16}, {top: 110, left: -21}]
+            ]
           },
           {
-            floor: 2, top: 388, left: 668, id: 2, location: towerTerms.exhibitHallway,
-            los: []
+            floor: 2, top: 47, left: 463, id: 2, location: towerTerms.exhibitHallway,
+            los: [
+              [{top: -29, left: 479}, {top: 62, left: 479}, {top: 62, left: 272}, {top: 27, left: 272}, {top: -11, left: 71}],
+              [{top: 5, left: 272}, {top: -33, left: 127}]
+            ]
           },
           {
-            floor: 2, top: 482, left: 417, id: 3, location: towerTerms.companyReception,
-            los: []
+            floor: 2, top: 220, left: -67, id: 3, location: towerTerms.companyReception,
+            los: [
+              [{top: 437, left: -50}, {top: 366, left: -54}, {top: 366, left: -84}, {top: 206, left: -84}, {top: 206, left: 330}],
+              [{top: 374, left: 11}, {top: 438, left: 43}]
+            ]
           },
           {
-            floor: 1, top: 530, left: 383, id: 4, location: towerTerms.traditionalHall,
-            los: []
+            floor: 1, top: 335, left: -133, id: 4, location: towerTerms.traditionalHall,
+            los: [
+              [{top: 2, left: -133}, {top: 121, left: -134}, {top: 121, left: -150}, {top: 346, left: -150}],
+              [{top: 302, left: -93}, {top: 261, left: 113}, {top: 202, left: 113}, {top: 178, left: 134}, {top: 121, left: 218}],
+              [{top: 217, left: 55}, {top: 121, left: 147}]
+            ]
           },
           {
-            floor: 1, top: 442, left: 219, id: 5, location: towerTerms.westBalcony,
-            los: []
+            floor: 1, top: 154, left: -459, id: 5, location: towerTerms.westBalcony,
+            los: [
+              [{top: -341, left: -476}, {top: 170, left: -476}, {top: 170, left: -99}]
+            ]
           },
           {
-            floor: 2, top: 61, left: 439, id: 6, location: towerTerms.centerAtrium,
-            los: []
+            floor: 2, top: -627, left: -13, id: 6, location: towerTerms.centerAtrium,
+            los: [
+              [{top: -365, left: -576}, {top: -669, left: -13}, {top: -368, left: 543}]
+            ]
           },
-          {
-            floor: 1, top: 657, left: 434, id: 7, location: towerTerms.fountain,
-            los: []
-          }
-          */
           {
             floor: 1, top: 592, left: -21, id: 7, location: towerTerms.fountain,
             los: [
-              [{top: 375, left: -274}, {top: 441, left: -183}, {top: 530, left: -201}, {top: 537, left: -183}, {top: 592, left: -197}, {top: 597, left: -176}, {top: 607, left: -179}, {top: 607, left: 139}]
+              [ {top: 375, left: -274}, {top: 441, left: -182}, {top: 530, left: -201}, {top: 536, left: -183}, {top: 591, left: -197}, {top: 597, left: -176}, {top: 607, left: -179},
+                {top: 607, left: 141}, {top: 596, left: 137}, {top: 590, left: 160}, {top: 534, left: 145}, {top: 528, left: 168}, {top: 440, left: 146}, {top: 374, left: 230} ]
             ]
           }
         ],
         ceilingHatches: [
-          /*{ floor: 2, top: 362, left: 460 },
-          { floor: 2, top: 255, left: 419 },
-          { floor: 1, top: 220, left: 289 },
-          { floor: 1, top: 311, left: 359 },
-          { floor: 1, top: 514, left: 288 },
-          { floor: 1, top: 600, left: 370 },
-          { floor: 1, top: 580, left: 591 },
-          { floor: 1, top: 438, left: 417 },
-          { floor: 1, top: 340, left: 485 }*/
+          { floor: 2, top: -233, left: -67 },
+          { floor: 2, top: -27, left: 44 },
+          { floor: 1, top: -274, left: -328 },
+          { floor: 1, top: 307, left: -315 },
+          { floor: 1, top: 158, left: -54 },
+          { floor: 1, top: -66, left: 87 },
+          { floor: 1, top: 450, left: 342 },
+          { floor: 1, top: 505, left: -162 },
+          { floor: 1, top: -128, left: -170 }
         ],
         skylights: [],
         droneTunnels: [
