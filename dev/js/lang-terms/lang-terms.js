@@ -1048,10 +1048,11 @@ var R6MLangTerms = (function(undefined) {
           village: 'Village'
         },
         tower: {
-          workInProgress: 'This is an initial version of Tower<br/>... it is a WORK IN PROGRESS. :)',
           // EXT/Spawn
-          northRoof: 'North<br/>Roof',
-          southRoof: 'South<br/>Roof',
+          northRoof: 'North Roof',
+          northRoofNotShown: 'North Roof<br/>(not shown)',
+          southRoof: 'South Roof',
+          southRoofNotShown: 'South Roof<br/>(now shown)',
           roofAccess: 'Roof<br/>Access',
           // 3F
           mezzanine: 'Mezzanine',
@@ -1100,7 +1101,11 @@ var R6MLangTerms = (function(undefined) {
           traditionalHall: 'Traditional<br/>Hall',
           gameRoom: 'Game<br/>Room',
           eastObservatory: 'East<br/>Observatory',
-          fountain: 'Fountain'
+          fountain: 'Fountain',
+          //Air Ducts:
+          northAirDuct: 'North<br/>Air Duct',
+          eastAirDuct: 'East<br/>Air Duct',
+          westAirDuct: 'West<br/>Air Duct'
         },
         yacht: {
           spawnSubmarine: 'Submarine',

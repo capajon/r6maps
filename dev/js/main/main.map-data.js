@@ -2792,20 +2792,60 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 100, left: -416, rotate: 0, size: 44 },
           { floor: 1, top: 377, left: -21, rotate: 0, size: 70 },
           { floor: 2, top: -369, left: -120, rotate: 0, size: DRONE_SMALL },
-          { floor: 2, top: 342, left: -156, rotate: 0, size: 20 },
+          { floor: 2, top: 342, left: -155, rotate: 0, size: 20 },
           { floor: 2, top: 349, left: -161, rotate: 90, size: 24 },
           { floor: 2, top: 324, left: 249, rotate: 90, size: 192 },
-          { floor: 2, top: -46, left: 417, rotate: 90, size: DRONE_SMALL }
+          { floor: 2, top: -46, left: 417, rotate: 90, size: DRONE_SMALL },
+          //North Air Duct
+          { floor: 3, top: -208, left: -167, rotate: 0, size: 330 },
+          { floor: 3, top: -64, left: -167, rotate: 0, size: 40, otherFloor: 'up' },
+          { floor: 4, top: -49, left: -133, rotate: 90, size: 80 },
+          { floor: 4, top: -64, left: -167, rotate: 0, size: 40, otherFloor: 'down' },
+          //East Air Duct
+          { floor: 4, top: -49, left: 270, rotate: 0, size: 12, otherFloor: 'down' },
+          { floor: 4, top: -49, left: 176, rotate: 90, size: 204 },
+          { floor: 2, top: 62, left: 370, rotate: 0, size: DRONE_MED, otherFloor: 'up' },
+          { floor: 3, top: -4, left: 370, rotate: 0, size: 128 },
+          { floor: 3, top: 54, left: 370, rotate: 0, size: DRONE_SMALL, otherFloor: 'down' },
+          { floor: 2, top: -64, left: 390, rotate: 0, size: 12, otherFloor: 'up' },
+          { floor: 2, top: -64, left: 404, rotate: 90, size: 40 },
+          { floor: 3, top: -64, left: 387, rotate: 0, size: 12, otherFloor: 'down', otherFloor: 'down' },
+          { floor: 3, top: -64, left: 261, rotate: 0, size: 12, otherFloor: 'down', otherFloor: 'up' },
+          { floor: 3, top: -64, left: 323, rotate: 90, size: 140 },
+          //West Air Duct
+          { floor: 2, top: 195, left: -369, rotate: 0, size: DRONE_MED, otherFloor: 'up' },
+          { floor: 2, top: 121, left: -404, rotate: 0, size: 12, otherFloor: 'up' },
+          { floor: 2, top: 121, left: -407, rotate: 90, size: 20 },
+          { floor: 3, top: 153, left: -369, rotate: 0, size: 74 },
+          { floor: 3, top: 186, left: -369, rotate: 0, size: 12, otherFloor: 'down' },
+          { floor: 3, top: 121, left: -406, rotate: 0, size: 12, otherFloor: 'down' },
+          { floor: 3, top: 121, left: -275, rotate: 0, size: 12, otherFloor: 'up' },
+          { floor: 3, top: 121, left: -340, rotate: 90, size: 144 },
+          { floor: 4, top: 121, left: -288, rotate: 0, size: 12, otherFloor: 'down' },
+          { floor: 4, top: 121, left: -230, rotate: 90, size: 128 }
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -627, left: -317, description: towerTerms.northRoof, floor: 4 },
           { letter: spawnTerms.b, top: 575, left: 527, description: towerTerms.southRoof, floor: 4 }
         ],
         roomLabels: [
-          /*{ floor: 2, top: 135, left: 439, description: towerTerms.workInProgress, hardToRead: true },
-          { floor: 2, top: 535, left: 668, description: towerTerms.workInProgress, hardToRead: true },
-          { floor: 1, top: 164, left: 432, description: towerTerms.workInProgress, hardToRead: true },
-          { floor: 1, top: 591, left: 290, description: towerTerms.workInProgress, hardToRead: true }*/
+          // Air Ducts
+          { floor: 4, top: -43, left: -200, description: towerTerms.northAirDuct, hardToRead: true },
+          { floor: 3, top: -210, left: -211, description: towerTerms.northAirDuct, hardToRead: true },
+          { floor: 4, top: -78, left: 177, description: towerTerms.eastAirDuct, hardToRead: true },
+          { floor: 3, top: -93, left: 324, description: towerTerms.eastAirDuct, hardToRead: true },
+          { floor: 3, top: 92, left: -338, description: towerTerms.westAirDuct, hardToRead: true },
+          // 4F/Exterior
+          { floor: 4, top: -594, left: 224, description: towerTerms.northRoofNotShown, hardToRead: true },
+          { floor: 4, top: 356, left: -10, description: towerTerms.roofAccess, hardToRead: true },
+          { floor: 4, top: -214, left: -10, description: towerTerms.roofAccess, hardToRead: true },
+          { floor: 4, top: 606, left: -265, description: towerTerms.southRoofNotShown, hardToRead: true },
+          // 3F:
+          { floor: 3, top: 90, left: -14, description: towerTerms.ventilation, hardToRead: true },
+          { floor: 3, top: -219, left: -14, description: towerTerms.ventilation, hardToRead: true },
+          { floor: 3, top: -614, left: -14, description: towerTerms.mezzanine, hardToRead: true },
+          { floor: 3, top: -366, left: -315, description: towerTerms.mezzanine, hardToRead: true },
+          { floor: 3, top: -366, left: 295, description: towerTerms.mezzanine, hardToRead: true }
         ]
       },
       yacht: {
