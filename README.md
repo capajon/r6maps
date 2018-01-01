@@ -19,17 +19,22 @@ To check the dependencies, just type `uglifyjs` or `scss`. If the program waits 
 ### Building and running
 - Install npm and install packages: `npm install`
 - General build: `npm run build`
-    + Builds js and scss into the `site` folder. 
+    + Builds js and scss into the `site` folder.
     + Check `package.json` for more particular scripts.
 - File watches are also available (see `packages.json`)
-- To run, locate `site/index.html` and open it. 
+- To run, locate `site/index.html` and open it.
 
 ## Things to work on
 Contributions are welcome. :)
 
 ### Active
 Current development is fairly "steady state" with only a few new features planned:
-- [ ] Map stats - based on [data dump from Ubisoft](https://rainbow6.ubisoft.com/siege/en-us/news/152-293696-16/introduction-to-the-data-peek-velvet-shell-statistics).
+- [ ] Map stats link
+- [ ] RTL support for Hebrew language Translations
+- [ ] Theme park camera line of sights
+- [ ] Update about page slightly (mostly thank you section) - probably remove FR version
+- [ ] Add a select map filter for casual, rank, custom, etc
+- [ ] Twitter account integration?
 - [ ] Mark breakable windows - [see original feature suggestion here](https://github.com/capajon/r6maps/issues/89).
 - [ ] Translations - [info on how you can help](http://www.r6maps.com/about/translations-help.html).
 - [ ] [Open issues](https://github.com/capajon/r6maps/issues)
@@ -37,6 +42,7 @@ Current development is fairly "steady state" with only a few new features planne
 - [ ] New maps
 
 ### Thinking about (maybe someday)...
+- [ ] Better stats integration (e.g. link from objective) <- dependent on new data dumps from Ubisoft though
 - [ ] Tactics drawing (& saving/sharing)
 - [ ] Shared sessions (map controls, shared pings, drawing if available)
 - [ ] Automated tests (perceptual diff?)

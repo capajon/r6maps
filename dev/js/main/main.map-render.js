@@ -365,10 +365,11 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
   var getSpawnPointsHtml = function getSpawnPointsHtml(spawnPoints) {
     var html = '',
       inlineStyle = '',
-      classes = 'spawn-point ';
+      classes;
 
     spawnPoints.forEach(function(spawnPoint) {
       inlineStyle = getPositionStyle(spawnPoint);
+      classes = 'spawn-point ' + getCommonClasses(spawnPoint);
       html += '<div style="' + inlineStyle + '" class="' + classes + '"><div class="spawn-wrapper"><div class="spawn-letter"><p>' + spawnPoint.letter + '</p></div><div class="spawn-description"><p>' + spawnPoint.description + '</p></div></div></div>';
     });
     return html;
