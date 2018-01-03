@@ -43,6 +43,11 @@
 
     &:nth-child(even) {
       margin-right: 1.5rem;
+
+      body[dir="rtl"] & {
+        margin-right: 0;
+        margin-left: 1.5rem;
+      }
     }
 
     &#objective-locations-control {

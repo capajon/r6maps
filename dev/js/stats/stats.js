@@ -25,6 +25,7 @@
 
   $(function() { // equivanelt to $(document).ready() - but a bit faster
     R6MHelpers.tryLoadStartingLanguage(R6MLangTerms.tryLoadLanguage);
+    R6MHelpers.tryChangeDirection(R6MLangTerms.getLoadedDirection());
     metaData = R6MStatsMetaData.getData();
     statTerms = R6MLangTerms.terms.stats;
     R6MStatsRender.setPageTitle();

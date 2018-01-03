@@ -8,6 +8,17 @@ var R6MHelpers = (function($, window, document, undefined) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   };
 
+  var tryChangeDirection = function tryChangeDirection(direction) {
+    var newDirection = (direction === 'RTL') ? 'rtl' : 'ltr',
+      currentDirection = document.body.getAttribute('dir');
+
+    if (newDirection !== currentDirection) {
+      document.body.setAttribute('dir', newDirection);
+      return true;
+    }
+    return false;
+  };
+
   var tryLoadStartingLanguage = function tryLoadStartingLanguage(loadLanguageCallback) {
     var lastChosenLanguage = localStorage.getItem('language'),
       userLang = (navigator.language || navigator.userLanguage).split('-')[0];
@@ -31,6 +42,7 @@ var R6MHelpers = (function($, window, document, undefined) {
 
   return {
     queryString: queryString,
+    tryChangeDirection: tryChangeDirection,
     tryLoadStartingLanguage: tryLoadStartingLanguage,
     trySelectOption: trySelectOption
   };
