@@ -10,7 +10,6 @@ var R6MLangTermsFrench = (function(R6MLangTerms, undefined) {
         menu: 'Menu',
         about: 'Information',
         languageHeader: 'La Langue',
-        linkAbout: 'about/about-fr.html',
         labelLosOpacity: 'Appareil photo en ligne de mire l\'opacité',
         labelPercent: '{int} %',// according to: (0.12).toLocaleString('fr', { style: 'percent' });
         labelLosDefault: '( Défaut )',
