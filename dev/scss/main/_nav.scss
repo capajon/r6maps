@@ -85,6 +85,11 @@ nav {
     margin-left: $control-padding-left-right;
     color: #fff;
 
+    body[dir="rtl"] & {
+      margin-left: 0;
+      margin-right: $control-padding-left-right;
+    }
+
     body.show-select-map & {
       display: inline;
     }
@@ -109,6 +114,11 @@ nav {
     width: 120px;
     margin-left: $control-padding-left-right;
 
+    body[dir="rtl"] & {
+      margin-left: 0;
+      margin-right: $control-padding-left-right;
+    }
+
     @media screen and (max-width: $break-small) {
       width: 80px;
     }
@@ -132,6 +142,11 @@ nav {
   #floor-control {
     display: inline-block;
     margin-left: $control-padding-left-right;
+
+    body[dir="rtl"] & {
+      margin-left: 0;
+      margin-right: $control-padding-left-right;
+    }
 
     .short {
       display: none;
@@ -218,8 +233,17 @@ nav {
         margin-right: 5px;
         width: 18px;
 
+        body[dir="rtl"] & {
+          margin-right: 0;
+          margin-left: 5px;
+        }
+
         @media screen and (max-width: $break-small) {
           margin-right: 0;
+
+          body[dir="rtl"] & {
+            margin-left: 0;
+          }
         }
 
         span {

@@ -46,6 +46,11 @@ body, button, input, select {
       text-decoration: none;
       transition: color $button-transition;
       white-space: nowrap;
+
+      body[dir="rtl"] & {
+        margin-left: 0;
+        margin-right: 100px;
+      }
     }
 
     &:hover, &:focus {
@@ -72,6 +77,10 @@ body, button, input, select {
     text-transform: uppercase;
     top: 36px;
     white-space: nowrap;
+
+    body[dir="rtl"] & {
+      right: 0;
+    }
   }
 }
 

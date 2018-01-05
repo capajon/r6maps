@@ -28,6 +28,7 @@
     R6MMainRender.setupMapPanels($mapPanelWrappers, 4);
     setMapElements();
     R6MHelpers.tryLoadStartingLanguage(R6MLangTerms.tryLoadLanguage);
+    R6MHelpers.tryChangeDirection(R6MLangTerms.getLoadedDirection());
     setupMenu();
     setupSelectMap();
     R6MMainControls.maps.populate(R6MMainData.getMapData());
@@ -58,6 +59,10 @@
 
   var checkIfMapLoaded = function checkIfMapLoaded() {
     return $body.attr('loaded-map');
+  };
+
+  var closeMenu = function closeMenu() {
+    getMenuApi().close();
   };
 
   var isCamera = function isCamera(element) {
@@ -168,12 +173,16 @@
     R6MLangTerms.tryLoadLanguage(newLang);
     localStorageSetItem('language', newLang);
 
+    if (R6MHelpers.tryChangeDirection(R6MLangTerms.getLoadedDirection())) {
+      location.reload();
+    }
+
     setupSelectMap();
     R6MMainControls.maps.populate(R6MMainData.getMapData());
-    setupMenu();
     setupEvents();
     tryLoadMenuOptions();
     updateTitle();
+    setupMenu();
 
     if (checkIfMapLoaded()) {
       loadMap();
@@ -391,8 +400,6 @@
   };
 
   var setupEvents = function setupEvents() {
-    var closeMenu = getMenuApi().close;
-
     $mapMains.on('click', outputCoordinates);
     R6MMainControls.objectives.setup(handleObjectiveChange);
     R6MMainControls.maps.setup(handleMapChange);
@@ -426,21 +433,21 @@
   };
 
   var setupMenu = function setupMenu() {
-    var $menuLink = $('#mmenu-link');
+    var $menuLink = $('#mmenu-link'),
+      useRtl = (R6MLangTerms.getLoadedDirection() === 'RTL');
 
     R6MMainControls.menu.setup(R6MMainRender.roomLabelStyles, showUpdateLinkHighlighted);
 
-    $('#mmenu-menu').mmenu({
+    var foo = $('#mmenu-menu').mmenu({
       offCanvas: {
-        position: 'right'
+        position: useRtl ? 'left' : 'right',
+        pageSelector: '#mmenu-page'
       },
-      extensions: ['pagedim']
-    },
-      {
-        offCanvas: {
-          pageSelector: '#mmenu-page'
-        }
-      });
+      extensions: ['pagedim'],
+      rtl: {
+        use: useRtl
+      }
+    });
 
     $menuLink.click(handleMenuClick);
     if (showUpdateLinkHighlighted()) {

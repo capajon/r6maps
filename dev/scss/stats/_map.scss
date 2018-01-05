@@ -5,243 +5,262 @@ $map-info-icon-width: 75px;
   background-position: 0px ($map-reason-icon-width * -($position));
 }
 
-body.stats {
-  .map-win-rate-container {
-    display: table;
-    margin: 0.5rem 0 1.5rem 0;
-    width: 100%;
+.map-win-rate-container {
+  display: table;
+  margin: 0.5rem 0 1.5rem 0;
+  width: 100%;
 
-    .map-win-rate-row {
-      display: table-row;
-    }
+  .map-win-rate-row {
+    display: table-row;
+  }
 
+  .map-win-rate-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .visual-bar {
     .map-win-rate-cell {
-      display: table-cell;
-      vertical-align: middle;
-    }
+      font-size: 1.6rem;
+      padding: 0.5rem;
 
-    .visual-bar {
-      .map-win-rate-cell {
-        font-size: 1.6rem;
-        padding: 0.5rem;
-
-        .label {
-          color: #000;
-          font-size: 1rem;
-          text-transform: uppercase;
-        }
-
-        &.attackers {
-          background-color: $r6-orange;
-        }
-        &.defenders {
-          background-color: $r6-blue;
-        }
+      .label {
+        color: #000;
+        font-size: 1rem;
+        text-transform: uppercase;
       }
-    }
-
-    .header {
-      font-size: 1.8rem;
-      padding-bottom: 0.5rem;
-      text-transform: uppercase;
 
       &.attackers {
-        color: $r6-orange;
+        background-color: $r6-orange;
       }
       &.defenders {
-        color: $r6-blue;
+        background-color: $r6-blue;
       }
-    }
-
-    .defenders {
-      text-align: right;
     }
   }
 
-  .map-win-reasons-container {
-    display: table;
-    margin-bottom: 2rem;
-    width: 100%;
+  .header {
+    font-size: 1.8rem;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
 
+    &.attackers {
+      color: $r6-orange;
+    }
+    &.defenders {
+      color: $r6-blue;
+    }
+  }
+
+  .defenders {
+    text-align: right;
+
+    body[dir="rtl"] & {
+      text-align: left;
+    }
+  }
+}
+
+.map-win-reasons-container {
+  display: table;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  @media all and (max-width: 1350px ) {
+    display: block;
+  }
+
+  .map-win-reasons-row {
+    display: table-row;
     @media all and (max-width: 1350px ) {
       display: block;
     }
-
-    .map-win-reasons-row {
-      display: table-row;
-      @media all and (max-width: 1350px ) {
-        display: block;
-      }
-    }
-
-    .map-win-reasons-cell {
-      display: table-cell;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      width: 50%;
-      vertical-align: top;
-      @media all and (max-width: 1350px ) {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-      }
-
-      canvas {
-        margin: 0 auto 2rem auto;
-        max-width: 600px;
-
-        @media all and (max-width: 1880px ) {
-          max-width: 500px;
-        }
-        @media all and (max-width: 1650px ) {
-          max-width: 450px;
-        }
-        @media all and (max-width: 1350px ) {
-          max-width: 400px;
-        }
-        @media all and (max-width: 500px ) {
-          max-width: 330px;
-        }
-        @media all and (max-width: 350px ) {
-          max-width: 270px;
-        }
-      }
-
-      .legend {
-        @include flexbox;
-        @include justify-content(center);
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: left;
-
-        .legend-item {
-          box-sizing: border-box;
-          padding: 0 1rem 1rem 0;
-          width: 180px;
-
-          p {
-            font-size: 0.9rem;
-            margin-left: 50px;
-
-            .description {
-              display: block;
-              font-weight: 400;
-              margin-bottom: 0.1rem;
-            }
-            .num {
-              font-size: 1rem;
-            }
-          }
-        }
-
-        .map-win-reason-icon-wrapper {
-          @include flexbox;
-          @include justify-content(center);
-          @include align-items(center);
-          float: left;
-          padding: 5px;
-        }
-
-        .map-win-reason-icon {
-          background-image: url($img-location + 'icons/win-reason-icons-sprite@2x.png');
-          background-repeat: no-repeat;
-          background-size: $map-reason-icon-width;
-          height: $map-reason-icon-width;
-          margin: 0 auto;
-          width: $map-reason-icon-width;
-
-          &.bomb-exploded {
-            @include map-reason-icon(1);
-          }
-          &.surrendered {
-            @include map-reason-icon(2);
-          }
-          &.hostage-killed {
-            @include map-reason-icon(3);
-          }
-          &.time {
-            @include map-reason-icon(4);
-          }
-          &.secured {
-            @include map-reason-icon(5);
-          }
-          &.all-dead {
-            @include map-reason-icon(6);
-          }
-          &.hostage-rescued {
-            @include map-reason-icon(7);
-          }
-          &.bomb-deactivated {
-            @include map-reason-icon(8);
-          }
-          &.eliminated {
-            @include map-reason-icon(9);
-          }
-          &.defuser-deactivated {
-            @include map-reason-icon(10);
-          }
-          &.defended {
-            @include map-reason-icon(11);
-          }
-        }
-      }
-
-      &.attackers h3 {
-        color: $r6-orange;
-        font-size: 1.4rem;
-      }
-      &.defenders h3 {
-        color: $r6-blue;
-        font-size: 1.4rem;
-      }
-    }
   }
 
-  .map-info-wrapper {
-    display: inline-block;
-    margin-bottom: 2rem;
+  .map-win-reasons-cell {
+    display: table-cell;
+    padding: 1rem 1.5rem;
+    text-align: center;
     width: 50%;
-
-    @media all and (max-width: 500px ) {
+    vertical-align: top;
+    @media all and (max-width: 1350px ) {
+      box-sizing: border-box;
+      display: block;
       width: 100%;
     }
 
-    h3 {
-      color: 'silver';
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
+    canvas {
+      margin: 0 auto 2rem auto;
+      max-width: 600px;
 
-    p {
-      font-size: 1.2rem;
-
-      span {
-        display: block;
-        font-size: 1.8rem;
+      @media all and (max-width: 1880px ) {
+        max-width: 500px;
+      }
+      @media all and (max-width: 1650px ) {
+        max-width: 450px;
+      }
+      @media all and (max-width: 1350px ) {
+        max-width: 400px;
+      }
+      @media all and (max-width: 500px ) {
+        max-width: 330px;
+      }
+      @media all and (max-width: 350px ) {
+        max-width: 270px;
       }
     }
-  }
 
-  .map-info-wrapper-two {
-    @include flexbox;
-    @include flex-direction(row);
-    @include justify-content(center);
-    @include align-items(center);
-  }
+    .legend {
+      @include flexbox;
+      @include justify-content(center);
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
 
-  .map-info-icon {
-    background-image: url($img-location + 'icons/map-info-icons-sprite@2x.png');
-    background-repeat: no-repeat;
-    background-size: $map-info-icon-width;
-    height: $map-info-icon-width;
-    margin-right: 0.5rem;
-    width: $map-info-icon-width;
+      .legend-item {
+        box-sizing: border-box;
+        padding: 0 1rem 1rem 0;
+        width: 180px;
 
-    &.total-rounds {
-      background-position-y: -($map-info-icon-width);
+        body[dir="rtl"] & {
+          padding: 0 0 1rem 1rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+          margin-left: 50px;
+
+          body[dir="rtl"] & {
+            margin-left: 0;
+            margin-right: 50px;
+          }
+
+          .description {
+            display: block;
+            font-weight: 400;
+            margin-bottom: 0.1rem;
+          }
+          .num {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .map-win-reason-icon-wrapper {
+        @include flexbox;
+        @include justify-content(center);
+        @include align-items(center);
+        float: left;
+        padding: 5px;
+
+        body[dir="rtl"] & {
+          float: right;
+        }
+      }
+
+      .map-win-reason-icon {
+        background-image: url($img-location + 'icons/win-reason-icons-sprite@2x.png');
+        background-repeat: no-repeat;
+        background-size: $map-reason-icon-width;
+        height: $map-reason-icon-width;
+        margin: 0 auto;
+        width: $map-reason-icon-width;
+
+        &.bomb-exploded {
+          @include map-reason-icon(1);
+        }
+        &.surrendered {
+          @include map-reason-icon(2);
+        }
+        &.hostage-killed {
+          @include map-reason-icon(3);
+        }
+        &.time {
+          @include map-reason-icon(4);
+        }
+        &.secured {
+          @include map-reason-icon(5);
+        }
+        &.all-dead {
+          @include map-reason-icon(6);
+        }
+        &.hostage-rescued {
+          @include map-reason-icon(7);
+        }
+        &.bomb-deactivated {
+          @include map-reason-icon(8);
+        }
+        &.eliminated {
+          @include map-reason-icon(9);
+        }
+        &.defuser-deactivated {
+          @include map-reason-icon(10);
+        }
+        &.defended {
+          @include map-reason-icon(11);
+        }
+      }
+    }
+
+    &.attackers h3 {
+      color: $r6-orange;
+      font-size: 1.4rem;
+    }
+    &.defenders h3 {
+      color: $r6-blue;
+      font-size: 1.4rem;
     }
   }
+}
 
+.map-info-wrapper {
+  display: inline-block;
+  margin-bottom: 2rem;
+  width: 50%;
+
+  @media all and (max-width: 500px ) {
+    width: 100%;
+  }
+
+  h3 {
+    color: 'silver';
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.2rem;
+
+    span {
+      display: block;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.map-info-wrapper-two {
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include align-items(center);
+}
+
+.map-info-icon {
+  background-image: url($img-location + 'icons/map-info-icons-sprite@2x.png');
+  background-repeat: no-repeat;
+  background-size: $map-info-icon-width;
+  height: $map-info-icon-width;
+  margin-right: 0.5rem;
+  width: $map-info-icon-width;
+
+  body[dir="rtl"] & {
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+
+  &.total-rounds {
+    background-position-y: -($map-info-icon-width);
+  }
 }
