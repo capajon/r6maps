@@ -29,22 +29,22 @@ Contributions are welcome. :)
 
 ### Active
 Current development is fairly "steady state" with only a few new features planned:
-- [ ] Map stats link
-- [ ] RTL support for Hebrew language Translations
+- [ ] About links in menu: add stats beta, remove feb updates
 - [ ] Theme park camera line of sights
-- [ ] Update about page slightly (mostly thank you section) - probably remove FR version
-- [ ] Add a select map filter for casual, rank, custom, etc
-- [ ] Twitter account integration?
-- [ ] Mark breakable windows - [see original feature suggestion here](https://github.com/capajon/r6maps/issues/89).
+- [ ] Select map filter for casual, rank, custom, etc
+- [ ] Menu footer links (twitter, email, donate?)
+
+### Steady-state
 - [ ] Translations - [info on how you can help](http://www.r6maps.com/about/translations-help.html).
 - [ ] [Open issues](https://github.com/capajon/r6maps/issues)
 - [ ] Map accuracy - please log any errors/missing items as an [issue](https://github.com/capajon/r6maps/issues)
 - [ ] New maps
 
 ### Thinking about (maybe someday)...
+- [ ] Mark breakable windows - [see original feature suggestion here](https://github.com/capajon/r6maps/issues/89).
 - [ ] Better stats integration (e.g. link from objective) <- dependent on new data dumps from Ubisoft though
 - [ ] Tactics drawing (& saving/sharing)
 - [ ] Shared sessions (map controls, shared pings, drawing if available)
 - [ ] Automated tests (perceptual diff?)
 - [ ] Offline mode (progressive web app? Cordova?)
-- [ ] Embeded currated hints/strats (from community contributions)
+- [ ] Embedded curated hints/strats (e.g. drone placement, angles)
