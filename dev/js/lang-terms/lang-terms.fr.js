@@ -102,6 +102,8 @@ var R6MLangTermsFrench = (function(R6MLangTerms, undefined) {
         oregon: 'Oregon',
         plane: 'Avion Présidentiel',
         skyscraper: 'Gratte-ciel',
+        themepark: 'Parc D\'Attractions',
+        tower: 'Tour',
         yacht: 'Yacht'
       },
       mapRooms: {
@@ -815,6 +817,122 @@ var R6MLangTermsFrench = (function(R6MLangTerms, undefined) {
           sideStairs: 'Escalier<br/>latéral',
           dragonStatue: 'Statue de<br/>dragon',
           coveredWalkway: 'Chemin<br/>couvert'
+        },
+        themepark: {
+          // À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+          arcadeRoof: 'Arcade<br/>Roof',//
+          arcadeEntrance: 'Arcade<br/>Entrance',//
+          arcadeStairs: 'Arcade Stairs',//
+          arcadeToilet: 'Arcade<br/>Toilet',//
+          barrelRoom: 'Barrel<br/>Room',//
+          backAlley: 'Back Alley',//
+          bumperCars: 'Bumper<br/>Cars',//
+          bunk: 'Bunk',//
+          bunkToilet: 'Bunk Toilet',//
+          cafe: 'Cafe',//
+          cafeCorridor: 'Cafe Corridor',//
+          // À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+          cafeStairs: 'Cafe<br/>Stairs',//
+          cafeTerrace: 'Cafe<br/>Terrace',//
+          cashStash: 'Cash<br/>Stash',//
+          coffinRoom: 'Coffin Room',//
+          controlRoom: 'Control<br/>Room',//
+          crypt: 'Crypt',//
+          dayCare: 'Day Care',//
+          drugLab: 'Drug<br/>Lab',//
+          drugStorage: 'Drug<br/>Storage',//
+          executionRoom: 'Execution Room',//
+          fuelStorage: 'Fuel Storage',//
+          gallery: 'Gallery',//
+          gargoyle: 'Gargoyle',//
+          gargoyleStorage: 'Gargoyle<br/>Storage',//
+          guestInfo: 'Guest<br/>Info',//
+          hauntedBalcony: 'Haunted<br/>Balcony',//
+          hauntedDining: 'Haunted<br/>Dining',//
+          hauntedEntrance: 'Haunted<br/>Entrance',//
+          // À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+          hauntedRoof: 'Haunted<br/>Roof',//
+          hauntedShop: 'Haunted<br/>Shop',//
+          hauntedStairs: 'Haunted<br/>Stairs',//
+          initiationRoom: 'Initiation<br/>Room',//
+          jointCorridor: 'Joint<br/>Corridor',//
+          liftCar: 'Lift<br/>Car',//
+          loadingDeck: 'Loading<br/>Deck',//
+          lockerRoom: 'Locker<br/>Room',//
+          mainEntrance: 'Main Entrance',//
+          office: 'Office',//
+          officeToilet: 'Office<br/>Toilet',//
+          palms: 'Palms',//
+          propStorage: 'Prop Storage',//
+          railOverlook: 'Rail<br/>Overlook',//
+          railCorridor: 'Rail Corridor',//
+          railPlatform: 'Rail<br/>Platform',//
+          railRamp: 'Rail Ramp',//
+          roboCircuit: 'Robot Circuit',//
+          serviceCorridor: 'Service<br/>Corridor',//
+          serviceEntry: 'Service<br/>Entry',//
+          southExit: 'South<br/>Exit',//
+          sweetShop: 'Sweet Shop',//
+          teacups: 'Teacups',//
+          upperArcade: 'Upper<br/>Arcade',//
+          village: 'Village'//
+          // À  à  Â  â  Ç   ç  È  è  É  é  Ê  ê  Î  î  Ô  ô  Ù  ù  Û  û
+        },
+        tower: {
+          northRoof: 'Toit nord',
+          northRoofNotShown: 'Toit nord<br/>(pas montré)',
+          southRoof: 'Toit sud',
+          southRoofNotShown: 'South Roof<br/>(pas montré)',
+          roofAccess: 'Accès<br/>au toit',
+          northRappel: 'Rappel<br/>sud',
+          southRappel: 'Rappel<br/>nord',
+          mezzanine: 'Mezzanine',
+          ventilation: 'Ventilation',
+          centerAtrium: 'Atrium centre',
+          infoBooth: 'Stand d\'information',
+          eastAtrium: 'Atrium<br/>ouest',
+          westAtrium: 'Atrium<br/>est',
+          eastBalcony: 'Balcon<br/>est',
+          westBalcony: 'Balcon<br/>ouest',
+          galleryMain: 'Galerie<br/>principale',
+          mediaCenter: 'Salle<br/>multimédia',
+          galleryAnnex: 'Galerie<br/>annexe',
+          giftShop: 'Boutique',
+          exhibitRoom: 'Salle<br/>d\'exposition',
+          lanternRoom: 'Salle des lanternes',
+          elevator: 'Ascenseur',
+          officesHallway: 'Couloir bureaux',
+          exhibitHallway: 'Couloir exposition',
+          offices: 'Bureaux',
+          companyReception: 'Réception<br/>société',
+          supplyRoom: 'Salle de<br/>stockage',
+          meetingRoom: 'Salle de<br/>réunion',
+          ceoOffice: 'Bureau du<br/>directeur',
+          bathroom: 'Toilettes',
+          serverRoom: 'Salle du<br/>serveur',
+          northStairs: 'Escalier nord',
+          westStairs: 'Escalier<br/>ouest',
+          eastStairs: 'Escalier<br/>est',
+          mainReception: 'Réception',
+          centerHallway: 'Couloir<br/>central',
+          teaRoom: 'Salle du thé',
+          lounge: 'Lounge',
+          bar: 'Bar',
+          kitchen: 'Cuisine',
+          restaurant: 'Restaurant',
+          birdRoom: 'Salle de<br/>l\'oiseau',
+          restaurantReception: 'Réception<br/>du restaurant',
+          restaurantHallway: 'Entrée du restaurant',
+          barHallway: 'Entrée du bar',
+          westObservatory: 'Observatoire<br/>ouest',
+          bonsaiRoom: 'Salle des<br/>bonsaîs',
+          traditionalHall: 'Salle traditionnelle',
+          gameRoom: 'Salle<br/>de jeu',
+          eastObservatory: 'Observatoire<br/>est',
+          fountain: 'Fontaine',
+          northAirDuct: 'Conduit<br/>d\'aération nord',
+          eastAirDuct: 'Conduit<br/>d\'aération est',
+          westAirDuct: 'Conduit<br/>d\'aération ouest'
         },
         yacht: {
           spawnSubmarine: 'Sous-marin',

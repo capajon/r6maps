@@ -1032,6 +1032,8 @@ var R6MLangTermsHebrew = (function(R6MLangTerms, undefined) {
           southRoof: 'גג דרומי',
           southRoofNotShown: 'גג דרומי<br/>(לא מוצג)',
           roofAccess: 'גישת<br/>גג',
+          northRappel: '',
+          southRappel: '',
           mezzanine: 'קומת שירות ביניים',
           ventilation: 'אוורור',
           centerAtrium: 'אטריום<br/>מרכזי',

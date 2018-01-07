@@ -1056,6 +1056,8 @@ var R6MLangTerms = (function(undefined) {
           southRoof: 'South Roof',
           southRoofNotShown: 'South Roof<br/>(now shown)',
           roofAccess: 'Roof<br/>Access',
+          northRappel: 'North<br/>Rappel',
+          southRappel: 'South<br/>Rappel',
           // 3F
           mezzanine: 'Mezzanine',
           ventilation: 'Ventilation',

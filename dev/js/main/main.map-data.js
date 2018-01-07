@@ -2910,7 +2910,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: 524, left: -21, description: towerTerms.ceoOffice, hardToRead: true },
           { floor: 2, top: 488, left: 274, description: towerTerms.bathroom, hardToRead: true },
           { floor: 2, top: 312, left: 453, description: towerTerms.serverRoom, hardToRead: true },
-          { floor: 2, top: 257, left: 75, description: towerTerms.companyReception, hardToRead: true }
+          { floor: 2, top: 257, left: 75, description: towerTerms.companyReception, hardToRead: true },
+          { outdoor: true, top: -606, left: -481, description: towerTerms.northRappel },
+          { outdoor: true, top: -606, left: 453, description: towerTerms.northRappel },
+          { outdoor: true, top: 572, left: 453, description: towerTerms.southRappel },
+          { outdoor: true, top: 572, left: -481, description: towerTerms.southRappel }
         ]
       },
       yacht: {

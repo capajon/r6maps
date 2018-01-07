@@ -819,6 +819,8 @@ var R6MLangTermsGerman = (function(R6MLangTerms, undefined) {
           southRoof: 'Süddach',
           southRoofNotShown: 'Norddach<br/>(nicht gezeigt)',
           roofAccess: 'Dachzugang',
+          northRappel: 'Nord-<br/>Abseilpunkt',
+          southRappel: 'Süd-<br/>Abseilpunkt',
           mezzanine: 'Zwisch',
           ventilation: 'Lüftungengeschoss',
           centerAtrium: 'Atrium<br/>Mitte',

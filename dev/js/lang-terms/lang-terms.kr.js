@@ -1018,6 +1018,8 @@ var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
           southRoof: '남쪽<br/>지붕',
           southRoofNotShown: '남쪽 지붕<br/>(보이지 않음)',
           roofAccess: '지붕<br/>통행로',
+          northRappel: '',
+          southRappel: '',
           // 3F
           mezzanine: '층간 복도',
           ventilation: '환풍기',

@@ -1025,6 +1025,8 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           southRoof: '南方屋顶',
           southRoofNotShown: '南方屋顶<br/>(未显示)',
           roofAccess: '屋顶<br/>出入口',
+          northRappel: '',
+          southRappel: '',
           // 3F
           mezzanine: '夹层',
           ventilation: '通风处',
