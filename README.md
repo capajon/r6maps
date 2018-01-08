@@ -30,9 +30,8 @@ Contributions are welcome. :)
 ### Active
 Current development is fairly "steady state" with only a few new features planned:
 - [ ] About links in menu: add stats beta, remove feb updates
-- [ ] Theme park camera line of sights
-- [ ] Select map filter for casual, rank, custom, etc
 - [ ] Menu footer links (twitter, email, donate?)
+- [ ] Select map filter for casual, rank, custom, etc
 
 ### Steady-state
 - [ ] Translations - [info on how you can help](http://www.r6maps.com/about/translations-help.html).
