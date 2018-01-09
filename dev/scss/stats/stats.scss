@@ -138,6 +138,12 @@ body.stats[dir="rtl"] ul {
 .about-container {
   margin-bottom: 1.5rem;
 
+  .note {
+    color: $r6-orange;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }

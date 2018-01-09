@@ -29,7 +29,6 @@ Contributions are welcome. :)
 
 ### Active
 Current development is fairly "steady state" with only a few new features planned:
-- [ ] About links in menu: add stats beta, remove feb updates
 - [ ] Menu footer links (twitter, email, donate?)
 - [ ] Select map filter for casual, rank, custom, etc
 
