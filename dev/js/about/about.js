@@ -16,6 +16,7 @@ $( document ).ready(function() {
   langMessages.mn = 'Уучлаарай, энэ хуудсанд англи хэл дээр зөвхөн боломжтой.';
   langMessages.es = 'Lo sentimos, esta página sólo está disponible en Inglés.';
   langMessages.pl = 'Przepraszamy, ta strona jest dostępna tylko w języku angielskim.';
+  langMessages.he = 'מצטערים, דף זה זמין באנגלית בלבד.';
 
   if (langMessages[lastChosenLanguage]) {
     showLangMessage(langMessages[lastChosenLanguage]);

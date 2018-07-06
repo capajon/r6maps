@@ -69,6 +69,10 @@ $custom-mmenu-padding-smaller: 0.5rem;
       transition: background-color $button-transition;
       width: 50%;
 
+      body[dir="rtl"] & {
+        text-align: right;
+      }
+
       &:hover, &:focus {
         background-color: $r6-yellow;
         text-decoration: none !important;
@@ -88,6 +92,10 @@ $custom-mmenu-padding-smaller: 0.5rem;
       display: block;
       font-weight: 700;
       margin: $custom-mmenu-padding 0 $custom-mmenu-padding-smaller $custom-mmenu-padding;
+
+      body[dir="rtl"] & {
+        margin: $custom-mmenu-padding $custom-mmenu-padding $custom-mmenu-padding-smaller 0;
+      }
     }
 
     select {
@@ -95,6 +103,11 @@ $custom-mmenu-padding-smaller: 0.5rem;
       margin-left: $custom-mmenu-padding;
       margin-bottom: $custom-mmenu-padding;
       min-width: 160px;
+
+      body[dir="rtl"] & {
+        margin-left: 0;
+        margin-right: $custom-mmenu-padding;
+      }
     }
 
     .channel-input-wrapper {
@@ -106,6 +119,11 @@ $custom-mmenu-padding-smaller: 0.5rem;
         font-weight: 400;
         margin-left: $custom-mmenu-padding;
         width: 100%;
+
+        body[dir="rtl"] & {
+          margin-left: 0;
+          margin-right: $custom-mmenu-padding;
+        }
       }
     }
 
@@ -116,8 +134,18 @@ $custom-mmenu-padding-smaller: 0.5rem;
       margin-left: $custom-mmenu-padding - 0.1;
       white-space: no-wrap;
 
+      body[dir="rtl"] & {
+        margin-left: 0;
+        margin-right: $custom-mmenu-padding - 0.1;
+      }
+
       input[type="checkbox"] {
         margin-right: 0.35rem;
+
+        body[dir="rtl"] & {
+          margin-right: 0;
+          margin-left: $custom-mmenu-padding - 0.1;
+        }
       }
     }
 
@@ -125,6 +153,11 @@ $custom-mmenu-padding-smaller: 0.5rem;
       @include align-items(center);
       @include flexbox;
       margin-left: $custom-mmenu-padding;
+
+      body[dir="rtl"] & {
+        margin-left: 0;
+        margin-right: $custom-mmenu-padding;
+      }
     }
 
     hr {
@@ -151,10 +184,20 @@ $custom-mmenu-padding-smaller: 0.5rem;
   font-size: 1.2rem;
   font-weight: 400;
   margin-left: 0.5rem;
+
+  body[dir="rtl"] & {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
 }
 
 #camera-los-note {
   margin-left: 0.25rem;
+
+  body[dir="rtl"] & {
+    margin-left: 0;
+    margin-right: 0.25rem;
+  }
 }
 
 #contributions {

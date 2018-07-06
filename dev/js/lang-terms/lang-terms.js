@@ -4,6 +4,7 @@ var R6MLangTerms = (function(undefined) {
   var terms = {},
     name = 'en',
     loadedLang = 'en',
+    loadedDirection = 'LTR',
     translations = {},
     englishTerms = {
       general: {
@@ -65,6 +66,7 @@ var R6MLangTerms = (function(undefined) {
         en: 'English',
         de: 'Deutsch',
         fr: 'Français',
+        he: 'עִברִית',
         ja: '日本語',
         kr: '한국어',
         mn: 'Монгол',
@@ -1054,6 +1056,8 @@ var R6MLangTerms = (function(undefined) {
           southRoof: 'South Roof',
           southRoofNotShown: 'South Roof<br/>(now shown)',
           roofAccess: 'Roof<br/>Access',
+          northRappel: 'North<br/>Rappel',
+          southRappel: 'South<br/>Rappel',
           // 3F
           mezzanine: 'Mezzanine',
           ventilation: 'Ventilation',
@@ -1172,14 +1176,22 @@ var R6MLangTerms = (function(undefined) {
     return loadedLang;
   };
 
-  var registerLanguage = function registerLanguage(language, terms) {
-    translations[language] = terms;
+  var getLoadedDirection = function getLoadedDirection() {
+    return loadedDirection;
+  };
+
+  var registerLanguage = function registerLanguage(language, terms, direction) {
+    translations[language] = {
+      terms: terms,
+      direction: (direction === 'RTL') ? 'RTL' : 'LTR'
+    };
   };
 
   var tryLoadLanguage = function tryLoadLanguage(language) {
     if (translations[language]) {
-      loadTerms(translations[language]);
+      loadTerms(translations[language].terms);
       loadedLang = language;
+      loadedDirection = translations[language].direction;
     }
   };
 
@@ -1198,6 +1210,7 @@ var R6MLangTerms = (function(undefined) {
   return  {
     name: name,
     getLoadedLang: getLoadedLang,
+    getLoadedDirection: getLoadedDirection,
     terms: terms,
     registerLanguage: registerLanguage,
     tryLoadLanguage: tryLoadLanguage,

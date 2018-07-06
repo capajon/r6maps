@@ -2571,15 +2571,59 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ladders: [
         ],
         cameras: [
-          { floor: 1, top: 25, left: 291, id: 1, location: themeparkTerms.gallery },
-          { floor: 2, top: -36, left: 492, id: 2, location: themeparkTerms.hauntedStairs },
-          { floor: 1, top: -166, left: -25, id: 3, location: themeparkTerms.jointCorridor },
+          {
+            floor: 1, top: 25, left: 291, id: 1, location: themeparkTerms.gallery,
+            los: [
+              [{top: 214, left: 345}, {top: 146, left: 317}, {top: 146, left: 310}, {top: 153, left: 310}, {top: 153, left: 273}, {top: -8, left: 274}, {top: -8, left: 346}, {top: 98, left: 345}, {top: 110, left: 362}],
+              [{top: 133, left: 318}, {top: 214, left: 360}]
+            ]
+          },
+          {
+            floor: 2, top: -36, left: 493, id: 2, location: themeparkTerms.hauntedStairs,
+            los: [
+              [{top: 90, left: 443}, {top: 29, left: 479}],
+              [{top: -8, left: 145}, {top: -25, left: 224}],
+              [{top: -44, left: 175}, {top: -42, left: 224}, {top: -42, left: 234}, {top: -50, left: 234}, {top: -50, left: 511}, {top: 90, left: 511}],
+              [{top: 15, left: 369}, {top: -2, left: 399}]
+            ]
+          },
+          {
+            floor: 1, top: -165, left: -24, id: 3, location: themeparkTerms.jointCorridor,
+            los: [
+              [{top: -197, left: 56}, {top: -179, left: -1}, {top: -179, left: -41}, {top: 34, left: -41}],
+              [{top: -167, left: 121}, {top: -169, left: 157}],
+              [{top: -154, left: 121}, {top: -152, left: 157}],
+              [{top: 2, left: -1}, {top: 152, left: 26}],
+              [{top: 35, left: -1}, {top: 152, left: 10}]
+            ]
+          },
           { floor: 2, top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
           { floor: 1, otherFloor: 'up', top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
-          { floor: 2, top: 140, left: 208, id: 5, location: themeparkTerms.railPlatform },
-          { outdoor: true, top: -374, left: -336, id: 6, location: themeparkTerms.teacups },
-          { outdoor: true, top: -298, left: 571, id: 7, location: themeparkTerms.serviceEntry },
-          { outdoor: true, top: 301, left: -380, id: 8, location: themeparkTerms.guestInfo }
+          {
+            floor: 2, top: 140, left: 208, id: 5, location: themeparkTerms.railPlatform,
+            los: [
+              [{top: 32, left: 172}, {top: -8, left: 145}],
+              [{top: 154, left: 176}, {top: 154, left: 224},{top: -265, left: 224}]
+            ]
+          },
+          {
+            outdoor: true, top: -374, left: -336, id: 6, location: themeparkTerms.teacups,
+            los: [
+              [{top: -259, left: -522}, {top: -612, left: -176}]
+            ]
+          },
+          {
+            outdoor: true, top: -277, left: 623, id: 7, location: themeparkTerms.serviceEntry,
+            los: [
+              [{top: -149, left: 881}, {top: -440, left: 515}]
+            ]
+          },
+          {
+            outdoor: true, top: 301, left: -380, id: 8, location: themeparkTerms.guestInfo,
+            los: [
+              [{top: 199, left: -647}, {top: 560, left: -171}]
+            ]
+          }
         ],
         ceilingHatches: [
           { floor: 1, top: -114, left: -176 },
@@ -2910,7 +2954,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: 524, left: -21, description: towerTerms.ceoOffice, hardToRead: true },
           { floor: 2, top: 488, left: 274, description: towerTerms.bathroom, hardToRead: true },
           { floor: 2, top: 312, left: 453, description: towerTerms.serverRoom, hardToRead: true },
-          { floor: 2, top: 257, left: 75, description: towerTerms.companyReception, hardToRead: true }
+          { floor: 2, top: 257, left: 75, description: towerTerms.companyReception, hardToRead: true },
+          { outdoor: true, top: -606, left: -481, description: towerTerms.northRappel },
+          { outdoor: true, top: -606, left: 453, description: towerTerms.northRappel },
+          { outdoor: true, top: 572, left: 453, description: towerTerms.southRappel },
+          { outdoor: true, top: 572, left: -481, description: towerTerms.southRappel }
         ]
       },
       yacht: {

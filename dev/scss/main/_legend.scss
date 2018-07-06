@@ -15,14 +15,14 @@ $legend-item-width: ($legend-width - $legend-padding) / 2;
 $legend-item-smaller-height-diff: 4px;
 $legend-item-smaller-height: $legend-item-height - $legend-item-smaller-height-diff;
 
-@mixin legend-icon($position) {
-  background-position: 0px ($legend-icon-height * -($position - 1));
-}
-
 @mixin legend-smaller($position) {
   background-position: 0px (($legend-icon-height * -($position - 1)) - ($legend-item-smaller-height-diff / 2));
   height: $legend-item-smaller-height;
   line-height: $legend-item-smaller-height;
+}
+
+@mixin legend-smaller-rtl($position) {
+  background-position: ($legend-item-width - $legend-icon-width) (($legend-icon-height * -($position - 1)) - ($legend-item-smaller-height-diff / 2));
 }
 
 #legend {
@@ -50,56 +50,113 @@ $legend-item-smaller-height: $legend-item-height - $legend-item-smaller-height-d
     vertical-align: middle;
     width: $legend-item-width - $legend-icon-width - $legend-padding;
 
+    body[dir="rtl"] & {
+      padding-left: 0;
+      padding-right: $legend-icon-width + $legend-padding;
+    }
+
     &.legend-breakable-walls {
       @include legend-smaller(3);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(3);
+      }
     }
 
     &.legend-breakable-floor-traps {
       @include legend-smaller(1);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(1);
+      }
     }
 
     &.legend-ceiling-hatch {
       @include legend-smaller(2);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(2);
+      }
     }
 
     &.legend-line-of-sight-walls {
       @include legend-smaller(4);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(4);
+      }
     }
 
     &.legend-lineof-sight-floors {
       @include legend-smaller(5);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(5);
+      }
     }
 
     &.legend-drone-tunnels {
       @include legend-smaller(10);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(10);
+      }
     }
 
     &.legend-objectives {
       @include legend-smaller(7);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(7);
+      }
     }
 
     &.legend-insertion-point {
       @include legend-smaller(6);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(6);
+      }
     }
 
     &.legend-security-camera {
       @include legend-smaller(8);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(8);
+      }
     }
 
     &.legend-skylight {
       @include legend-smaller(9);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(9);
+      }
     }
 
     &.legend-down-and-up {
       @include legend-smaller(11);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(11);
+      }
     }
 
     &.legend-camera-line-of-sight {
       @include legend-smaller(12);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(12);
+      }
     }
 
     &.legend-ladder {
       @include legend-smaller(13);
+
+      body[dir="rtl"] & {
+        @include legend-smaller-rtl(13);
+      }
     }
 
   }

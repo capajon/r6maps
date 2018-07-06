@@ -73,7 +73,7 @@ var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
         insertionPoints: '시작지점',
         securityCameras: '감시카메라',
         skylights: '채광창',
-        onFloorAboveOrBelow: '같은 층 위치 아님',
+        onFloorAboveOrBelow: '같은 층 높이에 없음',
         cameraLineOfSight: '카메라 시야',
         ladders: '사다리'
       },
@@ -1012,13 +1012,16 @@ var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
           village: '마을'
         },
         tower: {
-          workInProgress: '타워 맵 베타 버전입니다<br/>... 현재 작업중... :)',
           // EXT/Spawn
           northRoof: '북쪽<br/>지붕',
+          northRoofNotShown: '북쪽 지붕<br/>(보이지 않음)',
           southRoof: '남쪽<br/>지붕',
+          southRoofNotShown: '남쪽 지붕<br/>(보이지 않음)',
           roofAccess: '지붕<br/>통행로',
+          northRappel: '',
+          southRappel: '',
           // 3F
-          mezzanine: 'Mezzanine',
+          mezzanine: '층간 복도',
           ventilation: '환풍기',
           // 2F
           centerAtrium: '중앙<br/>아트리움',
@@ -1064,7 +1067,11 @@ var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
           traditionalHall: '전통문화실<br/>복도',
           gameRoom: '휴게실',
           eastObservatory: '동쪽<br/>전망대',
-          fountain: '분수'
+          fountain: '분수',
+          //Air Ducts:
+          northAirDuct: '북쪽<br/>통행구',
+          eastAirDuct: '동쪽<br/>통행구',
+          westAirDuct: '서쪽<br/>통행구'
         },
         yacht: {
           spawnSubmarine: '잠수함',

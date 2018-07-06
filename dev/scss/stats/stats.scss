@@ -34,7 +34,9 @@ body.stats {
   @media all and (max-width: $breakpoint-mobile ) {
     padding: 1rem 0.2rem;
   }
+}
 
+body.stats {
   a {
     color: #fff;
   }
@@ -56,18 +58,6 @@ body.stats {
     color: $r6-red;
   }
 
-  nav {
-    box-sizing: border-box;
-    display: inline-block;
-    float: left;
-    width: 330px;
-
-    @media all and (max-width: $breakpoint-one-column ) {
-      float: none;
-      width: 100%;
-    }
-  }
-
   nav, section {
     background-color: rgba(16, 26, 36, 0.6);
     margin-bottom: 1.5rem;
@@ -87,55 +77,93 @@ body.stats {
       }
     }
   }
+}
 
-  main {
-    display: block;
-    margin-left: 350px;
+nav {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  width: 330px;
 
-    @media all and (max-width: $breakpoint-one-column ) {
+  body[dir="rtl"] & {
+    float: right;
+  }
+
+  @media all and (max-width: $breakpoint-one-column ) {
+    float: none;
+    width: 100%;
+
+    body[dir="rtl"] & {
+      float: none;
+    }
+  }
+}
+
+main {
+  display: block;
+  margin-left: 350px;
+
+  body[dir="rtl"] & {
+    margin-left: 0;
+    margin-right: 350px;
+  }
+
+  @media all and (max-width: $breakpoint-one-column ) {
+    margin: 0;
+
+    body[dir="rtl"] & {
       margin: 0;
     }
   }
+}
 
-  ul {
-    margin-left: 1rem;
+body.stats ul {
+  margin-left: 1.5rem;
 
-    li {
-      line-height: 130%;
-      list-style-type: circle;
-      padding: 0 0 0.5rem 0;
-    }
+  li {
+    line-height: 130%;
+    list-style-type: circle;
+    padding: 0 0 0.5rem 0;
+  }
+}
+body.stats[dir="rtl"] ul {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.skill-ranks-control-wrapper {
+  min-height: 65px;
+}
+
+.about-container {
+  margin-bottom: 1.5rem;
+
+  .note {
+    color: $r6-orange;
+    margin-bottom: 2rem;
+    text-align: center;
   }
 
-  .skill-ranks-control-wrapper {
-    min-height: 65px;
+  &:last-child {
+    margin-bottom: 0;
   }
 
-  .about-container {
-    margin-bottom: 1.5rem;
+  .link-wrapper {
+    @include flexbox;
+    @include flex-wrap(wrap);
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+    a {
+      border: 1px solid #fff;
+      margin: 0 1rem 1rem 0;
+      padding: 1rem;
+      text-decoration: none;
+      transition: background-color $button-transition;
 
-    .link-wrapper {
-      @include flexbox;
-      @include flex-wrap(wrap);
-
-      a {
-        border: 1px solid #fff;
-        margin: 0 1rem 1rem 0;
-        padding: 1rem;
-        text-decoration: none;
-        transition: background-color $button-transition;
-
-        &:hover, &:focus {
-          background-color: $r6-blue;
-        }
+      &:hover, &:focus {
+        background-color: $r6-blue;
       }
     }
   }
-
 }
 
 #instructions, #loaded-summary {
@@ -208,6 +236,10 @@ body.not-loaded-yet {
 #header-main {
   @include logo-header;
   margin: 0 0 1rem 0.75rem;
+
+  body[dir="rtl"] & {
+    margin: 0 0.75rem 1rem 0;
+  }
 }
 
 body.doc-not-ready {

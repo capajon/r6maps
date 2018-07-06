@@ -1019,11 +1019,14 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           village: '村庄'
         },
         tower: {
-          workInProgress: '该图信息完善中<br/>... 敬请期待 :)',
           // EXT/Spawn
-          northRoof: '北方<br/>屋顶',
-          southRoof: '南方<br/>屋顶',
+          northRoof: '北方屋顶',
+          northRoofNotShown: '北方屋顶<br/>(未显示)',
+          southRoof: '南方屋顶',
+          southRoofNotShown: '南方屋顶<br/>(未显示)',
           roofAccess: '屋顶<br/>出入口',
+          northRappel: '',
+          southRappel: '',
           // 3F
           mezzanine: '夹层',
           ventilation: '通风处',
@@ -1071,7 +1074,11 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           traditionalHall: '传统<br/>大厅',
           gameRoom: '游戏间',
           eastObservatory: '东侧<br/>观景台',
-          fountain: '喷泉'
+          fountain: '喷泉',
+          //Air Ducts:
+          northAirDuct: '北方<br/>通风口',
+          eastAirDuct: '东方<br/>通风口',
+          westAirDuct: '西方<br/>通风口'
         },
         yacht: {
           spawnSubmarine: '潜水艇',
