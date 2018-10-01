@@ -25,7 +25,8 @@ var R6MMainData = (function(R6MLangTerms, undefined){
     coastlineTerms = mapRoomTerms.coastline,
     themeparkTerms = mapRoomTerms.themepark,
     towerTerms = mapRoomTerms.tower,
-    yachtTerms = mapRoomTerms.yacht;
+    yachtTerms = mapRoomTerms.yacht,
+    villaTerms = mapRoomTerms.villa;
 
   var getMapData = function getMapData() {
     return {
@@ -3174,6 +3175,62 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: -15, left: 553, description: yachtTerms.anchorName },
           { floor: 2, top: 85, left: 454, description: yachtTerms.aklarkSubEntrance, smaller: true, hardToRead: true }
         ]
+      },
+      villa: {
+        name: mapNameTerms.villa,
+        imgUrlPrefix: 'villa',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 0, top: -720, left: -1280, background: true, name: floorTerms.basement },
+          { index: 1, top: -480, left: 0, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -480, left: 0, name: floorTerms.secondFloor },
+          { index: 3, top: -480, left: 0, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 2, top: 62, left: 284 },
+          { floor: 2, top: -315, left: 347 },
+          { floor: 1, top: 100, left: 295 },
+          { floor: 0, top: -197, left: 487 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: 103, left: 191, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 62, left: 324, set: 1, letter: objectiveTerms.bombShortB },
+
+          { floor: 2, top: -204, left: 417, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -204, left: 306, set: 2, letter: objectiveTerms.bombShortB },
+
+          { floor: 1, top: -105, left: 220, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 75, left: 145, set: 3, letter: objectiveTerms.bombShortB },
+
+          { floor: 1, top: -333, left: 417, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -225, left: 428, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+          { floor: 2, top: 170, left: 309 },
+          { floor: 2, top: -205, left: 529 },
+          { floor: 1, top: -105, left: 260 },
+          { floor: 0, top: -161, left: 370 }
+        ],
+        zoomPoints: {
+          topLeft: { left: 0, top: -420 },
+          bottomRight: { left: 270, top: 640 }
+        },
+        compassPoints: {
+        },
+        ladders: [
+        ],
+        cameras: [],
+        ceilingHatches: [],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -371, left: -155, description: villaTerms.spawnMainRoad },
+          { letter: spawnTerms.b, top: 428, left: 371, description: villaTerms.spawnRuins },
+          { letter: spawnTerms.c, top: -290, left: 845, description: villaTerms.spawnFountain }
+        ],
+        roomLabels: []
       }
       /*emptytemplate: {
         name: 'Empty',

@@ -275,6 +275,7 @@ var R6MLangTerms = (function(undefined) {
         skyscraper: 'Skyscraper',
         themepark: 'Theme Park',
         tower: 'Tower',
+        villa: 'Villa',
         yacht: 'Yacht'
       },
       mapRooms: {
@@ -1110,6 +1111,12 @@ var R6MLangTerms = (function(undefined) {
           northAirDuct: 'North<br/>Air Duct',
           eastAirDuct: 'East<br/>Air Duct',
           westAirDuct: 'West<br/>Air Duct'
+        },
+        villa: {
+          // EXT/Spawn
+          spawnMainRoad: 'Main Road',
+          spawnRuins: 'Ruins',
+          spawnFountain: 'Fountain'
         },
         yacht: {
           spawnSubmarine: 'Submarine',
