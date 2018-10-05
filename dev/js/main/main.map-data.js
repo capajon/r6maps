@@ -1056,9 +1056,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 41, left: 203 },
           { floor: 2, top: 121, left: -294 },
           { floor: 2, top: 45, left: 328 },
-          { floor: 0, top: -34, left: 302 }
+          { floor: 0, top: -34, left: 328 }
         ],
         bombObjectives: [
+          { floor: 0, top: -34, left: 292, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 75, left: 115, set: 4, letter: objectiveTerms.bombShortB },
           { floor: 0, top: 56, left: -239, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 0, top: 130, left: -29, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: 153, left: -255, set: 2, letter: objectiveTerms.bombShortA },
@@ -1068,9 +1070,9 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ],
         secureObjectives: [
           { floor: 0, top: -26, left: -183 },
-          { floor: 0, top: -34, left: 346 },
+          { floor: 0, top: -34, left: 364 },
           { floor: 1, top: -6, left: 326 },
-          { floor: 2, top: 0, left: 310 }
+          { floor: 2, top: 0, left: 305 }
         ],
         zoomPoints: {
           topLeft: { top: -196, left: -354 },
