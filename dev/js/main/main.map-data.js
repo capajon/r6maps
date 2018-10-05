@@ -453,8 +453,8 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: -99, left: -305, rotate: 90, size: DRONE_MED },
           { floor: 1, top: -392, left: -188, rotate: 0, size: DRONE_MED },
           { floor: 1, top: -391, left: 158, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: -253, left: 262, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: -215, left: 108, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -253, left: 220, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: -210, left: 108, rotate: 90, size: DRONE_SMALL },
           { floor: 1, top: -103, left: 330, rotate: 0, size: 39 },
           { floor: 1, top: -83, left: 331, rotate: 90, size: 58 }
         ],
