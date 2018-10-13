@@ -25,7 +25,8 @@ var R6MMainData = (function(R6MLangTerms, undefined){
     coastlineTerms = mapRoomTerms.coastline,
     themeparkTerms = mapRoomTerms.themepark,
     towerTerms = mapRoomTerms.tower,
-    yachtTerms = mapRoomTerms.yacht;
+    yachtTerms = mapRoomTerms.yacht,
+    villaTerms = mapRoomTerms.villa;
 
   var getMapData = function getMapData() {
     return {
@@ -3174,6 +3175,83 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: -15, left: 553, description: yachtTerms.anchorName },
           { floor: 2, top: 85, left: 454, description: yachtTerms.aklarkSubEntrance, smaller: true, hardToRead: true }
         ]
+      },
+      villa: {
+        name: mapNameTerms.villa,
+        imgUrlPrefix: 'villa',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 0, top: -720, left: -1280, background: true, name: floorTerms.basement },
+          { index: 1, top: -480, left: 0, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -480, left: 0, name: floorTerms.secondFloor },
+          { index: 3, top: -480, left: 0, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 2, top: 62, left: 284 },
+          { floor: 2, top: -315, left: 347 },
+          { floor: 1, top: 100, left: 295 },
+          { floor: 0, top: -197, left: 487 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: 103, left: 191, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 62, left: 324, set: 1, letter: objectiveTerms.bombShortB },
+
+          { floor: 2, top: -204, left: 417, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -204, left: 306, set: 2, letter: objectiveTerms.bombShortB },
+
+          { floor: 1, top: -105, left: 220, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 75, left: 145, set: 3, letter: objectiveTerms.bombShortB },
+
+          { floor: 1, top: -333, left: 417, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -225, left: 428, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+          { floor: 2, top: 170, left: 309 },
+          { floor: 2, top: -205, left: 529 },
+          { floor: 1, top: -105, left: 260 },
+          { floor: 0, top: -161, left: 370 }
+        ],
+        zoomPoints: {
+          topLeft: { left: 0, top: -420 },
+          bottomRight: { left: 270, top: 640 }
+        },
+        compassPoints: {
+        },
+        ladders: [
+        ],
+        cameras: [
+          {floor: 2, top: -353, left: 381, id: 1, location: villaTerms.astronomyRoom,
+            los: [[{top: -397, left: 393}, {top: -280, left: 393}, {top: -280, left: 380}, {top: -244, left: 381}, {top: -244, left: 346}, {top: -280, left: 357}, {top: -280, left: 255}, {top: -350, left: 255}, {top: -350, left: 335}, {top: -355, left: 335}, {top: -368, left: 255}, {top: -397, left: 255}, {top: -397, left: 393}]]},
+          {floor: 2, top: -65, left: 140, id: 2, location: villaTerms.classicalHall,
+            los: [[{top: -80, left: 125}, {top: -80, left: 248}, {top: -46, left: 248}, {top: -46, left: 176}, {top: -33, left: 198}, {top: 3, left: 198}, {top: -46, left: 155}, {top: -46, left: 137}, {top: 21, left: 161}, {top: 21, left: 132}, {top: 226, left: 132}, {top: 226, left: 110}, {top: 21, left: 110}, {top: 21, left: 103}, {top: -19, left: 103}, {top: -80, left: 125}]]},
+          {floor: 1, top: -207, left: 254, id: 3, location: villaTerms.backHallway,
+            los: [[{top: -207, left: 254}, {top: -193, left: 223}, {top: -218, left: 223}, {top: -212, left: 240}, {top: -228, left: 240}, {top: -228, left: 254}, {top: -253, left: 254}, {top: -278, left: 269}, {top: -268, left: 269}, {top: -268, left: 310}, {top: -258, left: 310}, {top: -290, left: 346}, {top: -290, left: 369}, {top: -284, left: 369}, {top: -240, left: 310}, {top: -232, left: 296}, {top: -228, left: 296}, {top: -228, left: 320}, {top: -220, left: 320}, {top: -229, left: 369}, {top: -182, left: 369}, {top: -192, left: 320}, {top: -188, left: 320}, {top: -188, left: 280}, {top: -207, left: 254}]]},
+          {floor: 1, top: 206, left: 157, id: 4, location: villaTerms.mainEntrance,
+            los: [[{top: 206, left: 157}, {top: 189, left: 35}, {top: 158, left: 35}, {top: 158, left: 61}, {top: 175, left: 94}],
+            [{top: 151, left: 111}, {top: 170, left: 127}],
+            [{top: 151, left: 160}, {top: 91, left: 163}, {top: 91, left: 192}, {top: 151, left: 174}],
+            [{top: 173, left: 206}, {top: 151, left: 239}, {top: 151, left: 267}, {top: 206, left: 157}]]},
+          {floor: 0, top: -128, left: 288, id: 5, location: villaTerms.archHallway,
+            los: [[{top: -143, left: 327}, {top: -128, left: 288}, {top: -86, left: 252}],
+            [{top: -163, left: 246}, {top: -167, left: 241}, {top: -193, left: 241}, {top: -158, left: 267}],
+            [{top: -162, left: 274}, {top: -204, left: 258}, {top: -204, left: 273}, {top: -250, left: 265}, {top: -250, left: 274}, {top: -254, left: 274}, {top: -302, left: 269}, {top: -302, left: 290}, {top: -163, left: 290}]]},
+          {outdoor: true, top: -82, left: 53, id: 6, location: villaTerms.stableYard,
+            los: [[{top: -77, left: 95  }, {top: -86, left: 82}, {top: -97, left: 174}], [{top: -404, left: 248}, {top: -720, left: 414}]]},
+          {outdoor: true, top: 360, left: 366, id: 7, location: villaTerms.ruins, los: [[{top: 480, left: 340}, {top: 390, left: 386}, {top: 40, left: 650}]]},
+          {outdoor: true, top: -73, left: 685, id: 8, location: villaTerms.driveway,
+          los: [[{top: 290, left: 392}, {top: -73, left: 686}, {top: -130, left: 720}]]}
+        ],
+        ceilingHatches: [],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -371, left: -155, description: villaTerms.spawnMainRoad },
+          { letter: spawnTerms.b, top: 428, left: 371, description: villaTerms.spawnRuins },
+          { letter: spawnTerms.c, top: -290, left: 845, description: villaTerms.spawnFountain }
+        ],
+        roomLabels: []
       }
       /*emptytemplate: {
         name: 'Empty',

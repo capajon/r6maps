@@ -242,6 +242,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.villa div.image.thumb {
+          @include map-thumb-icon(19);
+        }
+        body[loaded-map="villa"] &.themepark p {
+          @include map-name-selected();
+        }
+
         &.yacht div.image.thumb {
           @include map-thumb-icon(13);
         }
