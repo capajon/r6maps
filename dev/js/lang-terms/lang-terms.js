@@ -1113,10 +1113,22 @@ var R6MLangTerms = (function(undefined) {
           westAirDuct: 'West<br/>Air Duct'
         },
         villa: {
-          // EXT/Spawn
+          // Spawn
           spawnMainRoad: 'Main Road',
           spawnRuins: 'Ruins',
-          spawnFountain: 'Fountain'
+          spawnFountain: 'Fountain',
+          // EXT
+          stableYard: 'Stable Yard',
+          ruins: 'Ruins',
+          driveway: 'Driveway',
+          // 2F
+          astronomyRoom: 'Astronomy Room',
+          classicalHall: 'Classical Hall',
+          // 1F
+          backHallway: 'Back Hallway',
+          mainEntrance: 'Main Entrance',
+          // B
+          archHallway: 'Arch Hallway'
         },
         yacht: {
           spawnSubmarine: 'Submarine',

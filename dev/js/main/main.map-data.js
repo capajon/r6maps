@@ -3221,7 +3221,16 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         },
         ladders: [
         ],
-        cameras: [],
+        cameras: [
+          {floor: 2, top: -385, left: 381, id: 1, location: villaTerms.astronomyRoom},
+          {floor: 2, top: -60, left: 118, id: 2, location: villaTerms.classicalHall},
+          {floor: 1, top: -207, left: 254, id: 3, location: villaTerms.backHallway},
+          {floor: 1, top: 207, left: 165, id: 4, location: villaTerms.mainEntrance},
+          {floor: 0, top: -130, left: 290, id: 5, location: villaTerms.archHallway},
+          {floor: 1, top: -82, left: 73, id: 6, location: villaTerms.stableYard},
+          {floor: 1, top: 380, left: 386, id: 7, location: villaTerms.ruins},
+          {floor: 1, top: -73, left: 685, id: 8, location: villaTerms.driveway}
+        ],
         ceilingHatches: [],
         skylights: [],
         droneTunnels: [],
