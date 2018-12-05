@@ -9,12 +9,11 @@ r6maps.com is designed to be a quick reference for Rainbow Six Siege maps.  Plea
 
 ### Dependencies
 - [npm/Nodejs](https://www.npmjs.com/get-npm)
-    + [UglifyJS3](https://www.npmjs.com/package/uglifyjs) for cli (Try `npm install uglify-js -g`)
 - [Ruby](https://www.ruby-lang.org/en/)
     + [gem](https://rubygems.org/pages/download)
     + sass (`gem install sass`)
 
-To check the dependencies, just type `uglifyjs` or `scss`. If the program waits for input, your dependencies are installed correctly. (`uglifyjs` might already be installed from `npm install`, see below).
+To check the dependencies, just type `scss`. If the program waits for input, your dependencies are installed correctly. (`uglifyjs` might already be installed from `npm install`, see below).
 
 ### Building and running
 - Install npm and install packages: `npm install`
