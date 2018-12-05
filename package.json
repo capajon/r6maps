@@ -46,7 +46,8 @@
     "eslint": "^2.2.0",
     "mkdirp": "^0.5.1",
     "npm-watch": "^0.1.7",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.5.4",
+    "uglify-js": "^3.4.9"
   },
   "dependencies": {
     "gem": "^2.4.3",
