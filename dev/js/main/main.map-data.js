@@ -3253,7 +3253,10 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 0, top: -111, left: 296, width: 25, height: 25 },
           { floor: 0, top: -325, left: 498, width: 25, height: 25 }
         ],
-        skylights: [],
+        skylights: [
+          {floor: 1, top: -176, left: 345 },
+          {floor: 2, top: -193, left: 368 }
+        ],
         droneTunnels: [],
         spawnPoints: [
           { letter: spawnTerms.a, top: -371, left: -155, description: villaTerms.spawnMainRoad },
