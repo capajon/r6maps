@@ -3243,7 +3243,16 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           {outdoor: true, top: -73, left: 685, id: 8, location: villaTerms.driveway,
           los: [[{top: 290, left: 392}, {top: -73, left: 686}, {top: -130, left: 720}]]}
         ],
-        ceilingHatches: [],
+        ceilingHatches: [
+          // scale is off b/w map and hatch, so rescaling to fit.
+          { floor: 1, top: -59, left: 109, width: 25, height: 25 },
+          { floor: 1, top: -304, left: 300, width: 25, height: 25 },
+          { floor: 1, top: 213, left: 360, width: 25, height: 25 },
+          { floor: 1, top: -169, left: 556, width: 25, height: 25 },
+
+          { floor: 0, top: -111, left: 296, width: 25, height: 25 },
+          { floor: 0, top: -325, left: 498, width: 25, height: 25 }
+        ],
         skylights: [],
         droneTunnels: [],
         spawnPoints: [
