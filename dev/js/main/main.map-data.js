@@ -3219,8 +3219,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         },
         compassPoints: {
         },
-        ladders: [
-        ],
+        ladders: [],
         cameras: [
           {floor: 2, top: -353, left: 381, id: 1, location: villaTerms.astronomyRoom,
             los: [[{top: -397, left: 393}, {top: -280, left: 393}, {top: -280, left: 380}, {top: -244, left: 381}, {top: -244, left: 346}, {top: -280, left: 357}, {top: -280, left: 255}, {top: -350, left: 255}, {top: -350, left: 335}, {top: -355, left: 335}, {top: -368, left: 255}, {top: -397, left: 255}, {top: -397, left: 393}]]},
@@ -3254,10 +3253,24 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 0, top: -325, left: 498, width: 25, height: 25 }
         ],
         skylights: [
-          {floor: 1, top: -176, left: 345 },
+          {floor: 1, otherFloor: 'up', top: -176, left: 345 },
           {floor: 2, top: -193, left: 368 }
         ],
-        droneTunnels: [],
+        droneTunnels: [
+          { floor: 0, top: -197, left: 296, rotate: 90, size: 12 },
+          { floor: 0, top: -315, left: 521, rotate: 90, size: 57 },
+          { floor: 1, top: 274, left: 169, rotate: 0, size: 44 },
+          { floor: 1, top: 224, left: 359, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 89, left: 90, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: 64, left: 372, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -123, left: 491, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -155, left: 177, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -295, left: 235, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: -32, left: 200, rotate: 90, size: 10 },
+          { floor: 2, top: -85, left: 227, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -279, left: 580, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -360, left: 409, rotate: 0, size: DRONE_SMALL }
+        ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -371, left: -155, description: villaTerms.spawnMainRoad },
           { letter: spawnTerms.b, top: 428, left: 371, description: villaTerms.spawnRuins },
