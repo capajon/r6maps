@@ -14,6 +14,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
     clubTerms = mapRoomTerms.club,
     consulateTerms = mapRoomTerms.consulate,
     favelaTerms = mapRoomTerms.favela,
+    fortressTerms = mapRoomTerms.fortress,
     herefordTerms = mapRoomTerms.hereford,
     houseTerms = mapRoomTerms.house,
     kanalTerms = mapRoomTerms.kanal,
@@ -1373,6 +1374,57 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 344, left: -90, description: favelaTerms.shop },
           { floor: 3, top: 237, left: -412, description: favelaTerms.marketRooftops, hardToRead: true },
           { floor: 3, top: 420, left: -412, description: favelaTerms.marketRooftops, hardToRead: true }
+        ]
+      },
+      fortress: {
+        name: mapNameTerms.fortress,
+        imgUrlPrefix: 'fortress',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 0, top: -1678, left: -3250, background: true, dontSelect: true },
+          // top pixel 1315, left pixel 2894
+          { index: 1, top: 1315 - 1678, left: 2894 - 3250, name: floorTerms.firstFloor },
+          // top pixel 1315, left pixel 2781
+          { index: 2, top: 1315 - 1678, left: 2781 - 3250, name: floorTerms.secondFloor },
+          // top pixel 1310, left pixel 2885
+          { index: 3, top: 1310 - 1678, left: 2885 - 3250, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+
+        ],
+        bombObjectives: [
+
+        ],
+        secureObjectives: [
+
+        ],
+        zoomPoints: {
+          topLeft: { top: 900 - 1678, left: 2430 - 3250 },
+          bottomRight: { top: 2590 - 1678, left: 4180 - 3250 }
+        },
+        compassPoints: {
+
+        },
+        ladders: [
+
+        ],
+        cameras: [
+
+        ],
+        ceilingHatches: [
+
+        ],
+        skylights: [],
+        droneTunnels: [
+
+        ],
+        spawnPoints: [
+// main gate, stables, parking
+        ],
+        roomLabels: [
+
         ]
       },
       hereford: {
