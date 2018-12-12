@@ -1452,9 +1452,9 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ],
         ceilingHatches: [
           { floor: 2, top: 358, left: 89 },
-          { floor: 1, top: 309, left: 322 },
-          { floor: 1, top: 13, left: 209 },
-          { floor: 1, top: -10, left: -55 }
+          { floor: 1, top: 297, left: 322 },
+          { floor: 1, top: 13, left: 202 },
+          { floor: 1, top: -10, left: -63 }
         ],
         skylights: [],
         droneTunnels: [
@@ -1464,7 +1464,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: -56, left: 259, rotate: 90, size: 23 },
           { floor: 1, top: -268, left: 287, rotate: 0, size: 23 },
           { floor: 1, top: -316, left: -13, rotate: 0, size: 51 },
-          { floor: 1, top: -260, left: -284, rotate: 90, size: 40 },
+          { floor: 1, top: -251, left: -283, rotate: 90, size: 40 },
           { floor: 1, top: -258, left: -260, rotate: 45, size: 23 }
         ],
         spawnPoints: [
