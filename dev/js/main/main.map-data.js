@@ -1395,7 +1395,14 @@ var R6MMainData = (function(R6MLangTerms, undefined){
 
         ],
         bombObjectives: [
-
+          { floor: 2, top: -161, left: -178, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -178, left: 1, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -4, left: 144, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 258, left: 13, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 108, left: 178, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 37, left: 86, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -64, left: -268, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 141, left: -232, set: 4, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
 
@@ -1404,24 +1411,60 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           topLeft: { top: 900 - 1678, left: 2430 - 3250 },
           bottomRight: { top: 2590 - 1678, left: 4180 - 3250 }
         },
-        compassPoints: {
-
-        },
+        compassPoints: {},
         ladders: [
-
+          { floor: 1, top: -238, left: 279, otherFloor: 'up' },
+          { floor: 2, top: -238, left: 279, otherFloor: 'down' }
         ],
         cameras: [
-
+          {
+            floor: 2, top: -278, left: -267, id: 1, location: fortressTerms.towerStairs,
+            los: []
+          },
+          {
+            floor: 2, top: 46, left: -57, id: 2, location: fortressTerms.centralStairsHall,
+            los: []
+          },
+          {
+            floor: 2, top: 313, left: 330, id: 3, location: fortressTerms.oldTower,
+            los: []
+          },
+          {
+            floor: 1, top: -234, left: -176, id: 4, location: fortressTerms.lobby,
+            los: []
+          },
+          {
+            floor: 1, top: 224, left: -40, id: 5, location: fortressTerms.hammamHallway,
+            los: []
+          },
+          {
+            outside: true, top: -234, left: -375, id: 6, location: fortressTerms.cannonOverlook,
+            los: []
+          },
+          {
+            outside: true, top: 202, left: 415, id: 7, location: fortressTerms.courtyardPath,
+            los: []
+          },
+          {
+            floor: 3, top: 315, left: 123, id: 8, location: fortressTerms.oldRoof,
+            los: []
+          }
         ],
         ceilingHatches: [
-
+          { floor: 2, top: 358, left: 89 },
+          { floor: 1, top: 309, left: 322 },
+          { floor: 1, top: 13, left: 209 },
+          { floor: 1, top: -10, left: -55 }
         ],
         skylights: [],
         droneTunnels: [
 
         ],
         spawnPoints: [
-// main gate, stables, parking
+          { letter: spawnTerms.a, top: -690, left: -370, description: fortressTerms.mainGate },
+          { letter: spawnTerms.b, top: -690, left: 170, description: fortressTerms.parking },
+          { letter: spawnTerms.c, top: 670, left: 15, description: fortressTerms.garden },
+          { letter: spawnTerms.d, top: 580, left: 415, description: fortressTerms.stable }
         ],
         roomLabels: [
 
