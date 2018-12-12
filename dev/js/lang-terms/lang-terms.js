@@ -667,12 +667,12 @@ var R6MLangTerms = (function(undefined) {
           marketRooftops: 'Market Rooftops'
         },
         fortress: {
-          // Within each section going from south west, east then north
           // Spawns
-          garden: 'Garden',
-          stable: 'Stable',
           mainGate: 'Main Gate',
           parking: 'Parking',
+          garden: 'Garden',
+          stable: 'Stable',
+          // Within each section going from south west, east then north
           // EXT
           gardenPath: 'Garden Path',
           stablePath: 'Stable Path',
