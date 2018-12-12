@@ -805,15 +805,15 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { letter: spawnTerms.d, top: -675, left: 348, description: clubTerms.spawnConstructionSite }
         ],
         roomLabels: [
-          { outside: true, description: clubTerms.constructionSite, top: -528, left: 123 },
+          { outdoor: true, description: clubTerms.constructionSite, top: -528, left: 123 },
           { floor: 0, smaller: true, description: clubTerms.container, top: -507, left: 41 },
-          { outside: true, description: clubTerms.graffitiArea, top: -366, left: 22 },
-          { outside: true, description: clubTerms.recreationArea, top: -127, left: -317 },
-          { outside: true, description: clubTerms.junkyard, top: 64, left: -473 },
-          { outside: true, description: clubTerms.VIPParking, top: 322, left: -241 },
-          { outside: true, description: clubTerms.mainGate, top: 485, left: 3 },
-          { outside: true, description: clubTerms.parking, top: 160, left: -14 },
-          { outside: true, description: clubTerms.kennels, top: 125, left: 392 },
+          { outdoor: true, description: clubTerms.graffitiArea, top: -366, left: 22 },
+          { outdoor: true, description: clubTerms.recreationArea, top: -127, left: -317 },
+          { outdoor: true, description: clubTerms.junkyard, top: 64, left: -473 },
+          { outdoor: true, description: clubTerms.VIPParking, top: 322, left: -241 },
+          { outdoor: true, description: clubTerms.mainGate, top: 485, left: 3 },
+          { outdoor: true, description: clubTerms.parking, top: 160, left: -14 },
+          { outdoor: true, description: clubTerms.kennels, top: 125, left: 392 },
           { floor: 1, description: clubTerms.trash, top: -212, left: 205 },
           { floor: 2, description: clubTerms.trash, top: -212, left: 205 },
           { floor: 3, description: clubTerms.trash, top: -212, left: 205 },
@@ -1392,24 +1392,30 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { index: 3, top: 1310 - 1678, left: 2885 - 3250, name: floorTerms.roof }
         ],
         hostageObjectives: [
-
+          { floor: 2, top: -36, left: -25 },
+          { floor: 2, top: 204, left: 215 },
+          { floor: 1, top: 37, left: 63 },
+          { floor: 1, top: 141, left: -202 }
         ],
         bombObjectives: [
           { floor: 2, top: -161, left: -178, set: 1, letter: objectiveTerms.bombShortB },
           { floor: 2, top: -178, left: 1, set: 1, letter: objectiveTerms.bombShortA },
           { floor: 2, top: -4, left: 144, set: 2, letter: objectiveTerms.bombShortB },
           { floor: 2, top: 258, left: 13, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 108, left: 178, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: 37, left: 86, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 108, left: 196, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 37, left: 93, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -64, left: -268, set: 4, letter: objectiveTerms.bombShortB },
           { floor: 1, top: 141, left: -232, set: 4, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
-
+          { floor: 2, top: -151, left: -148 },
+          { floor: 2, top: 142, left: 54 },
+          { floor: 1, top: 108, left: 166 },
+          { floor: 1, top: -157, left: -10 }
         ],
         zoomPoints: {
-          topLeft: { top: 900 - 1678, left: 2430 - 3250 },
-          bottomRight: { top: 2590 - 1678, left: 4180 - 3250 }
+          topLeft: { top: -344, left: -388 },
+          bottomRight: { top: 436, left: 522 }
         },
         compassPoints: {},
         ladders: [
@@ -1438,11 +1444,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
             los: []
           },
           {
-            outside: true, top: -234, left: -375, id: 6, location: fortressTerms.cannonOverlook,
+            outdoor: true, top: -234, left: -375, id: 6, location: fortressTerms.cannonOverlook,
             los: []
           },
           {
-            outside: true, top: 202, left: 415, id: 7, location: fortressTerms.courtyardPath,
+            outdoor: true, top: 202, left: 415, id: 7, location: fortressTerms.courtyardPath,
             los: []
           },
           {
@@ -1453,19 +1459,39 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ceilingHatches: [
           { floor: 2, top: 358, left: 89 },
           { floor: 1, top: 297, left: 322 },
-          { floor: 1, top: 13, left: 202 },
+          { floor: 1, top: 37, left: 56 },
           { floor: 1, top: -10, left: -63 }
         ],
         skylights: [],
         droneTunnels: [
-          { floor: 1, top: 297, left: -98, rotate: 0, size: 23 },
+          // 1F
+          // external walls, starting south west going ccw
+          { floor: 1, top: 298, left: -98, rotate: 0, size: 23 },
           { floor: 1, top: 259, left: 106, rotate: 90, size: 23 },
           { floor: 1, top: 307, left: 263, rotate: 90, size: 23 },
           { floor: 1, top: -56, left: 259, rotate: 90, size: 23 },
           { floor: 1, top: -268, left: 287, rotate: 0, size: 23 },
           { floor: 1, top: -316, left: -13, rotate: 0, size: 51 },
           { floor: 1, top: -251, left: -283, rotate: 90, size: 40 },
-          { floor: 1, top: -258, left: -260, rotate: 45, size: 23 }
+          { floor: 1, top: -258, left: -260, rotate: 45, size: 23 },
+          // internal walls, starting south, going north
+          { floor: 1, top: 223, left: -109, rotate: 135, size: 10 },
+          { floor: 1, top: 223, left: -93, rotate: 90, size: 29 },
+          { floor: 1, top: 147, left: 22, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -16, left: 61, rotate: 0, size: 44 },
+          { floor: 1, top: -152, left: -97, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: -199, left: -194, rotate: 90, size: DRONE_SMALL },
+          // 2F
+          // external walls
+          { floor: 2, top: 261, left: -83, rotate: 90, size: 23 },
+          { floor: 2, top: -50, left: 280, rotate: 90, size: 23 },
+          // internal walls
+          { floor: 2, top: 282, left: 132, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 185, left: 118, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: 74, left: 46, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 32, left: -28, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -117, left: 58, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: -235, left: -176, rotate: 0, size: DRONE_SMALL }
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -690, left: -370, description: fortressTerms.mainGate },
@@ -1554,11 +1580,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
             los: [[{top: 213, left: -27}, {top: 179, left: 47}, {top: 110, left: 47}, {top: 110, left: 142}, {top: 248, left: 142}, {top: 248, left: 36}, {top: 333, left: -27}]]
           },
           {
-            outside: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance,
+            outdoor: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance,
             los: [[{top: -613, left: -132}, {top: -220, left: 362}]]
           },
           {
-            outside: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea,
+            outdoor: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea,
             los: [[{top: 434, left: -398}, {top: 543, left: -319}, {top: 550, left: -60}]]
           }
         ],
