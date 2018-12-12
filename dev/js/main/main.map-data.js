@@ -1458,7 +1458,14 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ],
         skylights: [],
         droneTunnels: [
-
+          { floor: 1, top: 297, left: -98, rotate: 0, size: 23 },
+          { floor: 1, top: 259, left: 106, rotate: 90, size: 23 },
+          { floor: 1, top: 307, left: 263, rotate: 90, size: 23 },
+          { floor: 1, top: -56, left: 259, rotate: 90, size: 23 },
+          { floor: 1, top: -268, left: 287, rotate: 0, size: 23 },
+          { floor: 1, top: -316, left: -13, rotate: 0, size: 51 },
+          { floor: 1, top: -260, left: -284, rotate: 90, size: 40 },
+          { floor: 1, top: -258, left: -260, rotate: 45, size: 23 }
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -690, left: -370, description: fortressTerms.mainGate },
