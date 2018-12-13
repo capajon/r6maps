@@ -1425,27 +1425,48 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         cameras: [
           {
             floor: 2, top: -278, left: -267, id: 1, location: fortressTerms.towerStairs,
-            los: []
+            los: [
+              [{ top: -273, left: -194 }, { top: -260, left: -54 }],
+              [{ top: -238, left: -249 }, { top: -165, left: -203 }]// 511, 584
+            ]
           },
           {
             floor: 2, top: 46, left: -57, id: 2, location: fortressTerms.centralStairsHall,
-            los: []
+            los: [
+              [{ top: 34, left: -201 }, { top: 36, left: -154 }],
+              [{ top: 38, left: 63 }, { top: 35, left: 96 }],
+              [{ top: 142, left: -41 }, { top: 167, left: -33 }],
+              [{ top: 177, left: -41 }, { top: 277, left: -29 }]
+            ]
           },
           {
             floor: 2, top: 313, left: 330, id: 3, location: fortressTerms.oldTower,
-            los: []
+            los: [
+              [{ top: 287, left: 153 }, { top: 293, left: 153 }, { top: 309, left: 285 }, { top: 320, left: 285 }],
+              [{ top: 322, left: 342 }, { top: 221, left: 402 }]
+            ]
           },
           {
             floor: 1, top: -234, left: -176, id: 4, location: fortressTerms.lobby,
-            los: []
+            los: [
+              [{ top: -291, left: -194}, { top: -287, left: -220 }, { top: -239, left: -220}],
+              [{ top: -191, left: -154 }, { top: -120, left: -112 }],
+              [{ top: -196, left: -95 }, { top: -190, left: -64 }],
+              [{ top: -227, left: -62 }, { top: -215, left: 81 }]
+            ]
           },
           {
             floor: 1, top: 224, left: -40, id: 5, location: fortressTerms.hammamHallway,
-            los: []
+            los: [
+              [{ top: -4, left: -81 }, { top: -26, left: -84 }],
+              [{ top: 244, left: -78 }, { top: 255, left: -76 }, { top: 255, left: -57 }, { top: 241, left: -53 }],
+              [{ top: 233, left: 108 }, { top: 251, left: 262 }],
+              [{ top: 203, left: 228 }, { top: 200, left: 293 }]
+            ]
           },
           {
             outdoor: true, top: -234, left: -375, id: 6, location: fortressTerms.cannonOverlook,
-            los: []
+            los: [[{ top: 0, left: -470 }, { top: -600, left: -320 }]]
           },
           {
             outdoor: true, top: 202, left: 415, id: 7, location: fortressTerms.courtyardPath,
@@ -1453,7 +1474,10 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           },
           {
             floor: 3, top: 315, left: 123, id: 8, location: fortressTerms.oldRoof,
-            los: []
+            los: [[
+              { top: 328, left: -450 }, { top: 328, left: 0 }, { top: 350, left: 10 }, { top: 350, left: 120 },
+              { top: 328, left: 130 }, { top: 500, left: 525 }
+            ]]
           }
         ],
         ceilingHatches: [
