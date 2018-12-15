@@ -968,7 +968,7 @@ var R6MLangTermsKorean = (function(R6MLangTerms, undefined) {
           cafe: '카페',
           cafeCorridor: '카페 통로',
           cafeStairs: '카페<br/>계단',
-          cafeTerrace: '카페<br/>통로',
+          cafeTerrace: '카페<br/>테라스',
           cashStash: '현금<br/>보관실',
           coffinRoom: '관 보관실',
           controlRoom: '통제실',
