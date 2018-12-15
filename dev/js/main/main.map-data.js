@@ -2645,6 +2645,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: -136, left: 230, rotate: 90, size: DRONE_SMALL },
           { floor: 1, top: -11, left: -271, rotate: 90, size: 74 },
           { floor: 1, top: -22, left: -239, rotate: 0, size: 34 },
+          { floor: 1, top: -263, left: -155, rotate: 0, size: DRONE_MED },
           { floor: 1, top: 40, left: -81, rotate: 0, size: DRONE_SMALL },
           { floor: 1, top: 222, left: -81, rotate: 0, size: DRONE_MED },
           { floor: 1, top: -200, left: 185, rotate: 0, size: DRONE_MED },
