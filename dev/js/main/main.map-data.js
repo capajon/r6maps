@@ -3222,8 +3222,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         },
         compassPoints: {
         },
-        ladders: [
-        ],
+        ladders: [],
         cameras: [
           {floor: 2, top: -353, left: 381, id: 1, location: villaTerms.astronomyRoom,
             los: [[{top: -397, left: 393}, {top: -280, left: 393}, {top: -280, left: 380}, {top: -244, left: 381}, {top: -244, left: 346}, {top: -280, left: 357}, {top: -280, left: 255}, {top: -350, left: 255}, {top: -350, left: 335}, {top: -355, left: 335}, {top: -368, left: 255}, {top: -397, left: 255}, {top: -397, left: 393}]]},
@@ -3246,15 +3245,127 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           {outdoor: true, top: -73, left: 685, id: 8, location: villaTerms.driveway,
           los: [[{top: 290, left: 392}, {top: -73, left: 686}, {top: -130, left: 720}]]}
         ],
-        ceilingHatches: [],
-        skylights: [],
-        droneTunnels: [],
+        ceilingHatches: [
+          // scale is off b/w map and hatch, so rescaling to fit.
+          { floor: 1, top: -59, left: 109, width: 25, height: 25 },
+          { floor: 1, top: -304, left: 300, width: 25, height: 25 },
+          { floor: 1, top: 213, left: 360, width: 25, height: 25 },
+          { floor: 1, top: -169, left: 556, width: 25, height: 25 },
+
+          { floor: 0, top: -111, left: 296, width: 25, height: 25 },
+          { floor: 0, top: -325, left: 498, width: 25, height: 25 }
+        ],
+        skylights: [
+          {floor: 1, otherFloor: 'up', top: -176, left: 345 },
+          {floor: 2, top: -193, left: 368 }
+        ],
+        droneTunnels: [
+          { floor: 0, top: -197, left: 296, rotate: 90, size: 12 },
+          { floor: 0, top: -315, left: 521, rotate: 90, size: 57 },
+          { floor: 1, top: 274, left: 169, rotate: 0, size: 44 },
+          { floor: 1, top: 224, left: 359, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 89, left: 90, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: 64, left: 372, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -123, left: 491, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -155, left: 177, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -295, left: 235, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: -32, left: 200, rotate: 90, size: 10 },
+          { floor: 2, top: -85, left: 227, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -279, left: 580, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -360, left: 409, rotate: 0, size: DRONE_SMALL }
+        ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -371, left: -155, description: villaTerms.spawnMainRoad },
           { letter: spawnTerms.b, top: 428, left: 371, description: villaTerms.spawnRuins },
           { letter: spawnTerms.c, top: -290, left: 845, description: villaTerms.spawnFountain }
         ],
-        roomLabels: []
+        roomLabels: [
+          // EXT
+          { outdoor: true, top: 380, left: 100, description: villaTerms.ruins, hardToRead: true },
+          { outdoor: true, top: 180, left: -50, description: villaTerms.roundabout, hardToRead: true },
+          { floor: 1, top: 270, left: 290, description: villaTerms.greenhouse },
+          { floor: 1, top: 160, left: 60, description: villaTerms.frontEntrance, veryHardToRead: true },
+          { floor: 3, top: 86, left: 263, description: villaTerms.roof, hardToRead: true },
+          { outdoor: true, top: 189, left: 460, description: villaTerms.terrace },
+          { outdoor: true, top: 59, left: 460, description: villaTerms.terrace, hardToRead: true },
+          { floor: 0, top: 59, left: 320, description: villaTerms.cryptTunnel },
+          { floor: 0, top: 120, left: 512, description: villaTerms.crypt, hardToRead: true },
+          { outdoor: true, top: 110, left: 600, description: villaTerms.cryptEntrance, hardToRead: true },
+          { outdoor: true, top: 119, left: 700, description: villaTerms.garden, hardToRead: true },
+          { outdoor: true, top: -20, left: 610, description: villaTerms.driveway, hardToRead: true },
+          { outdoor: true, top: -180, left: 653, description: villaTerms.driveway, hardToRead: true },
+          { outdoor: true, top: -370, left: 672, description: villaTerms.driveway, hardToRead: true },
+          { outdoor: true, top: -80, left: -80, description: villaTerms.mainRoad, hardToRead: true },
+          { outdoor: true, top: -40, left: 530, description: villaTerms.balcony, hardToRead: true },
+          { outdoor: true, top: -110, left: 724, description: villaTerms.pergola, hardToRead: true },
+          { outdoor: true, top: -170, left: 90, description: villaTerms.stableYard, hardToRead: true },
+          { floor: 3, top: -248, left: 481, description: villaTerms.skylightRoof, hardToRead: true },
+          { floor: 2, top: -95, left: 530, description: villaTerms.bedroomRoof, hardToRead: true },
+          { outdoor: true, top: -131, left: 820, description: villaTerms.chapel, hardToRead: true },
+          { floor: 0, top: -230, left: 570, description: villaTerms.garage, veryHardToRead: true },
+          { outdoor: true, top: -390, left: 740, description: villaTerms.fountain, hardToRead: true },
+          // hidden under stable's roof
+          { outdoor: true, top: -281, left: 80, description: villaTerms.stable, hardToRead: true },
+          { floor: 0, top: -380, left: 260, description: villaTerms.cellarTunnel, veryHardToRead: true },
+          { outdoor: true, top: -390, left: 420, description: villaTerms.sideRoad, veryHardToRead: true },
+          // 2F
+          { floor: 2, top: 282, left: 310, description: villaTerms.veranda },
+          { floor: 2, top: 206, left: 121, description: villaTerms.classicalHall, hardToRead: true },
+          { floor: 2, top: -14, left: 150, description: villaTerms.classicalHall, hardToRead: true },
+          { floor: 2, top: -60, left: 2830, description: villaTerms.classicalHall, hardToRead: true },
+          { floor: 2, top: 184, left: 350, description: villaTerms.study, hardToRead: true },
+          { floor: 2, top: 70, left: 165, description: villaTerms.gamesRoom, veryHardToRead: true },
+          { floor: 2, top: 108, left: 320, description: villaTerms.aviatorRoom, hardToRead: true },
+          { floor: 2, top: 6, left: 255, description: villaTerms.huntingVault },
+          { floor: 2, top: -38, left: 348, description: villaTerms.landing, veryHardToRead: true },
+          { floor: 2, top: -109, left: 286, description: villaTerms.trophyEntrance, veryHardToRead: true },
+          { floor: 2, top: -159, left: 447, description: villaTerms.statuaryRoom, hardToRead: true },
+          { floor: 2, top: -243, left: 297, description: villaTerms.trophyRoom, veryHardToRead: true },
+          { floor: 2, top: -235, left: 520, description: villaTerms.masterBedroom, veryHardToRead: true },
+          { floor: 2, top: -317, left: 296, description: villaTerms.astronomyRoom, veryHardToRead: true },
+          { floor: 2, top: -313, left: 440, description: villaTerms.masterBathroom, hardToRead: true },
+          { floor: 2, top: -313, left: 533, description: villaTerms.walkInCloset, veryHardToRead: true },
+          // 1F
+          { floor: 1, top: 197, left: 200, description: villaTerms.mainEntrance, veryHardToRead: true },
+          { floor: 1, top: 191, left: 347, description: villaTerms.artStudio, hardToRead: true },
+          { floor: 1, top: 127, left: 165, description: villaTerms.library, hardToRead: true },
+          { floor: 1, top: 44, left: 135, description: villaTerms.library, hardToRead: true },
+          { floor: 1, top: 95, left: 250, description: villaTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: 16, left: 310, description: villaTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: -74, left: 347, description: villaTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: 72, left: 319, description: villaTerms.pianoRoom, hardToRead: true },
+          { floor: 1, top: 50, left: 204, description: villaTerms.gallery, hardToRead: true },
+          { floor: 1, top: -26, left: 113, description: villaTerms.toilet, hardToRead: true },
+          { floor: 1, top: -41, left: 281, description: villaTerms.livingRoom, veryHardToRead: true },
+          { floor: 1, top: -131, left: 279, description: villaTerms.livingRoom, veryHardToRead: true },
+          { floor: 1, top: -40, left: 463, description: villaTerms.bicycleStorage, hardToRead: true },
+          { floor: 1, top: -128, left: 430, description: villaTerms.memorialRoom, veryHardToRead: true },
+          { floor: 1, top: -172, left: 207, description: villaTerms.mudroom, veryHardToRead: true },
+          { floor: 1, top: -204, left: 347, description: villaTerms.skylightHallway, hardToRead: true },
+          { floor: 1, top: -189, left: 528, description: villaTerms.laundry, hardToRead: true },
+          { floor: 1, top: -232, left: 280, description: villaTerms.backHallway, veryHardToRead: true },
+          { floor: 1, top: -247, left: 480, description: villaTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: -254, left: 340, description: villaTerms.chinaRoom, hardToRead: true },
+          { floor: 1, top: -325, left: 371, description: villaTerms.kitchen, veryHardToRead: true },
+          { floor: 1, top: -339, left: 502, description: villaTerms.pantry, hardToRead: true },
+          // B
+          { floor: 0, top: -40, left: 288, description: villaTerms.tastingRoom, veryHardToRead: true },
+          { floor: 0, top: -196, left: 268, description: villaTerms.archHallway, veryHardToRead: true },
+          { floor: 0, top: -190, left: 371, description: villaTerms.artStorage, hardToRead: true },
+          { floor: 0, top: -210, left: 466, description: villaTerms.oldOffice, veryHardToRead: true },
+          { floor: 0, top: -291, left: 357, description: villaTerms.wineCellar, veryHardToRead: true },
+          // Stairs
+          { floor: 1, top: 262, left: 170, description: villaTerms.mainStairs, veryHardToRead: true },
+          { floor: 2, top: 273, left: 180, description: villaTerms.mainStairs, veryHardToRead: true },
+          { floor: 0, top: -40, left: 370, description: villaTerms.redStairs, veryHardToRead: true },
+          { floor: 1, top: -40, left: 400, description: villaTerms.redStairs, veryHardToRead: true },
+          { floor: 2, top: -43, left: 420, description: villaTerms.redStairs, hardToRead: true },
+          { floor: 0, top: -331, left: 257, description: villaTerms.backStairs, veryHardToRead: true },
+          { floor: 1, top: -316, left: 270, description: villaTerms.backStairs, veryHardToRead: true },
+          { floor: 2, top: -370, left: 310, description: villaTerms.backStairs, veryHardToRead: true },
+          { floor: 0, top: -321, left: 519, description: villaTerms.pantryStairs, veryHardToRead: true },
+          { floor: 1, top: -315, left: 541, description: villaTerms.pantryStairs, veryHardToRead: true }
+        ]
       }
       /*emptytemplate: {
         name: 'Empty',
