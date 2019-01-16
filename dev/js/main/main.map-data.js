@@ -1609,158 +1609,189 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           'bomb', 'hostage', 'secure'
         ],
         floors: [
-          { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
-          { index: 1, top: -63, left: -414, name: floorTerms.firstFloor, default: true },
-          { index: 2, top: -63, left: -414, name: floorTerms.secondFloor },
-          { index: 3, top: -63, left: -414, name: floorTerms.thirdFloor },
-          { index: 4, top: -63, left: -414, name: floorTerms.roof }
+          // add `dontSelect: true, `, to this so we can put this in the bg and have a higher rez basement image
+          // also set index to -1, set delete hereford-0.jpg and then rename hereford-0a.jpg to hereford-0.jpg
+          // -1133, -1801 +300, +420
+          { index: 0, top: -1433, left: -2221, background: true, name: floorTerms.basement },
+          // uncomment when we have a way to not select a floor (on the fortress pr rn)
+          //{ index: 0, top: -1560, left: -2440, name: floorTerms.basement },
+          { index: 1, top: -238, left: -250, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -283, left: -250, name: floorTerms.secondFloor },
+          { index: 3, top: -284, left: -250, name: floorTerms.thirdFloor },
+          { index: 4, top: -284, left: -250, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 0, top: 193, left: -94 },
-          { floor: 1, top: 335, left: -111 },
-          { floor: 2, top: 224, left: -27 },
-          { floor: 3, top: 339, left: -84 }
+          { floor: 3, top: 58, left: -30 },
+          { floor: 2, top: -59, left: 102 },
+          { floor: 1, top: 83, left: -76 },
+          { floor: 0, top: 73, left: -117 }
         ],
         bombObjectives: [
-          { floor: 0, top: 145, left: -57, set: 4, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: 323, left: 77, set: 4, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 332, left: -63, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 132, left: -96, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 1, otherFloor: 'up', top: 352, left: 73, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 2, otherFloor: 'down', top: 352, left: 73, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 3, top: 399, left: 86, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 3, top: 386, left: -101, set: 1, letter: objectiveTerms.bombShortA }
+          { floor: 0, top: 58, left: -37, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: -119, left: -100, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 72, left: -35, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 72, left: 73, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -37, left: 147, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -133, left: -9, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 3, top: 58, left: -60, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 3, top: -198, left: -64, set: 1, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
-          { floor: 0, top: 146, left: -94 },
-          { floor: 1, top: 296, left: 111 },
-          { floor: 2, top: 176, left: 6 },
-          { floor: 3, top: 295, left: 86 }
+          { floor: 2, top: 112, left: -47 },
+          { floor: 2, top: -93, left: -9 },
+          { floor: 1, top: -67, left: 69 },
+          { floor: 0, top: -74, left: 79 }
         ],
         zoomPoints: {
-          topLeft: { top: 25, left: -268 },
-          bottomRight: { top: 463, left: 210 }
+          topLeft: { top: -280, left: -340 },
+          bottomRight: { top: 234, left: 285 }
         },
         compassPoints: {
-          top: 356, left: 497
+          top: -408, left: 330
         },
         ladders: [
-          { floor: 1, top: 434, left: 605, otherFloor: 'up' },
-          { floor: 2, top: 434, left: 605, otherFloor: 'down' },
-          { floor: 1, top: 444, left: -44, otherFloor: 'up' },
-          { floor: 2, top: 444, left: -44, otherFloor: 'down' },
-          { floor: 1, top: 346, left: -171, otherFloor: 'down' },
-          { floor: 0, top: 346, left: -171, otherFloor: 'up' },
-          { floor: 2, top: 184, left: -165, otherFloor: 'up' },
-          { floor: 3, top: 184, left: -165, otherFloor: 'down' }
+          { floor: 0, top: 165, left: 95, otherFloor: 'up' },
+          { floor: 1, top: 163, left: 112, otherFloor: 'down' }
         ],
         cameras: [
-          {
-            floor: 3, top: 205, left: -12, id: 1, location: herefordTerms.rooftop,
-            los: [[{top: 419, left: -28}, {top: 192, left: -28}, {top: 192, left: 141}]]
-          },
-          {
-            floor: 2, top: 268, left: -1, id: 2, location: herefordTerms.corridor,
+          { floor: 3, top: -54, left: 66, id: 1, location: herefordTerms.attic,
             los: [
-              [{top: 191, left: -46}, {top: 247, left: -11}, {top: 254, left: -11}, {top: 254, left: -28}, {top: 284, left: -28}, {top: 304, left: -99}],
-              [{top: 303, left: -37}, {top: 366, left: -140}],
-              [{top: 178, left: 33}, {top: 247, left: 18}, {top: 254, left: 18}, {top: 254, left: 33}, {top: 418, left: 33}]
+              [{ top: -5, left: 78 }, { top: -204, left: 74 }],
+              [{ top: -123, left: 59 }, { top: -218, left: 43 }]
             ]
           },
-          {
-            floor: 1, top: 247, left: 5, id: 3, location: herefordTerms.corridor1,
+          { floor: 2, top: 8, left: 58, id: 2, location: herefordTerms.mainHallway,
             los: [
-              [{top: 223, left: -121}, {top: 241, left: -26}],
-              [{top: 109, left: 18}, {top: 255, left: 18}, {top: 255, left: 32}, {top: 418, left: 32}]
+              [{ top: 4, left: 83 }, { top: 43, left: 96 }],
+              [{ top: 49, left: 92 }, { top: 140, left: 161 }],
+              [{ top: 46, left: 77 }, { top: 158, left: 134 }],
+              [{ top: 45, left: 3 }, { top: 128, left: -122 }],
+              [{ top: 33, left: 4 }, { top: 101, left: -103 }],
+              [{ top: 3, left: 20}, { top: -14, left: 17 }, { top: -17, left: 54 }, { top: 2, left: 48 }]
             ]
           },
-          {
-            floor: 0, top: 123, left: 125, id: 4, location: herefordTerms.lockers,
-            los: [[{top: 213, left: -27}, {top: 179, left: 47}, {top: 110, left: 47}, {top: 110, left: 142}, {top: 248, left: 142}, {top: 248, left: 36}, {top: 333, left: -27}]]
+          { floor: 1, top: -16, left: 35, id: 3, location: herefordTerms.mainHallway,
+            los: [
+              [{ top: -7, left: 7 }, { top: 15, left: 3 }, { top: 16, left: 46 }, { top: -7, left: 34 }],
+              [{ top: -20, left: -128 }, { top: -20, left: -241 }],
+              [{ top: -34, left: -129 }, { top: -44, left: -194 }],
+              [{ top: -138, left: 8 }, { top: -230, left: -18 }]
+            ]
           },
-          {
-            outdoor: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance,
-            los: [[{top: -613, left: -132}, {top: -220, left: 362}]]
+          { floor: 0, top: -13, left: 35, id: 4, location: herefordTerms.mainHallway,
+            los: [
+              [{ top: -17, left: 44 }, { top: -75, left: 12 }]
+            ]
           },
-          {
-            outdoor: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea,
-            los: [[{top: 434, left: -398}, {top: 543, left: -319}, {top: 550, left: -60}]]
+          { outside: true, top: -181, left: -326, id: 5, location: herefordTerms.westCourtyard,
+            los: [
+              [{ top: -359, left: -279 }, { top: -187, left: -328 }]
+            ]
+          },
+          { outside: true, top: 218, left: 190, id: 6, location: herefordTerms.street,
+            los: [
+              [{ top: 329, left: -219 }, { top: 214, left: 237 }]
+            ]
+          },
+          { outside: true, top: -361, left: 273, id: 7, location: herefordTerms.barnyard,
+            los: [
+              [{ top: -471, left: 100 }, { top: -363, left: 291 }]
+            ]
           }
         ],
         ceilingHatches: [
-          { floor: 0, top: 120, left: -158 },
-          { floor: 0, top: 398, left: -94 },
-          { floor: 1, top: 368, left: -86 },
-          { floor: 1, top: 403, left: 66 }
+          { floor: 0, top: -125, left: -119 },
+          { floor: 0, top: 86, left: -230 },
+          { floor: 0, top: 86, left: 123 },
+          { floor: 1, top: 129, left: -111 },
+          { floor: 1, top: -215, left: -3 },
+          { floor: 2, top: -209, left: -167 },
+          { floor: 2, top: -209, left: 147 },
+          { floor: 2, top: 143, left: 147 },
+          { floor: 2, top: 20, left: -62 }
         ],
         skylights: [],
         droneTunnels: [
-          { floor: 1, top: 239, left: -267, rotate: 90, size: DRONE_MED },
-          { floor: 0, top: 98, left: 24, rotate: 0, size: 26 },
-          { floor: 0, top: 83, left: 34, rotate: 90, size: 32 },
-          { floor: 1, top: 442, left: -13, rotate: 0, size: 52 },
-          { floor: 1, top: 340, left: 147, rotate: 90, size: DRONE_MED }
+          { floor: 1, top: 193, left: -65, rotate: 0, size: 9 },
+          { floor: 1, top: 146, left: 141, rotate: 0, size: 9 },
+          { floor: 1, top: 7, left: -244, rotate: 90, size: 9 },
+          { floor: 1, top: -231, left: -13, rotate: 0, size: 9 },
+          { floor: 2, top: 3, left: -115, rotate: 0, size: 9 },
+          { floor: 4, top: -1, left: -41, rotate: 90, size: DRONE_SMALL, otherFloor: 'down' }
         ],
         spawnPoints: [
-          { letter: spawnTerms.a, top: 322, left: -789, description: herefordTerms.spawnTrainingCourse },
-          { letter: spawnTerms.b, top: 236, left: 703, description: herefordTerms.spawnParking },
-          { letter: spawnTerms.c, top: -630, left: 27, description: herefordTerms.spawnShootingRange }
+          { letter: spawnTerms.a, top: 93, left: -639, description: herefordTerms.controlTower },
+          { letter: spawnTerms.b, top: 126, left: 753, description: herefordTerms.spitfireCourtyard },
+          { letter: spawnTerms.c, top: -820, left: 39, description: herefordTerms.shootingRange }
         ],
         roomLabels: [
-          { floor: 0, top: 263, left: -86, description: herefordTerms.armory },
-          { floor: 0, top: 191, left: 94, description: herefordTerms.lockers },
-          { floor: 0, top: 272, left: 2, description: herefordTerms.corridor },
-          { floor: 0, top: 407, left: 1, description: herefordTerms.mainStairs },
-          { floor: 0, top: 362, left: -88, description: herefordTerms.maintenanceArea },
-          { floor: 0, top: 288, left: 94, description: herefordTerms.briefingRoom },
-          { floor: 0, top: 218, left: 184, hardToRead: true, smaller: true, description: herefordTerms.basementEntrance },
-          { floor: 1, top: 223, left: -219, description: herefordTerms.garage },
-          { floor: 1, top: 177, left: -112, description: herefordTerms.TVRoom },
-          { floor: 1, top: 245, left: -96, hardToRead: true, description: herefordTerms.garageCorridor },
-          { floor: 1, top: 296, left: -138, description: herefordTerms.kitchen },
-          { floor: 1, top: 302, left: 2, description: herefordTerms.corridor1 },
-          { floor: 1, top: 407, left: 1, description: herefordTerms.mainStairs },
-          { floor: 1, top: 379, left: 119, description: herefordTerms.diningRoom },
-          { floor: 1, top: 218, left: 86, description: herefordTerms.pianoLounge },
-          { floor: 2, top: 320, left: -68, hardToRead: true, description: herefordTerms.office },
-          { floor: 2, top: 158, left: -67, hardToRead: true, description: herefordTerms.masterBedroom },
-          { floor: 2, top: 334, left: 1, description: herefordTerms.corridor },
-          { floor: 2, top: 407, left: 1, description: herefordTerms.mainStairs },
-          { floor: 2, top: 451, left: 1, description: herefordTerms.backAccess },
-          { floor: 2, top: 152, left: 116, hardToRead: true, description: herefordTerms.laundryRoom },
-          { floor: 2, top: 227, left: 87, hardToRead: true, description: herefordTerms.bathroom },
-          { floor: 2, top: 317, left: 91, hardToRead: true, description: herefordTerms.kidsBedroom },
-          { floor: 3, top: 223, left: -87, description: herefordTerms.ballisticMatDepot },
-          { floor: 3, top: 311, left: -68, description: herefordTerms.storage },
-          { floor: 3, top: 246, left: -9, smaller: true, description: herefordTerms.storageCorridor },
-          { floor: 3, top: 408, left: 1, description: herefordTerms.mainStairs },
-          { floor: 3, top: 374, left: 92, description: herefordTerms.dummyDepot },
-          { floor: 3, top: 261, left: 72, description: herefordTerms.workshop },
-          { outdoor: true, top: -284, left: -215, description: herefordTerms.shootingRangeWestEntrance },
-          { outdoor: true, top: -284, left: 254, description: herefordTerms.shootingRangeEastEntrance },
-          { outdoor: true, top: -114, left: 12, description: herefordTerms.tireSetting },
-          { outdoor: true, top: -264, left: 25, description: herefordTerms.observationRamp },
-          { outdoor: true, top: -38, left: 335, description: herefordTerms.barracks },
-          { outdoor: true, top: 319, left: 335, description: herefordTerms.barracks },
-          { outdoor: true, top: 526, left: 209, description: herefordTerms.busBackAlley },
-          { outdoor: true, top: 526, left: -215, description: herefordTerms.busBackAlley },
-          { outdoor: true, top: 295, left: -528, description: herefordTerms.rappelTower },
-          { floor: 3, top: 131, left: -1, description: herefordTerms.terrace },
-          { floor: 4, top: 131, left: -1, description: herefordTerms.terrace },
-          { outdoor: true, top: 2, left: -4, description: herefordTerms.frontAccess },
-          { outdoor: true, top: 29, left: -317, description: herefordTerms.chapelGate },
-          { outdoor: true, top: 286, left: -336, description: herefordTerms.forkliftArea },
-          { outdoor: true, top: 187, left: 266, description: herefordTerms.sideStairsAlley },
-          { outdoor: true, top: 50, left: 132, description: herefordTerms.basementEntrance },
-          { outdoor: true, top: 583, left: 646, description: herefordTerms.parkingEntrance },
-          { floor: 1, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 2, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 3, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 4, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 2, top: 283, left: -212, description: herefordTerms.garageTop },
-          { floor: 3, top: 283, left: -212, description: herefordTerms.garageTop },
-          { floor: 4, top: 283, left: -212, description: herefordTerms.garageTop },
-          { floor: 4, top: 318, left: -40, description: herefordTerms.rooftop }
+          // EXT
+          { outside: true, top: 293, left: -274, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 290, left: -3, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 287, left: 225, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 205, left: -154, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 141, left: -313, description: herefordTerms.westCourtyard, veryHardToRead: true },
+          { outside: true, top: -126, left: -300, description: herefordTerms.westCourtyard, veryHardToRead: true },
+          { outside: true, top: 150, left: 247, description: herefordTerms.eastCourtyard, veryHardToRead: true },
+          { outside: true, top: -188, left: 256, description: herefordTerms.eastCourtyard, veryHardToRead: true },
+          { outside: true, top: -309, left: -186, description: herefordTerms.barnyard, veryHardToRead: true },
+          { outside: true, top: -317, left: 143, description: herefordTerms.barnyard, veryHardToRead: true },
+          // 4F
+          { floor: 4, top: 135, left: -35, description: herefordTerms.rooftop, hardToRead: true },
+          { floor: 4, top: -34, left: 121, description: herefordTerms.rooftop, hardToRead: true },
+          { floor: 4, top: -161, left: -17, description: herefordTerms.rooftop, hardToRead: true },
+          { floor: 4, top: 33, left: -187, description: herefordTerms.garageRoof, veryHardToRead: true},
+          // 3F
+          { floor: 3, top: 206, left: 27, description: herefordTerms.balcony, hardToRead: true },
+          { floor: 3, top: 120, left: -50, description: herefordTerms.tractorStorage, hardToRead: true },
+          { floor: 3, top: 127, left: 45, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 3, top: 96, left: 124, description: herefordTerms.attic, hardToRead: true },
+          { floor: 3, top: -68, left: 66, description: herefordTerms.attic, hardToRead: true },
+          { floor: 3, top: -157, left: 93, description: herefordTerms.attic, hardToRead: true },
+          { floor: 3, top: -81, left: -146, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 3, top: -59, left: 176, description: herefordTerms.eastCourtyard, hardToRead: true },
+          { floor: 3, top: -168, left: -128, description: herefordTerms.ammoStorage, hardToRead: true },
+          { floor: 3, top: 33, left: -187, description: herefordTerms.garageRoof, veryHardToRead: true},
+          // 2F
+          { floor: 2, top: 197, left: 19, description: herefordTerms.balcony, hardToRead: true },
+          { floor: 2, top: 90, left: -60, description: herefordTerms.loomRoom, hardToRead: true },
+          { floor: 2, top: 122, left: 35, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 2, top: 97, left: 117, description: herefordTerms.laundryRoom, hardToRead: true },
+          { floor: 2, top: 33, left: -187, description: herefordTerms.garageRoof, veryHardToRead: true },
+          { floor: 2, top: 37, left: 75, description: herefordTerms.mainHallway.removeBreakTags(), hardToRead: true },
+          { floor: 2, top: 30, left: -99, description: herefordTerms.loomCloset, hardToRead: true },
+          { floor: 2, top: -61, left: -84, description: herefordTerms.blueHallway, hardToRead: true },
+          { floor: 2, top: -81, left: 114, description: herefordTerms.masterBedroom, hardToRead: true },
+          { floor: 2, top: -88, left: -148, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 2, top: -86, left: 10, description: herefordTerms.kidsRoom, hardToRead: true },
+          { floor: 2, top: -154, left: 109, description: herefordTerms.bathroom, hardToRead: true },
+          { floor: 2, top: -171, left: -116, description: herefordTerms.sewingRoom, hardToRead: true },
+          // 1F
+          { floor: 1, top: 181, left: 10, description: herefordTerms.prepArea, hardToRead: true },
+          { floor: 1, top: 36, left: -68, description: herefordTerms.kitchen, hardToRead: true },
+          { floor: 1, top: 113, left: 27, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 1, top: 28, left: 108, description: herefordTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: 54, left: -190, description: herefordTerms.garage, hardToRead: true },
+          { floor: 1, top: 29, left: 25, description: herefordTerms.kitchenEntrance, hardToRead: true },
+          { floor: 1, top: -13, left: -66, description: herefordTerms.mainHallway.removeBreakTags(), hardToRead: true },
+          { floor: 1, top: -101, left: -161, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 1, top: -65, left: 99, description: herefordTerms.pianoRoom, hardToRead: true },
+          { floor: 1, top: -87, left: -61, description: herefordTerms.livingRoom, hardToRead: true },
+          { floor: 1, top: -160, left: -10, description: herefordTerms.foyer, hardToRead: true },
+          { floor: 1, top: -171, left: 97, description: herefordTerms.barn, veryHardToRead: true },
+          // Basement
+          { floor: 0, top: 57, left: 157, description: herefordTerms.eastTunnel, veryHardToRead: true },
+          { floor: 0, top: 60, left: -106, description: herefordTerms.fermentationChamber, hardToRead: true },
+          { floor: 0, top: 102, left: 16, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 0, top: 53, left: -206, description: herefordTerms.generatorRoom, hardToRead: true },
+          { floor: 0, top: 58, left: 96, description: herefordTerms.workshop, hardToRead: true },
+          { floor: 0, top: 11, left: 13, description: herefordTerms.mainHallway, hardToRead: true },
+          { floor: 0, top: -79, left: -215, description: herefordTerms.westTunnel, veryHardToRead: true },
+          { floor: 0, top: -34, left: -75, description: herefordTerms.brewery, hardToRead: true },
+          { floor: 0, top: -78, left: 83, description: herefordTerms.barrelStorage, hardToRead: true },
+          { floor: 0, top: -112, left: -167, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 0, top: -173, left: 88, description: herefordTerms.barn, hardToRead: true }
+
         ]
       },
       house: {
