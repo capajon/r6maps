@@ -14,6 +14,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
     clubTerms = mapRoomTerms.club,
     consulateTerms = mapRoomTerms.consulate,
     favelaTerms = mapRoomTerms.favela,
+    fortressTerms = mapRoomTerms.fortress,
     herefordTerms = mapRoomTerms.hereford,
     houseTerms = mapRoomTerms.house,
     kanalTerms = mapRoomTerms.kanal,
@@ -805,15 +806,15 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { letter: spawnTerms.d, top: -675, left: 348, description: clubTerms.spawnConstructionSite }
         ],
         roomLabels: [
-          { outside: true, description: clubTerms.constructionSite, top: -528, left: 123 },
+          { outdoor: true, description: clubTerms.constructionSite, top: -528, left: 123 },
           { floor: 0, smaller: true, description: clubTerms.container, top: -507, left: 41 },
-          { outside: true, description: clubTerms.graffitiArea, top: -366, left: 22 },
-          { outside: true, description: clubTerms.recreationArea, top: -127, left: -317 },
-          { outside: true, description: clubTerms.junkyard, top: 64, left: -473 },
-          { outside: true, description: clubTerms.VIPParking, top: 322, left: -241 },
-          { outside: true, description: clubTerms.mainGate, top: 485, left: 3 },
-          { outside: true, description: clubTerms.parking, top: 160, left: -14 },
-          { outside: true, description: clubTerms.kennels, top: 125, left: 392 },
+          { outdoor: true, description: clubTerms.graffitiArea, top: -366, left: 22 },
+          { outdoor: true, description: clubTerms.recreationArea, top: -127, left: -317 },
+          { outdoor: true, description: clubTerms.junkyard, top: 64, left: -473 },
+          { outdoor: true, description: clubTerms.VIPParking, top: 322, left: -241 },
+          { outdoor: true, description: clubTerms.mainGate, top: 485, left: 3 },
+          { outdoor: true, description: clubTerms.parking, top: 160, left: -14 },
+          { outdoor: true, description: clubTerms.kennels, top: 125, left: 392 },
           { floor: 1, description: clubTerms.trash, top: -212, left: 205 },
           { floor: 2, description: clubTerms.trash, top: -212, left: 205 },
           { floor: 3, description: clubTerms.trash, top: -212, left: 205 },
@@ -1378,6 +1379,229 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 3, top: 420, left: -412, description: favelaTerms.marketRooftops, hardToRead: true }
         ]
       },
+      fortress: {
+        name: mapNameTerms.fortress,
+        imgUrlPrefix: 'fortress',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 0, top: -1678, left: -3250, background: true, dontSelect: true },
+          // top pixel 1315, left pixel 2894
+          { index: 1, top: 1315 - 1678, left: 2894 - 3250, name: floorTerms.firstFloor },
+          // top pixel 1315, left pixel 2781
+          { index: 2, top: 1315 - 1678, left: 2781 - 3250, name: floorTerms.secondFloor },
+          // top pixel 1310, left pixel 2885
+          { index: 3, top: 1310 - 1678, left: 2885 - 3250, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 2, top: -36, left: -25 },
+          { floor: 2, top: 204, left: 215 },
+          { floor: 1, top: 37, left: 63 },
+          { floor: 1, top: 141, left: -202 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: -161, left: -178, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -178, left: 1, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -4, left: 144, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 258, left: 13, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 108, left: 196, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 37, left: 93, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -64, left: -268, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 141, left: -232, set: 4, letter: objectiveTerms.bombShortA }
+        ],
+        secureObjectives: [
+          { floor: 2, top: -151, left: -148 },
+          { floor: 2, top: 142, left: 54 },
+          { floor: 1, top: 108, left: 166 },
+          { floor: 1, top: -157, left: -10 }
+        ],
+        zoomPoints: {
+          topLeft: { top: -344, left: -388 },
+          bottomRight: { top: 436, left: 522 }
+        },
+        compassPoints: {},
+        ladders: [
+          { floor: 1, top: -238, left: 279, otherFloor: 'up' },
+          { floor: 2, top: -238, left: 279, otherFloor: 'down' }
+        ],
+        cameras: [
+          {
+            floor: 2, top: -278, left: -267, id: 1, location: fortressTerms.towerStairs,
+            los: [
+              [{ top: -273, left: -194 }, { top: -260, left: -54 }],
+              [{ top: -238, left: -249 }, { top: -165, left: -203 }]// 511, 584
+            ]
+          },
+          {
+            floor: 2, top: 46, left: -57, id: 2, location: fortressTerms.centralStairsHall,
+            los: [
+              [{ top: 34, left: -201 }, { top: 36, left: -154 }],
+              [{ top: 38, left: 63 }, { top: 35, left: 96 }],
+              [{ top: 142, left: -41 }, { top: 167, left: -33 }],
+              [{ top: 177, left: -41 }, { top: 277, left: -29 }]
+            ]
+          },
+          {
+            floor: 2, top: 313, left: 330, id: 3, location: fortressTerms.oldTower,
+            los: [
+              [{ top: 287, left: 153 }, { top: 293, left: 153 }, { top: 309, left: 285 }, { top: 320, left: 285 }],
+              [{ top: 322, left: 342 }, { top: 221, left: 402 }]
+            ]
+          },
+          {
+            floor: 1, top: -234, left: -176, id: 4, location: fortressTerms.lobby,
+            los: [
+              [{ top: -291, left: -194}, { top: -287, left: -220 }, { top: -239, left: -220}],
+              [{ top: -191, left: -154 }, { top: -120, left: -112 }],
+              [{ top: -196, left: -95 }, { top: -190, left: -64 }],
+              [{ top: -227, left: -62 }, { top: -215, left: 81 }]
+            ]
+          },
+          {
+            floor: 1, top: 224, left: -40, id: 5, location: fortressTerms.hammamHallway,
+            los: [
+              [{ top: -4, left: -81 }, { top: -26, left: -84 }],
+              [{ top: 244, left: -78 }, { top: 255, left: -76 }, { top: 255, left: -57 }, { top: 241, left: -53 }],
+              [{ top: 233, left: 108 }, { top: 251, left: 262 }],
+              [{ top: 203, left: 228 }, { top: 200, left: 293 }]
+            ]
+          },
+          {
+            outdoor: true, top: -234, left: -375, id: 6, location: fortressTerms.cannonOverlook,
+            los: [[{ top: 0, left: -470 }, { top: -600, left: -320 }]]
+          },
+          {
+            outdoor: true, top: 202, left: 415, id: 7, location: fortressTerms.courtyardPath,
+            los: []
+          },
+          {
+            floor: 3, top: 315, left: 123, id: 8, location: fortressTerms.oldRoof,
+            los: [[
+              { top: 328, left: -450 }, { top: 328, left: 0 }, { top: 350, left: 10 }, { top: 350, left: 120 },
+              { top: 328, left: 130 }, { top: 500, left: 525 }
+            ]]
+          }
+        ],
+        ceilingHatches: [
+          { floor: 2, top: 358, left: 89 },
+          { floor: 1, top: 297, left: 322 },
+          { floor: 1, top: 37, left: 56 },
+          { floor: 1, top: -10, left: -63 }
+        ],
+        skylights: [
+          { floor: 1, otherFloor: 'up', top: -113, left: 186 },
+          { floor: 2, top: -113, left: 186 },
+          { floor: 3, otherFloor: 'down', top: -113, left: 186 }
+        ],
+        droneTunnels: [
+          // 1F
+          // external walls, starting south west going ccw
+          { floor: 1, top: 298, left: -98, rotate: 0, size: 23 },
+          { floor: 1, top: 259, left: 106, rotate: 90, size: 23 },
+          { floor: 1, top: 307, left: 263, rotate: 90, size: 23 },
+          { floor: 1, top: -56, left: 259, rotate: 90, size: 23 },
+          { floor: 1, top: -268, left: 287, rotate: 0, size: 23 },
+          { floor: 1, top: -316, left: -13, rotate: 0, size: 51 },
+          { floor: 1, top: -251, left: -283, rotate: 90, size: 40 },
+          { floor: 1, top: -258, left: -260, rotate: 45, size: 23 },
+          // internal walls, starting south, going north
+          { floor: 1, top: 223, left: -109, rotate: 135, size: 10 },
+          { floor: 1, top: 223, left: -93, rotate: 90, size: 29 },
+          { floor: 1, top: 147, left: 22, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -16, left: 61, rotate: 0, size: 44 },
+          { floor: 1, top: -152, left: -97, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: -199, left: -194, rotate: 90, size: DRONE_SMALL },
+          // 2F
+          // external walls
+          { floor: 2, top: 261, left: -83, rotate: 90, size: 23 },
+          { floor: 2, top: -50, left: 280, rotate: 90, size: 23 },
+          // internal walls
+          { floor: 2, top: 282, left: 132, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 185, left: 118, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: 74, left: 46, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 32, left: -28, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -117, left: 58, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: -235, left: -176, rotate: 0, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -690, left: -370, description: fortressTerms.mainGate },
+          { letter: spawnTerms.b, top: -690, left: 170, description: fortressTerms.parking },
+          { letter: spawnTerms.c, top: 670, left: 15, description: fortressTerms.garden },
+          { letter: spawnTerms.d, top: 580, left: 415, description: fortressTerms.stable }
+        ],
+        roomLabels: [
+          // EXT
+          { outdoor: true, top: 372, left: -260, description: fortressTerms.gardenPath, hardToRead: true },
+          { floor: 1, top: 345, left: 0, description: fortressTerms.gardenPath, hardToRead: true },
+          { outdoor: true, top: 400, left: 180, description: fortressTerms.gardenPath, hardToRead: true },
+          { outdoor: true, top: 400, left: 370, description: fortressTerms.stablePath, veryHardToRead: true },
+          { outdoor: true, top: 201, left: 509, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: -9, left: 499, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: -239, left: 419, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: -499, left: 380, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: 100, left: 410, description: fortressTerms.courtyardPath, hardToRead: true },
+          { outdoor: true, top: -120, left: 350, description: fortressTerms.courtyardPath, hardToRead: true },
+          { outdoor: true, top: 219, left: -401, description: fortressTerms.cannonOverlook, veryHardToRead: true },
+          { outdoor: true, top: -19, left: -401, description: fortressTerms.cannonOverlook, veryHardToRead: true },
+          { outdoor: true, top: -290, left: -341, description: fortressTerms.cannonOverlook, veryHardToRead: true },
+          { outdoor: true, top: -350, left: 170, description: fortressTerms.unloadingZone, veryHardToRead: true },
+          { outdoor: true, top: -403, left: -140, description: fortressTerms.frontEntrance, veryHardToRead: true },
+          // 1F
+          { floor: 1, top: 277, left: 325, description: fortressTerms.laundryRoom, hardToRead: true },
+          { floor: 1, top: 156, left: -140, description: fortressTerms.hammam, veryHardToRead: true },
+          { floor: 1, top: 255, left: -243, description: fortressTerms.hammam, veryHardToRead: true },
+          { floor: 1, top: 280, left: -134, description: fortressTerms.showers, veryHardToRead: true },
+          { floor: 1, top: 198, left: -45, description: fortressTerms.hammamHallway, hardToRead: true },
+          { floor: 1, top: 246, left: 183, description: fortressTerms.hammamHallway.removeBreakTags(), hardToRead: true },
+          { floor: 1, top: 202, left: 294, description: fortressTerms.oldTowerStairs, veryHardToRead: true },
+          { floor: 1, top: 154, left: 120, description: fortressTerms.cafeteria, hardToRead: true },
+          { floor: 1, top: 125, left: -13, description: fortressTerms.centralStairs, veryHardToRead: true },
+          { floor: 1, top: 70, left: 279, description: fortressTerms.infirmary, veryHardToRead: true },
+          { floor: 1, top: 39, left: 2, description: fortressTerms.kitchen, veryHardToRead: true },
+          { floor: 1, top: 44, left: -180, description: fortressTerms.changingRoom },
+          { floor: 1, top: -5, left: -100, description: fortressTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: 12, left: 170, description: fortressTerms.waitingRoom, hardToRead: true },
+          { floor: 1, top: -35, left: -207, description: fortressTerms.sittingRoom, hardToRead: true },
+          { floor: 1, top: -60, left: -35, description: fortressTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: -103, left: 143, description: fortressTerms.courtyard, hardToRead: true },
+          { floor: 1, top: -170, left: -239, description: fortressTerms.musicRoom, hardToRead: true },
+          { floor: 1, top: -223, left: -128, description: fortressTerms.lobby, hardToRead: true },
+          { floor: 1, top: -229, left: 243, description: fortressTerms.courtyardLadder, hardToRead: true },
+          { floor: 1, top: -251, left: -13, description: fortressTerms.office, hardToRead: true },
+          { floor: 1, top: -285, left: -237, description: fortressTerms.lobbyStairs, veryHardToRead: true },
+          // 2F
+          { floor: 2, top: 190, left: -200, description: fortressTerms.hammamRoof, veryHardToRead: true },
+          { floor: 2, top: 351, left: 0, description: fortressTerms.shishaLounge, veryHardToRead: true },
+          { floor: 2, top: 317, left: 190, description: fortressTerms.shishaHallway, hardToRead: true },
+          { floor: 2, top: 220, left: -49, description: fortressTerms.centralStairsHall, veryHardToRead: true },
+          { floor: 2, top: 63, left: 31, description: fortressTerms.centralStairsHall.removeBreakTags(), hardToRead: true },
+          { floor: 2, top: 230, left: 40, description: fortressTerms.dormitory, hardToRead: true },
+          { floor: 2, top: 132, left: 120, description: fortressTerms.dormitory, hardToRead: true },
+          { floor: 2, top: 232, left: 162, description: fortressTerms.gamesRoom, hardToRead: true },
+          { floor: 2, top: 128, left: -7, description: fortressTerms.centralStairs, veryHardToRead: true },
+          { floor: 2, top: 62, left: 200, description: fortressTerms.briefingRoom, veryHardToRead: true },
+          { floor: 2, top: 1, left: 300, description: fortressTerms.courtyardBalcony, veryHardToRead: true },
+          { floor: 2, top: -145, left: -241, description: fortressTerms.museum, hardToRead: true },
+          { floor: 2, top: 6, left: -160, description: fortressTerms.museum, hardToRead: true },
+          { floor: 2, top: 2, left: 0, description: fortressTerms.bathroom, hardToRead: true },
+          { floor: 2, top: -98, left: -120, description: fortressTerms.commandersOffice, veryHardToRead: true },
+          { floor: 2, top: -101, left: 143, description: fortressTerms.courtyard, hardToRead: true },
+          { floor: 2, top: -224, left: 247, description: fortressTerms.courtyardTower, veryHardToRead: true },
+          { floor: 2, top: -297, left: -236, description: fortressTerms.towerStairs, veryHardToRead: true },
+          { floor: 2, top: -246, left: -160, description: fortressTerms.towerHallway, veryHardToRead: true },
+          { floor: 2, top: -279, left: 0, description: fortressTerms.towerRenovation, veryHardToRead: true },
+          // Roof
+          { floor: 3, top: 190, left: -200, description: fortressTerms.hammamRoof, veryHardToRead: true },
+          { floor: 3, top: 230, left: 100, description: fortressTerms.oldRoof, veryHardToRead: true },
+          { floor: 3, top: 282, left: 356, description: fortressTerms.oldTower, veryHardToRead: true },
+          { floor: 3, top: -108, left: 0, description: fortressTerms.modernRoof, veryHardToRead: true },
+          { floor: 3, top: 1, left: 300, description: fortressTerms.courtyardBalcony, veryHardToRead: true },
+          { floor: 3, top: -288, left: -226, description: fortressTerms.westTower, veryHardToRead: true },
+          { floor: 3, top: -288, left: 16, description: fortressTerms.eastTower, veryHardToRead: true },
+          { floor: 3, top: -228, left: 280, description: fortressTerms.guardTower, veryHardToRead: true }
+        ]
+      },
       hereford: {
         name: mapNameTerms.hereford,
         imgUrlPrefix: 'hereford',
@@ -1455,11 +1679,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
             los: [[{top: 213, left: -27}, {top: 179, left: 47}, {top: 110, left: 47}, {top: 110, left: 142}, {top: 248, left: 142}, {top: 248, left: 36}, {top: 333, left: -27}]]
           },
           {
-            outside: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance,
+            outdoor: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance,
             los: [[{top: -613, left: -132}, {top: -220, left: 362}]]
           },
           {
-            outside: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea,
+            outdoor: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea,
             los: [[{top: 434, left: -398}, {top: 543, left: -319}, {top: 550, left: -60}]]
           }
         ],

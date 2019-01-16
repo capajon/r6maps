@@ -81,6 +81,10 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
       initalFloor = floorsGetCurrentIndex();
 
     floors.forEach(function(floor) {
+      // allows to have a bg image that can't be selected as a "floor"
+      if (floor.dontSelect) {
+        return;
+      }
       classes = '';
       classes += (floor.default) ? SELECTED_CLASS : '';
       tooltip = getFloorTooltip(floor.index);

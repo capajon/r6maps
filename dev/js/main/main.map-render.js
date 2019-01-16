@@ -301,6 +301,10 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
       cssClass = '';
 
     floors.forEach(function(floor) {
+      // allows to have a bg image that can't be selected as a "floor"
+      if (floor.dontSelect) {
+        return;
+      }
       cssClass = FLOOR_CSS_TEXT[floor.index];
       html += '<span class="' + cssClass + '">' + floor.name.full + '</span>';
     });
