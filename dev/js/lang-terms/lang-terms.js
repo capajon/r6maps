@@ -979,6 +979,68 @@ var R6MLangTerms = (function(undefined) {
           meetingHallRoof: 'Meeting<br/>Hall<br/>Roof',
           supplyCloset: 'Supply<br/>Closet'
         },
+        outback: {
+          // EXT
+          gasPumps: 'Gas Pumps',
+          motelParkingLot: 'Motel Parking Lot',
+          restaurantParking: 'Restaurant Parking',
+          motelWalkway: 'Motel Walkway',
+          camping: 'Camping',
+          picnicArea: 'Picnic Area',
+          miniGolf: 'Mini Golf',
+          storageYard: 'Storage Yard',
+
+          // 1F
+          garage: 'Garage',
+          waitingRoom: 'Waiting Room',
+          convenienceStore: 'Conveneince Store',
+          beerFridge: 'Beer Fridge',
+          compressorRoom: 'Compressor Room',
+          gearStore: 'Gear Store',
+          motelReception: 'Motel Reception',
+          reptileHallway: 'Reptile Hallway',
+          kitchen: 'Kitchen',
+          restaurant: 'Restaurant',
+          backEntrance: 'Back Entrance',
+          bushrangerRoom: 'Bushranger Room',
+          natureRoom: 'Nature Room',
+          restaurantHallway: 'Restaurant Hallway',
+          kitchenHallway: 'Kitchen Hallway',
+          bathroomHall: 'Bathroom Hall',
+          closet: 'Closet',
+          bathroom: 'Bathroom',
+
+          // 2F
+          garageLounge: 'Garage Lounge',
+          convenienceStoreRoof: 'Convenience Store Roof',
+          motelBalcony: 'Motel Balcony',
+          office: 'Office',
+          officeSupplies: 'Office Supplies',
+          mechanicalBull: 'Mechanical Bull',
+          partyRoom: 'Party Room',
+          electricalRoom: 'Electrical Room',
+          restarantRoof: 'Restaurant Roof',
+          gamesRoom: 'Games Room',
+          dorms: 'Dorms',
+          showers: 'Showers',
+          mezzanine: 'Mezzanine',
+          laundry: 'Laundry',
+          motelHallway: 'Motel Hallway',
+          pianoRoom: 'Piano Room',
+          terrace: 'Terrace',
+
+          // 3F/Roof
+          garageRoof: 'Garage Roof',
+          motelRoof: 'Motel Roof',
+
+          // Stairs
+          garageStairs: 'Garage Stairs',
+          motelBackStairs: 'Motel Back Stairs',
+          backStairs: 'Back Stairs',
+          pianoStairs: 'Piano Stairs',
+          restaurantStairs: 'Restaurant Stairs',
+          terraceStairs: 'Terrace Stairs'
+        },
         plane: {
           spawnOfficialEntrance: 'Official Entrance',
           spawnReporterEntrance: 'Reporter Entrance',

@@ -20,6 +20,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
     kanalTerms = mapRoomTerms.kanal,
     kafeTerms = mapRoomTerms.kafe,
     oregonTerms = mapRoomTerms.oregon,
+    outbackTerms = mapRoomTerms.outback,
     planeTerms = mapRoomTerms.plane,
     skyscraperTerms = mapRoomTerms.skyscraper,
     bartlettTerms = mapRoomTerms.bartlett,
@@ -2444,6 +2445,53 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 3, top: 91, left: 58, description: oregonTerms.dormsRoof },
           { floor: 3, top: -77, left: 144, description: oregonTerms.meetingHallRoof },
           { floor: 3, top: -233, left: 177, description: oregonTerms.watchTower }
+        ]
+      },
+      outback: {
+        name: mapNameTerms.outback,
+        imgUrlPrefix: 'outback',
+        objectives: [
+          'bomb'
+        ],
+        floors: [
+          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -715, left: -920, name: floorTerms.secondFloor },
+          { index: 3, top: -715, left: -920, name: floorTerms.roof }
+        ],
+        hostageObjectives: [],
+        bombObjectives: [
+          { floor: 2, top: 30, left: 30, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 60, left: 60, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -30, left: -30, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -60, left: -60, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 30, left: 30, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 60, left: 60, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: -30, left: -30, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -60, left: -60, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [],
+        zoomPoints: {},
+        compassPoints: {},
+        ladders: [],
+        cameras: [
+          { outdoor: true, top: -14, left: 248, id: 1, location: outbackTerms.gasPumps, los: [] },
+          { outdoor: true, top: -14, left: 248, id: 2, location: outbackTerms.picnicArea, los: [] },
+          { outdoor: true, top: -14, left: 248, id: 3, location: outbackTerms.motelParkingLot, los: [] },
+          { floor: 2, top: -14, left: 248, id: 4, location: outbackTerms.pianoRoom, los: [] },
+          { floor: 2, top: -14, left: 248, id: 5, location: outbackTerms.garageLounge, los: [] },
+          { floor: 2, top: -14, left: 248, id: 6, location: outbackTerms.mezzanine, los: [] },
+          { floor: 1, top: -14, left: 248, id: 7, location: outbackTerms.backEntrance, los: [] }
+        ],
+        ceilingHatches: [],
+        skylights: [],
+        droneTunnels: [],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -428, left: 434, description: outbackTerms.storageYard },
+          { letter: spawnTerms.b, top: -489, left: -408, description: outbackTerms.camping },
+          { letter: spawnTerms.c, top: 385, left: 342, description: outbackTerms.gasPumps }
+        ],
+        roomLabels: [
+          { floor: 0, top: 0, left: 0, description: '' }
         ]
       },
       plane: {
