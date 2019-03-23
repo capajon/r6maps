@@ -2464,10 +2464,10 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ],
         hostageObjectives: [],
         bombObjectives: [
-          { floor: 2, top: 30, left: 30, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 60, left: 60, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: -30, left: -30, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: -60, left: -60, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -63, left: 275, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 10, left: 388, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 101, left: 566, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 215, left: 493, set: 2, letter: objectiveTerms.bombShortB },
           { floor: 1, top: -15, left: 224, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: -29, left: 306, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 1, top: 189, left: 609, set: 4, letter: objectiveTerms.bombShortA },
@@ -2484,9 +2484,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { outdoor: true, top: 456, left: 815, id: 1, location: outbackTerms.gasPumps, los: [] },
           { outdoor: true, top: -211, left: 590, id: 2, location: outbackTerms.picnicArea, los: [] },
           { outdoor: true, top: 339, left: 241, id: 3, location: outbackTerms.motelParkingLot, los: [] },
-          { floor: 2, top: -14, left: 248, id: 4, location: outbackTerms.pianoRoom, los: [] },
-          { floor: 2, top: -14, left: 248, id: 5, location: outbackTerms.garageLounge, los: [] },
-          { floor: 2, top: -14, left: 248, id: 6, location: outbackTerms.mezzanine, los: [] },
+          { floor: 2, top: -101, left: 319, id: 4, location: outbackTerms.pianoRoom, los: [] },
+          { floor: 2, top: 452, left: 493, id: 5, location: outbackTerms.garageLounge, los: [] },
+          { floor: 1, otherFloor: 'up', top: 443, left: 497, id: 5, location: outbackTerms.garageLounge, los: [] },
+          { floor: 2, top: -56, left: 568, id: 6, location: outbackTerms.mezzanine, los: [] },
+          { floor: 1, otherFloor: 'up', top: -56, left: 568, id: 6, location: outbackTerms.mezzanine, los: [] },
           { floor: 1, top: 28, left: 132, id: 7, location: outbackTerms.backEntrance, los: [] }
         ],
         ceilingHatches: [
@@ -2495,11 +2497,26 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 147, left: 475 }
         ],
         skylights: [],
-        droneTunnels: [],
+        droneTunnels: [
+          { floor: 1, top: 302, left: 690, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: 254, left: 554, rotate: 90, size: 12 },
+          { floor: 1, top: 457, left: 497, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 340, left: 421, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 117, left: 407, rotate: 90, size: 12 },
+          { floor: 1, top: -17, left: 435, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: -144, left: 290, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 67, left: 97, rotate: 0, size: DRONE_SMALL },
+
+          { floor: 2, top: 70, left: 189, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 164, left: 418, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -38, left: 483, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: 238, left: 617, rotate: 90, size: 53 },
+          { floor: 2, top: 278, left: 620, rotate: 90, size: DRONE_SMALL }
+        ],
         spawnPoints: [
-          { letter: spawnTerms.a, top: -318, left: 804, description: outbackTerms.storageYard },
-          { letter: spawnTerms.b, top: 131, left: -218, description: outbackTerms.camping },
-          { letter: spawnTerms.c, top: 625, left: 462, description: outbackTerms.gasPumps }
+          { letter: spawnTerms.a, top: -406, left: 634, description: outbackTerms.storageYard },
+          { letter: spawnTerms.b, top: 755, left: 614, description: outbackTerms.gasPumps },
+          { letter: spawnTerms.c, top: -145, left: -236, description: outbackTerms.camping }
         ],
         roomLabels: [
           { outside: true, top: 549, left: 319, description: outbackTerms.gasPumps, veryHardToRead: true },
@@ -2519,7 +2536,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: -64, left: 68, description: outbackTerms.motelBackStairs, hardToRead: true },
           { floor: 1, top: -84, left: 112, description: outbackTerms.backStairs, hardToRead: true },
           { floor: 1, top: -83, left: 383, description: outbackTerms.pianoStairs, veryHardToRead: true },
-          { floor: 1, top: -65, left: 564, description: outbackTerms.restaurantStairs, veryHardToRead: true },
+          { floor: 1, top: -79, left: 579, description: outbackTerms.restaurantStairs, veryHardToRead: true },
           { floor: 1, top: -103, left: 496, description: outbackTerms.terraceStairs, veryHardToRead: true },
 
           { floor: 1, top: 400, left: 495, description: outbackTerms.garage, hardToRead: true },
@@ -2544,11 +2561,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: -48, left: 237, description: outbackTerms.closet, veryHardToRead: true },
           { floor: 1, top: -100, left: 256, description: outbackTerms.bathroom, hardToRead: true },
 
-          { floor: 2, top: 292, left: 434, description: outbackTerms.garageStairs, hardToRead: true },
+          { floor: 2, top: 267, left: 438, description: outbackTerms.garageStairs, hardToRead: true },
           { floor: 2, top: -64, left: 68, description: outbackTerms.motelBackStairs, hardToRead: true },
           { floor: 2, top: -84, left: 112, description: outbackTerms.backStairs, hardToRead: true },
           { floor: 2, top: -83, left: 383, description: outbackTerms.pianoStairs, veryHardToRead: true },
-          { floor: 2, top: -65, left: 564, description: outbackTerms.restaurantStairs, veryHardToRead: true },
+          { floor: 2, top: -79, left: 579, description: outbackTerms.restaurantStairs, veryHardToRead: true },
           { floor: 2, top: -103, left: 496, description: outbackTerms.terraceStairs, veryHardToRead: true },
 
           { floor: 2, top: 407, left: 494, description: outbackTerms.garageLounge, hardToRead: true },

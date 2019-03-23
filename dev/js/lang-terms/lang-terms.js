@@ -1025,7 +1025,7 @@ var R6MLangTerms = (function(undefined) {
           mechanicalBull: 'Mechanical<br/>Bull',
           partyRoom: 'Party Room',
           electricalRoom: 'Electrical<br/>Room',
-          gamesRoom: 'Games Room',
+          gamesRoom: 'Games<br/>Room',
           dorms: 'Dorms',
           showers: 'Showers',
           mezzanine: 'Mezzanine',
