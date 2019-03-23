@@ -221,6 +221,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.outback div.image.thumb {
+          @include map-thumb-icon(21);
+        }
+        body[loaded-map="outback"] &.outback p {
+          @include map-name-selected();
+        }
+
         &.plane div.image.thumb {
           @include map-thumb-icon(12);
         }
