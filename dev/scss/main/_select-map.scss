@@ -179,6 +179,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.fortress div.image.thumb {
+          @include map-thumb-icon(20);
+        }
+        body[loaded-map="fortress"] &.favela p {
+          @include map-name-selected();
+        }
+
         &.hereford div.image.thumb {
           @include map-thumb-icon(7);
         }
