@@ -2451,7 +2451,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         name: mapNameTerms.outback,
         imgUrlPrefix: 'outback',
         objectives: [
-          'bomb'
+          'bomb', 'hostage', 'secure'
         ],
         floors: [
           { index: 0, top: -1118, left: -2538, background: true, name: '', dontSelect: true },
@@ -2462,18 +2462,29 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           // top: 963 left: 2560
           { index: 3, top: -155, left: 22, name: floorTerms.roof }
         ],
-        hostageObjectives: [],
-        bombObjectives: [
-          { floor: 2, top: -63, left: 275, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 10, left: 388, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: 101, left: 566, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 215, left: 493, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: -15, left: 224, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: -29, left: 306, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: 189, left: 609, set: 4, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 210, left: 465, set: 4, letter: objectiveTerms.bombShortB }
+        hostageObjectives: [
+          { floor: 2, top: -43, left: 275, smaller: true },
+          { floor: 2, top: 187, left: 488, smaller: true },
+          { floor: 1, top: -48, left: 331, smaller: true },
+          { floor: 1, top: 267, left: 632, smaller: true }
         ],
-        secureObjectives: [],
+        bombObjectives: [
+          { floor: 2, top: -63, left: 275, set: 1, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 2, top: 10, left: 388, set: 1, letter: objectiveTerms.bombShortB, smaller: true  },
+          { floor: 2, top: 101, left: 566, set: 2, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 2, top: 211, left: 493, set: 2, letter: objectiveTerms.bombShortB, smaller: true  },
+          { floor: 1, top: -19, left: 221, set: 3, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 1, top: -25, left: 309, set: 3, letter: objectiveTerms.bombShortB, smaller: true  },
+          { floor: 1, top: 189, left: 609, set: 4, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 1, top: 210, left: 465, set: 4, letter: objectiveTerms.bombShortB, smaller: true  }
+        ],
+        secureObjectives: [
+          // dorms office garage kitchen
+          { floor: 2, top: 4, left: 144, smaller: true },
+          { floor: 2, top: 192, left: 464, smaller: true },
+          { floor: 1, top: 325, left: 497, smaller: true },
+          { floor: 1, top: 109, left: 468, smaller: true }
+        ],
         zoomPoints: {
           topLeft: { top: -300, left: 0 },
           bottomRight: { top: 500, left: 500}
@@ -2481,13 +2492,51 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         compassPoints: { top: 398, left: -110 },
         ladders: [],
         cameras: [
-          { outdoor: true, top: 456, left: 815, id: 1, location: outbackTerms.gasPumps, los: [] },
-          { outdoor: true, top: -211, left: 590, id: 2, location: outbackTerms.picnicArea, los: [] },
-          { outdoor: true, top: 339, left: 241, id: 3, location: outbackTerms.motelParkingLot, los: [] },
-          { floor: 2, top: -101, left: 319, id: 4, location: outbackTerms.pianoRoom, los: [] },
-          { floor: 2, top: 452, left: 493, id: 5, location: outbackTerms.garageLounge, los: [] },
-          { floor: 1, otherFloor: 'up', top: 443, left: 497, id: 5, location: outbackTerms.garageLounge, los: [] },
-          { floor: 2, top: -56, left: 568, id: 6, location: outbackTerms.mezzanine, los: [] },
+          { outdoor: true, top: 456, left: 815, id: 1, location: outbackTerms.gasPumps,
+            los: [
+              [{ top: 640, left: 713 }, { top: 456, left: 835 }, { top: -330, left: 745 }]
+            ]
+          },
+          { outdoor: true, top: -211, left: 590, id: 2, location: outbackTerms.picnicArea,
+            los: [
+              [{ top: -201, left: 150 }, { top: -211, left: 590 }, { top: -270, left: 800 }]
+            ]
+          },
+          { outdoor: true, top: 339, left: 241, id: 3, location: outbackTerms.motelParkingLot,
+            los: [
+              [{ top: 250, left: 106 }, { top: 480, left: 358 }],
+              [{ top: -9, left: -41 }, { top: 160, left: 104 }],
+              [{ top: -150, left: -25 }, { top: 69, left: 85 }]
+            ]
+          },
+          { floor: 2, top: -101, left: 319, id: 4, location: outbackTerms.pianoRoom,
+            los: [
+              [{ top: -40, left: 371 }, { top: -21, left: 385 }],
+              [{ top: -11, left: 302 }, { top: 10, left: 300 }]
+            ]
+          },
+          { floor: 2, top: 452, left: 493, id: 5, location: outbackTerms.garageLounge,
+            los: [
+              [{ top: 310, left: 415 }, { top: 334, left: 441 }],
+              [{ top: 243, left: 452 }, { top: 270, left: 460 }],
+              [{ top: 235, left: 497 }, { top: 198, left: 498 }, { top: 198, left: 527 }, { top: 235, left: 518 }],
+              [{ top: 235, left: 530 }, { top: 170, left: 542 }, { top: 170, left: 562 }, { top: 235, left: 550 }]
+            ]
+          },
+          { floor: 1, otherFloor: 'up', top: 443, left: 497, id: 5, location: outbackTerms.garageLounge,
+            los: [
+              [{ top: 241, left: 450 }, { top: 453, left: 450 }],
+              [{ top: 264, left: 535 }, { top: 453, left: 535 }]
+            ]
+          },
+          { floor: 2, top: -56, left: 568, id: 6, location: outbackTerms.mezzanine,
+            los: [
+              [{ top: -63, left: 489 }, { top: -63, left: 576 }, { top: 27, left: 576 }],
+              [{ top: 24, left: 529 }, { top: 65, left: 509 }],
+              [{ top: 67, left: 502 }, { top: 162, left: 460 }],
+              [{ top: 38, left: 486 }, { top: 125, left: 430 }]
+            ]
+          },
           { floor: 1, otherFloor: 'up', top: -56, left: 568, id: 6, location: outbackTerms.mezzanine, los: [] },
           { floor: 1, top: 28, left: 132, id: 7, location: outbackTerms.backEntrance, los: [] }
         ],
@@ -2510,7 +2559,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: 70, left: 189, rotate: 0, size: DRONE_SMALL },
           { floor: 2, top: 164, left: 418, rotate: 0, size: DRONE_SMALL },
           { floor: 2, top: -38, left: 483, rotate: 90, size: DRONE_SMALL },
-          { floor: 2, top: 238, left: 617, rotate: 90, size: 53 },
+          { floor: 2, top: 260, left: 617, rotate: 0, size: 49 },
           { floor: 2, top: 278, left: 620, rotate: 90, size: DRONE_SMALL }
         ],
         spawnPoints: [
@@ -2542,7 +2591,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 400, left: 495, description: outbackTerms.garage, hardToRead: true },
           { floor: 1, top: 300, left: 504, description: outbackTerms.garage, hardToRead: true },
           { floor: 1, top: 380, left: 574, description: outbackTerms.waitingRoom, veryHardToRead: true },
-          { floor: 1, top: 270, left: 642, description: outbackTerms.convenienceStore, hardToRead: true },
+          { floor: 1, top: 324, left: 642, description: outbackTerms.convenienceStore, hardToRead: true },
           { floor: 1, top: 281, left: 574, description: outbackTerms.beerFridge, hardToRead: true },
           { floor: 1, top: 206, left: 644, description: outbackTerms.gearStore, hardToRead: true },
           { floor: 1, top: 205, left: 515, description: outbackTerms.compressorRoom, hardToRead: true },
@@ -2572,7 +2621,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: 279, left: 507, description: outbackTerms.garageLounge, hardToRead: true },
           { floor: 2, top: 307, left: 626, description: outbackTerms.convenienceStoreRoof, hardToRead: true },
           { floor: 2, top: 140, left: 250, description: outbackTerms.motelBalcony, hardToRead: true },
-          { floor: 2, top: 215, left: 501, description: outbackTerms.office, hardToRead: true },
+          { floor: 2, top: 215, left: 451, description: outbackTerms.office, hardToRead: true },
           { floor: 2, top: 206, left: 607, description: outbackTerms.officeSupplies, hardToRead: true },
           { floor: 2, top: 110, left: 467, description: outbackTerms.mechanicalBull, hardToRead: true },
           { floor: 2, top: 127, left: 545, description: outbackTerms.partyRoom, hardToRead: true },
