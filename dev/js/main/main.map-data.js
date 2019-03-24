@@ -14,18 +14,21 @@ var R6MMainData = (function(R6MLangTerms, undefined){
     clubTerms = mapRoomTerms.club,
     consulateTerms = mapRoomTerms.consulate,
     favelaTerms = mapRoomTerms.favela,
+    fortressTerms = mapRoomTerms.fortress,
     herefordTerms = mapRoomTerms.hereford,
     houseTerms = mapRoomTerms.house,
     kanalTerms = mapRoomTerms.kanal,
     kafeTerms = mapRoomTerms.kafe,
     oregonTerms = mapRoomTerms.oregon,
+    outbackTerms = mapRoomTerms.outback,
     planeTerms = mapRoomTerms.plane,
     skyscraperTerms = mapRoomTerms.skyscraper,
     bartlettTerms = mapRoomTerms.bartlett,
     coastlineTerms = mapRoomTerms.coastline,
     themeparkTerms = mapRoomTerms.themepark,
     towerTerms = mapRoomTerms.tower,
-    yachtTerms = mapRoomTerms.yacht;
+    yachtTerms = mapRoomTerms.yacht,
+    villaTerms = mapRoomTerms.villa;
 
   var getMapData = function getMapData() {
     return {
@@ -453,7 +456,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: -99, left: -305, rotate: 90, size: DRONE_MED },
           { floor: 1, top: -392, left: -188, rotate: 0, size: DRONE_MED },
           { floor: 1, top: -391, left: 158, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: -253, left: 262, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: -253, left: 220, rotate: 0, size: DRONE_MED },
           { floor: 1, top: -215, left: 108, rotate: 90, size: DRONE_SMALL },
           { floor: 1, top: -103, left: 330, rotate: 0, size: 39 },
           { floor: 1, top: -83, left: 331, rotate: 90, size: 58 }
@@ -804,15 +807,15 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { letter: spawnTerms.d, top: -675, left: 348, description: clubTerms.spawnConstructionSite }
         ],
         roomLabels: [
-          { outside: true, description: clubTerms.constructionSite, top: -528, left: 123 },
+          { outdoor: true, description: clubTerms.constructionSite, top: -528, left: 123 },
           { floor: 0, smaller: true, description: clubTerms.container, top: -507, left: 41 },
-          { outside: true, description: clubTerms.graffitiArea, top: -366, left: 22 },
-          { outside: true, description: clubTerms.recreationArea, top: -127, left: -317 },
-          { outside: true, description: clubTerms.junkyard, top: 64, left: -473 },
-          { outside: true, description: clubTerms.VIPParking, top: 322, left: -241 },
-          { outside: true, description: clubTerms.mainGate, top: 485, left: 3 },
-          { outside: true, description: clubTerms.parking, top: 160, left: -14 },
-          { outside: true, description: clubTerms.kennels, top: 125, left: 392 },
+          { outdoor: true, description: clubTerms.graffitiArea, top: -366, left: 22 },
+          { outdoor: true, description: clubTerms.recreationArea, top: -127, left: -317 },
+          { outdoor: true, description: clubTerms.junkyard, top: 64, left: -473 },
+          { outdoor: true, description: clubTerms.VIPParking, top: 322, left: -241 },
+          { outdoor: true, description: clubTerms.mainGate, top: 485, left: 3 },
+          { outdoor: true, description: clubTerms.parking, top: 160, left: -14 },
+          { outdoor: true, description: clubTerms.kennels, top: 125, left: 392 },
           { floor: 1, description: clubTerms.trash, top: -212, left: 205 },
           { floor: 2, description: clubTerms.trash, top: -212, left: 205 },
           { floor: 3, description: clubTerms.trash, top: -212, left: 205 },
@@ -1056,9 +1059,11 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: 41, left: 203 },
           { floor: 2, top: 121, left: -294 },
           { floor: 2, top: 45, left: 328 },
-          { floor: 0, top: -34, left: 302 }
+          { floor: 0, top: -34, left: 328 }
         ],
         bombObjectives: [
+          { floor: 0, top: -34, left: 292, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 75, left: 115, set: 4, letter: objectiveTerms.bombShortB },
           { floor: 0, top: 56, left: -239, set: 3, letter: objectiveTerms.bombShortB },
           { floor: 0, top: 130, left: -29, set: 3, letter: objectiveTerms.bombShortA },
           { floor: 1, top: 153, left: -255, set: 2, letter: objectiveTerms.bombShortA },
@@ -1068,9 +1073,9 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ],
         secureObjectives: [
           { floor: 0, top: -26, left: -183 },
-          { floor: 0, top: -34, left: 346 },
+          { floor: 0, top: -34, left: 364 },
           { floor: 1, top: -6, left: 326 },
-          { floor: 2, top: 0, left: 310 }
+          { floor: 2, top: 0, left: 305 }
         ],
         zoomPoints: {
           topLeft: { top: -196, left: -354 },
@@ -1375,6 +1380,229 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 3, top: 420, left: -412, description: favelaTerms.marketRooftops, hardToRead: true }
         ]
       },
+      fortress: {
+        name: mapNameTerms.fortress,
+        imgUrlPrefix: 'fortress',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 0, top: -1678, left: -3250, background: true, dontSelect: true },
+          // top pixel 1315, left pixel 2894
+          { index: 1, top: 1315 - 1678, left: 2894 - 3250, name: floorTerms.firstFloor },
+          // top pixel 1315, left pixel 2781
+          { index: 2, top: 1315 - 1678, left: 2781 - 3250, name: floorTerms.secondFloor },
+          // top pixel 1310, left pixel 2885
+          { index: 3, top: 1310 - 1678, left: 2885 - 3250, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 2, top: -36, left: -25 },
+          { floor: 2, top: 204, left: 215 },
+          { floor: 1, top: 37, left: 63 },
+          { floor: 1, top: 141, left: -202 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: -161, left: -178, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -178, left: 1, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -4, left: 144, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: 258, left: 13, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 108, left: 196, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 37, left: 93, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -64, left: -268, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 1, top: 141, left: -232, set: 4, letter: objectiveTerms.bombShortA }
+        ],
+        secureObjectives: [
+          { floor: 2, top: -151, left: -148 },
+          { floor: 2, top: 142, left: 54 },
+          { floor: 1, top: 108, left: 166 },
+          { floor: 1, top: -157, left: -10 }
+        ],
+        zoomPoints: {
+          topLeft: { top: -344, left: -388 },
+          bottomRight: { top: 436, left: 522 }
+        },
+        compassPoints: {},
+        ladders: [
+          { floor: 1, top: -238, left: 279, otherFloor: 'up' },
+          { floor: 2, top: -238, left: 279, otherFloor: 'down' }
+        ],
+        cameras: [
+          {
+            floor: 2, top: -278, left: -267, id: 1, location: fortressTerms.towerStairs,
+            los: [
+              [{ top: -273, left: -194 }, { top: -260, left: -54 }],
+              [{ top: -238, left: -249 }, { top: -165, left: -203 }]// 511, 584
+            ]
+          },
+          {
+            floor: 2, top: 46, left: -57, id: 2, location: fortressTerms.centralStairsHall,
+            los: [
+              [{ top: 34, left: -201 }, { top: 36, left: -154 }],
+              [{ top: 38, left: 63 }, { top: 35, left: 96 }],
+              [{ top: 142, left: -41 }, { top: 167, left: -33 }],
+              [{ top: 177, left: -41 }, { top: 277, left: -29 }]
+            ]
+          },
+          {
+            floor: 2, top: 313, left: 330, id: 3, location: fortressTerms.oldTower,
+            los: [
+              [{ top: 287, left: 153 }, { top: 293, left: 153 }, { top: 309, left: 285 }, { top: 320, left: 285 }],
+              [{ top: 322, left: 342 }, { top: 221, left: 402 }]
+            ]
+          },
+          {
+            floor: 1, top: -234, left: -176, id: 4, location: fortressTerms.lobby,
+            los: [
+              [{ top: -291, left: -194}, { top: -287, left: -220 }, { top: -239, left: -220}],
+              [{ top: -191, left: -154 }, { top: -120, left: -112 }],
+              [{ top: -196, left: -95 }, { top: -190, left: -64 }],
+              [{ top: -227, left: -62 }, { top: -215, left: 81 }]
+            ]
+          },
+          {
+            floor: 1, top: 224, left: -40, id: 5, location: fortressTerms.hammamHallway,
+            los: [
+              [{ top: -4, left: -81 }, { top: -26, left: -84 }],
+              [{ top: 244, left: -78 }, { top: 255, left: -76 }, { top: 255, left: -57 }, { top: 241, left: -53 }],
+              [{ top: 233, left: 108 }, { top: 251, left: 262 }],
+              [{ top: 203, left: 228 }, { top: 200, left: 293 }]
+            ]
+          },
+          {
+            outdoor: true, top: -234, left: -375, id: 6, location: fortressTerms.cannonOverlook,
+            los: [[{ top: 0, left: -470 }, { top: -600, left: -320 }]]
+          },
+          {
+            outdoor: true, top: 202, left: 415, id: 7, location: fortressTerms.courtyardPath,
+            los: []
+          },
+          {
+            floor: 3, top: 315, left: 123, id: 8, location: fortressTerms.oldRoof,
+            los: [[
+              { top: 328, left: -450 }, { top: 328, left: 0 }, { top: 350, left: 10 }, { top: 350, left: 120 },
+              { top: 328, left: 130 }, { top: 500, left: 525 }
+            ]]
+          }
+        ],
+        ceilingHatches: [
+          { floor: 2, top: 358, left: 89 },
+          { floor: 1, top: 297, left: 322 },
+          { floor: 1, top: 37, left: 56 },
+          { floor: 1, top: -10, left: -63 }
+        ],
+        skylights: [
+          { floor: 1, otherFloor: 'up', top: -113, left: 186 },
+          { floor: 2, top: -113, left: 186 },
+          { floor: 3, otherFloor: 'down', top: -113, left: 186 }
+        ],
+        droneTunnels: [
+          // 1F
+          // external walls, starting south west going ccw
+          { floor: 1, top: 298, left: -98, rotate: 0, size: 23 },
+          { floor: 1, top: 259, left: 106, rotate: 90, size: 23 },
+          { floor: 1, top: 307, left: 263, rotate: 90, size: 23 },
+          { floor: 1, top: -56, left: 259, rotate: 90, size: 23 },
+          { floor: 1, top: -268, left: 287, rotate: 0, size: 23 },
+          { floor: 1, top: -316, left: -13, rotate: 0, size: 51 },
+          { floor: 1, top: -251, left: -283, rotate: 90, size: 40 },
+          { floor: 1, top: -258, left: -260, rotate: 45, size: 23 },
+          // internal walls, starting south, going north
+          { floor: 1, top: 223, left: -109, rotate: 135, size: 10 },
+          { floor: 1, top: 223, left: -93, rotate: 90, size: 29 },
+          { floor: 1, top: 147, left: 22, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -16, left: 61, rotate: 0, size: 44 },
+          { floor: 1, top: -152, left: -97, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: -199, left: -194, rotate: 90, size: DRONE_SMALL },
+          // 2F
+          // external walls
+          { floor: 2, top: 261, left: -83, rotate: 90, size: 23 },
+          { floor: 2, top: -50, left: 280, rotate: 90, size: 23 },
+          // internal walls
+          { floor: 2, top: 282, left: 132, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 185, left: 118, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: 74, left: 46, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 32, left: -28, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -117, left: 58, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: -235, left: -176, rotate: 0, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -690, left: -370, description: fortressTerms.mainGate },
+          { letter: spawnTerms.b, top: -690, left: 170, description: fortressTerms.parking },
+          { letter: spawnTerms.c, top: 670, left: 15, description: fortressTerms.garden },
+          { letter: spawnTerms.d, top: 580, left: 415, description: fortressTerms.stable }
+        ],
+        roomLabels: [
+          // EXT
+          { outdoor: true, top: 372, left: -260, description: fortressTerms.gardenPath, hardToRead: true },
+          { floor: 1, top: 345, left: 0, description: fortressTerms.gardenPath, hardToRead: true },
+          { outdoor: true, top: 400, left: 180, description: fortressTerms.gardenPath, hardToRead: true },
+          { outdoor: true, top: 400, left: 370, description: fortressTerms.stablePath, veryHardToRead: true },
+          { outdoor: true, top: 201, left: 509, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: -9, left: 499, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: -239, left: 419, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: -499, left: 380, description: fortressTerms.cliffside, veryHardToRead: true },
+          { outdoor: true, top: 100, left: 410, description: fortressTerms.courtyardPath, hardToRead: true },
+          { outdoor: true, top: -120, left: 350, description: fortressTerms.courtyardPath, hardToRead: true },
+          { outdoor: true, top: 219, left: -401, description: fortressTerms.cannonOverlook, veryHardToRead: true },
+          { outdoor: true, top: -19, left: -401, description: fortressTerms.cannonOverlook, veryHardToRead: true },
+          { outdoor: true, top: -290, left: -341, description: fortressTerms.cannonOverlook, veryHardToRead: true },
+          { outdoor: true, top: -350, left: 170, description: fortressTerms.unloadingZone, veryHardToRead: true },
+          { outdoor: true, top: -403, left: -140, description: fortressTerms.frontEntrance, veryHardToRead: true },
+          // 1F
+          { floor: 1, top: 277, left: 325, description: fortressTerms.laundryRoom, hardToRead: true },
+          { floor: 1, top: 156, left: -140, description: fortressTerms.hammam, veryHardToRead: true },
+          { floor: 1, top: 255, left: -243, description: fortressTerms.hammam, veryHardToRead: true },
+          { floor: 1, top: 280, left: -134, description: fortressTerms.showers, veryHardToRead: true },
+          { floor: 1, top: 198, left: -45, description: fortressTerms.hammamHallway, hardToRead: true },
+          { floor: 1, top: 246, left: 183, description: fortressTerms.hammamHallway.removeBreakTags(), hardToRead: true },
+          { floor: 1, top: 202, left: 294, description: fortressTerms.oldTowerStairs, veryHardToRead: true },
+          { floor: 1, top: 154, left: 120, description: fortressTerms.cafeteria, hardToRead: true },
+          { floor: 1, top: 125, left: -13, description: fortressTerms.centralStairs, veryHardToRead: true },
+          { floor: 1, top: 70, left: 279, description: fortressTerms.infirmary, veryHardToRead: true },
+          { floor: 1, top: 39, left: 2, description: fortressTerms.kitchen, veryHardToRead: true },
+          { floor: 1, top: 44, left: -180, description: fortressTerms.changingRoom },
+          { floor: 1, top: -5, left: -100, description: fortressTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: 12, left: 170, description: fortressTerms.waitingRoom, hardToRead: true },
+          { floor: 1, top: -35, left: -207, description: fortressTerms.sittingRoom, hardToRead: true },
+          { floor: 1, top: -60, left: -35, description: fortressTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: -103, left: 143, description: fortressTerms.courtyard, hardToRead: true },
+          { floor: 1, top: -170, left: -239, description: fortressTerms.musicRoom, hardToRead: true },
+          { floor: 1, top: -223, left: -128, description: fortressTerms.lobby, hardToRead: true },
+          { floor: 1, top: -229, left: 243, description: fortressTerms.courtyardLadder, hardToRead: true },
+          { floor: 1, top: -251, left: -13, description: fortressTerms.office, hardToRead: true },
+          { floor: 1, top: -285, left: -237, description: fortressTerms.lobbyStairs, veryHardToRead: true },
+          // 2F
+          { floor: 2, top: 190, left: -200, description: fortressTerms.hammamRoof, veryHardToRead: true },
+          { floor: 2, top: 351, left: 0, description: fortressTerms.shishaLounge, veryHardToRead: true },
+          { floor: 2, top: 317, left: 190, description: fortressTerms.shishaHallway, hardToRead: true },
+          { floor: 2, top: 220, left: -49, description: fortressTerms.centralStairsHall, veryHardToRead: true },
+          { floor: 2, top: 63, left: 31, description: fortressTerms.centralStairsHall.removeBreakTags(), hardToRead: true },
+          { floor: 2, top: 230, left: 40, description: fortressTerms.dormitory, hardToRead: true },
+          { floor: 2, top: 132, left: 120, description: fortressTerms.dormitory, hardToRead: true },
+          { floor: 2, top: 232, left: 162, description: fortressTerms.gamesRoom, hardToRead: true },
+          { floor: 2, top: 128, left: -7, description: fortressTerms.centralStairs, veryHardToRead: true },
+          { floor: 2, top: 62, left: 200, description: fortressTerms.briefingRoom, veryHardToRead: true },
+          { floor: 2, top: 1, left: 300, description: fortressTerms.courtyardBalcony, veryHardToRead: true },
+          { floor: 2, top: -145, left: -241, description: fortressTerms.museum, hardToRead: true },
+          { floor: 2, top: 6, left: -160, description: fortressTerms.museum, hardToRead: true },
+          { floor: 2, top: 2, left: 0, description: fortressTerms.bathroom, hardToRead: true },
+          { floor: 2, top: -98, left: -120, description: fortressTerms.commandersOffice, veryHardToRead: true },
+          { floor: 2, top: -101, left: 143, description: fortressTerms.courtyard, hardToRead: true },
+          { floor: 2, top: -224, left: 247, description: fortressTerms.courtyardTower, veryHardToRead: true },
+          { floor: 2, top: -297, left: -236, description: fortressTerms.towerStairs, veryHardToRead: true },
+          { floor: 2, top: -246, left: -160, description: fortressTerms.towerHallway, veryHardToRead: true },
+          { floor: 2, top: -279, left: 0, description: fortressTerms.towerRenovation, veryHardToRead: true },
+          // Roof
+          { floor: 3, top: 190, left: -200, description: fortressTerms.hammamRoof, veryHardToRead: true },
+          { floor: 3, top: 230, left: 100, description: fortressTerms.oldRoof, veryHardToRead: true },
+          { floor: 3, top: 282, left: 356, description: fortressTerms.oldTower, veryHardToRead: true },
+          { floor: 3, top: -108, left: 0, description: fortressTerms.modernRoof, veryHardToRead: true },
+          { floor: 3, top: 1, left: 300, description: fortressTerms.courtyardBalcony, veryHardToRead: true },
+          { floor: 3, top: -288, left: -226, description: fortressTerms.westTower, veryHardToRead: true },
+          { floor: 3, top: -288, left: 16, description: fortressTerms.eastTower, veryHardToRead: true },
+          { floor: 3, top: -228, left: 280, description: fortressTerms.guardTower, veryHardToRead: true }
+        ]
+      },
       hereford: {
         name: mapNameTerms.hereford,
         imgUrlPrefix: 'hereford',
@@ -1382,158 +1610,189 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           'bomb', 'hostage', 'secure'
         ],
         floors: [
-          { index: 0, top: -715, left: -1275, background: true, name: floorTerms.basement },
-          { index: 1, top: -63, left: -414, name: floorTerms.firstFloor, default: true },
-          { index: 2, top: -63, left: -414, name: floorTerms.secondFloor },
-          { index: 3, top: -63, left: -414, name: floorTerms.thirdFloor },
-          { index: 4, top: -63, left: -414, name: floorTerms.roof }
+          // add `dontSelect: true, `, to this so we can put this in the bg and have a higher rez basement image
+          // also set index to -1, set delete hereford-0.jpg and then rename hereford-0a.jpg to hereford-0.jpg
+          // -1133, -1801 +300, +420
+          { index: 0, top: -1433, left: -2221, background: true, name: floorTerms.basement },
+          // uncomment when we have a way to not select a floor (on the fortress pr rn)
+          //{ index: 0, top: -1560, left: -2440, name: floorTerms.basement },
+          { index: 1, top: -238, left: -250, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -283, left: -250, name: floorTerms.secondFloor },
+          { index: 3, top: -284, left: -250, name: floorTerms.thirdFloor },
+          { index: 4, top: -284, left: -250, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 0, top: 193, left: -94 },
-          { floor: 1, top: 335, left: -111 },
-          { floor: 2, top: 224, left: -27 },
-          { floor: 3, top: 339, left: -84 }
+          { floor: 3, top: 58, left: -30 },
+          { floor: 2, top: -59, left: 102 },
+          { floor: 1, top: 83, left: -76 },
+          { floor: 0, top: 73, left: -117 }
         ],
         bombObjectives: [
-          { floor: 0, top: 145, left: -57, set: 4, letter: objectiveTerms.bombShortB },
-          { floor: 0, top: 323, left: 77, set: 4, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 332, left: -63, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: 132, left: -96, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 1, otherFloor: 'up', top: 352, left: 73, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 2, otherFloor: 'down', top: 352, left: 73, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 3, top: 399, left: 86, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 3, top: 386, left: -101, set: 1, letter: objectiveTerms.bombShortA }
+          { floor: 0, top: 58, left: -37, set: 4, letter: objectiveTerms.bombShortB },
+          { floor: 0, top: -119, left: -100, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 72, left: -35, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 72, left: 73, set: 3, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -37, left: 147, set: 2, letter: objectiveTerms.bombShortB },
+          { floor: 2, top: -133, left: -9, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 3, top: 58, left: -60, set: 1, letter: objectiveTerms.bombShortB },
+          { floor: 3, top: -198, left: -64, set: 1, letter: objectiveTerms.bombShortA }
         ],
         secureObjectives: [
-          { floor: 0, top: 146, left: -94 },
-          { floor: 1, top: 296, left: 111 },
-          { floor: 2, top: 176, left: 6 },
-          { floor: 3, top: 295, left: 86 }
+          { floor: 2, top: 112, left: -47 },
+          { floor: 2, top: -93, left: -9 },
+          { floor: 1, top: -67, left: 69 },
+          { floor: 0, top: -74, left: 79 }
         ],
         zoomPoints: {
-          topLeft: { top: 25, left: -268 },
-          bottomRight: { top: 463, left: 210 }
+          topLeft: { top: -280, left: -340 },
+          bottomRight: { top: 234, left: 285 }
         },
         compassPoints: {
-          top: 356, left: 497
+          top: -408, left: 330
         },
         ladders: [
-          { floor: 1, top: 434, left: 605, otherFloor: 'up' },
-          { floor: 2, top: 434, left: 605, otherFloor: 'down' },
-          { floor: 1, top: 444, left: -44, otherFloor: 'up' },
-          { floor: 2, top: 444, left: -44, otherFloor: 'down' },
-          { floor: 1, top: 346, left: -171, otherFloor: 'down' },
-          { floor: 0, top: 346, left: -171, otherFloor: 'up' },
-          { floor: 2, top: 184, left: -165, otherFloor: 'up' },
-          { floor: 3, top: 184, left: -165, otherFloor: 'down' }
+          { floor: 0, top: 165, left: 95, otherFloor: 'up' },
+          { floor: 1, top: 163, left: 112, otherFloor: 'down' }
         ],
         cameras: [
-          {
-            floor: 3, top: 205, left: -12, id: 1, location: herefordTerms.rooftop,
-            los: [[{top: 419, left: -28}, {top: 192, left: -28}, {top: 192, left: 141}]]
-          },
-          {
-            floor: 2, top: 268, left: -1, id: 2, location: herefordTerms.corridor,
+          { floor: 3, top: -54, left: 66, id: 1, location: herefordTerms.attic,
             los: [
-              [{top: 191, left: -46}, {top: 247, left: -11}, {top: 254, left: -11}, {top: 254, left: -28}, {top: 284, left: -28}, {top: 304, left: -99}],
-              [{top: 303, left: -37}, {top: 366, left: -140}],
-              [{top: 178, left: 33}, {top: 247, left: 18}, {top: 254, left: 18}, {top: 254, left: 33}, {top: 418, left: 33}]
+              [{ top: -5, left: 78 }, { top: -204, left: 74 }],
+              [{ top: -123, left: 59 }, { top: -218, left: 43 }]
             ]
           },
-          {
-            floor: 1, top: 247, left: 5, id: 3, location: herefordTerms.corridor1,
+          { floor: 2, top: 8, left: 58, id: 2, location: herefordTerms.mainHallway,
             los: [
-              [{top: 223, left: -121}, {top: 241, left: -26}],
-              [{top: 109, left: 18}, {top: 255, left: 18}, {top: 255, left: 32}, {top: 418, left: 32}]
+              [{ top: 4, left: 83 }, { top: 43, left: 96 }],
+              [{ top: 49, left: 92 }, { top: 140, left: 161 }],
+              [{ top: 46, left: 77 }, { top: 158, left: 134 }],
+              [{ top: 45, left: 3 }, { top: 128, left: -122 }],
+              [{ top: 33, left: 4 }, { top: 101, left: -103 }],
+              [{ top: 3, left: 20}, { top: -14, left: 17 }, { top: -17, left: 54 }, { top: 2, left: 48 }]
             ]
           },
-          {
-            floor: 0, top: 123, left: 125, id: 4, location: herefordTerms.lockers,
-            los: [[{top: 213, left: -27}, {top: 179, left: 47}, {top: 110, left: 47}, {top: 110, left: 142}, {top: 248, left: 142}, {top: 248, left: 36}, {top: 333, left: -27}]]
+          { floor: 1, top: -16, left: 35, id: 3, location: herefordTerms.mainHallway,
+            los: [
+              [{ top: -7, left: 7 }, { top: 15, left: 3 }, { top: 16, left: 46 }, { top: -7, left: 34 }],
+              [{ top: -20, left: -128 }, { top: -20, left: -241 }],
+              [{ top: -34, left: -129 }, { top: -44, left: -194 }],
+              [{ top: -138, left: 8 }, { top: -230, left: -18 }]
+            ]
           },
-          {
-            outside: true, top: -238, left: 299, id: 5, location: herefordTerms.shootingRangeEastEntrance,
-            los: [[{top: -613, left: -132}, {top: -220, left: 362}]]
+          { floor: 0, top: -13, left: 35, id: 4, location: herefordTerms.mainHallway,
+            los: [
+              [{ top: -17, left: 44 }, { top: -75, left: 12 }]
+            ]
           },
-          {
-            outside: true, top: 511, left: -298, id: 6, location: herefordTerms.forkliftArea,
-            los: [[{top: 434, left: -398}, {top: 543, left: -319}, {top: 550, left: -60}]]
+          { outside: true, top: -181, left: -326, id: 5, location: herefordTerms.westCourtyard,
+            los: [
+              [{ top: -359, left: -279 }, { top: -187, left: -328 }]
+            ]
+          },
+          { outside: true, top: 218, left: 190, id: 6, location: herefordTerms.street,
+            los: [
+              [{ top: 329, left: -219 }, { top: 214, left: 237 }]
+            ]
+          },
+          { outside: true, top: -361, left: 273, id: 7, location: herefordTerms.barnyard,
+            los: [
+              [{ top: -471, left: 100 }, { top: -363, left: 291 }]
+            ]
           }
         ],
         ceilingHatches: [
-          { floor: 0, top: 120, left: -158 },
-          { floor: 0, top: 398, left: -94 },
-          { floor: 1, top: 368, left: -86 },
-          { floor: 1, top: 403, left: 66 }
+          { floor: 0, top: -125, left: -119 },
+          { floor: 0, top: 86, left: -230 },
+          { floor: 0, top: 86, left: 123 },
+          { floor: 1, top: 129, left: -111 },
+          { floor: 1, top: -215, left: -3 },
+          { floor: 2, top: -209, left: -167 },
+          { floor: 2, top: -209, left: 147 },
+          { floor: 2, top: 143, left: 147 },
+          { floor: 2, top: 20, left: -62 }
         ],
         skylights: [],
         droneTunnels: [
-          { floor: 1, top: 239, left: -267, rotate: 90, size: DRONE_MED },
-          { floor: 0, top: 98, left: 24, rotate: 0, size: 26 },
-          { floor: 0, top: 83, left: 34, rotate: 90, size: 32 },
-          { floor: 1, top: 442, left: -13, rotate: 0, size: 52 },
-          { floor: 1, top: 340, left: 147, rotate: 90, size: DRONE_MED }
+          { floor: 1, top: 193, left: -65, rotate: 0, size: 9 },
+          { floor: 1, top: 146, left: 141, rotate: 0, size: 9 },
+          { floor: 1, top: 7, left: -244, rotate: 90, size: 9 },
+          { floor: 1, top: -231, left: -13, rotate: 0, size: 9 },
+          { floor: 2, top: 3, left: -115, rotate: 0, size: 9 },
+          { floor: 4, top: -1, left: -41, rotate: 90, size: DRONE_SMALL, otherFloor: 'down' }
         ],
         spawnPoints: [
-          { letter: spawnTerms.a, top: 322, left: -789, description: herefordTerms.spawnTrainingCourse },
-          { letter: spawnTerms.b, top: 236, left: 703, description: herefordTerms.spawnParking },
-          { letter: spawnTerms.c, top: -630, left: 27, description: herefordTerms.spawnShootingRange }
+          { letter: spawnTerms.a, top: 93, left: -639, description: herefordTerms.controlTower },
+          { letter: spawnTerms.b, top: 126, left: 753, description: herefordTerms.spitfireCourtyard },
+          { letter: spawnTerms.c, top: -820, left: 39, description: herefordTerms.shootingRange }
         ],
         roomLabels: [
-          { floor: 0, top: 263, left: -86, description: herefordTerms.armory },
-          { floor: 0, top: 191, left: 94, description: herefordTerms.lockers },
-          { floor: 0, top: 272, left: 2, description: herefordTerms.corridor },
-          { floor: 0, top: 407, left: 1, description: herefordTerms.mainStairs },
-          { floor: 0, top: 362, left: -88, description: herefordTerms.maintenanceArea },
-          { floor: 0, top: 288, left: 94, description: herefordTerms.briefingRoom },
-          { floor: 0, top: 218, left: 184, hardToRead: true, smaller: true, description: herefordTerms.basementEntrance },
-          { floor: 1, top: 223, left: -219, description: herefordTerms.garage },
-          { floor: 1, top: 177, left: -112, description: herefordTerms.TVRoom },
-          { floor: 1, top: 245, left: -96, hardToRead: true, description: herefordTerms.garageCorridor },
-          { floor: 1, top: 296, left: -138, description: herefordTerms.kitchen },
-          { floor: 1, top: 302, left: 2, description: herefordTerms.corridor1 },
-          { floor: 1, top: 407, left: 1, description: herefordTerms.mainStairs },
-          { floor: 1, top: 379, left: 119, description: herefordTerms.diningRoom },
-          { floor: 1, top: 218, left: 86, description: herefordTerms.pianoLounge },
-          { floor: 2, top: 320, left: -68, hardToRead: true, description: herefordTerms.office },
-          { floor: 2, top: 158, left: -67, hardToRead: true, description: herefordTerms.masterBedroom },
-          { floor: 2, top: 334, left: 1, description: herefordTerms.corridor },
-          { floor: 2, top: 407, left: 1, description: herefordTerms.mainStairs },
-          { floor: 2, top: 451, left: 1, description: herefordTerms.backAccess },
-          { floor: 2, top: 152, left: 116, hardToRead: true, description: herefordTerms.laundryRoom },
-          { floor: 2, top: 227, left: 87, hardToRead: true, description: herefordTerms.bathroom },
-          { floor: 2, top: 317, left: 91, hardToRead: true, description: herefordTerms.kidsBedroom },
-          { floor: 3, top: 223, left: -87, description: herefordTerms.ballisticMatDepot },
-          { floor: 3, top: 311, left: -68, description: herefordTerms.storage },
-          { floor: 3, top: 246, left: -9, smaller: true, description: herefordTerms.storageCorridor },
-          { floor: 3, top: 408, left: 1, description: herefordTerms.mainStairs },
-          { floor: 3, top: 374, left: 92, description: herefordTerms.dummyDepot },
-          { floor: 3, top: 261, left: 72, description: herefordTerms.workshop },
-          { outdoor: true, top: -284, left: -215, description: herefordTerms.shootingRangeWestEntrance },
-          { outdoor: true, top: -284, left: 254, description: herefordTerms.shootingRangeEastEntrance },
-          { outdoor: true, top: -114, left: 12, description: herefordTerms.tireSetting },
-          { outdoor: true, top: -264, left: 25, description: herefordTerms.observationRamp },
-          { outdoor: true, top: -38, left: 335, description: herefordTerms.barracks },
-          { outdoor: true, top: 319, left: 335, description: herefordTerms.barracks },
-          { outdoor: true, top: 526, left: 209, description: herefordTerms.busBackAlley },
-          { outdoor: true, top: 526, left: -215, description: herefordTerms.busBackAlley },
-          { outdoor: true, top: 295, left: -528, description: herefordTerms.rappelTower },
-          { floor: 3, top: 131, left: -1, description: herefordTerms.terrace },
-          { floor: 4, top: 131, left: -1, description: herefordTerms.terrace },
-          { outdoor: true, top: 2, left: -4, description: herefordTerms.frontAccess },
-          { outdoor: true, top: 29, left: -317, description: herefordTerms.chapelGate },
-          { outdoor: true, top: 286, left: -336, description: herefordTerms.forkliftArea },
-          { outdoor: true, top: 187, left: 266, description: herefordTerms.sideStairsAlley },
-          { outdoor: true, top: 50, left: 132, description: herefordTerms.basementEntrance },
-          { outdoor: true, top: 583, left: 646, description: herefordTerms.parkingEntrance },
-          { floor: 1, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 2, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 3, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 4, top: 116, left: 190, description: herefordTerms.sideStairs },
-          { floor: 2, top: 283, left: -212, description: herefordTerms.garageTop },
-          { floor: 3, top: 283, left: -212, description: herefordTerms.garageTop },
-          { floor: 4, top: 283, left: -212, description: herefordTerms.garageTop },
-          { floor: 4, top: 318, left: -40, description: herefordTerms.rooftop }
+          // EXT
+          { outside: true, top: 293, left: -274, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 290, left: -3, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 287, left: 225, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 205, left: -154, description: herefordTerms.street, veryHardToRead: true },
+          { outside: true, top: 141, left: -313, description: herefordTerms.westCourtyard, veryHardToRead: true },
+          { outside: true, top: -126, left: -300, description: herefordTerms.westCourtyard, veryHardToRead: true },
+          { outside: true, top: 150, left: 247, description: herefordTerms.eastCourtyard, veryHardToRead: true },
+          { outside: true, top: -188, left: 256, description: herefordTerms.eastCourtyard, veryHardToRead: true },
+          { outside: true, top: -309, left: -186, description: herefordTerms.barnyard, veryHardToRead: true },
+          { outside: true, top: -317, left: 143, description: herefordTerms.barnyard, veryHardToRead: true },
+          // 4F
+          { floor: 4, top: 135, left: -35, description: herefordTerms.rooftop, hardToRead: true },
+          { floor: 4, top: -34, left: 121, description: herefordTerms.rooftop, hardToRead: true },
+          { floor: 4, top: -161, left: -17, description: herefordTerms.rooftop, hardToRead: true },
+          { floor: 4, top: 33, left: -187, description: herefordTerms.garageRoof, veryHardToRead: true},
+          // 3F
+          { floor: 3, top: 206, left: 27, description: herefordTerms.balcony, hardToRead: true },
+          { floor: 3, top: 120, left: -50, description: herefordTerms.tractorStorage, hardToRead: true },
+          { floor: 3, top: 127, left: 45, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 3, top: 96, left: 124, description: herefordTerms.attic, hardToRead: true },
+          { floor: 3, top: -68, left: 66, description: herefordTerms.attic, hardToRead: true },
+          { floor: 3, top: -157, left: 93, description: herefordTerms.attic, hardToRead: true },
+          { floor: 3, top: -81, left: -146, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 3, top: -59, left: 176, description: herefordTerms.eastCourtyard, hardToRead: true },
+          { floor: 3, top: -168, left: -128, description: herefordTerms.ammoStorage, hardToRead: true },
+          { floor: 3, top: 33, left: -187, description: herefordTerms.garageRoof, veryHardToRead: true},
+          // 2F
+          { floor: 2, top: 197, left: 19, description: herefordTerms.balcony, hardToRead: true },
+          { floor: 2, top: 90, left: -60, description: herefordTerms.loomRoom, hardToRead: true },
+          { floor: 2, top: 122, left: 35, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 2, top: 97, left: 117, description: herefordTerms.laundryRoom, hardToRead: true },
+          { floor: 2, top: 33, left: -187, description: herefordTerms.garageRoof, veryHardToRead: true },
+          { floor: 2, top: 37, left: 75, description: herefordTerms.mainHallway.removeBreakTags(), hardToRead: true },
+          { floor: 2, top: 30, left: -99, description: herefordTerms.loomCloset, hardToRead: true },
+          { floor: 2, top: -61, left: -84, description: herefordTerms.blueHallway, hardToRead: true },
+          { floor: 2, top: -81, left: 114, description: herefordTerms.masterBedroom, hardToRead: true },
+          { floor: 2, top: -88, left: -148, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 2, top: -86, left: 10, description: herefordTerms.kidsRoom, hardToRead: true },
+          { floor: 2, top: -154, left: 109, description: herefordTerms.bathroom, hardToRead: true },
+          { floor: 2, top: -171, left: -116, description: herefordTerms.sewingRoom, hardToRead: true },
+          // 1F
+          { floor: 1, top: 181, left: 10, description: herefordTerms.prepArea, hardToRead: true },
+          { floor: 1, top: 36, left: -68, description: herefordTerms.kitchen, hardToRead: true },
+          { floor: 1, top: 113, left: 27, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 1, top: 28, left: 108, description: herefordTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: 54, left: -190, description: herefordTerms.garage, hardToRead: true },
+          { floor: 1, top: 29, left: 25, description: herefordTerms.kitchenEntrance, hardToRead: true },
+          { floor: 1, top: -13, left: -66, description: herefordTerms.mainHallway.removeBreakTags(), hardToRead: true },
+          { floor: 1, top: -101, left: -161, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 1, top: -65, left: 99, description: herefordTerms.pianoRoom, hardToRead: true },
+          { floor: 1, top: -87, left: -61, description: herefordTerms.livingRoom, hardToRead: true },
+          { floor: 1, top: -160, left: -10, description: herefordTerms.foyer, hardToRead: true },
+          { floor: 1, top: -171, left: 97, description: herefordTerms.barn, veryHardToRead: true },
+          // Basement
+          { floor: 0, top: 57, left: 157, description: herefordTerms.eastTunnel, veryHardToRead: true },
+          { floor: 0, top: 60, left: -106, description: herefordTerms.fermentationChamber, hardToRead: true },
+          { floor: 0, top: 102, left: 16, description: herefordTerms.mainStairs, hardToRead: true },
+          { floor: 0, top: 53, left: -206, description: herefordTerms.generatorRoom, hardToRead: true },
+          { floor: 0, top: 58, left: 96, description: herefordTerms.workshop, hardToRead: true },
+          { floor: 0, top: 11, left: 13, description: herefordTerms.mainHallway, hardToRead: true },
+          { floor: 0, top: -79, left: -215, description: herefordTerms.westTunnel, veryHardToRead: true },
+          { floor: 0, top: -34, left: -75, description: herefordTerms.brewery, hardToRead: true },
+          { floor: 0, top: -78, left: 83, description: herefordTerms.barrelStorage, hardToRead: true },
+          { floor: 0, top: -112, left: -167, description: herefordTerms.blueStairs, hardToRead: true },
+          { floor: 0, top: -173, left: 88, description: herefordTerms.barn, hardToRead: true }
+
         ]
       },
       house: {
@@ -2188,6 +2447,200 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 3, top: -233, left: 177, description: oregonTerms.watchTower }
         ]
       },
+      outback: {
+        name: mapNameTerms.outback,
+        imgUrlPrefix: 'outback',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 0, top: -1118, left: -2538, background: true, name: '', dontSelect: true },
+          // top: 969 left: 2564
+          { index: 1, top: -149, left: 26, name: floorTerms.firstFloor, default: true },
+          // top: 967 left: 2568
+          { index: 2, top: -151, left: 30, name: floorTerms.secondFloor },
+          // top: 963 left: 2560
+          { index: 3, top: -155, left: 22, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 2, top: -43, left: 275, smaller: true },
+          { floor: 2, top: 187, left: 488, smaller: true },
+          { floor: 1, top: -48, left: 331, smaller: true },
+          { floor: 1, top: 267, left: 632, smaller: true }
+        ],
+        bombObjectives: [
+          { floor: 2, top: -63, left: 275, set: 1, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 2, top: 10, left: 388, set: 1, letter: objectiveTerms.bombShortB, smaller: true  },
+          { floor: 2, top: 101, left: 566, set: 2, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 2, top: 211, left: 493, set: 2, letter: objectiveTerms.bombShortB, smaller: true  },
+          { floor: 1, top: -19, left: 221, set: 3, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 1, top: -25, left: 309, set: 3, letter: objectiveTerms.bombShortB, smaller: true  },
+          { floor: 1, top: 189, left: 609, set: 4, letter: objectiveTerms.bombShortA, smaller: true  },
+          { floor: 1, top: 210, left: 465, set: 4, letter: objectiveTerms.bombShortB, smaller: true  }
+        ],
+        secureObjectives: [
+          // dorms office garage kitchen
+          { floor: 2, top: 4, left: 144, smaller: true },
+          { floor: 2, top: 192, left: 464, smaller: true },
+          { floor: 1, top: 325, left: 497, smaller: true },
+          { floor: 1, top: 109, left: 468, smaller: true }
+        ],
+        zoomPoints: {
+          topLeft: { top: -300, left: 0 },
+          bottomRight: { top: 500, left: 500}
+        },
+        compassPoints: { top: 398, left: -110 },
+        ladders: [],
+        cameras: [
+          { outdoor: true, top: 456, left: 815, id: 1, location: outbackTerms.gasPumps,
+            los: [
+              [{ top: 640, left: 713 }, { top: 456, left: 835 }, { top: -330, left: 745 }]
+            ]
+          },
+          { outdoor: true, top: -211, left: 590, id: 2, location: outbackTerms.picnicArea,
+            los: [
+              [{ top: -201, left: 150 }, { top: -211, left: 590 }, { top: -270, left: 800 }]
+            ]
+          },
+          { outdoor: true, top: 339, left: 241, id: 3, location: outbackTerms.motelParkingLot,
+            los: [
+              [{ top: 250, left: 106 }, { top: 480, left: 358 }],
+              [{ top: -9, left: -41 }, { top: 160, left: 104 }],
+              [{ top: -150, left: -25 }, { top: 69, left: 85 }]
+            ]
+          },
+          { floor: 2, top: -101, left: 319, id: 4, location: outbackTerms.pianoRoom,
+            los: [
+              [{ top: -40, left: 371 }, { top: -21, left: 385 }],
+              [{ top: -11, left: 302 }, { top: 10, left: 300 }]
+            ]
+          },
+          { floor: 2, top: 452, left: 493, id: 5, location: outbackTerms.garageLounge,
+            los: [
+              [{ top: 310, left: 415 }, { top: 334, left: 441 }],
+              [{ top: 243, left: 452 }, { top: 270, left: 460 }],
+              [{ top: 235, left: 497 }, { top: 198, left: 498 }, { top: 198, left: 527 }, { top: 235, left: 518 }],
+              [{ top: 235, left: 530 }, { top: 170, left: 542 }, { top: 170, left: 562 }, { top: 235, left: 550 }]
+            ]
+          },
+          { floor: 1, otherFloor: 'up', top: 443, left: 497, id: 5, location: outbackTerms.garageLounge,
+            los: [
+              [{ top: 241, left: 450 }, { top: 453, left: 450 }],
+              [{ top: 264, left: 535 }, { top: 453, left: 535 }]
+            ]
+          },
+          { floor: 2, top: -56, left: 568, id: 6, location: outbackTerms.mezzanine,
+            los: [
+              [{ top: -63, left: 489 }, { top: -63, left: 576 }, { top: 27, left: 576 }],
+              [{ top: 24, left: 529 }, { top: 65, left: 509 }],
+              [{ top: 67, left: 502 }, { top: 162, left: 460 }],
+              [{ top: 38, left: 486 }, { top: 125, left: 430 }]
+            ]
+          },
+          { floor: 1, otherFloor: 'up', top: -56, left: 568, id: 6, location: outbackTerms.mezzanine, los: [] },
+          { floor: 1, top: 28, left: 132, id: 7, location: outbackTerms.backEntrance, los: [] }
+        ],
+        ceilingHatches: [
+          { floor: 1, top: 54, left: 144 },
+          { floor: 1, top: -93, left: 258 },
+          { floor: 1, top: 147, left: 475 }
+        ],
+        skylights: [],
+        droneTunnels: [
+          { floor: 1, top: 302, left: 690, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: 254, left: 554, rotate: 90, size: 12 },
+          { floor: 1, top: 457, left: 497, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 340, left: 421, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 117, left: 407, rotate: 90, size: 12 },
+          { floor: 1, top: -17, left: 435, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: -144, left: 290, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 67, left: 97, rotate: 0, size: DRONE_SMALL },
+
+          { floor: 2, top: 70, left: 189, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: 164, left: 418, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -38, left: 483, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: 260, left: 617, rotate: 0, size: 49 },
+          { floor: 2, top: 278, left: 620, rotate: 90, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -406, left: 634, description: outbackTerms.storageYard },
+          { letter: spawnTerms.b, top: 755, left: 614, description: outbackTerms.gasPumps },
+          { letter: spawnTerms.c, top: -145, left: -236, description: outbackTerms.camping }
+        ],
+        roomLabels: [
+          { outside: true, top: 549, left: 319, description: outbackTerms.gasPumps, veryHardToRead: true },
+          { outside: true, top: 444, left: 654, description: outbackTerms.gasPumps, veryHardToRead: true },
+          { outside: true, top: 394, left: 369, description: outbackTerms.motelParkingLot, veryHardToRead: true },
+          { outside: true, top: 224, left: 211, description: outbackTerms.motelParkingLot, veryHardToRead: true },
+          { outside: true, top: -28, left: 744, description: outbackTerms.restaurantParking, veryHardToRead: true },
+          { outside: true, top: 262, left: 729, description: outbackTerms.restaurantParking, veryHardToRead: true },
+          { floor: 1, top: 96, left: 118, description: outbackTerms.motelWalkway, veryHardToRead: true },
+          { floor: 1, top: 148, left: 258, description: outbackTerms.motelWalkway, veryHardToRead: true },
+          { floor: 1, top: -43, left: 647, description: outbackTerms.restaurantEntrance, veryHardToRead: true },
+          { floor: 1, top: -57, left: 458, description: outbackTerms.loadingBay, hardToRead: true },
+          { outside: true, top: -155, left: 468, description: outbackTerms.picnicArea, veryHardToRead: true },
+          { outside: true, top: -195, left: 184, description: outbackTerms.miniGolf, veryHardToRead: true },
+
+          { floor: 1, top: 292, left: 434, description: outbackTerms.garageStairs, hardToRead: true },
+          { floor: 1, top: -64, left: 68, description: outbackTerms.motelBackStairs, hardToRead: true },
+          { floor: 1, top: -84, left: 112, description: outbackTerms.backStairs, hardToRead: true },
+          { floor: 1, top: -83, left: 383, description: outbackTerms.pianoStairs, veryHardToRead: true },
+          { floor: 1, top: -79, left: 579, description: outbackTerms.restaurantStairs, veryHardToRead: true },
+          { floor: 1, top: -103, left: 496, description: outbackTerms.terraceStairs, veryHardToRead: true },
+
+          { floor: 1, top: 400, left: 495, description: outbackTerms.garage, hardToRead: true },
+          { floor: 1, top: 300, left: 504, description: outbackTerms.garage, hardToRead: true },
+          { floor: 1, top: 380, left: 574, description: outbackTerms.waitingRoom, veryHardToRead: true },
+          { floor: 1, top: 324, left: 642, description: outbackTerms.convenienceStore, hardToRead: true },
+          { floor: 1, top: 281, left: 574, description: outbackTerms.beerFridge, hardToRead: true },
+          { floor: 1, top: 206, left: 644, description: outbackTerms.gearStore, hardToRead: true },
+          { floor: 1, top: 205, left: 515, description: outbackTerms.compressorRoom, hardToRead: true },
+          { floor: 1, top: 149, left: 375, description: outbackTerms.motelReception, hardToRead: true },
+          { floor: 1, top: 95, left: 250, description: outbackTerms.reptileHallway, hardToRead: true },
+          { floor: 1, top: 18, left: 380, description: outbackTerms.reptileHallway, hardToRead: true },
+          { floor: 1, top: 99, left: 459, description: outbackTerms.kitchen, hardToRead: true },
+          { floor: 1, top: 124, left: 554, description: outbackTerms.restaurant, hardToRead: true },
+          { floor: 1, top: -4, left: 554, description: outbackTerms.restaurant, hardToRead: true },
+          { floor: 1, top: -2, left: 120, description: outbackTerms.backEntrance, hardToRead: true },
+          { floor: 1, top: -35, left: 183, description: outbackTerms.bushrangerRoom, veryHardToRead: true },
+          { floor: 1, top: -49, left: 321, description: outbackTerms.natureRoom, hardToRead: true },
+          { floor: 1, top: 60, left: 625, description: outbackTerms.restaurantLobby, hardToRead: true },
+          { floor: 1, top: 11, left: 459, description: outbackTerms.kitchenHallway, hardToRead: true },
+          { floor: 1, top: -92, left: 203, description: outbackTerms.bathroomHall, veryHardToRead: true },
+          { floor: 1, top: -48, left: 237, description: outbackTerms.closet, veryHardToRead: true },
+          { floor: 1, top: -100, left: 256, description: outbackTerms.bathroom, hardToRead: true },
+
+          { floor: 2, top: 267, left: 438, description: outbackTerms.garageStairs, hardToRead: true },
+          { floor: 2, top: -64, left: 68, description: outbackTerms.motelBackStairs, hardToRead: true },
+          { floor: 2, top: -84, left: 112, description: outbackTerms.backStairs, hardToRead: true },
+          { floor: 2, top: -83, left: 383, description: outbackTerms.pianoStairs, veryHardToRead: true },
+          { floor: 2, top: -79, left: 579, description: outbackTerms.restaurantStairs, veryHardToRead: true },
+          { floor: 2, top: -103, left: 496, description: outbackTerms.terraceStairs, veryHardToRead: true },
+
+          { floor: 2, top: 407, left: 494, description: outbackTerms.garageLounge, hardToRead: true },
+          { floor: 2, top: 279, left: 507, description: outbackTerms.garageLounge, hardToRead: true },
+          { floor: 2, top: 307, left: 626, description: outbackTerms.convenienceStoreRoof, hardToRead: true },
+          { floor: 2, top: 140, left: 250, description: outbackTerms.motelBalcony, hardToRead: true },
+          { floor: 2, top: 215, left: 451, description: outbackTerms.office, hardToRead: true },
+          { floor: 2, top: 206, left: 607, description: outbackTerms.officeSupplies, hardToRead: true },
+          { floor: 2, top: 110, left: 467, description: outbackTerms.mechanicalBull, hardToRead: true },
+          { floor: 2, top: 127, left: 545, description: outbackTerms.partyRoom, hardToRead: true },
+          { floor: 2, top: 127, left: 607, description: outbackTerms.electricalRoom, hardToRead: true },
+          { floor: 2, top: 51, left: 372, description: outbackTerms.gamesRoom, veryHardToRead: true },
+          { floor: 2, top: 38, left: 127, description: outbackTerms.dorms, hardToRead: true },
+          { floor: 2, top: 51, left: 274, description: outbackTerms.showers, hardToRead: true },
+          { floor: 2, top: -3, left: 513, description: outbackTerms.mezzanine, hardToRead: true },
+          { floor: 2, top: -47, left: 251, description: outbackTerms.laundry, veryHardToRead: true },
+          { floor: 2, top: 11, left: 250, description: outbackTerms.motelHallway, hardToRead: true },
+          { floor: 2, top: -51, left: 338, description: outbackTerms.pianoRoom, hardToRead: true },
+          { floor: 2, top: -22, left: 446, description: outbackTerms.terrace, hardToRead: true },
+
+          { floor: 3, top: 307, left: 626, description: outbackTerms.convenienceStoreRoof, hardToRead: true },
+          { floor: 3, top: 0, left: 550, description: outbackTerms.restaurantRoof, hardToRead: true },
+          { floor: 3, top: 280, left: 490, description: outbackTerms.garageRoof, hardToRead: true },
+          { floor: 3, top: 0, left: 220, description: outbackTerms.motelRoof, hardToRead: true }
+        ]
+      },
       plane: {
         name: mapNameTerms.plane,
         imgUrlPrefix: 'plane',
@@ -2643,6 +3096,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 2, top: -136, left: 230, rotate: 90, size: DRONE_SMALL },
           { floor: 1, top: -11, left: -271, rotate: 90, size: 74 },
           { floor: 1, top: -22, left: -239, rotate: 0, size: 34 },
+          { floor: 1, top: -263, left: -155, rotate: 0, size: DRONE_MED },
           { floor: 1, top: 40, left: -81, rotate: 0, size: DRONE_SMALL },
           { floor: 1, top: 222, left: -81, rotate: 0, size: DRONE_MED },
           { floor: 1, top: -200, left: 185, rotate: 0, size: DRONE_MED },
@@ -3173,6 +3627,194 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { outdoor: true, hardToRead: true, top: -145, left: 261, description: yachtTerms.westHullBreach },
           { floor: 2, top: -15, left: 553, description: yachtTerms.anchorName },
           { floor: 2, top: 85, left: 454, description: yachtTerms.aklarkSubEntrance, smaller: true, hardToRead: true }
+        ]
+      },
+      villa: {
+        name: mapNameTerms.villa,
+        imgUrlPrefix: 'villa',
+        objectives: [
+          'bomb', 'hostage', 'secure'
+        ],
+        floors: [
+          { index: 0, top: -720, left: -1280, background: true, name: floorTerms.basement },
+          { index: 1, top: -480, left: 0, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -480, left: 0, name: floorTerms.secondFloor },
+          { index: 3, top: -480, left: 0, name: floorTerms.roof }
+        ],
+        hostageObjectives: [
+          { floor: 2, top: 62, left: 284 },
+          { floor: 2, top: -315, left: 347 },
+          { floor: 1, top: 100, left: 295 },
+          { floor: 0, top: -197, left: 487 }
+        ],
+        bombObjectives: [
+          { floor: 2, top: 103, left: 191, set: 1, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: 62, left: 324, set: 1, letter: objectiveTerms.bombShortB },
+
+          { floor: 2, top: -204, left: 417, set: 2, letter: objectiveTerms.bombShortA },
+          { floor: 2, top: -204, left: 306, set: 2, letter: objectiveTerms.bombShortB },
+
+          { floor: 1, top: -105, left: 220, set: 3, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: 75, left: 145, set: 3, letter: objectiveTerms.bombShortB },
+
+          { floor: 1, top: -333, left: 417, set: 4, letter: objectiveTerms.bombShortA },
+          { floor: 1, top: -225, left: 428, set: 4, letter: objectiveTerms.bombShortB }
+        ],
+        secureObjectives: [
+          { floor: 2, top: 170, left: 309 },
+          { floor: 2, top: -205, left: 529 },
+          { floor: 1, top: -105, left: 260 },
+          { floor: 0, top: -161, left: 370 }
+        ],
+        zoomPoints: {
+          topLeft: { left: 0, top: -420 },
+          bottomRight: { left: 270, top: 640 }
+        },
+        compassPoints: {
+        },
+        ladders: [],
+        cameras: [
+          {floor: 2, top: -353, left: 381, id: 1, location: villaTerms.astronomyRoom,
+            los: [[{top: -397, left: 393}, {top: -280, left: 393}, {top: -280, left: 380}, {top: -244, left: 381}, {top: -244, left: 346}, {top: -280, left: 357}, {top: -280, left: 255}, {top: -350, left: 255}, {top: -350, left: 335}, {top: -355, left: 335}, {top: -368, left: 255}, {top: -397, left: 255}, {top: -397, left: 393}]]},
+          {floor: 2, top: -65, left: 140, id: 2, location: villaTerms.classicalHall,
+            los: [[{top: -80, left: 125}, {top: -80, left: 248}, {top: -46, left: 248}, {top: -46, left: 176}, {top: -33, left: 198}, {top: 3, left: 198}, {top: -46, left: 155}, {top: -46, left: 137}, {top: 21, left: 161}, {top: 21, left: 132}, {top: 226, left: 132}, {top: 226, left: 110}, {top: 21, left: 110}, {top: 21, left: 103}, {top: -19, left: 103}, {top: -80, left: 125}]]},
+          {floor: 1, top: -207, left: 254, id: 3, location: villaTerms.backHallway,
+            los: [[{top: -207, left: 254}, {top: -193, left: 223}, {top: -218, left: 223}, {top: -212, left: 240}, {top: -228, left: 240}, {top: -228, left: 254}, {top: -253, left: 254}, {top: -278, left: 269}, {top: -268, left: 269}, {top: -268, left: 310}, {top: -258, left: 310}, {top: -290, left: 346}, {top: -290, left: 369}, {top: -284, left: 369}, {top: -240, left: 310}, {top: -232, left: 296}, {top: -228, left: 296}, {top: -228, left: 320}, {top: -220, left: 320}, {top: -229, left: 369}, {top: -182, left: 369}, {top: -192, left: 320}, {top: -188, left: 320}, {top: -188, left: 280}, {top: -207, left: 254}]]},
+          {floor: 1, top: 206, left: 157, id: 4, location: villaTerms.mainEntrance,
+            los: [[{top: 206, left: 157}, {top: 189, left: 35}, {top: 158, left: 35}, {top: 158, left: 61}, {top: 175, left: 94}],
+            [{top: 151, left: 111}, {top: 170, left: 127}],
+            [{top: 151, left: 160}, {top: 91, left: 163}, {top: 91, left: 192}, {top: 151, left: 174}],
+            [{top: 173, left: 206}, {top: 151, left: 239}, {top: 151, left: 267}, {top: 206, left: 157}]]},
+          {floor: 0, top: -128, left: 288, id: 5, location: villaTerms.archHallway,
+            los: [[{top: -143, left: 327}, {top: -128, left: 288}, {top: -86, left: 252}],
+            [{top: -163, left: 246}, {top: -167, left: 241}, {top: -193, left: 241}, {top: -158, left: 267}],
+            [{top: -162, left: 274}, {top: -204, left: 258}, {top: -204, left: 273}, {top: -250, left: 265}, {top: -250, left: 274}, {top: -254, left: 274}, {top: -302, left: 269}, {top: -302, left: 290}, {top: -163, left: 290}]]},
+          {outdoor: true, top: -82, left: 53, id: 6, location: villaTerms.stableYard,
+            los: [[{top: -77, left: 95  }, {top: -86, left: 82}, {top: -97, left: 174}], [{top: -404, left: 248}, {top: -720, left: 414}]]},
+          {outdoor: true, top: 360, left: 366, id: 7, location: villaTerms.ruins, los: [[{top: 480, left: 340}, {top: 390, left: 386}, {top: 40, left: 650}]]},
+          {outdoor: true, top: -73, left: 685, id: 8, location: villaTerms.driveway,
+          los: [[{top: 290, left: 392}, {top: -73, left: 686}, {top: -130, left: 720}]]}
+        ],
+        ceilingHatches: [
+          // scale is off b/w map and hatch, so rescaling to fit.
+          { floor: 1, top: -59, left: 109, width: 25, height: 25 },
+          { floor: 1, top: -304, left: 300, width: 25, height: 25 },
+          { floor: 1, top: 213, left: 360, width: 25, height: 25 },
+          { floor: 1, top: -169, left: 556, width: 25, height: 25 },
+
+          { floor: 0, top: -111, left: 296, width: 25, height: 25 },
+          { floor: 0, top: -325, left: 498, width: 25, height: 25 }
+        ],
+        skylights: [
+          {floor: 1, otherFloor: 'up', top: -176, left: 345 },
+          {floor: 2, top: -193, left: 368 }
+        ],
+        droneTunnels: [
+          { floor: 0, top: -197, left: 296, rotate: 90, size: 12 },
+          { floor: 0, top: -315, left: 521, rotate: 90, size: 57 },
+          { floor: 1, top: 274, left: 169, rotate: 0, size: 44 },
+          { floor: 1, top: 224, left: 359, rotate: 0, size: DRONE_SMALL },
+          { floor: 1, top: 89, left: 90, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: 64, left: 372, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -123, left: 491, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -155, left: 177, rotate: 90, size: DRONE_SMALL },
+          { floor: 1, top: -295, left: 235, rotate: 90, size: DRONE_SMALL },
+          { floor: 2, top: -32, left: 200, rotate: 90, size: 10 },
+          { floor: 2, top: -85, left: 227, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -279, left: 580, rotate: 0, size: DRONE_SMALL },
+          { floor: 2, top: -360, left: 409, rotate: 0, size: DRONE_SMALL }
+        ],
+        spawnPoints: [
+          { letter: spawnTerms.a, top: -371, left: -155, description: villaTerms.spawnMainRoad },
+          { letter: spawnTerms.b, top: 428, left: 371, description: villaTerms.spawnRuins },
+          { letter: spawnTerms.c, top: -290, left: 845, description: villaTerms.spawnFountain }
+        ],
+        roomLabels: [
+          // EXT
+          { outdoor: true, top: 380, left: 100, description: villaTerms.ruins, hardToRead: true },
+          { outdoor: true, top: 180, left: -50, description: villaTerms.roundabout, hardToRead: true },
+          { floor: 1, top: 270, left: 290, description: villaTerms.greenhouse },
+          { floor: 1, top: 160, left: 60, description: villaTerms.frontEntrance, veryHardToRead: true },
+          { floor: 3, top: 86, left: 263, description: villaTerms.roof, hardToRead: true },
+          { outdoor: true, top: 189, left: 460, description: villaTerms.terrace },
+          { outdoor: true, top: 59, left: 460, description: villaTerms.terrace, hardToRead: true },
+          { floor: 0, top: 59, left: 320, description: villaTerms.cryptTunnel },
+          { floor: 0, top: 120, left: 512, description: villaTerms.crypt, hardToRead: true },
+          { outdoor: true, top: 110, left: 600, description: villaTerms.cryptEntrance, hardToRead: true },
+          { outdoor: true, top: 119, left: 700, description: villaTerms.garden, hardToRead: true },
+          { outdoor: true, top: -20, left: 610, description: villaTerms.driveway, hardToRead: true },
+          { outdoor: true, top: -180, left: 653, description: villaTerms.driveway, hardToRead: true },
+          { outdoor: true, top: -370, left: 672, description: villaTerms.driveway, hardToRead: true },
+          { outdoor: true, top: -80, left: -80, description: villaTerms.mainRoad, hardToRead: true },
+          { outdoor: true, top: -40, left: 530, description: villaTerms.balcony, hardToRead: true },
+          { outdoor: true, top: -110, left: 724, description: villaTerms.pergola, hardToRead: true },
+          { outdoor: true, top: -170, left: 90, description: villaTerms.stableYard, hardToRead: true },
+          { floor: 3, top: -248, left: 481, description: villaTerms.skylightRoof, hardToRead: true },
+          { floor: 2, top: -95, left: 530, description: villaTerms.bedroomRoof, hardToRead: true },
+          { outdoor: true, top: -131, left: 820, description: villaTerms.chapel, hardToRead: true },
+          { floor: 0, top: -230, left: 570, description: villaTerms.garage, veryHardToRead: true },
+          { outdoor: true, top: -390, left: 740, description: villaTerms.fountain, hardToRead: true },
+          // hidden under stable's roof
+          { outdoor: true, top: -281, left: 80, description: villaTerms.stable, hardToRead: true },
+          { floor: 0, top: -380, left: 260, description: villaTerms.cellarTunnel, veryHardToRead: true },
+          { outdoor: true, top: -390, left: 420, description: villaTerms.sideRoad, veryHardToRead: true },
+          // 2F
+          { floor: 2, top: 282, left: 310, description: villaTerms.veranda },
+          { floor: 2, top: 206, left: 121, description: villaTerms.classicalHall, hardToRead: true },
+          { floor: 2, top: -14, left: 150, description: villaTerms.classicalHall, hardToRead: true },
+          { floor: 2, top: -60, left: 2830, description: villaTerms.classicalHall, hardToRead: true },
+          { floor: 2, top: 184, left: 350, description: villaTerms.study, hardToRead: true },
+          { floor: 2, top: 70, left: 165, description: villaTerms.gamesRoom, veryHardToRead: true },
+          { floor: 2, top: 108, left: 320, description: villaTerms.aviatorRoom, hardToRead: true },
+          { floor: 2, top: 6, left: 255, description: villaTerms.huntingVault },
+          { floor: 2, top: -38, left: 348, description: villaTerms.landing, veryHardToRead: true },
+          { floor: 2, top: -109, left: 286, description: villaTerms.trophyEntrance, veryHardToRead: true },
+          { floor: 2, top: -159, left: 447, description: villaTerms.statuaryRoom, hardToRead: true },
+          { floor: 2, top: -243, left: 297, description: villaTerms.trophyRoom, veryHardToRead: true },
+          { floor: 2, top: -235, left: 520, description: villaTerms.masterBedroom, veryHardToRead: true },
+          { floor: 2, top: -317, left: 296, description: villaTerms.astronomyRoom, veryHardToRead: true },
+          { floor: 2, top: -313, left: 440, description: villaTerms.masterBathroom, hardToRead: true },
+          { floor: 2, top: -313, left: 533, description: villaTerms.walkInCloset, veryHardToRead: true },
+          // 1F
+          { floor: 1, top: 197, left: 200, description: villaTerms.mainEntrance, veryHardToRead: true },
+          { floor: 1, top: 191, left: 347, description: villaTerms.artStudio, hardToRead: true },
+          { floor: 1, top: 127, left: 165, description: villaTerms.library, hardToRead: true },
+          { floor: 1, top: 44, left: 135, description: villaTerms.library, hardToRead: true },
+          { floor: 1, top: 95, left: 250, description: villaTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: 16, left: 310, description: villaTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: -74, left: 347, description: villaTerms.mainHallway, veryHardToRead: true },
+          { floor: 1, top: 72, left: 319, description: villaTerms.pianoRoom, hardToRead: true },
+          { floor: 1, top: 50, left: 204, description: villaTerms.gallery, hardToRead: true },
+          { floor: 1, top: -26, left: 113, description: villaTerms.toilet, hardToRead: true },
+          { floor: 1, top: -41, left: 281, description: villaTerms.livingRoom, veryHardToRead: true },
+          { floor: 1, top: -131, left: 279, description: villaTerms.livingRoom, veryHardToRead: true },
+          { floor: 1, top: -40, left: 463, description: villaTerms.bicycleStorage, hardToRead: true },
+          { floor: 1, top: -128, left: 430, description: villaTerms.memorialRoom, veryHardToRead: true },
+          { floor: 1, top: -172, left: 207, description: villaTerms.mudroom, veryHardToRead: true },
+          { floor: 1, top: -204, left: 347, description: villaTerms.skylightHallway, hardToRead: true },
+          { floor: 1, top: -189, left: 528, description: villaTerms.laundry, hardToRead: true },
+          { floor: 1, top: -232, left: 280, description: villaTerms.backHallway, veryHardToRead: true },
+          { floor: 1, top: -247, left: 480, description: villaTerms.diningRoom, hardToRead: true },
+          { floor: 1, top: -254, left: 340, description: villaTerms.chinaRoom, hardToRead: true },
+          { floor: 1, top: -325, left: 371, description: villaTerms.kitchen, veryHardToRead: true },
+          { floor: 1, top: -339, left: 502, description: villaTerms.pantry, hardToRead: true },
+          // B
+          { floor: 0, top: -40, left: 288, description: villaTerms.tastingRoom, veryHardToRead: true },
+          { floor: 0, top: -196, left: 268, description: villaTerms.archHallway, veryHardToRead: true },
+          { floor: 0, top: -190, left: 371, description: villaTerms.artStorage, hardToRead: true },
+          { floor: 0, top: -210, left: 466, description: villaTerms.oldOffice, veryHardToRead: true },
+          { floor: 0, top: -291, left: 357, description: villaTerms.wineCellar, veryHardToRead: true },
+          // Stairs
+          { floor: 1, top: 262, left: 170, description: villaTerms.mainStairs, veryHardToRead: true },
+          { floor: 2, top: 273, left: 180, description: villaTerms.mainStairs, veryHardToRead: true },
+          { floor: 0, top: -40, left: 370, description: villaTerms.redStairs, veryHardToRead: true },
+          { floor: 1, top: -40, left: 400, description: villaTerms.redStairs, veryHardToRead: true },
+          { floor: 2, top: -43, left: 420, description: villaTerms.redStairs, hardToRead: true },
+          { floor: 0, top: -331, left: 257, description: villaTerms.backStairs, veryHardToRead: true },
+          { floor: 1, top: -316, left: 270, description: villaTerms.backStairs, veryHardToRead: true },
+          { floor: 2, top: -370, left: 310, description: villaTerms.backStairs, veryHardToRead: true },
+          { floor: 0, top: -321, left: 519, description: villaTerms.pantryStairs, veryHardToRead: true },
+          { floor: 1, top: -315, left: 541, description: villaTerms.pantryStairs, veryHardToRead: true }
         ]
       }
       /*emptytemplate: {
