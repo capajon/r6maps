@@ -139,13 +139,15 @@ nav {
     }
   }
 
+  #toggle-control {
+      button:focus {
+        background-color: #fff;
+      }
+  }
+
   #floor-control, #toggle-control {
     display: inline-block;
     margin-left: $control-padding-left-right;
-
-    button:focus {
-      background-color: #fff;
-    }
 
     body[dir="rtl"] & {
       margin-left: 0;
