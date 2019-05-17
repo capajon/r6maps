@@ -32,6 +32,7 @@
     setupMenu();
     setupSelectMap();
     R6MMainControls.maps.populate(R6MMainData.getMapData());
+    R6MMainControls.toggle.populate();
 
     $sessionsDialog = $('#sessions-dialog');
     R6MMainSessions.createJoinDialog.setup($sessionsDialog);
@@ -402,6 +403,7 @@
   var setupEvents = function setupEvents() {
     $mapMains.on('click', outputCoordinates);
     R6MMainControls.objectives.setup(handleObjectiveChange);
+    R6MMainControls.toggle.setup();
     R6MMainControls.maps.setup(handleMapChange);
     R6MMainControls.floors.setup(handleFloorChange, showSelectedFloor);
     R6MMainControls.roomLabelStyles.setup(setRoomLabelStyle);
@@ -460,7 +462,7 @@
     R6MMainControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
   };
 
-  var setupSelectMap = function seteupSelectMap() {
+  var setupSelectMap = function setupSelectMap() {
     R6MMainSelectMaps.setup(
       $('#select-map-grid'),
       $('#select-map-heading'),

@@ -6,6 +6,7 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     $floorControl = $('#floor-control'),
     $zoomControl = $('#zoom-range'),
     $menuControl = $('#mmenu-link'),
+    $toggleControl = $('#toggle-control'),
     $lockPanningControl,
     $enableScreenshotsControl,
     $roomLabelStylesControl,
@@ -14,7 +15,10 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     $menuSelectMapsControl,
     $sessionsControl,
     $menuPanel = $('#menu-panel'),
+    ROOM_LABEL_STYLE_DEFAULT = 'Light',
+    ROOM_LABEL_STYLE_DISPLAY_NONE = 'DisplayNone',
     SELECTED_CLASS = 'selected',
+    TOGGLE_TYPE_LABEL = 'label',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far',
     CSS_TRANSITION_MS = 1800; // currently in highlighted-item mixin for .highlighted-item-in-transition
@@ -140,6 +144,8 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
         if (floorsTrySelect(0)) {
           showSelectedFloorFn();
         }
+      } else if (keyCode == 84) { // 't'
+        triggerToggleEvent(TOGGLE_TYPE_LABEL);
       }
     };
   };
@@ -585,6 +591,47 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     return R6MHelpers.trySelectOption($objectiveControl, objective);
   };
 
+  var togglePopulate = function togglePopulate() {
+    var btns = '<button id="toggle-label" title="Toggle Labels (Shortcut: t)">'
+       + '<span class="short">Labels</span>'
+       + '<span class="full">Toggle Labels</span>'
+       + '</button>';
+
+    $toggleControl.html(btns);
+  };
+
+  var setupToggleClickEvent = function setupToggleClickEvent(callback) {
+    $toggleControl.on('click', '#toggle-' + TOGGLE_TYPE_LABEL, function(e) {
+      var cur = $roomLabelStylesControl.val();
+      var prev = $(this).data('prevRoomStyle') ? $(this).data('prevRoomStyle') : ROOM_LABEL_STYLE_DISPLAY_NONE;
+
+      if (cur == prev){
+        prev = cur === ROOM_LABEL_STYLE_DISPLAY_NONE ? ROOM_LABEL_STYLE_DEFAULT : ROOM_LABEL_STYLE_DISPLAY_NONE;
+      }
+
+      $roomLabelStylesControl.val(prev).trigger('change');
+      $(this).data('prevRoomStyle', cur);
+      if (callback && typeof callback === 'function'){
+        callback();
+      }
+    });
+  };
+
+  var triggerToggleEvent = function triggerToggleEvent(type){
+    // Validate type and default to label
+    switch (type){
+    case TOGGLE_TYPE_LABEL:
+      break;
+    default:
+      type = TOGGLE_TYPE_LABEL;
+    }
+    $toggleControl.find('#toggle-' + type).trigger('click');
+  };
+
+  var toggleSetup = function toggleSetup(callback) {
+    setupToggleClickEvent(callback);
+  };
+
   var removeLatestUpdateHighlight = function removeLatestUpdateHighlight(initialDelayMs) {
     unhighlightControl($('#menu-latest-updates'), initialDelayMs);
   };
@@ -677,6 +724,10 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     sessions: {
       enable: sessionsEnable,
       setup: sessionsSetupClickEvent
+    },
+    toggle: {
+      populate: togglePopulate,
+      setup: toggleSetup
     },
     zoom: {
       disable: zoomDisable,
