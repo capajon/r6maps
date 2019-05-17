@@ -585,7 +585,7 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
   };
 
   var togglePopulate = function togglePopulate() {
-    var btns = '<button data-prevRoomStyle="' + ROOM_LABEL_STYLE_DISPLAY_NONE + '" id="toggle-label" title="Toggle Labels">'
+    var btns = '<button id="toggle-label" title="Toggle Labels">'
      + '<span class="short">Labels</span>'
      + '<span class="full">Toggle Labels</span>'
      + '</button>';
