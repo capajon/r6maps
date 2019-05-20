@@ -195,7 +195,7 @@ var R6MLangTerms = (function(undefined) {
         timeExpired: 'Time expired'
       },
       toggle: {
-        labels: {full: 'Toggle Labels', short: 'Labels'}
+        labels: {full: 'Toggle Labels', short: 'Labels', shortcut: ['t','T']}
       },
       ranks: {
         unranked: 'Unranked',

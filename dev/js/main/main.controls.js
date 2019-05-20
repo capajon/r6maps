@@ -135,6 +135,7 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
   var getHandleHotkeyFn = function getHandleHotkeyFn(showSelectedFloorFn) {
     return function handleHotKey(e) {
       var keyCode = e.which;
+      var keyVal = e.key;
 
       if (keyCode >= 48 && keyCode <= 53) {  // '0' through '1'
         if (floorsTrySelect(keyCode - 48)) {
@@ -144,7 +145,7 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
         if (floorsTrySelect(0)) {
           showSelectedFloorFn();
         }
-      } else if (keyCode == 84) { // 't'
+      } else if (R6MLangTerms.terms.toggle.labels.shortcut.includes(keyVal)) { // Language specific shortcut ex. 't' or 'T' in english
         triggerToggleEvent(TOGGLE_TYPE_LABEL);
       }
     };
