@@ -32,7 +32,6 @@
     setupMenu();
     setupSelectMap();
     R6MMainControls.maps.populate(R6MMainData.getMapData());
-    R6MMainControls.toggle.populate();
 
     $sessionsDialog = $('#sessions-dialog');
     R6MMainSessions.createJoinDialog.setup($sessionsDialog);
@@ -238,6 +237,7 @@
 
     R6MMainControls.objectives.populate(mapData[currentlySelectedMap].objectives);
     R6MMainControls.floors.populate(mapData[currentlySelectedMap].floors);
+    R6MMainControls.toggle.populate();
     R6MMainRender.renderMap(mapData[currentlySelectedMap], $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels);
     if (!DEV_MODE) {
       R6MMainControls.pan.reset($mapMains, getResetDimensions);

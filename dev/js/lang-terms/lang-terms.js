@@ -194,6 +194,9 @@ var R6MLangTerms = (function(undefined) {
         objectiveProtected: 'Objective protected',
         timeExpired: 'Time expired'
       },
+      toggle: {
+        labels: {full: 'Toggle Labels', short: 'Labels'}
+      },
       ranks: {
         unranked: 'Unranked',
         copper: 'Copper',
