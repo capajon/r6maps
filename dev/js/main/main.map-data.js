@@ -2097,7 +2097,7 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 3,  top: 44, left: 554, description: kafeTerms.terrace },
           { floor: 4,  top: 44, left: 554, description: kafeTerms.terrace },
           { outdoor: true,  top: 379, left: 131, description: kafeTerms.backAlley },
-          { outdoor: true,  top: 379, left: -290, description: kafeTerms.garrage },
+          { outdoor: true,  top: 379, left: -290, description: kafeTerms.garage },
           { outdoor: true, top: 577, left: 517, description: kafeTerms.parkAlley }
         ]
       },

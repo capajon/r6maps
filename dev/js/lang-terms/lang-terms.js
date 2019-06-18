@@ -927,7 +927,7 @@ var R6MLangTerms = (function(undefined) {
           cafeRoofTop: 'Cafe Roof Top',
           terrace: 'Terrace',
           backAlley: 'Back Alley',
-          garrage: 'Garrage',
+          garage: 'Garrage',
           parkAlley: 'Park<br/>Alley'
         },
         oregon: {
