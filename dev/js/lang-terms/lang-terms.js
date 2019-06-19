@@ -899,10 +899,10 @@ var R6MLangTerms = (function(undefined) {
           eastMainStreet: 'East Main Street',
           riverDocks: 'River Docks',
           // Stairs
-          frontStairs: 'Front<br/>Stairs',
           whiteStairs: 'White<br/>Stairs',
           redStairs: 'Red<br/>Stairs',
           // 4F/Roof
+          cafeRoofTop: 'Cafe Roof Top',
           // 3F
           cigarLounge: 'Cigar<br/>Lounge',
           whiteCorridor: 'White Corridor',
@@ -937,9 +937,7 @@ var R6MLangTerms = (function(undefined) {
           diningRoom: 'Dining<br/>Room',
           smallBakery: 'Small<br/>Bakery',
           coatCheck: 'Coat<br/>Check',
-          reception: 'Reception',
-
-          cafeRoofTop: 'Cafe Roof Top'
+          reception: 'Reception'
         },
         oregon: {
           spawnJunkyard: 'Junkyard',
