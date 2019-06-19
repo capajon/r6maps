@@ -7,14 +7,16 @@
     document,
     R6MLangTerms,
     R6MLangTermsGerman,
+    R6MLangTermsSpanish,
     R6MLangTermsFrench,
-    R6MLangTermsKorean,
-    R6MLangTermsPortBrazil,
-    R6MLangTermsRussian,
+    R6MLangTermsHebrew,
     R6MLangTermsJapanese,
-    R6MLangTermsSimplifiedChinese,
+    R6MLangTermsKorean,
     R6MLangTermsMongolian,
     R6MLangTermsPolish,
+    R6MLangTermsPortBrazil,
+    R6MLangTermsRussian,
+    R6MLangTermsSimplifiedChinese,
     R6MMainData
   );
 }(function(
@@ -23,14 +25,16 @@
   document,
   R6MLangTerms,
   R6MLangTermsGerman,
+  R6MLangTermsSpanish,
   R6MLangTermsFrench,
-  R6MLangTermsKorean,
-  R6MLangTermsPortBrazil,
-  R6MLangTermsRussian,
+  R6MLangTermsHebrew,
   R6MLangTermsJapanese,
-  R6MLangTermsSimplifiedChinese,
+  R6MLangTermsKorean,
   R6MLangTermsMongolian,
   R6MLangTermsPolish,
+  R6MLangTermsPortBrazil,
+  R6MLangTermsRussian,
+  R6MLangTermsSimplifiedChinese,
   R6MMainData,
   undefined
 ) {
@@ -44,15 +48,16 @@
 
     defaultTerms = R6MLangTerms.terms;
     translatedTerms.german = R6MLangTermsGerman.terms;
+    translatedTerms.spanish = R6MLangTermsSpanish.terms;
     translatedTerms.french = R6MLangTermsFrench.terms;
+    translatedTerms.hebrew = R6MLangTermsHebrew.terms;
+    translatedTerms.japanese = R6MLangTermsJapanese.terms;
     translatedTerms.korean = R6MLangTermsKorean.terms;
+    translatedTerms.mongolian = R6MLangTermsMongolian.terms;
+    translatedTerms.polish = R6MLangTermsPolish.terms;
     translatedTerms.portbrazil = R6MLangTermsPortBrazil.terms;
     translatedTerms.russian = R6MLangTermsRussian.terms;
-    translatedTerms.japanese = R6MLangTermsJapanese.terms;
     translatedTerms.simplifiedchinese = R6MLangTermsSimplifiedChinese.terms;
-    translatedTerms.mongolian = R6MLangTermsMongolian.terms;
-    translatedTerms.spanish = R6MLangTermsSpanish.terms;
-    translatedTerms.polish = R6MLangTermsPolish.terms;
     // add new languages here and to module import above
 
     categoryKeys = getFirstLevelKeys(defaultTerms, ['mapRooms']);
