@@ -29,7 +29,7 @@ tr:nth-child(odd) {
 }
 
 .identical-warning {
-  background-color: rgba(20,240,60,0.3);
+  background-color: rgba(240, 152, 20, 0.3);
 }
 
 .key {

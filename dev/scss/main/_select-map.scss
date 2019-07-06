@@ -179,6 +179,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.fortress div.image.thumb {
+          @include map-thumb-icon(20);
+        }
+        body[loaded-map="fortress"] &.favela p {
+          @include map-name-selected();
+        }
+
         &.hereford div.image.thumb {
           @include map-thumb-icon(7);
         }
@@ -214,6 +221,13 @@ $map-thumb-height: 278px;
           @include map-name-selected();
         }
 
+        &.outback div.image.thumb {
+          @include map-thumb-icon(21);
+        }
+        body[loaded-map="outback"] &.outback p {
+          @include map-name-selected();
+        }
+
         &.plane div.image.thumb {
           @include map-thumb-icon(12);
         }
@@ -239,6 +253,13 @@ $map-thumb-height: 278px;
           @include map-thumb-icon(18);
         }
         body[loaded-map="themepark"] &.themepark p {
+          @include map-name-selected();
+        }
+
+        &.villa div.image.thumb {
+          @include map-thumb-icon(19);
+        }
+        body[loaded-map="villa"] &.themepark p {
           @include map-name-selected();
         }
 

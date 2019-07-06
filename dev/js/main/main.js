@@ -237,6 +237,7 @@
 
     R6MMainControls.objectives.populate(mapData[currentlySelectedMap].objectives);
     R6MMainControls.floors.populate(mapData[currentlySelectedMap].floors);
+    R6MMainControls.toggle.populate();
     R6MMainRender.renderMap(mapData[currentlySelectedMap], $mapWrappers, $mapElements, $svgMapWrappers, $mapPanelLabels);
     if (!DEV_MODE) {
       R6MMainControls.pan.reset($mapMains, getResetDimensions);
@@ -402,6 +403,7 @@
   var setupEvents = function setupEvents() {
     $mapMains.on('click', outputCoordinates);
     R6MMainControls.objectives.setup(handleObjectiveChange);
+    R6MMainControls.toggle.setup();
     R6MMainControls.maps.setup(handleMapChange);
     R6MMainControls.floors.setup(handleFloorChange, showSelectedFloor);
     R6MMainControls.roomLabelStyles.setup(setRoomLabelStyle);
@@ -460,7 +462,7 @@
     R6MMainControls.setupLosOpacity(updateLosOpacity, getCameraLosOpacity(), DEFAULT_LOS_OPACITY);
   };
 
-  var setupSelectMap = function seteupSelectMap() {
+  var setupSelectMap = function setupSelectMap() {
     R6MMainSelectMaps.setup(
       $('#select-map-grid'),
       $('#select-map-heading'),

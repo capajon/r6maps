@@ -126,13 +126,15 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
   var getCeilingHatchesHtml = function getCeilingHatchesHtml(ceilingHatches) {
     var html = '',
       positionStyle,
+      dimensionStyle,
       classes;
 
     ceilingHatches.forEach(function(hatch) {
       positionStyle = getPositionStyle(hatch);
+      dimensionStyle = getDimensionStyle(hatch);
       classes = 'ceiling-hatch ';
       classes += getCommonClasses(hatch);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"></div>';
+      html += '<div style="' + positionStyle + dimensionStyle + '" class="' + classes + '"></div>';
     });
     return html;
   };
@@ -299,6 +301,10 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
       cssClass = '';
 
     floors.forEach(function(floor) {
+      // allows to have a bg image that can't be selected as a "floor"
+      if (floor.dontSelect) {
+        return;
+      }
       cssClass = FLOOR_CSS_TEXT[floor.index];
       html += '<span class="' + cssClass + '">' + floor.name.full + '</span>';
     });
@@ -307,6 +313,14 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
 
   var getPositionStyle = function getPositionStyle(element) {
     return 'top: ' + element.top + 'px; left: ' + element.left + 'px; ';
+  };
+
+  var getDimensionStyle = function getDimensionStyle(element) {
+    if ('width' in element && 'height' in element) {
+      return ' width: ' + element.width + 'px; height: ' + element.height + 'px; background-size: ' + element.width + 'px, ' + element.height + 'px;';
+    } else {
+      return '';
+    }
   };
 
   var getRoomLabelsHtml = function getRoomLabelsHtml(roomLabels) {
