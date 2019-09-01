@@ -244,7 +244,10 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
         skyscraper: '摩天大楼',
         themepark: '主题乐园',
         tower: '塔楼',
-        yacht: '游艇'
+        yacht: '游艇',
+        fortress: '要塞',
+        outback: '荒漠服务站',
+        villa: '庄园'
       },
       mapRooms: {
         bank: {
@@ -1088,6 +1091,74 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           roof: '屋顶',
           anchorName: '船锚室',
           aklarkSubEntrance: 'Aklark 分室<br/>入口'
+        },
+        fortress: {
+          // spawns
+          mainGate: '主门',
+          parking: '停车场',
+          garden: '庭园',
+          stable: '马厩',
+          // ext ground
+          gardenPath: '花园小道',
+          stablePath: '马厩小道',
+          cliffside: '崖边',
+          courtyardPath: '庭院通道',
+          unloadingZone: '卸货区',
+          frontEntrance: '正门',
+          cannonOverlook: '大炮上方',
+          // 1F
+          lobbyStairs: '门厅</br>楼梯',
+          lobby: '门厅',
+          office: '办公室',
+          courtyardLadder: '庭院</br>梯子',
+          musicRoom: '音乐室',
+          courtyard: '庭院',
+          diningRoom: '饭厅',
+          sittingRoom: '会客厅',
+          mainHallway: '主过道',
+          waitingRoom: '等候室',
+          changingRoom: '更衣室',
+          kitchen: '厨房',
+          infirmary: '医务室',
+          centralStairs: '中央</br>楼梯',
+          hammam: '土耳其</br>浴场',
+          cafeteria: '餐厅',
+          showers: '淋浴间',
+          hammamHallway: '土耳其浴场</br>过道',
+          oldTowerStairs: '陈旧塔楼</br>楼梯',
+          laundryRoom: '洗衣间',
+          // 2F
+          towerStairs: '塔楼楼梯',
+          towerHallway: '塔楼过道',
+          towerRenovation: '装修</br>塔楼',
+          courtyardTower: '庭院</br>塔楼',
+          centralStairsHall: '中央楼梯</br>走廊',
+          museum: '博物馆',
+          commandersOffice: '指挥官</br>办公室',
+          bedroom: '卧室',
+          bathroom: '浴室',
+          cantralStairsHall: '中央楼梯</br>走廊',
+          shishaLounge: '水烟区',
+          shishaHallway: '水烟过道',
+          dormitory: '宿舍',
+          briefingRoom: '新闻</br>发布室',
+          gamesRoom: '游戏房间',
+          // 3F
+          oldTower: '陈旧的</br>塔楼',
+           // ext roof
+          westTower: '西侧塔楼',
+          eastTower: '东侧塔楼',
+          guardTower: '哨塔',
+          modernRoof: '现代的</br>屋顶',
+          oldRoof: '老旧的</br>屋顶',
+          courtyardBalcony: '庭院阳台',
+          hammamRoof: '土耳其浴场</br>屋顶'
+        },
+        outback: {
+
+        },
+        villa: {
+
         }
       }
     };
