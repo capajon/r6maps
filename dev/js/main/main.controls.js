@@ -194,6 +194,8 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
   var getMenuContributionsHtml = function getMenuContributionsHtml() {
     var html = '';
 
+    return html;
+
     html += '<div id="contributions" class="mmenu-custom-panel">';
     html += '<h2>' + R6MLangTerms.terms.general.contributions + '</h2>';
     html += '<p>' + R6MLangTerms.terms.general.supportSiteNote + '</p>';
