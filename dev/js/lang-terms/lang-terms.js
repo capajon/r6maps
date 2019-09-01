@@ -725,6 +725,7 @@ var R6MLangTerms = (function(undefined) {
           museum: 'Museum',
           bathroom: 'Bathroom',
           commandersOffice: 'Commander\'s Office',
+          bedroom: 'Bedroom',
           courtyardTower: 'Courtyard<br/>Tower',
           towerStairs: 'Tower<br/>Stairs',
           towerHallway: 'Tower Hallway',

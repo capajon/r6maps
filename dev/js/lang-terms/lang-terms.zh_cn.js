@@ -1197,7 +1197,6 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           commandersOffice: '指挥官</br>办公室',
           bedroom: '卧室',
           bathroom: '浴室',
-          cantralStairsHall: '中央楼梯</br>走廊',
           shishaLounge: '水烟区',
           shishaHallway: '水烟过道',
           dormitory: '宿舍',
