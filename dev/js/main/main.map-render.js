@@ -26,6 +26,7 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
 
   var IMG_URL = 'img/',
     FLOOR_CSS_TEXT = {
+      '-1': 'neg-one', // bare -1 doesn't lint, but this should still work
       0: 'zero',
       1: 'one',
       2: 'two',
