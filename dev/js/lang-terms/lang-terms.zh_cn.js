@@ -631,14 +631,52 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           marketRooftops: '市场屋顶'
         },
         hereford: {
-          shootingRange: '靶场',
+          // spawns
+          controlTower: '控制塔',
+          shootingRange: '射击靶场',
+          spitfireCourtyard: '喷火式战斗机庭院',
+          // ext ground
+          barnyard: '谷仓前院',
+          westCourtyard: '西侧庭院',
+          eastCourtyard: '东侧庭院',
+          street: '街道',
+          // basement
+          barn: '谷仓',
+          westTunnel: '西侧</br>通道',
+          eastTunnel: '东侧</br>通道',
+          generatorRoom: '发电室',
+          blueStairs: '蓝色</br>楼梯',
+          brewery: '酿酒间',
+          fermentationChamber: '发酵间',
           mainStairs: '主楼梯',
-          kitchen: '厨房',
-          diningRoom: '饭厅',
-          masterBedroom: '主卧室',
-          laundryRoom: '洗衣间',
-          bathroom: '浴室',
+          mainHallway: '主过道',
+          barrelStorage: '酒桶</br>贮藏室',
           workshop: '工作间',
+          // 1F
+          foyer: '门厅',
+          livingRoom: '客厅',
+          pianoRoom: '钢琴室',
+          garage: '车库',
+          kitchen: '厨房',
+          kitchenEntrance: '厨房</br>入口',
+          diningRoom: '饭厅',
+          prepArea: '备菜间',
+          // 2F
+          bathroom: '浴室',
+          kidsRoom: '儿童房',
+          masterBedroom: '主卧室',
+          sewingRoom: '缝纫房间',
+          blueHallway: '蓝色</br>过道',
+          loomCloset: '织布间',
+          loomRoom: '织布房间',
+          laundryRoom: '洗衣间',
+          balcony: '阳台',
+          // 3F
+          ammoStorage: '弹药</br>贮藏室',
+          attic: '阁楼',
+          tractorStorage: '拖拉机</br>贮藏室',
+          // roof
+          garageRoof: '车库屋顶',
           rooftop: '屋顶'
         },
         house: {
