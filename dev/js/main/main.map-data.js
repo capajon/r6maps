@@ -2203,12 +2203,58 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ],
         skylights: [],
         droneTunnels: [
-          { floor: 1, top: -34, left: -506, rotate: 90, size: DRONE_MED },
-          { floor: 1, top: -309, left: -506, rotate: 225, size: 30 },
-          { floor: 2, top: -85, left: -366, rotate: 90, size: DRONE_SMALL },
-          { floor: 2, top: -71, left: 246, rotate: 90, size: DRONE_SMALL },
-          { floor: 3, top: 64, left: 460, rotate: 0, size: DRONE_MED },
-          { floor: 3, top: 9, left: 193, rotate: 0, size: DRONE_SMALL }
+          // north vents on coast guard
+          { floor: 1, top: -346, left: -171, rotate: 0, size: 8 },
+          { floor: 1, top: -341, left: -161, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: -346, left: -166, rotate: 90, size: DRONE_MED },
+
+          { floor: 2, top: -353, left: -171, rotate: 0, size: 12 },
+          { floor: 2, top: -353, left: -161, rotate: 0, size: 12 },
+          { floor: 2, top: -353, left: -166, rotate: 90, size: DRONE_MED },
+
+          { floor: 3, top: -353, left: -171, rotate: 0, size: 12 },
+          { floor: 3, top: -340, left: -161, rotate: 0, size: 38 },
+          { floor: 3, top: -353, left: -166, rotate: 90, size: DRONE_MED },
+          { floor: 3, top: -324, left: -150, rotate: 90, size: 29 },
+
+          // east vents on coast guard
+          { floor: 1, top: -193, left: -55, rotate: 0, size: 8 },
+          { floor: 1, top: -193, left: -66, rotate: 90, size: 30 },
+
+          { floor: 2, top: -193, left: -56, rotate: 0, size: 10 },
+          { floor: 2, top: -193, left: -54, rotate: 0, size: 10 },
+          { floor: 2, top: -193, left: -55, rotate: 90, size: 10 },
+
+          { floor: 3, top: -204, left: -95, rotate: 0, size: 35 },
+          { floor: 3, top: -210, left: -87, rotate: 90, size: 9 },
+          { floor: 3, top: -192, left: -53, rotate: 0, size: 11 },
+          { floor: 3, top: -192, left: -74, rotate: 90, size: 51 },
+
+          // west vents on coast guard
+          { floor: 0, top: -206, left: -371, rotate: 0, size: 18 },
+          { floor: 0, top: -202, left: -365, rotate: 90, size: 21 },
+
+          { floor: 1, top: -211, left: -367, rotate: 0, size: 11 },
+          { floor: 1, top: -211, left: -367, rotate: 90, size: 10 },
+
+          { floor: 2, top: -211, left: -367, rotate: 0, size: 11 },
+          { floor: 2, top: -211, left: -357, rotate: 90, size: 29 },
+
+          { floor: 3, top: -211, left: -367, rotate: 0, size: 11 },
+          { floor: 3, top: -211, left: -357, rotate: 90, size: 29 },
+
+          // tunnel vents
+          { floor: -1, top: -177, left: -348, rotate: 0, size: 11 },
+          { floor: -1, top: -177, left: -298, rotate: 90, size: 109 },
+
+          { floor: 0, top: -190, left: -365, rotate: 0, size: 11 },
+          { floor: 0, top: -190, left: -366, rotate: 90, size: 11 },
+
+          // basement bathroom
+          { floor: 0, top: 55, left: -85, rotate: 90, size: 14 },
+          // diving room
+          { floor: 0, top: -335, left: -260, rotato: 0, size: 12 }
+
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: -495, left: -1004, description: kanalTerms.floatingDock },
