@@ -2120,30 +2120,33 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           'bomb', 'hostage', 'secure'
         ],
         floors: [
-          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
-          { index: 2, top: -428, left: -608, name: floorTerms.secondFloor },
-          { index: 3, top: -428, left: -608, name: floorTerms.thirdFloor },
-          { index: 4, top: -428, left: -608, name: floorTerms.roof }
+          { index: -1, top: -1190, left: -2218, background: true, name: floorTerms.subBasement },
+          { index: 0, top: -346, left: -368, name: floorTerms.basement },
+          { index: 1, top: -346, left: -366, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -362, left: -380, name: floorTerms.secondFloor },
+          { index: 3, top: -359, left: -380, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 1, top: 95, left: -416 },
-          { floor: 2, top: 48, left: -418 },
-          { floor: 3, top: -111, left: 163 },
-          { floor: 2, top: -101, left: 278 }
+          { floor: 0, top: -30, left: -312, smaller: true },
+          { floor: 1, top: -39, left: -305, smaller: true },
+          { floor: 1, top: -168, left: 213, smaller: true },
+          { floor: 2, top: -172, left: 135, smaller: true }
         ],
         bombObjectives: [
-          { floor: 2, top: 125, left: -460, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: -140, left: -422, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: -174, left: 139, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: -174, left: 428, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 3, top: -111, left: 203, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 3, top: -27, left: 408, set: 1, letter: objectiveTerms.bombShortB }
+          { floor: 0, top: -30, left: -283, set: 4, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 0, top: -95, left: -334, set: 4, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 1, top: -39, left: -295, set: 3, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 1, top: -189, left: -149, set: 3, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 1, top: -246, left: 196, set: 2, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 1, top: -114, left: 84, set: 2, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 2, top: -172, left: 140, set: 1, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 2, top: -178, left: 265, set: 1, letter: objectiveTerms.bombShortB, smaller: true }
         ],
         secureObjectives: [
-          { floor: 1, top: 95, left: -381 },
-          { floor: 2, top: 76, left: -460 },
-          { floor: 2, top: -114, left: 328 },
-          { floor: 3, top: -76, left: 429 }
+          { floor: 0, top: -30, left: -288, smaller: true },
+          { floor: 1, top: -39, left: -300, smaller: true },
+          { floor: 1, top: -168, left: 208, smaller: true },
+          { floor: 2, top: -178, left: 260, smaller: true }
         ],
         zoomPoints: {
           topLeft: { top: -337, left: -507 },
@@ -2153,137 +2156,154 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           top: 168, left: 515
         },
         ladders: [
-          { floor: 1, top: 269, left: 317, otherFloor: 'up' },
-          { floor: 2, top: 269, left: 317, otherFloor: 'down' }
+          { floor: -1, top: -36, left: -126, otherFloor: 'up' },
+          { floor: 0, top: -36, left: -110, otherFloor: 'down' },
+          { floor: -1, top: -240, left: -234, otherFloor: 'up' },
+          { floor: 0, top: -235, left: -230, otherFloor: 'down' }
         ],
         cameras: [
           {
-            floor: 3, top: 27, left: 253, id: 1, location: kanalTerms.controlRoomHallway,
-            los: [[{top: 151, left: 237}, {top: 14, left: 237}, {top: 14, left: 487}]]
+            floor: 2, top: -67, left: 216, id: 1, location: kanalTerms.controlRoomHallway,
+            los: []
           },
           {
-            floor: 2, top: 29, left: 204,  id: 2, location: kanalTerms.mapsOfficeHallway,
+            floor: 1, top: -69, left: 163,  id: 2, location: kanalTerms.mapRoomCorridor,
+            los: []
+          },
+          {
+            floor: 1, top: 16, left: -180, id: 3, location: kanalTerms.radioRoomHallway,
             los: [
-              [{top: 205, left: 188}, {top: 16, left: 188}, {top: 16, left: 368}],
-              [{top: 100, left: 372}, {top: 151, left: 498}],
-              [{top: 99, left: 334}, {top: 154, left: 453}]
+              [{top: -14, left: -164}, {top: -75, left: -146}],
+              [{top: 18, left: -77}, {top: 21, left: 178}]
             ]
           },
           {
-            floor: 2, top: 152, left: -272, id: 3, location: kanalTerms.coastGuardHall,
-            los: [
-              [{top: -104, left: -288}, {top: 168, left: -288}, {top: 168, left: -123}, {top: 155, left: -123}, {top: 147, left: 74}],
-              [{top: 76, left: -171}, {top: 105, left: -210}]
-            ]
+            floor: 0, top: -55, left: -191, id: 4, location: kanalTerms.supplyRoomCorridor,
+            los: []
           },
           {
-            floor: 1, top: 70, left: -271, id: 4, location: kanalTerms.boatSuppliesHallway,
-            los: [
-              [{top: 106, left: -183}, {top: 66, left: -183}],
-              [{top: -104, left: -287}, {top: 257, left: -287}]
-            ]
+            outdoor: true, top: 437, left: -366, id: 5, location: kanalTerms.frontLawn,
+            los: []
           },
           {
-            outdoor: true, top: 703, left: -526, id: 5, location: kanalTerms.frontLawn,
-            los: [[{top: 664, left: -692}, {top: 721, left: -536}, {top: 721, left: 757}]]
+            outdoor: true, top: -391, left: -465, id: 6, location: kanalTerms.lockGate,
+            los: []
           },
           {
-            outdoor: true, top: -426, left: -655, id: 6, location: kanalTerms.lockgate,
-            los: [[{top: -242, left: -826}, {top: -569, left: -666}]]
-          },
-          {
-            outdoor: true, top: -402, left: 590, id: 7, location: kanalTerms.constructionSite,
-            los: [[{top: -568, left: 387}, {top: -259, left: 1020}]]
+            outdoor: true, top: -374, left: 430, id: 7, location: kanalTerms.constructionSite,
+            los: []
           }
         ],
         ceilingHatches: [
-          { floor: 1, top: 137, left: -377 },
-          { floor: 1, top: -16, left: -207 },
-          { floor: 2, top: -195, left: 162 },
-          { floor: 2, top: -129, left: 469 },
-          { floor: 2, top: 34, left: 120 }
+          { floor: 0, top: -156, left: -106 },
+          { floor: 0, top: -43, left: -342 },
+          { floor: 1, top: -248, left: 302 },
+          { floor: 1, top: -248, left: 126 },
+          { floor: 1, top: -56, left: 86 }
         ],
         skylights: [],
         droneTunnels: [
           { floor: 1, top: -34, left: -506, rotate: 90, size: DRONE_MED },
           { floor: 1, top: -309, left: -506, rotate: 225, size: 30 },
-          { floor: 1, top: 135, left: 267, rotate: 0, size: 70 },
           { floor: 2, top: -85, left: -366, rotate: 90, size: DRONE_SMALL },
           { floor: 2, top: -71, left: 246, rotate: 90, size: DRONE_SMALL },
           { floor: 3, top: 64, left: 460, rotate: 0, size: DRONE_MED },
           { floor: 3, top: 9, left: 193, rotate: 0, size: DRONE_SMALL }
         ],
         spawnPoints: [
-          { letter: spawnTerms.a, top: -541, left: -1032, description: kanalTerms.spawnFloatingDock },
-          { letter: spawnTerms.b, top: 508, left: -626, description: kanalTerms.spawnSailboats },
-          { letter: spawnTerms.c, top: -523, left: 1114, description: kanalTerms.spawnConstructionSite }
+          { letter: spawnTerms.a, top: -495, left: -1004, description: kanalTerms.floatingDock },
+          { letter: spawnTerms.b, top: 465, left: -426, description: kanalTerms.sailboats },
+          { letter: spawnTerms.c, top: -432, left: 924, description: kanalTerms.constructionSite }
         ],
         roomLabels: [
-          { floor: 1, top: -68, left: -372, description: kanalTerms.boatGarage },
-          { floor: 1, top: 177, left: -393, description: kanalTerms.boatSupplies },
-          { floor: 1, top: 238, left: -438, description: kanalTerms.pipes },
-          { floor: 1, top: 140, left: -266, smaller: true, description: kanalTerms.boatSuppliesHallway },
-          { floor: 1, top: -66, left: -180, description: kanalTerms.lockerRoom },
-          { floor: 1, hardToRead: true, smaller: true, top: 68, left: -202, description: kanalTerms.coastGuardStairs },
-          { floor: 1, hardToRead: true, top: 68, left: -141, smaller: true, description: kanalTerms.showersCorridor },
-          { floor: 1, top: 239, left: -180, description: kanalTerms.showers },
-          { floor: 1, top: -142, left: 165, description: kanalTerms.loadingDock },
-          { floor: 1, top: -140, left: 351, description: kanalTerms.machineHallway },
-          { floor: 1, top: 115, left: 298, hardToRead: true, description: kanalTerms.controlCenterStairs },
-          { floor: 2, top: -236, left: -434, description: kanalTerms.holdingRoom },
-          { floor: 2, top: -269, left: -332, description: kanalTerms.holdingRoomHallway },
-          { floor: 2, top: -51, left: -426, hardToRead: true, description: kanalTerms.radio },
-          { floor: 2, top: 50, left: -342, hardToRead: true, description: kanalTerms.coastGuardOffice },
-          { floor: 2, top: 240, left: -399, hardToRead: true, description: kanalTerms.archives },
-          { floor: 2, top: -22, left: -267, smaller: true, hardToRead: true, description: kanalTerms.coastGuardHall },
-          { floor: 2, top: 217, left: -202, hardToRead: true, description: kanalTerms.mainEntrance },
-          { floor: 2, top: -51, left: -185, hardToRead: true, description: kanalTerms.lounge },
-          { floor: 2, hardToRead: true, top: 68, left: -190, description: kanalTerms.coastGuardStairs },
-          { floor: 2, top: 154, left: -20, description: kanalTerms.bridge },
-          { floor: 2, top: 147, left: 152, description: kanalTerms.modelRoom },
-          { floor: 2, top: -8, left: 124, hardToRead: true, description: kanalTerms.securityRoom },
-          { floor: 2, top: -108, left: 130, hardToRead: true, description: kanalTerms.projectorRoom },
-          { floor: 2, top: -189, left: 278, hardToRead: true, description: kanalTerms.mapsOffice },
-          { floor: 2, top: 42, left: 279, description: kanalTerms.mapsOfficeHallway },
-          { floor: 2, top: 115, left: 298, description: kanalTerms.controlCenterStairs },
-          { floor: 2, top: -95, left: 430, description: kanalTerms.kitchen },
-          { floor: 2, top: 63, left: 433, description: kanalTerms.cafeteria },
-          { floor: 2, top: 137, left: 433, hardToRead: true, description: kanalTerms.plantsHallway },
-          { floor: 3, top: 68, left: -232, description: kanalTerms.coastGuardStairs },
-          { floor: 3, top: 52, left: 204, description: kanalTerms.thirdFloorExit },
-          { floor: 3, top: -150, left: 166, description: kanalTerms.controlRoom },
-          { floor: 3, top: -180, left: 288, hardToRead: true, description: kanalTerms.electricRoom },
-          { floor: 3, top: 115, left: 298, description: kanalTerms.controlCenterStairs },
-          { floor: 3, top: 48, left: 359, description: kanalTerms.controlRoomHallway },
-          { floor: 3, top: -112, left: 405, hardToRead: true, description: kanalTerms.serverRoom },
-          { outdoor: true, top: -377, left: -745, description: kanalTerms.lockgate },
-          { outdoor: true, top: -434, left: -484, description: kanalTerms.quayContainers },
-          { outdoor: true, top: -535, left: -745, description: kanalTerms.lockgateTunnel },
-          { outdoor: true, top: -360, left: -89, description: kanalTerms.waterWalkway },
-          { outdoor: true, top: -360, left: 192, description: kanalTerms.quayConstruction },
-          { outdoor: true, top: -341, left: 606, description: kanalTerms.constructionSite },
-          { outdoor: true, top: 39, left: 684, description: kanalTerms.constructionSite.removeBreakTags() },
-          { floor: 2, top: -23, left: 535, smaller: true, hardToRead: true, description: kanalTerms.constructionEntrance },
-          { outdoor: true, top: 255, left: 215, description: kanalTerms.parkingAlley },
-          { outdoor: true, top: 248, left: 353, description: kanalTerms.parkingEntrance },
-          { outdoor: true, top: 395, left: -4, description: kanalTerms.middleRoad },
+          // EXT
+          { outdoor: true, top: 314, left: -4, hardToRead: true, description: kanalTerms.middleRoad },
           { outdoor: true, top: -79, left: -4, description: kanalTerms.middleRoad },
-          { outdoor: true, top: -171, left: -568, description: kanalTerms.forkliftAlley },
-          { outdoor: true, top: 122, left: -568, description: kanalTerms.forkliftAlley },
-          { outdoor: true, top: 390, left: -331, description: kanalTerms.frontLawn },
-          { floor: 2, top: -36, left: 342, description: kanalTerms.mapArchives, hardToRead: true },
-          { floor: 1, top: 302, left: -413, description: kanalTerms.basementStairs },
-          { floor: 4, top: 107, left: -356, description: kanalTerms.coastGuardRoof },
-          { floor: 3, top: 107, left: -356, description: kanalTerms.coastGuardRoof },
-          { floor: 3, top: 147, left: -16, description: kanalTerms.bridgeRoof },
-          { floor: 4, top: 160, left: 154, description: kanalTerms.roofBrickPile },
-          { floor: 3, top: 160, left: 154, description: kanalTerms.roofBrickPile },
-          { floor: 4, top: 125, left: 444, description: kanalTerms.balcony },
-          { floor: 3, top: 125, left: 444, description: kanalTerms.balcony },
-          { floor: 4, top: -82, left: 245, description: kanalTerms.controlCenterRoof },
-          { floor: 2, top: -353, left: -438, description: kanalTerms.dockStairs },
-          { outdoor: true, top: 485, left: 274, description: kanalTerms.parking },
-          { floor: 1, top: -169, left: -362, description: kanalTerms.boatCrane }
+          { outdoor: true, top: 319, left: 178, hardToRead: true, description: kanalTerms.parking },
+          { outdoor: true, top: 266, left: -261, hardToRead: true, description: kanalTerms.frontLawn },
+          { outdoor: true, top: -471, left: -560, hardToRead: true, description: kanalTerms.lockGateTunnel },
+          { outdoor: true, top: 139, left: -527, hardToRead: true, description: kanalTerms.lockGateTunnel },
+          { outdoor: true, top: 69, left: -395, description: kanalTerms.forkliftAlley },
+          { outdoor: true, top: -281, left: -395, hardToRead: true, description: kanalTerms.forkliftAlley },
+          { outdoor: true, top: 108, left: 243, description: kanalTerms.parkingEntrance },
+          { outdoor: true, top: -313, left: -635, hardToRead: true, description: kanalTerms.lockGate },
+          { outdoor: true, top: 27, left: -453, hardToRead: true, description: kanalTerms.lockGate },
+          { outdoor: true, top: -351, left: 511, hardToRead: true, description: kanalTerms.constructionSite },
+          { outdoor: true, top: -81, left: 511, description: kanalTerms.constructionSite },
+          { outdoor: true, top: -71, left: 851, hardToRead: true, description: kanalTerms.constructionSite },
+          { floor: 0, top: -159, left: 192, hardToRead: true, description: kanalTerms.garage },
+          { floor: 0, top: -269, left: -147, hardToRead: true, description: kanalTerms.divingAlcove },
+          { outdoor: true, top: -410, left: -281, hardToRead: true, description: kanalTerms.quayContainers },
+          { outdoor: true, top: -392, left: 169, hardToRead: true, description: kanalTerms.quayContainers },
+          { outdoor: true, top: -448, left: -66, hardToRead: true, description: kanalTerms.docksBridge },
+          // Stairs
+          { floor: 0, top: -46, left: -123, veryHardToRead: true, description: kanalTerms.whiteStairs },
+          { floor: 1, top: -44, left: -123, veryHardToRead: true, description: kanalTerms.whiteStairs },
+          { floor: 2, top: -39, left: -123, veryHardToRead: true, description: kanalTerms.whiteStairs },
+          { floor: 0, top: -28, left: 200, veryHardToRead: true, description: kanalTerms.redStairs },
+          { floor: 1, top: -11, left: 214, veryHardToRead: true, description: kanalTerms.redStairs },
+          { floor: 2, top: -7, left: 229, veryHardToRead: true, description: kanalTerms.redStairs },
+          { floor: 1, top: -182, left: 394, veryHardToRead: true, description: kanalTerms.greenStairs },
+          { floor: 2, top: -178, left: 411, veryHardToRead: true, description: kanalTerms.greenStairs },
+          { floor: 0, top: -308, left: -337, veryHardToRead: true, description: kanalTerms.yellowStairs },
+          { floor: 1, top: -308, left: -337, veryHardToRead: true, description: kanalTerms.yellowStairs },
+          { floor: 1, top: -308, left: -102, veryHardToRead: true, description: kanalTerms.blueStairs },
+          { floor: 2, top: -308, left: -102, veryHardToRead: true, description: kanalTerms.blueStairs },
+
+          // Roof
+          { floor: 2, top: -243, left: -213, hardToRead: true, description: kanalTerms.coastGuardRoof },
+          { floor: 3, top: -243, left: -213, hardToRead: true, description: kanalTerms.coastGuardRoof },
+          { floor: 2, top: -6, left: -253, hardToRead: true, description: kanalTerms.coastGuardRoof },
+          { floor: 3, top: -6, left: -253, hardToRead: true, description: kanalTerms.coastGuardRoof },
+          { floor: 2, top: 33, left: 134, hardToRead: true, description: kanalTerms.balconyRenovations },
+          { floor: 3, top: 33, left: 134, hardToRead: true, description: kanalTerms.balconyRenovations },
+          { floor: 2, top: 17, left: 5, hardToRead: true, description: kanalTerms.lowerBridgeRoof },
+          { floor: 3, top: 17, left: 5, hardToRead: true, description: kanalTerms.lowerBridgeRoof },
+          { floor: 3, top: -146, left: 207, hardToRead: true, description: kanalTerms.controlRoomRoof },
+          { floor: 2, top: 8, left: 344, hardToRead: true, description: kanalTerms.balcony },
+          { floor: 3, top: 8, left: 344, hardToRead: true, description: kanalTerms.balcony },
+          { floor: 3, top: 260, left: -2, hardToRead: true, description: kanalTerms.upperBridgeRoof },
+
+          // 2F
+          { floor: 2, top: -32, left: 120, hardToRead: true, description: kanalTerms.renovations },
+          { floor: 2, top: -42, left: 177, hardToRead: true, description: kanalTerms.roofEntrance },
+          { floor: 2, top: -49, left: 302, hardToRead: true, description: kanalTerms.controlRoomHallway },
+          { floor: 2, top: -126, left: 142, hardToRead: true, description: kanalTerms.radarRoom },
+          { floor: 2, top: -211, left: 282, hardToRead: true, description: kanalTerms.serverRoom },
+          { floor: 2, top: -179, left: 372, hardToRead: true, description: kanalTerms.serverRoomCorridor },
+          { floor: 2, top: -218, left: -122, veryHardToRead: true, description: kanalTerms.printerRoom },
+          { floor: 2, top: -235, left: 142, hardToRead: true, description: kanalTerms.controlRoom },
+          { floor: 2, top: -249, left: -6, hardToRead: true, description: kanalTerms.upperBridge },
+
+          // 1F
+          { floor: 1, top: 80, left: -280, hardToRead: true, description: kanalTerms.archives },
+          { floor: 1, top: 80, left: -139, hardToRead: true, description: kanalTerms.reception },
+          { floor: 1, top: 39, left: 124, hardToRead: true, description: kanalTerms.modelRoom },
+          { floor: 1, top: -1, left: 334, hardToRead: true, description: kanalTerms.museum },
+          { floor: 1, top: -1, left: -278, hardToRead: true, description: kanalTerms.coastGuardMeetingRoom },
+          { floor: 1, top: -221, left: -225, hardToRead: true, description: kanalTerms.radioRoomHallway },
+          { floor: 1, top: -101, left: -185, hardToRead: true, description: kanalTerms.radioRoomHallway },
+          { floor: 1, top: 24, left: -2, hardToRead: true, description: kanalTerms.lowerBridge },
+          { floor: 1, top: -55, left: 280, hardToRead: true, description: kanalTerms.mapRoomCorridor },
+          { floor: 1, top: -68, left: 111, hardToRead: true, description: kanalTerms.securityRoom },
+          { floor: 1, top: -158, left: -122, hardToRead: true, description: kanalTerms.lounge },
+          { floor: 1, top: -181, left: 221, hardToRead: true, description: kanalTerms.mapRoom },
+          { floor: 1, top: -168, left: 322, hardToRead: true, description: kanalTerms.kitchen },
+          { floor: 1, top: -102, left: 422, hardToRead: true, description: kanalTerms.constructionEntrance },
+          { floor: 1, top: -191, left: -299, hardToRead: true, description: kanalTerms.radioRoom },
+          { floor: 1, top: -194, left: 106, hardToRead: true, description: kanalTerms.projectorRoom },
+
+          // Basement
+          { floor: 0, top: 79, left: -315, hardToRead: true, description: kanalTerms.pipes },
+          { floor: 0, top: -147, left: -189, hardToRead: true, description: kanalTerms.supplyRoomCorridor },
+          { floor: 0, top: 72, left: -219, hardToRead: true, description: kanalTerms.supplyRoomCorridor.replace(new RegExp('<br/>'), ' ') },
+          { floor: 0, top: 74, left: -129, hardToRead: true, description: kanalTerms.bathroom },
+          { floor: 0, top: 0, left: -258, hardToRead: true, description: kanalTerms.supplyRoom },
+          { floor: 0, top: -1, left: -102, hardToRead: true, description: kanalTerms.showerCorridor },
+          { floor: 0, top: -103, left: -279, hardToRead: true, description: kanalTerms.kayaks },
+          { floor: 0, top: -121, left: -128, hardToRead: true, description: kanalTerms.lockerRoom },
+          { floor: 0, top: -226, left: -322, hardToRead: true, description: kanalTerms.divingRoom },
+          { floor: -1, top: -31, left: -206, hardToRead: true, description: kanalTerms.tunnel01 }
         ]
       },
       oregon: {
