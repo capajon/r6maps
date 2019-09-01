@@ -1205,7 +1205,7 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           gamesRoom: '游戏房间',
           // 3F
           oldTower: '陈旧的</br>塔楼',
-           // ext roof
+          // ext roof
           westTower: '西侧塔楼',
           eastTower: '东侧塔楼',
           guardTower: '哨塔',
@@ -1215,7 +1215,64 @@ var R6MLangTermsSimplifiedChinese = (function(R6MLangTerms, undefined) {
           hammamRoof: '土耳其浴场</br>屋顶'
         },
         outback: {
-
+          // spawns
+          storageYard: '户外堆场',
+          gasPumps: '燃料泵',
+          camping: '帐篷',
+          // ext ground
+          picnicArea: '野餐区',
+          miniGolf: '迷你高尔夫球场',
+          motelParkingLot: '汽车旅馆</br>停车场',
+          motelWalkway: '汽车旅馆</br>走道',
+          restaurantParking: '餐厅</br>停车位',
+          // 1F
+          motelBackStairs: '汽车</br>旅馆</br>后门</br>楼梯',
+          backEntrance: '后方</br>入口',
+          backStairs: '后方</br>楼梯',
+          bushrangerRoom: '绿林</br>游侠房',
+          bathroom: '浴室',
+          bathroomHall: '浴室</br>过道',
+          closet: '衣柜',
+          natureRoom: '自然</br>风情房',
+          reptileHallway: '腹地</br>过道',
+          motelReception: '汽车</br>旅馆</br>接待厅',
+          kitchen: '厨房',
+          kitchenHallway: '厨房过道',
+          restaurant: '餐厅',
+          restaurantLobby: '餐厅</br>门厅',
+          restaurantEntrance: '餐厅入口',
+          restaurantStairs: '餐厅楼梯',
+          compressorRoom: '压缩机房',
+          gearStore: '工具店',
+          garage: '车库',
+          beerFridge: '酒</br>库',
+          waitingRoom: '等</br>候</br>室',
+          convenienceStore: '便利店',
+          loadingBay: '卸货台',
+          // 2F
+          motelHallway: '汽车旅馆过道',
+          dorms: '宿舍',
+          laundry: '洗衣间',
+          showers: '淋浴间',
+          pianoRoom: '钢琴室',
+          pianoStairs: '钢琴室</br>楼梯',
+          gamesRoom: '游戏间',
+          terrace: '露台',
+          terraceStairs: '露台</br>楼梯',
+          mezzanine: '楼间夹层',
+          mechanicalBull: '电动</br>公牛',
+          partyRoom: '聚会厅',
+          electricalRoom: '电</br>器</br>室',
+          office: '办公室',
+          officeSupplies: '办公</br>用品店',
+          garageLounge: '车库</br>休息室',
+          garageStairs: '车库',
+          // roof
+          motelBalcony: '汽车旅馆阳台',
+          motelRoof: '汽车旅馆屋顶',
+          restaurantRoof: '餐厅屋顶',
+          garageRoof: '车库屋顶',
+          convenienceStoreRoof: '便利店屋顶'
         },
         villa: {
 
