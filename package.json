@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/capajon/r6maps#readme",
   "devDependencies": {
-    "eslint": "^2.2.0",
+    "eslint": "^6.6.0",
     "mkdirp": "^0.5.1",
     "npm-watch": "^0.1.7",
     "rimraf": "^2.5.4"
