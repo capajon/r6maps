@@ -15,6 +15,6 @@ jobs:
       deploy:
         provider: pages
         directory: site
-        api_key: $GITHUB_TOKEN
+        github_token: $GITHUB_TOKEN
         on:
           branch: master
