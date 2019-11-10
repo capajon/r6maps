@@ -1,12 +1,17 @@
 language: node_js
-node_js:
-- 4.3.1
-sudo: false
-script:
-- npm run test
-env:
-  global:
-branches:
-  except:
-  #Stops ci from running on tag commits and branches
-  - "/^v?[0-9]+\\.[0-9]+\\.[0-9]+.*$/"
+
+cache: npm
+
+jobs:
+  include:
+    - stage: test
+      script: npm run test
+    - stage: deploy
+      if: branch = master
+      pre_install: gem install sass
+      script: npm run build
+      deploy:
+        provider: pages
+        directory: site
+        on:
+          branch: master
