@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - "10"
 
 cache: npm
 
@@ -8,10 +10,11 @@ jobs:
       script: npm run test
     - stage: deploy
       if: branch = master
-      pre_install: gem install sass
+      before_script: gem install sass
       script: npm run build
       deploy:
         provider: pages
         directory: site
+        api_key: $GITHUB_TOKEN
         on:
           branch: master
