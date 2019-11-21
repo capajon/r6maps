@@ -12,11 +12,11 @@
     "test:temp": "eslint site/js/statstemp/*.js",
     "test": "npm run test:js",
     "build:css:mkdir": "mkdirp ./site/css/release.2.4.1",
-    "build:css:main": "npm run build:css:mkdir && scss './dev/scss/main/main.scss':'./site/css/release.2.4.1/main.2.4.1.css'",
-    "build:css:about": "npm run build:css:mkdir && scss './dev/scss/about/about.scss':'./site/css/release.2.4.1/about.2.4.1.css'",
-    "build:css:stats": "npm run build:css:mkdir && scss './dev/scss/stats/stats.scss':'./site/css/release.2.4.1/stats.2.4.1.css'",
+    "build:css:main": "npm run build:css:mkdir && node-sass './dev/scss/main/main.scss' './site/css/release.2.4.1/main.2.4.1.css'",
+    "build:css:about": "npm run build:css:mkdir && node-sass './dev/scss/about/about.scss' './site/css/release.2.4.1/about.2.4.1.css'",
+    "build:css:stats": "npm run build:css:mkdir && node-sass './dev/scss/stats/stats.scss' './site/css/release.2.4.1/stats.2.4.1.css'",
     "build:css": "npm run build:css:main && npm run build:css:about && npm run build:css:stats",
-    "watch:css": "npm run build:css:mkdir && scss --watch './dev/scss/main/main.scss':'./site/css/release.2.4.1/main.2.4.1.css'",
+    "watch:css": "npm run build:css:mkdir && node-sass --watch './dev/scss/main/main.scss' './site/css/release.2.4.1/main.2.4.1.css'",
     "build:js:mkdir": "mkdirp ./site/js/release.2.4.1",
     "build:js:common": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.4.1/common.min.js --source-map  \"filename='./site/js/release.2.4.1/common.min.js.map', url='common.min.js.map', includeSources=true\" ./dev/js/common/common.global.js ./dev/js/common/common.helpers.js ./dev/js/lang-terms/lang-terms.js ./dev/js/lang-terms/lang-terms.*.js",
     "build:js:main": "npm run build:js:mkdir && uglifyjs --compress --mangle -o ./site/js/release.2.4.1/main.min.js --source-map  \"filename='./site/js/release.2.4.1/main.min.js.map', url='main.min.js.map', includeSources=true\" ./dev/js/main/main.map-data.js ./dev/js/main/main.map-render.js ./dev/js/main/main.controls.js ./dev/js/main/main.select-maps.js ./dev/js/main/main.drawing.js ./dev/js/main/main.sessions.js ./dev/js/main/main.js",
@@ -49,7 +49,7 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "gem": "^2.4.3",
+    "node-sass": "^4.13.0",
     "optimist": "^0.6.1",
     "uglify-js": "^3.6.8"
   }
