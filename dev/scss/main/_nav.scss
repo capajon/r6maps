@@ -139,7 +139,16 @@ nav {
     }
   }
 
-  #floor-control {
+  #toggle-control {
+      button:focus {
+        background-color: #fff;
+      }
+      button:focus:hover {
+        background-color: $r6-blue;
+      }
+  }
+
+  #floor-control, #toggle-control {
     display: inline-block;
     margin-left: $control-padding-left-right;
 
