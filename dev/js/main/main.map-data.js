@@ -3067,31 +3067,32 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           'bomb', 'hostage', 'secure'
         ],
         floors: [
-          { index: 1, top: -715, left: -1275, background: true, name: floorTerms.firstFloor, default: true },
-          { index: 2, top: -430, left: -408, name: floorTerms.secondFloor },
-          { index: 3, top: -430, left: -408, name: floorTerms.roof }
+          { index: 0, top: -806, left: -984, background: true, dontSelect: true },
+          { index: 1, top: -295, left: -287, name: floorTerms.firstFloor, default: true },
+          { index: 2, top: -292, left: -287, name: floorTerms.secondFloor },
+          { index: 3, top: -297, left: -285, name: floorTerms.roof }
         ],
         hostageObjectives: [
-          { floor: 2, top: -125, left: 307 },
-          { floor: 2, top: 109, left: -3 },
-          { floor: 1, top: -55, left: 25 },
-          { floor: 1, top: -77, left: -147 }
+          { floor: 2, top: 123, left: 149, smaller: true },
+          { floor: 2, top: 118, left: 1, smaller: true },
+          { floor: 1, top: -86, left: 102, smaller: true },
+          { floor: 1, top: -97, left: -146, smaller: true }
         ],
         bombObjectives: [
-          { floor: 2, top: -125, left: 270, set: 1, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 71, left: 299, set: 1, letter: objectiveTerms.bombShortB },
-          { floor: 2, top: -18, left: -63, set: 2, letter: objectiveTerms.bombShortA },
-          { floor: 2, top: 109, left: -40, set: 2, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: -144, left: 318, set: 3, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: -103, left: 192, set: 3, letter: objectiveTerms.bombShortB },
-          { floor: 1, top: -77, left: -184, set: 4, letter: objectiveTerms.bombShortA },
-          { floor: 1, top: -197, left: -152, set: 4, letter: objectiveTerms.bombShortB }
+          { floor: 2, top: -99, left: 166, set: 1, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 2, top: 56, left: 111, set: 1, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 2, top: -8, left: -16, set: 2, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 2, top: 111, left: 46, set: 2, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 1, top: 99, left: 114, set: 3, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 1, top: -70, left: 183, set: 3, letter: objectiveTerms.bombShortB, smaller: true },
+          { floor: 1, top: -101, left: -109, set: 4, letter: objectiveTerms.bombShortA, smaller: true },
+          { floor: 1, top: -207, left: -135, set: 4, letter: objectiveTerms.bombShortB, smaller: true }
         ],
         secureObjectives: [
-          { floor: 2, top: -125, left: 344 },
-          { floor: 2, top: -18, left: -24 },
-          { floor: 1, top: -82, left: 227 },
-          { floor: 1, top: -77, left: -109 }
+          { floor: 2, top: -99, left: 177, smaller: true },
+          { floor: 2, top: -38, left: -24, smaller: true },
+          { floor: 1, top: 84, left: 91, smaller: true },
+          { floor: 1, top: -128, left: -105, smaller: true }
         ],
         zoomPoints: {
           topLeft: { top: -344, left: -303 },
@@ -3104,154 +3105,142 @@ var R6MMainData = (function(R6MLangTerms, undefined){
         ],
         cameras: [
           {
-            floor: 1, top: 25, left: 291, id: 1, location: themeparkTerms.gallery,
+            floor: 2, top: -28, left: 381, id: 1, location: themeparkTerms.dragonStairs,
+            los: []
+          },
+          { floor: 2, top: 48, left: -212, id: 2, location: themeparkTerms.arcadeEntrance },
+          { floor: 1, otherFloor: 'up', top: 48, left: -218, id: 2, location: themeparkTerms.arcadeEntrance },
+          {
+            floor: 1, top: 122, left: 213, id: 3, location: themeparkTerms.dragonStairs,
+            los: []
+          },
+          {
+            floor: 1, top: -175, left: -8, id: 4, location: themeparkTerms.jointCorridor,
             los: [
-              [{top: 214, left: 345}, {top: 146, left: 317}, {top: 146, left: 310}, {top: 153, left: 310}, {top: 153, left: 273}, {top: -8, left: 274}, {top: -8, left: 346}, {top: 98, left: 345}, {top: 110, left: 362}],
-              [{top: 133, left: 318}, {top: 214, left: 360}]
+              [{top: -207, left: 72}, {top: -189, left: 15}, {top: -189, left: -25}, {top: 24, left: -25}]
             ]
           },
           {
-            floor: 2, top: -36, left: 493, id: 2, location: themeparkTerms.hauntedStairs,
+            outdoor: true, top: -384, left: -286, id: 5, location: themeparkTerms.teacups,
             los: [
-              [{top: 90, left: 443}, {top: 29, left: 479}],
-              [{top: -8, left: 145}, {top: -25, left: 224}],
-              [{top: -44, left: 175}, {top: -42, left: 224}, {top: -42, left: 234}, {top: -50, left: 234}, {top: -50, left: 511}, {top: 90, left: 511}],
-              [{top: 15, left: 369}, {top: -2, left: 399}]
+              [{top: -159, left: -402}, {top: -399, left: -302}, {top: -572, left: -176}]
             ]
           },
           {
-            floor: 1, top: -165, left: -24, id: 3, location: themeparkTerms.jointCorridor,
+            outdoor: true, top: -246, left: 583, id: 6, location: themeparkTerms.serviceEntrance,
             los: [
-              [{top: -197, left: 56}, {top: -179, left: -1}, {top: -179, left: -41}, {top: 34, left: -41}],
-              [{top: -167, left: 121}, {top: -169, left: 157}],
-              [{top: -154, left: 121}, {top: -152, left: 157}],
-              [{top: 2, left: -1}, {top: 152, left: 26}],
-              [{top: 35, left: -1}, {top: 152, left: 10}]
-            ]
-          },
-          { floor: 2, top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
-          { floor: 1, otherFloor: 'up', top: 57, left: -232, id: 4, location: themeparkTerms.arcadeEntrance },
-          {
-            floor: 2, top: 140, left: 208, id: 5, location: themeparkTerms.railPlatform,
-            los: [
-              [{top: 32, left: 172}, {top: -8, left: 145}],
-              [{top: 154, left: 176}, {top: 154, left: 224},{top: -265, left: 224}]
+              [{top: -330, left: 555}, {top: -49, left: 731}]
             ]
           },
           {
-            outdoor: true, top: -374, left: -336, id: 6, location: themeparkTerms.teacups,
+            outdoor: true, top: 296, left: -359, id: 7, location: themeparkTerms.guestInfo,
             los: [
-              [{top: -259, left: -522}, {top: -612, left: -176}]
-            ]
-          },
-          {
-            outdoor: true, top: -277, left: 623, id: 7, location: themeparkTerms.serviceEntry,
-            los: [
-              [{top: -149, left: 881}, {top: -440, left: 515}]
-            ]
-          },
-          {
-            outdoor: true, top: 301, left: -380, id: 8, location: themeparkTerms.guestInfo,
-            los: [
-              [{top: 199, left: -647}, {top: 560, left: -171}]
+              [{top: 159, left: -617}, {top: 460, left: -111}]
             ]
           }
         ],
         ceilingHatches: [
-          { floor: 1, top: -114, left: -176 },
-          { floor: 1, top: -79, left: 80 },
-          { floor: 1, top: 90, left: 332 },
-          { floor: 1, top: -181, left: 474 },
-          { floor: 2, top: -2, left: 28 },
-          { floor: 2 , top: -38, left: 444}
+          { floor: 1, top: -28, left: 39 },
+          { floor: 1, top: 129, left: -73 },
+          { floor: 1, top: -186, left: 342},
+          { floor: 2 , top: -112, left: 75},
+          { floor: 2 , top: 150, left: 332}
         ],
         skylights: [],
         droneTunnels: [
-          { floor: 2, top: -137, left: -196, rotate: 0, size: DRONE_MED },
-          { floor: 2, top: 210, left: -27, rotate: 90, size: DRONE_SMALL },
-          { floor: 2, top: -172, left: 69, rotate: 90, size: DRONE_SMALL },
-          { floor: 2, top: 222, left: 388, rotate: 0, size: DRONE_MED },
-          { floor: 2, top: 78, left: 230, rotate: 90, size: DRONE_SMALL },
-          { floor: 2, top: -136, left: 230, rotate: 90, size: DRONE_SMALL },
-          { floor: 1, top: -11, left: -271, rotate: 90, size: 74 },
-          { floor: 1, top: -22, left: -239, rotate: 0, size: 34 },
-          { floor: 1, top: -263, left: -155, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: 40, left: -81, rotate: 0, size: DRONE_SMALL },
-          { floor: 1, top: 222, left: -81, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: -200, left: 185, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: -200, left: 385, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: 158, left: 155, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: -168, left: -47, rotate: 90, size: DRONE_SMALL },
-          { floor: 1, top: -15, left: 253, rotate: 0, size: DRONE_SMALL }
+          { floor: 1, top: 212, left: -60, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: 212, left: 103, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: 125, left: -237, rotate: 90, size: DRONE_MED },
+          { floor: 1, top: -25, left: -219, rotate: 0, size: 23 },
+          { floor: 1, top: -20, left: -251, rotate: 90, size: 74 },
+          { floor: 1, top: -271, left: -148, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: -271, left: 58, rotate: 0, size: 47 },
+          { floor: 1, top: -205, left: 255, rotate: 0, size: DRONE_MED },
+          { floor: 1, top: 136, left: 373, rotate: 90, size: 38 },
+
+          { floor: 1, top: 33, left: -74, rotate: 0, size: 10 },
+          { floor: 1, top: 2, left: 197, rotate: 90, size: 10 },
+          { floor: 1, top: -66, left: 17, rotate: 90, size: 10 },
+          { floor: 1, top: -167, left: -26, rotate: 90, size: 10 },
+
+          { floor: 1, top: -135, left: -145, rotate: 0, size: DRONE_MED },
+
+          { floor: 2, top: 209, left: 94, rotate: 90, size: 10 },
+          { floor: 2, top: -73, left: 94, rotate: 90, size: 10 },
+          { floor: 2, top: -37, left: 28, rotate: 90, size: 10 },
+          { floor: 1, top: -120, left: 285, rotate: 0, size: 10 }
         ],
         spawnPoints: [
-          { letter: spawnTerms.a, top: 433, left: -740, description: themeparkTerms.mainEntrance },
+          { letter: spawnTerms.a, top: 510, left: -610, description: themeparkTerms.mainEntrance },
           { letter: spawnTerms.b, top: -638, left: -620, description: themeparkTerms.teacups },
-          { letter: spawnTerms.c, top: 111, left: 937, description: themeparkTerms.bumperCars }
+          { letter: spawnTerms.c, top: 191, left: 957, description: themeparkTerms.bumperCars }
         ],
         roomLabels: [
-          { floor: 1, top: -130, left: -84, description: themeparkTerms.drugLab, hardToRead: true },
-          { floor: 1, top: -198, left: -208, description: themeparkTerms.drugStorage, hardToRead: true },
-          { floor: 1, top: 109, left: -200, description: themeparkTerms.arcadeEntrance, hardToRead: true },
-          { floor: 1, top: 108, left: -71, description: themeparkTerms.barrelRoom, hardToRead: true },
-          { floor: 1, top: 18, left: -106, description: themeparkTerms.jointCorridor, hardToRead: true },
-          { floor: 1, top: -159, left: 31, description: themeparkTerms.jointCorridor, hardToRead: true },
-          { floor: 1, top: -224, left: -60, description: themeparkTerms.arcadeToilet, hardToRead: true },
-          { floor: 1, top: -224, left: 112, description: themeparkTerms.lockerRoom, hardToRead: true },
-          { floor: 1, top: -224, left: 28, description: themeparkTerms.cafeStairs, hardToRead: true },
-          { floor: 2, top: -224, left: 32, description: themeparkTerms.cafeStairs, hardToRead: true },
-          { floor: 1, top: -101, left: 56, description: themeparkTerms.executionRoom, hardToRead: true },
-          { floor: 1, top: 50, left: 150, description: themeparkTerms.coffinRoom, hardToRead: true },
-          { floor: 1, top: -157, left: 213, description: themeparkTerms.hauntedDining, hardToRead: true },
-          { floor: 1, top: -45, left: 356, description: themeparkTerms.gargoyle, hardToRead: true },
-          { floor: 1, top: -149, left: 405, description: themeparkTerms.gargoyleStorage, hardToRead: true },
-          { floor: 1, top: 21, left: 420, description: themeparkTerms.crypt, hardToRead: true },
-          { floor: 1, top: 70, left: 308, description: themeparkTerms.gallery, hardToRead: true },
-          { floor: 1, top: -125, left: 472, description: themeparkTerms.loadingDeck, hardToRead: true, smaller: true },
-          { floor: 1, top: 144, left: 84, description: themeparkTerms.fuelStorage, hardToRead: true },
-          { floor: 1, top: 137, left: 200, description: themeparkTerms.propStorage, hardToRead: true },
-          { floor: 1, top: 211, left: 406, description: themeparkTerms.hauntedEntrance.removeBreakTags(), hardToRead: true },
-          { floor: 1, top: 73, left: 420, description: themeparkTerms.hauntedStairs, hardToRead: true },
-          { floor: 1, top: 24, left: -254, description: themeparkTerms.arcadeStairs, hardToRead: true },
-          { floor: 1, top: 63, left: 17, description: themeparkTerms.serviceCorridor, hardToRead: true, smaller: true },
-          { floor: 2, top: 24, left: -254, description: themeparkTerms.arcadeStairs, hardToRead: true },
-          { floor: 2, top: -52, left: -162, description: themeparkTerms.upperArcade, hardToRead: true },
-          { floor: 2, top: -100, left: 0, description: themeparkTerms.cafeCorridor, hardToRead: true },
-          { floor: 2, top: -190, left: -71, description: themeparkTerms.cafe, hardToRead: true },
-          { floor: 2, top: -46, left: -52, description: themeparkTerms.dayCare, hardToRead: true },
-          { floor: 2, top: 163, left: 10, description: themeparkTerms.bunk, hardToRead: true },
-          { floor: 2, top: 220, left: 153, description: themeparkTerms.liftCar, hardToRead: true, smaller: true },
-          { floor: 2, top: 192, left: -67, description: themeparkTerms.bunkToilet, hardToRead: true },
-          { floor: 2, top: 62, left: 101, description: themeparkTerms.railPlatform, hardToRead: true },
-          { floor: 2, top: 62, left: 202, description: themeparkTerms.railPlatform, hardToRead: true },
-          { floor: 2, top: -180, left: 101, description: themeparkTerms.railPlatform, hardToRead: true },
-          { floor: 2, top: -180, left: 202, description: themeparkTerms.railPlatform, hardToRead: true },
-          { floor: 2, top: -154, left: 301, description: themeparkTerms.office, hardToRead: true },
-          { floor: 2, top: -163, left: 398, description: themeparkTerms.officeToilet, hardToRead: true },
-          { floor: 2, top: -96, left: 472, description: themeparkTerms.cashStash, hardToRead: true },
-          { floor: 2, top: 59, left: 443, description: themeparkTerms.hauntedStairs, hardToRead: true },
-          { floor: 2, top: 154, left: 417, description: themeparkTerms.controlRoom, hardToRead: true },
-          { floor: 2, top: 120, left: 289, description: themeparkTerms.initiationRoom, hardToRead: true },
-          { floor: 2, top: -20, left: 293, description: themeparkTerms.railCorridor, hardToRead: true },
-          { floor: 2, top: 188, left: 303, description: themeparkTerms.southExit, hardToRead: true },
-          { floor: 2, top: -205, left: -225, description: themeparkTerms.cafeTerrace, hardToRead: true },
-          { floor: 2, top: 220, left: 501, description: themeparkTerms.hauntedBalcony, hardToRead: true },
-          { floor: 2, top: -329, left: 152, description: themeparkTerms.railOverlook, hardToRead: true, smaller: true },
-          { floor: 2, top: -321, left: -36, description: themeparkTerms.railRamp, hardToRead: true },
-          { floor: 3, top: -56, left: 362, description: themeparkTerms.hauntedRoof, hardToRead: true },
-          { floor: 3, top: -56, left: -54, description: themeparkTerms.arcadeRoof, hardToRead: true },
-          { outdoor: true, top: -111, left: -350, description: themeparkTerms.sweetShop, hardToRead: true },
+          // EXT
           { outdoor: true, top: 372, left: -13, description: themeparkTerms.palms, hardToRead: true },
+          { outdoor: true, top: 514, left: 430, description: themeparkTerms.roboCircuit, hardToRead: true },
+          { outdoor: true, top: 370, left: 300, description: themeparkTerms.castleEntrance, hardToRead: true },
+          { outdoor: true, top: 170, left: 450, description: themeparkTerms.castleEntrance, hardToRead: true },
           { outdoor: true, top: 246, left: -300, description: themeparkTerms.guestInfo, hardToRead: true },
           { outdoor: true, top: -41, left: -561, description: themeparkTerms.village, hardToRead: true },
-          { outdoor: true, top: -370, left: -460, description: themeparkTerms.teacups, hardToRead: true },
-          { outdoor: true, top: -391, left: -152, description: themeparkTerms.backAlley, hardToRead: true },
+          { outdoor: true, top: -111, left: -350, description: themeparkTerms.sweetShop, hardToRead: true },
+          { outdoor: true, top: -90, left: 680, description: themeparkTerms.serviceEntrance, hardToRead: true },
+          { outdoor: true, top: -351, left: 68, description: themeparkTerms.backAlley, hardToRead: true },
           { outdoor: true, top: -303, left: 380, description: themeparkTerms.backAlley, hardToRead: true },
-          { outdoor: true, top: -206, left: 634, description: themeparkTerms.serviceEntry, hardToRead: true },
-          { outdoor: true, top: 207, left: 701, description: themeparkTerms.bumperCars, hardToRead: true },
-          { outdoor: true, top: 364, left: 430, description: themeparkTerms.hauntedEntrance, hardToRead: true },
-          { outdoor: true, top: 514, left: 430, description: themeparkTerms.roboCircuit, hardToRead: true },
-          { outdoor: true, top: 364, left: 222, description: themeparkTerms.hauntedShop, hardToRead: true }
+
+          // 1F
+          { floor: 1, top: -170, left: 443, description: themeparkTerms.castleEntrance, hardToRead: true },
+          { floor: 1, top: 129, left: -174, description: themeparkTerms.arcadeEntrance, hardToRead: true },
+          { floor: 1, top: 108, left: -71, description: themeparkTerms.barrelRoom, hardToRead: true },
+          { floor: 1, top: 140, left: 104, description: themeparkTerms.throneRoom, hardToRead: true },
+          { floor: 1, top: 179, left: 290, description: themeparkTerms.maintenance, hardToRead: true },
+          { floor: 1, top: 59, left: 242, description: themeparkTerms.dragonStairs, hardToRead: true },
+          { floor: 1, top: 37, left: 35, description: themeparkTerms.blueRoom, hardToRead: true, smaller: true },
+          { floor: 1, top: 6, left: -106, description: themeparkTerms.jointCorridor, hardToRead: true },
+          { floor: 1, top: -87, left: -6, description: themeparkTerms.jointCorridor, hardToRead: true },
+          { floor: 1, top: -8, left: 124, description: themeparkTerms.armory, hardToRead: true },
+          { floor: 1, top: -98, left: 104, description: themeparkTerms.armory, hardToRead: true },
+          { floor: 1, top: -50, left: -164, description: themeparkTerms.lab, hardToRead: true },
+          { floor: 1, top: -67, left: 218, description: themeparkTerms.redCorridor, hardToRead: true },
+          { floor: 1, top: -76, left: 290, description: themeparkTerms.gongRoom, hardToRead: true },
+          { floor: 1, top: -157, left: 100, description: themeparkTerms.yellowCorridor.removeBreakTags(), hardToRead: true },
+          { floor: 1, top: -154, left: 302, description: themeparkTerms.tellers, hardToRead: true },
+          { floor: 1, top: -198, left: -191, description: themeparkTerms.storage, hardToRead: true },
+          { floor: 1, top: -224, left: -60, description: themeparkTerms.arcadeToilet, hardToRead: true },
+          { floor: 1, top: -226, left: 166, description: themeparkTerms.lockerRoom, hardToRead: true },
+
+          { floor: 1, top: 1, left: -249, description: themeparkTerms.arcadeStairs, hardToRead: true },
+          { floor: 1, top: -240, left: 79, description: themeparkTerms.yellowStairs, hardToRead: true },
+
+          { floor: 2, top: -170, left: 443, description: themeparkTerms.castleEntrance, hardToRead: true },
+          { floor: 2, top: 128, left: -110, description: themeparkTerms.upperArcade, hardToRead: true },
+          { floor: 2, top: -79, left: -133, description: themeparkTerms.upperArcade, hardToRead: true },
+          { floor: 2, top: 197, left: -7, description: themeparkTerms.breakRoom, hardToRead: true },
+          { floor: 2, top: 191, left: 153, description: themeparkTerms.initiationRoom, hardToRead: true, smaller: true },
+          { floor: 2, top: 65, left: 152, description: themeparkTerms.initiationRoom, hardToRead: true },
+          { floor: 2, top: 188, left: 303, description: themeparkTerms.controlRoom, hardToRead: true },
+          { floor: 2, top: 123, left: -30, description: themeparkTerms.bunk, hardToRead: true },
+          { floor: 2, top: 4, left: -52, description: themeparkTerms.dayCare, hardToRead: true },
+          { floor: 2, top: -66, left: 60, description: themeparkTerms.yellowCorridor, hardToRead: true },
+          { floor: 2, top: -8, left: 154, description: themeparkTerms.waitingRoom, hardToRead: true },
+          { floor: 2, top: -205, left: -205, description: themeparkTerms.cafeTerrace, hardToRead: true },
+          { floor: 2, top: -26, left: 293, description: themeparkTerms.cashCorridor, hardToRead: true },
+          { floor: 2, top: -82, left: 127, description: themeparkTerms.office, hardToRead: true },
+          { floor: 2, top: -142, left: 167, description: themeparkTerms.office, hardToRead: true },
+          { floor: 2, top: -94, left: 340, description: themeparkTerms.cashStash, hardToRead: true },
+          { floor: 2, top: -100, left: -18, description: themeparkTerms.cafeCorridor, hardToRead: true },
+          { floor: 2, top: -186, left: -56, description: themeparkTerms.cafe, hardToRead: true },
+          { floor: 2, top: -163, left: 267, description: themeparkTerms.officeShower, hardToRead: true },
+          { floor: 2, top: -223, left: 157, description: themeparkTerms.officeVault, hardToRead: true },
+
+          { floor: 2, top: 59, left: 374, description: themeparkTerms.dragonStairs, hardToRead: true },
+          { floor: 2, top: 107, left: 274, description: themeparkTerms.dragonStairs, hardToRead: true },
+
+          { floor: 2, top: -224, left: 72, description: themeparkTerms.yellowStairs, hardToRead: true },
+          { floor: 2, top: 6, left: -245, description: themeparkTerms.arcadeStairs, hardToRead: true },
+
+          { floor: 3, top: -56, left: 342, description: themeparkTerms.roof, hardToRead: true },
+          { floor: 3, top: -6, left: -54, description: themeparkTerms.roof, hardToRead: true }
         ]
       },
       tower: {
