@@ -3154,21 +3154,21 @@ var R6MMainData = (function(R6MLangTerms, undefined){
           { floor: 1, top: -25, left: -219, rotate: 0, size: 23 },
           { floor: 1, top: -20, left: -251, rotate: 90, size: 74 },
           { floor: 1, top: -271, left: -148, rotate: 0, size: DRONE_MED },
-          { floor: 1, top: -271, left: 58, rotate: 0, size: 47 },
+          { floor: 1, top: -257, left: 58, rotate: 0, size: 47 },
           { floor: 1, top: -205, left: 255, rotate: 0, size: DRONE_MED },
           { floor: 1, top: 136, left: 373, rotate: 90, size: 38 },
 
-          { floor: 1, top: 33, left: -74, rotate: 0, size: 10 },
+          { floor: 1, top: 29, left: -74, rotate: 0, size: 10 },
           { floor: 1, top: 2, left: 197, rotate: 90, size: 10 },
           { floor: 1, top: -66, left: 17, rotate: 90, size: 10 },
           { floor: 1, top: -167, left: -26, rotate: 90, size: 10 },
 
-          { floor: 1, top: -135, left: -145, rotate: 0, size: DRONE_MED },
+          { floor: 2, top: -135, left: -145, rotate: 0, size: DRONE_MED },
 
           { floor: 2, top: 209, left: 94, rotate: 90, size: 10 },
           { floor: 2, top: -73, left: 94, rotate: 90, size: 10 },
           { floor: 2, top: -37, left: 28, rotate: 90, size: 10 },
-          { floor: 1, top: -120, left: 285, rotate: 0, size: 10 }
+          { floor: 2, top: -122, left: 285, rotate: 0, size: 10 }
         ],
         spawnPoints: [
           { letter: spawnTerms.a, top: 510, left: -610, description: themeparkTerms.mainEntrance },
