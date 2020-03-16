@@ -63,38 +63,44 @@ body {
     }
   }
 
+  &[show-floor-index="-1"] {
+    .zero, .one, .two, .three, .four, .five {
+      display: none !important;
+    }
+  }
+
   &[show-floor-index="0"] {
-    .one, .two, .three, .four, .five {
+    .neg-one, .one, .two, .three, .four, .five {
       display: none !important;
     }
   }
 
   &[show-floor-index="1"] {
-    .zero, .two, .three, .four, .five {
+    .neg-one, .zero, .two, .three, .four, .five {
       display: none !important;
     }
   }
 
   &[show-floor-index="2"]{
-    .zero, .one, .three, .four, .five {
+    .neg-one, .zero, .one, .three, .four, .five {
       display: none !important;
     }
   }
 
   &[show-floor-index="3"] {
-    .zero, .one, .two, .four, .five {
+    .neg-one, .zero, .one, .two, .four, .five {
       display: none !important;
     }
   }
 
   &[show-floor-index="4"] {
-    .zero, .one, .two, .three, .five {
+    .neg-one, .zero, .one, .two, .three, .five {
       display: none !important;
     }
   }
 
   &[show-floor-index="5"] {
-    .zero, .one, .two, .three, .four {
+    .neg-one, .zero, .one, .two, .three, .four {
       display: none !important;
     }
   }
@@ -106,6 +112,9 @@ body {
   @include flex-wrap(wrap);
   @include justify-content(space-around);
 
+  &[selected-floor-index="-1"] .map-wrapper[show-floor-index="-1"] .map-panel-label {
+     @include current-label();
+  }
   &[selected-floor-index="0"] .map-wrapper[show-floor-index="0"] .map-panel-label {
      @include current-label();
   }

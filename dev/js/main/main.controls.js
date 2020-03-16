@@ -6,6 +6,7 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     $floorControl = $('#floor-control'),
     $zoomControl = $('#zoom-range'),
     $menuControl = $('#mmenu-link'),
+    $toggleControl = $('#toggle-control'),
     $lockPanningControl,
     $enableScreenshotsControl,
     $roomLabelStylesControl,
@@ -14,7 +15,10 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     $menuSelectMapsControl,
     $sessionsControl,
     $menuPanel = $('#menu-panel'),
+    ROOM_LABEL_STYLE_DEFAULT = 'Light',
+    ROOM_LABEL_STYLE_DISPLAY_NONE = 'DisplayNone',
     SELECTED_CLASS = 'selected',
+    TOGGLE_TYPE_LABEL = 'label',
     ZOOMED_IN_FAR_CLASS = 'zoomed-in-far',
     ZOOMED_OUT_FAR_CLASS = 'zoomed-out-far',
     CSS_TRANSITION_MS = 1800; // currently in highlighted-item mixin for .highlighted-item-in-transition
@@ -81,6 +85,10 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
       initalFloor = floorsGetCurrentIndex();
 
     floors.forEach(function(floor) {
+      // allows to have a bg image that can't be selected as a "floor"
+      if (floor.dontSelect) {
+        return;
+      }
       classes = '';
       classes += (floor.default) ? SELECTED_CLASS : '';
       tooltip = getFloorTooltip(floor.index);
@@ -127,6 +135,7 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
   var getHandleHotkeyFn = function getHandleHotkeyFn(showSelectedFloorFn) {
     return function handleHotKey(e) {
       var keyCode = e.which;
+      var keyVal = e.key;
 
       if (keyCode >= 48 && keyCode <= 53) {  // '0' through '1'
         if (floorsTrySelect(keyCode - 48)) {
@@ -136,6 +145,8 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
         if (floorsTrySelect(0)) {
           showSelectedFloorFn();
         }
+      } else if (R6MLangTerms.terms.toggle.labels.shortcut.includes(keyVal)) { // Language specific shortcut ex. 't' or 'T' in english
+        triggerToggleEvent(TOGGLE_TYPE_LABEL);
       }
     };
   };
@@ -182,6 +193,8 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
 
   var getMenuContributionsHtml = function getMenuContributionsHtml() {
     var html = '';
+
+    return html;
 
     html += '<div id="contributions" class="mmenu-custom-panel">';
     html += '<h2>' + R6MLangTerms.terms.general.contributions + '</h2>';
@@ -581,6 +594,49 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     return R6MHelpers.trySelectOption($objectiveControl, objective);
   };
 
+  var togglePopulate = function togglePopulate() {
+    var shortcutTip = R6MLangTerms.terms.general.shortcutTip;
+    var toggleLabelLang = R6MLangTerms.terms.toggle.labels;
+    var btns = '<button id="toggle-label" title="' + toggleLabelLang.full + ' \n' + R6MLangTerms.terms.general.shortcutTip.replace('{shortcut}','t') + '">'
+       + '<span class="short">' + toggleLabelLang.short + '</span>'
+       + '<span class="full">' + toggleLabelLang.full + '</span>'
+       + '</button>';
+
+    $toggleControl.html(btns);
+  };
+
+  var setupToggleClickEvent = function setupToggleClickEvent(callback) {
+    $toggleControl.on('click', '#toggle-' + TOGGLE_TYPE_LABEL, function(e) {
+      var cur = $roomLabelStylesControl.val();
+      var prev = $(this).data('prevRoomStyle') ? $(this).data('prevRoomStyle') : ROOM_LABEL_STYLE_DISPLAY_NONE;
+
+      if (cur == prev){
+        prev = cur === ROOM_LABEL_STYLE_DISPLAY_NONE ? ROOM_LABEL_STYLE_DEFAULT : ROOM_LABEL_STYLE_DISPLAY_NONE;
+      }
+
+      $roomLabelStylesControl.val(prev).trigger('change');
+      $(this).data('prevRoomStyle', cur);
+      if (callback && typeof callback === 'function'){
+        callback();
+      }
+    });
+  };
+
+  var triggerToggleEvent = function triggerToggleEvent(type){
+    // Validate type and default to label
+    switch (type){
+    case TOGGLE_TYPE_LABEL:
+      break;
+    default:
+      type = TOGGLE_TYPE_LABEL;
+    }
+    $toggleControl.find('#toggle-' + type).trigger('click');
+  };
+
+  var toggleSetup = function toggleSetup(callback) {
+    setupToggleClickEvent(callback);
+  };
+
   var removeLatestUpdateHighlight = function removeLatestUpdateHighlight(initialDelayMs) {
     unhighlightControl($('#menu-latest-updates'), initialDelayMs);
   };
@@ -673,6 +729,10 @@ var R6MMainControls = (function($, window, document, R6MLangTerms, undefined) {
     sessions: {
       enable: sessionsEnable,
       setup: sessionsSetupClickEvent
+    },
+    toggle: {
+      populate: togglePopulate,
+      setup: toggleSetup
     },
     zoom: {
       disable: zoomDisable,

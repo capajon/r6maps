@@ -26,6 +26,7 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
 
   var IMG_URL = 'img/',
     FLOOR_CSS_TEXT = {
+      '-1': 'neg-one', // bare -1 doesn't lint, but this should still work
       0: 'zero',
       1: 'one',
       2: 'two',
@@ -126,13 +127,15 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
   var getCeilingHatchesHtml = function getCeilingHatchesHtml(ceilingHatches) {
     var html = '',
       positionStyle,
+      dimensionStyle,
       classes;
 
     ceilingHatches.forEach(function(hatch) {
       positionStyle = getPositionStyle(hatch);
+      dimensionStyle = getDimensionStyle(hatch);
       classes = 'ceiling-hatch ';
       classes += getCommonClasses(hatch);
-      html += '<div style="' + positionStyle + '" class="' + classes + '"></div>';
+      html += '<div style="' + positionStyle + dimensionStyle + '" class="' + classes + '"></div>';
     });
     return html;
   };
@@ -198,6 +201,25 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
   };
 
   var getMaxFloorIndexHtml = function getMaxFloorIndexHtml($mapWrappers, floors, imgUrlPrefix) {
+    /** Generates the HTML for the given floors.
+     *
+     * While waiting for the images of the floors to load, a loading spinner is added to the
+     * $mapWrappers.
+     *
+     * @param $mapWrappers A reference to the DOM element that will contain the floors.
+     *  A loading spinner is added to this element when generation starts, and is removed
+     *  when all the floor images are loaded.
+     *
+     * @param floors A list of objects, each containing its index and whether it's a background
+     *  floor, along with items that define the style of the floor.
+     *
+     * @param imgUrlPrefix A string defining the prefix for this map's floor images, which is
+     *  assumed to be the folder the images are in, as well as the prefix of the actual images'
+     *  filenames.
+     *
+     * @returns An HTML string, which is every floor as an img, each with its styles, classes
+     *  and image source.
+     */
     var html = '',
       prefix,
       imgSrc,
@@ -216,6 +238,12 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
       classes = floor.background ? 'background ' : 'floor ' + FLOOR_CSS_TEXT[floor.index];
       html += '<img src="' + imgSrc + '" style="' + positionStyle + '" class="' + classes + '"></img>';
 
+      // Creates a ghost image for every floor, which removes itself when it's loaded, and then
+      // resolves the deferrer for this floor.
+      // The "ghost image" is just asking to load the bg image another time, and since this will
+      // just load from cache, it shouldnt impact performance too much.
+      // This allows us to remove the loading spinner when all the deferrers are resolved, as
+      // they all resolve once all the images load in.
       $('<img/>').attr('src', imgSrc).load(function() {
         $(this).remove(); // prevent memory leaks
         currentDeferr.resolve();
@@ -227,6 +255,7 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
       $mapWrappers.removeClass('loading');
     });
 
+    // I think this is useless
     $('<img/>').attr('src', 'http://picture.de/image.png').load(function() {
       $(this).remove(); // prevent memory leaks as @benweet suggested
       $('body').css('background-image', 'url(http://picture.de/image.png)');
@@ -236,6 +265,19 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
   };
 
   var getHostageObjectivesHtml = function getHostageObjectivesHtml(hostageObjectives) {
+    /** Generates the HTML for the given hostage objectives.
+     *
+     * Nominally, this will be called on only all the hostage objectives of a single map.
+     *
+     * @param hostageObjectives A list of objects containing the data of the hostage objective
+     *  markers, including the position of the markers, and their classes, such as being a
+     *  small marker, or what floor it's on.
+     *
+     * @returns An HTML string containing a div for every hostage objective defining its location
+     *  and classes.
+     *
+     * @see getCommonClasses
+     */
     var html = '',
       positionStyle,
       classes;
@@ -250,6 +292,17 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
   };
 
   var getLaddersHtml = function getLaddersHtml(ladders) {
+    /** Generates the HTML for the given ladders
+     *
+     * Nominally called for only all the ladders of a single map.
+     *
+     * @param ladders A list of objects, each defining their location and classes, such as
+     *  what direction it leads to, or what floor it's on.
+     *
+     * @returns An HTML string contaitng a div for every ladder defining its location and classes.
+     *
+     * @see getCommonClasses
+     */
     var html = '',
       positionStyle,
       classes;
@@ -299,6 +352,10 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
       cssClass = '';
 
     floors.forEach(function(floor) {
+      // allows to have a bg image that can't be selected as a "floor"
+      if (floor.dontSelect) {
+        return;
+      }
       cssClass = FLOOR_CSS_TEXT[floor.index];
       html += '<span class="' + cssClass + '">' + floor.name.full + '</span>';
     });
@@ -307,6 +364,14 @@ var R6MMainRender = (function($,window,document,R6MLangTerms,undefined) {
 
   var getPositionStyle = function getPositionStyle(element) {
     return 'top: ' + element.top + 'px; left: ' + element.left + 'px; ';
+  };
+
+  var getDimensionStyle = function getDimensionStyle(element) {
+    if ('width' in element && 'height' in element) {
+      return ' width: ' + element.width + 'px; height: ' + element.height + 'px; background-size: ' + element.width + 'px, ' + element.height + 'px;';
+    } else {
+      return '';
+    }
   };
 
   var getRoomLabelsHtml = function getRoomLabelsHtml(roomLabels) {

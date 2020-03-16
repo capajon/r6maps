@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "gem": "^2.4.3",
-    "optimist": "^0.6.1"
+    "optimist": "^0.6.1",
+    "uglify-js": "^3.6.8"
   }
 }
